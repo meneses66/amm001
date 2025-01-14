@@ -1,0 +1,26 @@
+Create Table CLIENT
+(
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    CREATED datetime DEFAULT CURRENT_TIMESTAMP,
+    CREATED_BY Varchar(15) NOT NULL,
+    UPDATED datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UPDATED_BY Varchar(15) NOT NULL,
+
+    NAME Varchar(100) NOT NULL,
+    MOBILE_1 Varchar (20) NOT NULL,
+    MOBILE_2 Varchar (20),
+    ADDRESS	Varchar (150),
+    CLIENT_SINCE date,
+    EMAIL Varchar (100),
+    CPF	Varchar (15),
+    COMMENT	Varchar (200),
+    STATUS	Varchar (15),
+    BIRTH_DATE	date,
+    ORIGIN	Varchar (100),
+    PREFERRED_DOG_FOOD	Varchar (50),
+    OLD_ID	Varchar (15),
+
+    constraint UK_NAME_MOBILE1 UNIQUE INDEX (NAME,MOBILE_1),
+    INDEX INDEX_NAME_MOBILE_1 (NAME,MOBILE_1)
+
+);

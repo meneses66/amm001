@@ -1,0 +1,31 @@
+Create Table PROD_SERV
+(
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    CREATED datetime DEFAULT CURRENT_TIMESTAMP,
+    CREATED_BY Varchar(15) NOT NULL,
+    UPDATED datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UPDATED_BY Varchar(15) NOT NULL,
+
+    CODE Varchar(15) NOT NULL,
+    NAME Varchar(50) NOT NULL,
+    GROUP_X Varchar(30),
+    TYPE Varchar(15),
+    CATEGORY Varchar(15),
+    SEQUENCE INT,
+    SUPPLIER Varchar(30),
+    STATUS Varchar(15),
+    PACKAGE_AMOUNT INT,
+    PRICE Decimal(10,2),
+    FLAG1 BOOLEAN,
+    COMISSION_FLG BOOLEAN,
+    CENTER Varchar(15),
+    EXTERNAL_COST Decimal(10,2),
+    COMISSION_PERCENTAGE Decimal(10,2),
+    PACKAGE_PRICE Decimal(10,2),
+    PRICE_CASH Decimal(10,2),
+    PRICE_PIX Decimal(10,2),
+    OLD_ID Varchar(15),
+
+    INDEX INDEX_NAME_CODE (NAME, CODE)
+
+);

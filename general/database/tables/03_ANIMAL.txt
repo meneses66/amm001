@@ -1,0 +1,25 @@
+Create Table ANIMAL
+(
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    CREATED datetime DEFAULT CURRENT_TIMESTAMP,
+    CREATED_BY Varchar(15) NOT NULL,
+    UPDATED datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UPDATED_BY Varchar(15) NOT NULL,
+
+    ID_CLIENT int,
+    TYPE Varchar (20),
+    ID_BREED int,
+    NAME Varchar (50) NOT NULL,
+    GENDER Varchar (5),
+    BIRTH_DATE date,
+    IS_DANGER BOOLEAN,
+    IS_NO_PERFUME BOOLEAN,
+    IS_BLADE_ALERGIC BOOLEAN,
+    IS_VACCINATED BOOLEAN,
+    OLD_ID Varchar (15),
+
+    constraint FK_ANIMAL_CLIENT foreign key (ID_CLIENT) references CLIENT(ID),
+    constraint FK_ANIMAL_BREED foreign key (ID_BREED) references BREED(ID),
+    INDEX INDEX_ANIMAL_NAME (NAME)
+
+);
