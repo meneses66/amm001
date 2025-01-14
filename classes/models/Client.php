@@ -1,6 +1,6 @@
 <?php
 
-class Clients{
+class Client{
     public $Id;
     public $Created_By;
     public $Updated_By;
@@ -18,8 +18,9 @@ class Clients{
     public $Birth_Date;
     public $Email;
     public $CPF;
+    public $Address;
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created, $updated, $name=null, $mobile1=null, $mobile2=null, $client_since=null, $preferred_dog_food=null, $status=null, $origin=null, $old_id=null, $comment=null, $birth_date=null, $email=null, $cpf=null)
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $mobile1=null, $mobile2=null, $client_since=null, $preferred_dog_food=null, $status=null, $origin=null, $old_id=null, $comment=null, $birth_date=null, $email=null, $cpf=null, $address=null)
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
@@ -38,6 +39,7 @@ class Clients{
         $this -> Birth_Data = $birth_date;
         $this -> Email = $email;
         $this -> CPF = $cpf;
+        $this -> $Address = $address;
     }
 
 }

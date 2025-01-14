@@ -1,6 +1,6 @@
 <?php
 
-class Animals{
+class Animal{
     public $Id;
     public $Created_By;
     public $Updated_By;
@@ -10,15 +10,15 @@ class Animals{
     public $Client;
     public $Type;
     public $Breed;
-    public $Sex;
+    public $Gender;
     public $Birth_Date;
     public $Old_Id;
     public $No_Perfume;
-    public $Angry;
-    public $Lamina_Allergy;
+    public $Is_Danger;
+    public $Blade_Alergic;
     public $Vaccinated;
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created, $updated, $name=null, Clients $client=null, $type=null, Breeds $breed=null, $sex=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_angry=null, $flg_lamina_allergy=null, $flg_vaccinated=null)
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, Client $client=null, $type=null, Breed $breed=null, $gender=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_is_danger=null, $flg_blade_alergic=null, $flg_vaccinated=null)
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
@@ -30,7 +30,7 @@ class Animals{
         if ($client != null)
             $this -> Client = $client;
         else
-            $this -> Client = new Clients();
+            $this -> Client = new Client();
         
         $this -> Type = $type;
 
@@ -38,14 +38,14 @@ class Animals{
         if ($breed != null)
             $this -> Breed = $breed;
         else
-            $this -> Breed = new Breeds();
+            $this -> Breed = new Breed();
 
-        $this -> Sex = $sex;
+        $this -> Gender = $gender;
         $this -> Birth_Date = $birth_date;
         $this -> Old_Id = $old_id;
         $this -> No_Perfume = $flg_no_perfume;
-        $this -> Angry = $flg_angry;
-        $this -> Laina_Allergy = $flg_lamina_allergy;
+        $this -> Is_Danger = $flg_is_danger;
+        $this -> Blade_Alergic = $flg_blade_alergic;
         $this -> Vaccinated = $flg_vaccinated;
 
     }
