@@ -2,7 +2,7 @@
 
     spl_autoload_register(function($className){
 
-        $folderClasses = 'classes';
+        $folderClasses = 'classes/';
 
         $possibleFolderPaths = [
             $folderClasses,
