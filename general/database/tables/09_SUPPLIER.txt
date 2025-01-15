@@ -1,0 +1,25 @@
+Create Table SUPPLIER
+(
+    ID int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    CREATED datetime DEFAULT CURRENT_TIMESTAMP,
+    CREATED_BY Varchar(15) NOT NULL,
+    UPDATED datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UPDATED_BY Varchar(15) NOT NULL,
+
+    NAME Varchar(50) NOT NULL,
+    LOGIN Varchar(15),
+    PASS Varchar(15),
+    ROLE Varchar(15),
+    CNPJ INT,
+    CPF INT,
+    TYPE Varchar(15),
+    SEQUENCE INT,
+    HIRE_DATE date,
+    STATUS Varchar(15),
+    COMMENT Varchar(200),
+
+    INDEX INDEX_SUPPLIER_NAME (NAME),
+    constraint UN_SUPPLIER_NAME UNIQUE (NAME, TYPE),
+    constraint UN_SUPPLIER_LOGIN UNIQUE (LOGIN)
+
+);
