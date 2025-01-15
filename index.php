@@ -8,6 +8,8 @@
 </head>
 
 <body>
-Teste 001!
+<?php
+	echo 'Teste 001! Echo!';
+?>
 </body>
 </html>
