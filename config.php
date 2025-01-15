@@ -13,7 +13,7 @@
         ];
 
         foreach($possibleFolderPaths as $currentFolder){
-            $fileName = $currentFolder . $className . 'php';
+            $fileName = $currentFolder . $className . '.php';
             if (file_exists($fileName)){
                 require_once $fileName;
                 break;
