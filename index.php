@@ -1,5 +1,5 @@
 <?php
-	require_once(config_php);
+	require_once(config.php);
 ?>
 
 <!DOCTYPE html>
