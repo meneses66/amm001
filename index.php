@@ -1,3 +1,7 @@
+<?php
+	require_once(config_php);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

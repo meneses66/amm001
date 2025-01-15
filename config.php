@@ -9,7 +9,7 @@
             $folderClasses . 'models/',
             $folderClasses . 'views/',
             $folderClasses . 'controllers/',
-            $folderClasses . 'packages/',
+            $folderClasses . 'packages/'
         ];
 
         foreach($possibleFolderPaths as $currentFolder){
