@@ -1,6 +1,15 @@
 <?php
 
-$string = "mysql:hostname=".HOSTNAME.";dbname=".DBNAME;
-$con = new PDO($string, DBUSER, DBPWD);
+$servername = SERVERNAME;
+$dbname = DBNAME;
+$username = DBUSER;
+$password = DBPWD;
 
-show($con); 
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
