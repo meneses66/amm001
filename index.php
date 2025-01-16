@@ -1,5 +1,5 @@
 <?php
-	require_once('public/config.php');
+	require_once('ammpet/public/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 	<title>AMM001</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/estyles.css">
+	<link rel="stylesheet" href="ammpet/public/css/estyles.css">
 </head>
 
 <body>
