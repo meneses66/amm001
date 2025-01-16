@@ -14,6 +14,7 @@
 <body>
 <?php
 	echo 'Teste 001! Echo!';
+	print_r($_GET);
 ?>
 </body>
 </html>
