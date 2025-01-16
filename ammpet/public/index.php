@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once('../classes/core/init.php');
+	require '../classes/core/init.php';
 
 	#echo "This is Index.php";
 
