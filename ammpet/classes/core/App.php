@@ -15,13 +15,13 @@ class App{
         $fileName = "../classes/controllers/".ucfirst($URL[0]).".php";
         if(file_exists($fileName))
         {
-            #require $fileName;
-            print_r ($fileName);
+            require $fileName;
+            #print_r ($fileName);
 
         } else{
             $fileName = "../classes/controllers/_404.php";
-            #require $fileName;
-            print_r ($fileName);
+            require $fileName;
+            #print_r ($fileName);
         }
     }
         
