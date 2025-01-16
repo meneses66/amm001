@@ -6,7 +6,7 @@ class Animal extends _GlobalController {
     {
         echo "This is Animal controller";
 
-        $this->view('animal');
+        $this->view('animal/animal');
     }
 
     public function List()
