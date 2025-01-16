@@ -7,6 +7,3 @@ class Home extends _GlobalController {
         echo "This is home controller";
     }
 }
-
-$home = new Home;
-call_user_func_array([$home,'index'],[]);
