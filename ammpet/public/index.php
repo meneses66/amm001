@@ -26,14 +26,14 @@
         $fileName = "../classes/controllers/".ucfirst($URL[0]).".php";
         if(file_exists($fileName))
         {
-            #require $fileName;
+            require $fileName;
             print_r ($fileName);
 
         } else{
             $fileName = "../classes/controllers/_404.php";
-            #require $fileName;
+            require $fileName;
             print_r ($fileName);
         }
     }
 
-	show(spliURL());
+	show(splitURL());
