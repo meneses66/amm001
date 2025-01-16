@@ -2,14 +2,14 @@
 
     spl_autoload_register(function($className){
 
-        $folderClasses = 'classes/';
+        $folderClasses = 'ammpet/classes/';
 
         $possibleFolderPaths = [
             $folderClasses,
             $folderClasses . 'models/',
             $folderClasses . 'views/',
             $folderClasses . 'controllers/',
-            $folderClasses . 'packages/'
+            $folderClasses . 'core/'
         ];
 
         foreach($possibleFolderPaths as $currentFolder){

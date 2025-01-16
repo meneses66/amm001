@@ -1,6 +1,6 @@
 <?php
 
-class Animal{
+class Animal extends _Database {
     public $Id;
     public $Created_By;
     public $Updated_By;
