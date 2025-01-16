@@ -1,5 +1,10 @@
 <?php
 
+define('HOSTNAME','https://node213878-amm01.sp1.br.saveincloud.net.br/');
+define('DBNAME','dbpetshop');
+define('DBUSER','ammphp');
+define('DBPWD','Carol@21102012');
+
 if($_SERVER['SERVER_NAME'] == 'localhost'){
     define('ROOT','http://localhost/ammpet/public');
 } else{
