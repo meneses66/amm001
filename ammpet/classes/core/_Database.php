@@ -11,5 +11,5 @@ try {
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   echo "Connected successfully";
 } catch(PDOException $e) {
-  echo "Connection failed: " . $e->getMessage();
+  echo "Connection failed with: Servername= ".$servername." + DBName= ".$dbname." + UserName= ".$username." + Pwd= ".$password." +Err= ". $e->getMessage();
 }
