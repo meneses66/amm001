@@ -1,8 +1,13 @@
 <?php
 
-class AnimalController{
+class AnimalController extends _GlobalController {
 
-    function List()
+    public function index()
+    {
+        echo "This is Animal controller";
+    }
+
+    public function List()
     {
         
     }

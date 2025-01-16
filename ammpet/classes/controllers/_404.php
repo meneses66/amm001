@@ -1,6 +1,6 @@
 <?php
 
-class _404{
+class _404 extends _GlobalController {
     public function index()
     {
         echo "404 error - controller not found";
