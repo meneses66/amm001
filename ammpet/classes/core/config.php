@@ -2,7 +2,7 @@
 
     spl_autoload_register(function($className){
 
-        $folderClasses = '../classes/';
+        $folderClasses = 'ammpet/classes/';
 
         $possibleFolderPaths = [
             $folderClasses,
