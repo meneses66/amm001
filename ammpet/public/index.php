@@ -5,4 +5,4 @@
 	#echo "This is Index.php";
 
 	$app = new App;
-	$app->loadController();
+	#$app->loadController();
