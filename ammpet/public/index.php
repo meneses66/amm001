@@ -22,7 +22,7 @@
 
     function loadController()
     {
-        $URL = this->splitURL();
+        $URL = splitURL();
         $fileName = "../classes/controllers/".ucfirst($URL[0]).".php";
         if(file_exists($fileName))
         {
