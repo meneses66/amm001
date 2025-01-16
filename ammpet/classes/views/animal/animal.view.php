@@ -1,0 +1,1 @@
+<h1>Animal page View</h1>
