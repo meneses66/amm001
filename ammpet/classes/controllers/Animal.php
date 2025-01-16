@@ -1,10 +1,10 @@
 <?php
 
-class SupplierController extends _GlobalController {
+class Animal extends _GlobalController {
 
     public function index()
     {
-        echo "This is supplier controller";
+        echo "This is Animal controller";
     }
 
     public function List()
