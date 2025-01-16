@@ -8,8 +8,8 @@
             $folderClasses,
             $folderClasses . 'models/',
             $folderClasses . 'views/',
-            $folderClasses . 'controllers/',
-            $folderClasses . 'core/'
+            $folderClasses . 'controllers/'
+            #$folderClasses . 'core/'
         ];
 
         foreach($possibleFolderPaths as $currentFolder){
