@@ -8,10 +8,10 @@ class App{
         return $URL;
     }
 
-    public function laodController()
+    public function loadController()
     {
         $URL = this->splitURL();
-        $fileName = "../classes/controllers".ucfirst($URL[0]).".php";
+        $fileName = "../classes/controllers/".ucfirst($URL[0]).".php";
         if(file_exists($fileName))
         {
             require $fileName;
