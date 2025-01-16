@@ -1,6 +1,6 @@
 <?php
 
-define('SERVERNAME','//node213878-amm01.sp1.br.saveincloud.net.br/');
+define('SERVERNAME','//node213878-amm01.sp1.br.saveincloud.net.br:11334');
 define('DBNAME','dbpetshop');
 define('DBUSER','ammphp');
 define('DBPWD','Carol@21102012');
