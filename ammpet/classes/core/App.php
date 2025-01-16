@@ -1,4 +1,5 @@
 <?php
+
 class App{
     
     private function splitURL()
