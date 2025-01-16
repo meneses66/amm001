@@ -5,5 +5,3 @@ function show($anything){
     print_r($anything);
     echo "</pre>";
 }
-
-show($_GET);
