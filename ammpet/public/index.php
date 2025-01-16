@@ -7,6 +7,12 @@
 	#$app = new App;
 	#$app->loadController();
 
+	function show($anything){
+		echo "<pre>";
+		print_r($anything);
+		echo "</pre>";
+	}
+
 	function splitURL()
     {
         $URL = $_GET['url'] ?? 'home';
@@ -30,4 +36,4 @@
         }
     }
 
-	loadController();
+	show(spliURL());
