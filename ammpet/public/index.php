@@ -12,5 +12,5 @@
 	
 	show($_GET);
 
-#	$app = new App;
-#	$app->loadController();
+	$app = new App;
+	$app->loadController();
