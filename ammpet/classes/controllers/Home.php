@@ -9,4 +9,4 @@ class Home extends _GlobalController {
 }
 
 $home = new Home;
-call_user_func_array([$home,index()],[]);
+call_user_func_array([$home,'index'],[]);
