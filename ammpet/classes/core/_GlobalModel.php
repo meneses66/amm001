@@ -19,10 +19,12 @@ class _GlobalModel{
         }
 
         $sql_stm = trim($sql_stm," && ");
-        
-        echo $sql_stm;
-        #$connect = $this->connect();
 
+        $all_inputs =array_merge($inputs, $inputs_not);
+
+        return $this->query($sql_stm, $all_inputs);
+        
+        #echo $sql_stm;
 
     }
     #getRow
