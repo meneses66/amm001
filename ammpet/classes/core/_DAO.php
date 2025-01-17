@@ -28,17 +28,19 @@ Trait _DAO{
     $connect = $this->connect();
     $stm = $connect->prepare($sql_stm);
 
-    $check = $stm->execute($inputs);
+    return $stm;
+    
+    #$check = $stm->execute($inputs);
 
-    if($check)
-    {
-      $result = $stm->fetchAll(PDO::FETCH_OBJ);
-      if(isarray($result) && count($result)>0){
-        return $result;
-      }
-    }
+    #if($check)
+    #{
+    #  $result = $stm->fetchAll(PDO::FETCH_OBJ);
+    #  if(isarray($result) && count($result)>0){
+    #    return $result;
+    #  }
+    #}
 
-    return false;
+    #return false;
 
   }
 }

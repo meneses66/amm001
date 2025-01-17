@@ -24,11 +24,11 @@ class _GlobalModel{
 
         $all_inputs =array_merge($inputs, $inputs_not);
 
-        #$list_result = $this->query($sql_stm, $all_inputs);
+        $list_result = $this->query($sql_stm, $all_inputs);
 
-        #return $list_result;
+        return $list_result;
         
-        echo $sql_stm;
+        #echo $sql_stm;
 
         #echo "This was list from Global Model";
 
