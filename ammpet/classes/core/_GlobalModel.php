@@ -3,7 +3,7 @@
 class _GlobalModel{
 
     use _DAO;
-    protected $table = 'SUPPLIERS';
+    protected $table = 'SUPPLIER';
     #list
     public function list($inputs, $inputs_not=[]){
         $keys = array_keys($inputs);
