@@ -1,6 +1,9 @@
 <?php
 
-class Animal extends _Database {
+class Animal {
+
+    use _DAO;
+    
     public $Id;
     public $Created_By;
     public $Updated_By;

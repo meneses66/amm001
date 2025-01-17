@@ -1,6 +1,9 @@
 <?php
 
-class Breed extends _Database {
+class Breed {
+
+    use _DAO;
+    
     public $Id;
     public $Created_By;
     public $Updated_By;

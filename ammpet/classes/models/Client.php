@@ -1,6 +1,9 @@
 <?php
 
-class Client extends _Database {
+class Client extends {
+
+    use _DAO;
+    
     public $Id;
     public $Created_By;
     public $Updated_By;

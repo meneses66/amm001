@@ -1,6 +1,9 @@
 <?php
 
-class Supplier extends _Database {
+class Supplier {
+
+    use _DAO;
+    
     public $Id;
     public $Created_By;
     public $Updated_By;
