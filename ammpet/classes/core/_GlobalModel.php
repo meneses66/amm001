@@ -6,7 +6,8 @@ class _GlobalModel{
     protected $table = 'SUPPLIER';
     
     #list
-    public function list($inputs, $inputs_not=[]){
+    public function list($inputs, $inputs_not=[])
+    {
         $keys = array_keys($inputs);
         $keys_not = array_keys($inputs_not);
         $sql_stm = "select * from $this->table where ";
