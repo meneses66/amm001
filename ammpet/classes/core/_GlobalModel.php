@@ -26,9 +26,9 @@ class _GlobalModel{
 
         $list_result = $this->query($sql_stm, $all_inputs);
 
-        return $list_result;
+        #return $list_result;
         
-        #echo $sql_stm;
+        echo $sql_stm;
 
         #echo "This was list from Global Model";
 
