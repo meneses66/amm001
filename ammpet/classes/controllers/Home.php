@@ -8,10 +8,10 @@ class Home extends _GlobalController {
 
         $array['ID']=1;
         $array['NAME']='Joao Alves';
-        $array2['NAME']='Joao Cinto';
+        #$array2['NAME']='Joao Cinto';
         #$all_arrays = array_merge($array, $array2);
         $model = new _GlobalModel;
-        $result = $model->list($array,$array2);
+        $result = $model->list($array,[]);
         show($result);
 
         $this->view('home');
