@@ -40,7 +40,7 @@ class _GlobalModel{
 
         $sql_stm = trim($sql_stm," && ");
 
-        $result = $this->query($sql_stm);
+        $result = $this->query($sql_stm, $inputs);
 
         if ($result)
             return $result[0];
