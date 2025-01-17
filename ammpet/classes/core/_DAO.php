@@ -28,8 +28,9 @@ Trait _DAO{
     $connect = $this->connect();
     $stm = $connect->prepare($sql_stm);
 
-    return $inputs;
-    #$check = $stm->execute($inputs);
+    $check = $stm->execute($inputs);
+
+    return $check;
 
     #if($check)
     #{
