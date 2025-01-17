@@ -24,16 +24,36 @@ class _GlobalModel{
 
         $all_inputs =array_merge($inputs, $inputs_not);
 
-        $list_result = $this->query($sql_stm, $all_inputs);
-
-        return $list_result;
-        
-        #echo $sql_stm;
-
-        #echo "This was list from Global Model";
+        return $this->query($sql_stm, $all_inputs);
 
     }
+
     #getRow
+    public function getRow($inputs)
+    {
+        $keys = array_keys($inputs);
+        $keys_not = array_keys($inputs_not);
+        $sql_stm = "select * from $this->table where ";
+        
+        foreach ($keys as $key){
+            $sql_stm .= $key . "= :" . $key . " && ";
+        }
+
+        foreach ($keys_not as $key){
+            $sql_stm .= $key . "!= :" . $key . " && ";
+        }
+
+        $sql_stm = trim($sql_stm," && ");
+
+        $result = $this->query($sql_stm);
+
+        if ($result)
+            return result[0];
+
+        return false;
+
+    }
+
     #insert
     #update
     #delete

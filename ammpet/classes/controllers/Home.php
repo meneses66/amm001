@@ -11,7 +11,7 @@ class Home extends _GlobalController {
         #$array2['NAME']='Joao Cinto';
         #$all_arrays = array_merge($array, $array2);
         $model = new _GlobalModel;
-        $result = $model->list($array,[]);
+        $result = $model->getRow($array,[]);
         show($result);
 
         $this->view('home');
