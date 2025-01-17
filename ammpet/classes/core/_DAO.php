@@ -33,9 +33,9 @@ Trait _DAO{
     if($check)
     {
       $result = $stm->fetchAll(PDO::FETCH_OBJ);
-      #if(isarray($result) && count($result)>0){
+      if(is_array($result) && count($result)){
         return $result;
-      #}
+      }
     }
 
     return false;
