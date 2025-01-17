@@ -7,7 +7,7 @@ class Home extends _GlobalController {
         echo "This is home controller";
 
         $array[ID]='1';
-        $array2[NAME]='Joao';
+        $array2[NAME]='Joao Cinto';
         $all_arrays = array_merge($array, $array2);
         $model = new _GlobalModel;
         $result = $model->list($array,$array2);
