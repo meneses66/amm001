@@ -43,13 +43,15 @@ class _GlobalModel{
         $result = $this->query($sql_stm);
 
         if ($result)
-            return result[0];
+            return $result[0];
 
         return false;
 
     }
 
     #insert
+
+
     #update
     #delete
 
