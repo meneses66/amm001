@@ -7,7 +7,7 @@ Trait _GlobalModel{
     protected $order_type = 'desc';
     protected $order_column = 'ID';
     
-    #list
+    #list all
     public function listAll()
     {
         $sql_stm = "select * from $this->table order by $this->order_column $this->order_type";

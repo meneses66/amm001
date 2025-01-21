@@ -8,8 +8,8 @@ class Home {
     {
         echo "This is home controller";
         $supplier = new Supplier;
-        $result = $this-> $supplier->listAll();
-        return $result;
+        $result = $supplier->listAll();
+        show($result);
         $this->view('home');
     }
 }
