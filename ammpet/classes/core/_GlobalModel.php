@@ -56,9 +56,8 @@ class _GlobalModel{
         $columns = implode(',',$keys);
         $values = implode(',:',$keys);
         $sql_stm = "insert into $this->table (".$columns.") values (:".$values.")";
-        return $sql_stm;
-        #$this->query($sql_stm, $inputs);
-        #return false;
+        $this->query($sql_stm, $inputs);
+        return false;
     }
 
 
