@@ -6,7 +6,7 @@ class ProdServCon extends _GlobalController {
     {
         echo "This is ProdServ controller";
 
-        $this->view('prodserv');
+        $this->view('prodserv/prodserv');
     }
 
 }

@@ -6,7 +6,7 @@ class SupplierCon extends _GlobalController {
     {
         echo "This is Supplier controller";
 
-        $this->view('supplier');
+        $this->view('supplier/supplier');
     }
 
 }

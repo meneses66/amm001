@@ -3,6 +3,6 @@
 class ProdServ {
 
     use _GlobalModel;
-    protected $table = 'PRODSERV';
+    protected $table = 'PROD_SERV';
 
 }
