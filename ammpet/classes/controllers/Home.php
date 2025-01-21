@@ -2,10 +2,10 @@
 
 class Home extends _GlobalController {
     
-    public function index()
+    public function index($a = '', $b = '', $c = '')
     {
         echo "This is home controller";
-
+        show($a);
         try {
             $supplier = new Supplier;
         } catch (\Throwable $th) {
