@@ -1,8 +1,8 @@
 <?php
 
-class Home {
+class Home extends _GlobalModel {
     
-    use _GlobalModel;
+    #use _GlobalModel;
     
     public function index()
     {
