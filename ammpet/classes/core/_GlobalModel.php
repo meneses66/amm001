@@ -3,7 +3,7 @@
 Trait _GlobalModel{
 
     use _DAO;
-    #protected $table = 'SUPPLIER';
+
     protected $order_type = 'desc';
     protected $order_column = 'ID';
     

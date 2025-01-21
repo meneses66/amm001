@@ -11,9 +11,10 @@ class Supplier {
 
     public function listSupplier()
     {
-        return $this->listAll;   
+        return $this->listAll();   
     }
 
 }
 
 $listofsuppliers = $this->listSupplier();
+return $listofsuppliers;
