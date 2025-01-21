@@ -10,7 +10,10 @@ class ProdServCon extends _GlobalController {
     }
 
     public function edit(){
-        
+        echo "This is ProdServ controller";
+
+        $this->view('prodserv/prodservedit');
+
     }
 
 }
