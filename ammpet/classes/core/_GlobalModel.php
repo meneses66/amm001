@@ -1,12 +1,23 @@
 <?php
 
-class _GlobalModel{
+Trait _GlobalModel{
 
     use _DAO;
-    protected $table = 'SUPPLIER';
+    #protected $table = 'SUPPLIER';
+    protected $order_type = 'desc';
+    protected $order_column = 'ID';
     
     #list
-    public function list($inputs, $inputs_not=[])
+    public function listAll()
+    {
+        $sql_stm = "select * from $this->table order by $this->order_column $this->order_type";
+        
+        return $this->query($sql_stm);
+
+    }
+
+    #list where
+    public function listWhere($inputs, $inputs_not=[])
     {
         $keys = array_keys($inputs);
         $keys_not = array_keys($inputs_not);
@@ -21,6 +32,8 @@ class _GlobalModel{
         }
 
         $sql_stm = trim($sql_stm," && ");
+
+        $sql_stm .= " order by $this->order_column $this->order_type";
 
         $all_inputs =array_merge($inputs, $inputs_not);
 
@@ -81,10 +94,7 @@ class _GlobalModel{
     #delete
     public function delete($ID)
     {
-        #$inputs['ID']=$ID;
-        #$keys = array_keys($inputs);
         $sql_stm = "delete from $this->table where ID = $ID";
-        #return $sql_stm;
         $this->query($sql_stm);
         return false;
     }
