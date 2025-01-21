@@ -14,9 +14,9 @@ class Home extends _GlobalController {
         }
         
 
-        #$arr['ID']=1;
+        $arr['ID']=1;
         
-        $result = $supplier->listAll();
+        $result = $supplier->getRow($arr);
         
         show($result);
         
