@@ -11,15 +11,15 @@ class Home extends _GlobalController {
         $array['CREATED_BY']='AMM';
         $array['UPDATED_BY']='AMM';
         $array['LOGIN']='FSILVA';
-        $array['PASS']='F123456';
+        $array['PASS']='G123456';
         $array['STATUS']='Ativo';
         $array['TYPE']='Funcionario';
         $array['ROLE']='Atendente';
         $array['SEQUENCE']=3;
         $array['HIRE_DATE']='2025-01-17';
         $model = new _GlobalModel;
-        $result = $model->insert($array);
-        #show($result);
+        $result = $model->update(3, $array);
+        show($result);
 
         $this->view('home');
     }

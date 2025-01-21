@@ -62,6 +62,21 @@ class _GlobalModel{
 
 
     #update
+    public function update($ID, $inputs)
+    {
+        $keys = array_keys($inputs);
+        $sql_stm = "update $this->table set ";
+
+        foreach ($keys as $key){
+            $sql_stm .= $key . " = :" . $key . ", ";
+        }
+        $sql_stm = trim($sql_stm,", ");
+        $sql_stm .= " where ID = :ID";
+        return $sql_stm;
+        #$this->query($sql_stm, $inputs);
+        #return false;
+    }
+
     #delete
 
 }
