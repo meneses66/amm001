@@ -81,9 +81,9 @@ class _GlobalModel{
     #delete
     public function delete($ID)
     {
-        $inputs['ID']=$ID;
-        $keys = array_keys($inputs);
-        $sql_stm = "delete from $this->table where ID = :ID";
+        #$inputs['ID']=$ID;
+        #$keys = array_keys($inputs);
+        $sql_stm = "delete from $this->table where ID = :$ID";
 
         $this->query($sql_stm);
         return false;
