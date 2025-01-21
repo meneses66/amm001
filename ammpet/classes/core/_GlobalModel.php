@@ -50,6 +50,16 @@ class _GlobalModel{
     }
 
     #insert
+    public function insert($inputs)
+    {
+        $keys = array_keys($inputs);
+        $columns = ".implode(',',$keys).";
+        $values = ".implode(',:',$keys).";
+        $sql_stm = "insert into $this->table ($columns) values (:$values)";
+        return $sql_stm;
+        #$this->query($sql_stm, $inputs);
+        #return false;
+    }
 
 
     #update
