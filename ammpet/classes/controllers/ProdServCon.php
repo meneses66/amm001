@@ -2,12 +2,10 @@
 
 class ProdServCon extends _GlobalController {
 
-    public function index($a = '', $b = '', $c = '')
+    public function index()
     {
         echo "This is ProdServ controller";
-        show($a);
-        show($b);
-        show($c);
+
         $this->view('prodserv/prodserv');
     }
 
