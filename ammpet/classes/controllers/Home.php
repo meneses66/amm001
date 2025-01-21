@@ -1,6 +1,6 @@
 <?php
 
-class Home extends _GlobalModel {
+class Home extends _GlobalController {
     
     #use _GlobalModel;
     

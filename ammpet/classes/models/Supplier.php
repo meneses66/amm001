@@ -2,7 +2,9 @@
 
 class Supplier {
 
-    use _DAO;
+    use _GlobalModel;
+
+    protected $table = 'SUPPLIER';
     
     public $Id;
     public $Created_By;

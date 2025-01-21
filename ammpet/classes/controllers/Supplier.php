@@ -1,8 +1,12 @@
 <?php
 
-class Supplier {
+class Supplier extends _GlobalController {
 
-    use _GlobalModel;
-    protected $table = 'SUPPLIER';
-    
+    public function index()
+    {
+        echo "This is Supplier controller";
+
+        $this->view('supplier');
+    }
+
 }

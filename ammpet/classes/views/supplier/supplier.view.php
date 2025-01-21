@@ -1,0 +1,1 @@
+<h1>Supplier page View</h1>
