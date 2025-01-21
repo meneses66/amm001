@@ -1,6 +1,5 @@
 <?php
 
-
 if($_SERVER['SERVER_NAME'] == 'localhost'){
     define('ROOT','http://localhost/ammpet/public');
     define('SERVERNAME','localhost:3306/');
@@ -14,3 +13,5 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     define('DBUSER','ammphp');
     define('DBPWD','Carol@21102012');
 }
+
+define('DEBUG', true);
