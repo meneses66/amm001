@@ -7,7 +7,7 @@ class Home extends _GlobalController {
         echo "This is home controller";
 
         try {
-            $prodserv = new ProdServ;
+            $supplier = new Supplier;
         } catch (\Throwable $th) {
             //throw $th;
             echo "Error found=> ".$th;
@@ -16,7 +16,7 @@ class Home extends _GlobalController {
 
         #$arr['ID']=1;
         
-        $result = $prodserv->listAll();
+        $result = $supplier->listAll();
         
         show($result);
         
