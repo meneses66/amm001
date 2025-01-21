@@ -14,6 +14,8 @@ class App{
     public function loadController()
     {
         $URL = $this->splitURL();
+
+        /** select controller according to URL */
         $fileName = "../classes/controllers/".ucfirst($URL[0]).".php";
         if(file_exists($fileName))
         {
@@ -27,6 +29,16 @@ class App{
         }
 
         $controller = new $this->controller;
+
+        /**select method according to URL */
+        if(!empty($URL[1]))
+        {
+            if(method_exists($controller, $URL[1]))
+            {
+                $this->method = $URL[1];
+            }
+        }
+
         call_user_func_array([$controller,$this->method],$URL);
     }
         

@@ -9,4 +9,8 @@ class ProdServCon extends _GlobalController {
         $this->view('prodserv/prodserv');
     }
 
+    public function edit(){
+        
+    }
+
 }
