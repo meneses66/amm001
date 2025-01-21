@@ -64,6 +64,7 @@ class _GlobalModel{
     #update
     public function update($ID, $inputs)
     {
+        $inputs['ID']=$ID;
         $keys = array_keys($inputs);
         $sql_stm = "update $this->table set ";
 
