@@ -21,6 +21,7 @@ class App{
         {
             require $fileName;
             $this->controller = ucfirst($URL[0]);
+            unset($URL[0]);
 
         } else{
             $fileName = "../classes/controllers/_404.php";
@@ -36,6 +37,7 @@ class App{
             if(method_exists($controller, $URL[1]))
             {
                 $this->method = $URL[1];
+                unset($URL[1]);
             }
         }
 
