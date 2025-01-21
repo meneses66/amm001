@@ -19,7 +19,7 @@ class Home extends _GlobalController {
         $array['HIRE_DATE']='2025-01-17';
         $model = new _GlobalModel;
         $result = $model->update(3, $array);
-        show($result);
+        #show($result);
 
         $this->view('home');
     }

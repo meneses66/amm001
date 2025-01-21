@@ -72,9 +72,9 @@ class _GlobalModel{
         }
         $sql_stm = trim($sql_stm,", ");
         $sql_stm .= " where ID = :ID";
-        return $sql_stm;
-        #$this->query($sql_stm, $inputs);
-        #return false;
+        #return $sql_stm;
+        $this->query($sql_stm, $inputs);
+        return false;
     }
 
     #delete
