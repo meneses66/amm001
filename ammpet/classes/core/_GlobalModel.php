@@ -11,8 +11,8 @@ Trait _GlobalModel{
     public function listAll()
     {
         $sql_stm = "select * from $this->table order by $this->order_column $this->order_type";
-        #return $sql_stm;
-        return $this->query($sql_stm);
+        return $sql_stm;
+        #return $this->query($sql_stm);
 
     }
 
