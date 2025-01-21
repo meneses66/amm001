@@ -6,9 +6,13 @@ class Home extends _GlobalController {
     {
         #echo "This is home controller";
         $supplier = new Supplier;
-        $arr['ID']=1;
-        $result = $supplier->getRow($arr);
+
+        #$arr['ID']=1;
+        
+        $result = $supplier->listAll();
+        
         show($result);
+        
         $this->view('home');
     }
 }
