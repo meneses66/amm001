@@ -83,10 +83,10 @@ class _GlobalModel{
     {
         #$inputs['ID']=$ID;
         #$keys = array_keys($inputs);
-        $sql_stm = "delete from $this->table where ID = :$ID";
-        return $sql_stm;
-        #$this->query($sql_stm);
-        #return false;
+        $sql_stm = "delete from $this->table where ID = $ID";
+        #return $sql_stm;
+        $this->query($sql_stm);
+        return false;
     }
 
 }
