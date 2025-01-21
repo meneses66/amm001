@@ -1,6 +1,6 @@
 <?php
 
-class Animal extends _GlobalController {
+class AnimalCon extends _GlobalController {
 
     public function index()
     {

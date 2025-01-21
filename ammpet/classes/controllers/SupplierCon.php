@@ -1,6 +1,6 @@
 <?php
 
-class Supplier extends _GlobalController {
+class SupplierCon extends _GlobalController {
 
     public function index()
     {
