@@ -5,11 +5,11 @@ class Home extends _GlobalController {
     public function index()
     {
         #echo "This is home controller";
-        $supplier = new Supplier;
+        $prodserv = new ProdServ;
 
         #$arr['ID']=1;
         
-        $result = $supplier->listAll();
+        $result = $prodserv->listAll();
         
         show($result);
         

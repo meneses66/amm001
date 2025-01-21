@@ -24,24 +24,22 @@ class Supplier {
     public $Comment;
 
     function __construct($name=null, $login=null, $pass=null, $role=null, $cnpj=null, $cpf=null, $type=null, $sequence=null, $hire_date=null, $status=null, $comment=null){
-        $this -> Id = $id;
-        $this -> Created_By = $created_by;
-        $this -> Updated_By = $updated_by;
-        $this -> Created = $created;
-        $this -> Updated = $updated;
-        $this -> Name = $name;
-        $this -> Login = $login;
-        $this -> Pass = $pass;
-        $this -> Role = $role;
-        $this -> CNPJ = $cnpj;
-        $this -> CPF = $cpf;
-        $this -> Type = $type;
-        $this -> Sequence = $sequence;
-        $this -> Hire_Date = $hire_date;
-        $this -> Status = $status;
-        $this ->  Comment = $comment;
+        $this->Id = $id;
+        $this->Created_By = $created_by;
+        $this->Updated_By = $updated_by;
+        $this->Created = $created;
+        $this->Updated = $updated;
+        $this->Name = $name;
+        $this->Login = $login;
+        $this->Pass = $pass;
+        $this->Role = $role;
+        $this->CNPJ = $cnpj;
+        $this->CPF = $cpf;
+        $this->Type = $type;
+        $this->Sequence = $sequence;
+        $this->Hire_Date = $hire_date;
+        $this->Status = $status;
+        $this->Comment = $comment;
     }
 
 }
-
-?>
