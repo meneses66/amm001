@@ -6,6 +6,8 @@ class Home extends _GlobalController {
     {
         echo "This is home controller";
         show($a);
+        show($b);
+        show($c);
         try {
             $supplier = new Supplier;
         } catch (\Throwable $th) {
