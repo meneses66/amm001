@@ -18,7 +18,7 @@ class Home extends _GlobalController {
         $array['SEQUENCE']=3;
         $array['HIRE_DATE']='2025-01-17';
         $model = new _GlobalModel;
-        $result = $model->update(3, $array);
+        $result = $model->delete(3);
         #show($result);
 
         $this->view('home');
