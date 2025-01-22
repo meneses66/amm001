@@ -1,10 +1,12 @@
 <?php
 
+namespace Core;
+
 defined('ROOTPATH') OR exit('Access denied!');
 
 Trait _GlobalModel{
 
-    use _DAO;
+    use \Core\_DAO;
 
     protected $order_type = 'desc';
     protected $order_column = 'ID';

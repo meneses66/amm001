@@ -6,7 +6,7 @@ defined('ROOTPATH') OR exit('Access denied!');
 
 class Animal {
 
-    use _GlobalModel;
+    use \Core\_GlobalModel;
     
     public $Id;
     public $Created_By;
