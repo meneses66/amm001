@@ -4,7 +4,7 @@ namespace Controller;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-class _GlobalController{
+Trait _GlobalController{
 
     public function view($name)
     {
