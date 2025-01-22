@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Core;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
