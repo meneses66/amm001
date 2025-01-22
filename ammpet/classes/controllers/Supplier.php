@@ -4,7 +4,7 @@ namespace Controller;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-class Supplier extends \Controller\_GlobalController {
+class Supplier extends _GlobalController {
 
     public function index()
     {
