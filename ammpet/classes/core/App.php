@@ -8,6 +8,7 @@ class App{
     
     private $controller = 'Home';
     private $method = 'index';
+
     private function splitURL()
     {
         $URL = $_GET['url'] ?? 'home';
@@ -33,7 +34,7 @@ class App{
             $this->controller ='_404';
         }
 
-        $controller = new $this->controller;
+        $controller = new ('\Controller\\'.$this->controller);
 
         /**select method according to URL */
         if(!empty($URL[1]))
