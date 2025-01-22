@@ -1,8 +1,10 @@
 <?php
 
+namespace Controller;
+
 defined('ROOTPATH') OR exit('Access denied!');
 
-class Home extends \Controller\_GlobalController {
+class Home extends _GlobalController {
     
     public function index()
     {

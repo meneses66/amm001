@@ -1,6 +1,6 @@
 <?php
 
-namespace Core;
+namespace Model;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
