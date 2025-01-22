@@ -1,8 +1,10 @@
 <?php
 
+namespace Controller;
+
 defined('ROOTPATH') OR exit('Access denied!');
 
-class AnimalCon extends _GlobalController {
+class Animal extends _GlobalController {
 
     public function index()
     {

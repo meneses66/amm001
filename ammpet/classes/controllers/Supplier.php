@@ -1,8 +1,10 @@
 <?php
 
+namespace Controller;
+
 defined('ROOTPATH') OR exit('Access denied!');
 
-class SupplierCon extends _GlobalController {
+class Supplier extends _GlobalController {
 
     public function index()
     {

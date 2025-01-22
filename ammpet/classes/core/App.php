@@ -1,5 +1,7 @@
 <?php
 
+namespace Core;
+
 defined('ROOTPATH') OR exit('Access denied!');
 
 class App{

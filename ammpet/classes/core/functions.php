@@ -2,6 +2,7 @@
 
 defined('ROOTPATH') OR exit('Access denied!');
 
+/** Return URL variables */
 function URL($key):mixed
 {
 	$URL = $_GET['url'] ?? 'home';
@@ -32,6 +33,7 @@ function URL($key):mixed
 
 }
 
+/** Show anthing you want */
 function show($anything){
     echo "<pre>";
     print_r($anything);
