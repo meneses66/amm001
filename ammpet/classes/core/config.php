@@ -1,5 +1,7 @@
 <?php
 
+defined('ROOTPATH') OR exit('Access denied!');
+
 spl_autoload_register(function($className){
 
     $folderClasses = '../classes/';

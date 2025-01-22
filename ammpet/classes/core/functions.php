@@ -1,5 +1,7 @@
 <?php
 
+defined('ROOTPATH') OR exit('Access denied!');
+
 function show($anything){
     echo "<pre>";
     print_r($anything);

@@ -1,5 +1,7 @@
 <?php
 
+defined('ROOTPATH') OR exit('Access denied!');
+
 class _GlobalController{
 
     public function view($name)

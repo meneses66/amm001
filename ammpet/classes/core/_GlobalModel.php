@@ -1,5 +1,7 @@
 <?php
 
+defined('ROOTPATH') OR exit('Access denied!');
+
 Trait _GlobalModel{
 
     use _DAO;

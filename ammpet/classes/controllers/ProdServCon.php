@@ -1,5 +1,7 @@
 <?php
 
+defined('ROOTPATH') OR exit('Access denied!');
+
 class ProdServCon extends _GlobalController {
 
     public function index()

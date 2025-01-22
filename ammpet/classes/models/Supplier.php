@@ -1,9 +1,10 @@
 <?php
 
+defined('ROOTPATH') OR exit('Access denied!');
+
 class Supplier {
 
     use _GlobalModel;
-
     protected $table = 'SUPPLIER';
     
     public $Id;

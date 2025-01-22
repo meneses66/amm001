@@ -1,8 +1,10 @@
 <?php
 
+defined('ROOTPATH') OR exit('Access denied!');
+
 class Client {
 
-    use _DAO;
+    use _GlobalModel;
 
     public $Id;
     public $Created_By;

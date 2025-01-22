@@ -1,5 +1,7 @@
 <?php
 
+defined('ROOTPATH') OR exit('Access denied!');
+
 if($_SERVER['SERVER_NAME'] == 'localhost'){
     define('ROOT','http://localhost/ammpet/public');
     define('SERVERNAME','localhost:3306/');

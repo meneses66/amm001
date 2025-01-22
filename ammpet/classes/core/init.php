@@ -1,5 +1,7 @@
 <?php
 
+defined('ROOTPATH') OR exit('Access denied!');
+
 require 'functions.php';
 require 'properties.php';
 require '_DAO.php';
