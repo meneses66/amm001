@@ -4,7 +4,7 @@ namespace Controller;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-class Animal extends \Core\_GlobalController {
+class Animal extends \Controller\_GlobalController {
 
     public function index()
     {

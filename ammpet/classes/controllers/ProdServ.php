@@ -4,7 +4,7 @@ namespace Controller;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-class ProdServ extends \Core\_GlobalController {
+class ProdServ extends \Controller\_GlobalController {
 
     public function index()
     {
