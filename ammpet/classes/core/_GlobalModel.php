@@ -6,7 +6,7 @@ defined('ROOTPATH') OR exit('Access denied!');
 
 Trait _GlobalModel{
 
-    use \Core\_DAO;
+    use _DAO;
 
     protected $order_type = 'desc';
     protected $order_column = 'ID';
