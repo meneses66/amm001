@@ -2,4 +2,3 @@
 <?php
 echo ROOT;
 ?>
-<img src="assets/images/fpet.jpg">
