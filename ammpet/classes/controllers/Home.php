@@ -4,7 +4,9 @@ namespace Controller;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-class Home extends _GlobalController {
+class Home {
+
+    use _GlobalController;
     
     public function index()
     {

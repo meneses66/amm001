@@ -6,7 +6,7 @@ defined('ROOTPATH') OR exit('Access denied!');
 
 class Supplier {
 
-    use \Core\_GlobalModel;
+    use _GlobalModel;
     protected $table = 'SUPPLIER';
     
     public $Id;

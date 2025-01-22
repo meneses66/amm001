@@ -6,7 +6,7 @@ defined('ROOTPATH') OR exit('Access denied!');
 
 class ProdServ {
     
-    use \Core\_GlobalModel;
+    use _GlobalModel;
     protected $table = 'PROD_SERV';
 
     public $Id;

@@ -6,7 +6,7 @@ defined('ROOTPATH') OR exit('Access denied!');
 
 class Client {
 
-    use \Core\_GlobalModel;
+    use _GlobalModel;
 
     public $Id;
     public $Created_By;
