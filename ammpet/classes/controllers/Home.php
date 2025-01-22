@@ -12,7 +12,7 @@ class Home {
     {
         echo "This is home controller";
 
-        /**
+        
         try {
             $supplier = new Supplier;
         } catch (\Throwable $th) {
@@ -22,7 +22,7 @@ class Home {
         $arr['ID']=1;
         $result = $supplier->getRow($arr);
         show($result);
-         */
+        
         
         $this->view('home');
     }
