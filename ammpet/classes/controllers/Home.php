@@ -2,7 +2,7 @@
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-class Home extends \Core\_GlobalController {
+class Home extends \Controller\_GlobalController {
     
     public function index()
     {
