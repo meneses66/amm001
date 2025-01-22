@@ -14,7 +14,7 @@ class Home {
 
         
         try {
-            $supplier = new Supplier;
+            $supplier = new \Model\Supplier;
         } catch (\Throwable $th) {
             //throw $th;
             echo "Error found=> ".$th;
