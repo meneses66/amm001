@@ -1,6 +1,7 @@
 <?php
 
 namespace Model;
+use \PDO;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
