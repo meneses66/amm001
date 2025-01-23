@@ -4,6 +4,8 @@ defined('ROOTPATH') OR exit('Access denied!');
 
 spl_autoload_register(function($className){
 
+    $className = explode("\\", $className);
+    $className = end($className);
     $folderClasses = '../classes/';
 
     $possibleFolderPaths = [
