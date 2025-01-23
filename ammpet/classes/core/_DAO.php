@@ -16,7 +16,7 @@ Trait _DAO{
     $string = "mysql:host=$servername;dbname=$dbname";
 
     try {
-      $conn = new PDO($string, $username, $password);
+      $conn = new \Model\PDO($string, $username, $password);
       // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       return $conn;
