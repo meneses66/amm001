@@ -10,7 +10,7 @@ class Login {
     
     public function index()
     {
-        echo "This is login controller";
+        #echo "This is login controller";
         $this->view('login/login');
     }
 }

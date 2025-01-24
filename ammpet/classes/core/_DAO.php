@@ -2,6 +2,7 @@
 
 namespace Model;
 use \PDO;
+use \PDOException;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
