@@ -14,7 +14,7 @@ class {CLASSNAME}
 	public function index()
 	{
 
-		$this->view('{classname}');
+		$this->view('{classname}' . DIRECTORY_SEPARATOR . '{classname}');
 	}
 
 }
