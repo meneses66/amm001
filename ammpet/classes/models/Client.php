@@ -7,6 +7,7 @@ defined('ROOTPATH') OR exit('Access denied!');
 class Client {
 
     use _GlobalModel;
+    protected $table = 'CLIENT';
 
     public $Id;
     public $Created_By;

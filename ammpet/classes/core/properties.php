@@ -17,3 +17,4 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
 }
 
 define('DEBUG', true);
+define('DS', DIRECTORY_SEPARATOR);

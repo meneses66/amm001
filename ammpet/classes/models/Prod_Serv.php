@@ -4,7 +4,7 @@ namespace Model;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-class ProdServ {
+class Prod_Serv {
     
     use _GlobalModel;
     protected $table = 'PROD_SERV';

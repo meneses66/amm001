@@ -87,7 +87,7 @@ class Builder
         
         /**check if class name starts with a number**/
         if(preg_match("/^[^a-zA-Z_]+/", $classname))
-            die("\n\rClass names cant start with a number\n\r");
+            die("\n\rClass names cant start with a number or symbol\n\r");
 
         switch ($mode) {
             case 'make:controller':
@@ -118,7 +118,7 @@ class Builder
                 
                 /** only add as 's' at the end of table name if it doesnt exist**/
                 if(!preg_match("/s$/", $classname))
-                    $sample_file = preg_replace("/\{table\}/", strtolower($classname) . 's', $sample_file);
+                    $sample_file = preg_replace("/\{table\}/", strtoupper($classname), $sample_file);
 
                 if(file_put_contents($filename, $sample_file))
                 {

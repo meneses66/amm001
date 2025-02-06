@@ -5,16 +5,16 @@ namespace Controller;
 defined('ROOTPATH') OR exit('Access Denied!');
 
 /**
- * {CLASSNAME} class
+ * Client class
  */
-class {CLASSNAME}
+class Client
 {
 	use _GlobalController;
 
 	public function index()
 	{
 
-		$this->view('{classname}');
+		$this->view('client');
 	}
 
 }
