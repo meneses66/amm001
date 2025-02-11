@@ -5,6 +5,7 @@ defined('ROOTPATH') OR exit('Access denied!');
 if((empty($_SERVER['SERVER_NAME']) && php_sapi_name() == 'cli'))
 {
     define('ROOT','https://amm01.sp1.br.saveincloud.net.br/ammpet/public');
+    //define('SERVERNAME','localhost');
     define('SERVERNAME','node213878-amm01.sp1.br.saveincloud.net.br:3306/');
     define('DBNAME','dbpetshop');
     define('DBUSER','ammphp');

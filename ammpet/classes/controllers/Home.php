@@ -10,8 +10,9 @@ class Home {
     
     public function index()
     {
-        $infophp = phpinfo();
-        echo "This is home controller. PHP info is: " .$infophp;
+        //$infophp = phpinfo();
+        echo "This is home controller. PHP info is: ";
+        // .$infophp;
 
         
         try {
