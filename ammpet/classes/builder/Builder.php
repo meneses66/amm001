@@ -43,7 +43,6 @@ class Builder
 
                 if($res)
                 {
-
                     print_r($res);
                 }else{
                     echo "\n\rCould not find data for table: $param1\n\r";

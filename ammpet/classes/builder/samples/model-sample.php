@@ -13,7 +13,7 @@ class {CLASSNAME}
 	use _GlobalModel;
 
 	protected $table = '{table}';
-	protected $primaryKey = 'id';
+	protected $primaryKey = 'Id';
 	protected $loginUniqueColumn = 'email';
 
 	protected $allowedColumns = [
