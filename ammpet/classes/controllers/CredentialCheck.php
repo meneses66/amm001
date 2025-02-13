@@ -17,7 +17,7 @@ class CredentialCheck {
             switch($_POST['type'])
             {
                 case 'login':
-                    $call->login();
+                    return $call->login();
                     break;
             }
         }
