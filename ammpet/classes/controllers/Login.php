@@ -11,16 +11,6 @@ class Login {
     public function index()
     {
         #echo "This is login controller";
-        if($_SERVER['REQUEST_METHOD'] == 'POST')
-        {
-            echo $_POST;
-            switch($_POST['type'])
-            {
-                case 'login':
-                    $call->login();
-                    break;
-            }
-        }
         $this->view('login/login');
     }
 

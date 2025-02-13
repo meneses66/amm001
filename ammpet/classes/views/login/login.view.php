@@ -8,15 +8,15 @@
 	
 	<div id="box">
 		
-		<form method="post" action="../classes/controllers/Login.php">
-			<input type="hiddden" name="type" value="login">
+		<form method="post" action="../classes/controllers/CredentialCheck.php">
+			<input type="hidden" name="type" value="login">
 			
 			<div style="font-size: 20px;margin: 10px;color: white;">Login:</div>
 
-			<input id="text" type="text" name="user_name"><br><br>
+			<input id="login" type="text" name="login"><br><br>
 
 			<div style="font-size: 20px;margin: 10px;color: white;">Password:</div>
-			<input id="text" type="password" name="password"><br><br>
+			<input id="pass" type="password" name="pass"><br><br>
 
 			<input id="button" type="submit" value="Submit"><br><br>
 

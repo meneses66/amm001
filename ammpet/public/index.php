@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	#session_start();
 
 	/** Check for valid PHP version */
 	$minPHPVersion = '8.0';
