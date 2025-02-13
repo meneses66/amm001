@@ -11,8 +11,7 @@ class CredentialCheck {
     
     public function index()
     {
-        if($_SERVER['REQUEST_METHOD'] == 'POST')
-        {
+        if(isset($_POST)){
             echo $_POST;
             switch($_POST['type'])
             {
