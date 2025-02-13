@@ -12,13 +12,10 @@ class CredentialCheck {
     public function index()
     {
         if(isset($_POST)){
-            echo $_POST;
-            switch($_POST['type'])
-            {
-                case 'login':
-                    return $call->login();
-                    break;
-            }
+            $login = $_POST['login'];
+            $pass = $_POST['pass'];
+            echo $login . " - " . $pass;
+            return $call->login();
         }
         $this->view('login/login');
     }
