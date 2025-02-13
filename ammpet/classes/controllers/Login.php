@@ -13,7 +13,8 @@ class Login {
         #echo "This is login controller";
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
-            switch($_POST["type"])
+            echo $_POST;
+            switch($_POST['type'])
             {
                 case 'login':
                     $call->login();
