@@ -2,7 +2,8 @@
 
 namespace Controller;
 
-defined('ROOTPATH') OR exit('Access denied!');
+defined('ROOTPATH'); 
+//OR exit('Access denied!');
 
 class CredentialCheck {
 
@@ -12,7 +13,7 @@ class CredentialCheck {
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST')
         {
-            #echo $_POST;
+            echo $_POST;
             switch($_POST['type'])
             {
                 case 'login':
