@@ -21,7 +21,7 @@
 		padding: 10px;
 		width: 100px;
 		color: white;
-		background-color: lightblue;
+		background-color: darkblue;
 		border: none;
 	}
 
@@ -38,14 +38,15 @@
 	<div id="box">
 		
 		<form method="post">
-			<div style="font-size: 20px;margin: 10px;color: white;">Login</div>
+			<div style="font-size: 20px;margin: 10px;color: white;">Login:</div>
 
 			<input id="text" type="text" name="user_name"><br><br>
+
+			<div style="font-size: 20px;margin: 10px;color: white;">Password:</div>
 			<input id="text" type="password" name="password"><br><br>
 
-			<input id="button" type="submit" value="Login"><br><br>
+			<input id="button" type="submit" value="Submit"><br><br>
 
-			<a href="signup.php">Click to Signup</a><br><br>
 		</form>
 	</div>
 </body>
