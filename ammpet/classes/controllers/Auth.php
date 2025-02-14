@@ -11,20 +11,25 @@ class Auth {
 
     public function __construct()
     {
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $login = $_POST['login'];
-            $pass = $_POST['pass'];
-            $operation = $_POST['operation'];
-            switch($operation)
-            {
-                case login:
-                echo $login . " - " . $pass;
-                return $call->login();
-                break;
-
+        try {
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $login = $_POST['login'];
+                $pass = $_POST['pass'];
+                $operation = $_POST['operation'];
+                switch($operation)
+                {
+                    case login:
+                    echo $login . " - " . $pass;
+                    return $call->login();
+                    break;
+    
+                }
+                
             }
-            
+        } catch (\Throwable $th) {
+            echo $th;
         }
+        
     }
     
     public function index()
