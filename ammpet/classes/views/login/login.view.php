@@ -8,8 +8,8 @@
 	
 	<div id="box">
 		
-		<form method="post" action="../classes/controllers/CredentialCheck.php">
-						
+		<form method="post" action="../classes/controllers/Auth.php">
+			<input type="hidden" name="operation" value="login">			
 			<div style="font-size: 20px;margin: 10px;color: white;">Login:</div>
 
 			<input id="login" type="text" name="login"><br><br>
