@@ -19,8 +19,7 @@ class Auth {
                 switch($operation)
                 {
                     case login:
-                    echo $login . " - " . $pass;
-                    return $call->login();
+                    $init->login();
                     break;
         
                 }
