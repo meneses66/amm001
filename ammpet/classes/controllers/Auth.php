@@ -11,6 +11,24 @@ class Auth {
 
     public function index()
     {
+        try {
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $login = $_POST['login'];
+                $pass = $_POST['pass'];
+                $operation = $_POST['operation'];
+                switch($operation)
+                {
+                    case login:
+                    echo $login . " - " . $pass;
+                    return $call->login();
+                    break;
+        
+                }
+                
+            }
+        } catch (\Throwable $th) {
+            echo $th;
+        }
         $this->view('login/login');
     }
 
@@ -23,21 +41,3 @@ class Auth {
 
 $init = new Auth();
 
-try {
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $login = $_POST['login'];
-        $pass = $_POST['pass'];
-        $operation = $_POST['operation'];
-        switch($operation)
-        {
-            case login:
-            echo $login . " - " . $pass;
-            return $call->login();
-            break;
-
-        }
-        
-    }
-} catch (\Throwable $th) {
-    echo $th;
-}
