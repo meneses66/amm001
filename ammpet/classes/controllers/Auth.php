@@ -15,10 +15,10 @@ class Auth {
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $login = $_POST['login'];
                 $pass = $_POST['pass'];
-                $operation = $_POST['operation'];
+                $operation = $_POST['op'];
                 switch($operation)
                 {
-                    case login:
+                    case signin:
                     $init->login();
                     break;
         

@@ -9,7 +9,7 @@
 	<div id="box">
 		
 		<form method="post" action="../classes/controllers/Auth.php">
-			<input type="hidden" name="operation" value="login">			
+			<input type="hidden" name="op" value="signin">			
 			<div style="font-size: 20px;margin: 10px;color: white;">Login:</div>
 
 			<input id="login" type="text" name="login"><br><br>
