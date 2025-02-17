@@ -7,7 +7,7 @@
 
 namespace Core;
 
-//defined('ROOTPATH') OR exit('Access Denied!');
+defined('ROOTPATH') OR exit('Access Denied!');
 
 class Request
 {

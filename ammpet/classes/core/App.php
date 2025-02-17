@@ -2,7 +2,7 @@
 
 namespace Core;
 
-//defined('ROOTPATH') OR exit('Access denied!');
+defined('ROOTPATH') OR exit('Access denied!');
 
 class App{
     

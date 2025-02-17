@@ -1,6 +1,6 @@
 <?php
 
-//defined('ROOTPATH') OR exit('Access denied!');
+defined('ROOTPATH') OR exit('Access denied!');
 
 /** Return URL variables */
 function URL($key):mixed
