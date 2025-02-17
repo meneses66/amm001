@@ -5,5 +5,5 @@
     defined('ROOTPATH');
     //OR exit('Access denied!');
 
-    echo "This is Auth Controller". ROOTPATH;
+    echo "This is Auth Controller";
     
