@@ -1,6 +1,6 @@
 <?php
 
-defined('ROOTPATH') OR exit('Access denied!');
+//defined('ROOTPATH') OR exit('Access denied!');
 
 if((empty($_SERVER['SERVER_NAME']) && php_sapi_name() == 'cli'))
 {

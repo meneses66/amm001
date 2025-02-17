@@ -2,7 +2,7 @@
 
 namespace Builder;
 
-defined('CPATH') OR exit('Access Denied!');
+//defined('CPATH') OR exit('Access Denied!');
 
 /**
  * Builder class
