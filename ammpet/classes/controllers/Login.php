@@ -14,11 +14,6 @@ class Login {
         $this->view('login/login');
     }
 
-    public function Login() //constructor
-    {
-        
-    }
-
     public function signin($username, $pwd)
     {
         //check if login is valid in DB
@@ -38,15 +33,21 @@ class Login {
     static function authenticate($u, $p){
         $authentic=false;
         //check against DB:
-        if($u=='qwe' && $p=='qwe'){
+        if($u=='qwe' && $p=='123'){
             $authentic=true;
         }
         return authentic;
     }
 
-    function logout(){
+    public function login()
+        {
+            $this->view('login/login2');
+        }
+
+    public function logout(){
         session_start();
         session_destroy();
+        $this->view('login/login');
     }
 
 }

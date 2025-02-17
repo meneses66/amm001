@@ -5,7 +5,7 @@
     defined('ROOTPATH');
     //OR exit('Access denied!');
 
-    $init = new Auth();
+    $init = new Login();
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $login = $_POST['login'];
@@ -14,23 +14,9 @@
         switch($operation)
         {
             case signin:
-            return $init->login();
+            $init->signin($login,$pass) ? $init->login() : $init->logout();
             break;
 
         }
         
     }
-
-    class Auth{
-
-        public function Index(){
-            return "This is Auth Controller";
-        }
-
-        public function login()
-        {
-            $this->view('login/login2');
-        }
-
-    }
-    
