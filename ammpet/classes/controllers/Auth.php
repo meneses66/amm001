@@ -8,7 +8,7 @@
 
     //echo "This is Auth Controller: ".$op;
     $init = new \Controller\Test;
-    //$init->abc();
+    $init->Test();
     
 
 
