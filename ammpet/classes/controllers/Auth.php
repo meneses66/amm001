@@ -10,9 +10,14 @@
     @$op=$_REQUEST['op'];
 
     //echo "This is Auth Controller: ".$op;
-    $init = new \Controller\Login();
-
+    try {
+        $init = new \Controller\Login();
+    } catch (\Throwable $th) {
+        throw $th;
+    }
     
+
+
 
 
 
