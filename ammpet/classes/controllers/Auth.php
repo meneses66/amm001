@@ -9,7 +9,7 @@ class Auth {
 
     use _GlobalController;
 
-    public function index()
+    public function __Construct()
     {
         try {
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -19,7 +19,7 @@ class Auth {
                 switch($operation)
                 {
                     case signin:
-                    $init->login();
+                    return $init->login();
                     break;
         
                 }
@@ -38,5 +38,5 @@ class Auth {
 
 }
 
-$init = new Auth();
+//$init = new Auth();
 
