@@ -10,6 +10,7 @@
 
     //echo "This is Auth Controller: ".$op;
     $init = new \Controller\Login;
+    $init->index();
     
 
 
