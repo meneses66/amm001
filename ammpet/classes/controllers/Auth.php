@@ -9,7 +9,7 @@
     @$op=$_REQUEST['op'];
 
     //echo "This is Auth Controller: ".$op;
-    $init = new \Controller\Login();
+    $init = new \Controller\Login;
     
 
 
