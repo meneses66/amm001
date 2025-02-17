@@ -39,13 +39,13 @@ class Login {
         return authentic;
     }
 
-    public function login()
+    public function _login()
         {
             echo "This is login function from Login Controller";
             //$this->view('login/login2');
         }
 
-    public function logout(){
+    public function _logout(){
         session_start();
         session_destroy();
         $this->view('login/login');
