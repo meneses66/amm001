@@ -41,7 +41,8 @@ class Login {
 
     public function login()
         {
-            $this->view('login/login2');
+            echo "This is login function from Login Controller";
+            //$this->view('login/login2');
         }
 
     public function logout(){
