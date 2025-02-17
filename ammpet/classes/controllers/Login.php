@@ -21,7 +21,7 @@ class Login {
             //start user session
             session_start();
             // create new instance of user
-            $user = new Model\User($username);
+            $user = new \Model\User($username);
             // set username into global session
             $_SESSION['user']=$user;
             return true;
