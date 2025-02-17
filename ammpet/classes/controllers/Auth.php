@@ -5,5 +5,7 @@
     defined('ROOTPATH');
     //OR exit('Access denied!');
 
-    $init = new \Controller\Login();
+    echo "This is Auth Controller";
+
+    //$init = new \Controller\Login();
 
