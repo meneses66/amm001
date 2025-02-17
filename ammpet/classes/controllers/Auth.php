@@ -7,7 +7,7 @@
     @$op=$_REQUEST['op'];
 
     //echo "This is Auth Controller: ".$op;
-    $init = new \Controller\Test;
+    $init = new Controller\Test;
     //$init->abc();
     
 
