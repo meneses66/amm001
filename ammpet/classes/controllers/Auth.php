@@ -8,7 +8,7 @@
     class Auth{
 
         public function __Construct(){
-            echo "This is Auth Controller";
+            return "This is Auth Controller";
         }        
 
     }
