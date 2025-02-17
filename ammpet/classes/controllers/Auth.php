@@ -5,7 +5,7 @@
     defined('ROOTPATH');
     //OR exit('Access denied!');
 
-    $int = new Auth();
+    $init = new Auth();
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $login = $_POST['login'];
