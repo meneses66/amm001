@@ -5,5 +5,11 @@
     defined('ROOTPATH');
     //OR exit('Access denied!');
 
-    echo "This is Auth Controller";
+    class Auth{
+
+        public function __Construct(){
+            echo "This is Auth Controller";
+        }        
+
+    }
     
