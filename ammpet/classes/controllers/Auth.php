@@ -5,7 +5,7 @@
     defined('ROOTPATH');
     //OR exit('Access denied!');
 
-    $init = new Login();
+    $init = new \Controller\Login();
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $login = $_POST['login'];
@@ -16,7 +16,6 @@
             case signin:
             $init->signin($login,$pass) ? $init->login() : $init->logout();
             break;
-
         }
         
     }
