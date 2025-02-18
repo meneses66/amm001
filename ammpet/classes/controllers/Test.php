@@ -6,7 +6,7 @@ class Test{
 
     use _GlobalController;
 
-    function Test(){
+    function testx(){
 
         $this->view('login/login2');
 
