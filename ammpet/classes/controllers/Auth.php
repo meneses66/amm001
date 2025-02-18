@@ -4,24 +4,34 @@
     
     //defined('ROOTPATH') OR exit('Access denied!');
 
-    @$op=$_REQUEST['op'];
-
     use _GlobalController;
 
     class Auth {
            
         function index(){
             //echo "This is Auth Controller: ".$op;
-            try {
-                $init = new \Controller\Test;
+            //$op=$_REQUEST['op'];
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+                //Get information from $_POST
+                $login = $_POST['login'];
+                $pass = $_POST['pass'];
+                $operation = $_POST['op'];
+
+                //Create new Login instance:
+                $init = new \Controller\Login;
+
+                switch($operation)
+                {
+                    case signin:
+                        $init->signin($login,$pass) ? $init->_login() : $init->_logout();
+                        show($init);
+                    break;
+                }
                 
-            } catch (\Throwable $th) {
-                //throw $th;
-                echo "Error found=> ".$th;
             }
             
-            $init->testx();
-            show($init);
         }
     }
 
