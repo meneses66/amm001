@@ -14,6 +14,7 @@
             //echo "This is Auth Controller: ".$op;
             try {
                 $init = new \Controller\Test;
+                $init->Test();
             } catch (\Throwable $th) {
                 //throw $th;
                 echo "Error found=> ".$th;
