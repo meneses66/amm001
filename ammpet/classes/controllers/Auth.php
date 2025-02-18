@@ -7,8 +7,14 @@
     @$op=$_REQUEST['op'];
 
     //echo "This is Auth Controller: ".$op;
-    $init = new \Controller\Test;
-    $init->Test();
+    try {
+        $init = new \Controller\Test;
+    } catch (\Throwable $th) {
+        //throw $th;
+        echo "Error found=> ".$th;
+    }
+    
+    //$init->Test();
     
 
 
