@@ -30,10 +30,18 @@ class Login {
         }
     }
 
-    static function authenticate($u, $p){
+    public function authenticate($u, $p){
         $authentic=false;
+        
+        //Define Inputs for function:
+        $array['LOGIN']=$u;
+        $array['PASS']=$p;
+        
         //check against DB:
-        if($u=='qwe' && $p=='123'){
+        $model = new User;
+
+        $verify = $model->check_user_pass($array);
+        if($verify){
             $authentic=true;
         }
         return $authentic;
@@ -41,12 +49,8 @@ class Login {
 
     public function _login()
         {
-            echo "This is _login() function from Login Controller";
-            
             //move to Home Controller:
             header("Location:Home");
-
-            //$this->view('login/login2');
         }
 
     public function _logout(){

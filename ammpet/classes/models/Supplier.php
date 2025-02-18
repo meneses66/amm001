@@ -45,4 +45,5 @@ class Supplier {
         $this->Comment = $comment;
     }
 
+   
 }

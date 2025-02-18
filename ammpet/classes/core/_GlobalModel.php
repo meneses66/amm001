@@ -103,7 +103,7 @@ Trait _GlobalModel{
         return false;
     }
 
-    #new functions copied from source viceo 3
+    #new functions copied from source video 3
     public function getError($key)
 	{
 		if(!empty($this->errors[$key]))
