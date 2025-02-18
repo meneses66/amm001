@@ -14,13 +14,14 @@
             //echo "This is Auth Controller: ".$op;
             try {
                 $init = new \Controller\Test;
-                $init->testx();
+                
             } catch (\Throwable $th) {
                 //throw $th;
                 echo "Error found=> ".$th;
             }
             
-            //$init->Test();
+            $init->testx();
+            show($init);
         }
     }
 
