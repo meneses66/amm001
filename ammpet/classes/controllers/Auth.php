@@ -10,7 +10,7 @@
 
     class Auth {
            
-        function index(){
+        function __construct(){
             echo "This is Auth Controller: ".$op;
             try {
                 $init = new \Controller\Test;
