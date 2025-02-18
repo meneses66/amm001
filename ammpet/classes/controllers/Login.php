@@ -38,9 +38,9 @@ class Login {
         $array['PASS']=$p;
         
         //check against DB:
-        $model = new \Controller\User;
+        $model = new \Model\User;
 
-        $verify = $model->check_user_pass($array);
+        $verify = $model->getRow($array);
         if($verify){
             $authentic=true;
         }
