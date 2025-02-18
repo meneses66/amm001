@@ -36,7 +36,7 @@ class Login {
         if($u=='qwe' && $p=='123'){
             $authentic=true;
         }
-        return authentic;
+        return $authentic;
     }
 
     public function _login()
