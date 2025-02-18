@@ -24,7 +24,7 @@
 
                 switch($operation)
                 {
-                    case signin:
+                    case 'signin':
                         $init->signin($login,$pass) ? $init->_login() : $init->_logout();
                         show($init);
                     break;
