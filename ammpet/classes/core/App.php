@@ -6,7 +6,7 @@ defined('ROOTPATH') OR exit('Access denied!');
 
 class App{
     
-    private $controller = 'Login';
+    private $controller = 'LoginX';
     private $method = 'index';
 
     private function splitURL()
