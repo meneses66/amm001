@@ -8,7 +8,7 @@
 	
 	<div id="box">
 		
-		<form method="post" action="../public/Auth.php">
+		<form method="post" action="../public/Auth">
 			<input type="hidden" name="op" value="signin">			
 			
 			<div style="font-size: 20px;margin: 10px;color: white;">Login:</div>
