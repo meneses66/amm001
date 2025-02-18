@@ -6,6 +6,7 @@ namespace Model;
 
 class User{
 
+    use _GlobalModel;
     private $username;
     protected $table = 'SUPPLIER';
     
