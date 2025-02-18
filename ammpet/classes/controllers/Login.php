@@ -41,8 +41,12 @@ class Login {
 
     public function _login()
         {
-            echo "This is login function from Login Controller";
-            $this->view('login/login2');
+            echo "This is _login() function from Login Controller";
+            
+            //move to Home Controller:
+            header("Location:Home.php");
+
+            //$this->view('login/login2');
         }
 
     public function _logout(){
