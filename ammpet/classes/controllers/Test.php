@@ -8,7 +8,7 @@ class Test{
 
     function testx(){
 
-        $this->view('login/login2');
+        return $this->view('login/login2');
 
     }
 
