@@ -22,7 +22,7 @@
                 <!-- Top navigation-->
                 <?php include ROOTPATH_CLASSES . "../views/topnav.view.php";?>
                 <!-- Page content-->
-                <?php include ROOTPATH_CLASSES . "main.view.php";?>
+                <?php include "main.view.php";?>
             </div>
         </div>
         <!-- Bootstrap core JS-->
