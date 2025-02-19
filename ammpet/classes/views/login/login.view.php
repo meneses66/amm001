@@ -11,8 +11,8 @@
 		<form method="post" action="../public/Auth">
 			<?php echo ROOTPATH;?>
 			<?php echo ROOT;?>
-			<?php echo ROOT_CLASSES;?>
-			
+			<?php echo ROOTPATH_CLASSES;?>
+
 			<input type="hidden" name="op" value="signin">			
 			
 			<div style="font-size: 20px;margin: 10px;color: white;">Login:</div>
