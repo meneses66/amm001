@@ -10,9 +10,6 @@
 	<div id="box">
 		
 		<form method="post" action="../public/Auth">
-			<?php echo ROOTPATH;?>
-			<?php echo ROOT;?>
-			<?php echo ROOTPATH_CLASSES;?>
 
 			<input type="hidden" name="op" value="signin">			
 			
