@@ -4,11 +4,12 @@
         <h3 class="tituloPanel"> Panel Administrador </h3>
         <strong>PA</strong>
       </div>
-      <div style="overflow:auto">
-      <div class="menu">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-        <a href="#">Link 4</a>
+ 
+      <div class="btn-group">
+        <button class="button">Button</button>
+        <button class="button">Button</button>
+        <button class="button">Button</button>
+        <button class="button">Button</button>
       </div>
+
   </nav>
