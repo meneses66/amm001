@@ -10,7 +10,7 @@ class Home {
     
     public function index()
     {
-        echo "This is home controller.";
+        //echo "This is home controller.";
         
         $this->view('home/home');
     }
