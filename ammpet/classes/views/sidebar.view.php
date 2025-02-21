@@ -24,6 +24,7 @@ case 'home' :
     
 case 'create' :
     redirect('Home/create');
+    floadController();
     break;
 
 case 'search' :
