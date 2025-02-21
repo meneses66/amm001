@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <?php include ROOTPATH_CLASSES . "../views/head.view.php";?> 
+    <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
     </head>
     <body>
         <div class="d-flex" id="wrapper">

@@ -1,5 +1,7 @@
+<?php echo URL(2);?>
 <div class="sidebar-heading border-bottom bg-light">ABC System</div>
   <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=home">Home</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=create">Cadastros</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=search">Consultas</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=report">Relatórios</a>
@@ -16,6 +18,10 @@ else $linkchoice='';
 
 switch($linkchoice){
 
+case 'home' :
+  redirect('Home');
+  break;
+    
 case 'create' :
     redirect('Create');
     break;
@@ -43,9 +49,6 @@ case 'control' :
 case 'admin' :
   mySecond();
   break;
-
-default :
-    echo 'Incorrect command!';
 
 }
 ?>

@@ -13,5 +13,7 @@ class Home {
         //echo "This is home controller.";
         
         $this->view('home/home');
+        
     }
+
 }
