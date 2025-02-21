@@ -12,7 +12,7 @@
             <td>
                 <form method="post" action="../public/Supplier">
                     <input type="hidden" name="op" value="new_supplier">
-                    <input id="button" type="submit" value="Novo Fornecedor">
+                    <input id="button_main" type="submit" value="Novo Fornecedor">
                 </form><br>
             </td>
         </tr>

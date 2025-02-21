@@ -18,6 +18,17 @@
 		border-radius: 12px;
 	}
 
+	#button_main{
+		font-family: sans-serif;
+		font-size: 30px;
+		padding: 10px;
+		width: 400px;
+		color: white;
+		background-color: rgb(26, 23, 177);
+		border: none;
+		border-radius: 12px;
+	}
+
 	#box{
 
 		background-color: rgb(17, 150, 48);
