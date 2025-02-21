@@ -6,7 +6,7 @@
             <td>
                 <form method="post" action="../public/Client">
                     <input type="hidden" name="op" value="new_customer">
-                    <input id="button" type="submit" value="Novo Cliente">
+                    <input id="button_main" type="submit" value="Novo Cliente">
                 </form><br>
             </td>
             <td>
@@ -20,13 +20,13 @@
             <td>
                 <form method="post" action="../public/ProdServ">
                     <input type="hidden" name="op" value="new_prod">
-                    <input id="button" type="submit" value="Novo Produto">
+                    <input id="button_main" type="submit" value="Novo Produto">
                 </form><br>
             </td>
             <td>
                 <form method="post" action="../public/ProdServ">
                     <input type="hidden" name="op" value="new_serv">
-                    <input id="button" type="submit" value="Novo Serviço">
+                    <input id="button_main" type="submit" value="Novo Serviço">
                 </form><br>
             </td>
         </tr>
@@ -34,7 +34,7 @@
             <td>
                 <form method="post" action="../public/Breed">
                     <input type="hidden" name="op" value="new_breed">
-                    <input id="button" type="submit" value="Nova Raça">
+                    <input id="button_main" type="submit" value="Nova Raça">
                 </form><br>
             </td>
             

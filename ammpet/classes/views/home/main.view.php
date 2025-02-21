@@ -6,13 +6,13 @@
             <td>
                 <form method="post" action="../public/Client">
                     <input type="hidden" name="op" value="list_customer">
-                    <input id="button" type="submit" value="Clientes">
+                    <input id="button_main" type="submit" value="Clientes">
                 </form><br>
             </td>
             <td>
                 <form method="post" action="../public/OrderX">
                     <input type="hidden" name="op" value="list_orders">
-                    <input id="button" type="submit" value="Vendas">
+                    <input id="button_main" type="submit" value="Vendas">
                 </form><br>
             </td>
         </tr>
@@ -20,13 +20,13 @@
             <td>
                 <form method="post" action="../public/Agenda">
                     <input type="hidden" name="op" value="agenda">
-                    <input id="button" type="submit" value="Agenda">
+                    <input id="button_main" type="submit" value="Agenda">
                 </form>
             </td>
             <td>
                 <form method="post" action="../public/OrderX">
                     <input type="hidden" name="op" value="new_order">
-                    <input id="button" type="submit" value="Nova Venda">
+                    <input id="button_main" type="submit" value="Nova Venda">
                 </form>
             </td>
         </tr>
