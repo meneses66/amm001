@@ -1,10 +1,51 @@
 <div class="sidebar-heading border-bottom bg-light">ABC System</div>
   <div class="list-group list-group-flush">
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=cadastros">Cadastros</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=consultas">Consultas</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=relatorios">Relatórios</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=vendas">Vendas</a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=create">Cadastros</a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=search">Consultas</a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=report">Relatórios</a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=orderx">Vendas</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=agenda">Agenda</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=caixa">Caixa</a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=control">Caixa</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=admin">Admin</a>
   </div>
+
+<?php
+
+if (isset($_GET['run'])) $linkchoice=$_GET['run'];
+else $linkchoice='';
+
+switch($linkchoice){
+
+case 'create' :
+    redirect('Create');
+    break;
+
+case 'search' :
+    mySecond();
+    break;
+
+case 'report' :
+  mySecond();
+  break;
+
+case 'orderx' :
+  mySecond();
+  break;
+
+case 'agenda' :
+  mySecond();
+  break;
+
+case 'control' :
+  mySecond();
+  break;
+
+case 'admin' :
+  mySecond();
+  break;
+
+default :
+    echo 'Incorrect command!';
+
+}
+?>
