@@ -4,7 +4,7 @@ namespace Model;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-class User extends Model\Supplier {
+class User extends Supplier {
 
     //use _GlobalModel;
     private $username;
