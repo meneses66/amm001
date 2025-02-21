@@ -1,8 +1,8 @@
 <div class="sidebar-heading border-bottom bg-light">ABC System</div>
   <div class="list-group list-group-flush">
       <?php echo URL_0;?>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=home">Home</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=create">Cadastros</a>
+      <a class="list-group-item list-group-item-action <?php if(URL_0=='Home') echo 'active';?> list-group-item-light p-3" href="?run=home">Home</a>
+      <a class="list-group-item list-group-item-action <?php if(URL_0=='Cadastros') echo 'active';?> list-group-item-light p-3" href="?run=create">Cadastros</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=search">Consultas</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=report">Relatórios</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=orderx">Vendas</a>
