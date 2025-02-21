@@ -27,6 +27,7 @@ class App{
             require $fileName;
             $this->controller = ucfirst($URL[0]);
             define('URL_0',$URL[0]);
+            define('URL_1',"null");
             unset($URL[0]);
 
         } else{
