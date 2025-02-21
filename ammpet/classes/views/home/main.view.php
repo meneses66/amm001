@@ -1,19 +1,19 @@
 <link rel="stylesheet" href="../public/assets/css/styles.css">
 <div class="container-fluid">
-
+<br><br><br><br>
     <table style="width:100%">
         <tr>
             <td>
                 <form method="post" action="../public/Client">
                     <input type="hidden" name="op" value="list_customer">
                     <input id="button" type="submit" value="Clientes">
-                </form>
+                </form><br>
             </td>
             <td>
                 <form method="post" action="../public/OrderX">
                     <input type="hidden" name="op" value="list_orders">
                     <input id="button" type="submit" value="Vendas">
-                </form>
+                </form><br>
             </td>
         </tr>
         <tr>
