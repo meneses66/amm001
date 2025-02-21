@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/styles.css">
 <div class="container-fluid">
-<div>Consultas</div>
+<div>Relatórios</div>
 <br><br><br><br>
     <table style="width:100%">
         <tr>

@@ -22,5 +22,19 @@ class Home {
         $this->view('create/create');
         
     }
+    public function search()
+    {
+        //echo "This is home controller.";
+        
+        $this->view('search/search');
+        
+    }
+    public function report()
+    {
+        //echo "This is home controller.";
+        
+        $this->view('report/report');
+        
+    }
 
 }
