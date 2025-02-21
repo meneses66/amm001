@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-//defined('ROOTPATH') OR exit('Access denied!');
+defined('ROOTPATH') OR exit('Access denied!');
 
 Trait _GlobalController{
 
