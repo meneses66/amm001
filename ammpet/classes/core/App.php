@@ -44,7 +44,6 @@ class App{
             if(method_exists($controller, $URL[1]))
             {
                 $this->method = $URL[1];
-                undefine('URL_1');
                 define('URL_1',$URL[1]);
                 unset($URL[1]);
             }
