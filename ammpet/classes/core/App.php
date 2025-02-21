@@ -46,6 +46,8 @@ class App{
                 define('URL_1',$URL[1]);
                 unset($URL[1]);
             }
+        } else {
+            define('URL_1',"");
         }
 
         call_user_func_array([$controller,$this->method],$URL);
