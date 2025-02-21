@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../public/assets/css/styles.css">
 <div class="container-fluid">
+<div>Consultas</div>
 <br><br><br><br>
     <table style="width:100%">
         <tr>

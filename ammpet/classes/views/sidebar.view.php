@@ -22,7 +22,7 @@ case 'home' :
   break;
     
 case 'create' :
-    redirect('Create');
+    redirect('Home/create');
     break;
 
 case 'search' :

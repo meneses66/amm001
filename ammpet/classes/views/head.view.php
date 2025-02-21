@@ -6,4 +6,4 @@
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="../public/assets/images/dog_icon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->
-<link href="../public/assets/css/styles_home.css" rel="stylesheet" />
+<link href="<?php echo ROOT."/";?>../public/assets/css/styles_home.css" rel="stylesheet" />
