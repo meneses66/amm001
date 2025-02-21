@@ -1,6 +1,6 @@
-<?php echo URL(2);?>
 <div class="sidebar-heading border-bottom bg-light">ABC System</div>
   <div class="list-group list-group-flush">
+      <?php echo URL(2);?>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=home">Home</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=create">Cadastros</a>
       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=search">Consultas</a>
