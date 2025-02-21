@@ -26,6 +26,7 @@ class App{
         {
             require $fileName;
             $this->controller = ucfirst($URL[0]);
+            define('URL_0',$URL[0]);
             unset($URL[0]);
 
         } else{
@@ -42,6 +43,7 @@ class App{
             if(method_exists($controller, $URL[1]))
             {
                 $this->method = $URL[1];
+                define('URL_1',$URL[1]);
                 unset($URL[1]);
             }
         }
