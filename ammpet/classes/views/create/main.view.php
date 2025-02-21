@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../public/assets/css/styles.css">
+<link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/styles.css">
 <div class="container-fluid">
 <div>Cadastros</div>
 <br><br><br><br>
