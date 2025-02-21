@@ -1,14 +1,13 @@
 <div class="sidebar-heading border-bottom bg-light">ABC System</div>
   <div class="list-group list-group-flush">
-      <?php echo URL_0;?>
       <a class="list-group-item list-group-item-action <?php if(URL_0=='Home') echo 'active';?> list-group-item-light p-3" href="?run=home">Home</a>
-      <a class="list-group-item list-group-item-action <?php if(URL_0=='Cadastros') echo 'active';?> list-group-item-light p-3" href="?run=create">Cadastros</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=search">Consultas</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=report">Relatórios</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=orderx">Vendas</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=agenda">Agenda</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=control">Caixa</a>
-      <a class="list-group-item list-group-item-action list-group-item-light p-3" href="?run=admin">Admin</a>
+      <a class="list-group-item list-group-item-action <?php if(URL_0=='Create') echo 'active';?> list-group-item-light p-3" href="?run=create">Cadastros</a>
+      <a class="list-group-item list-group-item-action <?php if(URL_0=='Search') echo 'active';?> list-group-item-light p-3" href="?run=search">Consultas</a>
+      <a class="list-group-item list-group-item-action <?php if(URL_0=='Report') echo 'active';?> list-group-item-light p-3" href="?run=report">Relatórios</a>
+      <a class="list-group-item list-group-item-action <?php if(URL_0=='OrderX') echo 'active';?> list-group-item-light p-3" href="?run=orderx">Vendas</a>
+      <a class="list-group-item list-group-item-action <?php if(URL_0=='Agenda') echo 'active';?> list-group-item-light p-3" href="?run=agenda">Agenda</a>
+      <a class="list-group-item list-group-item-action <?php if(URL_0=='Control') echo 'active';?> list-group-item-light p-3" href="?run=control">Caixa</a>
+      <a class="list-group-item list-group-item-action <?php if(URL_0=='Admin') echo 'active';?> list-group-item-light p-3" href="?run=admin">Admin</a>
   </div>
 
 <?php
@@ -27,28 +26,28 @@ case 'create' :
     break;
 
 case 'search' :
-    mySecond();
+    redirect('Search');
     break;
 
 case 'report' :
-  mySecond();
-  break;
+    redirect('Report');
+    break;
 
 case 'orderx' :
-  mySecond();
-  break;
+    redirect('OrderX');
+    break;
 
 case 'agenda' :
-  mySecond();
-  break;
+    redirect('Agenda');
+    break;
 
 case 'control' :
-  mySecond();
-  break;
+    redirect('Control');
+    break;
 
 case 'admin' :
-  mySecond();
-  break;
+    redirect('Admin');
+    break;
 
 }
 ?>
