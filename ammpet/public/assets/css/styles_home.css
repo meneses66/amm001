@@ -10863,12 +10863,3 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     margin-left: -15rem;
   }
 }
-
-div.mycontainer {
-  width:100%;
-  overflow:auto;
-}
-div.mycontainer div {
-  width:33%;  
-  float:left;
-}
