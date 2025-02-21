@@ -15,5 +15,12 @@ class Home {
         $this->view('home/home');
         
     }
+    public function create()
+    {
+        //echo "This is home controller.";
+        
+        $this->view('create/create');
+        
+    }
 
 }
