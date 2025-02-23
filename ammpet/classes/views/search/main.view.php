@@ -6,36 +6,36 @@
         <tr>
             <td>
                 <form method="post" action="../public/Client">
-                    <input type="hidden" name="op" value="new_customer">
-                    <input id="button_main" type="submit" value="Novo Cliente">
+                    <input type="hidden" name="op" value="list_customer">
+                    <input id="button_main" type="submit" value="Clientes">
                 </form><br>
             </td>
             <td>
                 <form method="post" action="../public/Supplier">
-                    <input type="hidden" name="op" value="new_supplier">
-                    <input id="button_main" type="submit" value="Novo Fornecedor">
+                    <input type="hidden" name="op" value="list_supplier">
+                    <input id="button_main" type="submit" value="Fornecedores">
                 </form><br>
             </td>
         </tr>
         <tr>
             <td>
                 <form method="post" action="../public/ProdServ">
-                    <input type="hidden" name="op" value="new_prod">
-                    <input id="button_main" type="submit" value="Novo Produto">
+                    <input type="hidden" name="op" value="list_prod">
+                    <input id="button_main" type="submit" value="Produtos">
                 </form><br>
             </td>
             <td>
                 <form method="post" action="../public/ProdServ">
-                    <input type="hidden" name="op" value="new_serv">
-                    <input id="button_main" type="submit" value="Novo Serviço">
+                    <input type="hidden" name="op" value="list_serv">
+                    <input id="button_main" type="submit" value="Serviços">
                 </form><br>
             </td>
         </tr>
         <tr>
             <td>
                 <form method="post" action="../public/Breed">
-                    <input type="hidden" name="op" value="new_breed">
-                    <input id="button_main" type="submit" value="Nova Raça">
+                    <input type="hidden" name="op" value="list_breed">
+                    <input id="button_main" type="submit" value="Raças">
                 </form><br>
             </td>
             
