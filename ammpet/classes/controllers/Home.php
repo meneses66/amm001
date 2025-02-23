@@ -3,7 +3,7 @@
 namespace Controller;
 session_start();
 
-(defined('ROOTPATH') AND session_id!=="") OR exit('Access denied!');
+(defined('ROOTPATH') AND isset($_SESSION['username'])) OR exit('Access denied!');
 
 class Home {
 
