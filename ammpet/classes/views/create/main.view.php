@@ -5,36 +5,36 @@
     <table style="width:100%">
         <tr>
             <td>
-                <form method="post" action="../public/Client">
-                    <input type="hidden" name="op" value="new_customer">
+                <form method="post" action="../Client">
+                    <input type="hidden" name="op" value="goto_new_customer">
                     <input id="button_main" type="submit" value="Novo Cliente">
                 </form><br>
             </td>
             <td>
-                <form method="post" action="../public/Supplier">
-                    <input type="hidden" name="op" value="new_supplier">
+                <form method="post" action="../Supplier">
+                    <input type="hidden" name="op" value="goto_new_supplier">
                     <input id="button_main" type="submit" value="Novo Fornecedor">
                 </form><br>
             </td>
         </tr>
         <tr>
             <td>
-                <form method="post" action="../public/ProdServ">
-                    <input type="hidden" name="op" value="new_prod">
+                <form method="post" action="../ProdServ">
+                    <input type="hidden" name="op" value="goto_new_prod">
                     <input id="button_main" type="submit" value="Novo Produto">
                 </form><br>
             </td>
             <td>
-                <form method="post" action="../public/ProdServ">
-                    <input type="hidden" name="op" value="new_serv">
+                <form method="post" action="../ProdServ">
+                    <input type="hidden" name="op" value="goto_new_serv">
                     <input id="button_main" type="submit" value="Novo Serviço">
                 </form><br>
             </td>
         </tr>
         <tr>
             <td>
-                <form method="post" action="../public/Breed">
-                    <input type="hidden" name="op" value="new_breed">
+                <form method="post" action="../Breed">
+                    <input type="hidden" name="op" value="goto_new_breed">
                     <input id="button_main" type="submit" value="Nova Raça">
                 </form><br>
             </td>

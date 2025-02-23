@@ -43,6 +43,27 @@ Trait _GlobalModel{
 
         return $this->query($sql_stm, $all_inputs);
 
+	}
+
+    #list where
+    
+	public function listWhereOr($inputs)
+    {
+        $keys = array_keys($inputs);
+        $sql_stm = "select * from $this->table where ";
+        
+        foreach ($keys as $key){
+            $sql_stm .= $key . "= :" . $key . " OR ";
+        }
+
+        $sql_stm = trim($sql_stm," OR ");
+
+        $sql_stm .= " order by $this->order_column $this->order_type";
+
+        $all_inputs =array_merge($inputs, $inputs_not);
+
+        return $this->query($sql_stm, $all_inputs);
+
     }
 
     #getRow

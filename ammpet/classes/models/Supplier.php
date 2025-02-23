@@ -44,6 +44,5 @@ class Supplier {
         $this->Status = $status;
         $this->Comment = $comment;
     }
-
    
 }
