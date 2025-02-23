@@ -19,7 +19,8 @@ class Login {
         //check if login is valid in DB
         if($this->authenticate($username, $pwd)){
             //start user session
-            session_start();
+            my_session_start();
+            my_session_regenerate_id();
             // create new instance of user
             $user = new \Model\User($username);
             // set username into global session
@@ -55,7 +56,7 @@ class Login {
         }
 
     public function _logout(){
-        session_start();
+        my_session_regenerate_id();
         session_unset();
         session_destroy();
         $this->view('login/login');
