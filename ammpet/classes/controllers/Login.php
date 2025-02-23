@@ -56,6 +56,7 @@ class Login {
 
     public function _logout(){
         session_start();
+        session_unset();
         session_destroy();
         $this->view('login/login');
     }
