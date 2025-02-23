@@ -21,6 +21,7 @@ class Login {
             //start user session
             my_session_start();
             my_session_regenerate_id();
+            ini_set('session.use_strict_mode', 1);
             // create new instance of user
             $user = new \Model\User($username);
             // set username into global session
@@ -57,6 +58,7 @@ class Login {
 
     public function _logout(){
         my_session_regenerate_id();
+        ini_set('session.use_strict_mode', 1);
         session_unset();
         session_destroy();
         $this->view('login/login');

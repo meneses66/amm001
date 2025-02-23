@@ -102,5 +102,4 @@ function my_session_regenerate_id() {
     session_id($newid);
     // Start with custom session ID
     session_start();
-	ini_set('session.use_strict_mode', 1);
 }
