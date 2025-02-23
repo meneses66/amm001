@@ -86,3 +86,25 @@
 	  .btn-group .button:hover {
 		background-color: #3e8e41;
 	  }
+
+	/*Creates 2 columns in page*/
+	  .column {
+		float: left;
+		padding: 10px;
+		height: 300px; /* Should be removed. Only for demonstration */
+	  }
+	  
+	  .left {
+		width: 50%;
+	  }
+	  
+	  .right {
+		width: 50%;
+	  }
+	  
+	  /* Clear floats after the columns */
+	  .row:after {
+		content: "";
+		display: table;
+		clear: both;
+	  }
