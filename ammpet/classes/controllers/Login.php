@@ -58,9 +58,9 @@ class Login {
 
     public function _logout(){
         my_session_regenerate_id();
-        ini_set('session.use_strict_mode', 1);
         session_unset();
         session_destroy();
+        ini_set('session.use_strict_mode', 1);
         $this->view('login/login');
     }
 
