@@ -4,16 +4,19 @@
 <br><br><br><br>
     <form method="post" action="../public/Supplier">
     <input type="hidden" name="op" value="insert">	
-    <div class="row">
-        <div class="column left" style="background-color:#aaa;">
-            <h2>Column 1</h2>
-            <p>Some text..</p>
+        <div class="split left">
+        <div class="centered">
+            <h2>Jane Flex</h2>
+            <p>Some text.</p>
         </div>
-        <div class="column right" style="background-color:#bbb;">
-            <h2>Column 2</h2>
-            <p>Some text..</p>
         </div>
-    </div>
+
+        <div class="split right">
+        <div class="centered">
+            <h2>John Doe</h2>
+            <p>Some text here too.</p>
+        </div>
+        </div>
 
         		
 

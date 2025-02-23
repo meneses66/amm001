@@ -87,24 +87,36 @@
 		background-color: #3e8e41;
 	  }
 
-	/*Creates 2 columns in page*/
-	  .column {
-		float: left;
-		padding: 10px;
-		height: 300px; /* Should be removed. Only for demonstration */
+	  /*Creates split in screen*/
+	  .split {
+		height: 100%;
+		width: 50%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		overflow-x: hidden;
+		padding-top: 20px;
 	  }
 	  
 	  .left {
-		width: 50%;
+		left: 0;
+		background-color: #111;
 	  }
 	  
 	  .right {
-		width: 50%;
+		right: 0;
+		background-color: red;
 	  }
 	  
-	  /* Clear floats after the columns */
-	  .row:after {
-		content: "";
-		display: table;
-		clear: both;
+	  .centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	  }
+	  
+	  .centered img {
+		width: 150px;
+		border-radius: 50%;
 	  }
