@@ -1,8 +1,9 @@
 <?php
 
 namespace Controller;
+session_start();
 
-(defined('ROOTPATH') AND session_status() === PHP_SESSION_ACTIVE) OR exit('Access denied!');
+(defined('ROOTPATH') AND session_id!=="") OR exit('Access denied!');
 
 class Home {
 
