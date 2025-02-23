@@ -24,6 +24,7 @@ class Login {
             $user = new \Model\User($username);
             // set username into global session
             $_SESSION['user']=$user;
+            $_SESSION['username']=$username;
             return true;
         } else {
             return false;
