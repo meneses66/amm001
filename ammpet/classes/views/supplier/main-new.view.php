@@ -5,10 +5,8 @@
     <input type="hidden" name="op" value="insert">
         <div class="flex-container">
             <div>
-                <h5>Nome:</h5>
-                <input id="name" type="text" name="name"><br><br>
-                <h5>XYZ:</h5>
-                <input id="name" type="text" name="name"><br><br>
+                <h5>Nome:  </h5><input id="name" type="text" name="name"><br><br>
+                <h5>XYZ:  </h5><input id="name" type="text" name="name"><br><br>
             </div>
             <div>
                 <h5>Tipo:</h5>
