@@ -90,11 +90,10 @@
 	  .flex-container {
 		display: flex;
 		justify-content: space-between;
-		background-color: rgb(255, 255, 255);
+		background-color: rgb(214, 248, 221);
 	  }
 	  
 	  .flex-container > div {
-		background-color: #ecc1c1;
 		width: 150px;
 		margin: 2px;
 		text-align: left;
