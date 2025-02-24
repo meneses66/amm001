@@ -8,7 +8,7 @@
                 <label for="name" class="medium-label">Nome: </label><input id="name" type="text" size="50" name="name"><br><br>
                 <label for="xyz" class="medium-label">XYZ: </label><input id="xyz" type="text" size="30" name="xyz"><br><br>
                 <label for="qwe" class="medium-label">QWE: </label>
-                <select id="qwe" size="20" name="qwe">
+                <select id="qwe" name="qwe">
                     <option value="abc">ABC</option>
                     <option value="zxc">ZXC</option>
                     <option value="wer">WER</option>
