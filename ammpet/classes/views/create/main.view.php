@@ -11,7 +11,7 @@
                 </form><br>
             </td>
             <td>
-                <form method="post" action="../Supplier">
+                <form method="post" action="../Supplier/new_supplier">
                     <input type="hidden" name="op" value="goto_new_supplier">
                     <input id="button_main" type="submit" value="Novo Fornecedor">
                 </form><br>

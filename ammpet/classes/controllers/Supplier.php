@@ -41,4 +41,37 @@ class Supplier {
         }
     }
 
+    public function new_supplier(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $operation = $_POST['op'];
+            
+            this->goto_view($operation);
+
+        }
+    }
+
+    private function goto_view($op){
+        //Define inputs for DB operations:
+        $inputs[]="";
+
+        //Create new Login instance:
+        $init = new \Model\Supplier;
+
+        switch($op)
+        {
+            case 'goto_new_supplier':
+                $this->view('supplier/supplier-new');
+            break;
+
+            case 'goto_list_supplier':
+                $this->view('supplier/supplier-list');
+            break;
+
+            case 'goto_update_supplier':
+                $this->view('supplier/supplier-update');
+            break;
+        }
+    }
+
 }
