@@ -90,14 +90,15 @@
 	  .flex-container {
 		display: flex;
 		flex-flow: row wrap;
+		justify-content: center;
 		background-color: rgb(201, 222, 243);
 	  }
 	  
 	  .flex-container > div {
 		background-color: #ecc1c1;
 		width: 100px;
-		margin: 10px;
-		text-align: center;
-		line-height: 75px;
-		font-size: 30px;
+		margin: 2px;
+		text-align: left;
+		line-height: 35px;
+		font-size: 15px;
 	  }

@@ -5,11 +5,11 @@
     <input type="hidden" name="op" value="insert">
         <div class="flex-container">
             <div>
-                <h3>Nome:</h3>
+                <h5>Nome:</h5>
                 <input id="name" type="text" name="name"><br><br>
             </div>
             <div>
-                <h3>Tipo:</h3>
+                <h5>Tipo:</h5>
                 <input id="type" type="text" name="type"><br><br>
             </div>
         </div>
