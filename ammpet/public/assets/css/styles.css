@@ -90,14 +90,14 @@
 	  .flex-container {
 		display: flex;
 		justify-content: space-between;
-		background-color: rgb(201, 222, 243);
+		background-color: rgb(255, 255, 255);
 	  }
 	  
 	  .flex-container > div {
 		background-color: #ecc1c1;
-		width: 100px;
+		width: 150px;
 		margin: 2px;
 		text-align: left;
-		line-height: 35px;
-		font-size: 15px;
+		line-height: 20px;
+		font-size: 10px;
 	  }
