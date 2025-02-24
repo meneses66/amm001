@@ -46,7 +46,7 @@ class Supplier {
 
             $operation = $_POST['op'];
             
-            this->goto_view($operation);
+            $this->goto_view($operation);
 
         }
     }
