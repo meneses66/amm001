@@ -7,10 +7,16 @@
             <div>
                 <h5>Nome:</h5>
                 <input id="name" type="text" name="name"><br><br>
+                <h5>XYZ:</h5>
+                <input id="name" type="text" name="name"><br><br>
             </div>
             <div>
                 <h5>Tipo:</h5>
                 <input id="type" type="text" name="type"><br><br>
+                <h5>KLM:</h5>
+                <input id="type" type="text" name="type"><br><br>
+            </div>
+            <div>
             </div>
         </div>
         <div><input id="button" type="submit" value="Criar"><br><br></div>
