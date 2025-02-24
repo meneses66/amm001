@@ -5,7 +5,7 @@
     <input type="hidden" name="op" value="insert">
         <div class="flex-container">
             <div>
-                <label for="name" class="large-label">Nome: </label><input id="name" type="text" size="50" name="name"><br><br>
+                <label for="name" class="medium-label">Nome: </label><input id="name" type="text" size="50" name="name"><br><br>
                 <h5>XYZ:  </h5><input id="xyz" type="text" name="xyz"><br><br>
             </div>
             <div>
