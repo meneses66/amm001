@@ -87,36 +87,17 @@
 		background-color: #3e8e41;
 	  }
 
-	  /*Creates split in screen*/
-	  .split {
-		height: 100%;
-		width: 50%;
-		position: fixed;
-		z-index: 1;
-		top: 0;
-		overflow-x: hidden;
-		padding-top: 20px;
+	  .flex-container {
+		display: flex;
+		flex-flow: row wrap;
+		background-color: rgb(201, 222, 243);
 	  }
 	  
-	  .left {
-		left: 0;
-		background-color: #1111111f;
-	  }
-	  
-	  .right {
-		right: 0;
-		background-color: #11111124;
-	  }
-	  
-	  .centered {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+	  .flex-container > div {
+		background-color: #ecc1c1;
+		width: 100px;
+		margin: 10px;
 		text-align: center;
-	  }
-	  
-	  .centered img {
-		width: 150px;
-		border-radius: 50%;
+		line-height: 75px;
+		font-size: 30px;
 	  }

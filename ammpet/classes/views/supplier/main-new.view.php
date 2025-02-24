@@ -2,22 +2,16 @@
     <div>Novo Fornecedor</div>
     <br><br>
     <form method="post" action="../public/Supplier">
-    <div>   
-        <input type="hidden" name="op" value="insert">	
-        <div class="split left">
-            <div class="left">
-                <div style="font-size: 20px;font-family: sans-serif;margin: 10px;color: black;">Nome:</div>
+    <input type="hidden" name="op" value="insert">
+        <div class="flex-container">
+            <div>
+                <h3>Nome:</h3>
                 <input id="name" type="text" name="name"><br><br>
             </div>
-        </div>
-
-        <div class="split right">
-            <div class="left">
-                <div style="font-size: 20px;font-family: sans-serif;margin: 10px;color: black;">Data:</div>
-                <input id="date" type="date" name="date"><br><br><br>
-
-                <input id="button" type="submit" value="Criar"><br><br>
+            <div>
+                <h3>Tipo:</h3>
+                <input id="type" type="text" name="type"><br><br>
             </div>
         </div>
-    </div>
-</form>
+        <div><input id="button" type="submit" value="Criar"><br><br></div>
+    </form>
