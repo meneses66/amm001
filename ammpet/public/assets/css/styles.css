@@ -89,8 +89,7 @@
 
 	  .flex-container {
 		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-around;
+		justify-content: space-between;
 		background-color: rgb(201, 222, 243);
 	  }
 	  
