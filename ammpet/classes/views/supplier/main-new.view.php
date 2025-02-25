@@ -7,7 +7,7 @@
             <div>
                 <input id="created_by" type="text" name="created_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
                 <input id="updated_by" type="text" name="updated_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
-                <label for="name" class="medium-label">Nome: </label><input id="name" type="text" size="50" name="name"><br>
+                <div><label for="name" class="medium-label">Nome: </label><input id="name" type="text" size="50" name="name"></div><br>
                 <label for="login" class="medium-label">Login: </label><input id="login" type="text" size="20" name="login"><br>
                 <input id="pass" type="text" name="pass" value="<?php if(!isset($_SESSION['username'])) {session_start();} $user=$_SESSION['username']; echo $user[0]."1234";?>">
                 <label for="qwe" class="medium-label">QWE: </label>
