@@ -25,6 +25,10 @@ class Supplier {
         }
     }
 
+    public function insert(){
+        $this->view('supplier/supplier-list');
+    }
+
     private function goto_view($op){
         //Define inputs for DB operations:
         $inputs[]="";
