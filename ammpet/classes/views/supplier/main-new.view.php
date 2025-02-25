@@ -39,8 +39,6 @@
                 <label for="start_date" class="large-label">Data Inicio: </label><input id="start_date" type="date" size="30" name="start_date"><br>
                 <label for="comment" class="medium-label">Comentarios: </label><input id="comment" type="text" size="50" name="comment"><br>
             </div>
-            <div>
-            </div>
         </div>
         <div align="right"><input id="button" type="submit" value="Criar"><br><br></div>
     </form>
