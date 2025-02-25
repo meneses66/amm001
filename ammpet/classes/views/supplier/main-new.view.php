@@ -11,7 +11,7 @@
                 <label for="login" class="medium-label">Login: </label><input id="login" type="text" size="20" name="login"><br>
                 <label for="pwd" class="medium-label">Senha: </label><input id="pwd" type="password" name="pwd"><br>
                 <label for="type" class="medium-label">Tipo: </label>
-                <select id="type" name="type">
+                <select class="medium-label" id="type" name="type">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="fun">Funcionario</option>
                     <option class="medium-label" value="for">Fornecedor</option>
