@@ -12,10 +12,10 @@
                 <label for="pwd" class="medium-label">Senha: </label><input id="pwd" type="password" name="pwd"><br>
                 <label for="type" class="medium-label">Tipo: </label>
                 <select id="type" name="type">
-                    <option value="" selected>Selecione uma opção</option>
-                    <option value="fun">Funcionario</option>
-                    <option value="for">Fornecedor</option>
-                    <option value="fre">Freelancer</option>
+                    <option class="medium-label" value="" selected>Selecione uma opção</option>
+                    <option class="medium-label" value="fun">Funcionario</option>
+                    <option class="medium-label" value="for">Fornecedor</option>
+                    <option class="medium-label" value="fre">Freelancer</option>
                 </select><br>
                 <label for="role" class="medium-label">Cargo: </label>
                 <select id="role" name="role">
