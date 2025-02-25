@@ -36,7 +36,7 @@
                 <label for="cnpj" class="medium-label">CNPJ: </label><input id="cnpj" type="text" size="20" name="cnpj"><br>
                 <label for="cpf" class="medium-label">CPF: </label><input id="cpf" type="text" size="20" name="cpf"><br>
                 <label for="seq" class="medium-label">Sequencia: </label><input id="seq" type="text" size="10" name="seq"><br>
-                <label for="start_date" class="large-label">Data Inicio: </label><input id="start_date" type="date" size="30" name="start_date"><br>
+                <label for="start_date" class="medium-label">Data Inicio: </label><input id="start_date" type="date" size="30" name="start_date"><br>
                 <label for="comment" class="medium-label">Comentarios: </label><input id="comment" type="text" size="50" name="comment"><br>
             </div>
             <div>
