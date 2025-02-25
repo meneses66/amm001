@@ -18,25 +18,25 @@
                     <option class="medium-label" value="fre">Freelancer</option>
                 </select><br>
                 <label for="role" class="medium-label">Cargo: </label>
-                <select id="role" name="role">
-                    <option value="" selected>Selecione uma opção</option>
-                    <option value="ban">Banhista</option>
-                    <option value="tos">Tosador</option>
-                    <option value="rec">Recepcao</option>
-                    <option value="pro">Proprietario</option>
+                <select class="medium-label" id="role" name="role">
+                    <option class="medium-label" value="" selected>Selecione uma opção</option>
+                    <option class="medium-label" value="ban">Banhista</option>
+                    <option class="medium-label" value="tos">Tosador</option>
+                    <option class="medium-label" value="rec">Recepcao</option>
+                    <option class="medium-label" value="pro">Proprietario</option>
                 </select><br>
                 <label for="status" class="medium-label">Status: </label>
-                <select id="status" name="status">
-                    <option value="" selected>Selecione uma opção</option>
-                    <option value="act">Ativo</option>
-                    <option value="ina">Inativo</option>
+                <select class="medium-label" id="status" name="status">
+                    <option class="medium-label" value="" selected>Selecione uma opção</option>
+                    <option class="medium-label" value="act">Ativo</option>
+                    <option class="medium-label" value="ina">Inativo</option>
                 </select><br>
             </div>
             <div>
                 <label for="cnpj" class="medium-label">CNPJ: </label><input id="cnpj" type="text" size="20" name="cnpj"><br>
                 <label for="cpf" class="medium-label">CPF: </label><input id="cpf" type="text" size="20" name="cpf"><br>
-                <label for="seq" class="medium-label">Sequencia: </label><input id="seq" type="text" size="10" name="seq"><br>
-                <label for="start_date" class="medium-label">Data Inicio: </label><input id="start_date" type="date" size="20" name="start_date"><br>
+                <label for="seq" class="medium-label">Sequencia: </label><input id="seq" type="text" size="4" name="seq"><br>
+                <label for="start_date" class="large-label">Data Inicio: </label><input id="start_date" type="date" size="30" name="start_date"><br>
                 <label for="comment" class="medium-label">Comentarios: </label><input id="comment" type="text" size="50" name="comment"><br>
             </div>
             <div>
