@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/styles.css">
     <div><h3>Novo Fornecedor</h3></div>
     <br>
-    <form method="post" action="../public/Supplier">
+    <form method="post" action="../public/Supplier/insert">
     <input type="hidden" name="op" value="insert">
         <div class="flex-container">
             <div>
