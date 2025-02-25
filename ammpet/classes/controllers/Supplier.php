@@ -15,6 +15,7 @@ class Supplier {
        
     }
 
+    //Sends to page to create new Supplier
     public function new_supplier(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -25,17 +26,25 @@ class Supplier {
         }
     }
 
+    //Inserts new Supplier into DB
     public function insert(){
-        $this->view('supplier/supplier-list');
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            //Create new Login instance:
+            $init = new \Model\Supplier;
+
+            //Define inputs for DB operations:
+            
+            $inputs[]="";
+            
+
+        }
+        
     }
 
+    //Defines view to go to
     private function goto_view($op){
-        //Define inputs for DB operations:
-        $inputs[]="";
-
-        //Create new Login instance:
-        $init = new \Model\Supplier;
-
+        
         switch($op)
         {
             case 'goto_new_supplier':
