@@ -5,24 +5,42 @@
     <input type="hidden" name="op" value="insert">
         <div class="flex-container">
             <div>
-                <input id="created_by" type="text" name="created_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
-                <input id="updated_by" type="text" name="updated_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
-                <div><label for="name" class="medium-label">Nome: </label><input id="name" type="text" size="50" name="name"></div><br>
+                <input id="created_by" type="hidden" name="created_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
+                <input id="updated_by" type="hidden" name="updated_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
+                <label for="name" class="medium-label">Nome: </label><input id="name" type="text" size="50" name="name"><br>
                 <label for="login" class="medium-label">Login: </label><input id="login" type="text" size="20" name="login"><br>
-                <input id="pass" type="text" name="pass" value="<?php if(!isset($_SESSION['username'])) {session_start();} $user=$_SESSION['username']; echo $user[0]."1234";?>">
-                <label for="qwe" class="medium-label">QWE: </label>
-                <select id="qwe" name="qwe">
-                    <option value="abc">ABC</option>
-                    <option value="zxc">ZXC</option>
-                    <option value="wer">WER</option>
-                </select><br><br>
+                <label for="pwd" class="medium-label">Senha: </label><input id="pwd" type="password" name="pwd"><br>
+                <label for="type" class="medium-label">Tipo: </label>
+                <select id="type" name="type">
+                    <option value="" selected>Selecione uma opção</option>
+                    <option value="fun">Funcionario</option>
+                    <option value="for">Fornecedor</option>
+                    <option value="fre">Freelancer</option>
+                </select><br>
+                <label for="role" class="medium-label">Cargo: </label>
+                <select id="role" name="role">
+                    <option value="" selected>Selecione uma opção</option>
+                    <option value="ban">Banhista</option>
+                    <option value="tos">Tosador</option>
+                    <option value="rec">Recepcao</option>
+                    <option value="pro">Proprietario</option>
+                </select><br>
+                <label for="status" class="medium-label">Status: </label>
+                <select id="status" name="status">
+                    <option value="" selected>Selecione uma opção</option>
+                    <option value="act">Ativo</option>
+                    <option value="ina">Inativo</option>
+                </select><br>
             </div>
             <div>
-                <label for="type" class="medium-label">Tipo: </label><input id="type" type="text" size="20" name="type"><br><br>
-                <label for="klm" class="medium-label">KLM: </label><input id="klm" type="text" size="20" name="klm"><br><br>
+                <label for="cnpj" class="medium-label">CNPJ: </label><input id="cnpj" type="text" size="20" name="cnpj"><br>
+                <label for="cpf" class="medium-label">CPF: </label><input id="cpf" type="text" size="20" name="cpf"><br>
+                <label for="seq" class="medium-label">Sequencia: </label><input id="seq" type="text" size="10" name="seq"><br>
+                <label for="start_date" class="medium-label">Data Inicio: </label><input id="start_date" type="date" size="20" name="start_date"><br>
+                <label for="comment" class="medium-label">Comentarios: </label><input id="comment" type="text" size="50" name="comment"><br>
             </div>
             <div>
             </div>
         </div>
-        <div><input id="button" type="submit" value="Criar"><br><br></div>
+        <div align="right"><input id="button" type="submit" value="Criar"><br><br></div>
     </form>
