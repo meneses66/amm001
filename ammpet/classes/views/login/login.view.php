@@ -14,11 +14,11 @@
 			<input type="hidden" name="op" value="signin">			
 			
 			<div style="font-size: 20px;font-family: sans-serif;margin: 10px;color: white;">Login:</div>
-			<label for="login" class="medium-label">Login: </label>
+			<label for="login" class="large-label">Login: </label>
 			<input id="login" type="text" name="login"><br><br>
 
 			<div style="font-size: 20px;font-family: sans-serif;margin: 10px;color: white;">Password:</div>
-			<label for="pwd" class="medium-label">Senha: </label>
+			<label for="pwd" class="large-label">Senha: </label>
 			<input id="pwd" type="password" name="pwd"><br><br><br>
 
 			<input id="button" type="submit" value="Submit"><br><br>
