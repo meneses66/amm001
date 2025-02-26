@@ -36,7 +36,10 @@ class Supplier {
             //Define inputs for DB operations:
                 
                 foreach ($_POST as $key => $value) {
-                    echo $key.": ".$value;
+                    echo $key.": ".$value."<br>";
+                    $inputs[$key]=$value;
+                    $init->__construnct($inputs);
+                    echo $init."<br>";
                 }
 
         }
