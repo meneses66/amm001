@@ -39,7 +39,7 @@ class Supplier {
                     echo $key.": ".$value."<br>";
                     $inputs[$key]=$value;
                     $init->__construct($inputs);
-                    echo $init."<br>";
+                    echo var_dump($init)."<br>";
                 }
 
         }
