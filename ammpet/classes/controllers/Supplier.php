@@ -34,9 +34,10 @@ class Supplier {
             $init = new \Model\Supplier;
 
             //Define inputs for DB operations:
-            
-            $inputs[]="";
-            
+                
+                foreach ($_POST as $key => $value) {
+                    echo $key.": ".$value;
+                }
 
         }
         
