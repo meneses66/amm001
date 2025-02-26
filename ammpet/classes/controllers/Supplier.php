@@ -38,7 +38,7 @@ class Supplier {
                 foreach ($_POST as $key => $value) {
                     echo $key.": ".$value."<br>";
                     $inputs[$key]=$value;
-                    $init->__construnct($inputs);
+                    $init->__construct($inputs);
                     echo $init."<br>";
                 }
 

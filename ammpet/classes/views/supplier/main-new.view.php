@@ -5,8 +5,11 @@
     <input type="hidden" name="op" value="insert">
         <div class="flex-container">
             <div>
+                <input id="id" type="hidden" name="Id" value=""><br>
                 <input id="created_by" type="hidden" name="Created_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
                 <input id="updated_by" type="hidden" name="Updated_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
+                <input id="created" type="hidden" name="Created" value=""><br>
+                <input id="updated" type="hidden" name="Updated" value=""><br>
                 <label for="name" class="medium-label">Nome: </label><input id="name" type="text" size="50" name="Name"><br>
                 <label for="login" class="medium-label">Login: </label><input id="login" type="text" size="20" name="Login"><br>
                 <label for="pass" class="medium-label">Senha: </label><input id="pass" type="password" name="Pass"><br>
