@@ -41,6 +41,10 @@ class Supplier {
                 //$supplier->__construct($inputs);    
             }
 
+            //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
+            unset($inputs["op"]);
+            unset($inputs["Id"]);
+
             try {
                 $supplier->insert($inputs);
                 $this->view('supplier/supplier-list');
