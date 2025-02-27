@@ -16,23 +16,23 @@
                 <label for="type" class="medium-label">Tipo: </label>
                 <select class="medium-label" id="type" name="Type">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
-                    <option class="medium-label" value="fun">Funcionario</option>
-                    <option class="medium-label" value="for">Fornecedor</option>
-                    <option class="medium-label" value="fre">Freelancer</option>
+                    <option class="medium-label" value="Funcionario">Funcionario</option>
+                    <option class="medium-label" value="Fornecedor">Fornecedor</option>
+                    <option class="medium-label" value="Freelancer">Freelancer</option>
                 </select><br>
                 <label for="Role" class="medium-label">Cargo: </label>
                 <select class="medium-label" id="role" name="Role">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
-                    <option class="medium-label" value="ban">Banhista</option>
-                    <option class="medium-label" value="tos">Tosador</option>
-                    <option class="medium-label" value="rec">Recepcao</option>
-                    <option class="medium-label" value="pro">Proprietario</option>
+                    <option class="medium-label" value="Banhista">Banhista</option>
+                    <option class="medium-label" value="Tosador">Tosador</option>
+                    <option class="medium-label" value="Recepcao">Recepcao</option>
+                    <option class="medium-label" value="Proprietario">Proprietario</option>
                 </select><br>
                 <label for="Status" class="medium-label">Status: </label>
                 <select class="medium-label" id="status" name="Status">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
-                    <option class="medium-label" value="act">Ativo</option>
-                    <option class="medium-label" value="ina">Inativo</option>
+                    <option class="medium-label" value="Ativo">Ativo</option>
+                    <option class="medium-label" value="Inativo">Inativo</option>
                 </select><br>
             </div>
             <div>

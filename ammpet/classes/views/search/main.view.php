@@ -5,13 +5,13 @@
     <table style="width:100%">
         <tr>
             <td>
-                <form method="post" action="../public/Client">
+                <form method="post" action="../Client">
                     <input type="hidden" name="op" value="goto_list_customer">
                     <input id="button_main" type="submit" value="Clientes">
                 </form><br>
             </td>
             <td>
-                <form method="post" action="../public/Supplier">
+                <form method="post" action="../Supplier/listSupplier">
                     <input type="hidden" name="op" value="goto_list_supplier">
                     <input id="button_main" type="submit" value="Fornecedores">
                 </form><br>
@@ -19,13 +19,13 @@
         </tr>
         <tr>
             <td>
-                <form method="post" action="../public/ProdServ">
+                <form method="post" action="../ProdServ">
                     <input type="hidden" name="op" value="goto_list_prod">
                     <input id="button_main" type="submit" value="Produtos">
                 </form><br>
             </td>
             <td>
-                <form method="post" action="../public/ProdServ">
+                <form method="post" action="../ProdServ">
                     <input type="hidden" name="op" value="goto_list_serv">
                     <input id="button_main" type="submit" value="Serviços">
                 </form><br>
@@ -33,7 +33,7 @@
         </tr>
         <tr>
             <td>
-                <form method="post" action="../public/Breed">
+                <form method="post" action="../Breed">
                     <input type="hidden" name="op" value="goto_list_breed">
                     <input id="button_main" type="submit" value="Raças">
                 </form><br>

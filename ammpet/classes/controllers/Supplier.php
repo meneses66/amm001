@@ -26,6 +26,19 @@ class Supplier {
         }
     }
 
+    //Go to List View
+    public function listSupplier(){
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $operation = $_POST['op'];
+            
+            $this->goto_view($operation);
+
+        }
+
+    }
+
     //Inserts new Supplier into DB
     public function insert(){
 
@@ -36,7 +49,7 @@ class Supplier {
             //Define inputs for DB operations:
                 
             foreach ($_POST as $key => $value) {
-                echo $key.": ".$value."<br>";
+                //echo $key.": ".$value."<br>";
                 $inputs[$key]=$value;
                 //$supplier->__construct($inputs);    
             }
