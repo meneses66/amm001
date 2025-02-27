@@ -43,6 +43,7 @@ class Supplier {
 
             try {
                 $supplier->insert($inputs);
+                $this->view('supplier/supplier-list');
             } catch (\Throwable $th) {
                 throw $th;
             }
