@@ -31,19 +31,21 @@ class Supplier {
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Login instance:
-            $init = new \Model\Supplier;
+            $supplier = new \Model\Supplier;
 
             //Define inputs for DB operations:
                 
-                foreach ($_POST as $key => $value) {
-                    echo $key.": ".$value."<br>";
-                    $inputs[$key]=$value;
-                    $init->__construct($inputs);
-                    
-                }
+            foreach ($_POST as $key => $value) {
+                echo $key.": ".$value."<br>";
+                $inputs[$key]=$value;
+                //$supplier->__construct($inputs);    
+            }
 
-                echo var_dump($init)."<br>";
-
+            try {
+                $supplier->insert($inputs);
+            } catch (\Throwable $th) {
+                throw $th;
+            }
         }
         
     }

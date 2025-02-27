@@ -14,10 +14,10 @@
 			<input type="hidden" name="op" value="signin">			
 			
 			<div style="font-size: 20px;font-family: sans-serif;margin: 10px;color: white;">Login:</div>
-			<input id="login" type="text" name="login"><br><br>
+			<input id="login" type="text" name="login" value="JALVES"><br><br>
 
 			<div style="font-size: 20px;font-family: sans-serif;margin: 10px;color: white;">Password:</div>
-			<input id="pass" type="password" name="pass"><br><br><br>
+			<input id="pass" type="password" name="pass" value="J123456"><br><br><br>
 
 			<input id="button" type="submit" value="Submit"><br><br>
 
