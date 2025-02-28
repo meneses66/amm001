@@ -2,7 +2,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <div class="container-fluid">
-    <div>Home</div>
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>Home</h4>
+        </div>
+    </div>
     <hr class="my-1">
     <br><br><br><br>
     <div class="row">
