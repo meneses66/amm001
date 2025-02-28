@@ -6,6 +6,7 @@
 <br><br><br><br>
     <table style="width:100%">
         <tr>
+            <td></td>
             <td>
                 <a href="<?php echo ROOT."/Client/new_client";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Cliente</a>
             </td>
@@ -14,6 +15,7 @@
             </td>
         </tr>
         <tr>
+            <td></td>
             <td>
                 <a href="<?php echo ROOT."/ProdServ/new_product";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Produto</a>
             </td>
@@ -22,6 +24,7 @@
             </td>
         </tr>
         <tr>
+            <td></td>
             <td>
                 <a href="<?php echo ROOT."/Breed/new_breed";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Nova Raça</a>
             </td>
