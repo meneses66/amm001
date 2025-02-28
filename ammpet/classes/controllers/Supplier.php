@@ -41,6 +41,19 @@ class Supplier {
 
     }
 
+        //Go to List View
+        public function updateSupplier(){
+            $operation = 'goto_update_supplier';
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+                $operation = $_POST['op'];
+    
+            }
+    
+            $this->goto_view($operation);
+    
+        }
+
     //Inserts new Supplier into DB
     public function insert(){
 
