@@ -17,25 +17,27 @@ class Supplier {
 
     //Sends to page to create new Supplier
     public function new_supplier(){
+
+        $operation = 'goto_new_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $operation = $_POST['op'];
-            
-            $this->goto_view($operation);
 
         }
+
+        $this->goto_view($operation);
     }
 
     //Go to List View
     public function listSupplier(){
-
+        $operation = 'goto_list_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $operation = $_POST['op'];
-            
-            $this->goto_view($operation);
 
         }
+
+        $this->goto_view($operation);
 
     }
 
