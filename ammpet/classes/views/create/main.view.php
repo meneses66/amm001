@@ -5,7 +5,7 @@
 <div>Cadastros</div>
 <br><br><br><br>
     <div class="row">
-        <div class="col-sm-3"><a href="<?php echo ROOT."/Client/new_client";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Cliente</a></div>
+        <div class="col-sm-3"><a href="<?php echo ROOT."/Client/new_client";?>" class="btn btn-primary btn-lg m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Cliente</a></div>
         <div class="col-sm-3"><a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a></div>
         <div class="col-sm-3"></div>
     </div>
