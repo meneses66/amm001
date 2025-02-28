@@ -7,10 +7,7 @@
     <table style="width:100%">
         <tr>
             <td>
-                <form method="post" action="../Client">
-                    <input type="hidden" name="op" value="goto_new_customer">
-                    <input id="button_main" type="submit" value="Novo Cliente">
-                </form><br>
+                <a href="<?php echo ROOT."/Client/new_client";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Novo Cliente</a>
             </td>
             <td>
                 <a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a>
@@ -19,25 +16,16 @@
         </tr>
         <tr>
             <td>
-                <form method="post" action="../ProdServ">
-                    <input type="hidden" name="op" value="goto_new_prod">
-                    <input id="button_main" type="submit" value="Novo Produto">
-                </form><br>
+                <a href="<?php echo ROOT."/ProdServ/new_product";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Novo Produto</a>
             </td>
             <td>
-                <form method="post" action="../ProdServ">
-                    <input type="hidden" name="op" value="goto_new_serv">
-                    <input id="button_main" type="submit" value="Novo Serviço">
-                </form><br>
+                <a href="<?php echo ROOT."/ProdServ/new_service";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Novo Serviço</a>
             </td>
             <td>></td>
         </tr>
         <tr>
             <td>
-                <form method="post" action="../Breed">
-                    <input type="hidden" name="op" value="goto_new_breed">
-                    <input id="button_main" type="submit" value="Nova Raça">
-                </form><br>
+                <a href="<?php echo ROOT."/Breed/new_breed";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Nova Raça</a>
             </td>
             <td>></td>
         </tr>
