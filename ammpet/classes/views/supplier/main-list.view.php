@@ -5,15 +5,39 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-            <h3>Lista Fornecedores</h3>
+            <h4>Lista Fornecedores</h4>
         </div>
         <div class="col-lg-6">
             <button type="button" class="btn btn-primary m-1 float-right"><i class="fasfas fa-upload"></i>&nbsp;Novo Registro</button>
             <a href="#" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Export</a>
         </div>
-        <div class="col-lg-6">
-            <h3>Lista Fornecedores</h3>
+        <hr class="my-1">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive" id="listSupplier">
+                <table class="table Table-stripped table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Login</th>
+                            <th>Cargo</th>
+                            <th>Tipo</th>
+                            <th>Status</th>
+                            <th>CNPJ</th>
+                            <th>CPF</th>
+                            <th>CNPJ</th>
+                            <th>Sequência</th>
+                            <th>Data Início</th>
+                            <th>Comentários</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                </table>
+            </div>
         </div>
+    </div>
         
     </div>
 </div>
