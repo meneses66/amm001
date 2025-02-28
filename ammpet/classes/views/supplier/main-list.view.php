@@ -8,6 +8,10 @@
             <h4>Lista Fornecedores</h4>
         </div>
         <div class="col-lg-6">
+                <form method="post" action="../Supplier/new_supplier">
+                    <input type="hidden" name="op" value="goto_new_supplier">
+                    <input id="button_main" type="submit" value="Novo Fornecedor">
+                </form><br>
             <button type="button" class="btn btn-primary m-1 float-right"><i class="fasfas fa-upload"></i>&nbsp;Novo Registro</button>
             <a href="#" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Export</a>
         </div>
@@ -17,7 +21,7 @@
             <div class="table-responsive" id="listSupplier">
                 <table class="table Table-stripped table-sm table-bordered">
                     <thead>
-                        <tr class="text-center" font-size="8px">
+                        <tr class="text-center text-secondary">
                             <th>Id</th>
                             <th>Nome</th>
                             <th>Login</th>
