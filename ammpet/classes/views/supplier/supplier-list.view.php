@@ -2,10 +2,6 @@
 <html lang="en">
     <head>
     <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
-
-    <!-- Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
     </head>
     <body>
         <div class="d-flex" id="wrapper">
@@ -24,6 +20,9 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         
+        <!-- Icons -->
+        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
         <!-- Core theme JS-->
         <script src="../public/assets/js/scripts.js"></script>
 
