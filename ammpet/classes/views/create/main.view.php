@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/styles.css">
+<!-- <link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/styles.css"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <div class="container-fluid">
 <div>Cadastros</div>
 <br><br><br><br>
@@ -11,10 +13,7 @@
                 </form><br>
             </td>
             <td>
-                <form method="post" action="../Supplier/new_supplier">
-                    <input type="hidden" name="op" value="goto_new_supplier">
-                    <input id="button_main" type="submit" value="Novo Fornecedor">
-                </form><br>
+                <a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a>
             </td>
         </tr>
         <tr>
