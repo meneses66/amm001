@@ -17,7 +17,7 @@
             <div class="table-responsive" id="listSupplier">
                 <table class="table Table-stripped table-sm table-bordered">
                     <thead>
-                        <tr>
+                        <tr class="text-center" font-size="8px">
                             <th>Id</th>
                             <th>Nome</th>
                             <th>Login</th>
