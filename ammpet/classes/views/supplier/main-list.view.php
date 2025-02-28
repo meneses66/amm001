@@ -10,7 +10,7 @@
         <div class="col-lg-6">
                 <form method="post" action="../Supplier/new_supplier">
                     <input type="hidden" name="op" value="goto_new_supplier">
-                    <input id="button_main" type="submit" value="Novo Fornecedor">
+                    <input id="button_main" class="btn btn-primary m-1 float-right" type="submit" value="Novo Fornecedor">
                 </form><br>
             <button type="button" class="btn btn-primary m-1 float-right"><i class="fasfas fa-upload"></i>&nbsp;Novo Registro</button>
             <a href="#" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Export</a>
@@ -37,6 +37,25 @@
                             <th>Ações</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr class="text-center text-secondary">
+                            <td>1</td>
+                            <td>Supplier 1</td>
+                            <td>S01</td>
+                            <td>Recepcao</td>
+                            <td>Funcionario</td>
+                            <td>Ativo</td>
+                            <td></td>
+                            <td></td>
+                            <td>60</td>
+                            <td>24/02/2025</td>
+                            <td>Teste 00001</td>
+                            <td>
+                                <a href="#" title="Alterar" class="text-success"><i class="fas fa-edit"></i></a>
+                                <a href="#" title="Deletar" class="text-danger"><i class="fas fa-eraser"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
 
                 </table>
             </div>
@@ -46,22 +65,3 @@
     </div>
 </div>
 <br>
-
-
-<!-- jQuery library -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-<!-- Datatable.net -->
-<script src="https://cdn.datatables.net/v/bs4/dt-2.2.2/datatables.min.js" integrity="sha384-uAn6fsp1rIJ6afAYV0S5it5ao101zH2fViB74y5tPG8LR2FTMg+HXIWRNxvZrniN" crossorigin="anonymous"></script>
-
-<!-- Sweet Alert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
