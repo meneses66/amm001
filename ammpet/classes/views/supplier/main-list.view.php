@@ -10,7 +10,7 @@
         </div>
         <div class="col-lg-6">
             <a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a>
-            <a href="#" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Export</a>
+            <a href="#" class="btn btn-primary m-1 float-right"><i class="fas fa-table"></i>&nbsp;Export</a>
         </div>
         <hr class="my-1">
     <div class="row">
