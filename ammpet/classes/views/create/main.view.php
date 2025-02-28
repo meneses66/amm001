@@ -15,6 +15,7 @@
             <td>
                 <a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a>
             </td>
+            <td>></td>
         </tr>
         <tr>
             <td>
@@ -29,6 +30,7 @@
                     <input id="button_main" type="submit" value="Novo Serviço">
                 </form><br>
             </td>
+            <td>></td>
         </tr>
         <tr>
             <td>
@@ -37,7 +39,7 @@
                     <input id="button_main" type="submit" value="Nova Raça">
                 </form><br>
             </td>
-            
+            <td>></td>
         </tr>
     </table>           
 </div>
