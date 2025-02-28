@@ -50,8 +50,8 @@
                             <td>24/02/2025</td>
                             <td>Teste 00001</td>
                             <td>
-                                <a href="#" title="Alterar" class="text-success"><i class="fas fa-edit"></i></a>
-                                <a href="#" title="Deletar" class="text-danger"><i class="fas fa-eraser"></i></a>
+                                <a href="<?php echo ROOT."/Supplier/new_supplier";?>" title="Edit" class="text-primary"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
+                                <a href="<?php echo ROOT."/Supplier/delete_supplier";?>" title="Delete" class="text-danger"><i class="fas fa-eraser"></i>D</a>
                             </td>
                         </tr>
                     </tbody>

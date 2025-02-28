@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <?php include ROOTPATH_CLASSES . "../views/head.view.php";?> 
+    <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
     </head>
     <body>
         <div class="d-flex" id="wrapper">
@@ -28,9 +32,6 @@
 
         <!-- Popper JS -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-
-        <!-- Icons -->
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
         <!-- Datatable.net -->
         <script src="https://cdn.datatables.net/v/bs4/dt-2.2.2/datatables.min.js" integrity="sha384-uAn6fsp1rIJ6afAYV0S5it5ao101zH2fViB74y5tPG8LR2FTMg+HXIWRNxvZrniN" crossorigin="anonymous"></script>
