@@ -24,7 +24,7 @@
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
         <!-- Core theme JS-->
-        <script src="../public/assets/js/scripts.js"></script>
+        <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
 
         <!-- jQuery library -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
