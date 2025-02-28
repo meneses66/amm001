@@ -6,27 +6,24 @@
 <br><br><br><br>
     <table style="width:100%">
         <tr>
-            <td></td>
             <td>
-                <a href="<?php echo ROOT."/Client/new_client";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Cliente</a>
+                <a href="<?php echo ROOT."/Client/new_client";?>" class="btn btn-success m-1 float-center"><i class="fas fa-upload"></i>&nbsp;Novo Cliente</a>
             </td>
             <td>
                 <a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a>
             </td>
         </tr>
         <tr>
-            <td></td>
             <td>
-                <a href="<?php echo ROOT."/ProdServ/new_product";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Produto</a>
+                <a href="<?php echo ROOT."/ProdServ/new_product";?>" class="btn btn-success m-1 float-center"><i class="fas fa-upload"></i>&nbsp;Novo Produto</a>
             </td>
             <td>
                 <a href="<?php echo ROOT."/ProdServ/new_service";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Serviço</a>
             </td>
         </tr>
         <tr>
-            <td></td>
             <td>
-                <a href="<?php echo ROOT."/Breed/new_breed";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Nova Raça</a>
+                <a href="<?php echo ROOT."/Breed/new_breed";?>" class="btn btn-success m-1 float-center"><i class="fas fa-upload"></i>&nbsp;Nova Raça</a>
             </td>
         </tr>
     </table>           
