@@ -30,7 +30,6 @@
                             <th>Status</th>
                             <th>CNPJ</th>
                             <th>CPF</th>
-                            <th>CNPJ</th>
                             <th>Sequência</th>
                             <th>Data Início</th>
                             <th>Comentários</th>
