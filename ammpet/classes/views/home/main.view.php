@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-sm-3"><a href="<?php echo ROOT."/Client/list_client";?>" class="btn btn-primary m-1 btn-lg btn-block "><i class="fas fa-upload"></i>&nbsp;Clientes</a></div>
         <div class="col-sm-3"><a href="<?php echo ROOT."/OrderX/list_orderx";?>" class="btn btn-primary btn-lg m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Vendas</a></div>
-        <div class="col-sm-3">.col-sm-3</div>
+        <div class="col-sm-3"><button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button></div>
     </div>
     <div class="row">
         <div class="col-sm-3"><a href="<?php echo ROOT."/Agenda/week_view";?>" class="btn btn-primary btn-lg m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Agenda</a></div>
