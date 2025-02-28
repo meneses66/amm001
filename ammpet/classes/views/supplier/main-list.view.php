@@ -1,8 +1,7 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://cdn.datatables.net/v/bs4/dt-2.2.2/datatables.min.css" rel="stylesheet" integrity="sha384-fTqd416qRc9kwY299KdgUPsjOvS5bwkeE6jlibx2m7eL3xKheqGyU48QCFgZAyN4" crossorigin="anonymous">
-<!-- Icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <div class="container">
     <div class="row">
@@ -10,11 +9,7 @@
             <h4>Lista Fornecedores</h4>
         </div>
         <div class="col-lg-6">
-                <form method="post" action="../Supplier/new_supplier">
-                    <input type="hidden" name="op" value="goto_new_supplier">
-                    <input id="button_main" class="btn btn-primary m-1 float-right" type="submit" value="Novo Fornecedor">
-                </form><br>
-            <button type="button" class="btn btn-primary m-1 float-right"><i class="fasfas fa-upload"></i>&nbsp;Novo Registro</button>
+            <a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a>
             <a href="#" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Export</a>
         </div>
         <hr class="my-1">
@@ -52,7 +47,7 @@
                             <td>24/02/2025</td>
                             <td>Teste 00001</td>
                             <td>
-                                <a href="<?php echo ROOT."/Supplier/new_supplier";?>" title="Edit" class="text-primary"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
+                                <a href="<?php echo ROOT."/Supplier/update_supplier";?>" title="Edit" class="text-primary"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
                                 <a href="<?php echo ROOT."/Supplier/delete_supplier";?>" title="Delete" class="text-danger"><i class="fas fa-eraser"></i>D</a>
                             </td>
                         </tr>
