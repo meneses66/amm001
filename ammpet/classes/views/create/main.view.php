@@ -6,16 +6,16 @@
 <br><br><br><br>
     <div class="row">
         <div class="col-sm-3"><a href="<?php echo ROOT."/Client/new_client";?>" class="btn btn-primary btn-lg m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Cliente</a></div>
-        <div class="col-sm-3"><a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a></div>
+        <div class="col-sm-3"><a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-primary btn-lg m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a></div>
         <div class="col-sm-3"></div>
     </div>
     <div class="row">
-        <div class="col-sm-3"><a href="<?php echo ROOT."/ProdServ/new_product";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Produto</a></div>
-        <div class="col-sm-3"><a href="<?php echo ROOT."/ProdServ/new_service";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Serviço</a></div>
+        <div class="col-sm-3"><a href="<?php echo ROOT."/ProdServ/new_product";?>" class="btn btn-primary btn-lg m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Produto</a></div>
+        <div class="col-sm-3"><a href="<?php echo ROOT."/ProdServ/new_service";?>" class="btn btn-primary btn-lg m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Novo Serviço</a></div>
         <div class="col-sm-3"></div>
     </div>
     <div class="row">
-        <div class="col-sm-3"><a href="<?php echo ROOT."/Breed/new_breed";?>" class="btn btn-success m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Nova Raça</a></div>
+        <div class="col-sm-3"><a href="<?php echo ROOT."/Breed/new_breed";?>" class="btn btn-primary btn-lg m-1 float-left"><i class="fas fa-upload"></i>&nbsp;Nova Raça</a></div>
         <div class="col-sm-3"></div>
         <div class="col-sm-3"></div>
     </div>
