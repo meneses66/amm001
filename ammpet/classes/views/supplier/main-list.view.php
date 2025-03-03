@@ -7,8 +7,6 @@
     <div class="row">
         <div class="col-lg-6">
             <h4>Lista Fornecedores</h4>
-            <?php echo removeFromEnd(ROOT, "public")."classes/core/ajax_call.php"; ?>
-            <?php echo ROOTPATH_CLASSES."ajax_call.php";?>
         </div>
         <div class="col-lg-6">
             <a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Fornecedor</a>
