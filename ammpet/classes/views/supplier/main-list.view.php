@@ -19,7 +19,7 @@
                 <?php
                     $var_controller = "Supplier";
                     $controller = new ('\Controller\\'.$var_controller); 
-                    call_user_func_array([$controller,$controller->list_rows()],null);
+                    call_user_func_array([$controller,$controller->list_rows()],[]);
                  ?>
             </div>
         </div>
