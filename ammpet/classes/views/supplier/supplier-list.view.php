@@ -37,5 +37,13 @@
 
         <!-- Sweet Alert -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Table Pagination -->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("table").DataTable();
+            });
+        </script>
+
     </body>
 </html>
