@@ -124,8 +124,8 @@ class Supplier {
                                 <td>'.$row->HIRE_DATE.'</td>
                                 <td>'.$row->COMMENT.'</td>
                                 <td>
-                                    <a href="<?php echo ROOT."/Supplier/update_supplier";?>" title="Edit" class="text-primary"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
-                                    <a href="<?php echo ROOT."/Supplier/delete_supplier";?>" title="Delete" class="text-danger"><i class="fas fa-eraser"></i>D</a>
+                                    <a href="'.ROOT."/Supplier/update_supplier".'" title="Edit" class="text-primary"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/Supplier/delete_supplier".'" title="Delete" class="text-danger"><i class="fas fa-eraser"></i>D</a>
                                 </td></tr>';
                 }
                 $output .= '</tbody></table>';
