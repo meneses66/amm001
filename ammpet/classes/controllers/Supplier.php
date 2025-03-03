@@ -113,16 +113,16 @@ class Supplier {
                 foreach ($data as $row) {
                     $output .='<tr class="text-center text-secondary">
                                 <td>'.$row->ID.'</td>
-                                <td>'.$row->name.'</td>
-                                <td>'.$row->login.'</td>
-                                <td>'.$row->role.'</td>
-                                <td>'.$row->type.'</td>
-                                <td>'.$row->status.'</td>
-                                <td>'.$row->cnpj.'</td>
-                                <td>'.$row->cpf.'</td>
-                                <td>'.$row->sequence.'</td>
-                                <td>'.$row->hire_date.'</td>
-                                <td>'.$row->comments.'</td>
+                                <td>'.$row->NAME.'</td>
+                                <td>'.$row->LOGIN.'</td>
+                                <td>'.$row->ROLE.'</td>
+                                <td>'.$row->TYPE.'</td>
+                                <td>'.$row->STATUS.'</td>
+                                <td>'.$row->CNPJ.'</td>
+                                <td>'.$row->CPF.'</td>
+                                <td>'.$row->SEQUENCE.'</td>
+                                <td>'.$row->HIRE_DATE.'</td>
+                                <td>'.$row->COMMENTS.'</td>
                                 <td>
                                     <a href="<?php echo ROOT."/Supplier/update_supplier";?>" title="Edit" class="text-primary"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
                                     <a href="<?php echo ROOT."/Supplier/delete_supplier";?>" title="Delete" class="text-danger"><i class="fas fa-eraser"></i>D</a>
