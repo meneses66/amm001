@@ -1,5 +1,6 @@
 <?php
     //require_once 'siteController.php';
+    echo "Enter in ajax_call";
     if(isset($_POST['class']))
     {
         $function = $_POST['function'];
