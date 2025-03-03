@@ -46,7 +46,7 @@
 
             function list_Rows(){
                 $.ajax({
-                    url: "core/ajax_call.php",
+                    url: "core/ajax_call",
                     type: "POST",
                     data: {operation:"view", class:"Supplier", function:"list_rows"},
                     success: function(response){
