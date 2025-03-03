@@ -23,6 +23,9 @@
         
     </div>
 
+</div>
+<br>
+
     <!-- Table Pagination -->
     <script type="text/javascript">
             $(document).ready(function(){
@@ -44,6 +47,3 @@
 
             });
         </script>
-
-</div>
-<br>
