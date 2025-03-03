@@ -42,7 +42,7 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 
-            listAll();
+            list_Rows();
 
             function list_Rows(){
                 $.ajax({
