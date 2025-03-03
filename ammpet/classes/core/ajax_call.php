@@ -1,6 +1,7 @@
 <?php
     //require_once 'siteController.php';
     //var_dump($_GET);
+    var_dump($_POST);
     //echo $_SERVER['REQUEST_METHOD'];
     if(isset($_POST['class']))
     {
