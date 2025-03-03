@@ -16,7 +16,11 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="listSupplier">
-                <?php call_user_func_array(["Supplier","list_rows"],null); ?>
+                <?php
+                    $var_controller = "Supplier";
+                    $controller = new ('\Controller\\'.$var_controller); 
+                    call_user_func_array([$controller,$controller->list_rows()],null);
+                 ?>
             </div>
         </div>
     </div>
