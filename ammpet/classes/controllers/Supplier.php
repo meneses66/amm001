@@ -86,7 +86,7 @@ class Supplier {
         
     }
 
-    public function list_rows($inputs=null){
+    public function list_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
             $supplier = new \Model\Supplier;
