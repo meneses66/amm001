@@ -73,7 +73,7 @@
 
             function list_Rows(){
                 $.ajax({
-                    url: "<?php echo ROOTPATH_CLASSES."ajax_call.php";?>",
+                    url: "ajax_call.php",
                     type: "POST",
                     data: {operation:'view', class: 'Supplier', function:'list_rows'},
                     success: function(response){
