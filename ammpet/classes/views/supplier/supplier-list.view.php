@@ -38,14 +38,14 @@
         <!-- Sweet Alert -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        <!-- Table Pagination -->
+        <!-- Table Pagination and Ajax Call-->
         <script type="text/javascript">
             $(document).ready(function(){
                 
             list_Rows();
 
             function list_Rows(){
-                $.ajax({
+                $.post({
                     url: "core/ajax_call.php",
                     type: "POST",
                     data: {operation:"view", class:"Supplier", function:"list_rows"},
