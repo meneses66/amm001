@@ -89,7 +89,8 @@ class Supplier {
     public function list_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
-            $data = $this->listAll();
+            $supplier = new \Model\Supplier;
+            $data = $supplier->listAll();
             if($this->countAll()>0){
                 $output .='<table class="table Table-stripped table-sm table-bordered">
                     <thead>
