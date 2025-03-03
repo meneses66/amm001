@@ -29,7 +29,7 @@ class Supplier {
     }
 
     //Go to List View
-    public function listSupplier(){
+    public function list_supplier(){
         $operation = 'goto_list_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -42,7 +42,7 @@ class Supplier {
     }
 
         //Go to List View
-        public function updateSupplier(){
+        public function update_supplier(){
             $operation = 'goto_update_supplier';
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
