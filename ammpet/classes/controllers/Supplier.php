@@ -87,7 +87,7 @@ class Supplier {
     }
 
     public function list_rows(){
-        if(isset($_POST['operation']) && $_POST['operation']==="view"){
+        //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
             $data = $this->listAll();
             if($this->countAll()>0){
@@ -133,7 +133,7 @@ class Supplier {
             else{
                 echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
             }
-        }
+        //}
     }
 
     //Defines view to go to
