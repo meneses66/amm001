@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="listSupplier">
-                <?php call_user_func_array(["Supplier","list_rows"]); ?>
+                <?php call_user_func_array(["Supplier","list_rows"],null); ?>
             </div>
         </div>
     </div>
