@@ -46,7 +46,7 @@
 
             function list_Rows(){
                 $.ajax({
-                    url:"ajax_call.php",
+                    url:<?php echo removeFromEnd(ROOT, "public")."classes/core/ajax_call.php"; ?>,
                     type: "POST",
                     data: {operation:'view', class: 'Supplier', function:'list_rows'},
                     success: function(response){
