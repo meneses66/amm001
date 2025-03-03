@@ -9,7 +9,7 @@
             <h4>Lista Fornecedores</h4>
         </div>
         <div class="col-lg-6">
-            <a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-right"><i class="fas fa-upload"></i>&nbsp;Novo Fornecedor</a>
+            <a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Fornecedor</a>
             <a href="#" class="btn btn-primary m-1 float-right"><i class="fas fa-table"></i>&nbsp;Export</a>
         </div>
         <hr class="my-1">
@@ -34,23 +34,25 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php for($i=1; $i<=50; $i++): ?>
                         <tr class="text-center text-secondary">
-                            <td>1</td>
-                            <td>Supplier 1</td>
-                            <td>S01</td>
+                            <td><?= $i ?></td>
+                            <td>Supplier <?= $i ?></td>
+                            <td>S0<?= $i ?></td>
                             <td>Recepcao</td>
                             <td>Funcionario</td>
                             <td>Ativo</td>
                             <td></td>
                             <td></td>
-                            <td>60</td>
+                            <td><?= $i ?></td>
                             <td>24/02/2025</td>
-                            <td>Teste 00001</td>
+                            <td>Teste 0000<?= $i ?></td>
                             <td>
                                 <a href="<?php echo ROOT."/Supplier/update_supplier";?>" title="Edit" class="text-primary"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
                                 <a href="<?php echo ROOT."/Supplier/delete_supplier";?>" title="Delete" class="text-danger"><i class="fas fa-eraser"></i>D</a>
                             </td>
                         </tr>
+                        <?php endfor;?>
                     </tbody>
 
                 </table>
