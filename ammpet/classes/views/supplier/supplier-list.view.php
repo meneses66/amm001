@@ -75,7 +75,7 @@
                 $.ajax({
                     url: "ajax_call.php",
                     type: "POST",
-                    data: {operation:'view', class: 'Supplier', function:'list_rows'},
+                    data: {operation:"view", class:"Supplier", function:"list_rows"},
                     success: function(response){
                         //console.log(response);
                         $("#listSupplier").html(response);
