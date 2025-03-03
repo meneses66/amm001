@@ -22,5 +22,28 @@
     </div>
         
     </div>
+
+    <!-- Table Pagination -->
+    <script type="text/javascript">
+            $(document).ready(function(){
+                
+            list_Rows();
+
+            function list_Rows(){
+                $.ajax({
+                    url: "core/ajax_call.php",
+                    type: "POST",
+                    data: {operation:"view", class:"Supplier", function:"list_rows"},
+                    success: function(response){
+                        //console.log(response);
+                        $("#listSupplier").html(response);
+                        $("table").DataTable();
+                    }
+                });
+            }
+
+            });
+        </script>
+
 </div>
 <br>
