@@ -91,7 +91,7 @@ class Supplier {
             $output = "";
             $supplier = new \Model\Supplier;
             $data = $supplier->listAll();
-            if($this->countAll()>0){
+            if($supplier->countAll()>0){
                 $output .='<table class="table Table-stripped table-sm table-bordered">
                     <thead>
                         <tr class="text-center text-secondary">
