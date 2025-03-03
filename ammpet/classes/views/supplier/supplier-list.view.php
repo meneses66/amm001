@@ -46,9 +46,9 @@
 
             function list_Rows(){
                 $.ajax({
-                    url:"<?php echo ROOT."/Supplier/list_Rows";?>",
+                    url:"<?php echo ROOTPATH_CLASSES."/core/ajax_call";?>",
                     type: "POST",
-                    data: {operation:"view"},
+                    data: {operation:"view", class: 'Supplier',function:'list_rows'},
                     success: function(response){
                         //console.log(response);
                         $("#listSupplier").html(response);
