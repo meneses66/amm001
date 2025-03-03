@@ -1,44 +1,24 @@
-<link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/styles.css">
+<!-- <link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/styles.css"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <div class="container-fluid">
-<div>Relatórios</div>
-<br><br><br><br>
-    <table style="width:100%">
-        <tr>
-            <td>
-                <form method="post" action="../public/Client">
-                    <input type="hidden" name="op" value="new_customer">
-                    <input id="button_main" type="submit" value="Novo Cliente">
-                </form><br>
-            </td>
-            <td>
-                <form method="post" action="../public/Supplier">
-                    <input type="hidden" name="op" value="new_supplier">
-                    <input id="button_main" type="submit" value="Novo Fornecedor">
-                </form><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form method="post" action="../public/ProdServ">
-                    <input type="hidden" name="op" value="new_prod">
-                    <input id="button_main" type="submit" value="Novo Produto">
-                </form><br>
-            </td>
-            <td>
-                <form method="post" action="../public/ProdServ">
-                    <input type="hidden" name="op" value="new_serv">
-                    <input id="button_main" type="submit" value="Novo Serviço">
-                </form><br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <form method="post" action="../public/Breed">
-                    <input type="hidden" name="op" value="new_breed">
-                    <input id="button_main" type="submit" value="Nova Raça">
-                </form><br>
-            </td>
-            
-        </tr>
-    </table>           
+    <div class="row">
+        <div class="col-lg-6">
+            <h4>Relatórios</h4>
+        </div>
+    </div>
+    <hr class="my-1">
+    <br><br><br><br>
+    <div class="row">
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Report/cobrancas";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-list-alt"></i>&nbsp;Cobranças</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Report/vencimento_pacotes";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-list-alt"></i>&nbsp;Vencimento Pacotes</a></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Report/vencimento_vacinas";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-list-alt"></i>&nbsp;Vencimento Vacinas</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Report/tosador";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-list-alt"></i>&nbsp;Tosador</a></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Report/veterinaria";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-list-alt"></i>&nbsp;Veterinária</a></div>
+    </div>
+    <br>
 </div>
