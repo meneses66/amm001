@@ -1,13 +1,13 @@
 <?php
     //require_once 'siteController.php';
     //var_dump($_GET);
-    var_dump($_POST);
-    echo $_SERVER['REQUEST_METHOD'];
+    //var_dump($_POST);
+    //echo $_SERVER['REQUEST_METHOD'];
     if(isset($_POST['class']))
     {
         $function = $_POST['function'];
         $className = $_POST['class'];
-        echo $className."-->".$function;
+        //echo $className."-->".$function;
         $class = new $className();
         $result = $class->$function();
         
