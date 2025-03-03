@@ -1,6 +1,7 @@
 <?php
     //require_once 'siteController.php';
-    echo "Enter in ajax_call";
+    //echo "Enter in ajax_call";
+    var_dump($_POST);
     if(isset($_POST['class']))
     {
         $function = $_POST['function'];
@@ -21,5 +22,4 @@
                 {
                     echo $result;
                 }
-
     }
