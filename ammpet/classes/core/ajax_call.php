@@ -4,7 +4,7 @@
     {
         $function = $_POST['function'];
         $className = $_POST['class'];
-        // echo $function;
+        echo $className."-->".$function;
         $class = new $className();
         $result = $class->$function();
         
