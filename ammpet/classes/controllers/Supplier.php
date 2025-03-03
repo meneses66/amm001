@@ -112,7 +112,7 @@ class Supplier {
                     <tbody>';
                 foreach ($data as $row) {
                     $output .='<tr class="text-center text-secondary">
-                                <td>'.$row['id'].'</td>
+                                <td>'.$row->ID.'</td>
                                 <td>'.$row['name'].'</td>
                                 <td>'.$row['login'].'</td>
                                 <td>'.$row['role'].'</td>
