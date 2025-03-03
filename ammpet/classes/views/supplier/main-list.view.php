@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-lg-6">
             <h4>Lista Fornecedores</h4>
+            <?php echo ROOT."../classes/core/";?>
             <?php echo ROOTPATH_CLASSES."ajax_call.php";?>
         </div>
         <div class="col-lg-6">
