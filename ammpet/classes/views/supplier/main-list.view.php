@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="listSupplier">
-                <?php include ROOTPATH_CLASSES."../Supplier/list_rows";?>
+                <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/")."Supplier/list_rows";?>
             </div>
         </div>
     </div>
