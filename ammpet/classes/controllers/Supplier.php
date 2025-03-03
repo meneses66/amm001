@@ -41,18 +41,18 @@ class Supplier {
 
     }
 
-        //Go to List View
-        public function update_supplier(){
-            $operation = 'goto_update_supplier';
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    
-                $operation = $_POST['op'];
-    
-            }
-    
-            $this->goto_view($operation);
-    
+    //Go to Update View
+    public function update_supplier(){
+        $operation = 'goto_update_supplier';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $operation = $_POST['op'];
+
         }
+
+        $this->goto_view($operation);
+
+    }
 
     //Inserts new Supplier into DB
     public function insert(){
@@ -84,6 +84,56 @@ class Supplier {
             }
         }
         
+    }
+
+    public function list_Rows(){
+        if(isset($_POST['operation']) && $_POST['operation']==="view"){
+            $output = "";
+            $data = $this->listAll();
+            if($this->countAll()>0){
+                $output .='<table class="table Table-stripped table-sm table-bordered">
+                    <thead>
+                        <tr class="text-center text-secondary">
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Login</th>
+                            <th>Cargo</th>
+                            <th>Tipo</th>
+                            <th>Status</th>
+                            <th>CNPJ</th>
+                            <th>CPF</th>
+                            <th>Sequência</th>
+                            <th>Data Início</th>
+                            <th>Comentários</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
+                foreach ($data as $key => $row) {
+                    $output .='<tr class="text-center text-secondary">
+                                <td>'.$row['id'].'</td>
+                                <td>'.$row['name'].'</td>
+                                <td>'.$row['login'].'</td>
+                                <td>'.$row['role'].'</td>
+                                <td>'.$row['type'].'</td>
+                                <td>'.$row['status'].'</td>
+                                <td>'.$row['cnpj'].'</td>
+                                <td>'.$row['cpf'].'</td>
+                                <td>'.$row['sequence'].'</td>
+                                <td>'.$row['hire_date'].'</td>
+                                <td>'.$row['comments'].'</td>
+                                <td>
+                                    <a href="<?php echo ROOT."/Supplier/update_supplier";?>" title="Edit" class="text-primary"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
+                                    <a href="<?php echo ROOT."/Supplier/delete_supplier";?>" title="Delete" class="text-danger"><i class="fas fa-eraser"></i>D</a>
+                                </td></tr>';
+                }
+                $output .= '</tbody></table>';
+                echo $output;
+            }
+            else{
+                echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+            }
+        }
     }
 
     //Defines view to go to

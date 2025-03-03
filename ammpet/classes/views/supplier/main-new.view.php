@@ -4,11 +4,11 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h4>Consultas</h4>
+            <h4>Novo Fornecedor</h4>
         </div>
     </div>
     <hr class="my-1">
-    <br><br><br><br>
+    <br>
 
     <form method="post" action="../Supplier/insert">
         <input type="hidden" name="op" value="insert">
@@ -46,9 +46,9 @@
                 </select><br><br>
             </div>
             <div class="col-sm-6">
-                <label for="CNPJ" class="medium-label">CNPJ: &nbsp;</label><input id="cnpj" type="text" size="20" name="CNPJ"><br><br>
-                <label for="CPF" class="medium-label">CPF: &nbsp;</label><input id="cpf" type="text" size="20" name="CPF"><br><br>
-                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><input id="seq" type="text" size="10" name="Sequence"><br><br>
+                <label for="CNPJ" class="medium-label">CNPJ: &nbsp;</label><input id="cnpj" type="text" size="10" name="CNPJ"><br><br>
+                <label for="CPF" class="medium-label">CPF: &nbsp;</label><input id="cpf" type="text" size="10" name="CPF"><br><br>
+                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><input id="seq" type="text" size="8" name="Sequence"><br><br>
                 <label for="Hire_Date" class="medium-label">Data Inicio: &nbsp;</label><input id="start_date" type="date" size="30" name="Hire_Date"><br><br>
                 <label for="Comment" class="medium-label">Comentarios: &nbsp;</label><input id="comment" type="text" size="50" name="Comment"><br><br>
             </div>

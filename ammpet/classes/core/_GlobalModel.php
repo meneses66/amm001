@@ -11,6 +11,15 @@ Trait _GlobalModel{
     protected $order_type = 'desc';
     protected $order_column = 'ID';
     
+    #count all
+    public function countAll()
+    {
+        $sql_stm = "select count(1) from $this->table order by $this->order_column $this->order_type";
+        #return $sql_stm;
+        return $this->query($sql_stm);
+
+    }
+
     #list all
     public function listAll()
     {

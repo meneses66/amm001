@@ -41,7 +41,21 @@
         <!-- Table Pagination -->
         <script type="text/javascript">
             $(document).ready(function(){
-                $("table").DataTable();
+                
+            listAll();
+
+            function list_Rows(){
+                $.ajax({
+                    url:"<?php echo ROOT."/Supplier/list_Rows";?>",
+                    type: "POST",
+                    data: {operation:"view"},
+                    success: function(response){
+                        //console.log(response);
+                        $("#listSupplier").html(response);
+                        $("table").DataTable();
+                    }
+                });
+            }
             });
         </script>
 

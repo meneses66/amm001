@@ -16,46 +16,8 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="listSupplier">
-                <table class="table Table-stripped table-sm table-bordered">
-                    <thead>
-                        <tr class="text-center text-secondary">
-                            <th>Id</th>
-                            <th>Nome</th>
-                            <th>Login</th>
-                            <th>Cargo</th>
-                            <th>Tipo</th>
-                            <th>Status</th>
-                            <th>CNPJ</th>
-                            <th>CPF</th>
-                            <th>Sequência</th>
-                            <th>Data Início</th>
-                            <th>Comentários</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for($i=1; $i<=50; $i++): ?>
-                        <tr class="text-center text-secondary">
-                            <td><?= $i ?></td>
-                            <td>Supplier <?= $i ?></td>
-                            <td>S0<?= $i ?></td>
-                            <td>Recepcao</td>
-                            <td>Funcionario</td>
-                            <td>Ativo</td>
-                            <td></td>
-                            <td></td>
-                            <td><?= $i ?></td>
-                            <td>24/02/2025</td>
-                            <td>Teste 0000<?= $i ?></td>
-                            <td>
-                                <a href="<?php echo ROOT."/Supplier/update_supplier";?>" title="Edit" class="text-primary"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
-                                <a href="<?php echo ROOT."/Supplier/delete_supplier";?>" title="Delete" class="text-danger"><i class="fas fa-eraser"></i>D</a>
-                            </td>
-                        </tr>
-                        <?php endfor;?>
-                    </tbody>
+                
 
-                </table>
             </div>
         </div>
     </div>
