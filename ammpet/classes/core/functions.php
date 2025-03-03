@@ -33,6 +33,18 @@ function URL($key):mixed
 
 }
 
+/** Remove string from end of other string*/
+function removeFromEnd($string, $stringToRemove) {
+    $stringToRemoveLen = strlen($stringToRemove);
+    $stringLen = strlen($string);
+    
+    $pos = $stringLen - $stringToRemoveLen;
+
+    $out = substr($string, 0, $pos);
+
+    return $out;
+}
+
 /** Show anthing you want */
 function show($anything){
     echo "<pre>";
