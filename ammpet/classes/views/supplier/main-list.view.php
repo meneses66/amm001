@@ -19,7 +19,6 @@
         <div class="col-lg-12">
             <div class="table-responsive" id="listSupplier">
                 
-
             </div>
         </div>
     </div>
