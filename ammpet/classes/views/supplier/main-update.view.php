@@ -4,18 +4,18 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h4>Novo Fornecedor</h4>
+            <h4>Atualizar Fornecedor</h4>
         </div>
     </div>
     <hr class="my-1">
     <br>
 
-    <form method="post" action="../Supplier/insert_call">
+    <form method="post" action="../Supplier/update_call">
         <input type="hidden" name="op" value="insert">
 
         <div class="row">
             <div class="col-sm-6">
-                <input id="id" type="hidden" name="Id" value="">
+                <label for="id" class="medium-label">Id: &nbsp;</label><input id="id" type="text" name="Id">
                 <input id="created_by" type="hidden" name="Created_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
                 <input id="updated_by" type="hidden" name="Updated_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
                 <input id="created" type="hidden" name="Created" value="">
@@ -56,7 +56,7 @@
         <div class="row">
             <div class="col-sm-6"></div>
             <div class="col-sm-6">
-                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar">
+                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar">
             </div>
         </div>
     </form>

@@ -28,7 +28,7 @@ class Supplier {
         $this->goto_view($operation);
     }
 
-    //Go to List View
+    //Sends to List View
     public function list_supplier(){
         $operation = 'goto_list_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -41,8 +41,15 @@ class Supplier {
 
     }
 
-    //Go to Update View
-    public function update_supplier($id){
+    //Sends to Update View
+    public function update_supplier($inputs){
+
+        $id["ID"]=$inputs["edit_id"];
+        $supplier = new \Model\Supplier;
+        $supplier->getRow($id);
+
+        var_dump($supplier);
+
         $operation = 'goto_update_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -55,7 +62,7 @@ class Supplier {
     }
 
     //Inserts new Supplier into DB
-    public function insert(){
+    public function insert_call(){
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Login instance:
@@ -84,6 +91,34 @@ class Supplier {
             }
         }
         
+    }
+
+    public function update_call($inputs){
+
+            //Create new Model instance:
+            $supplier = new \Model\Supplier;
+
+            //Get Id from Inputs:
+
+            if(isset($inputs["Id"])){
+                $id = $inputs["Id"];
+            } else {
+                die("Record Id not informed.");
+            }
+
+            //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
+            unset($inputs["op"]);
+            unset($inputs["Id"]);
+            //Remove items from array inputs that are populated automatically in DB
+            unset($inputs["Created"]);
+            unset($inputs["Updated"]);
+
+            try {
+                $supplier->update($id, $inputs);
+                $this->view('supplier/supplier-list');
+            } catch (\Throwable $th) {
+                throw $th;
+            }
     }
 
     public function list_rows(){
