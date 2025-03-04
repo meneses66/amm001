@@ -42,6 +42,12 @@
         <script type="text/javascript">
             $(document).ready(function(){
                 $("table").DataTable();
+
+            //Update Supplier:
+            $("body").on("click".".updateBtn", function(e){
+                console.log("working");
+            });
+
             });
         </script>
 
