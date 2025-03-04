@@ -93,11 +93,17 @@ class Supplier {
             $supplier = new \Model\Supplier;
 
             //Get Id from $_POST:
-
             if(isset($_POST["Id"])){
                 $id = $_POST["Id"];
             } else {
                 die("Record Id not informed.");
+            }
+
+            //Define inputs for DB operations:
+                
+            foreach ($_POST as $key => $value) {
+                
+                $inputs[$key]=$value;    
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
