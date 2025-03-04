@@ -48,11 +48,8 @@ class Supplier {
             $inputs["ID"]=$_GET['id'];
             $supplier = new \Model\Supplier;
             $supplier->getRow($inputs);
-            var_dump($supplier);    
+            //var_dump($supplier);    
         }
-
-        show($inputs);
-        
 
         $operation = 'goto_update_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){

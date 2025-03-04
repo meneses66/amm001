@@ -78,7 +78,6 @@ Trait _GlobalModel{
     #getRow
     public function getRow($inputs)
     {
-        show($inputs);
         $keys = array_keys($inputs);
         $sql_stm = "select * from $this->table where ";
         
@@ -87,8 +86,6 @@ Trait _GlobalModel{
         }
 
         $sql_stm = trim($sql_stm," && ");
-
-        show($sql_stm);
 
         $result = $this->query($sql_stm, $inputs);
 

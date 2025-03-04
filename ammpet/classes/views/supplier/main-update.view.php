@@ -15,7 +15,7 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <label for="id" class="medium-label">Id: &nbsp;</label><input id="id" type="text" name="Id">
+                <label for="id" class="medium-label">Id: &nbsp;</label><input id="id" type="text" size="8" name="Id" value="<?=$supplier['Id']?>"><br>
                 <input id="created_by" type="hidden" name="Created_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
                 <input id="updated_by" type="hidden" name="Updated_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
                 <input id="created" type="hidden" name="Created" value="">
