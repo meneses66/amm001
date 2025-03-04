@@ -121,9 +121,10 @@ class Supplier {
 
             if(!isset($_SESSION['username'])) {session_start();}
             $output = "";
-            $inputs["ID"]=$_GET['id'];
+            //$inputs["ID"]=$_GET['id'];
+            $id=$_GET['id'];
             $supplier = new \Model\Supplier;
-            $supplier->listWhere($inputs);
+            $supplier->getRowbyId($id);
 
             if($supplier){
 

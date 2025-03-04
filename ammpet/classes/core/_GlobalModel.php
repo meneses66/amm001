@@ -96,6 +96,22 @@ Trait _GlobalModel{
 
     }
 
+    #getRow by Id
+    public function getRowbyId($id)
+    {
+        $sql_stm = "select * from $this->table where ID=";
+        
+        $sql_stm .= $id;
+
+        $result = $this->query($sql_stm, $inputs);
+
+        if ($result)
+            return $result[0];
+
+        return false;
+
+    }
+
     #insert
     public function insert($inputs)
     {
