@@ -87,15 +87,15 @@ class Supplier {
         
     }
 
-    public function update_call($inputs){
+    public function update_call(){
 
             //Create new Model instance:
             $supplier = new \Model\Supplier;
 
-            //Get Id from Inputs:
+            //Get Id from $_POST:
 
-            if(isset($inputs["Id"])){
-                $id = $inputs["Id"];
+            if(isset($_POST["Id"])){
+                $id = $_POST["Id"];
             } else {
                 die("Record Id not informed.");
             }
