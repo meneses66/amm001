@@ -123,7 +123,7 @@ class Supplier {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $supplier = new \Model\Supplier;
-            $supplier->getRow($inputs);
+            $supplier->listWhere($inputs);
 
             if($supplier){
 
