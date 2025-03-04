@@ -103,7 +103,7 @@ Trait _GlobalModel{
         
         $sql_stm .= $id;
 
-        $result = $this->query($sql_stm, $inputs);
+        $result = $this->query($sql_stm);
 
         if ($result)
             return $result[0];
