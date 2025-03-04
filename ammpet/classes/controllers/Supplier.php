@@ -42,11 +42,13 @@ class Supplier {
     }
 
     //Sends to Update View
-    public function update_supplier($inputs){
+    public function update_supplier(){
 
-        $id["ID"]=$inputs["edit_id"];
-        $supplier = new \Model\Supplier;
-        $supplier->getRow($id);
+        if (isset($_GET['id'])){
+            $id["ID"]=$_GET['id'];
+            $supplier = new \Model\Supplier;
+            $supplier->getRow($id);    
+        }
 
         var_dump($supplier);
 
@@ -159,8 +161,8 @@ class Supplier {
                                 <td>'.$row->HIRE_DATE.'</td>
                                 <td>'.$row->COMMENT.'</td>
                                 <td>
-                                    <a href="'.ROOT."/Supplier/update_supplier($row->ID)".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
-                                    <a href="'.ROOT."/Supplier/delete_supplier".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i>D</a>
+                                    <a href="'.ROOT."/Supplier/update_supplier?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/Supplier/delete_supplier?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i>D</a>
                                 </td></tr>';
                 }
                 $output .= '</tbody></table>';
