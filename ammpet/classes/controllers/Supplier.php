@@ -124,12 +124,12 @@ class Supplier {
             //$inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
             $supplier = new \Model\Supplier;
-            $supplier->getRowbyId($id);
+            $data = $supplier->getRowbyId($id);
 
-            if($supplier){
+            if($data){
 
-                foreach ($supplier as $key => $value) {
-                    $data[$key]=$value;
+                foreach ($data as $key => $value) {
+                    $data_form[$key]=$value;
                 }
 
                 var_dump($data);
@@ -139,7 +139,7 @@ class Supplier {
                                     <label for="id" class="medium-label">Id: &nbsp;</label><input id="id" type="text" size="8" name="Id" readonly value="'.$data['Id'].'"><br>
                                     <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
                                     <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
-                                    <input id="created" type="hidden" name="Created" value="'.$data['Created'].'">
+                                    <input id="created" type="hidden" name="Created" value="'.$data_form['Created'].'">
                                     <input id="updated" type="hidden" name="Updated" value="'.$data['Updated'].'">
                                     <label for="name" class="medium-label">Nome: &nbsp;</label><input id="name" type="text" size="50" name="Name"><br><br>
                                     <label for="login" class="medium-label">Login: &nbsp;</label><input id="login" type="text" size="20" name="Login"><br><br>
