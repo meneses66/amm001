@@ -159,7 +159,7 @@ class Supplier {
                                 <td>'.$row->HIRE_DATE.'</td>
                                 <td>'.$row->COMMENT.'</td>
                                 <td>
-                                    <a href="#" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/Supplier/update_supplier($row)".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i>A</a>&nbsp;&nbsp;
                                     <a href="'.ROOT."/Supplier/delete_supplier".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i>D</a>
                                 </td></tr>';
                 }
