@@ -175,6 +175,7 @@ class Supplier {
                                     <label for="Comment" class="medium-label">Comentarios: &nbsp;</label><input id="comment" type="text" size="50" name="Comment"><br><br>
                                 </div>
                             </div>';
+                            echo $output;
             } else{
                 show("No record to display!");
             }
