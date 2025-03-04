@@ -148,9 +148,9 @@ class Supplier {
                                     <label for="type" class="medium-label">Tipo: &nbsp;</label>
                                     <select class="medium-label" id="type" name="Type">
                                         <option class="medium-label" value="">Selecione uma opção</option>
-                                        <option class="medium-label" value="Funcionario" '.($data_form['TYPE'] == 'Funcionario')?"selected":"".'>Funcionario</option>
-                                        <option class="medium-label" value="Fornecedor" '.($data_form['TYPE'] == 'Fornecedor')?"selected":"".'>Fornecedor</option>
-                                        <option class="medium-label" value="Freelancer" '.($data_form['TYPE'] == 'Freelancer')?"selected":"".'>Freelancer</option>
+                                        <option class="medium-label" value="Funcionario" '.(($data_form['TYPE'] == 'Funcionario')?"selected":"").'>Funcionario</option>
+                                        <option class="medium-label" value="Fornecedor" '.(($data_form['TYPE'] == 'Fornecedor')?"selected":"").'>Fornecedor</option>
+                                        <option class="medium-label" value="Freelancer" '.(($data_form['TYPE'] == 'Freelancer')?"selected":"").'>Freelancer</option>
                                     </select><br><br>
                                     <label for="Role" class="medium-label">Cargo: &nbsp;</label>
                                     <select class="medium-label" id="role" name="Role">
