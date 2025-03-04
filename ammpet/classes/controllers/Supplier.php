@@ -154,25 +154,25 @@ class Supplier {
                                     </select><br><br>
                                     <label for="Role" class="medium-label">Cargo: &nbsp;</label>
                                     <select class="medium-label" id="role" name="Role">
-                                        <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                        <option class="medium-label" value="Banhista">Banhista</option>
-                                        <option class="medium-label" value="Tosador">Tosador</option>
-                                        <option class="medium-label" value="Recepcao">Recepcao</option>
-                                        <option class="medium-label" value="Proprietario">Proprietario</option>
+                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="Banhista" '.(($data_form['ROLE'] == 'Banhista')?"selected":"").'>Banhista</option>
+                                        <option class="medium-label" value="Tosador" '.(($data_form['ROLE'] == 'Tosador')?"selected":"").'>Tosador</option>
+                                        <option class="medium-label" value="Recepcao" '.(($data_form['ROLE'] == 'Recepcao')?"selected":"").'>Recepcao</option>
+                                        <option class="medium-label" value="Proprietario" '.(($data_form['ROLE'] == 'Proprietario')?"selected":"").'>Proprietario</option>
                                     </select><br><br>
                                     <label for="Status" class="medium-label">Status: &nbsp;</label>
                                     <select class="medium-label" id="status" name="Status">
-                                        <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                        <option class="medium-label" value="Ativo">Ativo</option>
-                                        <option class="medium-label" value="Inativo">Inativo</option>
+                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
+                                        <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
                                     </select><br><br>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label for="CNPJ" class="medium-label">CNPJ: &nbsp;</label><input id="cnpj" type="text" size="10" name="CNPJ"><br><br>
-                                    <label for="CPF" class="medium-label">CPF: &nbsp;</label><input id="cpf" type="text" size="10" name="CPF"><br><br>
-                                    <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><input id="seq" type="text" size="8" name="Sequence"><br><br>
-                                    <label for="Hire_Date" class="medium-label">Data Inicio: &nbsp;</label><input id="start_date" type="date" size="30" name="Hire_Date"><br><br>
-                                    <label for="Comment" class="medium-label">Comentarios: &nbsp;</label><input id="comment" type="text" size="50" name="Comment"><br><br>
+                                    <label for="CNPJ" class="medium-label">CNPJ: &nbsp;</label><input id="cnpj" type="text" size="10" name="CNPJ" value="'.$data_form['CNPJ'].'"><br><br>
+                                    <label for="CPF" class="medium-label">CPF: &nbsp;</label><input id="cpf" type="text" size="10" name="CPF" value="'.$data_form['CPF'].'"><br><br>
+                                    <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><input id="seq" type="text" size="8" name="Sequence" value="'.$data_form['SEQUENCE'].'"><br><br>
+                                    <label for="Hire_Date" class="medium-label">Data Inicio: &nbsp;</label><input id="start_date" type="date" size="30" name="Hire_Date" value="'.$data_form['HIRE_DATE'].'"><br><br>
+                                    <label for="Comment" class="medium-label">Comentarios: &nbsp;</label><input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'"><br><br>
                                 </div>
                             </div>';
                             echo $output;
