@@ -45,11 +45,12 @@ class Supplier {
     public function update_supplier(){
 
         if (isset($_GET['id'])){
-            $id["ID"]=$_GET['id'];
+            $inputs["ID"]=$_GET['id'];
             $supplier = new \Model\Supplier;
-            $supplier->getRow($id);    
+            $supplier->getRow($inputs);    
         }
 
+        show($inputs);
         var_dump($supplier);
 
         $operation = 'goto_update_supplier';
