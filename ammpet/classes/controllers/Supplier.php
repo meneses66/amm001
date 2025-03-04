@@ -47,11 +47,12 @@ class Supplier {
         if (isset($_GET['id'])){
             $inputs["ID"]=$_GET['id'];
             $supplier = new \Model\Supplier;
-            $supplier->getRow($_GET['id']);    
+            $supplier->getRow($inputs);
+            var_dump($supplier);    
         }
 
         show($inputs);
-        var_dump($supplier);
+        
 
         $operation = 'goto_update_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
