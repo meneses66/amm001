@@ -133,7 +133,7 @@ class Supplier {
                     $data_form[$key]=$value;
                 }
 
-                var_dump($data_form);
+                //var_dump($data_form);
 
                 $output .= '<div class="row">
                                 <div class="col-sm-6">
@@ -142,15 +142,15 @@ class Supplier {
                                     <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                                     <input id="created" type="hidden" name="Created" value="'.$data_form['CREATED'].'">
                                     <input id="updated" type="hidden" name="Updated" value="'.$data_form['UPDATED'].'">
-                                    <label for="name" class="medium-label">Nome: &nbsp;</label><input id="name" type="text" size="50" name="Name"><br><br>
-                                    <label for="login" class="medium-label">Login: &nbsp;</label><input id="login" type="text" size="20" name="Login"><br><br>
-                                    <label for="pass" class="medium-label">Senha: &nbsp;</label><input id="pass" type="password" name="Pass"><br><br>
+                                    <label for="name" class="medium-label">Nome: &nbsp;</label><input id="name" type="text" size="50" name="Name" value="'.$data_form['NAME'].'"><br><br>
+                                    <label for="login" class="medium-label">Login: &nbsp;</label><input id="login" type="text" size="20" name="Login" value="'.$data_form['LOGIN'].'"><br><br>
+                                    <label for="pass" class="medium-label">Senha: &nbsp;</label><input id="pass" type="password" name="Pass" value="'.$data_form['PASS'].'"><br><br>
                                     <label for="type" class="medium-label">Tipo: &nbsp;</label>
                                     <select class="medium-label" id="type" name="Type">
-                                        <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                        <option class="medium-label" value="Funcionario">Funcionario</option>
-                                        <option class="medium-label" value="Fornecedor">Fornecedor</option>
-                                        <option class="medium-label" value="Freelancer">Freelancer</option>
+                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="Funcionario" '.($data_form['TYPE'] == 'Funcionario')?"selected":"".'>Funcionario</option>
+                                        <option class="medium-label" value="Fornecedor" '.($data_form['TYPE'] == 'Fornecedor')?"selected":"".'>Fornecedor</option>
+                                        <option class="medium-label" value="Freelancer" '.($data_form['TYPE'] == 'Freelancer')?"selected":"".'>Freelancer</option>
                                     </select><br><br>
                                     <label for="Role" class="medium-label">Cargo: &nbsp;</label>
                                     <select class="medium-label" id="role" name="Role">
