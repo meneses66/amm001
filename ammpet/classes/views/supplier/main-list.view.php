@@ -18,7 +18,7 @@
             <div class="table-responsive" id="listSupplier">
                 <?php 
                     $supplier = new ('\Controller\\'."Supplier");
-                    $supplier->list_rows();
+                    $supplier->load_rows();
                 ?>
             </div>
         </div>
