@@ -131,6 +131,8 @@ class Supplier {
                     $data[$key]=$value;
                 }
 
+                var_dump($data);
+
                 $output .= '<div class="row">
                                 <div class="col-sm-6">
                                     <label for="id" class="medium-label">Id: &nbsp;</label><input id="id" type="text" size="8" name="Id" readonly value="'.$data['Id'].'"><br>
