@@ -126,13 +126,18 @@ class Supplier {
             $supplier->getRow($inputs);
 
             if($supplier){
+
+                foreach ($supplier as $key => $value) {
+                    $data[$key]=$value;
+                }
+
                 $output .= '<div class="row">
                                 <div class="col-sm-6">
-                                    <label for="id" class="medium-label">Id: &nbsp;</label><input id="id" type="text" size="8" name="Id" readonly value="'.$supplier['Id'].'"><br>
+                                    <label for="id" class="medium-label">Id: &nbsp;</label><input id="id" type="text" size="8" name="Id" readonly value="'.$data['Id'].'"><br>
                                     <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
                                     <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
-                                    <input id="created" type="hidden" name="Created" value="'.$supplier['Created'].'">
-                                    <input id="updated" type="hidden" name="Updated" value="'.$supplier['Updated'].'">
+                                    <input id="created" type="hidden" name="Created" value="'.$data['Created'].'">
+                                    <input id="updated" type="hidden" name="Updated" value="'.$data['Updated'].'">
                                     <label for="name" class="medium-label">Nome: &nbsp;</label><input id="name" type="text" size="50" name="Name"><br><br>
                                     <label for="login" class="medium-label">Login: &nbsp;</label><input id="login" type="text" size="20" name="Login"><br><br>
                                     <label for="pass" class="medium-label">Senha: &nbsp;</label><input id="pass" type="password" name="Pass"><br><br>
