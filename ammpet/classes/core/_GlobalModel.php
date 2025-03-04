@@ -78,6 +78,7 @@ Trait _GlobalModel{
     #getRow
     public function getRow($inputs)
     {
+        show($inputs);
         $keys = array_keys($inputs);
         $sql_stm = "select * from $this->table where ";
         
