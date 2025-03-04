@@ -87,6 +87,8 @@ Trait _GlobalModel{
 
         $sql_stm = trim($sql_stm," && ");
 
+        show($sql_stm);
+
         $result = $this->query($sql_stm, $inputs);
 
         if ($result)
