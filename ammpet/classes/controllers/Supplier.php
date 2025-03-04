@@ -133,7 +133,7 @@ class Supplier {
                     $data_form[$key]=$value;
                 }
 
-                var_dump($data);
+                var_dump($data_form);
 
                 $output .= '<div class="row">
                                 <div class="col-sm-6">
