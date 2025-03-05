@@ -134,6 +134,26 @@ class Supplier {
             }
     }
 
+    public function delete_call(){
+
+        //Create new Model instance:
+        $supplier = new \Model\Supplier;
+
+        //Get Id from $_POST:
+        if(isset($_POST["Id"])){
+            $id = $_POST["Id"];
+        } else {
+            die("Record Id not informed.");
+        }
+
+        try {
+            $supplier->delete($id);
+            $this->view('supplier/supplier-list');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+}
+
     public function load_new_form(){
 
         if(!isset($_SESSION['username'])) {session_start();}
@@ -383,8 +403,6 @@ class Supplier {
                     $data_form[$key]=$value;
                 }
 
-                //var_dump($data_form);
-
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
                                     <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
@@ -490,7 +508,6 @@ class Supplier {
             }
 
         }
-
 
     }
 
