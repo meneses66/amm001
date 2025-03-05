@@ -24,35 +24,35 @@
         </div>    
         <div class="row">
             <div class="col-sm-2">
-                <label for="name" class="medium-label">Nome: &nbsp;</label><br>
-                <label for="login" class="medium-label">Login: &nbsp;</label><br>
-                <label for="pass" class="medium-label">Senha: &nbsp;</label><br>
-                <label for="type" class="medium-label">Tipo: &nbsp;</label><br>
-                <label for="Role" class="medium-label">Cargo: &nbsp;</label><br>
-                <label for="Status" class="medium-label">Status: &nbsp;</label><br>
+                <label for="name" class="medium-label">Nome: &nbsp;</label><br><br>
+                <label for="login" class="medium-label">Login: &nbsp;</label><br><br>
+                <label for="pass" class="medium-label">Senha: &nbsp;</label><br><br>
+                <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
+                <label for="role" class="medium-label">Cargo: &nbsp;</label><br><br>
+                <label for="status" class="medium-label">Status: &nbsp;</label><br><br>
             </div>
             <div class="col-sm-4">
-                <input id="name" type="text" size="50" name="Name"><br>
-                <input id="login" type="text" size="20" name="Login"><br>
-                <input id="pass" type="password" name="Pass"><br>
+                <input id="name" type="text" size="50" name="Name"><br><br>
+                <input id="login" type="text" size="20" name="Login"><br><br>
+                <input id="pass" type="password" name="Pass"><br><br>
                 <select class="medium-label" id="type" name="Type">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Funcionario">Funcionario</option>
                     <option class="medium-label" value="Fornecedor">Fornecedor</option>
                     <option class="medium-label" value="Freelancer">Freelancer</option>
-                </select><br>
+                </select><br><br>
                 <select class="medium-label" id="role" name="Role">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Banhista">Banhista</option>
                     <option class="medium-label" value="Tosador">Tosador</option>
                     <option class="medium-label" value="Recepcao">Recepcao</option>
                     <option class="medium-label" value="Proprietario">Proprietario</option>
-                </select><br>
+                </select><br><br>
                 <select class="medium-label" id="status" name="Status">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Ativo">Ativo</option>
                     <option class="medium-label" value="Inativo">Inativo</option>
-                </select><br>
+                </select><br><br>
             </div>
             <div class="col-sm-6">
                 <label for="CNPJ" class="medium-label">CNPJ: &nbsp;</label><input id="cnpj" type="text" size="10" name="CNPJ"><br><br>
