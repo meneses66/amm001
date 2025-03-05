@@ -141,12 +141,13 @@ class Supplier {
 
         //Get Id from $_POST:
         if(isset($_POST["Id"])){
-            
+
             $id = $_POST["Id"];
 
             try {
                 $supplier->delete($id);
-                $this->view('supplier/supplier-list');
+                //$this->view('supplier/supplier-list');
+                redirect("supplier/supplier-list");
             } catch (\Throwable $th) {
                 throw $th;
             }
