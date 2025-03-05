@@ -8,6 +8,7 @@ class Supplier {
 
     use _GlobalModel;
     protected $table = 'SUPPLIER';
+    protected $order_column = 'UPDATED';
     
     public $Id;
     public $Created_By;
