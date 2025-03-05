@@ -143,7 +143,7 @@ class Supplier {
                                 <input id="name" type="text" size="50" name="Name"><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label>
+                                <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
                                 <input id="cnpj" type="text" size="10" name="CNPJ"><br><br>
@@ -157,7 +157,7 @@ class Supplier {
                                 <input id="login" type="text" size="20" name="Login"><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="cpf" class="medium-label">CPF: &nbsp;</label>
+                                <label for="cpf" class="medium-label">CPF: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
                                 <input id="cpf" type="text" size="10" name="CPF"><br><br>
@@ -190,7 +190,7 @@ class Supplier {
                                 </select><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="hire_date" class="medium-label">Data Inicio: &nbsp;</label>
+                                <label for="hire_date" class="medium-label">Data Inicio: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
                                 <input id="hire_date" type="date" size="30" name="Hire_date"><br><br>
@@ -198,7 +198,7 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="role" class="medium-label">Cargo: &nbsp;</label><br>
+                                <label for="role" class="medium-label">Cargo: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
                                 <select class="medium-label" id="role" name="Role">
@@ -207,13 +207,13 @@ class Supplier {
                                     <option class="medium-label" value="Tosador">Tosador</option>
                                     <option class="medium-label" value="Recepcao">Recepcao</option>
                                     <option class="medium-label" value="Proprietario">Proprietario</option>
-                                </select><br>
+                                </select><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br>
+                                <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="comment" type="text" size="50" name="Comment"><br>
+                                <input id="comment" type="text" size="50" name="Comment"><br><br>
                             </div>
                         </div>
                         <div class="row">
@@ -308,10 +308,10 @@ class Supplier {
                                     <input id="pass" type="password" name="Pass" value="'.$data_form['PASS'].'"><br><br>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
+                                    <label for="sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="seq" type="text" size="8" name="Sequence" value="'.$data_form['SEQUENCE'].'"><br><br>
+                                    <input id="sequence" type="text" size="8" name="Sequence" value="'.$data_form['SEQUENCE'].'"><br><br>
                                 </div>
                             </div>
                             <div class="row">
@@ -327,10 +327,10 @@ class Supplier {
                                     </select><br><br>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="Hire_Date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
+                                    <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="start_date" type="date" size="30" name="Hire_Date" value="'.$data_form['HIRE_DATE'].'"><br><br>
+                                    <input id="hire_date" type="date" size="30" name="Hire_Date" value="'.$data_form['HIRE_DATE'].'"><br><br>
                                 </div>
                             </div>
                             <div class="row">
