@@ -34,8 +34,8 @@
             <div class="col-sm-4">
                 <input id="name" type="text" size="50" name="Name"><br><br>
                 <input id="login" type="text" size="20" name="Login"><br><br>
-                <input id="pass" type="password" name="Pass"><br><br>
-                <select class="medium-label" id="type" style="font-size:16px" name="Type">
+                <input id="pass" type="password" name="Pass"><br><br><br>
+                <select class="medium-label" id="type" name="Type">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Funcionario">Funcionario</option>
                     <option class="medium-label" value="Fornecedor">Fornecedor</option>
