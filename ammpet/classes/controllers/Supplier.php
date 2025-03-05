@@ -141,17 +141,20 @@ class Supplier {
 
         //Get Id from $_POST:
         if(isset($_POST["Id"])){
+            
             $id = $_POST["Id"];
+
+            try {
+                $supplier->delete($id);
+                $this->view('supplier/supplier-list');
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+
         } else {
             die("Record Id not informed.");
         }
-
-        try {
-            $supplier->delete($id);
-            $this->view('supplier/supplier-list');
-        } catch (\Throwable $th) {
-            throw $th;
-        }
+        
 }
 
     public function load_new_form(){
