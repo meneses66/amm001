@@ -165,21 +165,21 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="pass" class="medium-label">Senha: &nbsp;</label><br><br>
+                                <label for="pass" class="medium-label">Senha: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="pass" type="password" name="Pass"><br><br>
+                                <input id="pass" type="password" name="Pass"><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
+                                <label for="sequence" class="medium-label">Sequencia: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="sequence" type="text" size="8" name="Sequence"><br><br>
+                                <input id="sequence" type="text" size="8" name="Sequence"><br>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
+                                <label for="type" class="medium-label">Tipo: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
                                 <select class="medium-label" id="type" name="Type">
@@ -187,18 +187,18 @@ class Supplier {
                                     <option class="medium-label" value="Funcionario">Funcionario</option>
                                     <option class="medium-label" value="Fornecedor">Fornecedor</option>
                                     <option class="medium-label" value="Freelancer">Freelancer</option>
-                                </select><br><br>
+                                </select><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="hire_date" class="medium-label">Data Inicio: &nbsp;</label><br><br>
+                                <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="hire_date" type="date" size="30" name="Hire_date"><br><br>
+                                <input id="hire_date" type="date" size="30" name="Hire_date"><br>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="role" class="medium-label">Cargo: &nbsp;</label><br><br>
+                                <label for="role" class="medium-label">Cargo: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
                                 <select class="medium-label" id="role" name="Role">
@@ -207,18 +207,18 @@ class Supplier {
                                     <option class="medium-label" value="Tosador">Tosador</option>
                                     <option class="medium-label" value="Recepcao">Recepcao</option>
                                     <option class="medium-label" value="Proprietario">Proprietario</option>
-                                </select><br><br>
+                                </select><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br><br>
+                                <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="comment" type="text" size="50" name="Comment"><br><br>
+                                <input id="comment" type="text" size="50" name="Comment"><br>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="status" class="medium-label">Status: &nbsp;</label><br><br>
+                                <label for="status" class="medium-label">Status: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
                                 <select class="medium-label" id="status" name="Status">
