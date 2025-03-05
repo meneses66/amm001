@@ -165,16 +165,16 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="pass" class="medium-label" style="height: 25px;">Senha: &nbsp;</label><br><br>
+                                <label for="pass" class="medium-label" style="height: 25px;">Senha: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="pass" type="password" style="height: 30px;" name="Pass"><br><br>
+                                <input id="pass" type="password" style="height: 30px;" name="Pass"><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
+                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="seq" type="text" size="8" name="Sequence"><br><br>
+                                <input id="seq" type="text" size="8" name="Sequence"><br>
                             </div>
                         </div>
                         <div class="row">
@@ -198,7 +198,7 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="role" class="medium-label" style="height: 25px;">Cargo: &nbsp;</label><br><br>
+                                <label for="role" class="medium-label" style="height: 25px;">Cargo: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
                                 <select class="medium-label" id="role" style="height: 30px;" name="Role">
@@ -207,13 +207,13 @@ class Supplier {
                                     <option class="medium-label" value="Tosador">Tosador</option>
                                     <option class="medium-label" value="Recepcao">Recepcao</option>
                                     <option class="medium-label" value="Proprietario">Proprietario</option>
-                                </select><br><br>
+                                </select><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="Comment" class="medium-label">Comentarios: &nbsp;</label>
+                                <label for="Comment" class="medium-label">Comentarios: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="comment" type="text" size="50" name="Comment"><br><br>
+                                <input id="comment" type="text" size="50" name="Comment"><br>
                             </div>
                         </div>
                         <div class="row">
