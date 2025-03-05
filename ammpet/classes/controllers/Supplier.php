@@ -137,10 +137,10 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="name" class="medium-label" style="height: 25px;">Nome: &nbsp;</label><br><br>
+                                <label for="name" class="medium-label">Nome: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="name" type="text" size="50" style="height: 30px;" name="Name"><br><br>
+                                <input id="name" type="text" size="50" name="Name"><br><br>
                             </div>
                             <div class="col-sm-1">
                                 <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label>
@@ -151,10 +151,10 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="login" class="medium-label" style="height: 25px;">Login: &nbsp;</label><br><br>
+                                <label for="login" class="medium-label">Login: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="login" type="text" size="20" style="height: 30px;" name="Login"><br><br>
+                                <input id="login" type="text" size="20" name="Login"><br><br>
                             </div>
                             <div class="col-sm-1">
                                 <label for="cpf" class="medium-label">CPF: &nbsp;</label>
@@ -165,24 +165,24 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="pass" class="medium-label" style="height: 25px;">Senha: &nbsp;</label>
+                                <label for="pass" class="medium-label">Senha: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="pass" type="password" style="height: 30px;" name="Pass">
+                                <input id="pass" type="password" name="Pass"><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label>
+                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="seq" type="text" size="8" name="Sequence">
+                                <input id="seq" type="text" size="8" name="Sequence"><br><br>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="type" class="medium-label" style="height: 25px;">Tipo: &nbsp;</label><br><br>
+                                <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <select class="medium-label" id="type" style="height: 30px;" name="Type">
+                                <select class="medium-label" id="type" name="Type">
                                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                                     <option class="medium-label" value="Funcionario">Funcionario</option>
                                     <option class="medium-label" value="Fornecedor">Fornecedor</option>
@@ -198,7 +198,7 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="role" class="medium-label" style="height: 25px;">Cargo: &nbsp;</label><br>
+                                <label for="role" class="medium-label">Cargo: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
                                 <select class="medium-label" id="role" style="height: 30px;" name="Role">
@@ -218,7 +218,7 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="status" class="medium-label" style="height: 25px;">Status: &nbsp;</label><br><br>
+                                <label for="status" class="medium-label">Status: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
                                 <select class="medium-label" id="status" style="height: 30px;" name="Status">
