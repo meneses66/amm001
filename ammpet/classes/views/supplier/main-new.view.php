@@ -23,7 +23,7 @@
             </div>
         </div>    
         <div class="row">
-            <div class="col-sm-2">
+            <div class="col-sm-1">
                 <label for="name" class="medium-label">Nome: &nbsp;</label><br><br>
                 <label for="login" class="medium-label">Login: &nbsp;</label><br><br>
                 <label for="pass" class="medium-label">Senha: &nbsp;</label><br><br>
@@ -31,7 +31,7 @@
                 <label for="role" class="medium-label">Cargo: &nbsp;</label><br><br>
                 <label for="status" class="medium-label">Status: &nbsp;</label><br><br>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 <input id="name" type="text" size="50" name="Name"><br><br>
                 <input id="login" type="text" size="20" name="Login"><br><br>
                 <input id="pass" type="password" name="Pass"><br><br>
