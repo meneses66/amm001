@@ -120,6 +120,124 @@ class Supplier {
             }
     }
 
+    public function laod_new_form(){
+
+        if(!isset($_SESSION['username'])) {session_start();}
+            $output = "";
+            $supplier = new \Model\Supplier;
+            
+            $output .= '<div class="row">
+                            <div class="col-sm-6">
+                                <input id="id" type="hidden" name="Id" value="">
+                                <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
+                                <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                                <input id="created" type="hidden" name="Created" value="">
+                                <input id="updated" type="hidden" name="Updated" value="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="name" class="medium-label" style="height: 25px;">Nome: &nbsp;</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="name" type="text" size="50" style="height: 30px;" name="Name"><br><br>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="cnpj" type="text" size="10" name="CNPJ"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="login" class="medium-label" style="height: 25px;">Login: &nbsp;</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="login" type="text" size="20" style="height: 30px;" name="Login"><br><br>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="cpf" class="medium-label">CPF: &nbsp;</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="cpf" type="text" size="10" name="CPF"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="pass" class="medium-label" style="height: 25px;">Senha: &nbsp;</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="pass" type="password" style="height: 30px;" name="Pass"><br><br>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="seq" type="text" size="8" name="Sequence"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="type" class="medium-label" style="height: 25px;">Tipo: &nbsp;</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <select class="medium-label" id="type" style="height: 30px;" name="Type">
+                                    <option class="medium-label" value="" selected>Selecione uma opção</option>
+                                    <option class="medium-label" value="Funcionario">Funcionario</option>
+                                    <option class="medium-label" value="Fornecedor">Fornecedor</option>
+                                    <option class="medium-label" value="Freelancer">Freelancer</option>
+                                </select><br><br>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="Hire_Date" class="medium-label">Data Inicio: &nbsp;</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="start_date" type="date" size="30" name="Hire_Date"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="role" class="medium-label" style="height: 25px;">Cargo: &nbsp;</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <select class="medium-label" id="role" style="height: 30px;" name="Role">
+                                    <option class="medium-label" value="" selected>Selecione uma opção</option>
+                                    <option class="medium-label" value="Banhista">Banhista</option>
+                                    <option class="medium-label" value="Tosador">Tosador</option>
+                                    <option class="medium-label" value="Recepcao">Recepcao</option>
+                                    <option class="medium-label" value="Proprietario">Proprietario</option>
+                                </select><br><br>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="Comment" class="medium-label">Comentarios: &nbsp;</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="comment" type="text" size="50" name="Comment"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="status" class="medium-label" style="height: 25px;">Status: &nbsp;</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <select class="medium-label" id="status" style="height: 30px;" name="Status">
+                                    <option class="medium-label" value="" selected>Selecione uma opção</option>
+                                    <option class="medium-label" value="Ativo">Ativo</option>
+                                    <option class="medium-label" value="Inativo">Inativo</option>
+                                </select><br><br>
+                            </div>
+                            <div class="col-sm-1">
+
+                            </div>
+                            <div class="col-sm-5">
+
+                            </div>
+                        </div>';
+                        echo $output;
+
+    }
+
     public function load_update_form(){
 
         if (isset($_GET['id'])){
