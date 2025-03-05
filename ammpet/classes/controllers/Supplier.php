@@ -21,7 +21,7 @@ class Supplier {
     //Sends to page to create new Supplier
     public function new_supplier(){
 
-        //$operation = 'goto_new_supplier';
+        $operation = 'goto_new_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $operation = $_POST['op'];
