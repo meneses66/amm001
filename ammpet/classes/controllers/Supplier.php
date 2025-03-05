@@ -171,7 +171,7 @@ class Supplier {
                                 <input id="pass" type="password" name="Pass"><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
+                                <label for="seq" class="medium-label">Sequencia: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
                                 <input id="seq" type="text" size="8" name="Sequence"><br><br>
@@ -190,10 +190,10 @@ class Supplier {
                                 </select><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="Hire_Date" class="medium-label">Data Inicio: &nbsp;</label>
+                                <label for="hire_date" class="medium-label">Data Inicio: &nbsp;</label>
                             </div>
                             <div class="col-sm-5">
-                                <input id="start_date" type="date" size="30" name="Hire_Date"><br><br>
+                                <input id="hire_date" type="date" size="30" name="Hire_Date"><br><br>
                             </div>
                         </div>
                         <div class="row">
@@ -210,7 +210,7 @@ class Supplier {
                                 </select><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="Comment" class="medium-label">Comentarios: &nbsp;</label><br>
+                                <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
                                 <input id="comment" type="text" size="50" name="Comment"><br>
