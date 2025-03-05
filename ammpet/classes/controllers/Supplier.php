@@ -174,7 +174,7 @@ class Supplier {
                                 <label for="sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="sequence" type="text" size="8" name="Sequence"><br><br>
+                                <input id="sequence" type="text" size="8" name="sequence"><br><br>
                             </div>
                         </div>
                         <div class="row">
@@ -193,7 +193,7 @@ class Supplier {
                                 <label for="hiredate" class="medium-label">Data Inicio: &nbsp;</label>
                             </div>
                             <div class="col-sm-5">
-                                <input id="hiredate" type="date" size="30" name="Hire_Date"><br><br>
+                                <input id="hiredate" type="date" size="30" name="hiredate"><br><br>
                             </div>
                         </div>
                         <div class="row">
