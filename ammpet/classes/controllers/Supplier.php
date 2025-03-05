@@ -171,7 +171,7 @@ class Supplier {
                                 <input id="pass" type="password" style="height: 30px;" name="Pass"><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label>
+                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
                                 <input id="seq" type="text" size="8" name="Sequence"><br><br>
