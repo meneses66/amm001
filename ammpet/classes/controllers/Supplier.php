@@ -179,7 +179,7 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="type" class="medium-label">Tipo: &nbsp;</label><br>
+                                <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
                                 <select class="medium-label" id="type" name="Type">
@@ -187,13 +187,13 @@ class Supplier {
                                     <option class="medium-label" value="Funcionario">Funcionario</option>
                                     <option class="medium-label" value="Fornecedor">Fornecedor</option>
                                     <option class="medium-label" value="Freelancer">Freelancer</option>
-                                </select><br>
+                                </select><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br>
+                                <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="hire_date" type="date" size="30" name="Hire_date"><br>
+                                <input id="hire_date" type="date" size="30" name="Hire_date"><br><br>
                             </div>
                         </div>
                         <div class="row">
