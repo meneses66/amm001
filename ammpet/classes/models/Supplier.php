@@ -21,12 +21,12 @@ class Supplier {
     public $CNPJ;
     public $CPF;
     public $Type;
-    public $Sequence;
+    //public $Sequence;
     public $Hire_Date;
     public $Status;
     public $Comment;
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $login=null, $pass=null, $type=null, $role=null, $status=null, $cnpj=null, $cpf=null, $sequence=null, $hire_date=null, $comment=null){
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $login=null, $pass=null, $type=null, $role=null, $status=null, $cnpj=null, $cpf=null, $hire_date=null, $comment=null){
         $this->Id = $id;
         $this->Created_By = $created_by;
         $this->Updated_By = $updated_by;
@@ -39,7 +39,7 @@ class Supplier {
         $this->CNPJ = $cnpj;
         $this->CPF = $cpf;
         $this->Type = $type;
-        $this->Sequence = $sequence;
+        //$this->Sequence = $sequence;
         $this->Hire_Date = $hire_date;
         $this->Status = $status;
         $this->Comment = $comment;
