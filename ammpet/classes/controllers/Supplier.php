@@ -302,21 +302,21 @@ class Supplier {
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="pass" class="medium-label">Senha: &nbsp;</label><br><br>
+                                    <label for="pass" class="medium-label">Senha: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="pass" type="password" name="Pass" value="'.$data_form['PASS'].'"><br><br>
+                                    <input id="pass" type="password" name="Pass" value="'.$data_form['PASS'].'"><br>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
+                                    <label for="sequence" class="medium-label">Sequencia: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="sequence" type="text" size="8" name="Sequence" value="'.$data_form['SEQUENCE'].'"><br><br>
+                                    <input id="sequence" type="text" size="8" name="Sequence" value="'.$data_form['SEQUENCE'].'"><br>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
+                                    <label for="type" class="medium-label">Tipo: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
                                     <select class="medium-label" id="type" name="Type">
@@ -324,18 +324,18 @@ class Supplier {
                                         <option class="medium-label" value="Funcionario" '.(($data_form['TYPE'] == 'Funcionario')?"selected":"").'>Funcionario</option>
                                         <option class="medium-label" value="Fornecedor" '.(($data_form['TYPE'] == 'Fornecedor')?"selected":"").'>Fornecedor</option>
                                         <option class="medium-label" value="Freelancer" '.(($data_form['TYPE'] == 'Freelancer')?"selected":"").'>Freelancer</option>
-                                    </select><br><br>
+                                    </select><br>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
+                                    <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="hire_date" type="date" size="30" name="Hire_Date" value="'.$data_form['HIRE_DATE'].'"><br><br>
+                                    <input id="hire_date" type="date" size="30" name="Hire_Date" value="'.$data_form['HIRE_DATE'].'"><br>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="role" class="medium-label">Cargo: &nbsp;</label><br><br>
+                                    <label for="role" class="medium-label">Cargo: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
                                     <select class="medium-label" id="role" name="Role">
@@ -344,25 +344,25 @@ class Supplier {
                                         <option class="medium-label" value="Tosador" '.(($data_form['ROLE'] == 'Tosador')?"selected":"").'>Tosador</option>
                                         <option class="medium-label" value="Recepcao" '.(($data_form['ROLE'] == 'Recepcao')?"selected":"").'>Recepcao</option>
                                         <option class="medium-label" value="Proprietario" '.(($data_form['ROLE'] == 'Proprietario')?"selected":"").'>Proprietario</option>
-                                    </select><br><br>
+                                    </select><br>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br><br>
+                                    <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'"><br><br>
+                                    <input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'"><br>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="status" class="medium-label">Status: &nbsp;</label><br><br>
+                                    <label for="status" class="medium-label">Status: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
                                     <select class="medium-label" id="status" name="Status">
                                         <option class="medium-label" value="">Selecione uma opção</option>
                                         <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
                                         <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
-                                    </select><br><br>
+                                    </select><br>
                                 </div>
                                 <div class="col-sm-1">
                                 </div>
