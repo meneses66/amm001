@@ -35,20 +35,20 @@
                 <input id="name" type="text" size="50" name="Name"><br><br>
                 <input id="login" type="text" size="20" name="Login"><br><br>
                 <input id="pass" type="password" name="Pass"><br><br>
-                <select class="medium-label" id="type" style="height: 100px;" name="Type">
+                <select class="medium-label" id="type" style="height: 25px;" name="Type">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Funcionario">Funcionario</option>
                     <option class="medium-label" value="Fornecedor">Fornecedor</option>
                     <option class="medium-label" value="Freelancer">Freelancer</option>
                 </select><br><br>
-                <select class="medium-label" id="role" name="Role">
+                <select class="medium-label" id="role" style="height: 25px;" name="Role">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Banhista">Banhista</option>
                     <option class="medium-label" value="Tosador">Tosador</option>
                     <option class="medium-label" value="Recepcao">Recepcao</option>
                     <option class="medium-label" value="Proprietario">Proprietario</option>
                 </select><br><br>
-                <select class="medium-label" id="status" name="Status">
+                <select class="medium-label" id="status" style="height: 25px;" name="Status">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Ativo">Ativo</option>
                     <option class="medium-label" value="Inativo">Inativo</option>
