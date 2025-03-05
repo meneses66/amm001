@@ -43,25 +43,6 @@
             $(document).ready(function(){
                 $("table").DataTable();
 
-            //Go To Update Supplier:
-            $("body").on("click".".updateBtn", function(e){
-                e.preventDefault();
-                edit_id = $(this).attr('id');
-                $.ajax({
-                    url:"core/ajax_call.php",
-                    type: "POST",
-                    data: {
-                            edit_id:edit_id, 
-                            operation:"goto_update_supplier", 
-                            class:"Supplier", 
-                            function:"update_supplier"
-                        },
-                    success: function(response){
-                        console.log(response);
-                    }
-                });
-            });
-
             });
         </script>
 
