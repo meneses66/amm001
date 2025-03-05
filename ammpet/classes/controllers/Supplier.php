@@ -368,7 +368,6 @@ class Supplier {
                             <th>Status</th>
                             <th>CNPJ</th>
                             <th>CPF</th>
-                            <th>Sequência</th>
                             <th>DataInício</th>
                             <th>Comentários</th>
                             <th>Ações</th>
@@ -385,7 +384,6 @@ class Supplier {
                                 <td>'.$row->STATUS.'</td>
                                 <td>'.$row->CNPJ.'</td>
                                 <td>'.$row->CPF.'</td>
-                                <td>'.$row->SEQUENCE.'</td>
                                 <td>'.$row->HIRE_DATE.'</td>
                                 <td>'.$row->COMMENT.'</td>
                                 <td>
