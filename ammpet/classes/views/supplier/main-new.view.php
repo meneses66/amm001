@@ -24,12 +24,12 @@
         </div>    
         <div class="row">
             <div class="col-sm-1">
-                <label for="name" class="medium-label" style="height: 30px;">Nome: &nbsp;</label><br><br>
-                <label for="login" class="medium-label" style="height: 30px;">Login: &nbsp;</label><br><br>
-                <label for="pass" class="medium-label" style="height: 30px;">Senha: &nbsp;</label><br><br>
-                <label for="type" class="medium-label" style="height: 30px;">Tipo: &nbsp;</label><br><br>
-                <label for="role" class="medium-label" style="height: 30px;">Cargo: &nbsp;</label><br><br>
-                <label for="status" class="medium-label" style="height: 30px;">Status: &nbsp;</label><br><br>
+                <label for="name" class="medium-label" style="height: 25px;">Nome: &nbsp;</label><br><br>
+                <label for="login" class="medium-label" style="height: 25px;">Login: &nbsp;</label><br><br>
+                <label for="pass" class="medium-label" style="height: 25px;">Senha: &nbsp;</label><br><br>
+                <label for="type" class="medium-label" style="height: 25px;">Tipo: &nbsp;</label><br><br>
+                <label for="role" class="medium-label" style="height: 25px;">Cargo: &nbsp;</label><br><br>
+                <label for="status" class="medium-label" style="height: 25px;">Status: &nbsp;</label><br><br>
             </div>
             <div class="col-sm-5">
                 <input id="name" type="text" size="50" style="height: 30px;" name="Name"><br><br>
