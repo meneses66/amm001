@@ -201,7 +201,7 @@ class Supplier {
                                 <label for="role" class="medium-label">Cargo: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
-                                <select class="medium-label" id="role" style="height: 30px;" name="Role">
+                                <select class="medium-label" id="role" name="Role">
                                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                                     <option class="medium-label" value="Banhista">Banhista</option>
                                     <option class="medium-label" value="Tosador">Tosador</option>
@@ -221,7 +221,7 @@ class Supplier {
                                 <label for="status" class="medium-label">Status: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <select class="medium-label" id="status" style="height: 30px;" name="Status">
+                                <select class="medium-label" id="status" name="Status">
                                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                                     <option class="medium-label" value="Ativo">Ativo</option>
                                     <option class="medium-label" value="Inativo">Inativo</option>
