@@ -4,23 +4,25 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h4>Atualizar Fornecedor</h4>
+            <h4>Deletar Fornecedor</h4>
         </div>
     </div>
     <hr class="my-1">
     <br>
 
-    <form method="post" action="../Supplier/update_call">
-        <input type="hidden" name="op" value="update">
+    <form method="post" action="../Supplier/delete_call">
+        <input type="hidden" name="op" value="delete">
         <?php 
             $supplier = new ('\Controller\\'."Supplier");
-            $supplier->load_update_form();
+            $supplier->load_delete_form();
         ?>
         
         <div class="row">
-            <div class="col-sm-6"></div>
             <div class="col-sm-6">
-                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar">
+                <h3>Esta ação não pode ser desfeita!!!</h3>
+            </div>
+            <div class="col-sm-6">
+                <input id="button" class="btn btn-danger btn-lg m-1 btn-block" type="submit" value="Deletar">
             </div>
         </div>
     </form>
