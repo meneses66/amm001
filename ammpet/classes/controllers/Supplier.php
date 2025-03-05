@@ -361,6 +361,7 @@ class Supplier {
                     <thead>
                         <tr class="text-center text-secondary">
                             <th>Id</th>
+                            <th>Atualiz.</th>
                             <th>Nome</th>
                             <th>Login</th>
                             <th>Cargo</th>
@@ -377,6 +378,7 @@ class Supplier {
                 foreach ($data as $row) {
                     $output .='<tr class="text-center text-secondary">
                                 <td>'.$row->ID.'</td>
+                                <td>'.$row->UPDATED.'</td>
                                 <td>'.$row->NAME.'</td>
                                 <td>'.$row->LOGIN.'</td>
                                 <td>'.$row->ROLE.'</td>

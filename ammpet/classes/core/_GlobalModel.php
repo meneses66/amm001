@@ -23,7 +23,7 @@ Trait _GlobalModel{
     #list all
     public function listAll()
     {
-        $sql_stm = "select * from $this->table order by " . (isset($this->order_column_model)? $this->order_column_model : $this->order_column) . $this->order_type ."";
+        $sql_stm = "select * from $this->table order by $this->order_column $this->order_type";
         #return $sql_stm;
         return $this->query($sql_stm);
 
