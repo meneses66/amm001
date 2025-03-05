@@ -65,7 +65,7 @@ class Supplier {
             //Define inputs for DB operations:
                 
             foreach ($_POST as $key => $value) {
-                echo $key.": ".$value."<br>";
+                //echo $key.": ".$value."<br>";
                 $inputs[$key]=$value;    
             }
 
@@ -141,23 +141,85 @@ class Supplier {
                 //var_dump($data_form);
 
                 $output .= '<div class="row">
+                                <div class="col-sm-1">
+                                    <label for="id" class="medium-label">Id: &nbsp;</label><br>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br>
+                                </div>
                                 <div class="col-sm-6">
-                                    <label for="id" class="medium-label">Id: &nbsp;</label><input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br>
                                     <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
                                     <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                                     <input id="created" type="hidden" name="Created" value="'.$data_form['CREATED'].'">
                                     <input id="updated" type="hidden" name="Updated" value="'.$data_form['UPDATED'].'">
-                                    <label for="name" class="medium-label">Nome: &nbsp;</label><input id="name" type="text" size="50" name="Name" value="'.$data_form['NAME'].'"><br><br>
-                                    <label for="login" class="medium-label">Login: &nbsp;</label><input id="login" type="text" size="20" name="Login" value="'.$data_form['LOGIN'].'"><br><br>
-                                    <label for="pass" class="medium-label">Senha: &nbsp;</label><input id="pass" type="password" name="Pass" value="'.$data_form['PASS'].'"><br><br>
-                                    <label for="type" class="medium-label">Tipo: &nbsp;</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="name" class="medium-label">Nome: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="name" type="text" size="50" name="Name" value="'.$data_form['NAME'].'"><br<br>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="cnpj" type="text" size="10" name="CNPJ" value="'.$data_form['CNPJ'].'"><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="login" class="medium-label">Login: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="login" type="text" size="20" name="Login" value="'.$data_form['LOGIN'].'"><br><br>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="cpf" class="medium-label">CPF: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="cpf" type="text" size="10" name="CPF" value="'.$data_form['CPF'].'"><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="pass" class="medium-label">Senha: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="pass" type="password" name="Pass" value="'.$data_form['PASS'].'"><br><br>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="seq" type="text" size="8" name="Sequence" value="'.$data_form['SEQUENCE'].'"><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
                                     <select class="medium-label" id="type" name="Type">
                                         <option class="medium-label" value="">Selecione uma opção</option>
                                         <option class="medium-label" value="Funcionario" '.(($data_form['TYPE'] == 'Funcionario')?"selected":"").'>Funcionario</option>
                                         <option class="medium-label" value="Fornecedor" '.(($data_form['TYPE'] == 'Fornecedor')?"selected":"").'>Fornecedor</option>
                                         <option class="medium-label" value="Freelancer" '.(($data_form['TYPE'] == 'Freelancer')?"selected":"").'>Freelancer</option>
                                     </select><br><br>
-                                    <label for="Role" class="medium-label">Cargo: &nbsp;</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="Hire_Date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="start_date" type="date" size="30" name="Hire_Date" value="'.$data_form['HIRE_DATE'].'"><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="role" class="medium-label">Cargo: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
                                     <select class="medium-label" id="role" name="Role">
                                         <option class="medium-label" value="">Selecione uma opção</option>
                                         <option class="medium-label" value="Banhista" '.(($data_form['ROLE'] == 'Banhista')?"selected":"").'>Banhista</option>
@@ -165,19 +227,28 @@ class Supplier {
                                         <option class="medium-label" value="Recepcao" '.(($data_form['ROLE'] == 'Recepcao')?"selected":"").'>Recepcao</option>
                                         <option class="medium-label" value="Proprietario" '.(($data_form['ROLE'] == 'Proprietario')?"selected":"").'>Proprietario</option>
                                     </select><br><br>
-                                    <label for="Status" class="medium-label">Status: &nbsp;</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'"><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="status" class="medium-label">Status: &nbsp;</label><br><br>
+                                </div>
+                                <div class="col-sm-5">
                                     <select class="medium-label" id="status" name="Status">
                                         <option class="medium-label" value="">Selecione uma opção</option>
                                         <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
                                         <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
                                     </select><br><br>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="CNPJ" class="medium-label">CNPJ: &nbsp;</label><input id="cnpj" type="text" size="10" name="CNPJ" value="'.$data_form['CNPJ'].'"><br><br>
-                                    <label for="CPF" class="medium-label">CPF: &nbsp;</label><input id="cpf" type="text" size="10" name="CPF" value="'.$data_form['CPF'].'"><br><br>
-                                    <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><input id="seq" type="text" size="8" name="Sequence" value="'.$data_form['SEQUENCE'].'"><br><br>
-                                    <label for="Hire_Date" class="medium-label">Data Inicio: &nbsp;</label><input id="start_date" type="date" size="30" name="Hire_Date" value="'.$data_form['HIRE_DATE'].'"><br><br>
-                                    <label for="Comment" class="medium-label">Comentarios: &nbsp;</label><input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'"><br><br>
+                                <div class="col-sm-1">
+                                </div>
+                                <div class="col-sm-5">
                                 </div>
                             </div>';
                             echo $output;
@@ -207,7 +278,7 @@ class Supplier {
                             <th>CNPJ</th>
                             <th>CPF</th>
                             <th>Sequência</th>
-                            <th>Data Início</th>
+                            <th>Dt Início</th>
                             <th>Comentários</th>
                             <th>Ações</th>
                         </tr>

@@ -30,7 +30,7 @@
                 <input id="name" type="text" size="50" style="height: 30px;" name="Name"><br><br>
             </div>
             <div class="col-sm-1">
-                <label for="CNPJ" class="medium-label">CNPJ: &nbsp;</label>
+                <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label>
             </div>
             <div class="col-sm-5">
                 <input id="cnpj" type="text" size="10" name="CNPJ"><br><br>
@@ -44,7 +44,7 @@
                 <input id="login" type="text" size="20" style="height: 30px;" name="Login"><br><br>
             </div>
             <div class="col-sm-1">
-                <label for="CPF" class="medium-label">CPF: &nbsp;</label>
+                <label for="cpf" class="medium-label">CPF: &nbsp;</label>
             </div>
             <div class="col-sm-5">
                 <input id="cpf" type="text" size="10" name="CPF"><br><br>
