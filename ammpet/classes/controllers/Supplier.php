@@ -8,6 +8,7 @@ class Supplier {
 
     use _GlobalController;
     
+    //This function is not needed for now
     public function index()
     {
         //echo "This is Supplier controller";
@@ -15,10 +16,12 @@ class Supplier {
        
     }
 
+    //SESSION TO DEFINE TO WHICH PAGE USER WILL BE SENT: NEW, UPDATE, DELETE, LIST
+
     //Sends to page to create new Supplier
     public function new_supplier(){
 
-        $operation = 'goto_new_supplier';
+        //$operation = 'goto_new_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $operation = $_POST['op'];
@@ -92,7 +95,8 @@ class Supplier {
 
             try {
                 $supplier->insert($inputs);
-                $this->view('supplier/supplier-list');
+                //$this->view('supplier/supplier-list');
+                redirect("supplier/list_supplier");
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -128,7 +132,8 @@ class Supplier {
 
             try {
                 $supplier->update($id, $inputs);
-                $this->view('supplier/supplier-list');
+                //$this->view('supplier/supplier-list');
+                redirect("supplier/list_supplier");
             } catch (\Throwable $th) {
                 throw $th;
             }
