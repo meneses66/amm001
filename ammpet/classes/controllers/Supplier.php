@@ -165,16 +165,16 @@ class Supplier {
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
-                                <label for="pass" class="medium-label" style="height: 25px;">Senha: &nbsp;</label><br>
+                                <label for="pass" class="medium-label" style="height: 25px;">Senha: &nbsp;</label>
                             </div>
                             <div class="col-sm-5">
-                                <input id="pass" type="password" style="height: 30px;" name="Pass"><br>
+                                <input id="pass" type="password" style="height: 30px;" name="Pass">
                             </div>
                             <div class="col-sm-1">
-                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label><br>
+                                <label for="Sequence" class="medium-label">Sequencia: &nbsp;</label>
                             </div>
                             <div class="col-sm-5">
-                                <input id="seq" type="text" size="8" name="Sequence"><br>
+                                <input id="seq" type="text" size="8" name="Sequence">
                             </div>
                         </div>
                         <div class="row">
