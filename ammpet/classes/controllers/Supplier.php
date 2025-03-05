@@ -120,11 +120,11 @@ class Supplier {
             }
     }
 
-    public function laod_new_form(){
+    public function load_new_form(){
 
         if(!isset($_SESSION['username'])) {session_start();}
             $output = "";
-            $supplier = new \Model\Supplier;
+            //$supplier = new \Model\Supplier;
             
             $output .= '<div class="row">
                             <div class="col-sm-6">
