@@ -13,7 +13,7 @@ Create Table SUPPLIER
     CNPJ Varchar(30),
     CPF Varchar(20),
     TYPE Varchar(15),
-    SEQUENCE INT,
+    SEQUENCE INT AUTO_INCREMENT,
     HIRE_DATE date,
     STATUS Varchar(15),
     COMMENT Varchar(200),

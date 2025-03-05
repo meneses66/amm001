@@ -133,6 +133,7 @@ class Supplier {
                                 <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                                 <input id="created" type="hidden" name="Created" value="">
                                 <input id="updated" type="hidden" name="Updated" value="">
+                                <input id="sequence" type="hidden" name="Sequence" value="">
                             </div>
                         </div>
                         <div class="row">
@@ -143,10 +144,10 @@ class Supplier {
                                 <input id="name" type="text" size="50" name="Name"><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label><br><br>
+                                <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="cnpj" type="text" size="10" name="CNPJ"><br><br>
+                                <input id="hire_date" type="date" size="30" name="Hire_date"><br><br>
                             </div>
                         </div>
                         <div class="row">
@@ -157,10 +158,10 @@ class Supplier {
                                 <input id="login" type="text" size="20" name="Login"><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="cpf" class="medium-label">CPF: &nbsp;</label><br><br>
+                                <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="cpf" type="text" size="10" name="CPF"><br><br>
+                                <input id="cnpj" type="text" size="10" name="CNPJ"><br><br>
                             </div>
                         </div>
                         <div class="row">
@@ -171,10 +172,10 @@ class Supplier {
                                 <input id="pass" type="password" name="Pass"><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="sequence" class="medium-label">Sequencia: &nbsp;</label><br>
+                                <label for="cpf" class="medium-label">CPF: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="sequence" type="text" size="8" name="Sequence"><br>
+                                <input id="cpf" type="text" size="10" name="CPF"><br><br>
                             </div>
                         </div>
                         <div class="row">
@@ -190,10 +191,13 @@ class Supplier {
                                 </select><br><br>
                             </div>
                             <div class="col-sm-1">
-                                <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
+                                <label for="status" class="medium-label">Status: &nbsp;</label><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="hire_date" type="date" size="30" name="Hire_date"><br><br>
+                                <select class="medium-label" id="status" name="Status">
+                                    <option class="medium-label" value="Ativo" selected>Ativo</option>
+                                    <option class="medium-label" value="Inativo">Inativo</option>
+                                </select><br><br>
                             </div>
                         </div>
                         <div class="row">
@@ -214,24 +218,6 @@ class Supplier {
                             </div>
                             <div class="col-sm-5">
                                 <input id="comment" type="text" size="50" name="Comment"><br>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <label for="status" class="medium-label">Status: &nbsp;</label><br>
-                            </div>
-                            <div class="col-sm-5">
-                                <select class="medium-label" id="status" name="Status">
-                                    <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                    <option class="medium-label" value="Ativo">Ativo</option>
-                                    <option class="medium-label" value="Inativo">Inativo</option>
-                                </select><br><br>
-                            </div>
-                            <div class="col-sm-1">
-
-                            </div>
-                            <div class="col-sm-5">
-
                             </div>
                         </div>';
                         echo $output;
