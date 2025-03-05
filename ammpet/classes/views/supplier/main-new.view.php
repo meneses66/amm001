@@ -24,17 +24,17 @@
         </div>    
         <div class="row">
             <div class="col-sm-1">
-                <label for="name" class="medium-label">Nome: &nbsp;</label><br><br>
-                <label for="login" class="medium-label">Login: &nbsp;</label><br><br>
-                <label for="pass" class="medium-label">Senha: &nbsp;</label><br><br>
-                <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
-                <label for="role" class="medium-label">Cargo: &nbsp;</label><br><br>
-                <label for="status" class="medium-label">Status: &nbsp;</label><br><br>
+                <label for="name" class="medium-label" style="height: 30px;">Nome: &nbsp;</label><br><br>
+                <label for="login" class="medium-label" style="height: 30px;">Login: &nbsp;</label><br><br>
+                <label for="pass" class="medium-label" style="height: 30px;">Senha: &nbsp;</label><br><br>
+                <label for="type" class="medium-label" style="height: 30px;">Tipo: &nbsp;</label><br><br>
+                <label for="role" class="medium-label" style="height: 30px;">Cargo: &nbsp;</label><br><br>
+                <label for="status" class="medium-label" style="height: 30px;">Status: &nbsp;</label><br><br>
             </div>
             <div class="col-sm-5">
-                <input id="name" type="text" size="50" name="Name"><br><br>
-                <input id="login" type="text" size="20" name="Login"><br><br>
-                <input id="pass" type="password" name="Pass"><br><br>
+                <input id="name" type="text" size="50" style="height: 30px;" name="Name"><br><br>
+                <input id="login" type="text" size="20" style="height: 30px;" name="Login"><br><br>
+                <input id="pass" type="password" style="height: 30px;" name="Pass"><br><br>
                 <select class="medium-label" id="type" style="height: 30px;" name="Type">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Funcionario">Funcionario</option>
