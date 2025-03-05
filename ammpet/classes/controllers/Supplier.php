@@ -142,10 +142,10 @@ class Supplier {
 
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
-                                    <label for="id" class="medium-label">Id: &nbsp;</label><br>
+                                    <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br>
+                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
                                 </div>
                                 <div class="col-sm-6">
                                     <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
@@ -278,7 +278,7 @@ class Supplier {
                             <th>CNPJ</th>
                             <th>CPF</th>
                             <th>Sequência</th>
-                            <th>Dt Início</th>
+                            <th>DataInício</th>
                             <th>Comentários</th>
                             <th>Ações</th>
                         </tr>
