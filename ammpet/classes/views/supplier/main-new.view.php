@@ -20,30 +20,39 @@
                 <input id="updated_by" type="hidden" name="Updated_by" value="<?php if(!isset($_SESSION['username'])) {session_start();} echo $_SESSION['username'];?>">
                 <input id="created" type="hidden" name="Created" value="">
                 <input id="updated" type="hidden" name="Updated" value="">
-                <label for="name" class="medium-label">Nome: &nbsp;</label><input id="name" type="text" size="50" name="Name"><br><br>
-                <label for="login" class="medium-label">Login: &nbsp;</label><input id="login" type="text" size="20" name="Login"><br><br>
-                <label for="pass" class="medium-label">Senha: &nbsp;</label><input id="pass" type="password" name="Pass"><br><br>
-                <label for="type" class="medium-label">Tipo: &nbsp;</label>
+            </div>
+        </div>    
+        <div class="row">
+            <div class="col-sm-2">
+                <label for="name" class="medium-label">Nome: &nbsp;</label><br>
+                <label for="login" class="medium-label">Login: &nbsp;</label><br>
+                <label for="pass" class="medium-label">Senha: &nbsp;</label><br>
+                <label for="type" class="medium-label">Tipo: &nbsp;</label><br>
+                <label for="Role" class="medium-label">Cargo: &nbsp;</label><br>
+                <label for="Status" class="medium-label">Status: &nbsp;</label><br>
+            </div>
+            <div class="col-sm-4">
+                <input id="name" type="text" size="50" name="Name"><br>
+                <input id="login" type="text" size="20" name="Login"><br>
+                <input id="pass" type="password" name="Pass"><br>
                 <select class="medium-label" id="type" name="Type">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Funcionario">Funcionario</option>
                     <option class="medium-label" value="Fornecedor">Fornecedor</option>
                     <option class="medium-label" value="Freelancer">Freelancer</option>
-                </select><br><br>
-                <label for="Role" class="medium-label">Cargo: &nbsp;</label>
+                </select><br>
                 <select class="medium-label" id="role" name="Role">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Banhista">Banhista</option>
                     <option class="medium-label" value="Tosador">Tosador</option>
                     <option class="medium-label" value="Recepcao">Recepcao</option>
                     <option class="medium-label" value="Proprietario">Proprietario</option>
-                </select><br><br>
-                <label for="Status" class="medium-label">Status: &nbsp;</label>
+                </select><br>
                 <select class="medium-label" id="status" name="Status">
                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                     <option class="medium-label" value="Ativo">Ativo</option>
                     <option class="medium-label" value="Inativo">Inativo</option>
-                </select><br><br>
+                </select><br>
             </div>
             <div class="col-sm-6">
                 <label for="CNPJ" class="medium-label">CNPJ: &nbsp;</label><input id="cnpj" type="text" size="10" name="CNPJ"><br><br>
