@@ -65,9 +65,8 @@ class Supplier {
             //Define inputs for DB operations:
                 
             foreach ($_POST as $key => $value) {
-                //echo $key.": ".$value."<br>";
-                $inputs[$key]=$value;
-                //$supplier->__construct($inputs);    
+                echo $key.": ".$value."<br>";
+                $inputs[$key]=$value;    
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
