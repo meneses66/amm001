@@ -8,7 +8,7 @@ Trait _GlobalModel{
 
     use _DAO;
 
-    protected $order_type = 'desc';
+    protected $order_type = ' desc';
     protected $order_column = 'ID';
     
     #count all
@@ -23,7 +23,7 @@ Trait _GlobalModel{
     #list all
     public function listAll()
     {
-        $sql_stm = "select * from $this->table order by (isset($this->order_column_model)?$this->order_column_model:$this->order_column) $this->order_type";
+        $sql_stm = "select * from $this->table order by " . (isset($this->order_column_model)? $this->order_column_model : $this->order_column) . $this->order_type ."";
         #return $sql_stm;
         return $this->query($sql_stm);
 
