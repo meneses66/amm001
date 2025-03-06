@@ -52,21 +52,10 @@
                         type: "POST",
                         data: {operation:"view", class:"Supplier", method:"load_rows"},
                         success: function(response){
-
-                            if ( $.fn.dataTable.isDataTable( '#supplier_table' ) ) {
-                                table = $('#supplier_table').DataTable( {
-                                    "order": [[ 1, "desc" ]]
-                                } );
-                                table.destroy();
-                            }
-                            else {
-                                //table.destroy();
-                                table = $('#supplier_table').DataTable( {
-                                    "order": [[ 1, "desc" ]]
-                                } );
-                            }
-
                             $('#supplier_table').html(response);
+                            $("table").DataTable({
+                                    "order": [[ 1, "desc" ]]
+                                });
                         }
                     });
                 }
