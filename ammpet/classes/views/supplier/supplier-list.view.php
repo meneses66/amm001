@@ -60,6 +60,11 @@
                     });
                 }
 
+            function reload_rows(){
+                    table = $('#supplier_table').DataTable();
+                    table.ajax.reload();
+                }
+
             $("body").on("click", ".deleteBtn", function(e){
                 e.preventDefault();
                 var tr = $(this).closest('tr');
@@ -80,7 +85,7 @@
                                 data:{del_id:del_id, class:"Supplier", method:"delete_call"},
                                 success:function(response){
                                     tr.css('background-color', '#ff6666');
-                                    load_rows();
+                                    reload_rows();
                                 }
                             });
                         }
