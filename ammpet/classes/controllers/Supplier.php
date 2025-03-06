@@ -113,7 +113,7 @@ class Supplier {
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
-            unset($inputs["op"]);
+            unset($inputs["operation"]);
             unset($inputs["Id"]);
             //Remove items from array inputs that are populated automatically in DB
             unset($inputs["Created"]);
@@ -151,7 +151,7 @@ class Supplier {
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
-            unset($inputs["op"]);
+            unset($inputs["operation"]);
             unset($inputs["Id"]);
             //Remove items from array inputs that are populated automatically in DB
             unset($inputs["Created"]);
