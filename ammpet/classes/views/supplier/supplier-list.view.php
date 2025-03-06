@@ -53,6 +53,7 @@
                         data: {operation:"view", class:"Supplier", method:"load_rows"},
                         success: function(response){
                             $("#supplier_table").html(response);
+                            $("table").destroy();
                             $("table").DataTable({
                                 "order": [[ 1, "desc" ]]
                             });
