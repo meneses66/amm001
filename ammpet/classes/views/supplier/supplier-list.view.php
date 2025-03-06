@@ -50,7 +50,7 @@
         <script type="text/javascript">    
             $(".deleteBtn").on("click", function(e){
                 e.preventDefault();
-                var td = $(this).closest('tr');
+                var tr = $(this).closest('tr');
                 del_id = $(this).attr('id');
                 Swal.fire({
                     title: "Are you sure?",
