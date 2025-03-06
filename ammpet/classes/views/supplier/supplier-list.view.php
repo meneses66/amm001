@@ -57,8 +57,7 @@
                             type: "POST",
                             data: {operation:"view", class:"Supplier", method:"load_rows"},
                             success: function(response){
-                                //console.log(response);
-                                $("#listSupplier").html(response);
+                                $("#supplier_table").html(response);
                                 $("table").DataTable();
                             }
                         });
@@ -99,7 +98,7 @@
                                 data:{del_id:del_id, class:"Supplier", method:"delete_call"},
                                 success:function(response){
                                     tr.css('background-color', '#ff6666');
-                                    load_rows2();
+                                    load_rows();
                                 }
                             });
                         }

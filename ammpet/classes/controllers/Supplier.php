@@ -538,24 +538,23 @@ class Supplier {
             $supplier = new \Model\Supplier;
             $data = $supplier->listAll();
             if($supplier->countAll()>0){
-                $output .='<table class="table Table-stripped table-sm table-bordered">
-                    <thead>
-                        <tr class="text-center text-secondary">
-                            <th>Id</th>
-                            <th>Atualiz.</th>
-                            <th>Nome</th>
-                            <th>Login</th>
-                            <th>Cargo</th>
-                            <th>Tipo</th>
-                            <th>Status</th>
-                            <th>CNPJ</th>
-                            <th>CPF</th>
-                            <th>DataInício</th>
-                            <th>Comentários</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>';
+                $output .='<thead>
+                                <tr class="text-center text-secondary">
+                                    <th>Id</th>
+                                    <th>Atualiz.</th>
+                                    <th>Nome</th>
+                                    <th>Login</th>
+                                    <th>Cargo</th>
+                                    <th>Tipo</th>
+                                    <th>Status</th>
+                                    <th>CNPJ</th>
+                                    <th>CPF</th>
+                                    <th>DataInício</th>
+                                    <th>Comentários</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
                 foreach ($data as $row) {
                     $output .='<tr class="text-center text-secondary">
                                 <td>'.$row->ID.'</td>
@@ -574,7 +573,7 @@ class Supplier {
                                     <a href="'.ROOT."/Supplier/delete_supplier?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                                 </td></tr>';
                 }
-                $output .= '</tbody></table>';
+                $output .= '</tbody>';
                 echo $output;
             }
             else{

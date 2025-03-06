@@ -16,10 +16,12 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="listSupplier">
-                <?php 
-                    $supplier = new ('\Controller\\'."Supplier");
-                    $supplier->load_rows();
-                ?>
+                <table id="supplier_table" class="table Table-stripped table-sm table-bordered">
+                    <?php 
+                        $supplier = new ('\Controller\\'."Supplier");
+                        $supplier->load_rows();
+                    ?>
+                </table>
             </div>
         </div>
     </div>
