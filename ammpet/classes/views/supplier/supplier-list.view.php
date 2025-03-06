@@ -53,7 +53,7 @@
         
             function list_Rows(){
                         $.ajax({
-                            url: "/ajax_call.php",
+                            url: "/ammpet/public/Ajax_call.php",
                             type: "POST",
                             data: {operation:"view", class:"Supplier", method:"list_rows"},
                             success: function(response){
@@ -79,7 +79,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             $.ajax({
-                                url:"/ajax_call.php",
+                                url:"/ammpet/public/Ajax_call.php",
                                 type: "POST",
                                 data:{del_id:del_id, class:"Supplier", method:"delete_call"},
                                 success:function(response){
