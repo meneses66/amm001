@@ -17,12 +17,7 @@
                 <?php include "main-list.view.php";?>
             </div>
         </div>
-        <!-- Latest compiled JavaScript -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
         
-        <!-- Icons -->
-        <script src="https://kit.fontawesome.com/09bcd15628.js" crossorigin="anonymous"></script>
-
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
 
@@ -30,6 +25,12 @@
         <script src="<?php echo ROOT;?>/assets/js/jquery-3.7.1.js"></script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
 
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Icons -->
+        <script src="https://kit.fontawesome.com/09bcd15628.js" crossorigin="anonymous"></script>
+        
         <!-- Popper JS -->
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
