@@ -14,7 +14,7 @@
 
         $class = new ('\Controller\\'.$className());
         $result = $class->$method($inputs);
-        
+        echo "I'm here!";
         if(is_array($result))
         {
             print_r($result);
