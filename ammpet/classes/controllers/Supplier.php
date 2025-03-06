@@ -258,11 +258,12 @@ class Supplier {
                             <div class="col-sm-5">
                                 <select class="medium-label" id="type" name="Type">
                                     <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                    '.  $params = new \Controller\Params;
+                                    '.
+                                        $params = new \Controller\Params;
                                         $options = $params->getParamValue("SUPPLIER_TYPE");
                                         foreach ($options as $option) { 
-                                            '<option class="medium-label" value="'.$option.'">'.$option.'</option>'.
-                                        "}".'
+                                            echo ('<option class="medium-label" value="'.$option.'">'.$option.'</option>');
+                                        }'
                                 </select><br><br>
                             </div>
                             <div class="col-sm-1">
