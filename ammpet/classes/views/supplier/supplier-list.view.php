@@ -57,9 +57,10 @@
                                 table = $('#supplier_table').DataTable( {
                                     "order": [[ 1, "desc" ]]
                                 } );
+                                table.destroy();
                             }
                             else {
-                                table.destroy();
+                                //table.destroy();
                                 table = $('#supplier_table').DataTable( {
                                     "order": [[ 1, "desc" ]]
                                 } );
