@@ -59,9 +59,8 @@
                                 } );
                             }
                             else {
+                                table.destroy();
                                 table = $('#supplier_table').DataTable( {
-                                    paging: false,
-                                    seaching: false,
                                     "order": [[ 1, "desc" ]]
                                 } );
                             }
