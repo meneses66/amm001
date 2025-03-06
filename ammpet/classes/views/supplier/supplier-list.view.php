@@ -52,11 +52,19 @@
                         type: "POST",
                         data: {operation:"view", class:"Supplier", method:"load_rows"},
                         success: function(response){
-                            $("#supplier_table").html(response);
-                            $("table").destroy();
-                            $("table").DataTable({
-                                "order": [[ 1, "desc" ]]
-                            });
+
+                            if ( $.fn.dataTable.isDataTable( '#supplier_table' ) ) {
+                                table = $('#supplier_table').DataTable( {
+                                    "order": [[ 1, "desc" ]]
+                                } );
+                            }
+                            else {
+                                table = $('#supplier_table').DataTable( {
+                                    paging: false
+                                } );
+                            }
+
+                            table.html(response);
                         }
                     });
                 }
