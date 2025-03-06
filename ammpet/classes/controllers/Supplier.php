@@ -262,7 +262,7 @@ class Supplier {
                                 <option class="medium-label" value="" selected>Selecione uma opção</option>
                                 '.
                                     $params = new \Controller\Params;
-                                    $options = $params->getParamListByType("SUPPLIER_TYPE");
+                                    $options = $params->getParamListByType("SUPPLIER_TYPE", "Ativo");
                                     foreach ($options as $option) { 
                                         echo ('<option class="medium-label" value="'.$option.'">'.$option.'</option>');
                                     }'
