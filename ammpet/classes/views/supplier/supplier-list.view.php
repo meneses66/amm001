@@ -53,7 +53,7 @@
         
             function list_Rows(){
                         $.ajax({
-                            url: "controller/ajax_call.php",
+                            url: "core/ajax_call.php",
                             type: "POST",
                             data: {operation:"view", class:"Supplier", function:"list_rows"},
                             success: function(response){
@@ -79,7 +79,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             $.ajax({
-                                url:"controller/ajax_call.php",
+                                url:"core/ajax_call.php",
                                 type: "POST",
                                 data:{del_id:del_id, class:"Supplier", method:"delete_call"},
                                 success:function(response){
