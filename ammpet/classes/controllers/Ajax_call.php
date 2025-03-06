@@ -9,12 +9,7 @@ class Ajax_call {
     use _GlobalController;
     
     public function index()
-    {
-        //require_once 'siteController.php';
-        //var_dump($_GET);
-        //var_dump($_POST);
-        //echo $_SERVER['REQUEST_METHOD'];
-        
+    {    
         if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['class']) && isset($_POST['method']) )
     {
         $className = $_POST['class'];
