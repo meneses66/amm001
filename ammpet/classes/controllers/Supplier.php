@@ -261,9 +261,8 @@ class Supplier {
                                     '.  $params = new \Controller\Params;
                                         $options = $params->getParamValue("SUPPLIER_TYPE");
                                         foreach ($options as $option) { 
-                                        '
-                                            <option class="medium-label" value="'.$option.'">'.$option.'</option>'.'
-                                        }'.'
+                                            '<option class="medium-label" value="'.$option.'">'.$option.'</option>'.
+                                        }.'
                                 </select><br><br>
                             </div>
                             <div class="col-sm-1">
