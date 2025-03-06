@@ -11,7 +11,7 @@
     <br>
 
     <form method="post" action="../Supplier/update_call">
-        <input type="hidden" name="op" value="update">
+        <input type="hidden" name="operation" value="update">
         <?php 
             $supplier = new ('\Controller\\'."Supplier");
             $supplier->load_update_form();

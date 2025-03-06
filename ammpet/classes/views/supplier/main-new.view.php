@@ -11,7 +11,7 @@
     <br>
 
     <form method="post" action="../Supplier/insert_call">
-        <input type="hidden" name="op" value="insert">
+        <input type="hidden" name="operation" value="insert">
 
         <?php 
             $supplier = new ('\Controller\\'."Supplier");

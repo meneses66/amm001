@@ -11,7 +11,7 @@
     <br>
 
     <form method="post" action="../Supplier/delete_call">
-        <input type="hidden" name="op" value="delete">
+        <input type="hidden" name="operation" value="delete">
         <?php 
             $supplier = new ('\Controller\\'."Supplier");
             $supplier->load_delete_form();

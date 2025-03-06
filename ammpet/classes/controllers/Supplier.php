@@ -24,7 +24,7 @@ class Supplier {
         $operation = 'goto_new_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            $operation = $_POST['op'];
+            $operation = $_POST['operation'];
 
         }
 
@@ -36,7 +36,7 @@ class Supplier {
         $operation = 'goto_list_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            $operation = $_POST['op'];
+            $operation = $_POST['operation'];
 
         }
 
@@ -50,7 +50,7 @@ class Supplier {
         $operation = 'goto_update_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            $operation = $_POST['op'];
+            $operation = $_POST['operation'];
 
         }
 
@@ -64,7 +64,7 @@ class Supplier {
         $operation = 'goto_delete_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-            $operation = $_POST['op'];
+            $operation = $_POST['operation'];
 
         }
 

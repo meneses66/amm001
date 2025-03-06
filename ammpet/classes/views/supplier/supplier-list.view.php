@@ -68,7 +68,7 @@
                 $.ajax({
                     url: "/ammpet/public/Supplier/list_supplier",
                     type: "POST",
-                    data: {operation:"view", class:"Supplier", method:"load_rows"},
+                    data: {operation:"goto_list_supplier", class:"Supplier", method:"load_rows"},
                     success: function(response){
                         html(response);
                         //console.log(response);
