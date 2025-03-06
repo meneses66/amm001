@@ -70,6 +70,7 @@
                     type: "POST",
                     data: {operation:"view", class:"Supplier", method:"load_rows"},
                     success: function(response){
+                        html(response);
                         //console.log(response);
                         //$("#listSupplier").html(response);
                         //$("table").DataTable();
