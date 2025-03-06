@@ -58,8 +58,8 @@
                             data: {operation:"view", class:"Supplier", method:"load_rows"},
                             success: function(response){
                                 //console.log(response);
-                                //$("#listSupplier").html(response);
-                                //$("table").DataTable();
+                                $("#listSupplier").html(response);
+                                $("table").DataTable();
                             }
                         });
                     }
