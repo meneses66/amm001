@@ -4,7 +4,7 @@ namespace Controller;
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-class Supplier {
+class Ajax_call {
 
     use _GlobalController;
     
