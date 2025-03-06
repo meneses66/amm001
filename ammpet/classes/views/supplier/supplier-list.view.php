@@ -83,7 +83,7 @@
                                 type: "POST",
                                 data:{del_id:del_id, class:"Supplier", method:"delete_call"},
                                 success:function(response){
-                                    list_Rows();
+                                    //list_Rows();
                                 }
                             });
                         }
