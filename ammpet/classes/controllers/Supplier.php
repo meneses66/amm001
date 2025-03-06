@@ -196,9 +196,17 @@ class Supplier {
     //LOAD HTML FORM FOR CREATING NEW RECORD
     public function load_new_form(){
 
+        //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         if(!isset($_SESSION['username'])) {session_start();}
 
+        //GET LIST OF ROLES FROM PARAMS TABLE
         require_once 'Params.php';
+        $role_params = new ('\Controller\\'."Params");
+        $role_option_list = "";
+        $role_options = $role_params->getParamListByType("SUPPLIER_TYPE", "Ativo");
+        foreach ($role_options as $role_option) { 
+            $role_option_list .= '<option class="medium-label" value="'.$role_option.'">'.$role_option.'</option>';
+        }
 
         $output = "";
             
@@ -260,12 +268,7 @@ class Supplier {
                         <div class="col-sm-5">
                             <select class="medium-label" id="type" name="Type">
                                 <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                '.
-                                    $params = new ('\Controller\\'."Params");
-                                    $options = $params->getParamListByType("SUPPLIER_TYPE", "Ativo");
-                                    foreach ($options as $option) { 
-                                        echo ('<option class="medium-label" value="'.$option.'">'.$option.'</option>');
-                                    }'
+                                '.$role_option_list.'
                             </select><br><br>
                         </div>
                         <div class="col-sm-1">
