@@ -571,7 +571,7 @@ class Supplier {
                                 <td>'.$row->COMMENT.'</td>
                                 <td>
                                     <a href="'.ROOT."/Supplier/update_supplier?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                    <a href="#" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                    <a href="'.ROOT."/Supplier/delete_supplier?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                                 </td></tr>';
                 }
                 $output .= '</tbody></table>';
