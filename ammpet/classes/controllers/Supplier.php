@@ -18,7 +18,7 @@ class Supplier {
 
     //SESSION TO DEFINE TO WHICH PAGE USER WILL BE SENT: NEW, UPDATE, DELETE, LIST
 
-    //Sends to page to create new Supplier
+    //Sends to page to create NEW Supplier
     public function new_supplier(){
 
         $operation = 'goto_new_supplier';
@@ -31,7 +31,7 @@ class Supplier {
         $this->goto_view($operation);
     }
 
-    //Sends to List View
+    //Sends to LIST View
     public function list_supplier(){
         $operation = 'goto_list_supplier';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -44,7 +44,7 @@ class Supplier {
 
     }
 
-    //Sends to Update View
+    //Sends to UPDATE View
     public function update_supplier(){
 
         $operation = 'goto_update_supplier';
@@ -58,19 +58,45 @@ class Supplier {
 
     }
 
-        //Sends to Delete View
-        public function delete_supplier(){
+    //Sends to DELETE View
+    public function delete_supplier(){
 
-            $operation = 'goto_delete_supplier';
-            if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    
-                $operation = $_POST['op'];
-    
-            }
-    
-            $this->goto_view($operation);
-    
+        $operation = 'goto_delete_supplier';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $operation = $_POST['op'];
+
         }
+
+        $this->goto_view($operation);
+
+    }
+
+    //Defines view to go to
+    private function goto_view($op){
+    
+        switch($op)
+        {
+            case 'goto_new_supplier':
+                $this->view('supplier/supplier-new');
+            break;
+
+            case 'goto_list_supplier':
+                $this->view('supplier/supplier-list');
+            break;
+
+            case 'goto_update_supplier':
+                $this->view('supplier/supplier-update');
+            break;
+
+            case 'goto_delete_supplier':
+                $this->view('supplier/supplier-delete');
+            break;
+        }
+    }
+    
+
+    //SESSION TO CALL DB ACTIONS: INSERT, UPDATE, DELETE
 
     //Inserts new Supplier into DB
     public function insert_call(){
@@ -104,6 +130,7 @@ class Supplier {
         
     }
 
+    //Updates Supplier into DB
     public function update_call(){
 
             //Create new Model instance:
@@ -139,7 +166,8 @@ class Supplier {
             }
     }
 
-    public function delete_call(){
+    //Deletes Supplier from DB
+    public function delete_call($inputs=null){
 
         //Create new Model instance:
         $supplier = new \Model\Supplier;
@@ -163,6 +191,9 @@ class Supplier {
         
 }
 
+    //SESSION TO LOAD HTML FORMS:
+
+    //LOAD HTML FORM FOR CREATING NEW RECORD
     public function load_new_form(){
 
         if(!isset($_SESSION['username'])) {session_start();}
@@ -266,6 +297,7 @@ class Supplier {
 
     }
 
+    //LOAD HTML FORM FOR UPDATING RECORD
     public function load_update_form(){
 
         if (isset($_GET['id'])){
@@ -392,9 +424,9 @@ class Supplier {
 
         }
 
-
     }
 
+    //LOAD HTML FORM FOR DELETING RECORD
     public function load_delete_form(){
 
         if (isset($_GET['id'])){
@@ -499,6 +531,7 @@ class Supplier {
 
     }
 
+    //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
@@ -548,29 +581,6 @@ class Supplier {
                 echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
             }
         //}
-    }
-
-    //Defines view to go to
-    private function goto_view($op){
-        
-        switch($op)
-        {
-            case 'goto_new_supplier':
-                $this->view('supplier/supplier-new');
-            break;
-
-            case 'goto_list_supplier':
-                $this->view('supplier/supplier-list');
-            break;
-
-            case 'goto_update_supplier':
-                $this->view('supplier/supplier-update');
-            break;
-
-            case 'goto_delete_supplier':
-                $this->view('supplier/supplier-delete');
-            break;
-        }
     }
 
 }

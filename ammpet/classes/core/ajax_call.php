@@ -6,14 +6,14 @@
     if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['class']))
     {
         $className = $_POST['class'];
-        $function = $_POST['function'];
+        $method = $_POST['method'];
         
         foreach ($_POST as $key => $value) {
             $inputs[$key]=$value;    
         }
 
         $class = new ('\Controller\\'.$className());
-        $result = $class->$function($inputs);
+        $result = $class->$method($inputs);
         
         if(is_array($result))
         {
