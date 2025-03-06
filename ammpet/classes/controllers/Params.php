@@ -10,9 +10,9 @@ class Params {
 
     public function index()
     {
-        echo "This is Params controller";
+        //echo "This is Params controller";
 
-        $this->view('params/params');
+        //$this->view('params/params');
     }
 
     public function getParamValue($type, $name, $status){
