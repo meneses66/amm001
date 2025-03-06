@@ -198,7 +198,7 @@ class Supplier {
 
         if(!isset($_SESSION['username'])) {session_start();}
 
-        require_once 'Params.php';
+        //require_once 'Params.php';
 
         $output = "";
             
@@ -261,7 +261,7 @@ class Supplier {
                             <select class="medium-label" id="type" name="Type">
                                 <option class="medium-label" value="" selected>Selecione uma opção</option>
                                 '.
-                                    $params = new \Controller\Params;
+                                    $params = new ('\Controller\\'."Params");
                                     $options = $params->getParamListByType("SUPPLIER_TYPE", "Ativo");
                                     foreach ($options as $option) { 
                                         echo ('<option class="medium-label" value="'.$option.'">'.$option.'</option>');
