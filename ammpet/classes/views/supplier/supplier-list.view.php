@@ -67,7 +67,11 @@
                         data: {operation:"view", class:"Supplier", method:"load_rows"},
                         success: function(response){
                             table = $('#supplier_table').DataTable();
-                            table.ajax.reload();
+                            table.destroy();
+                            $('#supplier_table').html(response);
+                            $("table").DataTable({
+                                    "order": [[ 1, "desc" ]]
+                                });
                         }
                     });                    
                 }
