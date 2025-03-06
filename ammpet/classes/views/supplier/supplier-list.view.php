@@ -49,33 +49,27 @@
             });
         </script>
 
-        <script>
-            $(document).ready(function(){
+        <script type="text/javascript">
+        
+            function list_Rows(){
+                        $.ajax({
+                            url: "core/ajax_call.php",
+                            type: "POST",
+                            data: {operation:"view", class:"Supplier", function:"list_rows"},
+                            success: function(response){
+                                //console.log(response);
+                                $("#listSupplier").html(response);
+                                $("table").DataTable();
+                            }
+                        });
+                    }
 
-                list_Rows();
-
-                function list_Rows(){
-                    $.ajax({
-                        url: "core/ajax_call.php",
-                        type: "POST",
-                        data: {operation:"view", class:"Supplier", function:"list_rows"},
-                        success: function(response){
-                            //console.log(response);
-                            $("#listSupplier").html(response);
-                            $("table").DataTable();
-                        }
-                    });
-                }
-            });
-        </script>
-
-        <script type="text/javascript">    
             $(".deleteBtn").on("click", function(e){
                 e.preventDefault();
                 var tr = $(this).closest('tr');
                 del_id = $(this).attr('id');
                 Swal.fire({
-                    title: "Are you sure?",
+                    title: "Are you sure? Delete: " + del_id,
                     text: "You won't be able to revert this!",
                     icon: "warning",
                     showCancelButton: true,
