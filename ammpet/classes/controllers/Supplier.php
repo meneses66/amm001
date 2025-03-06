@@ -198,7 +198,7 @@ class Supplier {
 
         if(!isset($_SESSION['username'])) {session_start();}
 
-        //require_once 'Params.php';
+        require_once 'Params.php';
 
         $output = "";
             
