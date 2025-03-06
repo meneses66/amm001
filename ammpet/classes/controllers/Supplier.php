@@ -180,7 +180,7 @@ class Supplier {
             try {
                 $supplier->delete($id);
                 //$this->view('supplier/supplier-list');
-                //redirect("supplier/list_supplier");
+                redirect("supplier/list_supplier");
             } catch (\Throwable $th) {
                 throw $th;
             }
