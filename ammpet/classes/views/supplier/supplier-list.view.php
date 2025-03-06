@@ -46,8 +46,6 @@
                 
                 load_rows();
 
-            });
-
             function load_rows(){
                     $.ajax({
                         url: "/ammpet/public/Ajax_call",
@@ -88,6 +86,8 @@
                         }
                         });                    
             });
+
+        });
 
         </script>
 
