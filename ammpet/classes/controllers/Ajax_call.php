@@ -12,7 +12,7 @@
             $inputs[$key]=$value;    
         }
 
-        $class = new ('\Controller\\'.$className());
+        $class = new ('\Controller\\'.$className);
         $result = $class->$method($inputs);
         
         if(is_array($result))
