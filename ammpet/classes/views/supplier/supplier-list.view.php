@@ -64,7 +64,7 @@
                                 } );
                             }
 
-                            //table.html(response);
+                            $('#supplier_table').html(response);
                         }
                     });
                 }
