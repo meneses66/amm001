@@ -60,7 +60,7 @@
                     });
                 }
 
-            $("body").on(".deleteBtn", "click", function(e){
+            $("body").on("click", ".deleteBtn", function(e){
                 e.preventDefault();
                 var tr = $(this).closest('tr');
                 del_id = $(this).attr('id');
