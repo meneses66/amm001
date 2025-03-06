@@ -51,11 +51,11 @@
 
         <script type="text/javascript">
         
-            function list_Rows(){
+            function load_rows(){
                         $.ajax({
                             url: "/ammpet/public/Ajax_call",
                             type: "POST",
-                            data: {operation:"view", class:"Supplier", method:"list_rows"},
+                            data: {operation:"view", class:"Supplier", method:"load_rows"},
                             success: function(response){
                                 //console.log(response);
                                 $("#listSupplier").html(response);
