@@ -173,9 +173,9 @@ class Supplier {
         $supplier = new \Model\Supplier;
 
         //Get Id from $_POST:
-        if(isset($_POST["del_id"])){
+        if(isset($inputs["del_id"])){
 
-            $id = $_POST["del_id"];
+            $id = $inputs["del_id"];
 
             try {
                 $supplier->delete($id);
