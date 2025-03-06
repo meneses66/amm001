@@ -46,40 +46,21 @@
                 
                 load_rows();
 
-                function load_rows(){
-                        $.ajax({
-                            url: "/ammpet/public/Ajax_call",
-                            type: "POST",
-                            data: {operation:"view", class:"Supplier", method:"load_rows"},
-                            success: function(response){
-                                $("#supplier_table").html(response);
-                                $("table").DataTable({
-                                    "order": [[ 1, "desc" ]]
-                                });
-                            }
-                        });
-                    }
             });
-        </script>
 
-        <script type="text/javascript">
-        
-            
-
-            function load_rows2(){
-                $.ajax({
-                    url: "/ammpet/public/Supplier/list_supplier",
-                    type: "POST",
-                    data: {operation:"goto_list_supplier", class:"Supplier", method:"load_rows"},
-                    success: function(response){
-                        $("table").ajax.reload();
-                        //html(response);
-                        //console.log(response);
-                        //$("#listSupplier").html(response);
-                        //$("table").DataTable();
-                    }
-                });
-            }
+            function load_rows(){
+                    $.ajax({
+                        url: "/ammpet/public/Ajax_call",
+                        type: "POST",
+                        data: {operation:"view", class:"Supplier", method:"load_rows"},
+                        success: function(response){
+                            $("#supplier_table").html(response);
+                            $("table").DataTable({
+                                "order": [[ 1, "desc" ]]
+                            });
+                        }
+                    });
+                }
 
             $(".deleteBtn").on("click", function(e){
                 e.preventDefault();
@@ -107,6 +88,7 @@
                         }
                         });                    
             });
+
         </script>
 
     </body>
