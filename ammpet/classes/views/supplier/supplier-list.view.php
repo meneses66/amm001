@@ -64,6 +64,19 @@
                         });
                     }
 
+            function load_rows2(){
+                $.ajax({
+                    url: "/ammpet/public/Supplier/list_supplier",
+                    type: "POST",
+                    data: {operation:"view", class:"Supplier", method:"load_rows"},
+                    success: function(response){
+                        //console.log(response);
+                        //$("#listSupplier").html(response);
+                        //$("table").DataTable();
+                    }
+                });
+            }
+
             $(".deleteBtn").on("click", function(e){
                 e.preventDefault();
                 var tr = $(this).closest('tr');
@@ -84,7 +97,7 @@
                                 data:{del_id:del_id, class:"Supplier", method:"delete_call"},
                                 success:function(response){
                                     tr.css('background-color', '#ff6666');
-                                    <?php redirect("supplier/list_supplier"); ?>
+                                    load_rows2();
                                 }
                             });
                         }
