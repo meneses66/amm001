@@ -61,8 +61,15 @@
                 }
 
             function reload_rows(){
-                    table = $('#supplier_table').DataTable();
-                    table.ajax.reload();
+                $.ajax({
+                        url: "/ammpet/public/Ajax_call",
+                        type: "POST",
+                        data: {operation:"view", class:"Supplier", method:"load_rows"},
+                        success: function(response){
+                            table = $('#supplier_table').DataTable();
+                            table.ajax.reload();
+                        }
+                    });                    
                 }
 
             $("body").on("click", ".deleteBtn", function(e){
