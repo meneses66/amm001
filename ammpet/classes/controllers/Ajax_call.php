@@ -1,9 +1,21 @@
 <?php
-    //require_once 'siteController.php';
-    //var_dump($_GET);
-    //var_dump($_POST);
-    //echo $_SERVER['REQUEST_METHOD'];
-    if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['class']) && isset($_POST['method']) )
+
+namespace Controller;
+
+defined('ROOTPATH') OR exit('Access denied!');
+
+class Supplier {
+
+    use _GlobalController;
+    
+    public function index()
+    {
+        //require_once 'siteController.php';
+        //var_dump($_GET);
+        //var_dump($_POST);
+        //echo $_SERVER['REQUEST_METHOD'];
+        
+        if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['class']) && isset($_POST['method']) )
     {
         $className = $_POST['class'];
         $method = $_POST['method'];
@@ -27,4 +39,7 @@
                 {
                     echo $result;
                 }
+    }    
     }
+
+}
