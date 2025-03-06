@@ -70,7 +70,7 @@
                     type: "POST",
                     data: {operation:"goto_list_supplier", class:"Supplier", method:"load_rows"},
                     success: function(response){
-                        $("table").table.ajax.reload();
+                        table.ajax.reload();
                         //html(response);
                         //console.log(response);
                         //$("#listSupplier").html(response);
