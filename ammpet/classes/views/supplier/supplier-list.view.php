@@ -84,7 +84,7 @@
                                 data:{del_id:del_id, class:"Supplier", method:"delete_call"},
                                 success:function(response){
                                     tr.css('background-color', '#ff6666');
-                                    load_rows();
+                                    <?php redirect("supplier/list_supplier"); ?>
                                 }
                             });
                         }
