@@ -60,7 +60,9 @@
                             }
                             else {
                                 table = $('#supplier_table').DataTable( {
-                                    paging: false
+                                    paging: false,
+                                    seaching: false,
+                                    "order": [[ 1, "desc" ]]
                                 } );
                             }
 
