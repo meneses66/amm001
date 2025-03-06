@@ -17,10 +17,7 @@
         <div class="col-lg-12">
             <div class="table-responsive" id="listSupplier">
                 <table id="supplier_table" class="table Table-stripped table-sm table-bordered">
-                    <?php 
-                        $supplier = new ('\Controller\\'."Supplier");
-                        $supplier->load_rows();
-                    ?>
+                    
                 </table>
             </div>
         </div>

@@ -43,25 +43,28 @@
         <!-- Table Pagination and Ajax Call-->
         <script type="text/javascript">
             $(document).ready(function(){
-                $("table").DataTable({
-                    "order": [[ 1, "desc" ]]
-                });
-            });
-        </script>
+                
+                load_rows();
 
-        <script type="text/javascript">
-        
-            function load_rows(){
+                function load_rows(){
                         $.ajax({
                             url: "/ammpet/public/Ajax_call",
                             type: "POST",
                             data: {operation:"view", class:"Supplier", method:"load_rows"},
                             success: function(response){
                                 $("#supplier_table").html(response);
-                                $("table").DataTable();
+                                $("table").DataTable({
+                                    "order": [[ 1, "desc" ]]
+                                });
                             }
                         });
                     }
+            });
+        </script>
+
+        <script type="text/javascript">
+        
+            
 
             function load_rows2(){
                 $.ajax({
