@@ -419,12 +419,6 @@ class Supplier {
                                 <div class="col-sm-5">
                                     <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
-                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
-                                    <input id="created" type="hidden" name="Created" value="'.$data_form['CREATED'].'">
-                                    <input id="updated" type="hidden" name="Updated" value="'.$data_form['UPDATED'].'">
-                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
@@ -473,22 +467,13 @@ class Supplier {
                                     <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <select class="medium-label" id="type" readonly name="Type">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
-                                        <option class="medium-label" value="Funcionario" '.(($data_form['TYPE'] == 'Funcionario')?"selected":"").'>Funcionario</option>
-                                        <option class="medium-label" value="Fornecedor" '.(($data_form['TYPE'] == 'Fornecedor')?"selected":"").'>Fornecedor</option>
-                                        <option class="medium-label" value="Freelancer" '.(($data_form['TYPE'] == 'Freelancer')?"selected":"").'>Freelancer</option>
-                                    </select><br><br>
+                                    <input id="type" type="text" size="20" name="Type" readonly value="'.$data_form['TYPE'].'"><br><br>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="status" class="medium-label">Status: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <select class="medium-label" id="status" readonly name="Status">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
-                                        <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
-                                        <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
-                                    </select><br>
+                                    <input id="status" type="text" size="20" name="Status" readonly value="'.$data_form['STATUS'].'"><br>
                                 </div>
                             </div>
                             <div class="row">
@@ -496,13 +481,7 @@ class Supplier {
                                     <label for="role" class="medium-label">Cargo: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <select class="medium-label" id="role" readonly name="Role">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
-                                        <option class="medium-label" value="Banhista" '.(($data_form['ROLE'] == 'Banhista')?"selected":"").'>Banhista</option>
-                                        <option class="medium-label" value="Tosador" '.(($data_form['ROLE'] == 'Tosador')?"selected":"").'>Tosador</option>
-                                        <option class="medium-label" value="Recepcao" '.(($data_form['ROLE'] == 'Recepcao')?"selected":"").'>Recepcao</option>
-                                        <option class="medium-label" value="Proprietario" '.(($data_form['ROLE'] == 'Proprietario')?"selected":"").'>Proprietario</option>
-                                    </select><br>
+                                    <input id="role" type="text" size="20" name="Rolee" readonly value="'.$data_form['ROLE'].'"><br>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br>
