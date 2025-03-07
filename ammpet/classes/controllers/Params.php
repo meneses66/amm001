@@ -24,7 +24,7 @@ class Params {
         foreach ($result as $key => $value) {
             $result_value['value']=$value;
         }
-        return $result_value;
+        return print_r($result_value);
     }
 
     public function getParamListByType($type, $status){
