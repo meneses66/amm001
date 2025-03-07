@@ -40,15 +40,8 @@ class Params {
         $inputs['TYPE']=$type;
         $inputs['STATUS']=$status;
         $result = $param->listWhere($inputs);
-        $i=0;
         if($result){
-            var_dump($result);
-            foreach ($result as $value) {
-                $result_value[$i]=$value->VALUE;
-                $i+=$i;
-            }
-            var_dump($result_value);
-            return $result_value;
+            return $result;
         }
         else{
             return false;
