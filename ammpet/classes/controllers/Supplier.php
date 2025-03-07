@@ -204,8 +204,10 @@ class Supplier {
         $type_params = new ('\Controller\\'."Params");
         $type_option_list = "";
         $type_options = $type_params->getParamListByType("SUPPLIER_TYPE", "Ativo");
-        foreach ($type_options as $type_option) { 
-            $type_option_list .= '<option class="medium-label" value="'.$type_option->VALUE.'">'.$type_option->VALUE.'</option>';
+        if($type_options){
+            foreach ($type_options as $type_option) { 
+                $type_option_list .= '<option class="medium-label" value="'.$type_option->VALUE.'">'.$type_option->VALUE.'</option>';
+            }
         }
 
         //GET LIST OF ROLES FROM PARAMS TABLE
@@ -213,8 +215,10 @@ class Supplier {
         $role_params = new ('\Controller\\'."Params");
         $role_option_list = "";
         $role_options = $role_params->getParamListByType("ROLE_TYPE", "Ativo");
-        foreach ($role_options as $role_option) { 
-            $role_option_list .= '<option class="medium-label" value="'.$role_option->VALUE.'">'.$role_option->VALUE.'</option>';
+        if($role_options){
+            foreach ($role_options as $role_option) { 
+                $role_option_list .= '<option class="medium-label" value="'.$role_option->VALUE.'">'.$role_option->VALUE.'</option>';
+            }
         }
 
         $output = "";
