@@ -21,9 +21,11 @@ class Params {
         $inputs['NAME']=$name;
         $inputs['STATUS']=$status;
         $result = $param->getRow($inputs);
+        $i=0;
         if($result){
-            foreach ($result as $key => $value) {
-                $result_value[$value]=$value;
+            foreach ($result as $value) {
+                $result_value[$i]=$value->VALUE;
+                $i+=$i;
             }
             return $result_value;
         }
@@ -41,7 +43,7 @@ class Params {
         $i=0;
         if($result){
             foreach ($result as $value) {
-                $result_value[$i]=$value;
+                $result_value[$i]=$value->VALUE;
                 $i+=$i;
             }
             return $result_value;
