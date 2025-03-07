@@ -21,10 +21,16 @@ class Params {
         $inputs['NAME']=$name;
         $inputs['STATUS']=$status;
         $result = $param->getRow($inputs);
-        foreach ($result as $key => $value) {
-            $result_value[$value]=$value;
+        if($result){
+            foreach ($result as $key => $value) {
+                $result_value[$value]=$value;
+            }
+            return $result_value;
         }
-        return $result_value;
+        else{
+            return false;
+        }
+        
     }
 
     public function getParamListByType($type, $status){
@@ -32,10 +38,16 @@ class Params {
         $inputs['TYPE']=$type;
         $inputs['STATUS']=$status;
         $result = $param->listWhere($inputs);
-        foreach ($result as $key => $value) {
-            $result_value[$value]=$value;
+        if($result){
+            foreach ($result as $key => $value) {
+                $result_value[$value]=$value;
+            }
+            return $result_value;
         }
-        return $result_value;
+        else{
+            return false;
+        }
+        
     }
 
 }
