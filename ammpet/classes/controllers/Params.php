@@ -46,6 +46,7 @@ class Params {
                 $result_value[$i]=$value->VALUE;
                 $i+=$i;
             }
+            var_dump($result_value);
             return $result_value;
         }
         else{
