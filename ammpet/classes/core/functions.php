@@ -116,7 +116,7 @@ function my_session_regenerate_id() {
     session_start();
 }
 
-function load_options ($type, $status){
+function load_options_new ($type, $status){
         
     require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
 
@@ -127,6 +127,23 @@ function load_options ($type, $status){
     if($options){
         foreach ($options as $option) { 
             $option_list .= '<option class="medium-label" value="'.$option->VALUE.'">'.$option->VALUE.'</option>';
+        }
+    }
+    return $option_list;
+}
+
+function load_options_update ($type, $status){
+        
+    require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
+
+    //GET LIST OF TYPES FROM PARAMS TABLE
+    $params = new ('\Controller\\'."Params");
+    $option_list = "";
+    $options = $params->getParamListByType($type, $status);
+    if($options){
+        foreach ($options as $option) { 
+            $selected=strval('.(($data_form[\'TYPE\'] == '.$option->VALUE.')?"selected":"").');
+            $option_list .= '<option class="medium-label" value="'.$option->VALUE.'">'.$option->VALUE.' '.$selected.'</option>';
         }
     }
     return $option_list;

@@ -200,9 +200,9 @@ class Supplier {
         if(!isset($_SESSION['username'])) {session_start();}
 
         //DEFINE OPTION LISTS:
-        $type_option_list = load_options("SUPPLIER_TYPE", "Ativo");
-        $role_option_list = load_options("SUPPLIER_ROLE", "Ativo");
-        $param_value_test = return_param_value ("SUPPLIER_TYPE", "Funcionario", "Ativo");
+        $type_option_list = load_options_new("SUPPLIER_TYPE", "Ativo");
+        $role_option_list = load_options_new("SUPPLIER_ROLE", "Ativo");
+        //$param_value_test = return_param_value ("SUPPLIER_TYPE", "Funcionario", "Ativo");
 
         $output = "";
 
@@ -292,7 +292,7 @@ class Supplier {
                             <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br>
                         </div>
                         <div class="col-sm-5">
-                            <input id="comment" type="text" size="50" name="Comment" value="'.$param_value_test.'"><br>
+                            <input id="comment" type="text" size="50" name="Comment"><br>
                         </div>
                     </div>';
                     echo $output;
@@ -311,6 +311,9 @@ class Supplier {
             $supplier = new \Model\Supplier;
             //$data = $supplier->getRowbyId($id);
             $data = $supplier->getRow($inputs);
+
+
+            $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo");
 
             if($data){
 
@@ -383,9 +386,7 @@ class Supplier {
                                 <div class="col-sm-5">
                                     <select class="medium-label" id="type" name="Type">
                                         <option class="medium-label" value="">Selecione uma opção</option>
-                                        <option class="medium-label" value="Funcionario" '.(($data_form['TYPE'] == 'Funcionario')?"selected":"").'>Funcionario</option>
-                                        <option class="medium-label" value="Fornecedor" '.(($data_form['TYPE'] == 'Fornecedor')?"selected":"").'>Fornecedor</option>
-                                        <option class="medium-label" value="Freelancer" '.(($data_form['TYPE'] == 'Freelancer')?"selected":"").'>Freelancer</option>
+                                        '.$type_option_list.'
                                     </select><br><br>
                                 </div>
                                 <div class="col-sm-1">
