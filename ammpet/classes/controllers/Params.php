@@ -22,9 +22,9 @@ class Params {
         $inputs['STATUS']=$status;
         $result = $param->getRow($inputs);
         foreach ($result as $key => $value) {
-            $result_value['value']=$value;
+            $result_value[$value]=$value;
         }
-        return print_r($result_value);
+        return $result_value;
     }
 
     public function getParamListByType($type, $status){
