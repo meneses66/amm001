@@ -225,7 +225,7 @@ class Supplier {
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         if(!isset($_SESSION['username'])) {session_start();}
 
-        load_options();
+        $this->load_options();
 
         $output = "";
 
