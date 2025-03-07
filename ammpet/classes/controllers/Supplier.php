@@ -209,7 +209,8 @@ class Supplier {
         }
 
         $output = "";
-            
+
+        //CREATE VIEW HTML STRUCTURE
         $output .= '<div class="row">
                         <div class="col-sm-6">
                             <input id="id" type="hidden" name="Id" value="">

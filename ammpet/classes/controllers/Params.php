@@ -38,10 +38,11 @@ class Params {
         $inputs['TYPE']=$type;
         $inputs['STATUS']=$status;
         $result = $param->listWhere($inputs);
+        $i-0;
         if($result){
-            foreach ($result as $key => $value) {
-                $value_into_key = $value;
-                $result_value[$value_into_key]=$value;
+            foreach ($result as $value) {
+                $result_value[i]=$value;
+                $i+=$i;
             }
             return $result_value;
         }
