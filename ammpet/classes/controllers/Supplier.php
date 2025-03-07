@@ -16,6 +16,32 @@ class Supplier {
        
     }
 
+    public function load_options(){
+        
+        require_once 'Params.php';
+
+        //GET LIST OF TYPES FROM PARAMS TABLE
+        $type_params = new ('\Controller\\'."Params");
+        $type_option_list = "";
+        $type_options = $type_params->getParamListByType("SUPPLIER_TYPE", "Ativo");
+        if($type_options){
+            foreach ($type_options as $type_option) { 
+                $type_option_list .= '<option class="medium-label" value="'.$type_option->VALUE.'">'.$type_option->VALUE.'</option>';
+            }
+        }
+
+        //GET LIST OF ROLES FROM PARAMS TABLE
+        $role_params = new ('\Controller\\'."Params");
+        $role_option_list = "";
+        $role_options = $role_params->getParamListByType("ROLE_TYPE", "Ativo");
+        if($role_options){
+            foreach ($role_options as $role_option) { 
+                $role_option_list .= '<option class="medium-label" value="'.$role_option->VALUE.'">'.$role_option->VALUE.'</option>';
+            }
+        }
+
+    }
+
     //SESSION TO DEFINE TO WHICH PAGE USER WILL BE SENT: NEW, UPDATE, DELETE, LIST
 
     //Sends to page to create NEW Supplier
@@ -199,27 +225,7 @@ class Supplier {
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         if(!isset($_SESSION['username'])) {session_start();}
 
-        //GET LIST OF TYPES FROM PARAMS TABLE
-        require_once 'Params.php';
-        $type_params = new ('\Controller\\'."Params");
-        $type_option_list = "";
-        $type_options = $type_params->getParamListByType("SUPPLIER_TYPE", "Ativo");
-        if($type_options){
-            foreach ($type_options as $type_option) { 
-                $type_option_list .= '<option class="medium-label" value="'.$type_option->VALUE.'">'.$type_option->VALUE.'</option>';
-            }
-        }
-
-        //GET LIST OF ROLES FROM PARAMS TABLE
-        require_once 'Params.php';
-        $role_params = new ('\Controller\\'."Params");
-        $role_option_list = "";
-        $role_options = $role_params->getParamListByType("ROLE_TYPE", "Ativo");
-        if($role_options){
-            foreach ($role_options as $role_option) { 
-                $role_option_list .= '<option class="medium-label" value="'.$role_option->VALUE.'">'.$role_option->VALUE.'</option>';
-            }
-        }
+        load_options();
 
         $output = "";
 
