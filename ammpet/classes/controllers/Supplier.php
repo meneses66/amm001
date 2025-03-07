@@ -205,7 +205,7 @@ class Supplier {
         $role_option_list = "";
         $role_options = $role_params->getParamListByType("SUPPLIER_TYPE", "Ativo");
         foreach ($role_options as $role_option) { 
-            $role_option_list .= '<option class="medium-label" value="'.print_r($role_option->VALUE).'">'.print_r($role_option->VALUE).'</option>';
+            $role_option_list .= '<option class="medium-label" value="'.$role_option->VALUE.'">'.$role_option->VALUE.'</option>';
         }
 
         $output = "";
