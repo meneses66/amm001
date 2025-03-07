@@ -42,6 +42,7 @@ class Params {
         $result = $param->listWhere($inputs);
         $i=0;
         if($result){
+            var_dump($result);
             foreach ($result as $value) {
                 $result_value[$i]=$value->VALUE;
                 $i+=$i;
