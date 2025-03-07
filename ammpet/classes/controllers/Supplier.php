@@ -216,8 +216,8 @@ class Supplier {
         if(!isset($_SESSION['username'])) {session_start();}
 
         //DEFINE OPTION LISTS:
-        $type_option_list = $this->load_options("SUPPLIER_TYPE", "Ativo");
-        $role_option_list = $this->load_options("SUPPLIER_ROLE", "Ativo");
+        $type_option_list = $this->load_options_global("SUPPLIER_TYPE", "Ativo");
+        $role_option_list = $this->load_options_global("SUPPLIER_ROLE", "Ativo");
 
         $output = "";
 

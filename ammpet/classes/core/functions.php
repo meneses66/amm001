@@ -115,3 +115,19 @@ function my_session_regenerate_id() {
     // Start with custom session ID
     session_start();
 }
+
+function load_options_global ($type, $status){
+        
+    require_once 'Params.php';
+
+    //GET LIST OF TYPES FROM PARAMS TABLE
+    $params = new ('\Controller\\'."Params");
+    $option_list = "";
+    $options = $params->getParamListByType($type, $status);
+    if($options){
+        foreach ($options as $option) { 
+            $option_list .= '<option class="medium-label" value="'.$option->VALUE.'">'.$option->VALUE.'</option>';
+        }
+    }
+    return $option_list;
+}
