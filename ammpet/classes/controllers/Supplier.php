@@ -26,7 +26,7 @@ class Supplier {
         $options = $params->getParamListByType($type, $status);
         if($options){
             foreach ($options as $option) { 
-                $option_list .= '<option class="medium-label" value="'.$type_option->VALUE.'">'.$type_option->VALUE.'</option>';
+                $option_list .= '<option class="medium-label" value="'.$option->VALUE.'">'.$option->VALUE.'</option>';
             }
         }
         return $option_list;
