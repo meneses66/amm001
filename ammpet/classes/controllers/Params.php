@@ -40,7 +40,7 @@ class Params {
         $result = $param->listWhere($inputs);
         if($result){
             foreach ($result as $key => $value) {
-                $result_value[$value]=$value;
+                $result_value["$value"]=$value;
             }
             return $result_value;
         }
