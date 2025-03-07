@@ -16,22 +16,6 @@ class Supplier {
        
     }
 
-    public function load_options($type, $status){
-        
-        require_once 'Params.php';
-
-        //GET LIST OF TYPES FROM PARAMS TABLE
-        $params = new ('\Controller\\'."Params");
-        $option_list = "";
-        $options = $params->getParamListByType($type, $status);
-        if($options){
-            foreach ($options as $option) { 
-                $option_list .= '<option class="medium-label" value="'.$option->VALUE.'">'.$option->VALUE.'</option>';
-            }
-        }
-        return $option_list;
-    }
-
     //SESSION TO DEFINE TO WHICH PAGE USER WILL BE SENT: NEW, UPDATE, DELETE, LIST
 
     //Sends to page to create NEW Supplier
@@ -216,8 +200,9 @@ class Supplier {
         if(!isset($_SESSION['username'])) {session_start();}
 
         //DEFINE OPTION LISTS:
-        $type_option_list = load_options_global("SUPPLIER_TYPE", "Ativo");
-        $role_option_list = load_options_global("SUPPLIER_ROLE", "Ativo");
+        $type_option_list = load_options("SUPPLIER_TYPE", "Ativo");
+        $role_option_list = load_options("SUPPLIER_ROLE", "Ativo");
+        $param_value_test = return_param_value ("SUPPLIER_TYPE", "Funcionario", "Ativo");
 
         $output = "";
 
@@ -307,7 +292,7 @@ class Supplier {
                             <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br>
                         </div>
                         <div class="col-sm-5">
-                            <input id="comment" type="text" size="50" name="Comment"><br>
+                            <input id="comment" type="text" size="50" name="Comment" value="'.$param_value_test.'"><br>
                         </div>
                     </div>';
                     echo $output;

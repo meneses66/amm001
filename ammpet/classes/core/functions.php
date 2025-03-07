@@ -116,7 +116,7 @@ function my_session_regenerate_id() {
     session_start();
 }
 
-function load_options_global ($type, $status){
+function load_options ($type, $status){
         
     require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
 
@@ -130,4 +130,18 @@ function load_options_global ($type, $status){
         }
     }
     return $option_list;
+}
+
+function return_param_value ($type, $name, $status){
+        
+    require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
+
+    //GET LIST OF TYPES FROM PARAMS TABLE
+    $params = new ('\Controller\\'."Params");
+    $param_value = "";
+    $result = $params->getParamValue($type, $name, $status);
+    if($result){
+        $param_value .=$result->VALUE;
+    }
+    return $param_value;
 }
