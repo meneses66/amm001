@@ -33,7 +33,7 @@ class Params {
         $inputs['STATUS']=$status;
         $result = $param->listWhere($inputs);
         foreach ($result as $key => $value) {
-            $result_value['value']=$value;
+            $result_value[$value]=$value;
         }
         return $result_value;
     }
