@@ -118,7 +118,7 @@ function my_session_regenerate_id() {
 
 function load_options_global ($type, $status){
         
-    //require_once 'Params.php';
+    require_once ROOTPATH_CLASSES.'controllers/Params.php';
 
     //GET LIST OF TYPES FROM PARAMS TABLE
     $params = new ('\Controller\\'."Params");
