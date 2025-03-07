@@ -199,11 +199,20 @@ class Supplier {
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         if(!isset($_SESSION['username'])) {session_start();}
 
+        //GET LIST OF TYPES FROM PARAMS TABLE
+        require_once 'Params.php';
+        $type_params = new ('\Controller\\'."Params");
+        $type_option_list = "";
+        $type_options = $type_params->getParamListByType("SUPPLIER_TYPE", "Ativo");
+        foreach ($type_options as $type_option) { 
+            $type_option_list .= '<option class="medium-label" value="'.$type_option->VALUE.'">'.$type_option->VALUE.'</option>';
+        }
+
         //GET LIST OF ROLES FROM PARAMS TABLE
         require_once 'Params.php';
         $role_params = new ('\Controller\\'."Params");
         $role_option_list = "";
-        $role_options = $role_params->getParamListByType("SUPPLIER_TYPE", "Ativo");
+        $role_options = $role_params->getParamListByType("ROLE_TYPE", "Ativo");
         foreach ($role_options as $role_option) { 
             $role_option_list .= '<option class="medium-label" value="'.$role_option->VALUE.'">'.$role_option->VALUE.'</option>';
         }
@@ -269,7 +278,7 @@ class Supplier {
                         <div class="col-sm-5">
                             <select class="medium-label" id="type" name="Type">
                                 <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                '.$role_option_list.'
+                                '.$type_option_list.'
                             </select><br><br>
                         </div>
                         <div class="col-sm-1">
@@ -289,10 +298,7 @@ class Supplier {
                         <div class="col-sm-5">
                             <select class="medium-label" id="role" name="Role">
                                 <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                <option class="medium-label" value="Banhista">Banhista</option>
-                                <option class="medium-label" value="Tosador">Tosador</option>
-                                <option class="medium-label" value="Recepcao">Recepcao</option>
-                                <option class="medium-label" value="Proprietario">Proprietario</option>
+                                '.$role_option_list.'
                             </select><br>
                         </div>
                         <div class="col-sm-1">

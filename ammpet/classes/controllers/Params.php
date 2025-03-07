@@ -21,13 +21,8 @@ class Params {
         $inputs['NAME']=$name;
         $inputs['STATUS']=$status;
         $result = $param->getRow($inputs);
-        $i=0;
         if($result){
-            foreach ($result as $value) {
-                $result_value[$i]=$value->VALUE;
-                $i+=$i;
-            }
-            return $result_value;
+            return $result;
         }
         else{
             return false;
