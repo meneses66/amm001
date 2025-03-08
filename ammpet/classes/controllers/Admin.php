@@ -37,7 +37,7 @@ class Admin {
     {
         //echo "This is home controller.";
         
-        $this->view('salary/salary');
+        $this->view('salary/salary-list');
         
     }
 
@@ -45,7 +45,7 @@ class Admin {
     {
         //echo "This is home controller.";
         
-        $this->view('params/params');
+        $this->view('params/params-list');
         
     }
 
