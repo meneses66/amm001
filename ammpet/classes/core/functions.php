@@ -139,11 +139,12 @@ function load_options_update ($type, $status, $data_form_type=null){
     //GET LIST OF TYPES FROM PARAMS TABLE
     $params = new ('\Controller\\'."Params");
     $option_list = "";
+    $data_form_type_local=$data_form_type;
     $options = $params->getParamListByType($type, $status);
     if($options){
         foreach ($options as $option) { 
             //$selected='.(($data_form[\'TYPE\']=='.$option->VALUE.')?"selected":"").';
-            $option_list .= '<option class="medium-label" value="'.$option->VALUE.'" '.(($$data_form_type=='.$option->VALUE.')?"selected":"").'>'.$option->VALUE.'</option>';
+            $option_list .= '<option class="medium-label" value="'.$option->VALUE.'" '.(($$data_form_type_local=='.$option->VALUE.')?"selected":"").'>'.$option->VALUE.'</option>';
         }
     }
     return $option_list;
