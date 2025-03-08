@@ -132,7 +132,7 @@ function load_options_new ($type, $status){
     return $option_list;
 }
 
-function load_options_update ($type, $status){
+function load_options_update ($type, $status, $data_form_type){
         
     require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
 
@@ -143,7 +143,7 @@ function load_options_update ($type, $status){
     $options = $params->getParamListByType($type, $status);
     if($options){
         foreach ($options as $option) { 
-            $selected='.(($data_form[\'TYPE\']=='.$option->VALUE.')?"selected":"").';
+            $selected= $data_form_type == $option->VALUE ? "selected":"";
             $option_list .= '<option class="medium-label" value="'.$option->VALUE.'" '.$selected.'>'.$option->VALUE.'</option>';
         }
     }

@@ -318,7 +318,8 @@ class Supplier {
                     $data_form[$key]=$value;
                 }
 
-                $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo");
+                $data_form_type = $data_form['TYPE'];
+                $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", $data_form_type);
 
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
