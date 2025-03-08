@@ -318,9 +318,14 @@ class Supplier {
                     $data_form[$key]=$value;
                 }
 
+                //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
                 $data_form_type = $data_form['TYPE'];
                 $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", $data_form_type);
 
+                $data_form_role = $data_form['ROLE'];
+                $role_option_list = load_options_update("SUPPLIER_ROLE", "Ativo", $data_form_role);
+
+                //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
                                     <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
@@ -405,10 +410,7 @@ class Supplier {
                                 <div class="col-sm-5">
                                     <select class="medium-label" id="role" name="Role">
                                         <option class="medium-label" value="">Selecione uma opção</option>
-                                        <option class="medium-label" value="Banhista" '.(($data_form['ROLE'] == 'Banhista')?"selected":"").'>Banhista</option>
-                                        <option class="medium-label" value="Tosador" '.(($data_form['ROLE'] == 'Tosador')?"selected":"").'>Tosador</option>
-                                        <option class="medium-label" value="Recepcao" '.(($data_form['ROLE'] == 'Recepcao')?"selected":"").'>Recepcao</option>
-                                        <option class="medium-label" value="Proprietario" '.(($data_form['ROLE'] == 'Proprietario')?"selected":"").'>Proprietario</option>
+                                        '.$role_option_list.'
                                     </select><br>
                                 </div>
                                 <div class="col-sm-1">
