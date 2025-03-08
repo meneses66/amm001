@@ -142,7 +142,7 @@ function load_options_update ($type, $status){
     $options = $params->getParamListByType($type, $status);
     if($options){
         foreach ($options as $option) { 
-            $selected='.(($data_form[\'TYPE\']=='.$option->VALUE.')?"selected":"").';
+            $selected='\'.(($data_form[\'TYPE\']=='.$option->VALUE.')?"selected":"").\'';
             $option_list .= '<option class="medium-label" value="'.$option->VALUE.'" '.$selected.'>'.$option->VALUE.'</option>';
         }
     }
