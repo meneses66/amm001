@@ -312,16 +312,13 @@ class Supplier {
             //$data = $supplier->getRowbyId($id);
             $data = $supplier->getRow($inputs);
 
-
-            $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo");
-
             if($data){
 
                 foreach ($data as $key => $value) {
                     $data_form[$key]=$value;
                 }
 
-                //var_dump($data_form);
+                $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", "data_form['TYPE']");
 
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
