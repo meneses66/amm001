@@ -309,7 +309,7 @@ class Supplier {
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
             $supplier = new \Model\Supplier;
-            //$data = $supplier->getRowbyId($id);
+            
             $data = $supplier->getRow($inputs);
 
             if($data){
@@ -318,7 +318,7 @@ class Supplier {
                     $data_form[$key]=$value;
                 }
 
-                $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", "data_form['TYPE']");
+                $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo");
 
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
