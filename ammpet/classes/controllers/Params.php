@@ -111,12 +111,12 @@ class Params {
         switch($operation)
         {
             case 'goto_new':
-                $view="$object/$object-new";
+                $view="$this->object/$this->object-new";
                 $this->view($view);
             break;
 
             case 'goto_list':
-                $view="$object/$object-list";
+                $view="$this->object/$this->object-list";
                 $this->view($view);
             break;
 
