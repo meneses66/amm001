@@ -21,7 +21,7 @@ class Params {
 
     //SESSION WITH FUNCTIONS TO ALLOWS OTHER CLASSES TO GET PARAM VALUES
     public function getParamValue($type, $name, $status){
-        $param = new \Model\ucfirst($object);
+        $param = new \Model\ucfirst($this->object);
         $inputs['TYPE']=$type;
         $inputs['NAME']=$name;
         $inputs['STATUS']=$status;
@@ -36,7 +36,7 @@ class Params {
     }
 
     public function getParamListByType($type, $status){
-        $param = new \Model\ucfirst($object);
+        $param = new \Model\ucfirst($this->object);
         $inputs['TYPE']=$type;
         $inputs['STATUS']=$status;
         $result = $param->listWhere($inputs);
@@ -126,7 +126,7 @@ class Params {
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Login instance:
-            $$object = new \Model\ucfirst($object);
+            $$object = new \Model\ucfirst($this->object);
 
             //Define inputs for DB operations:
                 
@@ -144,7 +144,7 @@ class Params {
 
             try {
                 $$object->insert($inputs);
-                $view = "$object/list_$object";
+                $view = "$this->object/list_$this->object";
                 redirect("$view");
             } catch (\Throwable $th) {
                 throw $th;
@@ -157,7 +157,7 @@ class Params {
     public function update_call(){
 
             //Create new Model instance:
-            $$object = new \Model\ucfirst($object);
+            $$this->object = new \Model\ucfirst($this->object);
 
             //Get Id from $_POST:
             if(isset($_POST["Id"])){
@@ -181,8 +181,8 @@ class Params {
             unset($inputs["Updated"]);
 
             try {
-                $supplier->update($id, $inputs);
-                redirect("supplier/list_supplier");
+                $$this->object->update($id, $inputs);
+                redirect("$this->object/list_$this->object");
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -192,7 +192,7 @@ class Params {
     public function delete_call($inputs=null){
 
         //Create new Model instance:
-        $$object = new \Model\ucfirst($object);
+        $$this->object = new \Model\ucfirst($this->object);
 
         //Get Id from $_POST:
         if(isset($inputs["del_id"])){
@@ -200,7 +200,7 @@ class Params {
             $id = $inputs["del_id"];
 
             try {
-                $$object->delete($id);
+                $$this->object->delete($id);
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -220,8 +220,8 @@ class Params {
         if(!isset($_SESSION['username'])) {session_start();}
 
         //DEFINE OPTION LISTS:
-        $type_option_list = load_options_new("SUPPLIER_TYPE", "Ativo");
-        $role_option_list = load_options_new("SUPPLIER_ROLE", "Ativo");
+        //$type_option_list = load_options_new("SUPPLIER_TYPE", "Ativo");
+        //$role_option_list = load_options_new("SUPPLIER_ROLE", "Ativo");
 
         $output = "";
 
@@ -293,9 +293,9 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $$object = new \Model\ucfirst($object);
+            $$this->object = new \Model\ucfirst($this->object);
             
-            $data = $$object->getRow($inputs);
+            $data = $$this->object->getRow($inputs);
 
             if($data){
 
@@ -304,11 +304,11 @@ class Params {
                 }
 
                 //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
-                $data_form_type = $data_form['TYPE'];
-                $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", $data_form_type);
+                //$data_form_type = $data_form['TYPE'];
+                //$type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", $data_form_type);
 
-                $data_form_role = $data_form['ROLE'];
-                $role_option_list = load_options_update("SUPPLIER_ROLE", "Ativo", $data_form_role);
+                //$data_form_role = $data_form['ROLE'];
+                //$role_option_list = load_options_update("SUPPLIER_ROLE", "Ativo", $data_form_role);
 
                 //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
@@ -423,8 +423,8 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $$object = new \Model\ucfirst($object);
-            $data = $$object->getRow($inputs);
+            $$this->object = new \Model\ucfirst($this->object);
+            $data = $$this->object->getRow($inputs);
 
             if($data){
 
@@ -523,10 +523,10 @@ class Params {
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
-            $$object = new ('\Model\\'.ucfirst($object));
+            $$this->object = new ('\Model\\'.ucfirst($this->object));
             //$$object = new ('\Model\\'.$UCF_object);
-            $data = $$object->listAll();
-            if($supplier->countAll()>0){
+            $data = $$this->object->listAll();
+            if($this->object->countAll()>0){
                 $output .='<thead>
                                 <tr class="text-center text-secondary">
                                     <th>Id</th>
@@ -550,8 +550,8 @@ class Params {
                                 <td>'.$row->STATUS.'</td>
                                 <td>'.$row->COMMENT.'</td>
                                 <td>
-                                    <a href="'.ROOT."/$UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                    <a href="'.ROOT."/$UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                    <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                                 </td></tr>';
                 }
                 $output .= '</tbody>';
