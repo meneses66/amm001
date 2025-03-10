@@ -9,7 +9,6 @@ class Params {
     use _GlobalController;
     private $object = 'params';
     private $UCF_object = 'Params';
-    private $type = 'PARAMS_TYPE';
 
     public function index()
     {

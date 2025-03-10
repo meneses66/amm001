@@ -9,8 +9,6 @@ class Supplier {
     use _GlobalController;
     private $object = 'supplier';
     private $UCF_object = 'Supplier';
-    private $type = 'SUPPLIER_TYPE';
-    private $role = 'SUPPLIER_ROLE';
 
     //This function is not needed for now
     public function index()
