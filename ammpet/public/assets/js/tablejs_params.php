@@ -1,6 +1,6 @@
 <?php
 
-$output = '<script>
+$output = '<script type="text/javascript">
             //When the document is ready it loads the rows in table:
 
             var current_class = '.$GLOBALS['classnamejs'].';
