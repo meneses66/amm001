@@ -523,7 +523,8 @@ class Params {
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
-            $$object = new \Model\ucfirst($object);
+            //$$object = new \Model\$UCF_object;
+            $$object = new ('\Model\\'.$UCF_object);
             $data = $$object->listAll();
             if($supplier->countAll()>0){
                 $output .='<thead>
