@@ -9,6 +9,7 @@ class Params {
     use _GlobalController;
     protected $object = 'params';
     protected $UCF_object = 'Params';
+    protected $UCF_model = Params;
     protected $type = 'PARAMS_TYPE';
 
     public function index()
@@ -523,8 +524,8 @@ class Params {
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
-            $$this->object = new ('\Model\\'.$this->UCF_object);
-            //$$object = new ('\Model\\'.$UCF_object);
+            $$this->object = new \Model.'\\'.$this->UCF_model;
+
             $data = $$this->object->listAll();
             if($this->object->countAll()>0){
                 $output .='<thead>
