@@ -6,10 +6,10 @@
 //Function to load the rows in table:
             function load_rows(){
                     $.ajax({
-                        current_class: '<?php echo "Supplier" ?>',
+                        current_class: '<?php echo $GLOBALS[\'classnamejs\'] ?>',
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
-                        data: {operation:"view", class:"Supplier", method:"load_rows"},
+                        data: {operation:"view", class:current_class, method:"load_rows"},
                         success: function(response){
                             $('#supplier_table').html(response);
                             $("table").DataTable({

@@ -1,3 +1,4 @@
+<?php $GLOBALS['classnamejs']='Params';?>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -9,7 +10,7 @@
             <h4>Lista Fornecedores</h4>
         </div>
         <div class="col-lg-6">
-            <a href="<?php echo ROOT."/Params/new_params";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Fornecedor</a>
+            <a href="<?php echo ROOT."/Params/_new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Fornecedor</a>
             <a href="#" class="btn btn-primary m-1 float-right"><i class="fas fa-table"></i>&nbsp;Export</a>
         </div>
         <hr class="my-1">

@@ -41,7 +41,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Table Pagination, Search, Refresh and Ajax Call-->
-        <script src="<?php echo ROOT;?>/assets/js/tablejs.js"></script>
+        <script src="<?php echo ROOT;?>/assets/js/tablejs_params.js"></script>
 
     </body>
 </html>
