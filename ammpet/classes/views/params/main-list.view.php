@@ -16,8 +16,8 @@
         <hr class="my-1">
     <div class="row">
         <div class="col-lg-12">
-            <div class="table-responsive" id="listParams">
-                <table id="params_table" class="table Table-stripped table-sm table-bordered">
+            <div class="table-responsive" id="_list_id">
+                <table id="_table" class="table Table-stripped table-sm table-bordered">
                     
                 </table>
             </div>

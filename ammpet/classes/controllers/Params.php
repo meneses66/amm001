@@ -17,6 +17,8 @@ class Params {
         //$this->view('params/params');
     }
 
+
+    //SESSION WITH FUNCTIONS TO ALLOWS OTHER CLASSES TO GET PARAM VALUES
     public function getParamValue($type, $name, $status){
         $param = new \Model\ucfirst($objetc);
         $inputs['TYPE']=$type;
@@ -47,7 +49,7 @@ class Params {
     }
 
 
-     //SESSION TO DEFINE TO WHICH PAGE USER WILL BE SENT: NEW, UPDATE, DELETE, LIST
+    //SESSION TO DEFINE TO WHICH PAGE USER WILL BE SENT: NEW, UPDATE, DELETE, LIST
 
     //Sends to page to create NEW Params
     public function _new(){

@@ -11,7 +11,7 @@
                         type: "POST",
                         data: {operation:"view", class:current_class, method:"load_rows"},
                         success: function(response){
-                            $('#supplier_table').html(response);
+                            $('#_table').html(response);
                             $("table").DataTable({
                                     "order": [[ 1, "desc" ]]
                                 });
