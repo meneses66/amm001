@@ -160,7 +160,7 @@ class Supplier {
             try {
                 $supplier->update($id, $inputs);
                 //$this->view('supplier/supplier-list');
-                redirect("supplier/list_supplier");
+                redirect("Supplier/list_supplier");
             } catch (\Throwable $th) {
                 throw $th;
             }

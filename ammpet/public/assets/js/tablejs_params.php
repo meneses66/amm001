@@ -28,11 +28,11 @@ $output = '<script type="text/javascript">
                 $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
-                        data: {operation:"view", class:"Supplier", method:"load_rows"},
+                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows"},
                         success: function(response){
-                            table = $(\'#supplier_table\').DataTable();
+                            table = $(\'#_table\').DataTable();
                             table.destroy();
-                            $(\'#supplier_table\').html(response);
+                            $(\'#_table\').html(response);
                             $("table").DataTable({
                                     "order": [[ 1, "desc" ]]
                                 });
@@ -58,7 +58,7 @@ $output = '<script type="text/javascript">
                             $.ajax({
                                 url:"/ammpet/public/Ajax_call",
                                 type: "POST",
-                                data:{del_id:del_id, class:"Supplier", method:"delete_call"},
+                                data:{del_id:del_id, class:"'.$GLOBALS['classnamejs'].'", method:"delete_call"},
                                 success:function(response){
                                     tr.css(\'background-color\', \'#ff6666\');
                                     reload_rows();
