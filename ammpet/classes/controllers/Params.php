@@ -21,7 +21,7 @@ class Params {
 
     //SESSION WITH FUNCTIONS TO ALLOWS OTHER CLASSES TO GET PARAM VALUES
     public function getParamValue($type, $name, $status){
-        $model = new \Model\Params;
+        $model = new('\Model\\'.$this->UCF_object);
         $inputs['TYPE']=$type;
         $inputs['NAME']=$name;
         $inputs['STATUS']=$status;
@@ -36,7 +36,7 @@ class Params {
     }
 
     public function getParamListByType($type, $status){
-        $model = new \Model\Params;
+        $model = new('\Model\\'.$this->UCF_object);
         $inputs['TYPE']=$type;
         $inputs['STATUS']=$status;
         $result = $model->listWhere($inputs);
@@ -126,7 +126,7 @@ class Params {
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Login instance:
-            $model = new \Model\Params;
+            $model = new('\Model\\'.$this->UCF_object);
 
             //Define inputs for DB operations:
                 
@@ -157,7 +157,7 @@ class Params {
     public function update_call(){
 
             //Create new Model instance:
-            $model = new \Model\Params;
+            $model = new('\Model\\'.$this->UCF_object);
 
             //Get Id from $_POST:
             if(isset($_POST["Id"])){
@@ -192,7 +192,7 @@ class Params {
     public function delete_call($inputs=null){
 
         //Create new Model instance:
-        $model = new \Model\Params;
+        $model = new('\Model\\'.$this->UCF_object);
 
         //Get Id from $_POST:
         if(isset($inputs["del_id"])){
@@ -293,7 +293,7 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $model = new \Model\Params;
+            $model = new('\Model\\'.$this->UCF_object);
             
             $data = $model->getRow($inputs);
 
@@ -330,41 +330,13 @@ class Params {
                                     <label for="name" class="medium-label">Nome: &nbsp;</label><br><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="name" type="text" size="50" name="Name" value="'.$data_form['NAME'].'"><br<br>
+                                    <input id="name" type="text" size="40" name="Name" value="'.$data_form['NAME'].'"><br<br>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
+                                    <label for="value" class="medium-label">Valor: &nbsp;</label><br><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="hire_date" type="date" size="30" name="Hire_Date" value="'.$data_form['HIRE_DATE'].'"><br><br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="login" class="medium-label">Login: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="login" type="text" size="20" name="Login" value="'.$data_form['LOGIN'].'"><br><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="cnpj" type="text" size="10" name="CNPJ" value="'.$data_form['CNPJ'].'"><br><br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="pass" class="medium-label">Senha: &nbsp;</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="pass" type="password" name="Pass" value="'.$data_form['PASS'].'"><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="cpf" class="medium-label">CPF: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="cpf" type="text" size="10" name="CPF" value="'.$data_form['CPF'].'"><br><br>
+                                    <input id="value" type="text" size="40" name="value" value="'.$data_form['VALUE'].'"><br<br>
                                 </div>
                             </div>
                             <div class="row">
@@ -372,10 +344,7 @@ class Params {
                                     <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <select class="medium-label" id="type" name="Type">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
-                                        '.$type_option_list.'
-                                    </select><br><br>
+                                    <input id="type" type="text" size="40" name="type" value="'.$data_form['TYPE'].'"><br<br>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="status" class="medium-label">Status: &nbsp;</label><br>
@@ -390,19 +359,16 @@ class Params {
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="role" class="medium-label">Cargo: &nbsp;</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <select class="medium-label" id="role" name="Role">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
-                                        '.$role_option_list.'
-                                    </select><br>
-                                </div>
-                                <div class="col-sm-1">
                                     <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
                                     <input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'"><br>
+                                </div>
+                                <div class="col-sm-1">
+                                    
+                                </div>
+                                <div class="col-sm-5">
+                                    
                                 </div>
                             </div>';
                             echo $output;
@@ -423,7 +389,7 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $model = new \Model\Params;
+            $model = new('\Model\\'.$this->UCF_object);
             $data = $model->getRow($inputs);
 
             if($data){
@@ -448,66 +414,10 @@ class Params {
                                     <input id="name" type="text" size="50" name="Name" readonly value="'.$data_form['NAME'].'"><br<br>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
+                                    
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="hire_date" type="date" size="30" name="Hire_Date" readonly value="'.$data_form['HIRE_DATE'].'"><br><br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="login" class="medium-label">Login: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="login" type="text" size="20" name="Login" readonly value="'.$data_form['LOGIN'].'"><br><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="cnpj" type="text" size="10" name="CNPJ" readonly value="'.$data_form['CNPJ'].'"><br><br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="pass" class="medium-label">Senha: &nbsp;</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="pass" type="password" name="Pass" readonly value="'.$data_form['PASS'].'"><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="cpf" class="medium-label">CPF: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="cpf" type="text" size="10" name="CPF" readonly value="'.$data_form['CPF'].'"><br><br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="type" type="text" size="20" name="Type" readonly value="'.$data_form['TYPE'].'"><br><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="status" class="medium-label">Status: &nbsp;</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="status" type="text" size="20" name="Status" readonly value="'.$data_form['STATUS'].'"><br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="role" class="medium-label">Cargo: &nbsp;</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="role" type="text" size="20" name="Rolee" readonly value="'.$data_form['ROLE'].'"><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="comment" class="medium-label">Comentarios: &nbsp;</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="comment" type="text" size="50" name="Comment" readonly value="'.$data_form['COMMENT'].'"><br>
+                                    
                                 </div>
                             </div>';
                             echo $output;
