@@ -523,10 +523,10 @@ class Params {
     public function load_rows(){
             
         $output = "";
-        $$this->object = new \Model\Params;
+        $model = new \Model\Params;
         
-        $data = $$this->object->listAll();
-        if($this->object->countAll()>0){
+        $data = $model->listAll();
+        if($model->countAll()>0){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
