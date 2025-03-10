@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h4>Lista Fornecedores</h4>
+            <h4>Lista Parâmetros</h4>
         </div>
         <div class="col-lg-6">
             <a href="<?php echo ROOT."/Params/_new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Fornecedor</a>

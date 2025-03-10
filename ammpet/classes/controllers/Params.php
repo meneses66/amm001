@@ -8,6 +8,7 @@ class Params {
 
     use _GlobalController;
     protected $object = 'params';
+    protected $UCF_object = 'Params';
     protected $type = 'PARAMS_TYPE';
 
     public function index()
@@ -156,7 +157,7 @@ class Params {
     public function update_call(){
 
             //Create new Model instance:
-            $supplier = new \Model\Supplier;
+            $supplier = new \Model\ucfirst($object);
 
             //Get Id from $_POST:
             if(isset($_POST["Id"])){
@@ -191,7 +192,7 @@ class Params {
     public function delete_call($inputs=null){
 
         //Create new Model instance:
-        $supplier = new \Model\Supplier;
+        $supplier = new \Model\ucfirst($object);
 
         //Get Id from $_POST:
         if(isset($inputs["del_id"])){
@@ -292,7 +293,7 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $supplier = new \Model\Supplier;
+            $supplier = new \Model\ucfirst($object);
             
             $data = $supplier->getRow($inputs);
 
@@ -422,7 +423,7 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $supplier = new \Model\Supplier;
+            $supplier = new \Model\ucfirst($object);
             $data = $supplier->getRow($inputs);
 
             if($data){
@@ -522,7 +523,7 @@ class Params {
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
-            $supplier = new \Model\Supplier;
+            $supplier = new \Model\ucfirst($object);
             $data = $supplier->listAll();
             if($supplier->countAll()>0){
                 $output .='<thead>
@@ -530,13 +531,9 @@ class Params {
                                     <th>Id</th>
                                     <th>Atualiz.</th>
                                     <th>Nome</th>
-                                    <th>Login</th>
-                                    <th>Cargo</th>
+                                    <th>Valor</th>
                                     <th>Tipo</th>
                                     <th>Status</th>
-                                    <th>CNPJ</th>
-                                    <th>CPF</th>
-                                    <th>DataInício</th>
                                     <th>Comentários</th>
                                     <th>Ações</th>
                                 </tr>
@@ -547,17 +544,13 @@ class Params {
                                 <td>'.$row->ID.'</td>
                                 <td>'.$row->UPDATED.'</td>
                                 <td>'.$row->NAME.'</td>
-                                <td>'.$row->LOGIN.'</td>
-                                <td>'.$row->ROLE.'</td>
+                                <td>'.$row->VALUE.'</td>
                                 <td>'.$row->TYPE.'</td>
                                 <td>'.$row->STATUS.'</td>
-                                <td>'.$row->CNPJ.'</td>
-                                <td>'.$row->CPF.'</td>
-                                <td>'.$row->HIRE_DATE.'</td>
                                 <td>'.$row->COMMENT.'</td>
                                 <td>
-                                    <a href="'.ROOT."/Supplier/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                    <a href="'.ROOT."/Supplier/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                    <a href="'.ROOT."/$UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/$UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                                 </td></tr>';
                 }
                 $output .= '</tbody>';
