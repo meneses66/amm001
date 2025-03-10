@@ -523,7 +523,8 @@ class Params {
     public function load_rows(){
             
         $output = "";
-        $model = new \Model\Params;
+        //$model = new \Model\Params;
+        $model = new('\Model\\'.$this->UCF_object);
         
         $data = $model->listAll();
         if($model->countAll()>0){
