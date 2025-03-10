@@ -112,18 +112,21 @@ class Params {
         {
             case 'goto_new':
                 $view="$object/$object-new";
-                $this->view('$view');
+                $this->view($view);
             break;
 
             case 'goto_list':
-                $this->view('supplier/supplier-list');
+                $view="$object/$object-list";
+                $this->view($view);
             break;
 
             case 'goto_update':
+                $view="$object/$object-update";
                 $this->view('supplier/supplier-update');
             break;
 
             case 'goto_delete':
+                $view="$object/$object-delete";
                 $this->view('supplier/supplier-delete');
             break;
         }
