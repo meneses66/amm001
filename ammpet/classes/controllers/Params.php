@@ -144,7 +144,7 @@ class Params {
 
             try {
                 $model->insert($inputs);
-                $view = "$this->object/list_$this->object";
+                $view = "$this->UCF_object/_list";
                 redirect("$view");
             } catch (\Throwable $th) {
                 throw $th;
@@ -182,7 +182,7 @@ class Params {
 
             try {
                 $model->update($id, $inputs);
-                redirect("$this->object/list_$this->object");
+                redirect("$this->UCF_object/_list");
             } catch (\Throwable $th) {
                 throw $th;
             }
