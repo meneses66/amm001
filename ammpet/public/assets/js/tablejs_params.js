@@ -6,7 +6,7 @@
 //Function to load the rows in table:
             function load_rows(){
                     $.ajax({
-                        current_class: 'Params',
+                        current_class: "Params",
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
                         data: {operation:"view", class:current_class, method:"load_rows"},
