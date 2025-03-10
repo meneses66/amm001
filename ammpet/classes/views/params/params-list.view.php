@@ -42,7 +42,7 @@
 
         <!-- Table Pagination, Search, Refresh and Ajax Call-->
         <!--<script src="<?php echo ROOT;?>/assets/js/tablejs_params.js"></script> -->
-        <?php include ROOTPATH_CLASSES . "../assets/js/tablejs_params.php";?>
+        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "assets/js/tablejs_params.php";?>
 
     </body>
 </html>
