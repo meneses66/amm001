@@ -21,11 +21,11 @@ class Params {
 
     //SESSION WITH FUNCTIONS TO ALLOWS OTHER CLASSES TO GET PARAM VALUES
     public function getParamValue($type, $name, $status){
-        $param = new \Model\ucfirst($this->object);
+        $model = new \Model\Params;
         $inputs['TYPE']=$type;
         $inputs['NAME']=$name;
         $inputs['STATUS']=$status;
-        $result = $param->getRow($inputs);
+        $result = $model->getRow($inputs);
         if($result){
             return $result;
         }
@@ -36,10 +36,10 @@ class Params {
     }
 
     public function getParamListByType($type, $status){
-        $param = new \Model\ucfirst($this->object);
+        $model = new \Model\Params;
         $inputs['TYPE']=$type;
         $inputs['STATUS']=$status;
-        $result = $param->listWhere($inputs);
+        $result = $model->listWhere($inputs);
         if($result){
             return $result;
         }
@@ -126,7 +126,7 @@ class Params {
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Login instance:
-            $$object = new \Model\ucfirst($this->object);
+            $model = new \Model\Params;
 
             //Define inputs for DB operations:
                 
@@ -143,7 +143,7 @@ class Params {
             unset($inputs["Updated"]);
 
             try {
-                $$object->insert($inputs);
+                $model->insert($inputs);
                 $view = "$this->object/list_$this->object";
                 redirect("$view");
             } catch (\Throwable $th) {
@@ -157,7 +157,7 @@ class Params {
     public function update_call(){
 
             //Create new Model instance:
-            $$this->object = new \Model\ucfirst($this->object);
+            $model = new \Model\Params;
 
             //Get Id from $_POST:
             if(isset($_POST["Id"])){
@@ -192,7 +192,7 @@ class Params {
     public function delete_call($inputs=null){
 
         //Create new Model instance:
-        $$this->object = new \Model\ucfirst($this->object);
+        $model = new \Model\Params;
 
         //Get Id from $_POST:
         if(isset($inputs["del_id"])){
@@ -200,7 +200,7 @@ class Params {
             $id = $inputs["del_id"];
 
             try {
-                $$this->object->delete($id);
+                $model->delete($id);
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -293,9 +293,9 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $$this->object = new \Model\ucfirst($this->object);
+            $model = new \Model\Params;
             
-            $data = $$this->object->getRow($inputs);
+            $data = $model->getRow($inputs);
 
             if($data){
 
@@ -423,8 +423,8 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $$this->object = new \Model\ucfirst($this->object);
-            $data = $$this->object->getRow($inputs);
+            $model = new \Model\Params;
+            $data = $model->getRow($inputs);
 
             if($data){
 
