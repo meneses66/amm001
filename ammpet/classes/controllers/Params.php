@@ -56,11 +56,8 @@ class Params {
 
         $operation = 'goto_new';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
             $operation = $_POST['operation'];
-
         }
-
         $this->goto_view($operation);
     }
 
@@ -68,13 +65,9 @@ class Params {
     public function _list(){
         $operation = 'goto_list';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
             $operation = $_POST['operation'];
-
         }
-
         $this->goto_view($operation);
-
     }
 
     //Sends to UPDATE View
@@ -82,13 +75,9 @@ class Params {
 
         $operation = 'goto_update';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
             $operation = $_POST['operation'];
-
         }
-
         $this->goto_view($operation);
-
     }
 
     //Sends to DELETE View
@@ -96,13 +85,9 @@ class Params {
 
         $operation = 'goto_delete';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
             $operation = $_POST['operation'];
-
         }
-
         $this->goto_view($operation);
-
     }
 
     //Defines view to go to
@@ -121,13 +106,13 @@ class Params {
             break;
 
             case 'goto_update':
-                $view="$object/$object-update";
-                $this->view('supplier/supplier-update');
+                $view="$this->object/$this->object-update";
+                $this->view($view);
             break;
 
             case 'goto_delete':
-                $view="$object/$object-delete";
-                $this->view('supplier/supplier-delete');
+                $view="$this->object/$this->object-delete";
+                $this->view($view);
             break;
         }
     }
