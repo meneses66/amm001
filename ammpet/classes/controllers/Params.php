@@ -181,7 +181,7 @@ class Params {
             unset($inputs["Updated"]);
 
             try {
-                $$this->object->update($id, $inputs);
+                $model->update($id, $inputs);
                 redirect("$this->object/list_$this->object");
             } catch (\Throwable $th) {
                 throw $th;
