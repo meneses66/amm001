@@ -7,10 +7,6 @@ defined('ROOTPATH') OR exit('Access denied!');
 class Supplier {
 
     use _GlobalController;
-    private $object = 'supplier';
-    private $UCF_object = 'Supplier';
-    private $type = 'SUPPLIER_TYPE';
-    private $role = 'SUPPLIER_ROLE';
 
     //This function is not needed for now
     public function index()
@@ -20,6 +16,180 @@ class Supplier {
        
     }
 
+    //SESSION TO DEFINE TO WHICH PAGE USER WILL BE SENT: NEW, UPDATE, DELETE, LIST
+
+    //Sends to page to create NEW Supplier
+    public function new_supplier(){
+
+        $operation = 'goto_new_supplier';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $operation = $_POST['operation'];
+
+        }
+
+        $this->goto_view($operation);
+    }
+
+    //Sends to LIST View
+    public function list_supplier(){
+        $operation = 'goto_list_supplier';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $operation = $_POST['operation'];
+
+        }
+
+        $this->goto_view($operation);
+
+    }
+
+    //Sends to UPDATE View
+    public function update_supplier(){
+
+        $operation = 'goto_update_supplier';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $operation = $_POST['operation'];
+
+        }
+
+        $this->goto_view($operation);
+
+    }
+
+    //Sends to DELETE View
+    public function delete_supplier(){
+
+        $operation = 'goto_delete_supplier';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            $operation = $_POST['operation'];
+
+        }
+
+        $this->goto_view($operation);
+
+    }
+
+    //Defines view to go to
+    private function goto_view($op){
+    
+        switch($op)
+        {
+            case 'goto_new_supplier':
+                $this->view('supplier/supplier-new');
+            break;
+
+            case 'goto_list_supplier':
+                $this->view('supplier/supplier-list');
+            break;
+
+            case 'goto_update_supplier':
+                $this->view('supplier/supplier-update');
+            break;
+
+            case 'goto_delete_supplier':
+                $this->view('supplier/supplier-delete');
+            break;
+        }
+    }
+    
+
+    //SESSION TO CALL DB ACTIONS: INSERT, UPDATE, DELETE
+
+    //Inserts new Supplier into DB
+    public function insert_call(){
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            //Create new Login instance:
+            $supplier = new \Model\Supplier;
+
+            //Define inputs for DB operations:
+                
+            foreach ($_POST as $key => $value) {
+                //echo $key.": ".$value."<br>";
+                $inputs[$key]=$value;    
+            }
+
+            //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
+            unset($inputs["operation"]);
+            unset($inputs["Id"]);
+            //Remove items from array inputs that are populated automatically in DB
+            unset($inputs["Created"]);
+            unset($inputs["Updated"]);
+
+            try {
+                $supplier->insert($inputs);
+                //$this->view('supplier/supplier-list');
+                redirect("supplier/list_supplier");
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+        }
+        
+    }
+
+    //Updates Supplier into DB
+    public function update_call(){
+
+            //Create new Model instance:
+            $supplier = new \Model\Supplier;
+
+            //Get Id from $_POST:
+            if(isset($_POST["Id"])){
+                $id = $_POST["Id"];
+            } else {
+                die("Record Id not informed.");
+            }
+
+            //Define inputs for DB operations:
+                
+            foreach ($_POST as $key => $value) {
+                
+                $inputs[$key]=$value;    
+            }
+
+            //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
+            unset($inputs["operation"]);
+            unset($inputs["Id"]);
+            //Remove items from array inputs that are populated automatically in DB
+            unset($inputs["Created"]);
+            unset($inputs["Updated"]);
+
+            try {
+                $supplier->update($id, $inputs);
+                //$this->view('supplier/supplier-list');
+                redirect("Supplier/list_supplier");
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+    }
+
+    //Deletes Supplier from DB
+    public function delete_call($inputs=null){
+
+        //Create new Model instance:
+        $supplier = new \Model\Supplier;
+
+        //Get Id from $_POST:
+        if(isset($inputs["del_id"])){
+
+            $id = $inputs["del_id"];
+
+            try {
+                $supplier->delete($id);
+                //$this->view('supplier/supplier-list');
+                //redirect("supplier/list_supplier");
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+
+        } else {
+            die("Record Id not informed.");
+        }
+        
+}
 
     //SESSION TO LOAD HTML FORMS:
 
