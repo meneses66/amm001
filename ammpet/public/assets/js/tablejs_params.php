@@ -3,7 +3,7 @@
 $output = '<script type="text/javascript">
             //When the document is ready it loads the rows in table:
 
-            var current_class = '.$GLOBALS['classnamejs'].';
+            //var current_class = '.$GLOBALS['classnamejs'].';
             $(document).ready(function(){
                 
                 load_rows();
@@ -13,7 +13,7 @@ $output = '<script type="text/javascript">
                     $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
-                        data: {operation:"view", class:current_class, method:"load_rows"},
+                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows"},
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
