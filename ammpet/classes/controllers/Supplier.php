@@ -138,9 +138,9 @@ class Supplier {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $supplier = new \Model\Supplier;
+            $model = new('\Model\\'.$this->UCF_object);
             
-            $data = $supplier->getRow($inputs);
+            $data = $model->getRow($inputs);
 
             if($data){
 
@@ -268,8 +268,8 @@ class Supplier {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $supplier = new \Model\Supplier;
-            $data = $supplier->getRow($inputs);
+            $model = new('\Model\\'.$this->UCF_object);
+            $data = $model->getRow($inputs);
 
             if($data){
 
@@ -368,9 +368,9 @@ class Supplier {
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
-            $supplier = new \Model\Supplier;
-            $data = $supplier->listAll();
-            if($supplier->countAll()>0){
+            $model = new('\Model\\'.$this->UCF_object);
+            $data = $model->listAll();
+            if($model->countAll()>0){
                 $output .='<thead>
                                 <tr class="text-center text-secondary">
                                     <th>Id</th>
@@ -402,8 +402,8 @@ class Supplier {
                                 <td>'.$row->HIRE_DATE.'</td>
                                 <td>'.$row->COMMENT.'</td>
                                 <td>
-                                    <a href="'.ROOT."/Supplier/update_supplier?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                    <a href="'.ROOT."/Supplier/delete_supplier?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                    <a href="'.ROOT."/Supplier/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/Supplier/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                                 </td></tr>';
                 }
                 $output .= '</tbody>';
