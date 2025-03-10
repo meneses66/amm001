@@ -21,7 +21,7 @@ class Params {
 
     //SESSION WITH FUNCTIONS TO ALLOWS OTHER CLASSES TO GET PARAM VALUES
     public function getParamValue($type, $name, $status){
-        $param = new \Model\ucfirst($objetc);
+        $param = new \Model\ucfirst($object);
         $inputs['TYPE']=$type;
         $inputs['NAME']=$name;
         $inputs['STATUS']=$status;
@@ -36,7 +36,7 @@ class Params {
     }
 
     public function getParamListByType($type, $status){
-        $param = new \Model\ucfirst($objetc);
+        $param = new \Model\ucfirst($object);
         $inputs['TYPE']=$type;
         $inputs['STATUS']=$status;
         $result = $param->listWhere($inputs);
@@ -157,7 +157,7 @@ class Params {
     public function update_call(){
 
             //Create new Model instance:
-            $supplier = new \Model\ucfirst($object);
+            $$object = new \Model\ucfirst($object);
 
             //Get Id from $_POST:
             if(isset($_POST["Id"])){
@@ -192,7 +192,7 @@ class Params {
     public function delete_call($inputs=null){
 
         //Create new Model instance:
-        $supplier = new \Model\ucfirst($object);
+        $$object = new \Model\ucfirst($object);
 
         //Get Id from $_POST:
         if(isset($inputs["del_id"])){
@@ -200,7 +200,7 @@ class Params {
             $id = $inputs["del_id"];
 
             try {
-                $supplier->delete($id);
+                $$object->delete($id);
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -293,9 +293,9 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $supplier = new \Model\ucfirst($object);
+            $$object = new \Model\ucfirst($object);
             
-            $data = $supplier->getRow($inputs);
+            $data = $$object->getRow($inputs);
 
             if($data){
 
@@ -423,8 +423,8 @@ class Params {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $supplier = new \Model\ucfirst($object);
-            $data = $supplier->getRow($inputs);
+            $$object = new \Model\ucfirst($object);
+            $data = $$object->getRow($inputs);
 
             if($data){
 
@@ -523,8 +523,8 @@ class Params {
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
-            //$$object = new \Model\$UCF_object;
-            $$object = new ('\Model\\'.$UCF_object);
+            $$object = new \Model\ucfirst($object);
+            //$$object = new ('\Model\\'.$UCF_object);
             $data = $$object->listAll();
             if($supplier->countAll()>0){
                 $output .='<thead>
