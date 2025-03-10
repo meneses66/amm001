@@ -7,9 +7,9 @@ defined('ROOTPATH') OR exit('Access denied!');
 class Params {
 
     use _GlobalController;
-    protected $object = 'params';
-    protected $UCF_object = 'Params';
-    protected $type = 'PARAMS_TYPE';
+    public $object = 'params';
+    public $UCF_object = 'Params';
+    public $type = 'PARAMS_TYPE';
 
     public function index()
     {
