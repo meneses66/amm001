@@ -1,6 +1,6 @@
 //When the document is ready it loads the rows in table:
 
-            var current_class = '<?php $GLOBALS[\'classnamejs\']; ?>';
+            var current_class = "<?php $GLOBALS[\'classnamejs\']; ?>";
             $(document).ready(function(){
                 
                 load_rows();
