@@ -523,8 +523,8 @@ class Params {
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
             $output = "";
-            $supplier = new \Model\ucfirst($object);
-            $data = $supplier->listAll();
+            $$object = new \Model\ucfirst($object);
+            $data = $$object->listAll();
             if($supplier->countAll()>0){
                 $output .='<thead>
                                 <tr class="text-center text-secondary">
