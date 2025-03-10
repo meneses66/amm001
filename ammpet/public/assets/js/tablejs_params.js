@@ -1,4 +1,6 @@
 //When the document is ready it loads the rows in table:
+
+            var current_class = '<?php $GLOBALS[\'classnamejs\']; ?>';
             $(document).ready(function(){
                 
                 load_rows();
@@ -6,7 +8,6 @@
 //Function to load the rows in table:
             function load_rows(){
                     $.ajax({
-                        current_class: "Params",
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
                         data: {operation:"view", class:current_class, method:"load_rows"},
