@@ -10,7 +10,7 @@
             <h4>Lista Parâmetros</h4>
         </div>
         <div class="col-lg-6">
-            <a href="<?php echo ROOT."/Params/_new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Fornecedor</a>
+            <a href="<?php echo ROOT."/Params/_new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Parâmetro</a>
             <a href="#" class="btn btn-primary m-1 float-right"><i class="fas fa-table"></i>&nbsp;Export</a>
         </div>
         <hr class="my-1">
