@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="_list_id">
-                <table id="_table" class="table Table-stripped table-sm table-bordered">
+                <table id="_table" class="table Table-stripped table-sm table-bordered small">
                     
                 </table>
             </div>
