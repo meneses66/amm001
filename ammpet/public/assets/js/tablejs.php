@@ -40,6 +40,12 @@ $output = '<script type="text/javascript">
                             table.destroy();
                             $(\'#_table\').html(response);
                             $("table").DataTable({
+                                    columnDefs: [
+                                                    {
+                                                        targets: 1,
+                                                        render: DataTable.render.datetime(\'YYYY-MM-DD\')
+                                                    }
+                                                ],
                                     "order": [[ 1, "desc" ]]
                                 });
                         }
