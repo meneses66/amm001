@@ -21,10 +21,11 @@
     3.4) Review load functions to map new entity fields accordingly
 
 4) Views:
-    4.1) Copy views: copy folder "params" and paste it in /classes/models/
-    4.2) Review each view:
-        4.2.1) Replace "Params" by the new entity name
-        4.2.2) Adjust view titles
-        4.2.3) Adjust other info as needed
+    4.1) Copy views: copy folder "params" and paste it in /classes/views/
+    4.2) Rename views with the new entity name
+    4.3) Review each view:
+        4.3.1) Replace "Params" by the new entity name inside the view
+        4.3.2) Adjust view titles
+        4.3.3) Adjust other info as needed
 
 
