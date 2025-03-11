@@ -16,13 +16,7 @@ $output = '<script type="text/javascript">
                         data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows"},
                         success: function(response){
                             $(\'#_table\').html(response);
-                            $.fn.dataTable.moment(\'DD/MM/YYYY\');
                             $("table").DataTable({
-                                    columns:[
-                                                {data: \'Updated\', render: function (data, type, row)
-                                                 {return moment(new Date(data).toString()).format(\'DD/MM/YYYY\');}
-                                                }
-                                            ]
                                     "order": [[ 1, "desc" ]]
                                 });
                         }
