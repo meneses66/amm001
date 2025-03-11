@@ -15,7 +15,7 @@
     </div>
     <div class="row">
         <div class="col-sm-6"><a href="<?php echo ROOT."/Salaries/salaries_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-calendar-alt"></i>&nbsp;Salários</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Params/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-money-bill-alt"></i>&nbsp;Parâmetros Sistema</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Params/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-indent"></i>&nbsp;Parâmetros Sistema</a></div>
     </div>
     <div class="row">
         <div class="col-sm-6"><a href="<?php echo ROOT."/Pre_Closing/pre_closing";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-calendar-alt"></i>&nbsp;Pré Fechamento</a></div>

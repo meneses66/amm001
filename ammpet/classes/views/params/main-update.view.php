@@ -19,7 +19,7 @@
         
         <div class="row">
             <div class="col-sm-6">
-                <input id="button" class="btn btn-secondary btn-lg m-1 btn-block" type="submit" value="Voltar" formaction="../Params/_list">
+                <a href="<?php echo ROOT."/Params/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-indent"></i>&nbsp;Voltar</a>
             </div>
             <div class="col-sm-6">
                 <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar" formaction="../Params/update_call">
