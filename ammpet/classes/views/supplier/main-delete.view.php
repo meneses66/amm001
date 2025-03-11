@@ -13,8 +13,8 @@
     <form method="post" action="../Supplier/delete_call">
         <input type="hidden" name="operation" value="delete">
         <?php 
-            $supplier = new ('\Controller\\'."Supplier");
-            $supplier->load_delete_form();
+            $controller = new ('\Controller\\'."Supplier");
+            $controller->load_delete_form();
         ?>
         
         <div class="row">

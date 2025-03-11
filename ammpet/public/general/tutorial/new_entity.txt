@@ -1,0 +1,30 @@
+** This tutorial aims to explain how to create a new entity using others as reference **
+
+1) Database:
+    1.1) Create new table with corresponting columns (use one of txt examples in /general/database/tables/)
+    1.2) Note all tables must have: ID (AUTOINCREMENT), CREATED (with default), CREATE_BY, UPDATE (with default and update), UPDATED_BY
+
+2) Model:
+    2.1) Copy Model "Params" and paste it under /classes/models/
+    2.2) Change variable: "protected $table = XXXXXX" with the table name created on 1.1
+    2.2) Review field definitions according to columns on table
+    2.3) Review "function __construct" inputs according to fields defined on 2.2
+    2.4) Review "$this ->" settings in "function __construct" according to fields defined on 2.2
+    2.5) Note that when there is reference to other objects, there is a special treatment (check example of Client in Model Animal)
+
+3) Controller:
+    3.1) Copy Controler "Params" and paste it under /classes/controlers/
+    3.2) Change all "Params" occurrences by the name of the new object. Examples:
+            private $object = 'params';
+            private $UCF_object = 'Params';
+    3.3) Remove functions: getParamValue and getParamListByType (they are specific form "Params")
+    3.4) Review load functions to map new entity fields accordingly
+
+4) Views:
+    4.1) Copy views: copy folder "params" and paste it in /classes/models/
+    4.2) Review each view:
+        4.2.1) Replace "Params" by the new entity name
+        4.2.2) Adjust view titles
+        4.2.3) 
+
+

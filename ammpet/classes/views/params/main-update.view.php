@@ -13,8 +13,8 @@
     <form method="post" action="../Params/update_call">
         <input type="hidden" name="operation" value="update">
         <?php 
-            $params = new ('\Controller\\'."Params");
-            $params->load_update_form();
+            $controller = new ('\Controller\\'."Params");
+            $controller->load_update_form();
         ?>
         
         <div class="row">

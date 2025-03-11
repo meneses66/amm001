@@ -41,7 +41,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Table Pagination, Search, Refresh and Ajax Call-->
-        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs_params.php";?>
+        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs.php";?>
 
     </body>
 </html>

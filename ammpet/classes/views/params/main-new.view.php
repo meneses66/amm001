@@ -14,8 +14,8 @@
         <input type="hidden" name="operation" value="insert">
 
         <?php 
-            $params = new ('\Controller\\'."Params");
-            $params->load_new_form();
+            $controller = new ('\Controller\\'."Params");
+            $controller->load_new_form();
         ?>
         
         <div class="row">
