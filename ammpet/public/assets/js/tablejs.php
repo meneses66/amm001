@@ -20,7 +20,7 @@ $output = '<script type="text/javascript">
                                     columnDefs: [
                                                     {
                                                         targets: 1,
-                                                        render: DataTable.render.datetime(\'DD-MM-YYYY\')
+                                                        render: DataTable.render.datetime(\'YYYY-MM-DD\')
                                                     }
                                                 ],
                                     "order": [[ 1, "desc" ]]
