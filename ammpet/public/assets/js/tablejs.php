@@ -17,6 +17,12 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
+                                    columnDefs: [
+                                                    {
+                                                        targets: 1,
+                                                        render: DataTable.render.datetime(\'D MMM YYYY\', \'MMM D, YY\', \'en\')
+                                                    }
+                                                ]
                                     "order": [[ 1, "desc" ]]
                                 });
                         }
