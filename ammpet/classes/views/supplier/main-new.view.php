@@ -10,7 +10,7 @@
     <hr class="my-1">
     <br>
 
-    <form method="post" action="../Supplier/insert_call">
+    <form method="post">
         <input type="hidden" name="operation" value="insert">
 
         <?php 
@@ -19,9 +19,11 @@
         ?>
         
         <div class="row">
-            <div class="col-sm-6"></div>
             <div class="col-sm-6">
-                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar">
+                <a href="<?php echo ROOT."/Supplier/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+            </div>
+            <div class="col-sm-6">
+                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Supplier/insert_call">
             </div>
         </div>
     </form>
