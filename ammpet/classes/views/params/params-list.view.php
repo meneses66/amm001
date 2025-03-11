@@ -43,5 +43,8 @@
         <!-- Table Pagination, Search, Refresh and Ajax Call-->
         <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs.php";?>
 
+        <!-- Table Column Date Formatting-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+
     </body>
 </html>
