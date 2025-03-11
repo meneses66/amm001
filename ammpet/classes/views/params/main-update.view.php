@@ -10,7 +10,7 @@
     <hr class="my-1">
     <br>
 
-    <form method="post" action="../Params/update_call">
+    <form method="post">
         <input type="hidden" name="operation" value="update">
         <?php 
             $controller = new ('\Controller\\'."Params");
@@ -19,10 +19,10 @@
         
         <div class="row">
             <div class="col-sm-6">
-                <input id="button" class="btn btn-secondary btn-lg m-1 btn-block" type="submit" value="Voltar" formmethod= "post" formaction="../Params/_list">
+                <input id="button" class="btn btn-secondary btn-lg m-1 btn-block" type="submit" value="Voltar" formaction="../Params/_list">
             </div>
             <div class="col-sm-6">
-                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar">
+                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar" formaction="../Params/update_call">
             </div>
         </div>
     </form>
