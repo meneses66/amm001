@@ -25,6 +25,6 @@
     4.2) Review each view:
         4.2.1) Replace "Params" by the new entity name
         4.2.2) Adjust view titles
-        4.2.3) 
+        4.2.3) Adjust other info as needed
 
 

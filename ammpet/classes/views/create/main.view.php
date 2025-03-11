@@ -10,15 +10,15 @@
     <hr class="my-1">
     <br><br><br><br>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Client/new_client";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-user-plus"></i>&nbsp;Novo Cliente</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Supplier/new_supplier";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-id-badge"></i>&nbsp;Novo Fornecedor</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Client/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-user-plus"></i>&nbsp;Novo Cliente</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Supplier/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-id-badge"></i>&nbsp;Novo Fornecedor</a></div>
     </div>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/ProdServ/new_product";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-barcode"></i>&nbsp;Novo Produto</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/ProdServ/new_service";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-cut"></i>&nbsp;Novo Serviço</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/ProdServ/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-barcode"></i>&nbsp;Novo Produto</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/ProdServ/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-cut"></i>&nbsp;Novo Serviço</a></div>
     </div>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Breed/new_breed";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-paw"></i>&nbsp;Nova Raça</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Breed/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-paw"></i>&nbsp;Nova Raça</a></div>
         <div class="col-sm-6"></div>
     </div>
 </div>
