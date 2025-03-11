@@ -22,7 +22,7 @@ $output = '<script type="text/javascript">
                                                         targets: 1,
                                                         render: DataTable.render.datetime(\'DD-MM-YYYY\')
                                                     }
-                                                ]
+                                                ],
                                     "order": [[ 1, "desc" ]]
                                 });
                         }
