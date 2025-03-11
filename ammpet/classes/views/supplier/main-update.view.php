@@ -10,7 +10,7 @@
     <hr class="my-1">
     <br>
 
-    <form method="post" action="../Supplier/update_call">
+    <form method="post">
         <input type="hidden" name="operation" value="update">
         <?php 
             $controller = new ('\Controller\\'."Supplier");
@@ -18,9 +18,11 @@
         ?>
         
         <div class="row">
-            <div class="col-sm-6"></div>
             <div class="col-sm-6">
-                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar">
+                <a href="<?php echo ROOT."/Supplier/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block"><i class="fas fa-indent"></i>&nbsp;Voltar</a>
+            </div>
+            <div class="col-sm-6">
+                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar" formaction="../Supplier/update_call">
             </div>
         </div>
     </form>
