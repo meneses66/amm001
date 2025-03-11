@@ -19,7 +19,7 @@
         
         <div class="row">
             <div class="col-sm-6">
-                <input id="button" class="btn btn-secondary btn-lg m-1 btn-block" type="submit" value="Voltar" formaction="../Params/_list">
+                <input id="button" class="btn btn-secondary btn-lg m-1 btn-block" type="submit" value="Voltar" formmethod= "post" formaction="../Params/_list">
             </div>
             <div class="col-sm-6">
                 <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar">
