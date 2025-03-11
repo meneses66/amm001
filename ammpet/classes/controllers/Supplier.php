@@ -372,7 +372,7 @@ class Supplier {
                 $output .='<thead>
                                 <tr class="text-center text-secondary">
                                     <th>Id</th>
-                                    <th data-type="date" data-format-string="DD-MMM-YYYY">Atualiz.</th>
+                                    <th data-type="date" data-format-string="YYYY-MM-DD">Atualiz.</th>
                                     <th>Nome</th>
                                     <th>Login</th>
                                     <th>Cargo</th>
