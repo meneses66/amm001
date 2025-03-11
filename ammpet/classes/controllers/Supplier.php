@@ -389,7 +389,7 @@ class Supplier {
                 foreach ($data as $row) {
                     $output .='<tr class="text-center text-secondary">
                                 <td>'.$row->ID.'</td>
-                                <td data-type="date" data-format-string="YYYY-MM-DD">'.$row->UPDATED.'</td>
+                                <td>'.$row->UPDATED.'</td>
                                 <td>'.$row->NAME.'</td>
                                 <td>'.$row->LOGIN.'</td>
                                 <td>'.$row->ROLE.'</td>
