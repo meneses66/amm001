@@ -70,4 +70,106 @@
             <input type="checkbox" id="params_delete" name="params_delete" value="params_delete">
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Produtos</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="product_view" name="product_view" value="product_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="product_add" name="product_add" value="product_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="product_edit" name="product_edit" value="product_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="product_delete" name="product_delete" value="product_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Serviços</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="service_view" name="service_view" value="service_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="service_add" name="service_add" value="service_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="service_edit" name="service_edit" value="service_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="service_delete" name="service_delete" value="service_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Vendas</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderx_view" name="orderx_view" value="orderx_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderx_add" name="orderx_add" value="orderx_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderx_edit" name="orderx_edit" value="orderx_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderx_delete" name="orderx_delete" value="orderx_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Caixa</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cash_register_view" name="cash_register_view" value="cash_register_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cash_register_add" name="cash_register_add" value="cash_register_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cash_register_edit" name="cash_register_edit" value="cash_register_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cash_register_delete" name="cash_register_delete" value="cash_register_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Admin</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="admin_view" name="admin_view" value="admin_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="admin_add" name="admin_add" value="admin_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="admin_edit" name="admin_edit" value="admin_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="admin_delete" name="admin_delete" value="admin_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Agenda</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="agenda_view" name="agenda_view" value="agenda_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="agenda_add" name="agenda_add" value="agenda_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="agenda_edit" name="agenda_edit" value="agenda_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="agenda_delete" name="agenda_delete" value="agenda_delete">
+        </div>
+    </div>
 </div>    
