@@ -45,9 +45,6 @@
 
         <!-- Table Column Date Formatting-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
-
-        <!-- Show Permission Session-->
-        <script src="<?php echo ROOT;?>/assets/js/showpermission.js"></script>
         
     </body>
 </html>

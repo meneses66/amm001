@@ -21,5 +21,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
+        <!-- Show Permission Session-->
+        <script src="<?php echo ROOT;?>/assets/js/showpermission.js"></script>
     </body>
 </html>
