@@ -172,4 +172,72 @@
             <input type="checkbox" id="agenda_delete" name="agenda_delete" value="agenda_delete">
         </div>
     </div>
-</div>    
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Salários</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="salary_view" name="salary_view" value="salary_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="salary_add" name="salary_add" value="salary_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="salary_edit" name="salary_edit" value="salary_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="salary_delete" name="salary_delete" value="salary_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Custos</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cost_view" name="cost_view" value="cost_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cost_add" name="cost_add" value="cost_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cost_edit" name="cost_edit" value="cost_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cost_delete" name="cost_delete" value="cost_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Pre-Fechamento</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="pre_closing_view" name="pre_closing_view" value="pre_closing_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="pre_closing_add" name="pre_closing_add" value="pre_closing_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="pre_closing_edit" name="pre_closing_edit" value="pre_closing_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="pre_closing_delete" name="pre_closing_delete" value="pre_closing_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Fechamento Mês</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="month_closing_view" name="month_closing_view" value="month_closing_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="month_closing_add" name="month_closing_add" value="month_closing_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="month_closing_edit" name="month_closing_edit" value="month_closing_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="month_closing_delete" name="month_closing_delete" value="month_closing_delete">
+        </div>
+    </div>
+</div> 
