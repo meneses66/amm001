@@ -7,6 +7,7 @@ $inputs["ID"]=$_GET['id'];
                 foreach ($data as $key => $value) {
                     $data_form[$key]=$value;
                 }
+            }
 ?>
 <div id="permission_div" style="display:block">
     <div class="row">
