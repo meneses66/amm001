@@ -43,10 +43,13 @@ class Login {
         //check against DB:
         $model = new \Model\User;
 
-        $verify = $model->getRow($array);
-        if($verify){
+        $data = $model->getRow($array);
+        if($data){
             $authentic=true;
-            $_SESSION['permissions']=$verify['PERMISSIONS'];
+            foreach ($data as $key => $value) {
+                $data_form[$key]=$value;
+            }
+            $_SESSION['permissions']=$data_form['PERMISSIONS'];
         }
         return $authentic;
     }
