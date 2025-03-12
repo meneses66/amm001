@@ -2,7 +2,7 @@
 $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
             $model = new('\Model\\'."Supplier");            
-            $data = $model->getRow($inputs);
+            $data = $model->getRowProperty($id, "PERMISSIONS");
             if($data){
                 foreach ($data as $key => $value) {
                     $data_form[$key]=$value;
@@ -36,7 +36,7 @@ $inputs["ID"]=$_GET['id'];
             <input type="checkbox" id="client_view" name="client_view" value="client_view" <?php if (in_array("client_view",$array_permissions)){ echo "checked";}?>>
         </div>
         <div class="col-sm-2">
-            <input type="checkbox" id="client_add" name="client_add" value="client_add">
+            <input type="checkbox" id="client_add" name="client_add" value="client_add" <?php if (in_array("client_add",$array_permissions)){ echo "checked";}?>>
         </div>
         <div class="col-sm-2">
             <input type="checkbox" id="client_edit" name="client_edit" value="client_edit">
