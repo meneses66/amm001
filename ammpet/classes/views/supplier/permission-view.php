@@ -1,5 +1,8 @@
 <div id="permission" style="display:none">
     <div class="row">
+        <input id="permission_id" type="hidden" name="Permission">
+    </div>
+    <div class="row">
         <div class="col-sm-3">
             <p></p>
         </div>
@@ -21,7 +24,7 @@
             <p>Clientes</p>
         </div>
         <div class="col-sm-2">
-            <input type="checkbox" id="client_view" name="client_view" value="client_view">
+            <input type="checkbox" id="client_view" name="client_view" value="client_view" onclick="setPermission()">
         </div>
         <div class="col-sm-2">
             <input type="checkbox" id="client_add" name="client_add" value="client_add">
