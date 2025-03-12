@@ -247,6 +247,9 @@ class Supplier {
                                 <div class="col-sm-5">
                                     <input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'"><br>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <input id="permission_el" type="text" name="Permission" value="'.$data_form['PERMISSION'].'">
                             </div>';
                             echo $output;
             } else{

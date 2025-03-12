@@ -1,7 +1,6 @@
+
 <div id="permission_div" style="display:block">
-    <div class="row">
-        <input id="permission_el" type="text" name="Permission" value="'.<?php echo $data_form['ID'];?>.'">
-    </div>
+    
     <div class="row">
         <div class="col-sm-3">
             <p></p>
