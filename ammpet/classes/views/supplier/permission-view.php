@@ -1,5 +1,8 @@
 <div id="permission" style="display:none">
     <div class="row">
+        <input id="permission_el" type="hidden" name="Permission" value="">
+    </div>
+    <div class="row">
         <div class="col-sm-3">
             <p></p>
         </div>

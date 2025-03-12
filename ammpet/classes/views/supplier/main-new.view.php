@@ -12,7 +12,6 @@
 
     <form method="post">
         <input type="hidden" name="operation" value="insert">
-        <input id="permission_id" type="hidden" name="Permission" value="">
 
         <?php 
             $controller = new ('\Controller\\'."Supplier");
