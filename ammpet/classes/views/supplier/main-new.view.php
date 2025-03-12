@@ -18,7 +18,7 @@
             $controller->load_new_form();
         ?>
         <br>
-        <?php include "permission-view.php";?>
+        <?php include "permission-new-view.php";?>
         <br>
         <div class="row">
             <div class="col-sm-6">

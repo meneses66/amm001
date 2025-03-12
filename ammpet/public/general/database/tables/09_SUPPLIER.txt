@@ -16,6 +16,7 @@ Create Table SUPPLIER
     HIRE_DATE date,
     STATUS Varchar(15),
     COMMENT Varchar(200),
+    PERMISSIONS Varchar (5000),
 
     INDEX INDEX_SUPPLIER_NAME (NAME),
     constraint UN_SUPPLIER_NAME UNIQUE (NAME, TYPE),

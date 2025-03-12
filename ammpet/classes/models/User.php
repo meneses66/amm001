@@ -8,6 +8,7 @@ class User extends Supplier {
 
     //use _GlobalModel;
     private $username;
+    private $permissions;
     protected $table = 'SUPPLIER';
     
     function User($username){
@@ -20,6 +21,14 @@ class User extends Supplier {
 
     function set_username($username){
         $this->username = $username;
+    }
+
+    function get_permissions(){
+        return $this->permmsions;
+    }
+
+    function set_permissions($permissions){
+        $this->permissions = $permissions;
     }
 
 }

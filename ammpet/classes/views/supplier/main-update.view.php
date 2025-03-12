@@ -16,6 +16,9 @@
             $controller = new ('\Controller\\'."Supplier");
             $controller->load_update_form();
         ?>
+        <br>
+        <?php include "permission-update-view.php";?>
+        <br>
         
         <div class="row">
             <div class="col-sm-6">
