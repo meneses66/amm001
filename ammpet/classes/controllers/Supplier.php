@@ -63,7 +63,7 @@ class Supplier {
                             <label for="login" class="medium-label">Login: &nbsp;</label><br><br>
                         </div>
                         <div class="col-sm-5">
-                            <input id="login" type="text" size="20" name="Login"><br><br>
+                            <input id="login" type="text" size="20" name="Login" onchange="showHidePermission()"><br><br>
                         </div>
                         <div class="col-sm-1">
                             <label for="cnpj" class="medium-label">CNPJ: &nbsp;</label><br><br>
