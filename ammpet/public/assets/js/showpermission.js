@@ -6,13 +6,16 @@ function showHidePermission(){
     }
 }
 
-let checkbox = document.querySelectorAll("input[type=checkbox]");
 
-checkbox.addEventListener('change', function() {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-  } else {
-    console.log("Checkbox is not checked..");
-  }
+let checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+checkboxes.forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+    if (this.checked) {
+        console.log("Checkbox is checked..");
+    } else {
+        console.log("Checkbox is not checked..");
+    }
+    })
 });
 
