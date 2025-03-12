@@ -17,7 +17,9 @@
             $controller = new ('\Controller\\'."Supplier");
             $controller->load_new_form();
         ?>
-        
+        <br>
+        <?php include "permission.view.php";?>
+        <br>
         <div class="row">
             <div class="col-sm-6">
                 <a href="<?php echo ROOT."/Supplier/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
