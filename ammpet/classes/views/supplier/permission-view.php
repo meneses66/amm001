@@ -1,4 +1,4 @@
-<div id="permission">
+<div id="permission" style="display:hidden">
     <div class="row">
         <div class="col-sm-3">
             <p></p>
