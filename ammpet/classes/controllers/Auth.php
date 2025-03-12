@@ -9,8 +9,6 @@
     class Auth {
            
         function index(){
-            //echo "This is Auth Controller: ".$op;
-            //$op=$_REQUEST['op'];
 
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
