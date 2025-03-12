@@ -31,3 +31,6 @@ function setPermission(){
         });
     }
 }
+
+var script = new setPermission();
+script.initialize();
