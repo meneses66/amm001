@@ -25,6 +25,7 @@ Create Table PROD_SERV
     PRICE_CASH Decimal(10,2),
     PRICE_PIX Decimal(10,2),
     OLD_ID Varchar(15),
+    COMISSION_OVERWRITE_FLG BOOLEAN,
 
     INDEX INDEX_NAME_CODE (NAME, CODE)
 
