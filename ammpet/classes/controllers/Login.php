@@ -46,6 +46,7 @@ class Login {
         $verify = $model->getRow($array);
         if($verify){
             $authentic=true;
+            $_SESSION['permissions']=$verify['PERMISSIONS'];
         }
         return $authentic;
     }
