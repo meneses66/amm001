@@ -1,4 +1,4 @@
-<div id="permission" style="display:none">
+<div id="permission_div" style="display:block">
     <div class="row">
         <input id="permission_el" type="text" name="Permission" value="'.<?php echo $data_form['ID'];?>.'">
     </div>

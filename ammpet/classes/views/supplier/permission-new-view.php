@@ -1,4 +1,4 @@
-<div id="permission" style="display:none">
+<div id="permission_div" style="display:none">
     <div class="row">
         <input id="permission_el" type="hidden" name="Permission">
     </div>
