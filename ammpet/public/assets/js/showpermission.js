@@ -6,32 +6,18 @@ function showHidePermission(){
     }
 }
 
-function setPermission(){
-    this.permissions=[];
+let checkboxes = $("input[type=checkbox]")
+let enabledSettings = [];
 
-    this.initialize = function(){
-        this.registerEvents();
-    },
+// Attach a change event handler to the checkboxes.
+checkboxes.change(function() {
+  enabledSettings = checkboxes
+    .filter(":checked") // Filter out unchecked boxes.
+    .map(function() { // Extract values using jQuery map.
+      return this.value;
+    }) 
+    .get() // Get array.
+    
+  console.log(enabledSettings);
+});
 
-    this.registerEvents = function(){
-        document.addEventListener('click', function(e){
-            let target = e.target;
-            let permissionName = target.dataset.value;
-            console.log(permissionName);
-            if(target.value.checked){
-                script.permissions = script.permissions.filter((name) => {
-                    return name !== permissionName;
-                });
-            } else {
-                script.permissions.push(permissionName);
-            }
-
-            document.getElementById('permission_el')
-                .value=script.permissions.join(',');
-
-        });
-    }
-}
-
-var script = new setPermission();
-script.initialize();
