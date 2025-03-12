@@ -249,7 +249,7 @@ class Supplier {
                                 </div>
                             </div>
                             <div class="row">
-                                <input id="permission_el" type="text" name="Permission" value="'.$data_form['PERMISSION'].'">
+                                <input id="permission_el" type="text" name="Permission" value="'.$data_form['PERMISSIONS'].'">
                             </div>';
                             echo $output;
             } else{
