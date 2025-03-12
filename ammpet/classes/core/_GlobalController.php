@@ -129,6 +129,7 @@ Trait _GlobalController{
 
             //START UNSET CHECKBOXES IN SUPPLIET VIEW:
 
+            
             unset($inputs["client_view"]);
             unset($inputs["client_add"]);
             unset($inputs["client_edit"]);

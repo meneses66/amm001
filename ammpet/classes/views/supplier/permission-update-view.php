@@ -1,4 +1,13 @@
-
+<?php
+$inputs["ID"]=$_GET['id'];
+            $id=$_GET['id'];
+            $model = new('\Model\\'."Supplier");            
+            $data = $model->getRow($inputs);
+            if($data){
+                foreach ($data as $key => $value) {
+                    $data_form[$key]=$value;
+                }
+?>
 <div id="permission_div" style="display:block">
     <div class="row">
         <div class="col-sm-3">
@@ -22,7 +31,7 @@
             <p>Clientes</p>
         </div>
         <div class="col-sm-2">
-            <input type="checkbox" id="client_view" name="client_view" value="client_view">
+            <input type="checkbox" id="client_view" name="client_view" value="client_view" <?php if (in_array("client_view",$data_form['PERMISSION'])){ echo "checked";}?>>
         </div>
         <div class="col-sm-2">
             <input type="checkbox" id="client_add" name="client_add" value="client_add">
@@ -68,4 +77,175 @@
             <input type="checkbox" id="params_delete" name="params_delete" value="params_delete">
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Produtos</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="product_view" name="product_view" value="product_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="product_add" name="product_add" value="product_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="product_edit" name="product_edit" value="product_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="product_delete" name="product_delete" value="product_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Serviços</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="service_view" name="service_view" value="service_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="service_add" name="service_add" value="service_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="service_edit" name="service_edit" value="service_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="service_delete" name="service_delete" value="service_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Vendas</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderx_view" name="orderx_view" value="orderx_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderx_add" name="orderx_add" value="orderx_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderx_edit" name="orderx_edit" value="orderx_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderx_delete" name="orderx_delete" value="orderx_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Caixa</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cash_register_view" name="cash_register_view" value="cash_register_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cash_register_add" name="cash_register_add" value="cash_register_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cash_register_edit" name="cash_register_edit" value="cash_register_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cash_register_delete" name="cash_register_delete" value="cash_register_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Admin</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="admin_view" name="admin_view" value="admin_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="admin_add" name="admin_add" value="admin_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="admin_edit" name="admin_edit" value="admin_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="admin_delete" name="admin_delete" value="admin_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Agenda</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="agenda_view" name="agenda_view" value="agenda_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="agenda_add" name="agenda_add" value="agenda_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="agenda_edit" name="agenda_edit" value="agenda_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="agenda_delete" name="agenda_delete" value="agenda_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Salários</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="salary_view" name="salary_view" value="salary_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="salary_add" name="salary_add" value="salary_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="salary_edit" name="salary_edit" value="salary_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="salary_delete" name="salary_delete" value="salary_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Custos</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cost_view" name="cost_view" value="cost_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cost_add" name="cost_add" value="cost_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cost_edit" name="cost_edit" value="cost_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cost_delete" name="cost_delete" value="cost_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Pre-Fechamento</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="pre_closing_view" name="pre_closing_view" value="pre_closing_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="pre_closing_add" name="pre_closing_add" value="pre_closing_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="pre_closing_edit" name="pre_closing_edit" value="pre_closing_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="pre_closing_delete" name="pre_closing_delete" value="pre_closing_delete">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Fechamento Mês</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="month_closing_view" name="month_closing_view" value="month_closing_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="month_closing_add" name="month_closing_add" value="month_closing_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="month_closing_edit" name="month_closing_edit" value="month_closing_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="month_closing_delete" name="month_closing_delete" value="month_closing_delete">
+        </div>
+    </div>
+</div> 
 </div>    
