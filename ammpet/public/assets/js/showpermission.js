@@ -6,7 +6,7 @@ function showHidePermission(){
     }
 }
 
-let checkboxes = $("input[type=checkbox]")
+let checkboxes = $("input[type=checkbox]");
 let enabledSettings = [];
 
 // Attach a change event handler to the checkboxes.
