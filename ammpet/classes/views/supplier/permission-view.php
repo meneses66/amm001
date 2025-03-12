@@ -1,6 +1,6 @@
 <div id="permission" style="display:none">
     <div class="row">
-        <input id="permission_el" type="hidden" name="Permission" value="">
+        <input id="permission_el" type="hidden" name="Permission">
     </div>
     <div class="row">
         <div class="col-sm-3">
