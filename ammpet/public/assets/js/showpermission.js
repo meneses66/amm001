@@ -17,6 +17,7 @@ function setPermission(){
         document.addEventListener('click', function(e){
             let target = e.target;
             let permissionName = target.dataset.value;
+            console.log(permissionName);
             if(target.value.checked){
                 script.permissions = script.permissions.filter((name) => {
                     return name !== permissionName;
