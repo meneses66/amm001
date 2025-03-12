@@ -7,6 +7,7 @@ $inputs["ID"]=$_GET['id'];
                 foreach ($data as $key => $value) {
                     $data_form[$key]=$value;
                 }
+                $array_permissions=explode(",", $data_form['PERMISSIONS']);
             }
 ?>
 <div id="permission_div" style="display:block">
@@ -32,7 +33,7 @@ $inputs["ID"]=$_GET['id'];
             <p>Clientes</p>
         </div>
         <div class="col-sm-2">
-            <input type="checkbox" id="client_view" name="client_view" value="client_view" <?php if (in_array("client_view",$data_form['PERMISSIONS'])){ echo "checked";}?>>
+            <input type="checkbox" id="client_view" name="client_view" value="client_view" <?php if (in_array("client_view",$array_permissions)){ echo "checked";}?>>
         </div>
         <div class="col-sm-2">
             <input type="checkbox" id="client_add" name="client_add" value="client_add">
