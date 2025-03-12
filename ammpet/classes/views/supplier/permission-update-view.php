@@ -32,7 +32,7 @@ $inputs["ID"]=$_GET['id'];
             <p>Clientes</p>
         </div>
         <div class="col-sm-2">
-            <input type="checkbox" id="client_view" name="client_view" value="client_view" <?php if (in_array("client_view",$data_form['PERMISSION'])){ echo "checked";}?>>
+            <input type="checkbox" id="client_view" name="client_view" value="client_view" <?php if (in_array("client_view",$data_form['PERMISSIONS'])){ echo "checked";}?>>
         </div>
         <div class="col-sm-2">
             <input type="checkbox" id="client_add" name="client_add" value="client_add">
