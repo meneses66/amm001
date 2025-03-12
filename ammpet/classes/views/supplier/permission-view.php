@@ -24,7 +24,7 @@
             <p>Clientes</p>
         </div>
         <div class="col-sm-2">
-            <input type="checkbox" id="client_view" name="client_view" value="client_view" onclick="setPermission()">
+            <input type="checkbox" id="client_view" name="client_view" value="client_view">
         </div>
         <div class="col-sm-2">
             <input type="checkbox" id="client_add" name="client_add" value="client_add">

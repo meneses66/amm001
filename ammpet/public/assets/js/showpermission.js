@@ -6,7 +6,6 @@ function showHidePermission(){
     }
 }
 
-
 let checkbox = document.querySelector("input[type=checkbox]");
 
 checkbox.addEventListener('change', function() {
