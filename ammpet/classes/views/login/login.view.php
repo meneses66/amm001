@@ -19,7 +19,7 @@
 			<div style="font-size: 20px;font-family: sans-serif;margin: 5px;color: white;">Password:</div>
 			<input id="pass" type="password" name="pass" size="20" value="K1234"><br><br><br>
 
-			<input id="button" type="submit" value="Submit"><br><br>
+			<input id="button" type="submit" value="Submit"><br><br><br><br>
 
 		</form>
 	</div>
