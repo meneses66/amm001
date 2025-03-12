@@ -6,18 +6,14 @@ function showHidePermission(){
     }
 }
 
-let checkboxes = $("input[type=checkbox]");
-let enabledSettings = [];
 
-// Attach a change event handler to the checkboxes.
-checkboxes.change(function() {
-  enabledSettings = checkboxes
-    .filter(":checked") // Filter out unchecked boxes.
-    .map(function() { // Extract values using jQuery map.
-      return this.value;
-    }) 
-    .get() // Get array.
-    
-  console.log(enabledSettings);
+let checkbox = document.querySelector("input[type=checkbox]");
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+  } else {
+    console.log("Checkbox is not checked..");
+  }
 });
 
