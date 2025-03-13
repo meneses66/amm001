@@ -7,7 +7,7 @@ $inputs["ID"]=$_GET['id'];
                 foreach ($data as $key => $value) {
                     $data_form[$key]=$value;
                 }
-                $array_permissions = ($data_form['PERMISSIONS']==null || $data_form['PERMISSIONS']=="") ? explode(",", $data_form['PERMISSIONS']) : "" ;
+                $array_permissions = (!($data_form['PERMISSIONS']==null || $data_form['PERMISSIONS']=="")) ? explode(",", $data_form['PERMISSIONS']) : "" ;
                 //$array_permissions=explode(",", $data_form['PERMISSIONS']);
             }
 ?>
