@@ -1,7 +1,7 @@
 <?php
 
 namespace Controller;
-if(!isset($_SESSION['username'])) {session_start();}
+//if(!isset($_SESSION['username'])) {session_start();}
 
 defined('ROOTPATH') OR exit('Access denied!');
 
