@@ -3,7 +3,6 @@
 namespace Controller;
 
 defined('ROOTPATH') OR exit('Access denied!');
-//(defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
 Trait _GlobalController{
 
