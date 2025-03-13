@@ -65,7 +65,8 @@ class Login {
         session_unset();
         session_destroy();
         ini_set('session.use_strict_mode', 1);
-        $this->view('login/login');
+        redirect("/Login")
+        ;;$this->view('login/login');
     }
 
 }
