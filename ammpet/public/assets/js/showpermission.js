@@ -8,7 +8,8 @@ function showHidePermission(){
 
 
 let checkboxes = document.querySelectorAll("input[type=checkbox]");
-let enabledSettings = document.getElementById("permission_el").value;
+//let enabledSettings = document.getElementById("permission_el").value;
+let enabledSettings = [];
 
 checkboxes.forEach(function(checkbox) {
     checkbox.addEventListener('change', function() {
