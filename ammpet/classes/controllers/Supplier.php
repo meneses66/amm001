@@ -2,9 +2,7 @@
 
 namespace Controller;
 
-//START SESSION IF NOT STARTED TO GET $SESSION USERNAME
-if(!isset($_SESSION['username'])) {session_start();}
-(defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
+defined('ROOTPATH') OR exit('Access denied!');
 
 class Supplier {
 
@@ -134,7 +132,7 @@ class Supplier {
 
         if (isset($_GET['id'])){
 
-            //if(!isset($_SESSION['username'])) {session_start();}
+            if(!isset($_SESSION['username'])) {session_start();}
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -267,7 +265,7 @@ class Supplier {
 
         if (isset($_GET['id'])){
 
-            //if(!isset($_SESSION['username'])) {session_start();}
+            if(!isset($_SESSION['username'])) {session_start();}
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
