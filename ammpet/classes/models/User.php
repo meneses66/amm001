@@ -2,6 +2,7 @@
 
 namespace Model;
 
+//defined('ROOTPATH') OR exit('Access denied!');
 defined('ROOTPATH') OR exit('Access denied!');
 
 class User extends Supplier {
