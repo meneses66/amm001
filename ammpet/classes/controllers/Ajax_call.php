@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-(defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
+defined('ROOTPATH') OR exit('Access denied!');
 
 class Ajax_call {
 
