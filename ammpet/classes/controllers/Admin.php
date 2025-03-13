@@ -1,9 +1,10 @@
 <?php
 
 namespace Controller;
-//if(!isset($_SESSION['username'])) {session_start();}
 
-defined('ROOTPATH') OR exit('Access denied!');
+//defined('ROOTPATH') OR exit('Access denied!');
+
+(defined('ROOTPATH') AND defined('user')) OR exit('Access denied!');
 
 class Admin {
 
