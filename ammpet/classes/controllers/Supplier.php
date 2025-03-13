@@ -134,7 +134,7 @@ class Supplier {
 
         if (isset($_GET['id'])){
 
-            if(!isset($_SESSION['username'])) {session_start();}
+            //if(!isset($_SESSION['username'])) {session_start();}
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -267,7 +267,7 @@ class Supplier {
 
         if (isset($_GET['id'])){
 
-            if(!isset($_SESSION['username'])) {session_start();}
+            //if(!isset($_SESSION['username'])) {session_start();}
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
