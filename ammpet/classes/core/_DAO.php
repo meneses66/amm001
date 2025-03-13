@@ -40,10 +40,13 @@ Trait _DAO{
     {
       $result = $stm->fetchAll(PDO::FETCH_OBJ);
       if(is_array($result) && count($result)){
+        $stm=null;
+        $connect=null;
         return $result;
       }
     }
-
+    $stm=null;
+    $connect=null;
     return false;
 
   }
