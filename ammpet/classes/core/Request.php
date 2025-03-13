@@ -7,7 +7,7 @@
 
 namespace Core;
 
-defined('ROOTPATH') OR exit('Access Denied!');
+(defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
 class Request
 {
