@@ -2,7 +2,7 @@
 
 namespace Model;
 
-(defined('ROOTPATH') AND defined('START')) OR exit('Access denied!');
+defined('ROOTPATH') OR exit('Access denied!');
 
 class Supplier {
 
