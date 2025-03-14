@@ -21,6 +21,8 @@
 
 			<input id="button" type="submit" value="Submit"><br><br><br><br>
 
+			<?php echo password_hash("K1234", PASSWORD_DEFAULT); ?>
+
 		</form>
 	</div>
 </body>
