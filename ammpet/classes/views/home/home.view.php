@@ -1,5 +1,5 @@
 <?php 
-if((time()-$_SESSION['LAST_ACTIVE'])>1){
+if((time()-$_SESSION['LAST_ACTIVE'])>1800){
     redirect("Login/_logout");
     die;
 }
