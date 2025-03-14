@@ -107,7 +107,7 @@ Trait _GlobalController{
         //SESSION TO CALL DB ACTIONS: INSERT, UPDATE, DELETE
 
     //Inserts new Supplier into DB
-    public function insert_call($entity){
+    public function insert_call(){
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Login instance:
@@ -129,7 +129,7 @@ Trait _GlobalController{
 
             //START UNSET CHECKBOXES IN SUPPLIET VIEW:
 
-            if($entity=='Supplier'){
+            if($this->UCF_object=="Supplier"){
                 unset($inputs["client_view"]);
                 unset($inputs["client_add"]);
                 unset($inputs["client_edit"]);
