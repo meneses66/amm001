@@ -10,6 +10,7 @@
 
 	/** Path to this file */
 	define('ROOTPATH', __DIR__ . DIRECTORY_SEPARATOR);
+	define('START',true);
 	require '../classes/core/init.php';
 
 	#echo "This is Index.php";
