@@ -1,3 +1,4 @@
+<?php $_SESSION['LAST_ACTIVE']=time();?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>

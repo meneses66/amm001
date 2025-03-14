@@ -27,7 +27,7 @@ class Login {
             // set username into global session
             $_SESSION['user']=$user;
             $_SESSION['username']=$username;
-            define('USERLOGGED', true);
+            $_SESSION['LAST_ACTIVE']=time();
             return true;
         } else {
             return false;
