@@ -14,8 +14,8 @@
         <div class="col-sm-6"><a href="<?php echo ROOT."/Supplier/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-id-badge"></i>&nbsp;Novo Fornecedor</a></div>
     </div>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/ProdServ/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-barcode"></i>&nbsp;Novo Produto</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/ProdServ/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-cut"></i>&nbsp;Novo Serviço</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Product/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-barcode"></i>&nbsp;Novo Produto</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Service/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-cut"></i>&nbsp;Novo Serviço</a></div>
     </div>
     <div class="row">
         <div class="col-sm-6"><a href="<?php echo ROOT."/Breed/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-paw"></i>&nbsp;Nova Raça</a></div>

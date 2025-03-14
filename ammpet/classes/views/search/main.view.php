@@ -14,8 +14,8 @@
         <div class="col-sm-6"><a href="<?php echo ROOT."/Supplier/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-id-badge"></i>&nbsp;Fornecedores</a></div>
     </div>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/ProdServ/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-barcode"></i>&nbsp;Produtos</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/ProdServ/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-cut"></i>&nbsp;Serviços</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Product/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-barcode"></i>&nbsp;Produtos</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Service/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-cut"></i>&nbsp;Serviços</a></div>
     </div>
     <div class="row">
         <div class="col-sm-6"><a href="<?php echo ROOT."/Breed/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-paw"></i>&nbsp;Raças</a></div>
