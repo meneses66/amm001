@@ -29,7 +29,7 @@ class Product {
 
         $category_option_list = load_options_new("PROD_CATEGORY", "Ativo");
         $center_option_list = load_options_new("PROD_CENTER", "Ativo");
-        $groupx_option_list = load_options_new("PROD_GROUPX", "Ativo");
+        //$groupx_option_list = load_options_new("PROD_GROUPX", "Ativo");
 
         $output = "";
 
@@ -37,6 +37,7 @@ class Product {
         $output .= '<div class="row">
                         <div class="col-sm-6">
                             <input id="id" type="hidden" name="Id" value="">
+                            <input id="type" type="hidden" name="Type" value="Prod">
                             <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
                             <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                             <input id="created" type="hidden" name="Created" value="">
@@ -65,10 +66,59 @@ class Product {
                     </div>
                     <div class="row">
                         <div class="col-sm-1">
-                            <label for="type" class="medium-label">Tipo: &nbsp;</label><br><br>
+                            <label for="center" class="medium-label">Centro:</label><br><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="medium-label" id="center" name="Center">
+                                <option class="medium-label" value="" selected>Selecione uma opção</option>
+                                '.$center_option_list.'
+                            </select><br><br>
+                        </div>
+                        <div class="col-sm-1">
+                            <label for="category" class="medium-label">Categoria:</label><br><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="medium-label" id="category" name="Category">
+                                <option class="medium-label" value="" selected>Selecione uma opção</option>
+                                '.$category_option_list.'
+                            </select><br><br>
+                        </div>
+                        <div class="col-sm-1">
+                            <label for="price_cash" class="medium-label">Preço Dinh.:</label><br><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <input id="price_cash" type="number" size="30" name="Price_Cash"><br><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <label for="group_x" class="medium-label">Grupo:</label><br><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="medium-label" id="group_x" name="Group_x">
+                                <option class="medium-label" value="Individual" selected>Individual</option>
+                                <option class="medium-label" value="Plano">Plano</option>
+                            </select><br><br>
+                        </div>
+                        <div class="col-sm-1">
+                            <label for="supplier" class="medium-label">Fornecedor:</label><br><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <input id="supplier" type="text" size="30" name="Supplier"><br><br>
+                        </div>
+                        <div class="col-sm-1">
+                            <label for="price_pix" class="medium-label">Preço Pix:</label><br><br>
+                        </div>
+                        <div class="col-sm-3">
+                            <input id="price_pix" type="number" size="30" name="Price_pix"><br><br>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-1">
+                            
                         </div>
                         <div class="col-sm-5">
-                            <input id="type" type="text" size="40" name="Type"><br><br>
+                            
                         </div>
                         <div class="col-sm-1">
                             <label for="status" class="medium-label">Status: &nbsp;</label><br>
