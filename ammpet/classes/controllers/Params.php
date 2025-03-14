@@ -130,7 +130,8 @@ class Params {
 
         if (isset($_GET['id'])){
 
-            if(!isset($_SESSION['username'])) {session_start();}
+            //if(!isset($_SESSION['username'])) {session_start();}
+            if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -224,7 +225,8 @@ class Params {
 
         if (isset($_GET['id'])){
 
-            if(!isset($_SESSION['username'])) {session_start();}
+            //if(!isset($_SESSION['username'])) {session_start();}
+            if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];

@@ -23,7 +23,8 @@ class Breed {
     public function load_new_form(){
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
-        if(!isset($_SESSION['username'])) {session_start();}
+        //if(!isset($_SESSION['username'])) {session_start();}
+        if(session_status() === PHP_SESSION_NONE) session_start();
 
         //DEFINE OPTION LISTS:
         $type_option_list = load_options_new("BREED_TYPE", "Ativo");
@@ -67,7 +68,8 @@ class Breed {
 
         if (isset($_GET['id'])){
 
-            if(!isset($_SESSION['username'])) {session_start();}
+            //if(!isset($_SESSION['username'])) {session_start();}
+            if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -131,7 +133,8 @@ class Breed {
 
         if (isset($_GET['id'])){
 
-            if(!isset($_SESSION['username'])) {session_start();}
+            //if(!isset($_SESSION['username'])) {session_start();}
+            if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
