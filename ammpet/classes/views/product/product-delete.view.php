@@ -1,9 +1,3 @@
-<?php 
-if((time()-$_SESSION['LAST_ACTIVE'])>TIMEOUT){
-    redirect("Login/_logout");
-    die;
-}
-$_SESSION['LAST_ACTIVE']=time();?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -20,14 +14,12 @@ $_SESSION['LAST_ACTIVE']=time();?>
                 <!-- Top navigation-->
                 <?php include ROOTPATH_CLASSES . "../views/topnav.view.php";?>
                 <!-- Page content-->
-                <?php include "main-new.view.php";?>
+                <?php include "main-delete.view.php";?>
             </div>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
-        <!-- Show Permission Session-->
-        <script src="<?php echo ROOT;?>/assets/js/showpermission.js"></script>
     </body>
 </html>
