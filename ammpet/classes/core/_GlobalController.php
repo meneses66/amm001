@@ -107,7 +107,7 @@ Trait _GlobalController{
         //SESSION TO CALL DB ACTIONS: INSERT, UPDATE, DELETE
 
     //Inserts new Supplier into DB
-    public function insert_call(){
+    public function insert_call($entity){
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Login instance:
@@ -129,59 +129,60 @@ Trait _GlobalController{
 
             //START UNSET CHECKBOXES IN SUPPLIET VIEW:
 
-            
-            unset($inputs["client_view"]);
-            unset($inputs["client_add"]);
-            unset($inputs["client_edit"]);
-            unset($inputs["client_delete"]);
-            unset($inputs["supplier_view"]);
-            unset($inputs["supplier_add"]);
-            unset($inputs["supplier_edit"]);
-            unset($inputs["supplier_delete"]);
-            unset($inputs["params_view"]);
-            unset($inputs["params_add"]);
-            unset($inputs["params_edit"]);
-            unset($inputs["params_delete"]);
-            unset($inputs["product_view"]);
-            unset($inputs["product_add"]);
-            unset($inputs["product_edit"]);
-            unset($inputs["product_delete"]);
-            unset($inputs["service_view"]);
-            unset($inputs["service_add"]);
-            unset($inputs["service_edit"]);
-            unset($inputs["service_delete"]);
-            unset($inputs["orderx_view"]);
-            unset($inputs["orderx_add"]);
-            unset($inputs["orderx_edit"]);
-            unset($inputs["orderx_delete"]);
-            unset($inputs["cash_register_view"]);
-            unset($inputs["cash_register_add"]);
-            unset($inputs["cash_register_edit"]);
-            unset($inputs["cash_register_delete"]);
-            unset($inputs["admin_view"]);
-            unset($inputs["admin_add"]);
-            unset($inputs["admin_edit"]);
-            unset($inputs["admin_delete"]);
-            unset($inputs["agenda_view"]);
-            unset($inputs["agenda_add"]);
-            unset($inputs["agenda_edit"]);
-            unset($inputs["agenda_delete"]);
-            unset($inputs["salary_view"]);
-            unset($inputs["salary_add"]);
-            unset($inputs["salary_edit"]);
-            unset($inputs["salary_delete"]);
-            unset($inputs["cost_view"]);
-            unset($inputs["cost_add"]);
-            unset($inputs["cost_edit"]);
-            unset($inputs["cost_delete"]);
-            unset($inputs["pre_closing_view"]);
-            unset($inputs["pre_closing_add"]);
-            unset($inputs["pre_closing_edit"]);
-            unset($inputs["pre_closing_delete"]);
-            unset($inputs["month_closing_view"]);
-            unset($inputs["month_closing_add"]);
-            unset($inputs["month_closing_edit"]);
-            unset($inputs["month_closing_delete"]);
+            if($entity=='Supplier'){
+                unset($inputs["client_view"]);
+                unset($inputs["client_add"]);
+                unset($inputs["client_edit"]);
+                unset($inputs["client_delete"]);
+                unset($inputs["supplier_view"]);
+                unset($inputs["supplier_add"]);
+                unset($inputs["supplier_edit"]);
+                unset($inputs["supplier_delete"]);
+                unset($inputs["params_view"]);
+                unset($inputs["params_add"]);
+                unset($inputs["params_edit"]);
+                unset($inputs["params_delete"]);
+                unset($inputs["product_view"]);
+                unset($inputs["product_add"]);
+                unset($inputs["product_edit"]);
+                unset($inputs["product_delete"]);
+                unset($inputs["service_view"]);
+                unset($inputs["service_add"]);
+                unset($inputs["service_edit"]);
+                unset($inputs["service_delete"]);
+                unset($inputs["orderx_view"]);
+                unset($inputs["orderx_add"]);
+                unset($inputs["orderx_edit"]);
+                unset($inputs["orderx_delete"]);
+                unset($inputs["cash_register_view"]);
+                unset($inputs["cash_register_add"]);
+                unset($inputs["cash_register_edit"]);
+                unset($inputs["cash_register_delete"]);
+                unset($inputs["admin_view"]);
+                unset($inputs["admin_add"]);
+                unset($inputs["admin_edit"]);
+                unset($inputs["admin_delete"]);
+                unset($inputs["agenda_view"]);
+                unset($inputs["agenda_add"]);
+                unset($inputs["agenda_edit"]);
+                unset($inputs["agenda_delete"]);
+                unset($inputs["salary_view"]);
+                unset($inputs["salary_add"]);
+                unset($inputs["salary_edit"]);
+                unset($inputs["salary_delete"]);
+                unset($inputs["cost_view"]);
+                unset($inputs["cost_add"]);
+                unset($inputs["cost_edit"]);
+                unset($inputs["cost_delete"]);
+                unset($inputs["pre_closing_view"]);
+                unset($inputs["pre_closing_add"]);
+                unset($inputs["pre_closing_edit"]);
+                unset($inputs["pre_closing_delete"]);
+                unset($inputs["month_closing_view"]);
+                unset($inputs["month_closing_add"]);
+                unset($inputs["month_closing_edit"]);
+                unset($inputs["month_closing_delete"]);
+            }
 
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
 
