@@ -1,7 +1,7 @@
 <?php
 
 namespace Controller;
-session_start();
+if(session_status() === PHP_SESSION_NONE) session_start();
 
 //defined('ROOTPATH') OR exit('Access denied!');
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
@@ -57,7 +57,8 @@ class Params {
     public function load_new_form(){
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
-        if(!isset($_SESSION['username'])) {session_start();}
+        if(session_status() === PHP_SESSION_NONE) session_start();
+        //if(!isset($_SESSION['username'])) {session_start();}
 
         //DEFINE OPTION LISTS:
         //$type_option_list = load_options_new("SUPPLIER_TYPE", "Ativo");
