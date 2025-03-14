@@ -209,6 +209,7 @@ Trait _GlobalController{
     //Updates Supplier into DB
     public function update_call(){
 
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Model instance:
             $model = new('\Model\\'.$this->UCF_object);
 
@@ -307,6 +308,8 @@ Trait _GlobalController{
             } catch (\Throwable $th) {
                 throw $th;
             }
+        }
+        
     }
 
     //Deletes Supplier from DB
