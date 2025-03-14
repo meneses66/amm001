@@ -1,4 +1,9 @@
-<?php $_SESSION['LAST_ACTIVE']=time();?>
+<?php 
+if((time()-$_SESSION['LAST_ACTIVE'])>1800){
+    redirect("Login/_logout");
+    die;
+}
+$_SESSION['LAST_ACTIVE']=time();?>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
