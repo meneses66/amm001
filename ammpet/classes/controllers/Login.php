@@ -39,18 +39,24 @@ class Login {
         
         //Define Inputs for function:
         $array['LOGIN']=$u;
-        $array['PASS']=$p;
+        //$array['PASS']=$p;
         
         //check against DB:
         $model = new \Model\User;
 
         $data = $model->getRow($array);
         if($data){
-            $authentic=true;
+            
             foreach ($data as $key => $value) {
                 $data_form[$key]=$value;
             }
-            $_SESSION['permissions']=$data_form['PERMISSIONS'];
+
+            if(password_verify($p,$data_form['PASS']))
+            {
+                $authentic=true;
+                $_SESSION['permissions']=$data_form['PERMISSIONS'];
+            }
+            
         }
         return $authentic;
     }

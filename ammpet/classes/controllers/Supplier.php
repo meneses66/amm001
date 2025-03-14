@@ -203,7 +203,7 @@ class Supplier {
                                     <label for="pass" class="medium-label">Senha: &nbsp;</label><br>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="pass" type="password" name="Pass" value="'.$data_form['PASS'].'"><br>
+                                    <input id="pass" type="password" name="Pass"><br>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="cpf" class="medium-label">CPF: &nbsp;</label><br><br>
