@@ -4,7 +4,7 @@ namespace Controller;
 
 //defined('ROOTPATH') OR exit('Access denied!');
 
-(defined('ROOTPATH') AND defined('USER-LOGGED')) OR exit('Access denied!');
+(defined('ROOTPATH') AND defined('USERLOGGED')) OR exit('Access denied!');
 
 class Admin {
 
