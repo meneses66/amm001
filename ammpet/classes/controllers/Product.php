@@ -48,19 +48,19 @@ class Product {
                             <label for="name" class="medium-label">Nome:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="name" type="text" size="100%" name="Name"><br><br>
+                            <input id="name" type="text" size="30" name="Name"><br><br>
                         </div>
                         <div class="col-sm-1">
                             <label for="code" class="medium-label">Código:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="code" type="text" size="100%" name="Code"><br><br>
+                            <input id="code" type="text" size="30" name="Code"><br><br>
                         </div>
                         <div class="col-sm-1">
                             <label for="price" class="medium-label">Preço:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price" type="number" size="100%" name="Price"><br><br>
+                            <input id="price" type="number" size="30" name="Price"><br><br>
                         </div>
                     </div>
                     <div class="row">
