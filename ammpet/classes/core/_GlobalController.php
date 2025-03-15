@@ -127,6 +127,26 @@ Trait _GlobalController{
             unset($inputs["Created"]);
             unset($inputs["Updated"]);
 
+            //ADJUST FLAGS TO 0 or 1:
+
+            if($this->UCF_object=="Product"){
+                if($inputs["Comission_flg"]=="on"){
+                    $inputs["Comission_flg"]=1;
+                }else{
+                    $inputs["Comission_flg"]=0;
+                }
+                if($inputs["Comission_overwrite_flg"]=="on"){
+                    $inputs["Comission_overwrite_flg"]=1;
+                }else{
+                    $inputs["Comission_overwrite_flg"]=0;
+                }
+                if($inputs["Flag1"]=="on"){
+                    $inputs["Flag1"]=1;
+                }else{
+                    $inputs["Flag1"]=0;
+                }
+            }
+
             //START UNSET CHECKBOXES IN SUPPLIET VIEW:
 
             if($this->UCF_object=="Supplier"){
