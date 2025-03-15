@@ -253,7 +253,7 @@ class Product {
                                     <label for="price_pix" class="medium-label">Preço Pix:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price_pix" type="number" size="20" name="Price_pix value="'.$data_form['PRICE_PIX'].'""><br><br>
+                                    <input id="price_pix" type="number" size="20" name="Price_pix" value="'.$data_form['PRICE_PIX'].'"><br><br>
                                 </div>
                             </div>
                             <div class="row">
@@ -273,7 +273,7 @@ class Product {
                                     <label for="comission_percentage" class="medium-label">% Comissão:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="0"><br><br>
+                                    <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="'.$data_form['COMISSION_PERCENTAGE'].'"><br><br>
                                 </div>
                             </div>
                             <div class="row">
@@ -296,7 +296,7 @@ class Product {
                                     <label for="external_cost" class="medium-label">Custo Externo:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="external_cost" type="number" size="20" name="External_cost" value="0"><br><br>
+                                    <input id="external_cost" type="number" size="20" name="External_cost" value="'.$data_form['EXTERNAL_COST'].'"><br><br>
                                 </div>
                             </div>';
                             echo $output;
