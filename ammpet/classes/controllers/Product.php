@@ -115,16 +115,16 @@ class Product {
                             <input id="sequence" type="number" size="20" name="Sequence"><br><br>
                         </div>
                         <div class="col-sm-1">
-                            <label for="package_amount" class="medium-label">Qtde Pacote:</label><br><br>
+                            
                         </div>
                         <div class="col-sm-3">
-                            <input id="package_amount" type="text" size="30" name="Package_amount"><br><br>
+                            
                         </div>
                         <div class="col-sm-1">
-                            <label for="package_price" class="medium-label">Preço Pacote:</label><br><br>
+                            
                         </div>
                         <div class="col-sm-3">
-                            <input id="package_price" type="number" size="20" name="Package_price"><br><br>
+                            
                         </div>
                     </div>
                     <div class="row">
@@ -132,7 +132,7 @@ class Product {
                             <label for="comission_flg" class="medium-label">Comissão?:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="comission_flg" type="checkbox" name="Comission_flg" value="Comissão?"><br><br>
+                            <input id="comission_flg" type="checkbox" name="Comission_flg"><br><br>
                         </div>
                         <div class="col-sm-1">
                             <label for="comission_overwrite_flg" class="medium-label">Sobrescrever comissão:</label><br><br>
