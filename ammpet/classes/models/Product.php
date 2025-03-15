@@ -20,7 +20,7 @@ class Product {
     public $Group_x;
     public $Type;
     public $Category;
-    public $Sequence;
+    //public $Sequence;
     public $Supplier;
     public $Status;
     public $Package_amount;
@@ -37,7 +37,7 @@ class Product {
     public $Comission_overwrite_flg;
 
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $code=null, $name=null, $group_x=null, $type=null, $category=null, $sequence=null, $supplier=null, $status=null, $package_amount=null, $price=null, $flag1=null, $comission_flg=null, $center=null, $external_cost=null, $comission_percentage=null, $package_price=null, $price_cash=null, $price_pix=null, $old_id=null, $comission_overwrite_flg=null){
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $code=null, $name=null, $group_x=null, $type=null, $category=null, $supplier=null, $status=null, $package_amount=null, $price=null, $flag1=null, $comission_flg=null, $center=null, $external_cost=null, $comission_percentage=null, $package_price=null, $price_cash=null, $price_pix=null, $old_id=null, $comission_overwrite_flg=null){
         $this->Id = $id;
         $this->Created_By = $created_by;
         $this->Updated_By = $updated_by;
@@ -49,7 +49,7 @@ class Product {
         $this->Group_x = $group_x;
         $this->Type = $type;
         $this->Category = $category;
-        $this->Sequence = $sequence;
+        //$this->Sequence = $sequence;
         $this->Supplier = $supplier;
         $this->Status = $status;
         $this->Package_amount = $package_amount;
