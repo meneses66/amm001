@@ -130,20 +130,20 @@ Trait _GlobalController{
             //ADJUST FLAGS TO 0 or 1:
 
             if($this->UCF_object=="Product"){
-                if($inputs["Comission_flg"]=="on"){
-                    $inputs["Comission_flg"]=1;
+                if(isset($inputs["Comission_flg"])){
+                    $inputs["Comission_flg"]="1";
                 }else{
-                    $inputs["Comission_flg"]=0;
+                    $inputs["Comission_flg"]="0";
                 }
-                if($inputs["Comission_overwrite_flg"]=="on"){
-                    $inputs["Comission_overwrite_flg"]=1;
+                if(isset($inputs["Comission_overwrite_flg"])){
+                    $inputs["Comission_overwrite_flg"]="1";
                 }else{
-                    $inputs["Comission_overwrite_flg"]=0;
+                    $inputs["Comission_overwrite_flg"]="0";
                 }
-                if($inputs["Flag1"]=="on"){
-                    $inputs["Flag1"]=1;
+                if(isset($inputs["Flag1"])){
+                    $inputs["Flag1"]="1";
                 }else{
-                    $inputs["Flag1"]=0;
+                    $inputs["Flag1"]="0";
                 }
             }
 
