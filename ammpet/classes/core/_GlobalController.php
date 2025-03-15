@@ -127,7 +127,7 @@ Trait _GlobalController{
             unset($inputs["Created"]);
             unset($inputs["Updated"]);
 
-            //ADJUST FLAGS TO 0 or 1:
+            //ADJUST FLAGS TO 0 or 1 in PRODUCT:
 
             if($this->UCF_object=="Product"){
                 if(isset($inputs["Comission_flg"])){
