@@ -141,7 +141,7 @@ class Product {
                             <label for="flag1" class="medium-label">Flag1</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="flag1" type="checkbox" name="flag1"><br><br>
+                            <input id="flag1" type="checkbox" name="Flag1"><br><br>
                         </div>
                         <div class="col-sm-1">
                             <label for="external_cost" class="medium-label">Custo Externo:</label><br><br>
