@@ -61,7 +61,7 @@ class Product {
                             <label for="price" class="medium-label">Preço:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price" type="number" size="20" name="Price"><br><br>
+                            <input id="price" type="number" size="20" name="Price" placeholder="0,00" step="0,01" required><br><br>
                         </div>
                     </div>
                     <div class="row">
