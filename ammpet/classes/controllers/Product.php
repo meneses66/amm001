@@ -178,7 +178,7 @@ class Product {
                 $category_option_list = load_options_update("PROD_CATEGORY", "Ativo", $data_form_category);
 
                 //FOR EACH FLAG CONVERT TINNY TO CHECKED:
-                $flag_commission = ($data_form['COMISSION_FLG']==1) ? "checked" : "";
+                $flag_comission = ($data_form['COMISSION_FLG']==1) ? "checked" : "";
                 $flag_comission_overwrite = ($data_form['COMISSION_OVERWRITE_FLG']==1) ? "checked" : "";
                 $flag_flag1 = ($data_form['FLAG1']==1) ? "checked" : "";
 
