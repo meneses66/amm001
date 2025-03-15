@@ -243,7 +243,6 @@ Trait _GlobalController{
             //Define inputs for DB operations:
                 
             foreach ($_POST as $key => $value) {
-                
                 $inputs[$key]=$value;    
             }
 
@@ -257,20 +256,20 @@ Trait _GlobalController{
             //ADJUST FLAGS TO 0 or 1 in PRODUCT:
 
             if($this->UCF_object=="Product"){
-                if(isset($inputs["Comission_flg"])){
-                    $inputs["Comission_flg"]="1";
+                if(isset($inputs['Comission_flg'])){
+                    $inputs['Comission_flg']="1";
                 }else{
-                    $inputs["Comission_flg"]="0";
+                    $inputs['Comission_flg']="0";
                 }
-                if(isset($inputs["Comission_overwrite_flg"])){
+                if(isset($inputs['Comission_overwrite_flg'])){
                     $inputs["Comission_overwrite_flg"]="1";
                 }else{
-                    $inputs["Comission_overwrite_flg"]="0";
+                    $inputs['Comission_overwrite_flg']="0";
                 }
-                if(isset($inputs["Flag1"])){
-                    $inputs["Flag1"]="1";
+                if(isset($inputs['Flag1'])){
+                    $inputs['Flag1']="1";
                 }else{
-                    $inputs["Flag1"]="0";
+                    $inputs['Flag1']="0";
                 }
             }
             
