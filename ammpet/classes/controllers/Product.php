@@ -132,7 +132,7 @@ class Product {
                             <label for="comission_flg" class="medium-label">Comissão?:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="comission_flg" type="checkbox" name="Comission_flg"><br><br>
+                            <input id="comission_flg" type="checkbox" name="Comission_flg" value="Comissão?"><br><br>
                         </div>
                         <div class="col-sm-1">
                             <label for="comission_overwrite_flg" class="medium-label">Sobrescrever comissão:</label><br><br>
