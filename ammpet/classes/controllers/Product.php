@@ -61,7 +61,7 @@ class Product {
                             <label for="price" class="medium-label">Preço:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price" type="number" size="20" name="Price" placeholder="0,00" step="0.01" required><br><br>
+                            <input id="price" type="number" size="20" name="Price" step="0.01" required><br><br>
                         </div>
                     </div>
                     <div class="row">
@@ -84,7 +84,7 @@ class Product {
                             <label for="price_cash" class="medium-label">Preço Dinh.:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price_cash" type="number" size="20" name="Price_Cash"><br><br>
+                            <input id="price_cash" type="number" size="20" name="Price_Cash" step="0.01"><br><br>
                         </div>
                     </div>
                     <div class="row">
@@ -104,7 +104,7 @@ class Product {
                             <label for="price_pix" class="medium-label">Preço Pix:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price_pix" type="number" size="20" name="Price_pix"><br><br>
+                            <input id="price_pix" type="number" size="20" name="Price_pix" step="0.01"><br><br>
                         </div>
                     </div>
                     <div class="row">
@@ -124,7 +124,7 @@ class Product {
                             <label for="comission_percentage" class="medium-label">% Comissão:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="0"><br><br>
+                            <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="0,00" step="0.01"><br><br>
                         </div>
                     </div>
                     <div class="row">
@@ -147,7 +147,7 @@ class Product {
                             <label for="external_cost" class="medium-label">Custo Externo:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="external_cost" type="number" size="20" name="External_cost" value="0"><br><br>
+                            <input id="external_cost" type="number" size="20" name="External_cost" value="0,00" step="0.01"><br><br>
                         </div>
                     </div>';
                     echo $output;
@@ -210,7 +210,7 @@ class Product {
                                     <label for="price" class="medium-label">Preço:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price" type="number" size="20" name="Price" value="'.$data_form['PRICE'].'"><br><br>
+                                    <input id="price" type="number" size="20" name="Price" value="'.$data_form['PRICE'].'" step="0.01"><br><br>
                                 </div>
                             </div>
                             <div class="row">
@@ -233,7 +233,7 @@ class Product {
                                     <label for="price_cash" class="medium-label">Preço Dinh.:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price_cash" type="number" size="20" name="Price_Cash" value="'.$data_form['PRICE_CASH'].'"><br><br>
+                                    <input id="price_cash" type="number" size="20" name="Price_Cash" value="'.$data_form['PRICE_CASH'].'" step="0.01"><br><br>
                                 </div>
                             </div>
                             <div class="row">
@@ -253,7 +253,7 @@ class Product {
                                     <label for="price_pix" class="medium-label">Preço Pix:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price_pix" type="number" size="20" name="Price_pix" value="'.$data_form['PRICE_PIX'].'"><br><br>
+                                    <input id="price_pix" type="number" size="20" name="Price_pix" value="'.$data_form['PRICE_PIX'].'" step="0.01"><br><br>
                                 </div>
                             </div>
                             <div class="row">
@@ -273,7 +273,7 @@ class Product {
                                     <label for="comission_percentage" class="medium-label">% Comissão:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="'.$data_form['COMISSION_PERCENTAGE'].'"><br><br>
+                                    <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="'.$data_form['COMISSION_PERCENTAGE'].'" step="0.01"><br><br>
                                 </div>
                             </div>
                             <div class="row">
@@ -296,7 +296,7 @@ class Product {
                                     <label for="external_cost" class="medium-label">Custo Externo:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="external_cost" type="number" size="20" name="External_cost" value="'.$data_form['EXTERNAL_COST'].'"><br><br>
+                                    <input id="external_cost" type="number" size="20" name="External_cost" value="'.$data_form['EXTERNAL_COST'].'" step="0.01"><br><br>
                                 </div>
                             </div>';
                             echo $output;

@@ -159,6 +159,7 @@ class Supplier {
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
                                     <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
+                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                                 </div>
                                 <div class="col-sm-5">
                                     <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
