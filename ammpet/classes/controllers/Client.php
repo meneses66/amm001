@@ -315,19 +315,18 @@ class Client
             
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
-        $inputs['TYPE']="SERV";
         
-        $data = $model->listWhere($inputs);
-        if($model->countWhere($inputs)>0){
+        $data = $model->listAll();
+        if($model->countAll()>0){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
                                 <th>Atualiz.</th>
                                 <th>Nome</th>
-                                <th>Categoria</th>
-                                <th>Preço</th>
-                                <th>Preço Dinh.</th>
-                                <th>Preço Pix</th>
+                                <th>Celular 1</th>
+                                <th>Celular 2</th>
+                                <th>Origin</th>
+                                <th>Old Id</th>
                                 <th>Status</th>
                                 <th>Ações</th>
                             </tr>
@@ -338,10 +337,10 @@ class Client
                             <td>'.$row->ID.'</td>
                             <td>'.$row->UPDATED.'</td>
                             <td>'.$row->NAME.'</td>
-                            <td>'.$row->CATEGORY.'</td>
-                            <td>'.$row->PRICE.'</td>
-                            <td>'.$row->PRICE_CASH.'</td>
-                            <td>'.$row->PRICE_PIX.'</td>
+                            <td>'.$row->MOBILE_1.'</td>
+                            <td>'.$row->MOBILE_1.'</td>
+                            <td>'.$row->ORIGIN.'</td>
+                            <td>'.$row->OLD_ID.'</td>
                             <td>'.$row->STATUS.'</td>
                             <td>
                                 <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
