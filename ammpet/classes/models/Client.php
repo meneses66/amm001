@@ -44,10 +44,10 @@ class Client {
         $this -> Origin = $origin;
         $this -> Old_Id = $old_id;
         $this -> Comment = $comment;
-        $this -> Birth_Data = $birth_date;
+        $this -> Birth_Date = $birth_date;
         $this -> Email = $email;
         $this -> CPF = $cpf;
-        $this -> $Address = $address;
+        $this -> Address = $address;
     }
 
 }
