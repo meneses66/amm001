@@ -198,13 +198,13 @@ class Client
                                     <label for="client_since" class="medium-label">Clnte Dsd:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="client_since" type="date" size="30" name="Client_since"  value="'.$data_form['CLIENT_SINCE'].'"><br><br>
+                                    <input id="client_since" type="date" size="30" name="Client_since" value="'.$data_form['CLIENT_SINCE'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="birth_date" class="medium-label">Data Aniv.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="birth_date" type="number" size="30" name="Birth_date"  value="'.$data_form['BIRTH_DATE'].'">
+                                    <input id="birth_date" type="number" size="30" name="Birth_date" value="'.$data_form['BIRTH_DATE'].'">
                                 </div>
                             </div><br>
                             <div class="row">
