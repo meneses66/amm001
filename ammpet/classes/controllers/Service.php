@@ -413,15 +413,16 @@ class Service {
 
     }
 
-    //LOAD HTML FOR LISTING RECORDS IN TABLE
+    //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
+    // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows(){
             
         $output = "";
-        //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
+        $inputs['TYPE']="SERV";
         
-        $data = $model->listAll();
-        if($model->countAll()>0){
+        $data = $model->listWhere($inputs);
+        if($model->countWhere($inputs)>0){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>

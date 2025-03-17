@@ -364,9 +364,10 @@ class Product {
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
+        $inputs['TYPE']="PROD";
         
-        $data = $model->listAll();
-        if($model->countAll()>0){
+        $data = $model->listWhere($inputs);
+        if($model->countWhere($inputs)>0){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
