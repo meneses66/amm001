@@ -8,8 +8,6 @@ if(session_status() === PHP_SESSION_NONE) session_start();
 class Product {
 
     use _GlobalController;
-
-    use _GlobalController;
     private $object = 'product';
     private $UCF_object = 'Product';
 

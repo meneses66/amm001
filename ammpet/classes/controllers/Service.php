@@ -8,8 +8,6 @@ if(session_status() === PHP_SESSION_NONE) session_start();
 class Service {
 
     use _GlobalController;
-
-    use _GlobalController;
     private $object = 'service';
     private $UCF_object = 'Service';
 

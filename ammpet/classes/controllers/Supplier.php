@@ -56,7 +56,7 @@ class Supplier {
                             <label for="hire_date" class="medium-label">Dt Inicio: &nbsp;</label><br><br>
                         </div>
                         <div class="col-sm-5">
-                            <input id="hire_date" type="date" size="30" name="Hire_date"><br><br>
+                            <input id="hire_date" type="date" size="30" name="Hire_date" value="'.date('Y-m-d').'"><br><br>
                         </div>
                     </div>
                     <div class="row">
