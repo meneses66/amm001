@@ -52,7 +52,7 @@ class Client
                             <label for="mobile_1" class="medium-label">Celular 1:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="mobile_1" type="text" size="25" name="Mobile_1" placeholder="+55 (16) XXXXX-XXXX">
+                            <input id="mobile_1" type="text" size="25" name="Mobile_1" placeholder="+55 XX XXXXX XXXX" pattern="+[0-9]{2} [0-9]{2} [0-9]{5} [0-9]{4}">
                         </div>
                         <div class="col-sm-1">
                             <label for="mobile_2" class="medium-label">Celular 2:</label>
