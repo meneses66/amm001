@@ -60,7 +60,7 @@ class Client
                         <div class="col-sm-3">
                             <input id="mobile_2" type="text" size="25" name="Mobile_2">
                         </div>
-                    </div>
+                    </div><br><br>
                     <div class="row">
                         <div class="col-sm-1">
                             <label for="origin" class="medium-label">Origem:</label>
@@ -80,7 +80,7 @@ class Client
                         <div class="col-sm-3">
                             <input id="birth_date" type="date" size="30" name="Birth_date" value="'.date('Y-m-d').'">
                         </div>
-                    </div>
+                    </div><br><br>
                     <div class="row">
                         <div class="col-sm-1">
                             <label for="email" class="medium-label">E-mail</label>
