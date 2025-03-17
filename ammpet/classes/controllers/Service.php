@@ -130,7 +130,7 @@ class Service {
                             <label for="comission_percentage" class="medium-label">% Comissão:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="0,00" step="0.01"><br><br>
+                            <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="0" step="0.01"><br><br>
                         </div>
                     </div>
                     <div class="row">
@@ -153,7 +153,7 @@ class Service {
                             <label for="external_cost" class="medium-label">Custo Externo:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="external_cost" type="number" size="20" name="External_cost" value="0,00" step="0.01"><br><br>
+                            <input id="external_cost" type="number" size="20" name="External_cost" value="0" step="0.01"><br><br>
                         </div>
                     </div>
                     <div class="row">
@@ -167,7 +167,7 @@ class Service {
                             <label for="package_price" class="medium-label">Preço Pacote:</label><br><br>
                         </div>
                         <div class="col-sm-3">
-                            <input id="package_price" type="number" size="20" name="Package_price" value="0,00" step="0.01"><br><br>
+                            <input id="package_price" type="number" size="20" name="Package_price" value="0" step="0.01"><br><br>
                         </div>
                         <div class="col-sm-1">
                             
