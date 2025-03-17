@@ -5,7 +5,7 @@ if(session_status() === PHP_SESSION_NONE) session_start();
 
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
-class Product {
+class Service {
 
     use _GlobalController;
 
