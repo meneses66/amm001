@@ -78,7 +78,7 @@ class Client
                             <label for="birth_date" class="medium-label">Data Aniv.:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="birth_date" type="number" size="30" name="Birth_date" value="'.date('Y-m-d').'">
+                            <input id="birth_date" type="date" size="30" name="Birth_date" value="'.date('Y-m-d').'">
                         </div>
                     </div>
                     <div class="row">
