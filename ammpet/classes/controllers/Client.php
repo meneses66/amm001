@@ -12,7 +12,7 @@ class Client
 {
 	use _GlobalController;
 	private $object = 'client';
-    private $UCF_object = 'Clients';
+    private $UCF_object = 'Client';
 
 	public function index()
 	{
