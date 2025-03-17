@@ -163,8 +163,8 @@ class Client
                 //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
                                 <div class="col-sm-6">
-                                    <input id="id" type="hidden" name="Id" value="">
-                                    <input id="updated" type="hidden" name="Updated" value="">
+                                    <input id="id" type="text" name="Id" value="'.$data_form['ID'].'" readonly>
+                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                                 </div>
                             </div>
                             <div class="row">
