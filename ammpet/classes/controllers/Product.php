@@ -281,7 +281,7 @@ class Product {
                                 <div class="col-sm-3">
                                     <select class="medium-label" id="status" name="Status">
                                         <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
-                                        <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Inativo</option>
+                                        <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
                                     </select><br><br>
                                 </div>
                                 <div class="col-sm-1">

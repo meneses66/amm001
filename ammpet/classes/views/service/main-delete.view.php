@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h4>Deletar Produto</h4>
+            <h4>Deletar Serviço</h4>
         </div>
     </div>
     <hr class="my-1">

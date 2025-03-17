@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h4>Novo Serviço</h4>
+            <h4>Novo Cliente</h4>
         </div>
     </div>
     <hr class="my-1">
@@ -14,16 +14,16 @@
         <input type="hidden" name="operation" value="insert">
 
         <?php 
-            $controller = new ('\Controller\\'."Service");
+            $controller = new ('\Controller\\'."Client");
             $controller->load_new_form();
         ?>
         
         <div class="row">
             <div class="col-sm-6">
-                <a href="<?php echo ROOT."/Service/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                <a href="<?php echo ROOT."/Client/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
             </div>
             <div class="col-sm-6">
-                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Service/insert_call">
+                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Client/insert_call">
             </div>
         </div>
     </form>

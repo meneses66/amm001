@@ -4,26 +4,25 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h4>Novo Serviço</h4>
+            <h4>Atualizar Cliente</h4>
         </div>
     </div>
     <hr class="my-1">
     <br>
 
     <form method="post">
-        <input type="hidden" name="operation" value="insert">
-
+        <input type="hidden" name="operation" value="update">
         <?php 
-            $controller = new ('\Controller\\'."Service");
-            $controller->load_new_form();
+            $controller = new ('\Controller\\'."Client");
+            $controller->load_update_form();
         ?>
         
         <div class="row">
             <div class="col-sm-6">
-                <a href="<?php echo ROOT."/Service/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                <a href="<?php echo ROOT."/Client/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
             </div>
             <div class="col-sm-6">
-                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Service/insert_call">
+                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar" formaction="../Client/update_call">
             </div>
         </div>
     </form>

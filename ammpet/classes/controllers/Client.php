@@ -72,99 +72,56 @@ class Client
                             <label for="client_since" class="medium-label">Cliente Desde:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="client_since" type="date" size="30" name="Client_since"><br><br>
+                            <input id="client_since" type="date" size="30" name="Client_since" value="'.date('Y-m-d').'"><br><br>
                         </div>
                         <div class="col-sm-1">
-                            <label for="price_cash" class="medium-label">Preço Dinh.:</label>
+                            <label for="birth_date" class="medium-label">Data Aniv.:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price_cash" type="number" size="20" name="Price_Cash" step="0.01">
+                            <input id="birth_date" type="number" size="30" name="Birth_date" value="'.date('Y-m-d').'">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-1">
-                            <label for="group_x" class="medium-label">Grupo:</label>
+                            <label for="email" class="medium-label">E-mail</label>
                         </div>
                         <div class="col-sm-3">
-                            <select class="medium-label" id="group_x" name="Group_x">
-                                <option class="medium-label" value="Individual" selected>Individual</option>
-                                <option class="medium-label" value="Pacote">Pacote</option>
-                            </select>
+                            <input id="email" type="text" size="30" name="Email">
                         </div>
                         <div class="col-sm-1">
-                            <label for="supplier" class="medium-label">Fornecedor:</label>
+                            <label for="cpf" class="medium-label">CPF:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="supplier" type="text" size="30" name="Supplier">
+                            <input id="cpf" type="text" size="25" name="CPF">
                         </div>
                         <div class="col-sm-1">
-                            <label for="price_pix" class="medium-label">Preço Pix:</label>
+                            <label for="preferred_dog_food" class="medium-label">Marca Preferida:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price_pix" type="number" size="20" name="Price_pix" step="0.01">
+                            <input id="preferred_dog_food" type="text" size="25" name="Preferred_dog_food">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-1">
-                            <label for="comission_flg" class="medium-label">Comissão?:</label>
+                            <label for="address" class="medium-label">Endereço:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="comission_flg" type="checkbox" name="Comission_flg">
+                            <input id="address" type="text" size="30" name="Address">
                         </div>
                         <div class="col-sm-1">
-                            <label for="comission_overwrite_flg" class="medium-label">Sobrescrever comissão:</label>
+                            <label for="comment" class="medium-label">Comentário:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="comission_overwrite_flg" type="checkbox" size="30" name="Comission_overwrite_flg">
+                            <input id="comment" type="text" size="30" name="Comment">
                         </div>
                         <div class="col-sm-1">
-                            <label for="comission_percentage" class="medium-label">% Comissão:</label>
-                        </div>
-                        <div class="col-sm-3">
-                            <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="0" step="0.01">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <label for="status" class="medium-label">Status:</label><br>
+                            <label for="status" class="medium-label">Status:</label>
                         </div>
                         <div class="col-sm-3">
                             <select class="medium-label" id="status" name="Status">
                                 <option class="medium-label" value="Ativo" selected>Ativo</option>
                                 <option class="medium-label" value="Inativo">Inativo</option>
                             </select>
-                        </div>
-                        <div class="col-sm-1">
-                            <label for="flag1" class="medium-label">Flag1</label>
-                        </div>
-                        <div class="col-sm-3">
-                            <input id="flag1" type="checkbox" name="Flag1">
-                        </div>
-                        <div class="col-sm-1">
-                            <label for="external_cost" class="medium-label">Custo Externo:</label>
-                        </div>
-                        <div class="col-sm-3">
-                            <input id="external_cost" type="number" size="20" name="External_cost" value="0" step="0.01">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <label for="package_amount" class="medium-label">Qtde Pacote:</label><br>
-                        </div>
-                        <div class="col-sm-3">
-                            <input id="package_amount" type="number" size="20" name="Package_amount" value="0">
-                        </div>
-                        <div class="col-sm-1">
-                            <label for="package_price" class="medium-label">Preço Pacote:</label>
-                        </div>
-                        <div class="col-sm-3">
-                            <input id="package_price" type="number" size="20" name="Package_price" value="0" step="0.01">
-                        </div>
-                        <div class="col-sm-1">
-                            
-                        </div>
-                        <div class="col-sm-3">
-                            
                         </div>
                     </div>';
                     echo $output;
@@ -205,12 +162,9 @@ class Client
 
                 //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
-                                <div class="col-sm-1">
-                                    <label for="id" class="medium-label">Id:</label><br><br>
-                                </div>
                                 <div class="col-sm-6">
-                                    <input id="id" type="text" name="Id" value="'.$data_form['ID'].'" readonly>
-                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                                    <input id="id" type="hidden" name="Id" value="">
+                                    <input id="updated" type="hidden" name="Updated" value="">
                                 </div>
                             </div>
                             <div class="row">
@@ -221,88 +175,71 @@ class Client
                                     <input id="name" type="text" size="30" name="Name" value="'.$data_form['NAME'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="code" class="medium-label">Código:</label>
+                                    <label for="mobile_1" class="medium-label">Celular 1:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="code" type="text" size="30" name="Code" value="'.$data_form['CODE'].'">
+                                    <input id="mobile_1" type="text" size="25" name="Mobile_1" value="'.$data_form['MOBILE_1'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="price" class="medium-label">Preço:</label>
+                                    <label for="mobile_2" class="medium-label">Celular 2:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price" type="number" size="20" name="Price" value="'.$data_form['PRICE'].'" step="0.01">
+                                    <input id="mobile_2" type="text" size="25" name="Mobile_2" value="'.$data_form['MOBILE_2'].'">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="center" class="medium-label">Centro:</label>
+                                    <label for="origin" class="medium-label">Origem:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="center" name="Center">
-                                        <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                        '.$center_option_list.'
-                                    </select>
+                                    <input id="origin" type="text" size="30" name="Origin" value="'.$data_form['ORIGIN'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="category" class="medium-label">Categoria:</label>
+                                    <label for="client_since" class="medium-label">Cliente Desde:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="category" name="Category">
-                                        <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                        '.$category_option_list.'
-                                    </select>
+                                    <input id="client_since" type="date" size="30" name="Client_since"  value="'.$data_form['CLIENT_SINCE'].'"><br><br>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="price_cash" class="medium-label">Preço Dinh.:</label>
+                                    <label for="birth_date" class="medium-label">Data Aniv.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price_cash" type="number" size="20" name="Price_Cash" value="'.$data_form['PRICE_CASH'].'" step="0.01">
+                                    <input id="birth_date" type="number" size="30" name="Birth_date"  value="'.$data_form['BIRTH_DATE'].'">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="group_x" class="medium-label">Grupo:</label>
+                                    <label for="email" class="medium-label">E-mail</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="group_x" name="Group_x">
-                                        <option class="medium-label" value="Individual" '.(($data_form['STATUS'] == 'Individual')?"selected":"").'>Individual</option>
-                                        <option class="medium-label" value="Pacote" '.(($data_form['STATUS'] == 'Pacote')?"selected":"").'>Pacote</option>
-                                    </select>
+                                    <input id="email" type="text" size="30" name="Email"  value="'.$data_form['EMAIL'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="supplier" class="medium-label">Fornecedor:</label>
+                                    <label for="cpf" class="medium-label">CPF:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="supplier" type="text" size="30" name="Supplier" value="'.$data_form['SUPPLIER'].'">
+                                    <input id="cpf" type="text" size="25" name="CPF"  value="'.$data_form['CPF'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="price_pix" class="medium-label">Preço Pix:</label>
+                                    <label for="preferred_dog_food" class="medium-label">Marca Preferida:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price_pix" type="number" size="20" name="Price_pix" value="'.$data_form['PRICE_PIX'].'" step="0.01">
+                                    <input id="preferred_dog_food" type="text" size="25" name="Preferred_dog_food"  value="'.$data_form['PREFERRED_DOG_FOOD'].'">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="comission_flg" class="medium-label">Comissão?:</label>
+                                    <label for="address" class="medium-label">Endereço:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="comission_flg" type="checkbox" name="Comission_flg" '.$flag_comission.'>
+                                    <input id="address" type="text" size="30" name="Address"  value="'.$data_form['ADDRESS'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="comission_overwrite_flg" class="medium-label">Sobrescrever comissão:</label>
+                                    <label for="comment" class="medium-label">Comentário:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="comission_overwrite_flg" type="checkbox" size="30" name="Comission_overwrite_flg" '.$flag_comission_overwrite.'>
+                                    <input id="comment" type="text" size="30" name="Comment"  value="'.$data_form['COMMENT'].'">
                                 </div>
-                                <div class="col-sm-1">
-                                    <label for="comission_percentage" class="medium-label">% Comissão:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="'.$data_form['COMISSION_PERCENTAGE'].'" step="0.01">
-                                </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-sm-1">
                                     <label for="status" class="medium-label">Status:</label>
                                 </div>
@@ -311,38 +248,6 @@ class Client
                                         <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
                                         <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
                                     </select>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="flag1" class="medium-label">Flag1</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="flag1" type="checkbox" name="Flag1" '.$flag_flag1.'>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="external_cost" class="medium-label">Custo Externo:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="external_cost" type="number" size="20" name="External_cost" value="'.$data_form['EXTERNAL_COST'].'" step="0.01">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="package_amount" class="medium-label">Qtde Pacote:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="package_amount" type="number" size="20" name="Package_amount" value="'.$data_form['PACKAGE_AMOUNT'].'">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="package_price" class="medium-label">Preço Pacote:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="package_price" type="number" size="20" name="Package_price" value="'.$data_form['PACKAGE_PRICE'].'" step="0.01">
-                                </div>
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-3">
-                                    
                                 </div>
                             </div>';
                             echo $output;
