@@ -60,7 +60,7 @@ class Client
                         <div class="col-sm-3">
                             <input id="mobile_2" type="text" size="25" name="Mobile_2">
                         </div>
-                    </div><br><br>
+                    </div><br>
                     <div class="row">
                         <div class="col-sm-1">
                             <label for="origin" class="medium-label">Origem:</label>
@@ -69,7 +69,7 @@ class Client
                             <input id="origin" type="text" size="30" name="Origin">
                         </div>
                         <div class="col-sm-1">
-                            <label for="client_since" class="medium-label">Cliente Desde:</label>
+                            <label for="client_since" class="medium-label">Clnte Dsd:</label>
                         </div>
                         <div class="col-sm-3">
                             <input id="client_since" type="date" size="30" name="Client_since" value="'.date('Y-m-d').'"><br><br>
@@ -80,7 +80,7 @@ class Client
                         <div class="col-sm-3">
                             <input id="birth_date" type="date" size="30" name="Birth_date" value="'.date('Y-m-d').'">
                         </div>
-                    </div><br><br>
+                    </div><br>
                     <div class="row">
                         <div class="col-sm-1">
                             <label for="email" class="medium-label">E-mail</label>
@@ -95,12 +95,12 @@ class Client
                             <input id="cpf" type="text" size="25" name="CPF">
                         </div>
                         <div class="col-sm-1">
-                            <label for="preferred_dog_food" class="medium-label">Marca Preferida:</label>
+                            <label for="preferred_dog_food" class="medium-label">Marca Pref:</label>
                         </div>
                         <div class="col-sm-3">
                             <input id="preferred_dog_food" type="text" size="25" name="Preferred_dog_food">
                         </div>
-                    </div>
+                    </div><br>
                     <div class="row">
                         <div class="col-sm-1">
                             <label for="address" class="medium-label">Endereço:</label>
@@ -123,7 +123,7 @@ class Client
                                 <option class="medium-label" value="Inativo">Inativo</option>
                             </select>
                         </div>
-                    </div>';
+                    </div><br>';
                     echo $output;
 
     }
@@ -186,7 +186,7 @@ class Client
                                 <div class="col-sm-3">
                                     <input id="mobile_2" type="text" size="25" name="Mobile_2" value="'.$data_form['MOBILE_2'].'">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="origin" class="medium-label">Origem:</label>
@@ -195,7 +195,7 @@ class Client
                                     <input id="origin" type="text" size="30" name="Origin" value="'.$data_form['ORIGIN'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="client_since" class="medium-label">Cliente Desde:</label>
+                                    <label for="client_since" class="medium-label">Clnte Dsd:</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="client_since" type="date" size="30" name="Client_since"  value="'.$data_form['CLIENT_SINCE'].'"><br><br>
@@ -206,7 +206,7 @@ class Client
                                 <div class="col-sm-3">
                                     <input id="birth_date" type="number" size="30" name="Birth_date"  value="'.$data_form['BIRTH_DATE'].'">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="email" class="medium-label">E-mail</label>
@@ -221,12 +221,12 @@ class Client
                                     <input id="cpf" type="text" size="25" name="CPF"  value="'.$data_form['CPF'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="preferred_dog_food" class="medium-label">Marca Preferida:</label>
+                                    <label for="preferred_dog_food" class="medium-label">Marca Pref:</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="preferred_dog_food" type="text" size="25" name="Preferred_dog_food"  value="'.$data_form['PREFERRED_DOG_FOOD'].'">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="address" class="medium-label">Endereço:</label>
@@ -249,7 +249,7 @@ class Client
                                         <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
                                     </select>
                                 </div>
-                            </div>';
+                            </div><br>';
                             echo $output;
             } else{
                 show("No record to display!");
