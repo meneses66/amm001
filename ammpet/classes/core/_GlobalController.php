@@ -127,9 +127,9 @@ Trait _GlobalController{
             unset($inputs["Created"]);
             unset($inputs["Updated"]);
 
-            //ADJUST FLAGS TO 0 or 1 in PRODUCT:
+            //ADJUST FLAGS TO 0 or 1 in PRODUCT and SERVICE:
 
-            if($this->UCF_object=="Product"){
+            if($this->UCF_object=="Product" || $this->UCF_object=="Service"){
                 if(isset($inputs["Comission_flg"])){
                     $inputs["Comission_flg"]="1";
                 }else{
@@ -253,9 +253,9 @@ Trait _GlobalController{
             unset($inputs["Created"]);
             unset($inputs["Updated"]);
 
-            //ADJUST FLAGS TO 0 or 1 in PRODUCT:
+            //ADJUST FLAGS TO 0 or 1 in PRODUCT and SERVICE:
 
-            if($this->UCF_object=="Product"){
+            if($this->UCF_object=="Product" || $this->UCF_object=="Service"){
                 if(isset($inputs['Comission_flg'])){
                     $inputs['Comission_flg']="1";
                 }else{
