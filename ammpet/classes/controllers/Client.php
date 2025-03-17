@@ -148,16 +148,16 @@ class Client
                 }
 
                 //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
-                $data_form_category = $data_form['CATEGORY'];
-                $category_option_list = load_options_update("SERV_CATEGORY", "Ativo", $data_form_category);
+                //$data_form_category = $data_form['CATEGORY'];
+                //$category_option_list = load_options_update("SERV_CATEGORY", "Ativo", $data_form_category);
 
-                $data_form_center = $data_form['CENTER'];
-                $center_option_list = load_options_update("SERV_CENTER", "Ativo", $data_form_center);
+                //$data_form_center = $data_form['CENTER'];
+                //$center_option_list = load_options_update("SERV_CENTER", "Ativo", $data_form_center);
 
                 //FOR EACH FLAG CONVERT TINNY TO CHECKED:
-                $flag_comission = ($data_form['COMISSION_FLG']==1) ? "checked" : "";
-                $flag_comission_overwrite = ($data_form['COMISSION_OVERWRITE_FLG']==1) ? "checked" : "";
-                $flag_flag1 = ($data_form['FLAG1']==1) ? "checked" : "";
+                //$flag_comission = ($data_form['COMISSION_FLG']==1) ? "checked" : "";
+                //$flag_comission_overwrite = ($data_form['COMISSION_OVERWRITE_FLG']==1) ? "checked" : "";
+                //$flag_flag1 = ($data_form['FLAG1']==1) ? "checked" : "";
 
 
                 //START TO LOAD THE UPDATE FORM:
@@ -338,7 +338,7 @@ class Client
                             <td>'.$row->UPDATED.'</td>
                             <td>'.$row->NAME.'</td>
                             <td>'.$row->MOBILE_1.'</td>
-                            <td>'.$row->MOBILE_1.'</td>
+                            <td>'.$row->MOBILE_2.'</td>
                             <td>'.$row->ORIGIN.'</td>
                             <td>'.$row->OLD_ID.'</td>
                             <td>'.$row->STATUS.'</td>
