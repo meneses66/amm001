@@ -204,7 +204,7 @@ class Client
                                     <label for="birth_date" class="medium-label">Data Aniv.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="birth_date" type="number" size="30" name="Birth_date" value="'.$data_form['BIRTH_DATE'].'">
+                                    <input id="birth_date" type="date" size="30" name="Birth_date" value="'.$data_form['BIRTH_DATE'].'">
                                 </div>
                             </div><br>
                             <div class="row">
