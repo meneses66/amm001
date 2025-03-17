@@ -10,12 +10,12 @@
     <hr class="my-1">
     <br><br><br><br>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Client/list_client";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-address-card"></i>&nbsp;Clientes</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/OrderX/list_orderx";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-list-alt"></i>&nbsp;Vendas</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Client/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-address-card"></i>&nbsp;Clientes</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/OrderX/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-list-alt"></i>&nbsp;Vendas</a></div>
     </div>
     <div class="row">
         <div class="col-sm-6"><a href="<?php echo ROOT."/Agenda/week_view";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-calendar-alt"></i>&nbsp;Agenda</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/OrderX/new_orderx";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-money-bill-alt"></i>&nbsp;Nova Venda</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/OrderX/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-money-bill-alt"></i>&nbsp;Nova Venda</a></div>
     </div>
     <br>
 </div>
