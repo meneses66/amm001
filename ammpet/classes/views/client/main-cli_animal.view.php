@@ -13,8 +13,8 @@
     <div class="row">
         <!-- DETALHES DO CLIENTE (PARENT FORM) -->
         <?php 
-            $controller = new ('\Controller\\'."Client");
-            $controller->load_parent_form();
+            $controller1 = new ('\Controller\\'."Client");
+            $controller1->load_parent_form();
         ?>
     </div><br>
     <hr class="my-1">
@@ -24,8 +24,8 @@
 
             <?php
                 require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
-                $controller = new ('\Controller\\'."Animal");
-                $controller->load_rows();
+                $controller2 = new ('\Controller\\'."Animal");
+                $controller2->load_rows();
             ?>
             
             <div class="row">

@@ -373,7 +373,7 @@ class Client
     }
 
     public function load_parent_form(){
-        if (isset($_GET['id'])){
+        if (isset($_GET['cli_id'])){
 
             if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
