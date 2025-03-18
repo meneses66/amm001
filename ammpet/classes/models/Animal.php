@@ -26,7 +26,7 @@ class Animal {
     public $Blade_Alergic;
     public $Vaccinated;
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, Client $client=null, $type=null, Breed $breed=null, $gender=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_is_danger=null, $flg_blade_alergic=null, $flg_vaccinated=null)
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, ?Client $client=null, $type=null, ?Breed $breed=null, $gender=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_is_danger=null, $flg_blade_alergic=null, $flg_vaccinated=null)
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
