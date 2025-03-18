@@ -22,7 +22,8 @@
         <form method="post">
             <input type="hidden" name="operation" value="insert">
 
-            <?php 
+            <?php
+                require_once removeFromEnd(ROOT,"views").'controllers/Animal.php'; 
                 $controller = new ('\Controller\\'."Animal");
                 $controller->load_rows();
             ?>
