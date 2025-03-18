@@ -28,6 +28,8 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <!-- Mask Inout Core JS-->
         <script src="<?php echo ROOT;?>/assets/js/jquery.maskedinput.js"></script>
         <!-- Core theme JS-->
+        <script src="<?php echo ROOT;?>/assets/js/mask.js"></script>
+        <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
     </body>
 </html>
