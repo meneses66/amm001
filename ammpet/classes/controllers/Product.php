@@ -59,7 +59,7 @@ class Product {
                             <label for="price" class="medium-label">Preço:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price" type="number" size="20" name="Price" step="0.01" required>
+                            <input id="price" type="text" size="20" name="Price" step="0.01" required>
                         </div>
                     </div><br>
                     <div class="row">
@@ -208,7 +208,7 @@ class Product {
                                     <label for="price" class="medium-label">Preço:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price" type="text" size="20" name="Price" value="'.$data_form['PRICE'].'" step="0.01" required>
+                                    <input id="price" type="number" size="20" name="Price" value="'.$data_form['PRICE'].'" step="0.01" required>
                                 </div>
                             </div><br>
                             <div class="row">
