@@ -18,10 +18,6 @@ $(document).ready(function(){
     $('#mobile_1').mask('(00) 00000-0000');
     $('#mobile_2').mask('(00) 00000-0000');
     $('#cpf').mask('000.000.000-00', {reverse: true});
-    $('#price').mask("###.###,##", {reverse: true});
-    $('#price_pix').mask("000.000.000.000.000,00", {reverse: true});
-    $('#price_cash').mask("000.000.000.000.000,00", {reverse: true});
-    $('#comission_percentage').mask("000,00", {reverse: true});
 
   });
   
