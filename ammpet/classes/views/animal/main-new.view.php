@@ -12,7 +12,8 @@
 
     <div class="row">
         <!-- DETALHES DO CLIENTE (PARENT FORM) -->
-        <?php 
+        <?php
+            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Client.php'; 
             $controller1 = new ('\Controller\\'."Client");
             $controller1->load_parent_form();
         ?>
@@ -25,7 +26,7 @@
             <?php
                 require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
                 $controller2 = new ('\Controller\\'."Animal");
-                $controller2->load_rows();
+                $controller2->load_new_form();
             ?>
         </form>
     </div>    
