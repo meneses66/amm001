@@ -1,7 +1,7 @@
 <?php
 
 namespace Controller;
-session_start();
+if(session_status() === PHP_SESSION_NONE) session_start();
 
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
@@ -188,12 +188,12 @@ class Animal {
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows(){
         
-        if (isset($_GET['id'])){
+        if (isset($_GET['cli_id'])){
 
             if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
-            $inputs["ID"]=$_GET['id'];
-            $id=$_GET['id'];
+            $inputs["ID"]=$_GET['cli_id'];
+            $id=$_GET['cli_id'];
             $client = new('\Model\\'.$this->parent_object);
             $client_data = $client->getRow($inputs);
 

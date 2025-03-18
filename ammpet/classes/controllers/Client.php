@@ -395,8 +395,6 @@ class Client
                                 <div class="col-sm-3">
                                     <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-sm-1">
                                     <label for="name" class="medium-label">Nome:</label><br><br>
                                 </div>
