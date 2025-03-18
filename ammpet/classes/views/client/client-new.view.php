@@ -25,10 +25,6 @@ $_SESSION['LAST_ACTIVE']=time();?>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Mask Inout Core JS-->
-        <script src="<?php echo ROOT;?>/assets/js/jquery.maskedinput.js"></script>
-        <!-- Core theme JS-->
-        <script src="<?php echo ROOT;?>/assets/js/mask.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
     </body>
