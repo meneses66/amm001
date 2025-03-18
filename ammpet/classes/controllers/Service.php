@@ -47,13 +47,13 @@ class Service {
                             <label for="name" class="medium-label">Nome:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="name" type="text" size="30" name="Name">
+                            <input id="name" type="text" size="30" name="Name" required>
                         </div>
                         <div class="col-sm-1">
                             <label for="code" class="medium-label">Código:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="code" type="text" size="30" name="Code">
+                            <input id="code" type="text" size="30" name="Code" required>
                         </div>
                         <div class="col-sm-1">
                             <label for="price" class="medium-label">Preço:</label>
@@ -225,13 +225,13 @@ class Service {
                                     <label for="name" class="medium-label">Nome:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="name" type="text" size="30" name="Name" value="'.$data_form['NAME'].'">
+                                    <input id="name" type="text" size="30" name="Name" value="'.$data_form['NAME'].'" required>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="code" class="medium-label">Código:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="code" type="text" size="30" name="Code" value="'.$data_form['CODE'].'">
+                                    <input id="code" type="text" size="30" name="Code" value="'.$data_form['CODE'].'" required>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="price" class="medium-label">Preço:</label>
