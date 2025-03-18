@@ -252,6 +252,20 @@ class Client
                                         <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
                                     </select>
                                 </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <a href="'.ROOT."/$this->UCF_object/_animals?id=$row->ID".'" title="Animals" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit">Animais</i></a>;
+                                </div>
+                                <div class="col-sm-3">
+                                    <a href="'.ROOT."/$this->UCF_object/_packages?id=$row->ID".'" title="Packages" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit">Pacotes</i></a>;
+                                </div>
+                                <div class="col-sm-3">
+
+                                </div>
+                                <div class="col-sm-3">
+
+                                </div>
                             </div><br>';
                             echo $output;
             } else{
