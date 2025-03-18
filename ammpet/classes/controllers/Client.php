@@ -255,16 +255,16 @@ class Client
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_cli_animal?cli_id=$id".'" title="Animals" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Animais</i></a>;
+                                    <a href="'.ROOT."/$this->UCF_object/_cli_animal?cli_id=$id".'" title="Animals" class="list-group-item list-group-item-action list-group-item-primary p-3" cli_id="'.$id.'"><i class="fas fa-edit">Animais</i></a>
                                 </div>
                                 <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_cli_package?cli_id=$id".'" title="Packages" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Pacotes</i></a>;
+                                    <a href="'.ROOT."/$this->UCF_object/_cli_package?cli_id=$id".'" title="Packages" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Pacotes</i></a>
                                 </div>
                                 <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_cli_product?cli_id=$id".'" title="Products" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Produtos</i></a>;
+                                    <a href="'.ROOT."/$this->UCF_object/_cli_product?cli_id=$id".'" title="Products" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Produtos</i></a>
                                 </div>
                                 <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_cli_service?cli_id=$id".'" title="Services" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Serviços</i></a>;
+                                    <a href="'.ROOT."/$this->UCF_object/_cli_service?cli_id=$id".'" title="Services" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Serviços</i></a>
                                 </div>
                             </div><br>';
                             echo $output;
