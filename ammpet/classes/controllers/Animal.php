@@ -25,42 +25,48 @@ class Animal {
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         if(session_status() === PHP_SESSION_NONE) session_start();
 
-        //$category_option_list = load_options_new("SERV_CATEGORY", "Ativo");
+        if (isset($_GET['cli_id'])){
 
-        $output = "";
+            $inputs["ID"]=$_GET['cli_id'];
+            $id=$_GET['cli_id'];
+            $client = new('\Model\\'.$this->parent_object);
+            $client_data = $client->getRow($inputs);
 
-        //CREATE VIEW HTML STRUCTURE
-        $output .= '<div class="row">
-                        <div class="col-sm-6">
-                            <input id="id" type="hidden" name="Id" value="">
-                            <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
-                            <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
-                            <input id="created" type="hidden" name="Created" value="">
-                            <input id="updated" type="hidden" name="Updated" value="">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <label for="name" class="medium-label">Nome:</label>
-                        </div>
-                        <div class="col-sm-3">
-                            <input id="name" type="text" size="30" name="Name">
-                        </div>
-                        <div class="col-sm-1">
-                            
-                        </div>
-                        <div class="col-sm-3">
-                            
-                        </div>
-                        <div class="col-sm-1">
-                            
-                        </div>
-                        <div class="col-sm-3">
-                            
-                        </div>
-                    </div><br>';
-                    echo $output;
+            $output = "";
 
+            //CREATE VIEW HTML STRUCTURE
+            $output .= '<div class="row">
+                            <div class="col-sm-6">
+                                <input id="id" type="hidden" name="Id" value="">
+                                <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
+                                <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                                <input id="created" type="hidden" name="Created" value="">
+                                <input id="updated" type="hidden" name="Updated" value="">
+                                <input id="id_client" type="hidden" name="Id_client" value="'.$client_data['ID'].'">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="name" class="medium-label">Nome:</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <input id="name" type="text" size="30" name="Name">
+                            </div>
+                            <div class="col-sm-1">
+                                
+                            </div>
+                            <div class="col-sm-3">
+                                
+                            </div>
+                            <div class="col-sm-1">
+                                
+                            </div>
+                            <div class="col-sm-3">
+                                
+                            </div>
+                        </div><br>';
+                        echo $output;
+        }
     }
 
     //LOAD HTML FORM FOR UPDATING RECORD
@@ -187,7 +193,7 @@ class Animal {
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows(){
-        
+
         if (isset($_GET['cli_id'])){
 
             if(session_status() === PHP_SESSION_NONE) session_start();
@@ -196,6 +202,15 @@ class Animal {
             $id=$_GET['cli_id'];
             $client = new('\Model\\'.$this->parent_object);
             $client_data = $client->getRow($inputs);
+
+            $output_buttons='<div class="row">
+                                <div class="col-sm-6">
+                                    <a href="'.ROOT.'"/Client/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="'.ROOT.'"/Aninal/_new?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block">Novo Animal</a>
+                                </div>
+                            </div>';
 
             if($client_data){
                 foreach ($client_data as $key => $value) {
@@ -230,11 +245,14 @@ class Animal {
                                         <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                                     </td></tr>';
                     }
-                    $output .= '</tbody>';
+                    $output .= '</tbody><br>';
+                    $output .= $output_buttons;
                     echo $output;
                 }
                 else{
-                    echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+                    $output_no_lines = '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3><br><br>';
+                    $output_no_lines .= $output_buttons;
+                    echo $output_no_lines;
                 }
             }
         }

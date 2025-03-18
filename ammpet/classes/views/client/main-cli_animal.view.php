@@ -33,7 +33,7 @@
                     <a href="<?php echo ROOT."/Client/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
                 </div>
                 <div class="col-sm-6">
-                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Animal/insert_call">
+                    <a href="<?php echo ROOT."/Aninal/_new";?>" class="btn btn-primary btn-lg m-1 btn-block">Novo Animal</a>
                 </div>
             </div>
         </form>
