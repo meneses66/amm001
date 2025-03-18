@@ -25,7 +25,8 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-$(":input").inputmask();
-$("#mobile_1").inputmask({"mask": "+55 (99) 99999-9999"});
-$("#mobile_2").inputmask({"mask": "+55 (99) 99999-9999"});
+$(document).ready(function(){
+    $('#mobile_1').mask('+00 (00) 00000-0000');
+    $('#mobile_2').mask('+00 (00) 00000-0000');
+  });
 
