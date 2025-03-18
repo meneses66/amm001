@@ -82,7 +82,7 @@ class Product {
                             <label for="price_cash" class="medium-label">Preço Dinh.:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price_cash" type="number" size="20" name="Price_Cash" step="0.01" required>
+                            <input id="price_cash" type="text" size="20" name="Price_Cash" step="0.01" required>
                         </div>
                     </div><br>
                     <div class="row">
@@ -102,7 +102,7 @@ class Product {
                             <label for="price_pix" class="medium-label">Preço Pix:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price_pix" type="number" size="20" name="Price_pix" step="0.01" required>
+                            <input id="price_pix" type="text" size="20" name="Price_pix" step="0.01" required>
                         </div>
                     </div><br>
                     <div class="row">
@@ -122,7 +122,7 @@ class Product {
                             <label for="comission_percentage" class="medium-label">% Comissão:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="0" step="0.01">
+                            <input id="comission_percentage" type="text" size="20" name="Comission_percentage" value="0" step="0.01">
                         </div>
                     </div><br>
                     <div class="row">
@@ -145,7 +145,7 @@ class Product {
                             <label for="external_cost" class="medium-label">Custo Externo:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="external_cost" type="number" size="20" name="External_cost" value="0" step="0.01">
+                            <input id="external_cost" type="text" size="20" name="External_cost" value="0" step="0.01">
                         </div>
                     </div><br>';
                     echo $output;

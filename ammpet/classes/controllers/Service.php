@@ -59,7 +59,7 @@ class Service {
                             <label for="price" class="medium-label">Preço:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price" type="number" size="20" name="Price" step="0.01" required>
+                            <input id="price" type="text" size="20" name="Price" step="0.01" required>
                         </div>
                     </div><br>
                     <div class="row">
@@ -85,7 +85,7 @@ class Service {
                             <label for="price_cash" class="medium-label">Preço Dinh.:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price_cash" type="number" size="20" name="Price_Cash" step="0.01" required>
+                            <input id="price_cash" type="text" size="20" name="Price_Cash" step="0.01" required>
                         </div>
                     </div><br>
                     <div class="row">
@@ -108,7 +108,7 @@ class Service {
                             <label for="price_pix" class="medium-label">Preço Pix:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price_pix" type="number" size="20" name="Price_pix" step="0.01" required>
+                            <input id="price_pix" type="text" size="20" name="Price_pix" step="0.01" required>
                         </div>
                     </div><br>
                     <div class="row">
@@ -128,7 +128,7 @@ class Service {
                             <label for="comission_percentage" class="medium-label">% Comissão:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="0" step="0.01">
+                            <input id="comission_percentage" type="text" size="20" name="Comission_percentage" value="0" step="0.01">
                         </div>
                     </div><br>
                     <div class="row">
@@ -151,7 +151,7 @@ class Service {
                             <label for="external_cost" class="medium-label">Custo Externo:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="external_cost" type="number" size="20" name="External_cost" value="0" step="0.01">
+                            <input id="external_cost" type="text" size="20" name="External_cost" value="0" step="0.01">
                         </div>
                     </div><br>
                     <div class="row">
@@ -165,7 +165,7 @@ class Service {
                             <label for="package_price" class="medium-label">Preço Pacote:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="package_price" type="number" size="20" name="Package_price" value="0" step="0.01">
+                            <input id="package_price" type="text" size="20" name="Package_price" value="0" step="0.01">
                         </div>
                         <div class="col-sm-1">
                             
@@ -237,7 +237,7 @@ class Service {
                                     <label for="price" class="medium-label">Preço:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price" type="number" size="20" name="Price" value="'.$data_form['PRICE'].'" step="0.01" required>
+                                    <input id="price" type="text" size="20" name="Price" value="'.$data_form['PRICE'].'" step="0.01" required>
                                 </div>
                             </div><br>
                             <div class="row">
@@ -263,7 +263,7 @@ class Service {
                                     <label for="price_cash" class="medium-label">Preço Dinh.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price_cash" type="number" size="20" name="Price_Cash" value="'.$data_form['PRICE_CASH'].'" step="0.01" required>
+                                    <input id="price_cash" type="text" size="20" name="Price_Cash" value="'.$data_form['PRICE_CASH'].'" step="0.01" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -286,7 +286,7 @@ class Service {
                                     <label for="price_pix" class="medium-label">Preço Pix:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price_pix" type="number" size="20" name="Price_pix" value="'.$data_form['PRICE_PIX'].'" step="0.01" required>
+                                    <input id="price_pix" type="text" size="20" name="Price_pix" value="'.$data_form['PRICE_PIX'].'" step="0.01" required>
                                 </div>
                             </div><br>
                             <div class="row">
@@ -306,7 +306,7 @@ class Service {
                                     <label for="comission_percentage" class="medium-label">% Comissão:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="'.$data_form['COMISSION_PERCENTAGE'].'" step="0.01">
+                                    <input id="comission_percentage" type="text" size="20" name="Comission_percentage" value="'.$data_form['COMISSION_PERCENTAGE'].'" step="0.01">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -329,7 +329,7 @@ class Service {
                                     <label for="external_cost" class="medium-label">Custo Externo:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="external_cost" type="number" size="20" name="External_cost" value="'.$data_form['EXTERNAL_COST'].'" step="0.01">
+                                    <input id="external_cost" type="text" size="20" name="External_cost" value="'.$data_form['EXTERNAL_COST'].'" step="0.01">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -343,7 +343,7 @@ class Service {
                                     <label for="package_price" class="medium-label">Preço Pacote:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="package_price" type="number" size="20" name="Package_price" value="'.$data_form['PACKAGE_PRICE'].'" step="0.01">
+                                    <input id="package_price" type="text" size="20" name="Package_price" value="'.$data_form['PACKAGE_PRICE'].'" step="0.01">
                                 </div>
                                 <div class="col-sm-1">
                                     
