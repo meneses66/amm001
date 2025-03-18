@@ -52,7 +52,7 @@ class Client
                             <label for="mobile_1" class="medium-label">Celular 1:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="mobile_1" type="text" size="25" name="Mobile_1" placeholder="5516999998888" inputmode="numeric" pattern="+\d\d(\d\d)\d\d\d\d\d-\d\d\d\d">
+                            <input id="mobile_1" type="text" size="25" name="Mobile_1" placeholder="5516999998888" inputmode="numeric" pattern="{String.raw`+\d\d(\d\d)\d\d\d\d\d-\d\d\d\d`}">
                         </div>
                         <div class="col-sm-1">
                             <label for="mobile_2" class="medium-label">Celular 2:</label>
