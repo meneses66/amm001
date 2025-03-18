@@ -19,23 +19,23 @@
     </div><br>
     <hr class="my-1">
     <div class = "row">
-    <form method="post">
-        <input type="hidden" name="operation" value="insert">
+        <form method="post">
+            <input type="hidden" name="operation" value="insert">
 
-        <?php 
-            $controller = new ('\Controller\\'."Animal");
-            $controller->load_rows();
-        ?>
-        
-        <div class="row">
-            <div class="col-sm-6">
-                <a href="<?php echo ROOT."/Client/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+            <?php 
+                $controller = new ('\Controller\\'."Animal");
+                $controller->load_rows();
+            ?>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <a href="<?php echo ROOT."/Client/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                </div>
+                <div class="col-sm-6">
+                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Animal/insert_call">
+                </div>
             </div>
-            <div class="col-sm-6">
-                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Animal/insert_call">
-            </div>
-        </div>
-    </form>
+        </form>
     </div>    
     
 </div>

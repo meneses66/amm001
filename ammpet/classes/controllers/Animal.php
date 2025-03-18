@@ -10,6 +10,7 @@ class Animal {
     use _GlobalController;
 	private $object = 'animal';
     private $UCF_object = 'Animal';
+    private $parent_object = 'Client';
 
 	public function index()
 	{
@@ -186,40 +187,56 @@ class Animal {
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows(){
-            
-        $output = "";
-        $model = new('\Model\\'.$this->UCF_object);
         
-        $data = $model->listAll();
-        if($model->countAll()>0){
-            $output .='<thead>
-                            <tr class="text-center text-secondary">
-                                <th>Id</th>
-                                <th>Atualiz.</th>
-                                <th>Nome</th>
-                                <th>Old Id</th>
-                                <th>Status</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>';
-            foreach ($data as $row) {
-                $output .='<tr class="text-center text-secondary">
-                            <td>'.$row->ID.'</td>
-                            <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->NAME.'</td>
-                            <td>'.$row->OLD_ID.'</td>
-                            <td>'.$row->STATUS.'</td>
-                            <td>
-                                <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
-                            </td></tr>';
+        if (isset($_GET['id'])){
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
+            $output = "";
+            $inputs["ID"]=$_GET['id'];
+            $id=$_GET['id'];
+            $client = new('\Model\\'.$this->parent_object);
+            $client_data = $client->getRow($inputs);
+
+            if($client_data){
+                foreach ($client_data as $key => $value) {
+                    $data_form[$key]=$value;
+                }
+
+                $output = "";
+                $model = new('\Model\\'.$this->UCF_object);
+                
+                $data = $model->listWhere($inputs);
+                if($model->countWhere($inputs)>0){
+                    $output .='<thead>
+                                    <tr class="text-center text-secondary">
+                                        <th>Id</th>
+                                        <th>Atualiz.</th>
+                                        <th>Nome</th>
+                                        <th>Old Id</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>';
+                    foreach ($data as $row) {
+                        $output .='<tr class="text-center text-secondary">
+                                    <td>'.$row->ID.'</td>
+                                    <td>'.$row->UPDATED.'</td>
+                                    <td>'.$row->NAME.'</td>
+                                    <td>'.$row->OLD_ID.'</td>
+                                    <td>'.$row->STATUS.'</td>
+                                    <td>
+                                        <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                        <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                    </td></tr>';
+                    }
+                    $output .= '</tbody>';
+                    echo $output;
+                }
+                else{
+                    echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+                }
             }
-            $output .= '</tbody>';
-            echo $output;
-        }
-        else{
-            echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
         }
     }
 
