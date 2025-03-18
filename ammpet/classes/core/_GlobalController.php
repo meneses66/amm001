@@ -77,6 +77,44 @@ Trait _GlobalController{
         $this->goto_view($operation);
     }
 
+    //THIS SESSION APPLIES ONLY TO CLIENT:
+
+    public function _cli_animal(){
+
+        $operation = 'goto_cli_animal';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $operation = $_POST['operation'];
+        }
+        $this->goto_view($operation);
+    }
+
+    public function _cli_package(){
+
+        $operation = 'goto_cli_package';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $operation = $_POST['operation'];
+        }
+        $this->goto_view($operation);
+    }
+
+    public function _cli_product(){
+
+        $operation = 'goto_cli_product';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $operation = $_POST['operation'];
+        }
+        $this->goto_view($operation);
+    }
+
+    public function _cli_service(){
+
+        $operation = 'goto_cli_service';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $operation = $_POST['operation'];
+        }
+        $this->goto_view($operation);
+    }
+
     //Defines view to go to
     private function goto_view($operation){
     
@@ -101,6 +139,27 @@ Trait _GlobalController{
                 $view="$this->object/$this->object-delete";
                 $this->view($view);
             break;
+
+            case 'goto_cli_animal':
+                $view="$this->object/$this->object-animal";
+                $this->view($view);
+            break;
+
+            case 'goto_cli_package':
+                $view="$this->object/$this->object-package";
+                $this->view($view);
+            break;
+
+            case 'goto_cli_product':
+                $view="$this->object/$this->object-product";
+                $this->view($view);
+            break;
+
+            case 'goto_cli_service':
+                $view="$this->object/$this->object-service";
+                $this->view($view);
+            break;
+
         }
     }
 

@@ -255,16 +255,16 @@ class Client
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_animals?id=$row->ID".'" title="Animals" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit">Animais</i></a>;
+                                    <a href="'.ROOT."/$this->UCF_object/_cli_animal?cli_id=$id".'" title="Animals" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Animais</i></a>;
                                 </div>
                                 <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_packages?id=$row->ID".'" title="Packages" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit">Pacotes</i></a>;
+                                    <a href="'.ROOT."/$this->UCF_object/_cli_package?cli_id=$id".'" title="Packages" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Pacotes</i></a>;
                                 </div>
                                 <div class="col-sm-3">
-
+                                    <a href="'.ROOT."/$this->UCF_object/_cli_product?cli_id=$id".'" title="Products" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Produtos</i></a>;
                                 </div>
                                 <div class="col-sm-3">
-
+                                    <a href="'.ROOT."/$this->UCF_object/_cli_service?cli_id=$id".'" title="Services" class="text-primary gotoBtn" cli_id="'.$id.'"><i class="fas fa-edit">Serviços</i></a>;
                                 </div>
                             </div><br>';
                             echo $output;
@@ -369,6 +369,52 @@ class Client
         }
         else{
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+        }
+    }
+
+    public function load_parent_form(){
+        if (isset($_GET['id'])){
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
+            $output = "";
+            $inputs["ID"]=$_GET['cli_id'];
+            $id=$_GET['cli_id'];
+            $model = new('\Model\\'.$this->UCF_object);
+            $data = $model->getRow($inputs);
+
+            if($data){
+
+                foreach ($data as $key => $value) {
+                    $data_form[$key]=$value;
+                }
+
+                $output .= '<div class="row">
+                                <div class="col-sm-1">
+                                    <label for="id" class="medium-label">Id:</label><br><br>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="name" class="medium-label">Nome:</label><br><br>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="name" type="text" size="30" name="Name" readonly value="'.$data_form['NAME'].'"><br<br>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="mobile_1" class="medium-label">Celular 1:</label><br><br>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$data_form['MOBILE_1'].'"><br<br>
+                                </div>
+                            </div>';
+                            echo $output;
+            } else{
+                show("No record to display!");
+            }
+
         }
     }
 
