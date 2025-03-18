@@ -27,15 +27,6 @@
                 $controller2 = new ('\Controller\\'."Animal");
                 $controller2->load_rows();
             ?>
-            
-            <div class="row">
-                <div class="col-sm-6">
-                    <a href="<?php echo ROOT."/Client/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
-                </div>
-                <div class="col-sm-6">
-                    <a href="<?php echo ROOT."/Aninal/_new";?>" class="btn btn-primary btn-lg m-1 btn-block">Novo Animal</a>
-                </div>
-            </div>
         </form>
     </div>    
     
