@@ -23,7 +23,7 @@
             <input type="hidden" name="operation" value="insert">
 
             <?php
-                require_once removeFromEnd(ROOT,"views").'controllers/Animal.php'; 
+                require_once ROOTPATH_CLASSES.'/controllers/Animal.php'; 
                 $controller = new ('\Controller\\'."Animal");
                 $controller->load_rows();
             ?>
