@@ -20,9 +20,9 @@
     </div><br>
     <hr class="my-1">
     <div class = "row">
-        <!-- ANIMAIS DO CLIENTE -->
+        <!-- NOVO ANIMAL DO CLIENTE -->
         <?php
-            removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
+            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
             $controller2 = new ('\Controller\\'."Animal");
             $controller2->load_new_form();
         ?>
