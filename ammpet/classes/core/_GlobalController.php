@@ -124,7 +124,13 @@ Trait _GlobalController{
             $operation = $_POST['operation'];
         }
         //$this->goto_view($operation);
-        double_redirect("Client","Animal/_new");
+        if (isset($_GET['cli_id'])){
+            $cli_id = $_GET['cli_id'];
+            $path2 = "Animal/_new?=".$cli_id;
+            double_redirect("Client",$path2);
+        } else{
+            echo "Issue to return Cli_Id.";
+        }
     }
 
     //Defines view to go to
