@@ -10,7 +10,7 @@ function getBreeds(breedType){
     type: "POST",
     data: {operation:"view", class:"Breed", method:"load_breed_options_new("+breedType+")"},
     success: function(response){
-        $('#breed_id').html(response);
+        $('#id_breed').html(response);
     }
 });
 

@@ -71,8 +71,10 @@ class Animal {
                             <div class="col-sm-1">
                                 <label for="id_breed" class="medium-label">Raça:</label>
                             </div>
-                            <div id="breed_id" class="col-sm-3">
-                                
+                            <div class="col-sm-3">
+                                <select class="medium-label" id="id_breed" name="Id_breed">
+                                    
+                                </select>
                             </div>
                         </div><br>';
                         echo $output;
