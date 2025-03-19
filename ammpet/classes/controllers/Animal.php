@@ -28,10 +28,10 @@ class Animal {
 
         if (isset($_GET['cli_id'])){
 
-            $inputs["ID"]=$_GET['cli_id'];
-            $id=$_GET['cli_id'];
-            $client = new('\Model\\'.$this->parent_object);
-            $client_data = $client->getRow($inputs);
+            //$inputs["ID"]=$_GET['cli_id'];
+            $cli_id=$_GET['cli_id'];
+            //$entity = new('\Model\\'.$this->UCF_object);
+            //$entity_data = $entity->getRow($inputs);
 
             $output = "";
 
@@ -43,7 +43,7 @@ class Animal {
                                 <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                                 <input id="created" type="hidden" name="Created" value="">
                                 <input id="updated" type="hidden" name="Updated" value="">
-                                <input id="id_client" type="hidden" name="Id_client" value="'.$client_data['ID'].'">
+                                <input id="id_client" type="hidden" name="Id_client" value="'.$cli_id.'">
                             </div>
                         </div>
                         <div class="row">
