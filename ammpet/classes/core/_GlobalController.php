@@ -117,6 +117,16 @@ Trait _GlobalController{
         $this->goto_view($operation);
     }
 
+    public function _new_animal(){
+
+        $operation = 'goto_cli_new_animal';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $operation = $_POST['operation'];
+        }
+        //$this->goto_view($operation);
+        double_redirect("Client","Animal/_new");
+    }
+
     //Defines view to go to
     private function goto_view($operation){
     

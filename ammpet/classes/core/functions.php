@@ -61,6 +61,12 @@ function redirect($path){
     die;
 }
 
+function double_redirect($path1, $path2){
+    header("Location: " . ROOT."/".$path1);
+    header("Location: " . ROOT."/".$path2);
+    die;
+}
+
 /** Displays message to the user */
 function message(string $msg=null, bool $clear=false){
     $ses = new Core\Session();

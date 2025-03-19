@@ -209,7 +209,7 @@ class Animal {
                                     <a href="'.ROOT.'/Client/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Aninal/_new?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Novo Animal</a>
+                                    <a href="'.ROOT.'/Client/_new_animal?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Novo Animal</a>
                                 </div>
                             </div>';
 
