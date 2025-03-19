@@ -28,10 +28,13 @@ class Animal {
 
         if (isset($_GET['cli_id'])){
 
-            //$inputs["ID"]=$_GET['cli_id'];
             $cli_id=$_GET['cli_id'];
+            //$inputs["ID"]=$_GET['cli_id'];
             //$entity = new('\Model\\'.$this->UCF_object);
             //$entity_data = $entity->getRow($inputs);
+            $size_option_list = load_options_new("ANIMAL_SIZE", "Ativo");
+            $breed = new ('\Controller\\'."Breed");
+            $breed_option_list = $breed->load_breed_options_new();
 
             $output = "";
 
@@ -54,15 +57,20 @@ class Animal {
                                 <input id="name" type="text" size="30" name="Name">
                             </div>
                             <div class="col-sm-1">
-                                
+                                <label for="type" class="medium-label">Tipo:</label>
                             </div>
                             <div class="col-sm-3">
-                                
+                                <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value)">
+                                    <option class="medium-label" value="" selected>Selecione uma opção</option>
+                                    <option class="medium-label" value="Cão" >Cão</option>
+                                    <option class="medium-label" value="Gato">Gato</option>
+                                    <option class="medium-label" value="Outro">Outro</option>
+                                </select>
                             </div>
                             <div class="col-sm-1">
-                                
+                                <label for="id_breed" class="medium-label">Raça:</label>
                             </div>
-                            <div class="col-sm-3">
+                            <div id="breed_id" class="col-sm-3">
                                 
                             </div>
                         </div><br>';

@@ -11,6 +11,7 @@ Create Table ANIMAL
     ID_BREED int,
     NAME Varchar (50) NOT NULL,
     GENDER Varchar (5),
+    SIZE Varchar (15),
     BIRTH_DATE date,
     IS_DANGER BOOLEAN,
     IS_NO_PERFUME BOOLEAN,

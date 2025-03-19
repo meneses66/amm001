@@ -216,4 +216,35 @@ class Breed {
         }
     }
 
+    public function load_breed_options_new ($type){
+        
+        //GET LIST OF BREEDS FROM BREED TABLE
+        $model = new('\Model\\'.$this->UCF_object);
+        $inputs['TYPE']=$type;
+        $option_list = '<select class="medium-label" id="id_breed" name="Id_breed">';
+        $options = $model->listWhere($inputs);
+        if($options){
+            foreach ($options as $option) { 
+                $option_list .= '<option class="medium-label" value="'.$option->ID.'">'.$option->NAME.'</option>';
+            }
+        }
+        return $option_list;
+    }
+    
+    function load_breed_options_update ($type, $data_form_breed){
+    
+        //GET LIST OF BREEDS FROM BREED TABLE
+        $model = new('\Model\\'.$this->UCF_object);
+        $option_list = "";
+        $data_form_breed_local=$data_form_breed;
+        $options = $model->listWhere($inputs);
+        if($options){
+            foreach ($options as $option) { 
+                $selected= $data_form_breed == $option->ID ? "selected":"";
+                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
+            }
+        }
+        return $option_list;
+    }
+
 }
