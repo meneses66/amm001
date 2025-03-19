@@ -1,7 +1,7 @@
 <?php
 
 namespace Controller;
-echo "This is Animal Controller.";
+
 if(session_status() === PHP_SESSION_NONE) session_start();
 
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');

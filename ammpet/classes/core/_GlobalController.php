@@ -1,7 +1,8 @@
 <?php
 
 namespace Controller;
-echo "This is Global_Controller.";
+
+if(session_status() === PHP_SESSION_NONE) session_start();
 
 defined('ROOTPATH') OR exit('Access denied!');
 

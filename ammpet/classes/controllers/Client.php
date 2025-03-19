@@ -1,7 +1,6 @@
 <?php 
 
 namespace Controller;
-echo "This is Client Controller.";
 
 if(session_status() === PHP_SESSION_NONE) session_start();
 
