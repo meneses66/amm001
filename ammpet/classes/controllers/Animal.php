@@ -33,8 +33,9 @@ class Animal {
             //$entity = new('\Model\\'.$this->UCF_object);
             //$entity_data = $entity->getRow($inputs);
             $size_option_list = load_options_new("ANIMAL_SIZE", "Ativo");
-            $breed = new ('\Controller\\'."Breed");
-            $breed_option_list = $breed->load_breed_options_new();
+
+            //$breed = new ('\Controller\\'."Breed");
+            //$breed_option_list = $breed->load_breed_options_new();
 
             $output = "";
 
