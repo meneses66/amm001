@@ -126,7 +126,7 @@ Trait _GlobalController{
         //$this->goto_view($operation);
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
-            $path2 = "Animal/_new?=".$cli_id;
+            $path2 = "Animal/_new?cli_id=".$cli_id;
             double_redirect("Client",$path2);
         } else{
             echo "Issue to return Cli_Id.";
