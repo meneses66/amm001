@@ -5,7 +5,7 @@ function getBreeds(breedType){
     breedDropDown.selectedIndex = 0;
     return false;
   } else{
-    load_Breed_new();
+    load_breed_new();
   }
 }
 
