@@ -31,6 +31,8 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <!-- Mask JS-->
         <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
+        <!-- Breed JS-->
+        <script src="<?php echo ROOT;?>/assets/js/select_breed.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
     </body>
