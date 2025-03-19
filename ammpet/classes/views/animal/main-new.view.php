@@ -13,8 +13,8 @@
     <div class="row">
         <!-- DETALHES DO CLIENTE (PARENT FORM) -->
         <?php
-            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Client.php'; 
-            $controller1 = new ('\Controller\\'."Client");
+            //require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Client.php'; 
+            $controller1 = new ('\Controller\\'."Animal");
             $controller1->load_parent_form();
         ?>
     </div><br>
@@ -22,7 +22,7 @@
     <div class = "row">
         <!-- NOVO ANIMAL DO CLIENTE -->
         <?php
-            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
+            //removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
             $controller2 = new ('\Controller\\'."Animal");
             $controller2->load_new_form();
         ?>

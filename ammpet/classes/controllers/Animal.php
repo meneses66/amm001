@@ -259,4 +259,47 @@ class Animal {
         }
     }
 
+    public function load_parent_form(){
+        if (isset($_GET['cli_id'])){
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
+            $output = "";
+            $inputs["ID"]=$_GET['cli_id'];
+            $id=$_GET['cli_id'];
+            $model = new('\Model\\'.$this->parent_object);
+            $data = $model->getRow($inputs);
+
+            if($data){
+
+                foreach ($data as $key => $value) {
+                    $data_form[$key]=$value;
+                }
+
+                $output .= '<div class="row">
+                                <div class="col-sm-1">
+                                    <label for="id" class="medium-label">Id:</label><br><br>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="name" class="medium-label">Nome:</label><br><br>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="name" type="text" size="30" name="Name" readonly value="'.$data_form['NAME'].'"><br<br>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="mobile_1" class="medium-label">Celular 1:</label><br><br>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$data_form['MOBILE_1'].'"><br<br>
+                                </div>
+                            </div>';
+                            echo $output;
+            } else{
+                show("No record to display!");
+            }
+
+        }
+
 }

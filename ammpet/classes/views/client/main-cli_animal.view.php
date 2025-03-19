@@ -13,7 +13,8 @@
     <div class="row">
         <!-- DETALHES DO CLIENTE (PARENT FORM) -->
         <?php 
-            $controller1 = new ('\Controller\\'."Client");
+            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
+            $controller1 = new ('\Controller\\'."Animal");
             $controller1->load_parent_form();
         ?>
     </div><br>
