@@ -1,6 +1,7 @@
 <?php
 
 namespace Controller;
+echo "This is Global_Controller.";
 
 defined('ROOTPATH') OR exit('Access denied!');
 
