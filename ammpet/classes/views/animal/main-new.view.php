@@ -22,7 +22,7 @@
     <div class = "row">
         <!-- ANIMAIS DO CLIENTE -->
         <?php
-            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
+            removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
             $controller2 = new ('\Controller\\'."Animal");
             $controller2->load_new_form();
         ?>
