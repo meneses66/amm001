@@ -20,15 +20,12 @@
     </div><br>
     <hr class="my-1">
     <div class = "row">
-        <form method="post">
-            <input type="hidden" name="operation" value="insert">
-
-            <?php
-                require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
-                $controller2 = new ('\Controller\\'."Animal");
-                $controller2->load_new_form();
-            ?>
-        </form>
+        <!-- ANIMAIS DO CLIENTE -->
+        <?php
+            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
+            $controller2 = new ('\Controller\\'."Animal");
+            $controller2->load_new_form();
+        ?>
     </div>    
     
 </div>
