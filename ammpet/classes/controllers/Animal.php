@@ -301,5 +301,6 @@ class Animal {
             }
 
         }
+    }
 
 }
