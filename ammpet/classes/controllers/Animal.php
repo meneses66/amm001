@@ -3,8 +3,7 @@
 namespace Controller;
 if(session_status() === PHP_SESSION_NONE) session_start();
 
-//(defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
-//defined('ROOTPATH') OR exit('Access denied!');
+(defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
 class Animal {
 
@@ -209,7 +208,7 @@ class Animal {
                                     <a href="'.ROOT.'/Client/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Aninal/_new?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block">Novo Animal</a>
+                                    <a href="'.ROOT.'/Aninal/_new?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Novo Animal</a>
                                 </div>
                             </div>';
 
