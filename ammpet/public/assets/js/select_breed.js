@@ -5,11 +5,11 @@ function getBreeds(breedType){
     breedDropDown.selectedIndex = 0;
     return false;
   } else{
-    load_breed_new();
+    load_breed_new(breedType);
   }
 }
 
-function load_breed_new(){  
+function load_breed_new(breedType){  
   $.ajax({
     url: "/ammpet/public/Ajax_call",
     type: "POST",
