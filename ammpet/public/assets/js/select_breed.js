@@ -9,11 +9,12 @@ function getBreeds(breedType){
   }
 }
 
-function load_breed_new(breedType){  
+function load_breed_new(breedType){
+  method_var = "load_breed_options_new("+breedType+")";  
   $.ajax({
     url: "/ammpet/public/Ajax_call",
     type: "POST",
-    data: {operation:"get", class:"Breed", method:"load_breed_options_new("+breedType+")"},
+    data: {operation:"get", class:"Breed", method:method_var},
     success: function(response){
         $('#id_breed').html(response);
     }
