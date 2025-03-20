@@ -346,10 +346,11 @@ class Animal {
 
             if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
-            $inputs["ID"]=$_GET['cli_id'];
+            $inputs_cli['ID']=$_GET['cli_id'];
+            $inputs_ani['ID_CLIENT']=$_GET['cli_id'];
             $id=$_GET['cli_id'];
             $client = new('\Model\\'.$this->parent_object);
-            $client_data = $client->getRow($inputs);
+            $client_data = $client->getRow($inputs_cli);
 
             $output_buttons='<div class="row">
                                 <div class="col-sm-6">
@@ -368,7 +369,7 @@ class Animal {
                 $output = "";
                 $model = new('\Model\\'.$this->UCF_object);
                 
-                $data = $model->listWhere($inputs);
+                $data = $model->listWhere($inputs_ani);
                 if($model->countWhere($inputs)>0){
                     $output .='<thead>
                                     <tr class="text-center text-secondary">
