@@ -1,4 +1,4 @@
-function getBreeds(breedType){
+function getBreedsNew(breedType){
   let breedDropDown = document.getElementById("id_breed");
   if(breedType.trim() ===""){
     breedDropDown.disabled = true;
@@ -14,7 +14,7 @@ function load_breed_new(breedType){
   $.ajax({
     url: "/ammpet/public/Ajax_call",
     type: "POST",
-    data: {operation:"get", class:"Breed", method:"load_breed_options_new", TYPE: breedType},
+    data: {operation:"get", class:"Breed", method:"load_breed_options_new", type:breedType},
     success: function(response){
         $('#id_breed').html(response);
     }
