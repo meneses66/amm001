@@ -6,6 +6,7 @@ function getBreedsNew(breedType){
     return false;
   } else{
     load_breed_new(breedType);
+    breedDropDown.disabled = false;
   }
 }
 
