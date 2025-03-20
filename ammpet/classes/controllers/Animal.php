@@ -370,7 +370,7 @@ class Animal {
                 $model = new('\Model\\'.$this->UCF_object);
                 
                 $data = $model->listWhere($inputs_ani);
-                if($model->countWhere($inputs)>0){
+                if($model->countWhere($inputs_ani)>0){
                     $output .='<thead>
                                     <tr class="text-center text-secondary">
                                         <th>Id</th>
