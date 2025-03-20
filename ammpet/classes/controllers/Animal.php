@@ -139,7 +139,7 @@ class Animal {
                                     <a href="'.ROOT.'/Animal/_back_cli?cli_id='.$cli_id.'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$cli_id.'">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Animal/insert_call" class="btn btn-primary btn-lg m-1 btn-block">Criar</a>
+                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Animal/insert_call">
                                 </div>
                             </div>';
                         echo $output;

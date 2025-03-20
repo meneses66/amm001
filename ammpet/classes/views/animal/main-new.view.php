@@ -19,10 +19,13 @@
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class = "row">
         <!-- NOVO ANIMAL DO CLIENTE -->
-        <?php
-            //removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
-            $controller2 = new ('\Controller\\'."Animal");
-            $controller2->load_new_form();
-        ?>
+        <form method="post">
+            <input type="hidden" name="operation" value="insert">
+            <?php
+                //removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
+                $controller2 = new ('\Controller\\'."Animal");
+                $controller2->load_new_form();
+            ?>
+        </form>
     </div>
 </div>
