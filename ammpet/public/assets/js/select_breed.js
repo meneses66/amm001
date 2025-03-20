@@ -1,4 +1,4 @@
-function getBreedsNew(breedType, dataformbreed, operation){
+function getBreeds(breedType, dataformbreed, operation){
   let breedDropDown = document.getElementById("id_breed");
   if(breedType.trim() ===""){
     breedDropDown.disabled = true;
