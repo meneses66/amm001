@@ -123,11 +123,27 @@ Trait _GlobalController{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $operation = $_POST['operation'];
         }
-        //$this->goto_view($operation);
+        
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
             $path2 = "Animal/_new?cli_id=".$cli_id;
             double_redirect("Client",$path2);
+        } else{
+            echo "Issue to return Cli_Id.";
+        }
+    }
+
+    public function _back_cli(){
+
+        $operation = 'goto_client';
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $operation = $_POST['operation'];
+        }
+        
+        if (isset($_GET['cli_id'])){
+            $cli_id = $_GET['cli_id'];
+            $path2 = "Client/_cli_animal?cli_id=".$cli_id;
+            double_redirect("Animal",$path2);
         } else{
             echo "Issue to return Cli_Id.";
         }

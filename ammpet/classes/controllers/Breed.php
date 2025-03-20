@@ -245,21 +245,4 @@ class Breed {
             }
     }
     
-    function load_breed_options_update ($array){
-    
-        //GET LIST OF BREEDS FROM BREED TABLE
-        $model = new('\Model\\'.$this->UCF_object);
-        $inputs['TYPE']=$array['type'];
-        $data_form_breed=$array['dfbreed'];
-        $option_list = "";
-        $options = $model->listWhere($inputs);
-        if($options){
-            foreach ($options as $option) { 
-                $selected= $data_form_breed == $option->ID ? "selected":"";
-                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
-            }
-        }
-        return $option_list;
-    }
-
 }

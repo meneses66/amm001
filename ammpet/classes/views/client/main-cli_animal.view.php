@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h4>Cliente - Novo Animal</h4>
+            <h4>Cliente - Animais</h4>
         </div>
     </div>
     <hr class="my-1">
