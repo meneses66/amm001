@@ -5,7 +5,7 @@ function getBreedsNew(breedType, dataformbreed, operation){
     breedDropDown.selectedIndex = 0;
     return false;
   } else{
-    if(operation.trim()==="new"){
+    if(operation==="new"){
     load_breed(breedType,"",operation);
     breedDropDown.disabled = false;
     } else if(operation.trim()==="update"){
