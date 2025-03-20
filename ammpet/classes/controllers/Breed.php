@@ -216,19 +216,33 @@ class Breed {
         }
     }
 
-    public function load_breed_options_new ($array){
+    public function load_breed_options ($array){
         
         //GET LIST OF BREEDS FROM BREED TABLE
         $model = new('\Model\\'.$this->UCF_object);
         $inputs['TYPE']=$array['type'];
-        $option_list = '<option class="medium-label" value="" selected>Selecione uma opção</option>';
-        $options = $model->listWhere($inputs);
-        if($options){
-            foreach ($options as $option) { 
-                $option_list .= '<option class="medium-label" value="'.$option->ID.'">'.$option->NAME.'</option>';
+        $op=$array['operation'];
+        if($op='new'){
+            $option_list = '<option class="medium-label" value="" selected>Selecione uma opção</option>';
+            $options = $model->listWhere($inputs);
+            if($options){
+                foreach ($options as $option) { 
+                    $option_list .= '<option class="medium-label" value="'.$option->ID.'">'.$option->NAME.'</option>';
+                }
             }
-        }
-        return $option_list;
+            return $option_list;
+        } elseif($op='update'){
+            $data_form_breed=$array['dfbreed'];
+            $option_list = '<option class="medium-label" value="">Selecione uma opção</option>';
+            $options = $model->listWhere($inputs);
+            if($options){
+                foreach ($options as $option) { 
+                    $selected= $data_form_breed == $option->ID ? "selected":"";
+                    $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
+                }
+            }
+            return $option_list;
+            }
     }
     
     function load_breed_options_update ($array){
