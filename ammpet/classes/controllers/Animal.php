@@ -61,7 +61,7 @@ class Animal {
                                 <label for="type" class="medium-label">Tipo:</label>
                             </div>
                             <div class="col-sm-3">
-                                <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value,"","new")">
+                                <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value,null,new)">
                                     <option class="medium-label" value="" selected>Selecione uma opção</option>
                                     <option class="medium-label" value="Cão">Cão</option>
                                     <option class="medium-label" value="Gato">Gato</option>
