@@ -7,7 +7,7 @@
             <h4>Cliente - Animais</h4>
         </div>
     </div>
-    <hr class="my-1">
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <br>
 
     <div class="row">
@@ -18,7 +18,6 @@
             $controller1->load_parent_form();
         ?>
     </div><br>
-    <hr class="my-1">
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class = "row">
         <!-- NOVO ANIMAL DO CLIENTE -->
