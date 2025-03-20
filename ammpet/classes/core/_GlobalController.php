@@ -240,6 +240,31 @@ Trait _GlobalController{
                 }
             }
 
+            //ADJUST FLAGS TO 0 or 1 in ANIMAL:
+
+            if($this->UCF_object=="Animal"){
+                if(isset($inputs["Is_danger"])){
+                    $inputs["Is_danger"]="1";
+                }else{
+                    $inputs["Is_danger"]="0";
+                }
+                if(isset($inputs["Is_no_perfume"])){
+                    $inputs["Is_no_perfume"]="1";
+                }else{
+                    $inputs["Is_no_perfume"]="0";
+                }
+                if(isset($inputs["Is_blade_alergic"])){
+                    $inputs["Is_blade_alergic"]="1";
+                }else{
+                    $inputs["Is_blade_alergic"]="0";
+                }
+                if(isset($inputs["Is_vaccinated"])){
+                    $inputs["Is_vaccinated"]="1";
+                }else{
+                    $inputs["Is_vaccinated"]="0";
+                }
+            }
+
             //START UNSET CHECKBOXES IN SUPPLIET VIEW:
 
             if($this->UCF_object=="Supplier"){
