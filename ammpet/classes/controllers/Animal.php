@@ -288,16 +288,16 @@ class Animal {
 
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
-                                    <label for="id" class="medium-label">Id:</label><br><br>
+                                    <label for="id_cli" class="medium-label">Id:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
+                                    <input id="id_cli" type="text" size="8" name="Id_cli" readonly value="'.$data_form['ID'].'"><br><br>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="name" class="medium-label">Nome:</label><br><br>
+                                    <label for="name_cli" class="medium-label">Nome:</label><br><br>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="name" type="text" size="30" name="Name" readonly value="'.$data_form['NAME'].'"><br<br>
+                                    <input id="name_cli" type="text" size="30" name="Name_cli" readonly value="'.$data_form['NAME'].'"><br<br>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="mobile_1" class="medium-label">Celular 1:</label><br><br>
