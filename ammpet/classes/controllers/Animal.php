@@ -136,7 +136,7 @@ class Animal {
                         </div><br><br>
                         <div class="row">
                                 <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Animal/_back_cli?cli_id='.$cli_id.'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$id.'">Voltar</a>
+                                    <a href="'.ROOT.'/Animal/_back_cli?cli_id='.$cli_id.'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$cli_id.'">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
                                     <a href="'.ROOT.'/Animal/insert_call" class="btn btn-primary btn-lg m-1 btn-block">Criar</a>
