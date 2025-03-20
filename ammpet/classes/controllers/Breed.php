@@ -221,7 +221,7 @@ class Breed {
         //GET LIST OF BREEDS FROM BREED TABLE
         $model = new('\Model\\'.$this->UCF_object);
         $inputs['TYPE']=$array['TYPE'];
-        var_dump($inputs);
+        echo var_dump($inputs);
         $option_list = '<option class="medium-label" value="" selected>Selecione uma opção</option>';
         $options = $model->listWhere($inputs);
         if($options){
