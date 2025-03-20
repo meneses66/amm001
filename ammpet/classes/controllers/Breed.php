@@ -216,11 +216,11 @@ class Breed {
         }
     }
 
-    public function load_breed_options_new ($type){
+    public function load_breed_options_new ($array){
         
         //GET LIST OF BREEDS FROM BREED TABLE
         $model = new('\Model\\'.$this->UCF_object);
-        $inputs['TYPE']=$type;
+        $inputs['TYPE']=$array['TYPE'];
         $option_list = '<option class="medium-label" value="" selected>Selecione uma opção</option>';
         $options = $model->listWhere($inputs);
         if($options){
