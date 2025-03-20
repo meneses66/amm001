@@ -19,6 +19,7 @@
         ?>
     </div><br>
     <hr class="my-1">
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class = "row">
         <!-- NOVO ANIMAL DO CLIENTE -->
         <?php

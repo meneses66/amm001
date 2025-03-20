@@ -76,7 +76,7 @@ class Animal {
                                     
                                 </select>
                             </div>
-                        </div><br>
+                        </div><br><br>
                         <div class="row">
                             <div class="col-sm-1">
                                 <label for="gender" class="medium-label">Sexo:</label>
@@ -107,7 +107,7 @@ class Animal {
                             <div class="col-sm-3">
                                 <input id="birth_date" type="date" size="30" name="Birth_date" value="'.date('Y-m-d').'">
                             </div>
-                        </div><br>
+                        </div><br><br>
                         <div class="row">
                             <div class="col-sm-2">
                                 <label for="is_danger" class="medium-label">Morde:</label>
@@ -116,7 +116,7 @@ class Animal {
                                 <input id="is_danger" type="checkbox" name="Is_danger">
                             </div>
                             <div class="col-sm-2">
-                                <label for="is_no_perfume" class="medium-label">Não perfume:</label>
+                                <label for="is_no_perfume" class="medium-label">Não passar perfume:</label>
                             </div>
                             <div class="col-sm-1">
                                 <input id="is_no_perfume" type="checkbox" name="Is_no_perfume">
@@ -133,7 +133,7 @@ class Animal {
                             <div class="col-sm-1">
                                 <input id="is_vaccinated" type="checkbox" name="Is_vaccinated">
                             </div>
-                        </div><br>';
+                        </div><br><br>';
                         echo $output;
         }
     }
