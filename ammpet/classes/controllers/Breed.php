@@ -231,12 +231,13 @@ class Breed {
         return $option_list;
     }
     
-    function load_breed_options_update ($type, $data_form_breed){
+    function load_breed_options_update ($array){
     
         //GET LIST OF BREEDS FROM BREED TABLE
         $model = new('\Model\\'.$this->UCF_object);
+        $inputs['TYPE']=$array['type'];
+        $data_form_breed=$array['dfbreed'];
         $option_list = "";
-        $data_form_breed_local=$data_form_breed;
         $options = $model->listWhere($inputs);
         if($options){
             foreach ($options as $option) { 

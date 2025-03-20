@@ -63,7 +63,7 @@ class Animal {
                             <div class="col-sm-3">
                                 <select class="medium-label" id="type" name="Type" onClick="getBreedsNew(this.value)">
                                     <option class="medium-label" value="" selected>Selecione uma opção</option>
-                                    <option class="medium-label" value="Cão" >Cão</option>
+                                    <option class="medium-label" value="Cão">Cão</option>
                                     <option class="medium-label" value="Gato">Gato</option>
                                     <option class="medium-label" value="Outro">Outro</option>
                                 </select>
@@ -75,6 +75,63 @@ class Animal {
                                 <select class="medium-label" id="id_breed" name="Id_breed">
                                     
                                 </select>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="gender" class="medium-label">Sexo:</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <select class="medium-label" id="gender" name="Gender">
+                                    <option class="medium-label" value="" selected>Selecione uma opção</option>
+                                    <option class="medium-label" value="Macho">Macho</option>
+                                    <option class="medium-label" value="Femea">Fêmea</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="size" class="medium-label">Porte:</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <select class="medium-label" id="size" name="Size">
+                                    <option class="medium-label" value="" selected>Selecione uma opção</option>
+                                    <option class="medium-label" value="Enorme">Enorme</option>
+                                    <option class="medium-label" value="Grande">Grande</option>
+                                    <option class="medium-label" value="Medio">Médio</option>
+                                    <option class="medium-label" value="Pequeno">Pequeno</option>
+                                    <option class="medium-label" value="Mini">Mini</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="birth_date" class="medium-label">Dt. Nasc.:</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <input id="birth_date" type="date" size="30" name="Birth_date" value="'.date('Y-m-d').'">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="is_danger" class="medium-label">Morde:</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input id="is_danger" type="checkbox" name="Is_danger">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="is_no_perfume" class="medium-label">Não perfume:</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input id="is_no_perfume" type="checkbox" name="Is_no_perfume">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="is_blade_alergic" class="medium-label">Alérgico Lâmina:</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input id="is_blade_alergic" type="checkbox" name="Is_blade_alergic">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="is_vaccinated" class="medium-label">Vacinado:</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input id="is_vaccinated" type="checkbox" name="Is_vaccinated">
                             </div>
                         </div><br>';
                         echo $output;
