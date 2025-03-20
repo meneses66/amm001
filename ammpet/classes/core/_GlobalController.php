@@ -335,8 +335,19 @@ Trait _GlobalController{
 
             try {
                 $model->insert($inputs);
-                $view = "$this->UCF_object/_list";
-                redirect("$view");
+
+                switch ($this->UCF_object) {
+                    case 'Animal':
+                        $path2 = "Client/_cli_animal?cli_id=".$inputs['ID_CLIENT'];
+                        double_redirect("Animal", path2);
+                        break;
+                    
+                    default:
+                        $view = "$this->UCF_object/_list";
+                        redirect("$view");
+                        break;
+                }
+                
             } catch (\Throwable $th) {
                 throw $th;
             }
