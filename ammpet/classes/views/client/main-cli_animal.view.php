@@ -8,9 +8,8 @@
             <h4>Cliente - Animais</h4>
         </div>
     </div>
-    <hr class="my-1">
-    <br>
-
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+    
     <div class="row">
         <!-- DETALHES DO CLIENTE (PARENT FORM) -->
         <?php 
@@ -19,7 +18,7 @@
             $controller1->load_parent_form();
         ?>
     </div><br>
-    <hr class="my-1">
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="_list_id">
@@ -28,6 +27,16 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <form method="post">
+            <input type="hidden" name="operation" value="insert">
+            <?php
+                require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
+                $controller2 = new ('\Controller\\'."Animal");
+                $controller2->load_buttons_for_list_view();
+            ?>
+        </form>
     </div>
     <div class = "row">
         <form method="post">

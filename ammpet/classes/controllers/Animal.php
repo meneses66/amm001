@@ -352,15 +352,6 @@ class Animal {
             $client = new('\Model\\'.$this->parent_object);
             $client_data = $client->getRow($inputs_cli);
 
-            $output_buttons='<div class="row">
-                                <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Client/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Client/_new_animal?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Novo Animal</a>
-                                </div>
-                            </div>';
-
             if($client_data){
                 foreach ($client_data as $key => $value) {
                     $data_form[$key]=$value;
@@ -395,12 +386,10 @@ class Animal {
                                     </td></tr>';
                     }
                     $output .= '</tbody><br>';
-                    $output .= $output_buttons;
                     echo $output;
                 }
                 else{
                     $output_no_lines = '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3><br><br>';
-                    $output_no_lines .= $output_buttons;
                     echo $output_no_lines;
                 }
             }
@@ -448,6 +437,23 @@ class Animal {
                 show("No record to display!");
             }
 
+        }
+    }
+
+    public function load_buttons_for_list_view(){
+        if (isset($_GET['cli_id'])){
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
+            $id=$_GET['cli_id'];
+            $output_buttons='<div class="row">
+                                <div class="col-sm-6">
+                                    <a href="'.ROOT.'/Client/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="'.ROOT.'/Client/_new_animal?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Novo Animal</a>
+                                </div>
+                            </div>';
+            echo $output_buttons;
         }
     }
 
