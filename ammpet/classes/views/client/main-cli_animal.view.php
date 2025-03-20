@@ -1,3 +1,4 @@
+<?php $GLOBALS['classnamejs']='Animal';?>
 <!-- <link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/styles.css"> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -19,6 +20,15 @@
         ?>
     </div><br>
     <hr class="my-1">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive" id="_list_id">
+                <table id="_table" class="table Table-stripped table-sm table-bordered small">
+                    
+                </table>
+            </div>
+        </div>
+    </div>
     <div class = "row">
         <form method="post">
             <input type="hidden" name="operation" value="insert">
@@ -29,6 +39,5 @@
                 $controller2->load_rows();
             ?>
         </form>
-    </div>    
-    
+    </div>       
 </div>
