@@ -10,6 +10,7 @@ function getBreeds(breedType, dataformbreed, operation){
       breedDropDown.disabled = false;
       } else if(operation.trim()==="update"){
         load_breed(breedType, dataformbreed, operation);
+        breedDropDown.selectedIndex = dataformbreed;
         breedDropDown.disabled = false;
       }
     }

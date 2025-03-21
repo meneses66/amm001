@@ -192,7 +192,7 @@ class Animal {
                                     <input id="id_client" type="hidden" name="Id_client" value="'.$data_form['ID_CLIENT'].'">
                                     <input id="temp_breed" type="hidden" name="temp_breed" value="'.$data_form['ID_BREED'].'">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="name" class="medium-label">Nome:</label>
@@ -245,7 +245,7 @@ class Animal {
                                     </select>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="birth_date" class="medium-label">Dt. Nasc.:</label>
+                                    <label for="birth_date" class="medium-label">Dt.Nasc.:</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="birth_date" type="date" size="30" name="Birth_date" value="'.$data_form['BIRTH_DATE'].'">
@@ -431,7 +431,7 @@ class Animal {
 
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
-                                    <label for="id_cli" class="medium-label">Id Cliente:</label>
+                                    <label for="id_cli" class="medium-label">Id Cli:</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="id_cli" type="text" size="8" name="Id_cli" readonly value="'.$data_form['ID'].'">
