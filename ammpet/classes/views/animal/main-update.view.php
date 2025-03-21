@@ -20,7 +20,7 @@
     <div class = "row">
         <!-- NOVO ANIMAL DO CLIENTE -->
         <form method="post">
-            <input type="hidden" name="operation" value="insert">
+            <input type="hidden" name="operation" value="update">
             <?php
                 //removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
                 $controller2 = new ('\Controller\\'."Animal");
