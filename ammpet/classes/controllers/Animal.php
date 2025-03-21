@@ -343,14 +343,12 @@ class Animal {
     public function load_rows(){
 
         if (isset($_GET['cli_id'])){
-            $output = "cli_id= ".$_GET['cli_id'];
-            echo $output;
-            die();
             if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
             $inputs_cli['ID']=$_GET['cli_id'];
             $inputs_ani['ID_CLIENT']=$_GET['cli_id'];
             $id=$_GET['cli_id'];
+            require_once $this->parent_object.'.php';
             $client = new('\Model\\'.$this->parent_object);
             $client_data = $client->getRow($inputs_cli);
 
