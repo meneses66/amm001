@@ -61,11 +61,7 @@ Trait _GlobalController{
 
     //Sends to UPDATE View
     public function _update(){
-
         $operation = 'goto_update';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         $this->goto_view($operation);
     }
 
