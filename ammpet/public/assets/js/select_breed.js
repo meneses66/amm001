@@ -10,7 +10,9 @@ function getBreeds(breedType, dataformbreed, operation){
       breedDropDown.disabled = false;
       } else if(operation.trim()==="update"){
         load_breed(breedType, dataformbreed, operation);
-        breedDropDown.selectedIndex = dataformbreed;
+        $("#id_breed").filter(function() {
+          return this.value == dataformbreed; 
+      }).attr('selected', true);
         breedDropDown.disabled = false;
       }
     }
