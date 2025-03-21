@@ -17,7 +17,7 @@
             $controller1 = new ('\Controller\\'."Animal");
             $controller1->load_parent_form();
         ?>
-    </div><br>
+    </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class="row">
         <div class="col-lg-12">
