@@ -341,14 +341,15 @@ class Animal {
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows(){
-
+        $output = 1;
         if (isset($_GET['cli_id'])){
+            $output=2;
             if(session_status() === PHP_SESSION_NONE) session_start();
-            $output = "";
+            $output = 3;
             $inputs_cli['ID']=$_GET['cli_id'];
             $inputs_ani['ID_CLIENT']=$_GET['cli_id'];
             $id=$_GET['cli_id'];
-            require_once $this->parent_object.'.php';
+            //require_once $this->parent_object.'.php';
             $client = new('\Model\\'.$this->parent_object);
             $client_data = $client->getRow($inputs_cli);
 
@@ -357,7 +358,7 @@ class Animal {
                     $data_form[$key]=$value;
                 }
 
-                $output = "";
+                $output = 4;
                 $model = new('\Model\\'.$this->UCF_object);
                 
                 $data = $model->listWhere($inputs_ani);
@@ -392,8 +393,11 @@ class Animal {
                     $output_no_lines = '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3><br><br>';
                     echo $output_no_lines;
                 }
+                echo $output;
             }
+            echo $output;
         }
+        echo $output;
     }
 
     public function load_parent_form(){
