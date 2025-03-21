@@ -396,11 +396,11 @@ class Animal {
                     $output_no_lines = '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3><br><br>';
                     echo $output_no_lines;
                 }
-                echo $output;
+                //echo $output;
             }
             //echo $output;
         //}
-        echo $output;
+        //echo $output;
     }
 
     public function load_parent_form(){
