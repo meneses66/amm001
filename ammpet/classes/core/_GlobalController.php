@@ -140,12 +140,13 @@ Trait _GlobalController{
             $operation = $_POST['operation'];
         }
         
-        if (isset($_GET['cli_id'])){
+        if (isset($_GET['cli_id']) AND isset($_GET['id'])){
             $cli_id = $_GET['cli_id'];
-            $path2 = "Animal/_new?cli_id=".$cli_id;
+            $id = $_GET['id'];
+            $path2 = "Animal/_update?cli_id=".$cli_id."&id=".$id;
             double_redirect("Client",$path2);
         } else{
-            echo "Issue to return Cli_Id.";
+            echo "Issue to return Cli_Id and Id.";
         }
     }
 

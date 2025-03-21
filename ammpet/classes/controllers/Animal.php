@@ -385,7 +385,7 @@ class Animal {
                                     <td>'.$row->GENDER.'</td>
                                     <td>'.$row->SIZE.'</td>
                                     <td>
-                                        <a href="'.ROOT."/$this->UCF_object/_update?cli_id=$row->ID_CLIENT&id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                        <a href="'.ROOT."/$this->parent_object/_update_animal?cli_id=$row->ID_CLIENT&id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                         <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                                     </td></tr>';
                     }
