@@ -20,7 +20,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
                 <!-- Top navigation-->
                 <?php include ROOTPATH_CLASSES . "../views/topnav.view.php";?>
                 <!-- Page content-->
-                <?php include "main-new.view.php";?>
+                <?php include "main-update.view.php";?>
             </div>
         </div>
         <!-- Bootstrap core JS-->

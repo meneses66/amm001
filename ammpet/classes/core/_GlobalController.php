@@ -49,9 +49,6 @@ Trait _GlobalController{
     //Sends to LIST View
     public function _list(){
         $operation = 'goto_list';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         $this->goto_view($operation);
     }
 
@@ -63,58 +60,34 @@ Trait _GlobalController{
 
     //Sends to DELETE View
     public function _delete(){
-
         $operation = 'goto_delete';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         $this->goto_view($operation);
     }
 
     //THIS SESSION APPLIES ONLY TO CLIENT:
 
     public function _cli_animal(){
-
         $operation = 'goto_cli_animal';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         $this->goto_view($operation);
     }
 
     public function _cli_package(){
-
         $operation = 'goto_cli_package';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         $this->goto_view($operation);
     }
 
     public function _cli_product(){
-
         $operation = 'goto_cli_product';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         $this->goto_view($operation);
     }
 
     public function _cli_service(){
-
         $operation = 'goto_cli_service';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         $this->goto_view($operation);
     }
 
     public function _new_animal(){
-
         $operation = 'goto_cli_new_animal';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
@@ -128,9 +101,6 @@ Trait _GlobalController{
     public function _update_animal(){
 
         $operation = 'goto_cli_update_animal';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         
         if (isset($_GET['cli_id']) AND isset($_GET['id'])){
             $cli_id = $_GET['cli_id'];
@@ -143,11 +113,7 @@ Trait _GlobalController{
     }
 
     public function _back_cli(){
-
         $operation = 'goto_client';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
