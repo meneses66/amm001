@@ -377,6 +377,7 @@ class Animal {
                                         <th>Id</th>
                                         <th>Atualiz.</th>
                                         <th>Nome</th>
+                                        <th>Raça</th>
                                         <th>Sexo</th>
                                         <th>Porte</th>
                                         <th>Ações</th>
@@ -388,6 +389,7 @@ class Animal {
                                     <td>'.$row->ID.'</td>
                                     <td>'.$row->UPDATED.'</td>
                                     <td>'.$row->NAME.'</td>
+                                    <td>'.$row->ID_BREED.'</td>
                                     <td>'.$row->GENDER.'</td>
                                     <td>'.$row->SIZE.'</td>
                                     <td>
