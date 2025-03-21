@@ -412,6 +412,8 @@ class Animal {
 
             if($data){
 
+                $GLOBALS['cli_id_js']=$_GET['cli_id'];
+
                 foreach ($data as $key => $value) {
                     $data_form[$key]=$value;
                 }
