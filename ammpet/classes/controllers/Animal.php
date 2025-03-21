@@ -185,7 +185,7 @@ class Animal {
                                     <label for="id" class="medium-label">Id:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="id" type="text" name="Id" value="'.$data_form['ID'].'">
+                                    <input id="id" type="text" name="Id" readonly value="'.$data_form['ID'].'">
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
@@ -203,7 +203,7 @@ class Animal {
                                     <label for="type" class="medium-label">Tipo:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value,'.$data_form['ID_BREED'].',\'update\')">
+                                    <select class="medium-label" id="type" name="Type" onload="getBreeds(this.value,'.$data_form['ID_BREED'].',\'update\')" onClick="getBreeds(this.value,'.$data_form['ID_BREED'].',\'update\')">
                                         <option class="medium-label" value="" '.(($data_form['TYPE'] == '')?"selected":"").'>Selecione uma opção</option>
                                         <option class="medium-label" value="Cão" '.(($data_form['TYPE'] == 'Cão')?"selected":"").'>Cão</option>
                                         <option class="medium-label" value="Gato" '.(($data_form['TYPE'] == 'Gato')?"selected":"").'>Gato</option>
@@ -428,7 +428,7 @@ class Animal {
 
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
-                                    <label for="id_cli" class="medium-label">Id:</label>
+                                    <label for="id_cli" class="medium-label">Id Cliente:</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="id_cli" type="text" size="8" name="Id_cli" readonly value="'.$data_form['ID'].'">
