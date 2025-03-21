@@ -377,22 +377,22 @@ class Client
 
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
-                                    <label for="id" class="medium-label">Id:</label><br><br>
+                                    <label for="id" class="medium-label">Id:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
+                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="name" class="medium-label">Nome:</label><br><br>
+                                    <label for="name" class="medium-label">Nome:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="name" type="text" size="30" name="Name" readonly value="'.$data_form['NAME'].'"><br<br>
+                                    <input id="name" type="text" size="30" name="Name" readonly value="'.$data_form['NAME'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="mobile_1" class="medium-label">Celular 1:</label><br><br>
+                                    <label for="mobile_1" class="medium-label">Celular 1:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$data_form['MOBILE_1'].'"><br<br>
+                                    <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$data_form['MOBILE_1'].'">
                                 </div>
                             </div>';
                             echo $output;
