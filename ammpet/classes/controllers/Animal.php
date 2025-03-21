@@ -190,6 +190,7 @@ class Animal {
                                 <div class="col-sm-3">
                                     <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                                     <input id="id_client" type="hidden" name="Id_client" value="'.$data_form['ID_CLIENT'].'">
+                                    <input id="temp_breed" type="hidden" name="temp_breed" value="'.$data_form['ID_BREED'].'">
                                 </div>
                             </div>
                             <div class="row">
@@ -203,7 +204,7 @@ class Animal {
                                     <label for="type" class="medium-label">Tipo:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="type" name="Type" onload="getBreeds(this.value,'.$data_form['ID_BREED'].',\'update\')" onClick="getBreeds(this.value,'.$data_form['ID_BREED'].',\'update\')">
+                                    <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value,'.$data_form['ID_BREED'].',\'update\')">
                                         <option class="medium-label" value="" '.(($data_form['TYPE'] == '')?"selected":"").'>Selecione uma opção</option>
                                         <option class="medium-label" value="Cão" '.(($data_form['TYPE'] == 'Cão')?"selected":"").'>Cão</option>
                                         <option class="medium-label" value="Gato" '.(($data_form['TYPE'] == 'Gato')?"selected":"").'>Gato</option>
