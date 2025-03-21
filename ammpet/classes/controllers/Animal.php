@@ -340,15 +340,18 @@ class Animal {
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
-    public function load_rows(){
-        $output = var_dump($_GET);
-        if (isset($_GET['cli_id'])){
+    public function load_rows($inputs){
+        //$output = var_dump($_GET);
+        $inputs_cli['ID']=$inputs['cli_id'];
+        $inputs_ani['ID_CLIENT']=$inputs['cli_id'];
+        //$id=$inputs['cli_id'];
+        //if (isset($_GET['cli_id'])){
             $output=2;
             if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
-            $inputs_cli['ID']=$_GET['cli_id'];
-            $inputs_ani['ID_CLIENT']=$_GET['cli_id'];
-            $id=$_GET['cli_id'];
+            //$inputs_cli['ID']=$_GET['cli_id'];
+            //$inputs_ani['ID_CLIENT']=$_GET['cli_id'];
+            //$id=$_GET['cli_id'];
             //require_once $this->parent_object.'.php';
             $client = new('\Model\\'.$this->parent_object);
             $client_data = $client->getRow($inputs_cli);
@@ -395,8 +398,8 @@ class Animal {
                 }
                 echo $output;
             }
-            echo $output;
-        }
+            //echo $output;
+        //}
         echo $output;
     }
 
