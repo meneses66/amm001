@@ -10,7 +10,7 @@ $output = '<script type="text/javascript">
             //Function to load the rows in table:
             function load_rows(){
                 captured_cli_id = '.(($GLOBALS['cli_id_js']!="" AND $GLOBALS['cli_id_js']!=null )?$GLOBALS['cli_id_js']:"").'
-                if(captured_cli_id = ""){
+                if (captured_cli_id = "") {
                     v_url = "/ammpet/public/Ajax_call";
                 } else{
                     v_url = "/ammpet/public/Ajax_call?cli_id="+captured_cli_id;
