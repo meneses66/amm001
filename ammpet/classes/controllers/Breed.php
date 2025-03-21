@@ -237,7 +237,7 @@ class Breed {
             $options = $model->listWhere($inputs);
             if($options){
                 foreach ($options as $option) { 
-                    $selected= $data_form_breed == $option->ID ? "selected":"";
+                    $selected= ($data_form_breed == $option->ID) ? "selected":"";
                     $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
                 }
             }
