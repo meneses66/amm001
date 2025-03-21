@@ -181,111 +181,110 @@ class Animal {
 
                 //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
-                            <div class="col-sm-1>
-                                <label for="id" class="medium-label">Id:</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <input id="id" type="text" name="Id" value="'.$data_form['ID'].'">
-                            </div>
-                            <div class="col-sm-3">
-                                <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
-                                <input id="id_client" type="hidden" name="Id_client" value="'.$data_form['ID_CLIENT'].'">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <label for="name" class="medium-label">Nome:</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <input id="name" type="text" size="30" name="Name" value="'.$data_form['NAME'].'">
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="type" class="medium-label">Tipo:</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value,'.$data_form['TYPE'].',\'update\')">
-                                    <option class="medium-label" value="" '.(($data_form['TYPE'] == '')?"selected":"").'>Selecione uma opção</option>
-                                    <option class="medium-label" value="Cão" '.(($data_form['TYPE'] == 'Cão')?"selected":"").'>Cão</option>
-                                    <option class="medium-label" value="Gato" '.(($data_form['TYPE'] == 'Gato')?"selected":"").'>Gato</option>
-                                    <option class="medium-label" value="Outro" '.(($data_form['TYPE'] == 'Outro')?"selected":"").'>Outro</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="id_breed" class="medium-label">Raça:</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <select class="medium-label" id="id_breed" name="Id_breed">
-                                    
-                                </select>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col-sm-1">
-                                <label for="gender" class="medium-label">Sexo:</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <select class="medium-label" id="gender" name="Gender">
-                                    <option class="medium-label" value="">Selecione uma opção</option>
-                                    <option class="medium-label" value="Macho" '.(($data_form['GENDER'] == 'Macho')?"selected":"").'>Macho</option>
-                                    <option class="medium-label" value="Femea" '.(($data_form['GENDER'] == 'Femea')?"selected":"").'>Fêmea</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="size" class="medium-label">Porte:</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <select class="medium-label" id="size" name="Size">
-                                    <option class="medium-label" value="">Selecione uma opção</option>
-                                    <option class="medium-label" value="Enorme" '.(($data_form['SIZE'] == 'Enorme')?"selected":"").'>Enorme</option>
-                                    <option class="medium-label" value="Grande" '.(($data_form['SIZE'] == 'Grande')?"selected":"").'>Grande</option>
-                                    <option class="medium-label" value="Medio" '.(($data_form['SIZE'] == 'Medio')?"selected":"").'>Médio</option>
-                                    <option class="medium-label" value="Pequeno" '.(($data_form['SIZE'] == 'Pequeno')?"selected":"").'>Pequeno</option>
-                                    <option class="medium-label" value="Mini" '.(($data_form['SIZE'] == 'Mini')?"selected":"").'>Mini</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-1">
-                                <label for="birth_date" class="medium-label">Dt. Nasc.:</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <input id="birth_date" type="date" size="30" name="Birth_date" value="'.$data_form['BIRTH_DATE'].'">
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <label for="is_danger" class="medium-label">Morde:</label>
-                            </div>
-                            <div class="col-sm-1">
-                                <input id="is_danger" type="checkbox" name="Is_danger" '.$flag_is_danger.'>
-                            </div>
-                            <div class="col-sm-2">
-                                <label for="is_no_perfume" class="medium-label">Não passar perfume:</label>
-                            </div>
-                            <div class="col-sm-1">
-                                <input id="is_no_perfume" type="checkbox" name="Is_no_perfume" '.$flag_is_no_perfume.'>
-                            </div>
-                            <div class="col-sm-2">
-                                <label for="is_blade_alergic" class="medium-label">Alérgico Lâmina:</label>
-                            </div>
-                            <div class="col-sm-1">
-                                <input id="is_blade_alergic" type="checkbox" name="Is_blade_alergic" '.$flag_is_blade_alergic.'>
-                            </div>
-                            <div class="col-sm-2">
-                                <label for="is_vaccinated" class="medium-label">Vacinado:</label>
-                            </div>
-                            <div class="col-sm-1">
-                                <input id="is_vaccinated" type="checkbox" name="Is_vaccinated" '.$flag_is_vaccinated.'>
-                            </div>
-                        </div><br><br>
-                        <div class="row">
-                                <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Animal/_back_cli?cli_id='.$data_form['ID_CLIENT'].'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$data_form['ID_CLIENT'].'">Voltar</a>
+                                <div class="col-sm-1>
+                                    <label for="id" class="medium-label">Id:</label>
                                 </div>
-                                <div class="col-sm-6">
-                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar" formaction="../Animal/update_call">
-                                    <a href="'.ROOT.'/Animal/_update?id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Atualizar</a>
+                                <div class="col-sm-3">
+                                    <input id="id" type="text" name="Id" value="'.$data_form['ID'].'">
                                 </div>
-                            </div>';
-                            echo $output;
+                                <div class="col-sm-3">
+                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                                    <input id="id_client" type="hidden" name="Id_client" value="'.$data_form['ID_CLIENT'].'">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="name" class="medium-label">Nome:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="name" type="text" size="30" name="Name" value="'.$data_form['NAME'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="type" class="medium-label">Tipo:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value,'.$data_form['ID_BREED'].',\'update\')">
+                                        <option class="medium-label" value="" '.(($data_form['TYPE'] == '')?"selected":"").'>Selecione uma opção</option>
+                                        <option class="medium-label" value="Cão" '.(($data_form['TYPE'] == 'Cão')?"selected":"").'>Cão</option>
+                                        <option class="medium-label" value="Gato" '.(($data_form['TYPE'] == 'Gato')?"selected":"").'>Gato</option>
+                                        <option class="medium-label" value="Outro" '.(($data_form['TYPE'] == 'Outro')?"selected":"").'>Outro</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="id_breed" class="medium-label">Raça:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="id_breed" name="Id_breed">
+                                        
+                                    </select>
+                                </div>
+                            </div><br><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="gender" class="medium-label">Sexo:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="gender" name="Gender">
+                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="Macho" '.(($data_form['GENDER'] == 'Macho')?"selected":"").'>Macho</option>
+                                        <option class="medium-label" value="Femea" '.(($data_form['GENDER'] == 'Femea')?"selected":"").'>Fêmea</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="size" class="medium-label">Porte:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="size" name="Size">
+                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="Enorme" '.(($data_form['SIZE'] == 'Enorme')?"selected":"").'>Enorme</option>
+                                        <option class="medium-label" value="Grande" '.(($data_form['SIZE'] == 'Grande')?"selected":"").'>Grande</option>
+                                        <option class="medium-label" value="Medio" '.(($data_form['SIZE'] == 'Medio')?"selected":"").'>Médio</option>
+                                        <option class="medium-label" value="Pequeno" '.(($data_form['SIZE'] == 'Pequeno')?"selected":"").'>Pequeno</option>
+                                        <option class="medium-label" value="Mini" '.(($data_form['SIZE'] == 'Mini')?"selected":"").'>Mini</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="birth_date" class="medium-label">Dt. Nasc.:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="birth_date" type="date" size="30" name="Birth_date" value="'.$data_form['BIRTH_DATE'].'">
+                                </div>
+                            </div><br><br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="is_danger" class="medium-label">Morde:</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="is_danger" type="checkbox" name="Is_danger" '.$flag_is_danger.'>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="is_no_perfume" class="medium-label">Não passar perfume:</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="is_no_perfume" type="checkbox" name="Is_no_perfume" '.$flag_is_no_perfume.'>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="is_blade_alergic" class="medium-label">Alérgico Lâmina:</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="is_blade_alergic" type="checkbox" name="Is_blade_alergic" '.$flag_is_blade_alergic.'>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="is_vaccinated" class="medium-label">Vacinado:</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="is_vaccinated" type="checkbox" name="Is_vaccinated" '.$flag_is_vaccinated.'>
+                                </div>
+                            </div><br><br>
+                            <div class="row">
+                                    <div class="col-sm-6">
+                                        <a href="'.ROOT.'/Animal/_back_cli?cli_id='.$data_form['ID_CLIENT'].'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$data_form['ID_CLIENT'].'">Voltar</a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar" formaction="../Animal/update_call">
+                                    </div>
+                                </div>';
+                                echo $output;
             } else{
                 show("No record to display!");
             }
