@@ -7,6 +7,7 @@
         <div class="col-lg-6">
             <h4>Cliente - Animais</h4>
         </div>
+        <?php include "client-nav.view.php";?>
     </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     

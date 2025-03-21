@@ -253,20 +253,6 @@ class Client
                                         <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
                                     </select>
                                 </div>
-                            </div><br>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_cli_animal?cli_id=$id".'" title="Animals" class="btn btn-info btn-lg m-1 btn-block" cli_id="'.$id.'"><i class="fas fa-edit"></i>&nbsp;&nbsp;Animais</a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_cli_package?cli_id=$id".'" title="Packages" class="btn btn-info btn-lg m-1 btn-block" cli_id="'.$id.'"><i class="fas fa-edit"></i>&nbsp;&nbsp;Pacotes</a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_cli_product?cli_id=$id".'" title="Products" class="btn btn-info btn-lg m-1 btn-block" cli_id="'.$id.'"><i class="fas fa-edit"></i>&nbsp;&nbsp;Produtos</a>
-                                </div>
-                                <div class="col-sm-3">
-                                    <a href="'.ROOT."/$this->UCF_object/_cli_service?cli_id=$id".'" title="Services" class="btn btn-info btn-lg m-1 btn-block" cli_id="'.$id.'"><i class="fas fa-edit"></i>&nbsp;&nbsp;Serviços</a>
-                                </div>
                             </div><br>';
                             echo $output;
             } else{
