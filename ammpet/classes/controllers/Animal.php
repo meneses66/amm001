@@ -456,7 +456,7 @@ class Animal {
             $id=$_GET['cli_id'];
             $output_buttons='<div class="row">
                                 <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Client/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                                    <a href="'.ROOT.'/Client/_cli_animal?cli_id='.$id.'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$id.'">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
                                     <a href="'.ROOT.'/Client/_new_animal?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Novo Animal</a>
