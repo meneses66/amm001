@@ -181,8 +181,13 @@ class Animal {
 
                 //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-1>
+                                <label for="id" class="medium-label">Id:</label>
+                            </div>
+                            <div class="col-sm-3">
                                 <input id="id" type="text" name="Id" value="'.$data_form['ID'].'">
+                            </div>
+                            <div class="col-sm-3">
                                 <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                                 <input id="id_client" type="hidden" name="Id_client" value="'.$data_form['ID_CLIENT'].'">
                             </div>
@@ -198,7 +203,7 @@ class Animal {
                                 <label for="type" class="medium-label">Tipo:</label>
                             </div>
                             <div class="col-sm-3">
-                                <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value,\'\',\'new\')">
+                                <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value,'.$data_form['TYPE'].',\'update\')">
                                     <option class="medium-label" value="" '.(($data_form['TYPE'] == '')?"selected":"").'>Selecione uma opção</option>
                                     <option class="medium-label" value="Cão" '.(($data_form['TYPE'] == 'Cão')?"selected":"").'>Cão</option>
                                     <option class="medium-label" value="Gato" '.(($data_form['TYPE'] == 'Gato')?"selected":"").'>Gato</option>
@@ -273,9 +278,10 @@ class Animal {
                         </div><br><br>
                         <div class="row">
                                 <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Client/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                                    <a href="'.ROOT.'/Animal/_back_cli?cli_id='.$data_form['ID_CLIENT'].'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$data_form['ID_CLIENT'].'">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
+                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar" formaction="../Animal/update_call">
                                     <a href="'.ROOT.'/Animal/_update?id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Atualizar</a>
                                 </div>
                             </div>';
