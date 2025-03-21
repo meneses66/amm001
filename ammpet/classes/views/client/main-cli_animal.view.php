@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-sm-4">
             <h4>Cliente - Animais</h4>
         </div>
         <?php include "client-nav.view.php";?>
