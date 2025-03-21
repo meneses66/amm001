@@ -11,6 +11,7 @@ $output = '<script type="text/javascript">
             //Function to load the rows in table:
             function load_rows(){
                     $.ajax({
+
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
                         data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows"},
