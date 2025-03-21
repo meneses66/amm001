@@ -42,11 +42,7 @@ Trait _GlobalController{
 
     //Sends to page to create NEW Params
     public function _new(){
-
         $operation = 'goto_new';
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $operation = $_POST['operation'];
-        }
         $this->goto_view($operation);
     }
 
