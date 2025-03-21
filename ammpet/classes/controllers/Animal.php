@@ -343,7 +343,9 @@ class Animal {
     public function load_rows(){
 
         if (isset($_GET['cli_id'])){
-
+            $output = "cli_id= ".$_GET['cli_id'];
+            echo $output;
+            die();
             if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
             $inputs_cli['ID']=$_GET['cli_id'];

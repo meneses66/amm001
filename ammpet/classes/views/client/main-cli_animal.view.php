@@ -37,16 +37,5 @@
                 $controller2->load_buttons_for_list_view();
             ?>
         </form>
-    </div>
-    <div class = "row">
-        <form method="post">
-            <input type="hidden" name="operation" value="insert">
-
-            <?php
-                require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
-                $controller2 = new ('\Controller\\'."Animal");
-                $controller2->load_rows();
-            ?>
-        </form>
-    </div>       
+    </div>   
 </div>
