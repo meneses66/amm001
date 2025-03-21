@@ -341,7 +341,7 @@ class Animal {
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows(){
-        $output = 111111111;
+        $output = var_dump($_GET);
         if (isset($_GET['cli_id'])){
             $output=2;
             if(session_status() === PHP_SESSION_NONE) session_start();
