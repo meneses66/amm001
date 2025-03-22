@@ -320,7 +320,9 @@ class Client
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
-        $data = $model->listAll();
+        $sqlstm = "SELECT C.ID AS ID, C.UPDATED AS UPDATED, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, C.MOBILE_2 as MOBILE_2, C.ORIGIN as ORIGIN, C.OLD_ID as OLD_ID, C.STATUS as STATUS, GROUP_CONCAT(A.NAME) AS ANIMALS FROM `CLIENT` C LEFT JOIN `ANIMAL` A ON C.ID = A.ID_CLIENT GROUP BY C.ID";
+
+        $data = $model->exec_sqlstm($sqlstm);
         if($model->countAll()>0){
             $output .='<thead>
                             <tr class="text-center text-secondary">
@@ -332,6 +334,7 @@ class Client
                                 <th>Origin</th>
                                 <th>Old Id</th>
                                 <th>Status</th>
+                                <th>Animais</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -346,6 +349,7 @@ class Client
                             <td>'.$row->ORIGIN.'</td>
                             <td>'.$row->OLD_ID.'</td>
                             <td>'.$row->STATUS.'</td>
+                            <td>'.$row->ANIMALS.'</td>
                             <td>
                                 <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                 <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
