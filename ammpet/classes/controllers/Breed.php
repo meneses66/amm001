@@ -222,7 +222,7 @@ class Breed {
         $model = new('\Model\\'.$this->UCF_object);
         $inputs['TYPE']=$array['type'];
         $op=$array['operation'];
-        if($op=='new'){
+        if($op=="new"){
             $option_list = '<option class="medium-label" value="" selected>Selecione uma opção</option>';
             $options = $model->listWhere($inputs);
             if($options){
@@ -231,7 +231,7 @@ class Breed {
                 }
             }
             return $option_list;
-        } elseif($op=='update'){
+        } elseif($op=="update"){
             $data_form_breed=$array['dfbreed'];
             $option_list = '<option class="medium-label" value="">Selecione uma opção</option>';
             $options = $model->listWhere($inputs);
