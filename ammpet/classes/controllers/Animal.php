@@ -381,7 +381,7 @@ class Animal {
                                         <th>Sexo</th>
                                         <th>Porte</th>
                                         <th>Morde</th>
-                                        <th>Não pafume</th>
+                                        <th>Não perfume</th>
                                         <th>Alérg.Lâm.</th>
                                         <th>Vacinado</th>
                                         <th>Ações</th>
@@ -389,17 +389,21 @@ class Animal {
                                 </thead>
                                 <tbody>';
                     foreach ($data as $row) {
+                        $breed_input['ID']= $row->ID_BREED;
+                        $breed = new('\Model\\'."Breed");
+                        $breed_name = $breed->getRow($breed_input)->NAME;
+                        $breed = null;
                         $output .='<tr class="text-center text-secondary">
                                     <td>'.$row->ID.'</td>
                                     <td>'.$row->UPDATED.'</td>
                                     <td>'.$row->NAME.'</td>
-                                    <td>'.$row->ID_BREED.'</td>
+                                    <td>'.$breed_name.'</td>
                                     <td>'.$row->GENDER.'</td>
                                     <td>'.$row->SIZE.'</td>
-                                    <td>'.($row->IS_DANGER==1?"■":"□").'</td>
-                                    <td>'.($row->IS_NO_PERFUME==1?"■":"□").'</td>
-                                    <td>'.($row->IS_BLADE_ALERGIC==1?"■":"□").'</td>
-                                    <td>'.($row->IS_VACCINATED==1?"■":"□").'</td>
+                                    <td>'.($row->IS_DANGER==1?"■":"").'</td>
+                                    <td>'.($row->IS_NO_PERFUME==1?"■":"").'</td>
+                                    <td>'.($row->IS_BLADE_ALERGIC==1?"■":"").'</td>
+                                    <td>'.($row->IS_VACCINATED==1?"■":"").'</td>
                                     <td>
                                         <a href="'.ROOT."/$this->parent_object/_update_animal?cli_id=$row->ID_CLIENT&id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                         <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
