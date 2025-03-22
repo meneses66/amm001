@@ -16,7 +16,7 @@ class Ajax_call {
         $method = $_POST['method'];
         require_once $_POST['class'].'.php';
 
-        echo var_dump($_POST);
+        //echo var_dump($_POST);
         
         foreach ($_POST as $key => $value) {
             $inputs[$key]=$value;    

@@ -238,7 +238,7 @@ class Breed {
             if($options){
                 foreach ($options as $option) { 
                     $selected= ($data_form_breed == $option->ID) ? "selected":"";
-                    $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
+                    $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.$option->ID.$selected.'</option>';
                 }
             }
             return $option_list;

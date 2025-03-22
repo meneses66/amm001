@@ -3,5 +3,5 @@ $(document).ready(function(){
     temp_breed = document.getElementById("temp_breed").value;
     console.log(breedType + " - " + temp_breed);
     console.log(getBreeds(breedType, temp_breed, "update"));
-    getBreeds(breedType, temp_breed, "update");
+    //getBreeds(breedType, temp_breed, "update");
 });
