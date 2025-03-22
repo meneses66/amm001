@@ -372,6 +372,8 @@ class Animal {
                 
                 $data = $model->listWhere($inputs_ani);
                 if($model->countWhere($inputs_ani)>0){
+
+                    //ADD TABLE COLUMN NAMES
                     $output .='<thead>
                                     <tr class="text-center text-secondary">
                                         <th>Id</th>
@@ -388,11 +390,16 @@ class Animal {
                                     </tr>
                                 </thead>
                                 <tbody>';
+
                     foreach ($data as $row) {
+
+                        //GET BREED NAME
                         $breed_input['ID']= $row->ID_BREED;
                         $breed = new('\Model\\'."Breed");
                         $breed_name = $breed->getRow($breed_input)->NAME;
                         $breed = null;
+                        
+                        //ADD ROW IN TABLE
                         $output .='<tr class="text-center text-secondary">
                                     <td>'.$row->ID.'</td>
                                     <td>'.$row->UPDATED.'</td>
