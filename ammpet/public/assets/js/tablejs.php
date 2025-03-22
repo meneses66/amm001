@@ -33,7 +33,7 @@ $output = '<script type="text/javascript">
                     $.ajax({
                             url: "/ammpet/public/Ajax_call",
                             type: "POST",
-                            data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows"},
+                            data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'"},
                             success: function(response){
                                 table = $(\'#_table\').DataTable();
                                 table.destroy();
