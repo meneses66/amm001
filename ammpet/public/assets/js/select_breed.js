@@ -16,6 +16,7 @@ function getBreeds(breedType, dataformbreed, operation){
   }
 
   function load_breed(breedType, dataformbreed, op){  
+    console.log(breedType+"-"+dataformbreed+"-"+op);
     $.ajax({
       url: "/ammpet/public/Ajax_call",
       type: "POST",
