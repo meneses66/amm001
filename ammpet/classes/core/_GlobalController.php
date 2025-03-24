@@ -240,11 +240,11 @@ Trait _GlobalController{
             unset($inputs["Updated"]);
 
             //Special condition when Object is Orderx:
-            if($this->UFC_object="Orderx" AND isset($_GET['cli_id'])){
+            if($inputs['class']="Orderx" AND isset($_GET['cli_id'])){
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
-                unset($inputs["class"]);
-                unset($inputs["method"]);
+                unset($inputs['class']);
+                unset($inputs['method']);
             }
 
             //ADJUST FLAGS TO 0 or 1 in PRODUCT and SERVICE:

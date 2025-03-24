@@ -33,7 +33,7 @@ Trait _DAO{
   {
     $connect = $this->connect();
     $stm = $connect->prepare($sql_stm);
-
+    $result = false;
     $check = $stm->execute($inputs);
 
     if($check)
@@ -44,10 +44,11 @@ Trait _DAO{
         $connect=null;
         return $result;
       }
-    }
+    } 
     $stm=null;
     $connect=null;
-    return false;
+    //return false;
+    return $result;
 
   }
 }
