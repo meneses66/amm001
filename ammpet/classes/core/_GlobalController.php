@@ -124,6 +124,10 @@ Trait _GlobalController{
         }
     }
 
+    //THIS SESSION APPLIES TO ORDER:
+
+    
+
     //Defines view to go to
     private function goto_view($operation){
     

@@ -9,11 +9,11 @@ if(session_status() === PHP_SESSION_NONE) session_start();
 /**
  * Order_X class
  */
-class Order_X
+class Orderx
 {
 	use _GlobalController;
-	private $object = 'order_x';
-    private $UCF_object = 'Order_X';
+	private $object = 'orderx';
+    private $UCF_object = 'Orderx';
 
 	public function index()
 	{
