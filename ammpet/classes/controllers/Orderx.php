@@ -17,7 +17,7 @@ class Orderx
 
 	public function index()
 	{
-
+        $this->view('orderx/orderx');
 	}
 
     //ORDERS DO NOT HAVE FORMS - THEY ARE CREATED BY SELECTING THE CLIENT
