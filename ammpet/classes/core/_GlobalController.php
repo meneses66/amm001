@@ -130,7 +130,7 @@ Trait _GlobalController{
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
             $path = "Order/insert_call?cli_id=".$cli_id;
-            goto_view($path);
+            redirect($path);
         } else{
             echo "Issue to return Cli_Id.";
         }
