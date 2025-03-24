@@ -125,12 +125,18 @@ Trait _GlobalController{
     }
 
     public function _new_order(){
-        $operation = 'goto_cli_new_order';
         
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
-            $path = "Order/insert_call?cli_id=".$cli_id;
-            redirect($path);
+            //$path = "Order/insert_call?cli_id=".$cli_id;
+            $_SERVER['REQUEST_METHOD'] = 'POST';
+            $_POST['class']="Orderx";
+            $_POST['method']="insert_call";
+            $_POST['Id_Client']=$cli_id;
+
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+            //redirect($path);
         } else{
             echo "Issue to return Cli_Id.";
         }
