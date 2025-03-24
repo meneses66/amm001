@@ -148,7 +148,7 @@ Trait _GlobalController{
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
-            $view = "$this->object/$this->object-order_details?cli_id=".$cli_id."&order_id=".$order_id;
+            $view = "orderx/orderx-order_details?cli_id=".$cli_id."&order_id=".$order_id;
             //redirect($path);
             $this->view($view);
         } else{
