@@ -210,7 +210,7 @@ Trait _GlobalController{
             break;
 
             case 'goto_order_details':
-                $view="$this->object/$this->object-order_details";
+                $view="orderx/orderx-order_details";
                 $this->view($view);
             break;
 
