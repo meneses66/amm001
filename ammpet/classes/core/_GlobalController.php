@@ -128,7 +128,6 @@ Trait _GlobalController{
         
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
-            //$path = "Order/insert_call?cli_id=".$cli_id;
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $_POST['class']="Orderx";
             $_POST['method']="insert_call";
@@ -136,7 +135,7 @@ Trait _GlobalController{
 
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();
-            //redirect($path);
+            
         } else{
             echo "Issue to return Cli_Id.";
         }
@@ -148,9 +147,12 @@ Trait _GlobalController{
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
-            $view = "orderx/orderx-order_details?cli_id=".$cli_id."&order_id=".$order_id;
-            //redirect($path);
-            $this->view($view);
+            $path = "Orderx/_order_details?cli_id=".$cli_id."&order_id=".$order_id;
+            redirect($path);
+            //$this->view($view);
+            //$operation = 'goto_order_details';
+            //$this->goto_view($operation);
+
         } else{
             echo "Issue to return Cli_Id.";
         }
