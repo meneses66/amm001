@@ -153,8 +153,6 @@ Trait _GlobalController{
         } else{
             echo "Issue to return Cli_Id.";
         }
-
-        
     }
 
     public function _order_details(){
@@ -232,20 +230,20 @@ Trait _GlobalController{
                 $inputs[$key]=$value;    
             }
 
-            //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
-            unset($inputs["operation"]);
-            unset($inputs['class']);
-            unset($inputs['method']);
-            unset($inputs["Id"]);
-            //Remove items from array inputs that are populated automatically in DB
-            unset($inputs["Created"]);
-            unset($inputs["Updated"]);
-
             //Special condition when Object is Orderx:
             if($inputs['class']="Orderx" AND isset($_GET['cli_id'])){
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
             }
+
+            //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
+            unset($inputs["operation"]);
+            unset($inputs["class"]);
+            unset($inputs["method"]);
+            unset($inputs["Id"]);
+            //Remove items from array inputs that are populated automatically in DB
+            unset($inputs["Created"]);
+            unset($inputs["Updated"]);
 
             //ADJUST FLAGS TO 0 or 1 in PRODUCT and SERVICE:
 
