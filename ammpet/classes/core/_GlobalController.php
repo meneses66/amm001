@@ -148,8 +148,9 @@ Trait _GlobalController{
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
-            $path = "Orderx/_order_details?cli_id=".$cli_id."&order_id=".$order_id;
-            redirect($path);
+            $view = "$this->object/$this->object-order_details?cli_id=".$cli_id."&order_id=".$order_id;
+            //redirect($path);
+            $this->view($view);
         } else{
             echo "Issue to return Cli_Id.";
         }
@@ -363,7 +364,7 @@ Trait _GlobalController{
                 
                 foreach ($model as $key => $value) {
                     $new_record['$key']=$value;
-                    debug_to_console($new_record['$key']);
+                    //debug_to_console($new_record['$key']);
                 }
 
                 switch ($this->UCF_object) {
