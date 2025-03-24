@@ -88,6 +88,7 @@ $output = '<script type="text/javascript">
                             type: "POST",
                             data:{Id_client:cli_id, class:"Orderx", method:"insert_call"},
                             success:function(response){
+                                
                             }
                         });
                     

@@ -219,6 +219,8 @@ Trait _GlobalController{
                 //$inputs['Id_client']=$_GET['cli_id'];
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
+                unset($inputs["class"]);
+                unset($inputs["method"]);
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
