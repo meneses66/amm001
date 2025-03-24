@@ -363,6 +363,53 @@ class Client
         }
     }
 
+    public function order_pick_client_load_rows(){
+            
+        $output = "";
+        $model = new('\Model\\'.$this->UCF_object);
+        
+        $sqlstm = "SELECT C.ID AS ID, C.UPDATED AS UPDATED, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, C.MOBILE_2 as MOBILE_2, C.ORIGIN as ORIGIN, C.OLD_ID as OLD_ID, C.STATUS as STATUS, GROUP_CONCAT(A.NAME) AS ANIMALS FROM `CLIENT` C LEFT JOIN `ANIMAL` A ON C.ID = A.ID_CLIENT GROUP BY C.ID";
+
+        $data = $model->exec_sqlstm($sqlstm);
+        if($model->countAll()>0){
+            $output .='<thead>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Nome</th>
+                                <th>Celular 1</th>
+                                <th>Celular 2</th>
+                                <th>Origin</th>
+                                <th>Old Id</th>
+                                <th>Status</th>
+                                <th>Animais</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+            foreach ($data as $row) {
+                $output .='<tr class="text-center text-secondary">
+                            <td>'.$row->ID.'</td>
+                            <td>'.$row->UPDATED.'</td>
+                            <td>'.$row->NAME.'</td>
+                            <td>'.$row->MOBILE_1.'</td>
+                            <td>'.$row->MOBILE_2.'</td>
+                            <td>'.$row->ORIGIN.'</td>
+                            <td>'.$row->OLD_ID.'</td>
+                            <td>'.$row->STATUS.'</td>
+                            <td>'.$row->ANIMALS.'</td>
+                            <td>
+                                <a href="'.ROOT."/Orderx/insert_call?cli_id=$row->ID".'" title="New_Order" class="text-primary newOrderBtn" cli_id="'.$row->ID.'"><i class="fas fa-donate"></i></a>&nbsp;&nbsp;
+                            </td></tr>';
+            }
+            $output .= '</tbody>';
+            echo $output;
+        }
+        else{
+            echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+        }
+    }
+
     public function load_parent_form(){
         if (isset($_GET['cli_id'])){
 
