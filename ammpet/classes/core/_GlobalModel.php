@@ -177,11 +177,6 @@ Trait _GlobalModel{
         return false;
     }
 
-    #get_last_inserted
-    public function last_inserted_id(){
-        return $this->get_last_inserted_id();
-    }
-
     #new functions copied from source video 3
     public function getError($key)
 	{

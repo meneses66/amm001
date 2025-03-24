@@ -28,13 +28,6 @@ Trait _DAO{
     }
   
   }
-
-  public function get_last_inserted_id(){
-    $connect = $this->connect();
-    $result = $connect->lastInsertId();
-    $connect=null;
-    return $result;
-  }
   
   public function query($sql_stm, $inputs=[])
   {
@@ -42,8 +35,7 @@ Trait _DAO{
     $stm = $connect->prepare($sql_stm);
     $result = false;
     $check = $stm->execute($inputs);
-    $connect->commit();
-
+    
     if($check)
     {
       $result = $stm->fetchAll(PDO::FETCH_OBJ);
@@ -52,7 +44,12 @@ Trait _DAO{
         $connect=null;
         return $result;
       }
-    } 
+    } else if(str_contains($sql_stm, "INSERT")){
+        $result = $connect->lastInsertId();
+        $stm=null;
+        $connect=null;
+        return $result;
+    }
     $stm=null;
     $connect=null;
     //return false;
