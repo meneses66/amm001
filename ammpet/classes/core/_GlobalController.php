@@ -149,9 +149,6 @@ Trait _GlobalController{
             $order_id = $_GET['order_id'];
             $path = "Orderx/_order_details?cli_id=".$cli_id."&order_id=".$order_id;
             redirect($path);
-            //$this->view($view);
-            //$operation = 'goto_order_details';
-            //$this->goto_view($operation);
 
         } else{
             echo "Issue to return Cli_Id.";
@@ -210,7 +207,7 @@ Trait _GlobalController{
             break;
 
             case 'goto_order_details':
-                $view="orderx/orderx-order_details";
+                $view="$this->object/$this->object-order_details";
                 $this->view($view);
             break;
 
