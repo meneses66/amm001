@@ -38,21 +38,21 @@ Trait _DAO{
     
     if($check)
     {
-      $result = $stm->fetchAll(PDO::FETCH_OBJ);
-      if(is_array($result) && count($result)){
-        debug_to_console($result);
-        $stm=null;
-        $connect=null;
-        return $result;
-      }
-    } else if(str_contains($sql_stm, "insert")){
+      if(str_contains($sql_stm, "insert")){
         $result = $connect->lastInsertId();
-        debug_to_console($result);
-        die();
+        //debug_to_console($result);
         $stm=null;
         $connect=null;
         return $result;
-    }
+    } else {
+        $result = $stm->fetchAll(PDO::FETCH_OBJ);
+        if(is_array($result) && count($result)){
+          $stm=null;
+          $connect=null;
+          return $result;
+        }
+      }
+    } 
     $stm=null;
     $connect=null;
     //return false;
