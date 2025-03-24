@@ -79,6 +79,20 @@ $output = '<script type="text/javascript">
                         });                    
                 });
 
+                $("body").on("click", ".newOrderBtn", function(e){
+                    e.preventDefault();
+                    var tr = $(this).closest(\'tr\');
+                    cli_id = $(this).attr(\'cli_id\');
+                        $.ajax({
+                            url:"/ammpet/public/Ajax_call",
+                            type: "POST",
+                            data:{Id_client:cli_id, class:"Orderx", method:"insert_call"},
+                            success:function(response){
+                            }
+                        });
+                    
+                });
+
             });
         </script>';
     

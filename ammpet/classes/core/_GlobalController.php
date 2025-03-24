@@ -216,7 +216,7 @@ Trait _GlobalController{
 
             //Special condition when Object is Orderx:
             if($this->UFC_object="Orderx" AND isset($_GET['cli_id'])){
-                $inputs['Id_client']=$_GET['cli_id'];
+                //$inputs['Id_client']=$_GET['cli_id'];
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
             }
