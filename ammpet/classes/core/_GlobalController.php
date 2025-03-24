@@ -124,6 +124,18 @@ Trait _GlobalController{
         }
     }
 
+    public function _new_order(){
+        $operation = 'goto_cli_new_order';
+        
+        if (isset($_GET['cli_id'])){
+            $cli_id = $_GET['cli_id'];
+            $path = "Order/insert_call?cli_id=".$cli_id;
+            goto_view($path);
+        } else{
+            echo "Issue to return Cli_Id.";
+        }
+    }
+
     //THIS SESSION APPLIES TO ORDER:
     public function _details(){
         

@@ -79,7 +79,7 @@ $output = '<script type="text/javascript">
                         });                    
                 });
 
-                $("body").on("click", ".newOrderBtn", function(e){
+                $("body").on("click", ".newOrderBtnX", function(e){
                     e.preventDefault();
                     var tr = $(this).closest(\'tr\');
                     cli_id = $(this).attr(\'cli_id\');
