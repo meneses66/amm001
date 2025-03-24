@@ -144,14 +144,14 @@ Trait _GlobalController{
     //THIS SESSION APPLIES TO ORDER:
     public function _details(){
         
-        if (isset($_GET['cli_id'])){
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
             $path = "Orderx/_order_details?cli_id=".$cli_id."&order_id=".$order_id;
             redirect($path);
 
         } else{
-            echo "Issue to return Cli_Id.";
+            echo "Issue to return Cli_Id and Order_Id.";
         }
     }
 
