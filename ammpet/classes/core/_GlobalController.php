@@ -360,11 +360,10 @@ Trait _GlobalController{
 
             try {
                 $model->insert($inputs);
-
-                debug_to_console($model);
                 
                 foreach ($model as $key => $value) {
                     $new_record['$key']=$value;
+                    debug_to_console($new_record['$key']);
                 }
 
                 switch ($this->UCF_object) {
