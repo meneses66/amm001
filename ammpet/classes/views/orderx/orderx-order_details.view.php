@@ -24,6 +24,10 @@ $_SESSION['LAST_ACTIVE']=time();?>
             </div>
         </div>
 
+        <!-- jQuery library -->
+        <script src="<?php echo ROOT;?>/assets/js/jquery-3.7.1.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
+
         <!-- Latest compiled JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -51,9 +55,8 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <!-- Mask JS-->
         <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
 
-        <!-- jQuery library -->
-        <script src="<?php echo ROOT;?>/assets/js/jquery-3.7.1.js"></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
+        <!-- Core theme JS-->
+        <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
         
     </body>
 </html>

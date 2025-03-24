@@ -54,6 +54,9 @@ $_SESSION['LAST_ACTIVE']=time();?>
         
         <!-- Mask JS-->
         <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
+
+        <!-- Core theme JS-->
+        <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
         
     </body>
 </html>
