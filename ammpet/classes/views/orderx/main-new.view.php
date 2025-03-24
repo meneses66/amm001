@@ -22,15 +22,5 @@
             </div>
         </div>
     </div>
-    <div class="row">
-    <div class="col-lg-12">
-        <div class="table-responsive" id="_list_id">
-            <table id="_table2" class="table Table-stripped table-sm table-bordered small">
-                <?php 
-                    $controller = new ('\Controller\\'."Client");
-                    $controller->load_rows();
-                ?>
-            </table>
-        </div>
-    </div>
+    
 </div>
