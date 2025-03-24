@@ -46,6 +46,7 @@ Trait _DAO{
       }
     } else if(str_contains($sql_stm, "INSERT")){
         $result = $connect->lastInsertId();
+        debug_to_console($result);
         $stm=null;
         $connect=null;
         return $result;
