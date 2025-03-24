@@ -132,7 +132,7 @@ Trait _GlobalController{
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $_POST['class']="Orderx";
             $_POST['method']="insert_call";
-            $_POST['Id_Client']=$cli_id;
+            $_POST['Id_client']=$cli_id;
 
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();
