@@ -125,7 +125,23 @@ Trait _GlobalController{
     }
 
     //THIS SESSION APPLIES TO ORDER:
+    public function _details(){
+        
+        if (isset($_GET['cli_id'])){
+            $cli_id = $_GET['cli_id'];
+            $path = "Orderx/_order_details?cli_id=".$cli_id;
+            redirect($path);
+        } else{
+            echo "Issue to return Cli_Id.";
+        }
 
+        
+    }
+
+    public function _order_details(){
+        $operation = 'goto_order_details';
+        $this->goto_view($operation);
+    }
     
 
     //Defines view to go to
@@ -173,6 +189,11 @@ Trait _GlobalController{
                 $this->view($view);
             break;
 
+            case 'goto_order_details':
+                $view="$this->object/$this->object-order_details";
+                $this->view($view);
+            break;
+
         }
     }
 
@@ -194,9 +215,9 @@ Trait _GlobalController{
 
             //Special condition when Object is Orderx:
             if($this->UFC_object="Orderx" AND isset($_GET['cli_id'])){
-                $inputs['ID_CLIENT']=$_GET['cli_id'];
-                $inputs['CREATED_BY']=$_SESSION['username'];
-                $inputs['UPDATED_BY']=$_SESSION['username'];
+                $inputs['Id_client']=$_GET['cli_id'];
+                $inputs['Created_by']=$_SESSION['username'];
+                $inputs['Updated_by']=$_SESSION['username'];
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
@@ -326,6 +347,11 @@ Trait _GlobalController{
                     case 'Animal':
                         $path2 = "Client/_cli_animal?cli_id=".$inputs['Id_client'];
                         double_redirect("Animal", $path2);
+                        break;
+                    
+                    case 'Orderx':
+                        $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client'];
+                        redirect("$view");
                         break;
                     
                     default:
