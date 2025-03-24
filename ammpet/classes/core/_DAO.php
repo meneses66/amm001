@@ -28,6 +28,13 @@ Trait _DAO{
     }
   
   }
+
+  public function get_last_inserted_id(){
+    $connect = $this->connect();
+    $result = $connect->lastInsertId();
+    $connect=null;
+    return $result;
+  }
   
   public function query($sql_stm, $inputs=[])
   {

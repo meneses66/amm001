@@ -148,10 +148,9 @@ Trait _GlobalModel{
         $columns = implode(',',$keys);
         $values = implode(',:',$keys);
         $sql_stm = "insert into $this->table (".$columns.") values (:".$values.")";
-        $result = $this->query($sql_stm, $inputs);
-        return $result['ID'];
+        $this->query($sql_stm, $inputs);
+        return false;
     }
-
 
     #update
     public function update($ID, $inputs)
@@ -176,6 +175,11 @@ Trait _GlobalModel{
         $sql_stm = "delete from $this->table where ID = $ID";
         $this->query($sql_stm);
         return false;
+    }
+
+    #get_last_inserted
+    public function last_inserted_id(){
+        return $this->get_last_inserted_id();
     }
 
     #new functions copied from source video 3
