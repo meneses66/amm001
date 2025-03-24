@@ -149,7 +149,7 @@ Trait _GlobalModel{
         $values = implode(',:',$keys);
         $sql_stm = "insert into $this->table (".$columns.") values (:".$values.")";
         $result = $this->query($sql_stm, $inputs);
-        return result['ID'];
+        return $result['ID'];
     }
 
 
