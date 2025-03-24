@@ -360,7 +360,10 @@ Trait _GlobalController{
 
             try {
                 $model->insert($inputs);
-                $new_id=$model->$model->insert($inputs);
+                
+                foreach ($model as $key => $value) {
+                    $new_record['$key']=$value;
+                }
 
                 switch ($this->UCF_object) {
                     case 'Animal':
@@ -369,7 +372,7 @@ Trait _GlobalController{
                         break;
                     
                     case 'Orderx':
-                        $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client']."&order_id=".$new_id;
+                        $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client']."&order_id=".$new_record['ID'];
                         redirect("$view");
                         break;
                     
