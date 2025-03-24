@@ -129,7 +129,8 @@ Trait _GlobalController{
         
         if (isset($_GET['cli_id'])){
             $cli_id = $_GET['cli_id'];
-            $path = "Orderx/_order_details?cli_id=".$cli_id;
+            $order_id = $_GET['order_id'];
+            $path = "Orderx/_order_details?cli_id=".$cli_id."&order_id=".$order_id;
             redirect($path);
         } else{
             echo "Issue to return Cli_Id.";
@@ -342,6 +343,7 @@ Trait _GlobalController{
 
             try {
                 $model->insert($inputs);
+                $new_id=$model->lastInsertId();
 
                 switch ($this->UCF_object) {
                     case 'Animal':
@@ -350,7 +352,7 @@ Trait _GlobalController{
                         break;
                     
                     case 'Orderx':
-                        $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client'];
+                        $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client']."&order_id=".$new_id;
                         redirect("$view");
                         break;
                     

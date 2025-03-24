@@ -351,7 +351,6 @@ class Client
                             <td>'.$row->STATUS.'</td>
                             <td>'.$row->ANIMALS.'</td>
                             <td>
-                                '.((URL_0=="Orderx")? "<a href=" : "").''.((URL_0=="Orderx")? ROOT."/Orderx/insert_call?cli_id=$row->ID" : "").''.((URL_0=="Orderx")? " title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id=" : "").''.((URL_0=="Orderx")? $row->ID : "").''.((URL_0=="Orderx")? "\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp" : "").'
                                 <a href="'.ROOT."/Orderx/insert_call?cli_id=$row->ID".'" title="New_Order" class="text-primary newOrderBtn" cli_id="'.$row->ID.'"><i class="fas fa-donate"></i></a>&nbsp;&nbsp;
                                 <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                 <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
