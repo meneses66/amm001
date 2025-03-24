@@ -122,6 +122,15 @@ function my_session_regenerate_id() {
     session_start();
 }
 
+function debug_to_console( $data ) {
+	if ( is_array( $data ) )
+		$output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+	else
+		$output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+
+	echo $output;
+}
+
 function load_options_new ($type, $status){
         
     require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';

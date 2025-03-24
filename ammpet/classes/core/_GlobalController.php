@@ -360,6 +360,8 @@ Trait _GlobalController{
 
             try {
                 $model->insert($inputs);
+
+                debug_to_console($model);
                 
                 foreach ($model as $key => $value) {
                     $new_record['$key']=$value;
