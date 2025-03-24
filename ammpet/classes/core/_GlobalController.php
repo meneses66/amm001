@@ -360,7 +360,7 @@ Trait _GlobalController{
 
             try {
                 $model->insert($inputs);
-                //$new_id=$model->last_inserted_id();
+                $new_id=$model->$model->insert($inputs);
 
                 switch ($this->UCF_object) {
                     case 'Animal':
