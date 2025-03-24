@@ -32,20 +32,25 @@ Trait _DAO{
   public function query($sql_stm, $inputs=[])
   {
     $connect = $this->connect();
-    if(str_contains($sql_stm, "insert")){
-      $sql_stm .= " RETURNING ID";
-    }
+    
     $stm = $connect->prepare($sql_stm);
     $result = false;
     $check = $stm->execute($inputs);
     
     if($check)
     {
-      $result = $stm->fetchAll(PDO::FETCH_OBJ);
-        if(is_array($result) && count($result)){
-          $stm=null;
-          $connect=null;
-          return $result;
+      if(str_contains($sql_stm, "insert")){
+        $result = $connect->lastInsertId();
+        $stm=null;
+        $connect=null;
+        return result;
+      } else {
+          $result = $stm->fetchAll(PDO::FETCH_OBJ);
+            if(is_array($result) && count($result)){
+              $stm=null;
+              $connect=null;
+              return $result;
+            }
         }
     }  
     $stm=null;

@@ -359,12 +359,15 @@ Trait _GlobalController{
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
 
             try {
-                $model->insert($inputs);
+                //$model->insert($inputs);
+                $new_id=$model->insert($inputs);
                 
+                /**
                 foreach ($model as $key => $value) {
                     $new_record['$key']=$value;
                     //debug_to_console($new_record['$key']);
                 }
+                */
 
                 switch ($this->UCF_object) {
                     case 'Animal':
@@ -373,7 +376,7 @@ Trait _GlobalController{
                         break;
                     
                     case 'Orderx':
-                        $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client']."&order_id=".$new_record['ID'];
+                        $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client']."&order_id=".$new_id;
                         redirect("$view");
                         break;
                     
