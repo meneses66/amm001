@@ -123,10 +123,11 @@ function my_session_regenerate_id() {
 }
 
 function debug_to_console( $data ) {
-	if ( is_array( $data ) )
-		$output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
-	else
-		$output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+	$output = '';
+
+	// new and smaller version, easier to maintain
+	$output .= 'console.info( \'Debug in Console via Debug Objects Plugin:\' );';
+	$output .= 'console.log(' . json_encode( $data ) . ');';
 
 	echo $output;
 }
