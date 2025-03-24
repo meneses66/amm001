@@ -42,6 +42,7 @@ Trait _DAO{
     $stm = $connect->prepare($sql_stm);
     $result = false;
     $check = $stm->execute($inputs);
+    $connect->commit();
 
     if($check)
     {
