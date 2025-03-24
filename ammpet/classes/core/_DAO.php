@@ -43,7 +43,7 @@ Trait _DAO{
         $result = $connect->lastInsertId();
         $stm=null;
         $connect=null;
-        return result;
+        return $result;
       } else {
           $result = $stm->fetchAll(PDO::FETCH_OBJ);
             if(is_array($result) && count($result)){
