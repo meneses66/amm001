@@ -108,21 +108,13 @@ class Orderx
                                         <label for="id" class="medium-label">No.Pedido:</label>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input id="id" type="text" size="6" name="Id" readonly value="'.$row->ID.'">
+                                        <input id="id" type="text" size="5" name="Id" readonly value="'.$row->ID.'">
                                     </div>
                                     <div class="col-sm-2">
                                         <label for="total_no_disc" class="medium-label">Total sem desc.:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="total_no_disc" type="text" size="15" name="Total_no_disc" readonly value="'.$row->ORDER_VALUE_NO_DISCOUNT.'">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        <label for="client" class="medium-label">Cliente:</label>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input id="client" type="text" size="25" name="Client" readonly value="'.$row->NAME.'">
                                     </div>
                                     <div class="col-sm-2">
                                         <label for="total_disc" class="medium-label">Total com desc.:</label>
@@ -133,10 +125,10 @@ class Orderx
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-1">
-                                        <label for="mobile_1" class="medium-label">Celular 1:</label>
+                                        <label for="client" class="medium-label">Cliente:</label>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$row->MOBILE_1.'">
+                                        <input id="client" type="text" size="25" name="Client" readonly value="'.$row->NAME.'">
                                     </div>
                                     <div class="col-sm-2">
                                         <label for="total_cash" class="medium-label">Total Dinh.:</label>
@@ -144,13 +136,19 @@ class Orderx
                                     <div class="col-sm-3">
                                         <input id="total_cash" type="text" size="15" name="Total_cash" readonly value="'.$row->ORDER_VALUE_CASH.'">
                                     </div>
+                                    <div class="col-sm-2">
+                                        
+                                    </div>
+                                    <div class="col-sm-3">
+                                        
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-1">
-                                        <label for="order_date" class="medium-label">Data:</label>
+                                        <label for="mobile_1" class="medium-label">Celular 1:</label>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input id="order_date" type="date" size="8" name="Order_date" readonly value="'.$row->ORDER_DATE.'">
+                                        <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$row->MOBILE_1.'">
                                     </div>
                                     <div class="col-sm-2">
                                         <label for="total_pix" class="medium-label">Total Pix:</label>
@@ -161,10 +159,10 @@ class Orderx
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-1">
-                                        <label for="status" class="medium-label">Status:</label>
+                                        <label for="order_date" class="medium-label">Data:</label>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input id="status" type="text" size="8" name="Status" readonly value="'.$row->STATUS.'">
+                                        <input id="order_date" type="date" size="8" name="Order_date" readonly value="'.$row->ORDER_DATE.'">
                                     </div>
                                     <div class="col-sm-2">
                                         <label for="total_paid" class="medium-label">Total Pago:</label>
@@ -172,19 +170,25 @@ class Orderx
                                     <div class="col-sm-3">
                                         <input id="total_paid" type="text" size="15" name="Total_paid" readonly value="'.$row->ORDER_PAID_AMOUNT.'">
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-3">
-                                        
-                                    </div>
                                     <div class="col-sm-2">
                                         <label for="total_debt" class="medium-label">Total Pend.:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="total_debt" type="text" size="15" name="Total_debt" readonly value="'.$row->ORDER_DEBT.'">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        <label for="status" class="medium-label">Status:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input id="status" type="text" size="8" name="Status" readonly value="'.$row->STATUS.'">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        
+                                    </div>
+                                    <div class="col-sm-3">
+                                        
                                     </div>
                                 </div>';
                                 echo $output;

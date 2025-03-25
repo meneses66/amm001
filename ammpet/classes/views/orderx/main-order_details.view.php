@@ -14,7 +14,6 @@
         </div>
     </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-    <br>
     <div class="row" style="border: thin solid black">
             <?php 
                 $controller = new ('\Controller\\'."Orderx");
