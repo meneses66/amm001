@@ -197,7 +197,7 @@ class Orderx
 
             if(session_status() === PHP_SESSION_NONE) session_start();
             $output = "";
-            $inputs["ID"]=$_GET['cli_id'];
+            $inputs["ID_CLIENT"]=$_GET['cli_id'];
             //$cli_id=$_GET['cli_id'];
             $model = new('\Model\\'."Animal");
             $data = $model->listWhere($inputs);
