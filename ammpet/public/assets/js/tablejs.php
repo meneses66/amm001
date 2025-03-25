@@ -70,6 +70,7 @@ $output = '<script type="text/javascript">
                                     url:"/ammpet/public/Ajax_call",
                                     type: "POST",
                                     data:{del_id:del_id, class:"'.$GLOBALS['classnamejs'].'", method:"delete_call"},
+                                    console.log(class+"-"+method+"-"+del_id);
                                     success:function(response){
                                         tr.css(\'background-color\', \'#ff6666\');
                                         reload_rows();

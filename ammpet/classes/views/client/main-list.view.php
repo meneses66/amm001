@@ -1,6 +1,6 @@
 <?php 
-$GLOBALS['classnamejs']='Client';
-$GLOBALS['buttonenablerjs']='Client';
+    $GLOBALS['classnamejs']='Client';
+    $GLOBALS['buttonenablerjs']='Client';
 ?>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
