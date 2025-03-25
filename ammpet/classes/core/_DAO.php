@@ -50,13 +50,12 @@ Trait _DAO{
               $stm=null;
               $connect=null;
               return $result;
+            } else{
+              $stm=null;
+              $connect=null;
+              return false;
             }
         }
-    }  
-    $stm=null;
-    $connect=null;
-    //return false;
-    return $result;
-
+    }
   }
 }
