@@ -353,8 +353,8 @@ class Client
                             <td>'.$row->ANIMALS.'</td>
                             <td>
                                 '.(($inputs_buttons=='Orderx')? "<a href=\"" : "").''.(($inputs_buttons=='Orderx')? ROOT."/Orderx/insert_call?cli_id=$row->ID\"" : "").''.(($inputs_buttons=='Orderx')? " title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id=" : "").''.(($inputs_buttons=='Orderx')? $row->ID : "").''.(($inputs_buttons=='Orderx')? "\"><i class=\"fas fa-donate\"></i></a>" : "").'
-                                '.(($inputs_buttons=="Client")? "<a href=\"" : "").''.(($inputs_buttons=="Client")? ROOT."/Client/_update?id=$row->ID\"" : "").''.(($inputs_buttons=="Client")? " title=\"Edit\" class=\"text-primary updateBtn\" id=" : "").''.(($inputs_buttons=="Client")? $row->ID : "").''.(($inputs_buttons=="Client")? "\"><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
-                                '.(($inputs_buttons=='Client')? "<a href=\"" : "").''.(($inputs_buttons=='Client')? ROOT."/Client/_delete?id=$row->ID\"" : "").''.(($inputs_buttons=='Client')? " title=\"Delete\" class=\"text-danger deleteBtn\" id=" : "").''.(($inputs_buttons=='Client')? $row->ID : "").''.(($inputs_buttons=='Client')? "\"><i class=\"fas fa-eraser\"></i></a>" : "").'
+                                '.(($inputs_buttons=="Client")? "<a href=\"" : "").''.(($inputs_buttons=="Client")? ROOT."/Client/_update?id=$row->ID\"" : "").''.(($inputs_buttons=="Client")? " title=\"Edit\" class=\"text-primary updateBtn\" id=" : "").''.(($inputs_buttons=="Client")? $row->ID : "").''.(($inputs_buttons=="Client")? "><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
+                                '.(($inputs_buttons=='Client')? "<a href=\"" : "").''.(($inputs_buttons=='Client')? ROOT."/Client/_delete?id=$row->ID\"" : "").''.(($inputs_buttons=='Client')? " title=\"Delete\" class=\"text-danger deleteBtn\" id=" : "").''.(($inputs_buttons=='Client')? $row->ID : "").''.(($inputs_buttons=='Client')? "><i class=\"fas fa-eraser\"></i></a>" : "").'
                             </td></tr>';
             }
             $output .= '</tbody>';
