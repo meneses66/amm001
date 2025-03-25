@@ -8,8 +8,6 @@
     <div class="row">
         <div class="col-lg-6">
             <h4>Lista Clientes</h4>
-            <?php echo URL(0);?>
-            <?php echo URL(1);?>
         </div>
         <div class="col-lg-6">
             <a href="<?php echo ROOT."/Client/_new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Cliente</a>

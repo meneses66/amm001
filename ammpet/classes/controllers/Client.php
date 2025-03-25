@@ -352,7 +352,7 @@ class Client
                             <td>'.$row->ANIMALS.'</td>
                             <td>
                                 '.((URL(0)=='Orderx')? "<a href=" : "").''.((URL(0)=='Orderx')? ROOT."/Orderx/insert_call?cli_id=$row->ID" : "").''.((URL(0)=='Orderx')? " title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id=" : "").''.((URL(0)=='Orderx')? $row->ID : "").''.((URL(0)=='Orderx')? "\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp" : "").'
-                                '.((URL(0)=='Client')? "<a href=" : "").''.((URL(0)=='Client')? ROOT."/Client/_update?id=$row->ID" : "").''.((URL(0)=='Client')? " title=\"Edit\" class=\"text-primary updateBtn\" id=" : "").''.((URL(0)=='Client')? $row->ID : "").''.((URL(0)=='Client')? "\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp" : "").'
+                                '.((URL(0)=="Client")? "<a href=" : "").''.((URL(0)=="Client")? ROOT."/Client/_update?id=$row->ID" : "").''.((URL(0)=="Client")? " title=\"Edit\" class=\"text-primary updateBtn\" id=" : "").''.((URL(0)=="Client")? $row->ID : "").''.((URL(0)=="Client")? "\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp" : "").'
                                 '.((URL(0)=='Client')? "<a href=" : "").''.((URL(0)=='Client')? ROOT."/Client/_delete?id=$row->ID" : "").''.((URL(0)=='Client')? " title=\"Delete\" class=\"text-danger updateBtn\" id=" : "").''.((URL(0)=='Client')? $row->ID : "").''.((URL(0)=='Client')? "\"><i class=\"fas fa-eraser\"></i></a>" : "").'
                                 
                             </td></tr>';
