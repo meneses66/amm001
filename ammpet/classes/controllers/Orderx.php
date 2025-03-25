@@ -105,7 +105,7 @@ class Orderx
                 
                     $output .= '<div class="row">
                                     <div class="col-sm-1">
-                                        <label for="id" class="medium-label">No.Pedido:</label>
+                                        <label for="id" class="medium-label float-right">No.Pedido:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="id" type="text" size="5" name="Id" readonly value="'.$row->ID.'">
@@ -125,7 +125,7 @@ class Orderx
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-1">
-                                        <label for="client" class="medium-label">Cliente:</label>
+                                        <label for="client" class="medium-label float-right">Cliente:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="client" type="text" size="25" name="Client" readonly value="'.$row->NAME.'">
@@ -145,7 +145,7 @@ class Orderx
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-1">
-                                        <label for="mobile_1" class="medium-label">Celular 1:</label>
+                                        <label for="mobile_1" class="medium-label float-right">Celular 1:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$row->MOBILE_1.'">
@@ -165,13 +165,13 @@ class Orderx
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-1">
-                                        <label for="order_date" class="medium-label">Data:</label>
+                                        <label for="order_date" class="medium-label float-right">Data:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="order_date" type="date" size="8" name="Order_date" readonly value="'.$row->ORDER_DATE.'">
                                     </div>
                                     <div class="col-sm-2">
-                                        <label for="status" class="medium-label" float-right>Status:</label>
+                                        <label for="status" class="medium-label float-right">Status:</label>
                                     </div>
                                     <div class="col-sm-2">
                                         <input id="status" type="text" size="8" name="Status" readonly value="'.$row->STATUS.'">

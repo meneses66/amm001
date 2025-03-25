@@ -13,8 +13,7 @@
             <a href="<?php echo ROOT."/Orderx/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
         </div>
     </div>
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-    <div class="row" style="border: thin solid black">
+    <div class="row" style="border: thin solid gray">
             <?php 
                 $controller = new ('\Controller\\'."Orderx");
                 $controller->get_header();
