@@ -5,7 +5,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-            <h4>Nova Venda - Detalhes</h4>
+            <h4>Venda - Detalhes</h4>
+        </div>
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+            Botão - Voltar
         </div>
     </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
@@ -13,13 +18,28 @@
     <div class="row">
         Header: ID OrderX; ID_CLIENT; DATA; STATUS; <br>
         Total Pedido; Total Din; Total Pix; Total Pg; Pendente
-    </div>
+    </div><br>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-6" style="border: thin solid black">
             Animais
         </div>
         <div class="col-sm-6">
             Pacotes Ativos
         </div>
-    </div>
+    </div><br>
+    <div class="row">
+        <div class="col-sm-12" style="border: thin solid black">
+            Lista Serviços
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-sm-12" style="border: thin solid black">
+            Lista Produtos
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-sm-12" style="border: thin solid black">
+            Lista Pagamentos
+        </div>
+    </div><br>
 </div>
