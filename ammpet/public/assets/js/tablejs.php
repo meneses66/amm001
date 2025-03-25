@@ -55,7 +55,7 @@ $output = '<script type="text/javascript">
                 $("body").on("click", ".deleteBtn", function(e){
                     e.preventDefault();
                     var tr = $(this).closest(\'tr\');
-                    del_id = $(this).attr(\'id\');
+                    var del_id = $(this).attr(\'id\');
                     Swal.fire({
                         title: "Are you sure? Delete: " + del_id,
                         text: "You won\'t be able to revert this!",

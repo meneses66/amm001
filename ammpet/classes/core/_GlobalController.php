@@ -559,7 +559,7 @@ Trait _GlobalController{
     }
 
     //Deletes Supplier from DB
-    public function delete_call($inputs=null){
+    public function delete_call($inputs=[]){
 
         //Create new Model instance:
         $model = new('\Model\\'.$this->UCF_object);
