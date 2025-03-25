@@ -8,6 +8,7 @@
     <div class="row">
         <div class="col-lg-6">
             <h4>Lista Clientes</h4>
+            <?php ((URL(0)=='Client')? "<a href=\"" : "").''.((URL(0)=='Client')? ROOT."/Client/_delete?id=\"" : "").''.((URL(0)=='Client')? " title=\"Delete\" class=\"text-danger updateBtn\" id=" : "").''.((URL(0)=='Client')? : "").''.((URL(0)=='Client')? "\"><i class=\"fas fa-eraser\"></i></a>" : "");?>
         </div>
         <div class="col-lg-6">
             <a href="<?php echo ROOT."/Client/_new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Cliente</a>
