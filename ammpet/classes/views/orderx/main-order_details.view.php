@@ -19,9 +19,6 @@
                 $controller = new ('\Controller\\'."Orderx");
                 $controller->get_header();
             ?>
-        <div class="col-sm-6" style="border: thin solid black">
-            Total Pedido; Total Din; Total Pix; Total Pg; Pendente
-        </div>
     </div><br>
     <div class="row">
         <div class="col-sm-6" style="border: thin solid black">
