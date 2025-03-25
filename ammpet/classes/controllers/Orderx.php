@@ -226,11 +226,54 @@ class Orderx
                                 <td>'.$row->NAME.'</td>
                                 <td>'.$breed_name.'</td>
                                 <td>'.$row->GENDER.'</td>
-                                <td>'.$row->NAME.'</td>
                                 <td>'.($row->IS_DANGER==1?"■":"").'</td>
                                 <td>'.($row->IS_NO_PERFUME==1?"■":"").'</td>
                                 <td>'.($row->IS_BLADE_ALERGIC==1?"■":"").'</td>
                                 <td>'.($row->IS_VACCINATED==1?"■":"").'</td>
+                               </tr>';
+                }
+                $output .= '</tbody>';
+                echo $output;
+            }
+            else{
+                echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+            }
+        }
+    }
+
+    public function get_packages(){
+        if (isset($_GET['cli_id'])){
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
+            $output = "";
+            $inputs["ID_CLIENT"]=$_GET['cli_id'];
+            $inputs["PACK_STATUS"]="Aberto";
+
+            //$cli_id=$_GET['cli_id'];
+            $sql_stm = "SELECT CP.ID_ORDER AS ID_ORDER, A.NAME AS ANIMAL, OI.PACKAGE_SERVICE AS SERVICE, OI.DATE AS DT, OI.PACKAGE_SEQUENCE AS SEQ, OI.ID FROM `CLIENT_PACKAGE` CP, `ANIMAL` A, `ORDER_ITEM` OI WHERE CP.ID_ANIMAL=A.ID AND CP.ID=OI.ID_PACKAGE AND CP.PACK_STATUS='Aberto' AND CP.ID_CLIENT=:ID_CLIENT ORDER BY A.NOME, OI.PACKAGE_SEQUENCE";
+            $model = new('\Model\\'."Package");
+            $data = $model->exec_sqlstm($inputs);
+            if($model->countWhere($inputs)>0){
+                $output .='<thead>
+                                <tr class="text-center text-secondary">
+                                    <th>Ord</th>
+                                    <th>Animal</th>
+                                    <th>Serviço</th>
+                                    <th>Data</th>
+                                    <th>Seq</th>
+                                    <th>Id</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+                foreach ($data as $row) {
+
+                    $output .='<tr class="text-center text-secondary">
+                                <td>'.$row->ID_ORDER.'</td>
+                                <td>'.$row->ANIMAL.'</td>
+                                <td>'.$row->SERVICE.'</td>
+                                <td>'.$row->DT.'</td>
+                                <td>'.$row->SEQ.'</td>
+                                <td>'.$row->ID.'</td>
                                </tr>';
                 }
                 $output .= '</tbody>';

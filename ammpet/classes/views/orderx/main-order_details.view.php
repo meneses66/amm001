@@ -31,7 +31,14 @@
             </div>
         </div>
         <div class="col-sm-6" style="border: thin solid black">
-            Pacotes Ativos
+        <div class="table-responsive" id="_list_id">
+                <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
+                    <?php 
+                        $controller = new ('\Controller\\'."Orderx");
+                        $controller->get_packages();
+                    ?>        
+                </table>
+            </div>
         </div>
     </div><br>
     <div class="row" style="border: thin solid black">

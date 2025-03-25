@@ -23,7 +23,7 @@ Trait _GlobalModel{
     {
         $keys = array_keys($inputs);
         $keys_not = array_keys($inputs_not);
-        $sql_stm = "select * from $this->table where ";
+        $sql_stm = "select count(1) from $this->table where ";
         
         foreach ($keys as $key){
             $sql_stm .= $key . "= :" . $key . " && ";
@@ -37,8 +37,13 @@ Trait _GlobalModel{
 
         $all_inputs =array_merge($inputs, $inputs_not);
 
-        return $this->query($sql_stm, $all_inputs);;
+        return $this->query($sql_stm, $all_inputs);
 
+    }
+
+    public function count_exec_sqlstm($sql_stm, $inputs)
+    {
+        return $this->query($sql_stm, inputs);
     }
 
     #list all
