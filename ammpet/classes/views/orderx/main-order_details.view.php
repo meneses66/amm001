@@ -21,7 +21,14 @@
     </div><br>
     <div class="row">
         <div class="col-sm-6" style="border: thin solid black">
-            Animais
+            <div class="table-responsive" id="_list_id">
+                <table id="_table" class="table Table-stripped table-sm table-bordered small">
+                    <?php 
+                        $controller = new ('\Controller\\'."Orderx");
+                        $controller->get_animals();
+                    ?>        
+                </table>
+            </div>
         </div>
         <div class="col-sm-6" style="border: thin solid black">
             Pacotes Ativos

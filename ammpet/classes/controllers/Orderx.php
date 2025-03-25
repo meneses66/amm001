@@ -192,4 +192,56 @@ class Orderx
         }
     }
 
+    public function get_animals(){
+        if (isset($_GET['cli_id'])){
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
+            $output = "";
+            $inputs["ID"]=$_GET['cli_id'];
+            //$cli_id=$_GET['cli_id'];
+            $model = new('\Model\\'."Animal");
+            $data = $model->listWhere($inputs);
+            if($model->countWhere($inputs)>0){
+                $output .='<thead>
+                                <tr class="text-center text-secondary">
+                                    <th>Nome</th>
+                                    <th>Raça</th>
+                                    <th>Sexo</th>
+                                    <th>Morde</th>
+                                    <th>Não perf</th>
+                                    <th>Alérg.Lâm.</th>
+                                    <th>Vacin.</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+                foreach ($data as $row) {
+
+                    //GET BREED NAME
+                    $breed_input['ID']= $row->ID_BREED;
+                    $breed = new('\Model\\'."Breed");
+                    $breed_name = $breed->getRow($breed_input)->NAME;
+                    $breed = null;
+
+                    $output .='<tr class="text-center text-secondary">
+                                <td>'.$row->NAME.'</td>
+                                <td>'.$breed_name.'</td>
+                                <td>'.$row->GENDER.'</td>
+                                <td>'.$row->NAME.'</td>
+                                <td>'.($row->IS_DANGER==1?"■":"").'</td>
+                                <td>'.($row->IS_NO_PERFUME==1?"■":"").'</td>
+                                <td>'.($row->IS_BLADE_ALERGIC==1?"■":"").'</td>
+                                <td>'.($row->IS_VACCINATED==1?"■":"").'</td>
+                               </tr>';
+                }
+                $output .= '</tbody>';
+                echo $output;
+            }
+            else{
+                echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+            }
+
+
+        }
+    }
+
 }
