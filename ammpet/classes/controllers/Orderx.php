@@ -60,6 +60,7 @@ class Orderx
                             <td>'.$row->ID.'</td>
                             <td>'.$row->UPDATED.'</td>
                             <td>'.$row->ORDER_DATE.'</td>
+                            <td>'.$row->NAME.'</td>
                             <td>'.$row->MOBILE_1.'</td>
                             <td>'.$row->ANIMALS.'</td>
                             <td>'.$row->ORDER_VALUE_NO_DISCOUNT.'</td>
