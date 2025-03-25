@@ -568,12 +568,8 @@ Trait _GlobalController{
         if(isset($inputs["del_id"])){
 
             $id = $inputs["del_id"];
-
-            try {
-                $model->delete($id);
-            } catch (\Throwable $th) {
-                throw $th;
-            }
+            $model->delete($id);
+            
 
         } else {
             die("Record Id not informed.");
