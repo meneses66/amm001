@@ -7,10 +7,10 @@
         <div class="col-sm-6">
             <h4>Venda - Detalhes</h4>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-1">
         </div>
-        <div class="col-sm-3">
-            <a href="<?php echo ROOT."/Order/_list";?>" class="btn btn-success m-1 float-right">Voltar</a>
+        <div class="col-sm-5">
+            <a href="<?php echo ROOT."/Orderx/_list";?>" class="btn btn-secondary m-1 float-right">Voltar</a>
         </div>
     </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
