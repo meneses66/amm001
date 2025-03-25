@@ -96,12 +96,7 @@ class Orderx
             $output = "";
             $inputs["ID"]=$_GET['order_id'];
             $cli_id=$_GET['cli_id'];
-            $sql_stm = "SELECT O.ID AS ID, O.UPDATED AS UPDATED, O.ORDER_DATE AS ORDER_DATE, C.NAME AS NAME, C.MOBILE_1
-             AS MOBILE_1, O.ORDER_VALUE_NO_DISCOUNT AS ORDER_VALUE_NO_DISCOUNT, O.ORDER_VALUE_WITH_DISCOUNT
-              AS ORDER_VALUE_WITH_DISCOUNT, O.ORDER_VALUE_CASH AS ORDER_VALUE_CASH, O.ORDER_VALUE_PIX
-               AS ORDER_VALUE_PIX, O.ORDER_PAID_AMOUNT AS ORDER_PAID_AMOUNT, O.ORDER_DEBT AS ORDER_DEBT, O.STATUS
-                AS STATUS, O.ID_CLIENT AS ID_CLIENT FROM `ORDER_X` O LEFT JOIN `CLIENT` C ON O.ID_CLIENT = C.ID
-                 WHERE O.ID=:ID";
+            $sql_stm = "SELECT O.ID AS ID, O.UPDATED AS UPDATED, O.ORDER_DATE AS ORDER_DATE, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, O.ORDER_VALUE_NO_DISCOUNT AS ORDER_VALUE_NO_DISCOUNT, O.ORDER_VALUE_WITH_DISCOUNT AS ORDER_VALUE_WITH_DISCOUNT, O.ORDER_VALUE_CASH AS ORDER_VALUE_CASH, O.ORDER_VALUE_PIX AS ORDER_VALUE_PIX, O.ORDER_PAID_AMOUNT AS ORDER_PAID_AMOUNT, O.ORDER_DEBT AS ORDER_DEBT, O.STATUS AS STATUS, O.ID_CLIENT AS ID_CLIENT FROM `ORDER_X` O LEFT JOIN `CLIENT` C ON O.ID_CLIENT = C.ID WHERE O.ID=:ID";
             $model = new('\Model\\'.$this->UCF_object);
             $data = $model->exec_sqlstm($sql_stm, $inputs);
 
@@ -115,13 +110,13 @@ class Orderx
                                     <label for="id" class="medium-label">No.Pedido:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'">
+                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data->ID.'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="total_no_disc" class="medium-label">Total sem desc.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="total_no_disc" type="text" size="30" name="Total_no_disc" readonly value="'.$data_form['ORDER_VALUE_NO_DISCOUNT'].'">
+                                    <input id="total_no_disc" type="text" size="30" name="Total_no_disc" readonly value="'.$data->ORDER_VALUE_NO_DISCOUNT.'">
                                 </div>
                             </div>
                             <div class="row">
