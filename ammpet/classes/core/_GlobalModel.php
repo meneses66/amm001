@@ -52,10 +52,10 @@ Trait _GlobalModel{
     }
 
     #Run a SQL Statement passed through function input:
-        public function exec_sqlstm($sql_stm, $inputs=[])
-        {
-            return $this->query($sql_stm, $inputs);
-        }   
+    public function exec_sqlstm($sql_stm, $inputs=[])
+    {
+        return $this->query($sql_stm, $inputs);
+    }   
 
 
     #list where

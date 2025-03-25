@@ -15,10 +15,11 @@
     </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <br>
-    <div class="row">
-        <div class="col-sm-6" style="border: thin solid black">
-            Header: ID OrderX; ID_CLIENT; DATA; STATUS;
-        </div>
+    <div class="row" style="border: thin solid black">
+            <?php 
+                $controller = new ('\Controller\\'."Orderx");
+                $controller->get_header();
+            ?>
         <div class="col-sm-6" style="border: thin solid black">
             Total Pedido; Total Din; Total Pix; Total Pg; Pendente
         </div>
@@ -36,7 +37,7 @@
             Lista Serviços
         </div>
         <div class="col-sm-6">
-            Botão Add Serviço
+            <a href="<?php echo ROOT."/Orderx/_new_service?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-lg m-1 btn-block">Novo Serviço</a>
         </div>
     </div><br>
     <div class="row">

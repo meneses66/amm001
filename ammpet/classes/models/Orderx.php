@@ -24,8 +24,9 @@ class Orderx {
     public $Order_value_cash;
     public $Order_value_pix;
     public $Order_old_id;
+    public $Status;
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $order_date=null, $id_client=null, $order_value_no_discount=null, $order_value_with_discount=null, $order_paid_amount=null, $order_debt=null, $order_value_cash=null, $order_value_pix=null, $order_old_id=null)
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $order_date=null, $id_client=null, $order_value_no_discount=null, $order_value_with_discount=null, $order_paid_amount=null, $order_debt=null, $order_value_cash=null, $order_value_pix=null, $order_old_id=null, $status=null)
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
@@ -41,7 +42,7 @@ class Orderx {
         $this -> Order_value_cash = $order_value_cash;
         $this -> Order_value_pix = $order_value_pix;
         $this -> Order_old_id = $order_old_id;
-
+        $this -> Status = $status;
     }
 
 }

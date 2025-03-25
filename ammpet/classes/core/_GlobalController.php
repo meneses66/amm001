@@ -124,6 +124,8 @@ Trait _GlobalController{
         }
     }
 
+    //SESSION FOR ORDERX:
+
     public function _new_order(){
         
         if (isset($_GET['cli_id'])){
@@ -141,7 +143,6 @@ Trait _GlobalController{
         }
     }
 
-    //THIS SESSION APPLIES TO ORDER:
     public function _details(){
         
         if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
@@ -159,7 +160,18 @@ Trait _GlobalController{
         $operation = 'goto_order_details';
         $this->goto_view($operation);
     }
-    
+
+    public function _new_service(){
+        
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id']) ){
+            $cli_id = $_GET['cli_id'];
+            $order_id = $_GET['order_id'];
+            $path2 = "OrderItem/_new?cli_id=".$cli_id."&order_id=".$order_id;
+            double_redirect("Orderx",$path2);
+        } else{
+            echo "Issue to return Cli_Id and Order_Id.";
+        }
+    }
 
     //Defines view to go to
     private function goto_view($operation){
@@ -235,6 +247,7 @@ Trait _GlobalController{
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Order_Date']=date("Y-m-d");
+                $inputs['Status']="Aberto";
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)

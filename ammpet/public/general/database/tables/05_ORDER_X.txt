@@ -15,6 +15,7 @@ Create Table ORDER_X
     ORDER_VALUE_CASH Decimal(10,2),
     ORDER_VALUE_PIX Decimal(10,2),
     ORDER_OLD_ID INT,
+    STATUS VARCHAR(15),
 
     constraint FK_ORDER_CLIENT foreign key (ID_CLIENT) references CLIENT(ID),
     INDEX INDEX_DATE (ORDER_DATE)
