@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-lg-6">
             <h4>Lista Clientes</h4>
-            <?php ((URL(0)=='Client')? "YES" : "NO" );?>
+            <?php ((URL(0)=='Client')? print_r("YES") : print_r("NO") );?>
         </div>
         <div class="col-lg-6">
             <a href="<?php echo ROOT."/Client/_new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Cliente</a>
