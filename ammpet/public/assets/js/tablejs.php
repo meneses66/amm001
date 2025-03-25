@@ -12,7 +12,7 @@ $output = '<script type="text/javascript">
                     $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
-                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'"},
+                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
@@ -33,7 +33,7 @@ $output = '<script type="text/javascript">
                     $.ajax({
                             url: "/ammpet/public/Ajax_call",
                             type: "POST",
-                            data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'"},
+                            data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                             success: function(response){
                                 table = $(\'#_table\').DataTable();
                                 table.destroy();

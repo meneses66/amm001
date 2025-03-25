@@ -315,8 +315,9 @@ class Client
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
-    public function load_rows(){
+    public function load_rows($inputs){
             
+        $inputs_buttons=$inputs['buttons'];
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
@@ -351,10 +352,9 @@ class Client
                             <td>'.$row->STATUS.'</td>
                             <td>'.$row->ANIMALS.'</td>
                             <td>
-                                '.((URL(0)=='Orderx')? print_r("<a href=\"") : "").''.((URL(0)=='Orderx')? print_r(ROOT."/Orderx/insert_call?cli_id=$row->ID\"") : "").''.((URL(0)=='Orderx')? print_r(" title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id=") : "").''.((URL(0)=='Orderx')? print_r($row->ID) : "").''.((URL(0)=='Orderx')? print_r("\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp") : "").'
-                                '.((URL(0)=="Client")? print_r("<a href=\"") : "").''.((URL(0)=="Client")? print_r(ROOT."/Client/_update?id=$row->ID\"") : "").''.((URL(0)=="Client")? print_r(" title=\"Edit\" class=\"text-primary updateBtn\" id=") : "").''.((URL(0)=="Client")? print_r($row->ID) : "").''.((URL(0)=="Client")? print_r("\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp") : "").'
-                                '.((URL(0)=='Client')? "<a href=\"" : "").''.((URL(0)=='Client')? ROOT."/Client/_delete?id=$row->ID\"" : "").''.((URL(0)=='Client')? " title=\"Delete\" class=\"text-danger updateBtn\" id=" : "").''.((URL(0)=='Client')? $row->ID : "").''.((URL(0)=='Client')? "\"><i class=\"fas fa-eraser\"></i></a>" : "").'
-                                
+                                '.(($inputs_buttons=='Orderx')? print_r("<a href=\"") : "").''.(($inputs_buttons=='Orderx')? print_r(ROOT."/Orderx/insert_call?cli_id=$row->ID\"") : "").''.(($inputs_buttons=='Orderx')? print_r(" title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id=") : "").''.(($inputs_buttons=='Orderx')? print_r($row->ID) : "").''.(($inputs_buttons=='Orderx')? print_r("\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp") : "").'
+                                '.(($inputs_buttons=="Client")? print_r("<a href=\"") : "").''.(($inputs_buttons=="Client")? print_r(ROOT."/Client/_update?id=$row->ID\"") : "").''.(($inputs_buttons=="Client")? print_r(" title=\"Edit\" class=\"text-primary updateBtn\" id=") : "").''.(($inputs_buttons=="Client")? print_r($row->ID) : "").''.(($inputs_buttons=="Client")? print_r("\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp") : "").'
+                                '.(($inputs_buttons=='Client')? "<a href=\"" : "").''.(($inputs_buttons=='Client')? ROOT."/Client/_delete?id=$row->ID\"" : "").''.(($inputs_buttons=='Client')? " title=\"Delete\" class=\"text-danger updateBtn\" id=" : "").''.(($inputs_buttons=='Client')? $row->ID : "").''.(($inputs_buttons=='Client')? "\"><i class=\"fas fa-eraser\"></i></a>" : "").'
                             </td></tr>';
             }
             $output .= '</tbody>';
