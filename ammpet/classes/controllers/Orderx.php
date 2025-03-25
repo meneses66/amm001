@@ -239,8 +239,6 @@ class Orderx
             else{
                 echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
             }
-
-
         }
     }
 

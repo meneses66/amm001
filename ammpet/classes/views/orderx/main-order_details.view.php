@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-sm-6" style="border: thin solid black">
             <div class="table-responsive" id="_list_id">
-                <table id="_table" class="table Table-stripped table-sm table-bordered small">
+                <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
                     <?php 
                         $controller = new ('\Controller\\'."Orderx");
                         $controller->get_animals();
