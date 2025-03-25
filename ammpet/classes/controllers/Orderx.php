@@ -111,7 +111,7 @@ class Orderx
                                         <input id="id" type="text" size="5" name="Id" readonly value="'.$row->ID.'">
                                     </div>
                                     <div class="col-sm-2">
-                                        <label for="total_no_disc" class="medium-label">Total s/ desc:</label>
+                                        <label for="total_no_disc" class="medium-label float-right">Total s/ desc:</label>
                                     </div>
                                     <div class="col-sm-2">
                                         <input id="total_no_disc" type="text" size="15" name="Total_no_disc" readonly value="'.$row->ORDER_VALUE_NO_DISCOUNT.'">
