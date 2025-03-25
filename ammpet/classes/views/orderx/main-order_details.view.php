@@ -7,17 +7,17 @@
         <div class="col-sm-6">
             <h4>Venda - Detalhes</h4>
         </div>
-        <div class="col-sm-1">
+        <div class="col-sm-2">
         </div>
-        <div class="col-sm-5">
-            <a href="<?php echo ROOT."/Orderx/_list";?>" class="btn btn-secondary m-1 float-right">Voltar</a>
+        <div class="col-sm-4">
+            <a href="<?php echo ROOT."/Orderx/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
         </div>
     </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <br>
     <div class="row">
         <div class="col-sm-6" style="border: thin solid black">
-            Header: ID OrderX; ID_CLIENT; DATA; STATUS; <br>
+            Header: ID OrderX; ID_CLIENT; DATA; STATUS;
         </div>
         <div class="col-sm-6" style="border: thin solid black">
             Total Pedido; Total Din; Total Pix; Total Pg; Pendente
@@ -31,9 +31,12 @@
             Pacotes Ativos
         </div>
     </div><br>
-    <div class="row">
-        <div class="col-sm-12" style="border: thin solid black">
+    <div class="row" style="border: thin solid black">
+        <div class="col-sm-6">
             Lista Serviços
+        </div>
+        <div class="col-sm-6">
+            Botão Add Serviço
         </div>
     </div><br>
     <div class="row">
