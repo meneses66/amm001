@@ -234,7 +234,7 @@ Trait _GlobalController{
             if($inputs['class']="Orderx" AND isset($_GET['cli_id'])){
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
-                $inputs['Order_Date']=date();
+                $inputs['Order_Date']=date("Y-m-d");
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
