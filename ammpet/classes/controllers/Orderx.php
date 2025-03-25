@@ -33,7 +33,7 @@ class Orderx
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
-        $sqlstm = "SELECT C.ID AS ID, C.UPDATED AS UPDATED, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, C.MOBILE_2 as MOBILE_2, C.ORIGIN as ORIGIN, C.OLD_ID as OLD_ID, C.STATUS as STATUS, GROUP_CONCAT(A.NAME) AS ANIMALS FROM `CLIENT` C LEFT JOIN `ANIMAL` A ON C.ID = A.ID_CLIENT GROUP BY C.ID";
+        $sqlstm = "SELECT O.ID AS ID, O.UPDATED AS UPDATED, O.ORDER_DATE AS ORDER_DATE, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, GROUP_CONCAT(A.NAME) AS ANIMALS, O.ORDER_VALUE_NO_DISCOUNT AS ORDER_VALUE_NO_DISCOUNT, O.ORDER_VALUE_WITH_DISCOUNT AS ORDER_VALUE_WITH_DISCOUNT, O.ORDER_VALUE_CASH AS ORDER_VALUE_CASH, O.ORDER_VALUE_PIX AS ORDER_VALUE_PIX, O.ORDER_PAID_AMOUNT AS ORDER_PAID_AMOUNT, O.ORDER_DEBT AS ORDER_DEBT, O.ID_CLIENT AS ID_CLIENT FROM `ORDER_X` O LEFT JOIN `CLIENT` C ON O.ID_CLIENT = C.ID LEFT JOIN `ANIMAL` A ON C.ID = A.ID_CLIENT GROUP BY O.ID;";
 
         $data = $model->exec_sqlstm($sqlstm);
         if($model->countAll()>0){
@@ -41,13 +41,16 @@ class Orderx
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
                                 <th>Atualiz.</th>
-                                <th>Nome</th>
+                                <th>Data</th>
+                                <th>Cliente</th>
                                 <th>Celular 1</th>
-                                <th>Celular 2</th>
-                                <th>Origin</th>
-                                <th>Old Id</th>
-                                <th>Status</th>
                                 <th>Animais</th>
+                                <th>Total sem Desc.</th>
+                                <th>Total com Desc.</th>
+                                <th>Total Dinh.</th>
+                                <th>Total Pix</th>
+                                <th>Total Pago</th>
+                                <th>Total Devedor</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -56,15 +59,17 @@ class Orderx
                 $output .='<tr class="text-center text-secondary">
                             <td>'.$row->ID.'</td>
                             <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->NAME.'</td>
+                            <td>'.$row->ORDER_DATE.'</td>
                             <td>'.$row->MOBILE_1.'</td>
-                            <td>'.$row->MOBILE_2.'</td>
-                            <td>'.$row->ORIGIN.'</td>
-                            <td>'.$row->OLD_ID.'</td>
-                            <td>'.$row->STATUS.'</td>
                             <td>'.$row->ANIMALS.'</td>
+                            <td>'.$row->ORDER_VALUE_NO_DISCOUNT.'</td>
+                            <td>'.$row->ORDER_VALUE_WITH_DISCOUNT.'</td>
+                            <td>'.$row->ORDER_VALUE_CASH.'</td>
+                            <td>'.$row->ORDER_VALUE_PIX.'</td>
+                            <td>'.$row->ORDER_PAID_AMOUNT.'</td>
+                            <td>'.$row->ORDER_DEBT.'</td>
                             <td>
-                                <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                <a href="'.ROOT."/$this->UCF_object/_order_details?cli_id=$row->ID_CLIENT&order_id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                 <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                             </td></tr>';
             }

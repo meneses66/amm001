@@ -234,6 +234,7 @@ Trait _GlobalController{
             if($inputs['class']="Orderx" AND isset($_GET['cli_id'])){
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
+                $inputs['Order_Date']=date();
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
@@ -568,7 +569,11 @@ Trait _GlobalController{
         if(isset($inputs["del_id"])){
 
             $id = $inputs["del_id"];
-            $model->delete($id);
+            try {
+                $model->delete($id);
+            } catch (\Throwable $th) {
+                throw $th;
+            }
             
 
         } else {
