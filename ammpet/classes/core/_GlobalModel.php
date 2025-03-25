@@ -173,9 +173,11 @@ Trait _GlobalModel{
     #delete
     public function delete($ID)
     {
-        $sql_stm = "delete from $this->table where ID = $ID";
-        debug_to_console($sql_stm);
-        $this->query($sql_stm);
+        $inputs['ID']=$ID;
+        //$sql_stm = "delete from $this->table where ID = $ID";
+        $sql_stm = "delete from $this->table where ID = :ID";
+        //debug_to_console($sql_stm);
+        $this->query($sql_stm, $inputs);
         return false;
     }
 
