@@ -110,14 +110,14 @@ class Orderx
                                     <div class="col-sm-3">
                                         <input id="id" type="text" size="5" name="Id" readonly value="'.$row->ID.'">
                                     </div>
-                                    <div class="col-sm-2">
-                                        <label for="total_no_disc" class="medium-label">Total sem desc.:</label>
+                                    <div class="col-sm-1">
+                                        <label for="total_no_disc" class="medium-label">Total s/ desc.:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="total_no_disc" type="text" size="15" name="Total_no_disc" readonly value="'.$row->ORDER_VALUE_NO_DISCOUNT.'">
                                     </div>
-                                    <div class="col-sm-2">
-                                        <label for="total_disc" class="medium-label">Total com desc.:</label>
+                                    <div class="col-sm-1">
+                                        <label for="total_disc" class="medium-label">Total c/ desc.:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="total_disc" type="text" size="15" name="Total_disc" readonly value="'.$row->ORDER_VALUE_WITH_DISCOUNT.'">
@@ -130,17 +130,17 @@ class Orderx
                                     <div class="col-sm-3">
                                         <input id="client" type="text" size="25" name="Client" readonly value="'.$row->NAME.'">
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-1">
                                         <label for="total_cash" class="medium-label">Total Dinh.:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="total_cash" type="text" size="15" name="Total_cash" readonly value="'.$row->ORDER_VALUE_CASH.'">
                                     </div>
-                                    <div class="col-sm-2">
-                                        
+                                    <div class="col-sm-1">
+                                        <label for="total_pix" class="medium-label">Total Pix:</label>
                                     </div>
                                     <div class="col-sm-3">
-                                        
+                                        <input id="total_pix" type="text" size="15" name="Total_pix" readonly value="'.$row->ORDER_VALUE_PIX.'">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -150,11 +150,17 @@ class Orderx
                                     <div class="col-sm-3">
                                         <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$row->MOBILE_1.'">
                                     </div>
-                                    <div class="col-sm-2">
-                                        <label for="total_pix" class="medium-label">Total Pix:</label>
+                                    <div class="col-sm-1">
+                                        <label for="total_paid" class="medium-label">Total Pago:</label>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input id="total_pix" type="text" size="15" name="Total_pix" readonly value="'.$row->ORDER_VALUE_PIX.'">
+                                        <input id="total_paid" type="text" size="15" name="Total_paid" readonly value="'.$row->ORDER_PAID_AMOUNT.'">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="total_debt" class="medium-label">Total Pend.:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input id="total_debt" type="text" size="15" name="Total_debt" readonly value="'.$row->ORDER_DEBT.'">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -164,27 +170,13 @@ class Orderx
                                     <div class="col-sm-3">
                                         <input id="order_date" type="date" size="8" name="Order_date" readonly value="'.$row->ORDER_DATE.'">
                                     </div>
-                                    <div class="col-sm-2">
-                                        <label for="total_paid" class="medium-label">Total Pago:</label>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input id="total_paid" type="text" size="15" name="Total_paid" readonly value="'.$row->ORDER_PAID_AMOUNT.'">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <label for="total_debt" class="medium-label">Total Pend.:</label>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input id="total_debt" type="text" size="15" name="Total_debt" readonly value="'.$row->ORDER_DEBT.'">
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-sm-1">
                                         <label for="status" class="medium-label">Status:</label>
                                     </div>
                                     <div class="col-sm-3">
                                         <input id="status" type="text" size="8" name="Status" readonly value="'.$row->STATUS.'">
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-1">
                                         
                                     </div>
                                     <div class="col-sm-3">
