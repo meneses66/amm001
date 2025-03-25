@@ -354,9 +354,7 @@ class Client
                                 '.((URL_0=='Orderx')? "<a href=" : "").''.((URL_0=='Orderx')? ROOT."/Orderx/insert_call?cli_id=$row->ID" : "").''.((URL_0=='Orderx')? " title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id=" : "").''.((URL_0=='Orderx')? $row->ID : "").''.((URL_0=='Orderx')? "\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp" : "").'
                                 '.((URL_0=='Client')? "<a href=" : "").''.((URL_0=='Client')? ROOT."/Client/_update?id=$row->ID" : "").''.((URL_0=='Client')? " title=\"Edit\" class=\"text-primary updateBtn\" id=" : "").''.((URL_0=='Client')? $row->ID : "").''.((URL_0=='Client')? "\"><i class=\"fas fa-donate\"></i></a>&nbsp;&nbsp" : "").'
                                 '.((URL_0=='Client')? "<a href=" : "").''.((URL_0=='Client')? ROOT."/Client/_delete?id=$row->ID" : "").''.((URL_0=='Client')? " title=\"Delete\" class=\"text-danger updateBtn\" id=" : "").''.((URL_0=='Client')? $row->ID : "").''.((URL_0=='Client')? "\"><i class=\"fas fa-eraser\"></i></a>" : "").'
-                                <a href="'.ROOT."/$this->UCF_object/_new_order?cli_id=$row->ID".'" title="New_Order" class="text-primary newOrderBtn" cli_id="'.$row->ID.'"><i class="fas fa-donate"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                
                             </td></tr>';
             }
             $output .= '</tbody>';
