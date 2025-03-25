@@ -10,20 +10,24 @@
         <div class="col-sm-3">
         </div>
         <div class="col-sm-3">
-            Botão - Voltar
+            <a href="<?php echo ROOT."/Order/_list";?>" class="btn btn-success m-1 float-right">Voltar</a>
         </div>
     </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <br>
     <div class="row">
-        Header: ID OrderX; ID_CLIENT; DATA; STATUS; <br>
-        Total Pedido; Total Din; Total Pix; Total Pg; Pendente
+        <div class="col-sm-6" style="border: thin solid black">
+            Header: ID OrderX; ID_CLIENT; DATA; STATUS; <br>
+        </div>
+        <div class="col-sm-6" style="border: thin solid black">
+            Total Pedido; Total Din; Total Pix; Total Pg; Pendente
+        </div>
     </div><br>
     <div class="row">
         <div class="col-sm-6" style="border: thin solid black">
             Animais
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" style="border: thin solid black">
             Pacotes Ativos
         </div>
     </div><br>
