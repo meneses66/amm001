@@ -5,8 +5,6 @@
     <div class="row">
         <div class="col-lg-6">
             <h4>Novo Cliente</h4>
-            <?php echo URL(0);?>
-            <?php echo URL(1);?>
         </div>
     </div>
     <hr class="my-1">
