@@ -101,6 +101,10 @@ class Orderx
             $data = $model->exec_sqlstm($sql_stm, $inputs);
 
             if($data){
+
+                $GLOBALS['cli_id_js']=$_GET['cli_id'];
+                $GLOBALS['order_id_js']=$_GET['order_id'];
+                
                 foreach ($data as $row) {
                 
                     $output .= '<div class="row">

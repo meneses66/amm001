@@ -10,6 +10,7 @@ class OrderItem {
     use _GlobalController;
     private $object = 'orderitem';
     private $UCF_object = 'OrderItem';
+    private $parent_object = 'Orderx';
 
     public function index()
     {

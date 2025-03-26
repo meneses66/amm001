@@ -14,8 +14,12 @@ $GLOBALS['buttonenablerjs']='OrderItem';
                 <a href="<?php echo ROOT."/Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
         </div>
     </div>
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-    <br>
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
+        <?php 
+            $controller = new ('\Controller\\'."Orderx");
+            $controller->get_header();
+        ?>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="_list_id">
