@@ -13,7 +13,7 @@
             <a href="<?php echo ROOT."/Orderx/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
         </div>
     </div>
-    <div class="row" style="border: thin solid lightgray" style="font-size:12px;">
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
             <?php 
                 $controller = new ('\Controller\\'."Orderx");
                 $controller->get_header();
@@ -31,9 +31,9 @@
                 </table>
             </div>
         </div>
-        <div class="col-sm-6" style="border: thin solid black" style="font-size:12px;">
+        <div class="col-sm-6" style="border: thin solid black">
             <p style="font-size:10px;" >Pacotes</p>
-            <div class="table-responsive" id="_list_id">
+            <div class="table-responsive" id="_list_id" style="font-size:12px;">
                 <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
                     <?php 
                         $controller = new ('\Controller\\'."Orderx");
