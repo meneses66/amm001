@@ -296,8 +296,8 @@ Trait _GlobalModel{
 		return false;
 	}
 
-    public function getRowProperty($input, $property){
-        $sql_stm = "select $property from $this->table where ID = :ID";
+    public function getRowProperty($input, $property, $table){
+        $sql_stm = "select $property from $table where ID = :ID";
         
         $sql_stm = trim($sql_stm," && ");
 
