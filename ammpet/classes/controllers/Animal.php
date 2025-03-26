@@ -396,8 +396,7 @@ class Animal {
                         //GET BREED NAME
                         $breed_input['ID']= $row->ID_BREED;
                         $breed = new('\Model\\'."Breed");
-                        $breed_name = $breed->getRowProperty($breed_input, "NAME", "ANIMAL");
-                        //$breed_name = $breed->getRow($breed_input)->NAME;
+                        $breed_name = $breed->getRow($breed_input)->NAME;
                         $breed = null;
                         
                         //ADD ROW IN TABLE

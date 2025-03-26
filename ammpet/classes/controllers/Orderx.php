@@ -219,8 +219,7 @@ class Orderx
                     //GET BREED NAME
                     $breed_input['ID']= $row->ID_BREED;
                     $breed = new('\Model\\'."Breed");
-                    $breed_name = $breed->getRowProperty($breed_input, "NAME");
-                    //$breed_name = $breed->getRow($breed_input)->NAME;
+                    $breed_name = $breed->getRow($breed_input)->NAME;
                     $breed = null;
 
                     $output .='<tr class="text-center text-secondary">
