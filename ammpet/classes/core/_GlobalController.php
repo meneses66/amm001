@@ -163,13 +163,22 @@ Trait _GlobalController{
 
     public function _new_service(){
         
-        if (isset($_GET['cli_id']) AND isset($_GET['order_id']) ){
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
-            $path2 = "OrderItem/_new?cli_id=".$cli_id."&order_id=".$order_id;
-            double_redirect("Orderx",$path2);
+            $service = $_GET['service'];
+            $_SERVER['REQUEST_METHOD'] = 'POST';
+            $_POST['class']="OrderItem";
+            $_POST['method']="insert_call";
+            $_POST['Id_Client']=$cli_id;
+            $_POST['Id_Order']=$order_id;
+            $_POST['Id_Prod_Serv']=$service->ID_PROD_SERV;
+
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+            
         } else{
-            echo "Issue to return Cli_Id and Order_Id.";
+            echo "Issue to return Cli_Id and Order_id.";
         }
     }
 
