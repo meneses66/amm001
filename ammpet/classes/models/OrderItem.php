@@ -15,16 +15,16 @@ class OrderItem {
     public $Created;
     public $Updated;
 
-    public $Id_Order ;
-    public $Id_Prod_Serv ;
+    public $Id_Order;
+    public $Id_Prod_Serv;
     public $Quantity;
     public $Unit_Value;
     public $Discount_Perc;
     public $Discount_Value;
     public $Value_No_Discount;
     public $Value_With_Discount;
-    public $Id_Package ;
-    public $Id_Package_Animal ;
+    public $Id_Package;
+    public $Id_Package_Animal;
     public $Prod_Serv_Type;
     public $Date;
     public $Item_Description;
@@ -34,7 +34,7 @@ class OrderItem {
     public $Package_Sequence;
     public $Package_Service;
     public $Prod_Serv_Category;
-    public $Id_Client ;
+    public $Id_Client;
     public $Blade;
     public $Prod_Serv_Group;
     public $Package_Name;
@@ -60,7 +60,7 @@ class OrderItem {
     public $Price_Pix;
     public $Total_Pix;
 
-    function __construct($id =null, $created=null, $created_by=null, $updated=null, $updated_by=null, $id_order =null, $id_prod_serv =null, $quantity=null, $unit_value=null, $discount_perc=null, $discount_value=null, $value_no_discount=null, $value_with_discount=null, $id_package =null, $id_package_animal =null, $prod_serv_type=null, $date=null, $item_description=null, $serv_executor=null, $package_amount=null, $package_consume=null, $package_sequence=null, $package_service=null, $prod_serv_category=null, $id_client =null, $blade=null, $prod_serv_group=null, $package_name=null, $salesperson=null, $flag_comission=null, $cost_center=null, $external_cost=null, $comission_percentage=null, $old_id=null, $flag_otite=null, $flag_olhos_verm=null, $flag_pulga=null, $flag_carrapato=null, $flag_dermatite=null, $flag_ferida=null, $flag_outro=null, $checklist_description=null, $adap_pata=null, $flag_contrario=null, $tosador=null, $price_cash=null, $total_cash=null, $price_pix=null, $total_pix=null )
+    function __construct($id=null, $created=null, $created_by=null, $updated=null, $updated_by=null, $id_order=null, $id_prod_serv=null, $quantity=null, $unit_value=null, $discount_perc=null, $discount_value=null, $value_no_discount=null, $value_with_discount=null, $id_package=null, $id_package_animal=null, $prod_serv_type=null, $date=null, $item_description=null, $serv_executor=null, $package_amount=null, $package_consume=null, $package_sequence=null, $package_service=null, $prod_serv_category=null, $id_client=null, $blade=null, $prod_serv_group=null, $package_name=null, $salesperson=null, $flag_comission=null, $cost_center=null, $external_cost=null, $comission_percentage=null, $old_id=null, $flag_otite=null, $flag_olhos_verm=null, $flag_pulga=null, $flag_carrapato=null, $flag_dermatite=null, $flag_ferida=null, $flag_outro=null, $checklist_description=null, $adap_pata=null, $flag_contrario=null, $tosador=null, $price_cash=null, $total_cash=null, $price_pix=null, $total_pix=null )
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
@@ -68,16 +68,16 @@ class OrderItem {
         $this -> Created = $created;
         $this -> Updated = $updated;
 
-        $this -> Id_Order  = $id_order ;
-        $this -> Id_Prod_Serv  = $id_prod_serv ;
+        $this -> Id_Order = $id_order;
+        $this -> Id_Prod_Serv = $id_prod_serv;
         $this -> Quantity = $quantity;
         $this -> Unit_Value = $unit_value;
         $this -> Discount_Perc = $discount_perc;
         $this -> Discount_Value = $discount_value;
         $this -> Value_No_Discount = $value_no_discount;
         $this -> Value_With_Discount = $value_with_discount;
-        $this -> Id_Package  = $id_package ;
-        $this -> Id_Package_Animal  = $id_package_animal ;
+        $this -> Id_Package = $id_package;
+        $this -> Id_Package_Animal = $id_package_animal;
         $this -> Prod_Serv_Type = $prod_serv_type;
         $this -> Date = $date;
         $this -> Item_Description = $item_description;
@@ -87,7 +87,7 @@ class OrderItem {
         $this -> Package_Sequence = $package_sequence;
         $this -> Package_Service = $package_service;
         $this -> Prod_Serv_Category = $prod_serv_category;
-        $this -> Id_Client  = $id_client ;
+        $this -> Id_Client = $id_client;
         $this -> Blade = $blade;
         $this -> Prod_Serv_Group = $prod_serv_group;
         $this -> Package_Name = $package_name;
