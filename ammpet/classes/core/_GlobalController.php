@@ -182,12 +182,12 @@ Trait _GlobalController{
             echo var_dump($service);
             //$service_array = explode('¡', $service);
             //$json = preg_replace('/[[:cntrl:]]/', '', $service);
-            $json = preg_replace( "/\p{Cc}*$/u", "", $service);
-            $json_array = json_decode($json, true);
-            echo (var_dump($json_array));
-            //$service_array = json_decode(trim($json_array), true);
+            //$json = preg_replace( "/\p{Cc}*$/u", "", $service);
+            //$json_array = json_decode($json, true);
+            //echo (var_dump($json_array));
+            $service_array = json_decode(trim($service), true);
             //$service_array  = unserialize($service);
-            //echo var_dump($service_array);
+            echo var_dump($service_array);
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $_POST['class']="OrderItem";
             $_POST['method']="insert_call";
