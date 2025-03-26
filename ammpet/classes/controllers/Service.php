@@ -445,7 +445,7 @@ class Service {
                     $array .= "[".$key."]=>".$value.",";
                 }
                 $array = trim($array,",");
-                $array = json_decode($array , true);
+                //$array = json_decode($array , true);
                 //$string_array = implode('¡', $array);
                 $output .='<tr class="text-center text-secondary">
                             <td>'.$row->ID.'</td>
