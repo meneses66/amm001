@@ -180,8 +180,9 @@ Trait _GlobalController{
             $order_id = $_GET['order_id'];
             $service = $_GET['service'];
             echo var_dump($service);
-            $service = trim($service,"¡");
-            $service_array = explode('¡', $service);
+            //$service_array = explode('¡', $service);
+            $service_array = json_decode($service_array , true);
+            echo var_dump($service_array);
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $_POST['class']="OrderItem";
             $_POST['method']="insert_call";
