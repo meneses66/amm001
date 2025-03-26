@@ -20,9 +20,9 @@
             ?>
     </div><br>
     <div class="row">
-        <div class="col-sm-6" style="border: thin solid black">
+        <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
             <p style="font-size:12px;" >Animais</p>
-            <div class="table-responsive" id="_list_id" style="font-size:12px;">
+            <div class="table-responsive" id="_animals" style="font-size:12px;">
                 <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
                     <?php 
                         $controller = new ('\Controller\\'."Orderx");
@@ -31,9 +31,9 @@
                 </table>
             </div>
         </div>
-        <div class="col-sm-6" style="border: thin solid black">
+        <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
             <p style="font-size:10px;" >Pacotes</p>
-            <div class="table-responsive" id="_list_id" style="font-size:12px;">
+            <div class="table-responsive" id="_packages" style="font-size:12px;">
                 <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
                     <?php 
                         $controller = new ('\Controller\\'."Orderx");
@@ -43,21 +43,29 @@
             </div>
         </div>
     </div><br>
-    <div class="row" style="border: thin solid black">
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <div class="col-sm-6">
-            Lista Serviços
+            <p style="font-size:10px;" >Serviços</p>
+            <div class="table-responsive" id="_services" style="font-size:12px;">
+                <table id="_table_services" class="table Table-stripped table-sm table-bordered small">
+                    <?php 
+                        $controller = new ('\Controller\\'."Orderx");
+                        $controller->get_services();
+                    ?>        
+                </table>
+            </div>
         </div>
         <div class="col-sm-6">
             <a href="<?php echo ROOT."/Orderx/_new_service?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-lg m-1 btn-block">Novo Serviço</a>
         </div>
     </div><br>
     <div class="row">
-        <div class="col-sm-12" style="border: thin solid black">
+        <div class="col-sm-12" style="border: thin solid lightgray; font-size:12px;">
             Lista Produtos
         </div>
     </div><br>
     <div class="row">
-        <div class="col-sm-12" style="border: thin solid black">
+        <div class="col-sm-12" style="border: thin solid lightgray; font-size:12px;">
             Lista Pagamentos
         </div>
     </div><br>

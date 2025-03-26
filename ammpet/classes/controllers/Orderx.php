@@ -285,4 +285,61 @@ class Orderx
         }
     }
 
+    public function get_services(){
+        if (isset($_GET['order_id'])){
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
+            $output = "";
+            $inputs["ID_ORDER"]=$_GET['order_id'];
+            $inputs["PROD_SERV_TYPE"]="SERV";
+            
+            $model = new('\Model\\'."OrderItem");
+            $data = $model->listWhere($inputs);
+            if($data){
+                $output .='<thead>
+                                <tr class="text-center text-secondary">
+                                    <th>Cód.</th>
+                                    <th>Serviço</th>
+                                    <th>Quant.</th>
+                                    <th>Valor c/ Desc.</th>
+                                    <th>Pct</th>
+                                    <th>Ani</th>
+                                    <th>Pct Seq</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+                foreach ($data as $row) {
+
+                    //GET SERVICE DETAILS
+                    $service_input['ID']= $row->ID_PROD_SERV;
+                    $service = new('\Model\\'."Service");
+                    $service_name = $service->getRow($service_input)->NAME;
+                    $service_code = $service->getRow($service_input)->CODE;
+                    $service = null;
+
+                    //GET PACKAGE ANIMAL DETAILS
+                    $animal_input['ID']= $row->ID_PACKAGE_ANIMAL;
+                    $animal = new('\Model\\'."Animal");
+                    $animal_name = $animal->getRow($animal_input)->NAME;
+                    $animal = null;
+
+                    $output .='<tr class="text-center text-secondary">
+                                <td>'.$service_code.'</td>
+                                <td>'.$service_name.'</td>
+                                <td>'.$row->QUANTITY.'</td>
+                                <td>'.$row->VALUE_WITH_DISCOUNT.'</td>
+                                <td>'.$row->ID_PACKAGE.'</td>
+                                <td>'.$animal_name.'</td>
+                                <td>'.$row->PACKAGE_SEQUENCE.'</td>
+                               </tr>';
+                }
+                $output .= '</tbody>';
+                echo $output;
+            }
+            else{
+                echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+            }
+        }
+    }
+
 }
