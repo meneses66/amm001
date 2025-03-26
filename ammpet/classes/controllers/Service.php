@@ -418,6 +418,7 @@ class Service {
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         $inputs['TYPE']="SERV";
+        $inputs_buttons=$inputs['buttons'];
         
         $data = $model->listWhere($inputs);
         if($model->countWhere($inputs)>0){
