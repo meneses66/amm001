@@ -296,12 +296,12 @@ Trait _GlobalModel{
 		return false;
 	}
 
-    public function getRowProperty($id, $property){
-        $sql_stm = "select $property from $this->table where ID = $id";
+    public function getRowProperty($input, $property){
+        $sql_stm = "select $property from $this->table where ID = :ID";
         
         $sql_stm = trim($sql_stm," && ");
 
-        $result = $this->query($sql_stm);
+        $result = $this->query($sql_stm, $input);
 
         if ($result)
             return $result[0];
