@@ -441,8 +441,10 @@ class Service {
                         <tbody>';
             foreach ($data as $row) {
                 $array=null;
+                $aspas="\"";
                 foreach ($row as $key => $value) {
-                    $array .= "'".$key."':'".$value."',";
+                    $array .= $aspas.$key.$aspas.":".$aspas.$value.$aspas.",";
+                    //$array .= "'".$key."':'".$value."',";
                 }
                 $array = trim($array,",");
                 //$string_array = implode('¡', $array);
