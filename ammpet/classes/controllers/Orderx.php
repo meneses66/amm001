@@ -250,10 +250,9 @@ class Orderx
             $inputs["ID_CLIENT"]=$_GET['cli_id'];
             $inputs["PACK_STATUS"]="Aberto";
 
-            //$cli_id=$_GET['cli_id'];
             $sql_stm = "SELECT CP.ID_ORDER AS ID_ORDER, A.NAME AS ANIMAL, OI.PACKAGE_SERVICE AS SERVICE, OI.DATE AS DT, OI.PACKAGE_SEQUENCE AS SEQ, OI.ID FROM `CLIENT_PACKAGE` CP, `ANIMAL` A, `ORDER_ITEM` OI WHERE CP.ID_ANIMAL=A.ID AND CP.ID=OI.ID_PACKAGE AND CP.PACK_STATUS=:PACK_STATUS AND CP.ID_CLIENT=:ID_CLIENT ORDER BY A.NOME, OI.PACKAGE_SEQUENCE";
             $model = new('\Model\\'."Package");
-            $data = $model->exec_sqlstm($inputs);
+            $data = $model->exec_sqlstm($sql_stm, $inputs);
             if($data){
                 $output .='<thead>
                                 <tr class="text-center text-secondary">
