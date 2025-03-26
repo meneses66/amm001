@@ -183,9 +183,7 @@ Trait _GlobalController{
             //$service_array = explode('¡', $service);
             $json = preg_replace('/[[:cntrl:]]/', '', $service);
             $json_array = json_decode($json, true);
-            echo json_last_error();
-            echo json_last_error_msg();
-            print_r($json_array);
+            print_r(var_dump($json_array));
             $json_array = stripslashes(html_entity_decode($json_array));
             $service_array = json_decode(trim($json_array), true);
             //$service_array  = unserialize($service);
