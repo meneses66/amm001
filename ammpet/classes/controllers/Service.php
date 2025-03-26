@@ -415,6 +415,7 @@ class Service {
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows($inputs){
         
+        if(session_status() === PHP_SESSION_NONE) session_start();
         $inputs_buttons=$inputs['buttons'];
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
