@@ -418,10 +418,10 @@ class Service {
         $inputs_buttons=$inputs['buttons'];
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
-        $inputs['TYPE']="SERV";
+        $inputs_stm['TYPE']="SERV";
         
-        $data = $model->listWhere($inputs);
-        if($model->countWhere($inputs)>0){
+        $data = $model->listWhere($inputs_stm);
+        if($model->countWhere($inputs_stm)>0){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
