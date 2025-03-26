@@ -85,7 +85,7 @@ class Orderx
             echo $output;
         }
         else{
-            echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+            echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
         }
     }
 
@@ -237,7 +237,7 @@ class Orderx
                 echo $output;
             }
             else{
-                echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+                echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
             }
         }
     }
@@ -280,7 +280,7 @@ class Orderx
                 echo $output;
             }
             else{
-                echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+                echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
             }
         }
     }
@@ -305,6 +305,7 @@ class Orderx
                                     <th>Pct</th>
                                     <th>Ani</th>
                                     <th>Pct Seq</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>';
@@ -331,13 +332,17 @@ class Orderx
                                 <td>'.$row->ID_PACKAGE.'</td>
                                 <td>'.$animal_name.'</td>
                                 <td>'.$row->PACKAGE_SEQUENCE.'</td>
+                                <td>
+                                    <a href="'.ROOT."/OrderItem/_update_service?order_id=$row->ID_ORDER&id=$row->ID".'" title="Edit" class="text-primary updateBtn" order_id="'.$row->ID_ORDER.'" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>
+                                </td>
                                </tr>';
                 }
                 $output .= '</tbody>';
                 echo $output;
             }
             else{
-                echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+                echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
             }
         }
     }

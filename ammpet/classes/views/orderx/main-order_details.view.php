@@ -45,7 +45,7 @@
     </div><br>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <div class="col-sm-6">
-            <p style="font-size:10px;" >Serviços</p>
+            <p style="font-size:12px;" >Serviços</p>
             <div class="table-responsive" id="_services" style="font-size:12px;">
                 <table id="_table_services" class="table Table-stripped table-sm table-bordered small">
                     <?php 

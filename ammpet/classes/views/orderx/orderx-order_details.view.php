@@ -54,6 +54,9 @@ $_SESSION['LAST_ACTIVE']=time();?>
 
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
+
+        <!-- Delete Records JS-->
+        <script src="<?php echo ROOT;?>/assets/js/delete_record.js"></script>
         
     </body>
 </html>
