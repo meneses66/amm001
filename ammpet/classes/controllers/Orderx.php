@@ -201,7 +201,8 @@ class Orderx
             //$cli_id=$_GET['cli_id'];
             $model = new('\Model\\'."Animal");
             $data = $model->listWhere($inputs);
-            if($model->countWhere($inputs)>0){
+            
+            if($data){
                 $output .='<thead>
                                 <tr class="text-center text-secondary">
                                     <th>Nome</th>
