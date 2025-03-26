@@ -166,6 +166,18 @@ Trait _GlobalController{
         if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
+            $path2 = "OrderItem/_new?cli_id=".$cli_id."&order_id=".$order_id;
+            double_redirect("Orderx",$path2);
+        } else{
+            echo "Issue to return Cli_Id.";
+        }
+    }
+
+    public function _insert_service(){
+        
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
+            $cli_id = $_GET['cli_id'];
+            $order_id = $_GET['order_id'];
             $service = $_GET['service'];
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $_POST['class']="OrderItem";
