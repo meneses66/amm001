@@ -440,8 +440,12 @@ class Service {
                         </thead>
                         <tbody>';
             foreach ($data as $row) {
-                
-                $array = json_decode($data , true);
+                $array="";
+                foreach ($row as $key => $value) {
+                    $array .= "[".$key."]=>".$value.",";
+                }
+                $array = trim($array,",");
+                $array = json_decode($array , true);
                 //$string_array = implode('¡', $array);
                 $output .='<tr class="text-center text-secondary">
                             <td>'.$row->ID.'</td>
