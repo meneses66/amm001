@@ -442,7 +442,7 @@ class Service {
             foreach ($data as $row) {
                 $array=null;
                 foreach ($row as $key => $value) {
-                    $array .= "'".$key."':".$value.",";
+                    $array .= "'".$key."':'".$value."',";
                 }
                 $array = trim($array,",");
                 //$string_array = implode('¡', $array);
