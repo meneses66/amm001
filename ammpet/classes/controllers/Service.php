@@ -442,7 +442,7 @@ class Service {
             foreach ($data as $row) {
                 $array="";
                 foreach ($row as $key => $value) {
-                    $array .= "\"".$key."\":".$value.",";
+                    $array .= "'".$key."':".$value.",";
                 }
                 $array = trim($array,",");
                 //$array = json_decode($array , true);
