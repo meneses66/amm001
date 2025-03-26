@@ -21,6 +21,7 @@
     </div><br>
     <div class="row">
         <div class="col-sm-6" style="border: thin solid black">
+            <p font-size = 8px >Animais</p>
             <div class="table-responsive" id="_list_id">
                 <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
                     <?php 
@@ -31,7 +32,8 @@
             </div>
         </div>
         <div class="col-sm-6" style="border: thin solid black">
-        <div class="table-responsive" id="_list_id">
+            <p font-size = 8px >Pacotes</p>
+            <div class="table-responsive" id="_list_id">
                 <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
                     <?php 
                         $controller = new ('\Controller\\'."Orderx");
