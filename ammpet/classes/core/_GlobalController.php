@@ -181,7 +181,7 @@ Trait _GlobalController{
             $service = $_GET['service'];
             echo var_dump($service);
             //$service_array = explode('¡', $service);
-            $service_array = json_decode($service_array , true);
+            $service_array = json_decode($service , true);
             echo var_dump($service_array);
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $_POST['class']="OrderItem";
