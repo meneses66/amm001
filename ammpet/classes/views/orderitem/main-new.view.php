@@ -16,8 +16,8 @@ $GLOBALS['buttonenablerjs']='OrderItem';
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <?php 
-            $controller = new ('\Controller\\'."Orderx");
-            $controller->get_header();
+            $controller1 = new ('\Controller\\'."OrderItem");
+            $controller1->load_parent_form();
         ?>
     </div>
     <div class="row">
