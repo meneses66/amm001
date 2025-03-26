@@ -182,7 +182,7 @@ Trait _GlobalController{
             echo var_dump($service);
             //$service_array = explode('¡', $service);
             $service = stripslashes(html_entity_decode($service));
-            $service_array = json_decode($service, JSON_UNESCAPED_UNICODE);
+            $service_array = json_decode(trim($service), true);
             //$service_array  = unserialize($service);
             echo var_dump($service_array);
             $_SERVER['REQUEST_METHOD'] = 'POST';
