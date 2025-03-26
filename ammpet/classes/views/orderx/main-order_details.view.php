@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="col-sm-6" style="border: thin solid black">
-            <p font-size = 8px >Pacotes</p>
+            <p style="font-size:6px;" >Pacotes</p>
             <div class="table-responsive" id="_list_id">
                 <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
                     <?php 
