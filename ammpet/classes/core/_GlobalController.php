@@ -179,7 +179,7 @@ Trait _GlobalController{
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
             $service = $_GET['service'];
-            $service_array = explode(',', $service);
+            $service_array = explode('¡', $service);
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $_POST['class']="OrderItem";
             $_POST['method']="insert_call";
