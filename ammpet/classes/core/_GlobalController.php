@@ -179,7 +179,7 @@ Trait _GlobalController{
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
             $service = $_GET['service'];
-            //echo var_dump($service);
+            echo var_dump($service);
             //$service_array = explode('¡', $service);
             $service_array = json_decode($service, JSON_UNESCAPED_UNICODE);
             //$service_array  = unserialize($service);
