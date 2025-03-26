@@ -179,7 +179,7 @@ Trait _GlobalController{
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
             $service = $_GET['service'];
-            echo var_dump($service);
+            //echo var_dump($service);
             //$service_array = explode('¡', $service);
             $service_array = json_decode($service, JSON_UNESCAPED_UNICODE);
             //$service_array  = unserialize($service);
@@ -189,7 +189,7 @@ Trait _GlobalController{
             $_POST['method']="insert_call";
             $_POST['Id_Client']=$cli_id;
             $_POST['Id_Order']=$order_id;
-            $_POST['Id_Prod_Serv']=$service_array['ID'];
+            $_POST['Id_Prod_Serv']=$service_array->ID;
 
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();
