@@ -440,10 +440,11 @@ class Service {
                         </thead>
                         <tbody>';
             foreach ($data as $row) {
+                $array="";
                 foreach ($row as $key => $value) {
-                    $array[$key]=$value;
+                    $array .= $key."=>".$value;
                 }
-                $string_array = implode('¡', $array);
+                //$string_array = implode('¡', $array);
                 $output .='<tr class="text-center text-secondary">
                             <td>'.$row->ID.'</td>
                             <td>'.$row->UPDATED.'</td>
@@ -454,7 +455,7 @@ class Service {
                             <td>'.$row->PRICE_PIX.'</td>
                             <td>'.$row->STATUS.'</td>
                             <td>
-                                '.(($inputs_buttons=='OrderItem')? "<a href=\"" : "").''.(($inputs_buttons=='OrderItem')? ROOT."/OrderItem/_insert_service?cli_id=" : "").''.(($inputs_buttons=='OrderItem')? $inputs_cli_id : "").''.(($inputs_buttons=='OrderItem')? "&order_id=" : "").''.(($inputs_buttons=='OrderItem')? $inputs_order_id : "").''.(($inputs_buttons=='OrderItem')? "&service={" : "").''.(($inputs_buttons=='OrderItem')? $string_array : "").''.(($inputs_buttons=='OrderItem')? "}\" title=\"New_Service\" class=\"text-primary newOrderBtn\" cli_id=" : "").''.(($inputs_buttons=='OrderItem')? $inputs_cli_id : "").''.(($inputs_buttons=='OrderItem')? "\" order_id=" : "").''.(($inputs_buttons=='OrderItem')? $inputs_order_id : "").''.(($inputs_buttons=='OrderItem')? "\"><i class=\"fas fa-donate\"></i></a>" : "").'
+                                '.(($inputs_buttons=='OrderItem')? "<a href=\"" : "").''.(($inputs_buttons=='OrderItem')? ROOT."/OrderItem/_insert_service?cli_id=" : "").''.(($inputs_buttons=='OrderItem')? $inputs_cli_id : "").''.(($inputs_buttons=='OrderItem')? "&order_id=" : "").''.(($inputs_buttons=='OrderItem')? $inputs_order_id : "").''.(($inputs_buttons=='OrderItem')? "&service={" : "").''.(($inputs_buttons=='OrderItem')? $array : "").''.(($inputs_buttons=='OrderItem')? "}\" title=\"New_Service\" class=\"text-primary newOrderBtn\" cli_id=" : "").''.(($inputs_buttons=='OrderItem')? $inputs_cli_id : "").''.(($inputs_buttons=='OrderItem')? "\" order_id=" : "").''.(($inputs_buttons=='OrderItem')? $inputs_order_id : "").''.(($inputs_buttons=='OrderItem')? "\"><i class=\"fas fa-donate\"></i></a>" : "").'
                                 '.(($inputs_buttons==$this->UCF_object)? "<a href=\"" : "").''.(($inputs_buttons==$this->UCF_object)? ROOT."/$this->UCF_object/_update?id=$row->ID\"" : "").''.(($inputs_buttons==$this->UCF_object)? " title=\"Edit\" class=\"text-primary updateBtn\" id=" : "").''.(($inputs_buttons==$this->UCF_object)? $row->ID : "").''.(($inputs_buttons==$this->UCF_object)? "><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
                                 '.(($inputs_buttons==$this->UCF_object)? "<a href=\"" : "").''.(($inputs_buttons==$this->UCF_object)? ROOT."/$this->UCF_object/_delete?id=$row->ID\"" : "").''.(($inputs_buttons==$this->UCF_object)? " title=\"Delete\" class=\"text-danger deleteBtn\" id=" : "").''.(($inputs_buttons==$this->UCF_object)? $row->ID : "").''.(($inputs_buttons==$this->UCF_object)? "><i class=\"fas fa-eraser\"></i></a>" : "").'
                             </td></tr>';
