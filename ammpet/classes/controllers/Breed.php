@@ -120,8 +120,16 @@ class Breed {
                                     </select><br><br>
                                 </div>
                             </div>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
@@ -170,8 +178,16 @@ class Breed {
                                     
                                 </div>
                             </div>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
@@ -209,9 +225,17 @@ class Breed {
                             </td></tr>';
             }
             $output .= '</tbody>';
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo $output;
         }
         else{
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
         }
     }
@@ -241,6 +265,11 @@ class Breed {
                     $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
                 }
             }
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $options = null;
+            $model = null;
             return $option_list;
             }
     }

@@ -254,8 +254,18 @@ class Supplier {
                             <div class="row">
                                 <input id="permission_el" type="hidden" name="Permissions" value="'.$data_form['PERMISSIONS'].'">
                             </div>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
+            
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
+
                 show("No record to display!");
             }
 
@@ -360,8 +370,18 @@ class Supplier {
                                     <input id="comment" type="text" size="50" name="Comment" readonly value="'.$data_form['COMMENT'].'"><br>
                                 </div>
                             </div>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
+            
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
+
                 show("No record to display!");
             }
 
@@ -412,9 +432,19 @@ class Supplier {
                                 </td></tr>';
                 }
                 $output .= '</tbody>';
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
+
                 echo $output;
             }
             else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
+
                 echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
             }
         //}

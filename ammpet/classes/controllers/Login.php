@@ -58,6 +58,8 @@ class Login {
             }
             
         }
+        $data = null;
+        $model = null;
         return $authentic;
     }
 

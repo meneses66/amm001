@@ -605,11 +605,13 @@ Trait _GlobalController{
                 switch ($this->UCF_object) {
                     case 'Animal':
                         $path2 = "Client/_cli_animal?cli_id=".$inputs['Id_client'];
+                        $inputs[]=null;
                         double_redirect("Animal", $path2);
                         break;
                     
                     default:
                         $view = "$this->UCF_object/_list";
+                        $inputs[]=null;
                         redirect("$view");
                         break;
                 }
@@ -631,6 +633,7 @@ Trait _GlobalController{
         if(isset($inputs["del_id"])){
 
             $id = $inputs["del_id"];
+            $inputs[]=null;
             try {
                 $model->delete($id);
             } catch (\Throwable $th) {

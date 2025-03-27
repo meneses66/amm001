@@ -285,8 +285,16 @@ class Animal {
                                         <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar" formaction="../Animal/update_call">
                                     </div>
                                 </div>';
+                                $sql_stm = null;
+                                $inputs[]=null;
+                                $data = null;
+                                $model = null;
                                 echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
@@ -335,8 +343,16 @@ class Animal {
                                     
                                 </div>
                             </div>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
@@ -413,10 +429,22 @@ class Animal {
                                     </td></tr>';
                     }
                     $output .= '</tbody><br>';
+                    $sql_stm = null;
+                    $inputs[]=null;
+                    $data = null;
+                    $client_data = null;
+                    $client = null;
+                    $model = null;
                     echo $output;
                 }
                 else{
                     $output_no_lines = '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3><br><br>';
+                    $sql_stm = null;
+                    $inputs[]=null;
+                    $data = null;
+                    $client_data = null;
+                    $client = null;
+                    $model = null;
                     echo $output_no_lines;
                 }
                 //echo $output;
@@ -464,8 +492,16 @@ class Animal {
                                     <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$data_form['MOBILE_1'].'">
                                 </div>
                             </div>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 

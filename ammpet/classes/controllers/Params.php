@@ -208,8 +208,16 @@ class Params {
                                     
                                 </div>
                             </div><br>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
@@ -259,8 +267,16 @@ class Params {
                                     
                                 </div>
                             </div>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
@@ -305,9 +321,14 @@ class Params {
                             </td></tr>';
             }
             $output .= '</tbody>';
+            $data = null;
+            $model = null;
+
             echo $output;
         }
         else{
+            $data = null;
+            $model = null;
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
         }
     }

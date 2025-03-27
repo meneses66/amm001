@@ -33,14 +33,14 @@ class Orderx
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
-        $sqlstm = "SELECT O.ID AS ID, O.UPDATED AS UPDATED, O.ORDER_DATE AS ORDER_DATE, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, 
+        $sql_stm = "SELECT O.ID AS ID, O.UPDATED AS UPDATED, O.ORDER_DATE AS ORDER_DATE, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, 
         GROUP_CONCAT(A.NAME) AS ANIMALS, O.ORDER_VALUE_NO_DISCOUNT AS ORDER_VALUE_NO_DISCOUNT, O.ORDER_VALUE_WITH_DISCOUNT AS
          ORDER_VALUE_WITH_DISCOUNT, O.ORDER_VALUE_CASH AS ORDER_VALUE_CASH, O.ORDER_VALUE_PIX AS ORDER_VALUE_PIX,
           O.ORDER_PAID_AMOUNT AS ORDER_PAID_AMOUNT, O.ORDER_DEBT AS ORDER_DEBT, O.STATUS AS STATUS, O.ID_CLIENT AS
            ID_CLIENT FROM `ORDER_X` O LEFT JOIN `CLIENT` C ON O.ID_CLIENT = C.ID LEFT JOIN `ANIMAL` A ON C.ID = A.ID_CLIENT
             GROUP BY O.ID;";
 
-        $data = $model->exec_sqlstm($sqlstm);
+        $data = $model->exec_sqlstm($sql_stm);
         if($model->countAll()>0){
             $output .='<thead>
                             <tr class="text-center text-secondary">
@@ -82,9 +82,17 @@ class Orderx
                             </td></tr>';
             }
             $output .= '</tbody>';
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo $output;
         }
         else{
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
         }
     }
@@ -187,9 +195,17 @@ class Orderx
                                         
                                     </div>
                                 </div>';
+                                $sql_stm = null;
+                                $inputs[]=null;
+                                $data = null;
+                                $model = null;
                                 echo $output;
                    }
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
@@ -238,9 +254,16 @@ class Orderx
                                </tr>';
                 }
                 $output .= '</tbody>';
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 echo $output;
             }
             else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
             }
         }
@@ -281,9 +304,17 @@ class Orderx
                                </tr>';
                 }
                 $output .= '</tbody>';
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 echo $output;
             }
             else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
             }
         }
@@ -343,9 +374,25 @@ class Orderx
                                </tr>';
                 }
                 $output .= '</tbody>';
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $animal = null;
+                $animal_name=null;
+                $service=null;
+                $service_name=null;
+                $model = null;
                 echo $output;
             }
             else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $animal = null;
+                $animal_name=null;
+                $service=null;
+                $service_name=null;
+                $model = null;
                 echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
             }
         }

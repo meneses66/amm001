@@ -54,9 +54,17 @@ class Params {
                             </td></tr>';
             }
             $output .= '</tbody>';
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo $output;
         }
         else{
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
         }
     }

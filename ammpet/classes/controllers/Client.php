@@ -254,8 +254,16 @@ class Client
                                     </select>
                                 </div>
                             </div><br>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
@@ -304,8 +312,16 @@ class Client
                                     
                                 </div>
                             </div>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
@@ -358,9 +374,17 @@ class Client
                             </td></tr>';
             }
             $output .= '</tbody>';
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo $output;
         }
         else{
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
         }
     }
@@ -405,9 +429,17 @@ class Client
                             </td></tr>';
             }
             $output .= '</tbody>';
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo $output;
         }
         else{
+            $sql_stm = null;
+            $inputs[]=null;
+            $data = null;
+            $model = null;
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
         }
     }
@@ -448,8 +480,16 @@ class Client
                                     <input id="mobile_1" type="text" size="25" name="Mobile_1" readonly value="'.$data_form['MOBILE_1'].'">
                                 </div>
                             </div>';
+                            $sql_stm = null;
+                            $inputs[]=null;
+                            $data = null;
+                            $model = null;
                             echo $output;
             } else{
+                $sql_stm = null;
+                $inputs[]=null;
+                $data = null;
+                $model = null;
                 show("No record to display!");
             }
 
