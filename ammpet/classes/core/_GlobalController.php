@@ -276,7 +276,7 @@ Trait _GlobalController{
             $model = new('\Model\\'.$this->UCF_object);
 
             //Define inputs for DB operations:
-            $inputs[]=null;
+            $inputs[]=[];
             foreach ($_POST as $key => $value) {
                 //echo $key.": ".$value."<br>";
                 $inputs[$key]=$value;    
@@ -433,16 +433,19 @@ Trait _GlobalController{
                 switch ($this->UCF_object) {
                     case 'Animal':
                         $path2 = "Client/_cli_animal?cli_id=".$inputs['Id_client'];
+                        $inputs[]=null;
                         double_redirect("Animal", $path2);
                         break;
                     
                     case 'Orderx':
                         $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client']."&order_id=".$new_id;
+                        $inputs[]=null;
                         redirect("$view");
                         break;
                     
                     default:
                         $view = "$this->UCF_object/_list";
+                        $inputs[]=null;
                         redirect("$view");
                         break;
                 }
