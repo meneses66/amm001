@@ -50,42 +50,57 @@ Trait _GlobalController{
 
     //Sends to LIST View
     public function _list(){
-        $operation = 'goto_list';
-        $this->goto_view($operation);
+        //$operation = 'goto_list';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-list";
+        $this->view($view);
     }
 
     //Sends to UPDATE View
     public function _update(){
-        $operation = 'goto_update';
-        $this->goto_view($operation);
+        //$operation = 'goto_update';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-update";
+        $this->view($view);
     }
 
     //Sends to DELETE View
     public function _delete(){
-        $operation = 'goto_delete';
-        $this->goto_view($operation);
+        //$operation = 'goto_delete';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-delete";
+        $this->view($view);
     }
 
     //THIS SESSION APPLIES ONLY TO CLIENT:
 
     public function _cli_animal(){
-        $operation = 'goto_cli_animal';
-        $this->goto_view($operation);
+        //$operation = 'goto_cli_animal';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-animal";
+        $this->view($view);
+
     }
 
     public function _cli_package(){
-        $operation = 'goto_cli_package';
-        $this->goto_view($operation);
+        //$operation = 'goto_cli_package';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-package";
+        $this->view($view);
     }
 
     public function _cli_product(){
-        $operation = 'goto_cli_product';
-        $this->goto_view($operation);
+        //$operation = 'goto_cli_product';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-product";
+        $this->view($view);
     }
 
     public function _cli_service(){
-        $operation = 'goto_cli_service';
-        $this->goto_view($operation);
+        $view="$this->object/$this->object-service";
+        $this->view($view);
+        //$operation = 'goto_cli_service';
+        //$this->goto_view($operation);
     }
 
     public function _new_animal(){
@@ -171,8 +186,10 @@ Trait _GlobalController{
     }
 
     public function _order_details(){
-        $operation = 'goto_order_details';
-        $this->goto_view($operation);
+        //$operation = 'goto_order_details';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-order_details";
+        $this->view($view);
     }
 
     //GOES TO SCREEN TO SELECT SERVICE SO IT CAN BE INSERTED:
@@ -189,8 +206,10 @@ Trait _GlobalController{
     }
 
     public function _addService(){
-        $operation = 'goto_addService';
-        $this->goto_view($operation);
+        //$operation = 'goto_addService';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-addService";
+        $this->view($view);
     }
 
     public function _update_service(){
@@ -207,8 +226,10 @@ Trait _GlobalController{
     }
 
     public function _updateService(){
-        $operation = 'goto_updateService';
-        $this->goto_view($operation);
+        //$operation = 'goto_updateService';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-updateService";
+        $this->view($view);
     }
 
     //Defines view to go to
@@ -466,7 +487,7 @@ Trait _GlobalController{
                         break;
 
                     case 'OrderItem':
-                        $view = "$this->UCF_object/_update_service?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
+                        $view = "$this->UCF_object/_updateService?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
                         unset_array($inputs);
                         redirect("$view");
                         break;
