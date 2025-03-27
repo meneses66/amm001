@@ -333,10 +333,25 @@ Trait _GlobalController{
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
                 $inputs['Quantity']="1";
+                $inputs['Id_Package']="0";
+                $inputs['Serv_Executor']="----";
+                $inputs['Salesperson']="Viviam Bragantine";
+                $inputs['Package_service']="Banho";
+                $inputs['Flag_Otite']=0;
+                $inputs['Flag_Olhos_Verm']=0;
+                $inputs['Flag_Pulga']=0;
+                $inputs['Flag_Carrapato']=0;
+                $inputs['Flag_Dermatite']=0;
+                $inputs['Flag_Ferida']=0;
+                $inputs['Flag_Outro']=0;
+                $inputs['Flag_Contrario']=0;
+
                 $cli_id = $_GET['cli_id'];
                 $order_id = $_GET['order_id'];
                 unset($inputs["Order_Date"]);
                 unset($inputs["Status"]);
+                unset($inputs["temp_package"]);
+                unset($inputs["temp_executor"]);
 
             }
 
@@ -744,6 +759,7 @@ Trait _GlobalController{
             $_POST['Total_Cash']=$service_array->PRICE_CASH;
             $_POST['Price_Pix']=$service_array->PRICE_PIX;
             $_POST['Total_Pix']=$service_array->PRICE_PIX;
+            $_POST['Prodserv_Code']=$service_array->CODE;
 
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();

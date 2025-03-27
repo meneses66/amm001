@@ -184,4 +184,188 @@ class OrderItem {
         }
     }
 
+    //LOAD HTML FORM FOR UPDATING RECORD
+    public function load_update_form(){
+
+        if (isset($_GET['item_id'])){
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
+            $output = "";
+            $inputs["ID"]=$_GET['item_id'];
+            $id=$_GET['item_id'];
+            $order_id = $_GET['order_id'];
+            $order_id = $_GET['client_id'];
+            $model = new('\Model\\'.$this->UCF_object);
+            
+            $data = $model->getRow($inputs);
+
+            if($data){
+
+                foreach ($data as $key => $value) {
+                    $data_form[$key]=$value;
+                }
+
+                //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
+                //$data_form_type = $data_form['TYPE'];
+                //$type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", $data_form_type);
+
+                //START TO LOAD THE UPDATE FORM:
+                $output .= '<div class="col-sm-6>
+                                <div class="row">
+                                    <input id="id" type="hidden" name="Id" readonly value="'.$data_form['ID'].'">
+                                    <input id="id_client" type="hidden" name="Id_Client" readonly value="'.$data_form['ID_CLIENT'].'">
+                                    <input id="id_order" type="hidden" name="Id_Order" readonly value="'.$data_form['ID_ORDER'].'">
+                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                                    <input id="temp_package" type="hidden" name="temp_package" value="'.$data_form['ID_PACKAGE'].'">
+                                    <input id="temp_executor" type="hidden" name="temp_executor" value="'.$data_form['SERV_EXECUTOR'].'">
+                                    <input id="temp_salesperson" type="hidden" name="temp_salesperson" value="'.$data_form['SALESPERSON'].'">
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        <label for="code" class="medium-label">Cód:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input id="code" type="text" size="25" name="Code" value="'.$data_form['PRODSERV_CODE'].'">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="desc" class="medium-label">Desc.:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input id="desc" type="text" size="30" name="Desc" value="'.$data_form['ITEM_DESCRIPTION'].'">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="date" class="medium-label">Data:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input id="date" type="date" size="25" name="Date" value="'.$data_form['DATE'].'">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        <label for="package" class="medium-label">Pacote:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="medium-label" id="package" name="Package">
+
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="serv_pkg" class="medium-label">Serv.Pct.:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input id="serv_pkg" type="text" size="30" name="Serv_pkg" value="'.$data_form['PACKAGE_SERVICE'].'">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="executor" class="medium-label">Resp.:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="medium-label" id="executor" name="Executor">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                </div>
+                                <div class="row">
+                                </div>
+                                <div class="row">
+                                </div>
+                            </div>
+                            <div class="col-sm-6>
+                                <div class="row">
+                                </div>
+                                <div class="row">
+                                </div>
+                                <div class="row">
+                                </div>
+                                <div class="row">
+                                </div>
+                                <div class="row">
+                                </div>
+                                <div class="row">
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="id" class="medium-label">XXXXXXX</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="name" class="medium-label">Nome:</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="name" type="text" size="40" name="Name" value="'.$data_form['NAME'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="value" class="medium-label">Valor: &nbsp;</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="value" type="text" size="40" name="value" value="'.$data_form['VALUE'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="value" class="medium-label">Valor: &nbsp;</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="value" type="text" size="40" name="value" value="'.$data_form['VALUE'].'">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="type" class="medium-label">Tipo: &nbsp;</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="type" type="text" size="40" name="type" value="'.$data_form['TYPE'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="status" class="medium-label">Status: &nbsp;</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <select class="medium-label" id="status" name="Status">
+                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
+                                        <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
+                                    </select>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="comment" class="medium-label">Comentarios: &nbsp;</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    
+                                </div>
+                                <div class="col-sm-5">
+                                    
+                                </div>
+                            </div><br>';
+                            $sql_stm = null;
+                            unset_array($inputs);
+                            $data = null;
+                            $model = null;
+                            echo $output;
+            } else{
+                $sql_stm = null;
+                unset_array($inputs);
+                $data = null;
+                $model = null;
+                show("No record to display!");
+            }
+
+        }
+
+    }
+
 }

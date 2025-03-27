@@ -55,6 +55,12 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <!-- Mask JS-->
         <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
 
+        <!-- Load Update Form JS-->
+        <script src="<?php echo ROOT;?>/assets/js/load_orderitem_form.js"></script>
+
+        <!-- Breed JS-->
+        <script src="<?php echo ROOT;?>/assets/js/selectors_order_item.js"></script>
+
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
         

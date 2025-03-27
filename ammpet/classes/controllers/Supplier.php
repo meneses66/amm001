@@ -433,7 +433,6 @@ class Supplier {
                 }
                 $output .= '</tbody>';
                 $sql_stm = null;
-                unset_array($inputs);
                 $data = null;
                 $model = null;
 
@@ -441,7 +440,6 @@ class Supplier {
             }
             else{
                 $sql_stm = null;
-                unset_array($inputs);
                 $data = null;
                 $model = null;
 
@@ -449,5 +447,70 @@ class Supplier {
             }
         //}
     }
+
+    public function load_executor_options ($array){
+        
+        //GET LIST OF executo FROM Supplier TABLE
+        $model = new('\Model\\'.$this->UCF_object);
+        
+        $data_form_executor=$array['dfexecutor'];
+        $inputs['TYPE']="Funcionario";
+        $inputs['STATUS']="Ativo";
+        $inputs['ROLE1']="Tosador";
+        $inputs['ROLE2']="Veterinaria";
+
+        if($data_form_executor="----" || $data_form_executor="" || $data_form_executor=null){
+            $option_list = '<option class="medium-label" value="----" "selected">----</option>';
+        } else {
+            $option_list = '<option class="medium-label" value="----">----</option>';
+        }
+
+        $sql_stm = "SELECT * FROM SUPPLIER WHERE TYPE = :TYPE AND STATUS = :STATUS AND (ROLE = : ROLE1 OR ROLE = :ROLE2)";
+        
+        $options = $model->exec_sqlstm($sql_stm, $inputs);
+        if($options){
+            foreach ($options as $option) { 
+                $selected= ($data_form_executor == $option->NAME) ? "selected":"";
+                $option_list .= '<option class="medium-label" value="'.$option->NAME.'" '.$selected.'>'.$option->NAME.'</option>';
+            }
+        }
+        $sql_stm = null;
+        unset_array($inputs);
+        $data = null;
+        $options = null;
+        $model = null;
+        return $option_list;
+    
+    }
+
+    public function load_salesperson_options ($array){
+        
+        //GET LIST OF salesperson FROM Supplier TABLE
+        $model = new('\Model\\'.$this->UCF_object);
+        
+        $data_form_salesperson=$array['dfsalesperson'];
+        $inputs['TYPE']="Funcionario";
+        $inputs['STATUS']="Ativo";
+        $inputs['ROLE1']="Proprietario";
+        $inputs['ROLE2']="Recepcao";
+
+        $sql_stm = "SELECT * FROM SUPPLIER WHERE TYPE = :TYPE AND STATUS = :STATUS AND (ROLE = : ROLE1 OR ROLE = :ROLE2)";
+        
+        $options = $model->exec_sqlstm($sql_stm, $inputs);
+        if($options){
+            foreach ($options as $option) { 
+                $selected= ($data_form_salesperson == $option->NAME) ? "selected":"";
+                $option_list .= '<option class="medium-label" value="'.$option->NAME.'" '.$selected.'>'.$option->NAME.'</option>';
+            }
+        }
+        $sql_stm = null;
+        unset_array($inputs);
+        $data = null;
+        $options = null;
+        $model = null;
+        return $option_list;
+    
+    }
+
 
 }

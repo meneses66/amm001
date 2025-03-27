@@ -21,13 +21,8 @@ $GLOBALS['buttonenablerjs']='OrderItem';
         ?>
     </div>
     <div class="row">
-        <div class="col-lg-12">
-            <div class="table-responsive" id="_list_id">
-                <table id="_table" class="table Table-stripped table-sm table-bordered small">
-                    
-                </table>
-            </div>
-        </div>
+        $controller2 = new ('\Controller\\'."OrderItem");
+        $controller2->load_update_form();
     </div>
     
 </div>

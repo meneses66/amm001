@@ -59,8 +59,9 @@ class OrderItem {
     public $Total_Cash;
     public $Price_Pix;
     public $Total_Pix;
+    public $Prodserv_Code;
 
-    function __construct($id=null, $created=null, $created_by=null, $updated=null, $updated_by=null, $id_order=null, $id_prod_serv=null, $quantity=null, $unit_value=null, $discount_perc=null, $discount_value=null, $value_no_discount=null, $value_with_discount=null, $id_package=null, $id_package_animal=null, $prod_serv_type=null, $date=null, $item_description=null, $serv_executor=null, $package_amount=null, $package_consume=null, $package_sequence=null, $package_service=null, $prod_serv_category=null, $id_client=null, $blade=null, $prod_serv_group=null, $package_name=null, $salesperson=null, $flag_comission=null, $cost_center=null, $external_cost=null, $comission_percentage=null, $old_id=null, $flag_otite=null, $flag_olhos_verm=null, $flag_pulga=null, $flag_carrapato=null, $flag_dermatite=null, $flag_ferida=null, $flag_outro=null, $checklist_description=null, $adap_pata=null, $flag_contrario=null, $tosador=null, $price_cash=null, $total_cash=null, $price_pix=null, $total_pix=null )
+    function __construct($id=null, $created=null, $created_by=null, $updated=null, $updated_by=null, $id_order=null, $id_prod_serv=null, $quantity=null, $unit_value=null, $discount_perc=null, $discount_value=null, $value_no_discount=null, $value_with_discount=null, $id_package=null, $id_package_animal=null, $prod_serv_type=null, $date=null, $item_description=null, $serv_executor=null, $package_amount=null, $package_consume=null, $package_sequence=null, $package_service=null, $prod_serv_category=null, $id_client=null, $blade=null, $prod_serv_group=null, $package_name=null, $salesperson=null, $flag_comission=null, $cost_center=null, $external_cost=null, $comission_percentage=null, $old_id=null, $flag_otite=null, $flag_olhos_verm=null, $flag_pulga=null, $flag_carrapato=null, $flag_dermatite=null, $flag_ferida=null, $flag_outro=null, $checklist_description=null, $adap_pata=null, $flag_contrario=null, $tosador=null, $price_cash=null, $total_cash=null, $price_pix=null, $total_pix=null, $prodserv_code=null )
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
@@ -112,7 +113,7 @@ class OrderItem {
         $this -> Total_Cash = $total_cash;
         $this -> Price_Pix = $price_pix;
         $this -> Total_Pix = $total_pix;
-
+        $this -> Prodserv_Code = $prodserv_code;
 
     }
 

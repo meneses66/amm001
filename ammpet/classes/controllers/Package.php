@@ -69,4 +69,36 @@ class Params {
         }
     }
 
+    public function load_package_options ($array){
+        
+        //GET LIST OF BREEDS FROM BREED TABLE
+        $model = new('\Model\\'.$this->UCF_object);
+        
+        $data_form_package=$array['dfpackage'];
+        $inputs['ID_CLIENT']=$array['cli_id'];
+        $inputs['PACK_STATUS']="Aberto";
+
+        if($data_form_package="0" || $data_form_package="" || $data_form_package=null){
+            $option_list = '<option class="medium-label" value="0" "selected">Avulso</option>';
+        } else {
+            $option_list = '<option class="medium-label" value="0">Avulso</option>';
+        }
+        
+        $options = $model->listWhere($inputs);
+        if($options){
+            foreach ($options as $option) { 
+                $selected= ($data_form_breed == $option->ID) ? "selected":"";
+                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
+            }
+        }
+        $sql_stm = null;
+        unset_array($inputs);
+        $data = null;
+        $options = null;
+        $model = null;
+        return $option_list;
+    
+    }
+    
+
 }

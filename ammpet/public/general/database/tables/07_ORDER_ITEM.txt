@@ -19,6 +19,7 @@ Create Table ORDER_ITEM
     PROD_SERV_TYPE Varchar (20),
     DATE Date,
     ITEM_DESCRIPTION Varchar (50),
+    PRODSERV_CODE Varchar(15) NOT NULL,
     SERV_EXECUTOR Varchar (50),
     PACKAGE_AMOUNT INT,
     PACKAGE_CONSUME INT,
