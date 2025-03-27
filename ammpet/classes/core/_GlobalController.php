@@ -433,19 +433,19 @@ Trait _GlobalController{
                 switch ($this->UCF_object) {
                     case 'Animal':
                         $path2 = "Client/_cli_animal?cli_id=".$inputs['Id_client'];
-                        unset($inputs);
+                        unset_array($inputs);
                         double_redirect("Animal", $path2);
                         break;
                     
                     case 'Orderx':
                         $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client']."&order_id=".$new_id;
-                        unset($inputs);
+                        unset_array($inputs);
                         redirect("$view");
                         break;
                     
                     default:
                         $view = "$this->UCF_object/_list";
-                        unset($inputs);
+                        unset_array($inputs);
                         redirect("$view");
                         break;
                 }
@@ -606,13 +606,13 @@ Trait _GlobalController{
                 switch ($this->UCF_object) {
                     case 'Animal':
                         $path2 = "Client/_cli_animal?cli_id=".$inputs['Id_client'];
-                        unset($inputs);
+                        unset_array($inputs);
                         double_redirect("Animal", $path2);
                         break;
                     
                     default:
                         $view = "$this->UCF_object/_list";
-                        unset($inputs);
+                        unset_array($inputs);
                         redirect("$view");
                         break;
                 }
@@ -634,7 +634,7 @@ Trait _GlobalController{
         if(isset($inputs["del_id"])){
 
             $id = $inputs["del_id"];
-            unset($inputs);
+            unset_array($inputs);
             try {
                 $model->delete($id);
             } catch (\Throwable $th) {

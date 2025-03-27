@@ -298,14 +298,14 @@ class Product {
                                 </div>
                             </div><br>';
                             $sql_stm = null;
-                            unset($inputs);
+                            unset_array($inputs);
                             $data = null;
                             $model = null;
             
                             echo $output;
             } else{
                 $sql_stm = null;
-                unset($inputs);
+                unset_array($inputs);
                 $data = null;
                 $model = null;
 
@@ -358,14 +358,14 @@ class Product {
                                 </div>
                             </div>';
                             $sql_stm = null;
-                            unset($inputs);
+                            unset_array($inputs);
                             $data = null;
                             $model = null;
             
                             echo $output;
             } else{
                 $sql_stm = null;
-                unset($inputs);
+                unset_array($inputs);
                 $data = null;
                 $model = null;
 
@@ -417,7 +417,7 @@ class Product {
             }
             $output .= '</tbody>';
             $sql_stm = null;
-            unset($inputs);
+            unset_array($inputs);
             $data = null;
             $model = null;
 
@@ -425,7 +425,7 @@ class Product {
         }
         else{
             $sql_stm = null;
-            unset($inputs);
+            unset_array($inputs);
             $data = null;
             $model = null;
 

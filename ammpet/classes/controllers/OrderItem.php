@@ -167,13 +167,13 @@ class OrderItem {
                                     </div>
                                 </div>';
                                 echo $output;
-                                unset($inputs);
+                                unset_array($inputs);
                                 $model = null;
                                 $data = null;
                                 $sql_stm = null;
                    }
             } else{
-                unset($inputs);
+                unset_array($inputs);
                 $model = null;
                 $data = null;
                 $sql_stm = null;

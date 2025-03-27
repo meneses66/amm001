@@ -121,13 +121,13 @@ class Breed {
                                 </div>
                             </div>';
                             $sql_stm = null;
-                            unset($inputs);
+                            unset_array($inputs);
                             $data = null;
                             $model = null;
                             echo $output;
             } else{
                 $sql_stm = null;
-                unset($inputs);
+                unset_array($inputs);
                 $data = null;
                 $model = null;
                 show("No record to display!");
@@ -179,13 +179,13 @@ class Breed {
                                 </div>
                             </div>';
                             $sql_stm = null;
-                            unset($inputs);
+                            unset_array($inputs);
                             $data = null;
                             $model = null;
                             echo $output;
             } else{
                 $sql_stm = null;
-                unset($inputs);
+                unset_array($inputs);
                 $data = null;
                 $model = null;
                 show("No record to display!");
@@ -226,14 +226,14 @@ class Breed {
             }
             $output .= '</tbody>';
             $sql_stm = null;
-            unset($inputs);
+            unset_array($inputs);
             $data = null;
             $model = null;
             echo $output;
         }
         else{
             $sql_stm = null;
-            unset($inputs);
+            unset_array($inputs);
             $data = null;
             $model = null;
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
@@ -266,7 +266,7 @@ class Breed {
                 }
             }
             $sql_stm = null;
-            unset($inputs);
+            unset_array($inputs);
             $data = null;
             $options = null;
             $model = null;

@@ -222,3 +222,9 @@ function json_decode2($valor){
         $search  = array("\0","\r","\x1a","\t");
         return trim(str_replace($search,'',$val));
     }
+
+    function unset_array($array){
+        foreach ($array as $key => $value) {
+            unset($array[$key]);
+        }
+    }

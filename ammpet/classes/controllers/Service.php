@@ -353,14 +353,14 @@ class Service {
                                 </div>
                             </div><br>';
                             $sql_stm = null;
-                            unset($inputs);
+                            unset_array($inputs);
                             $data = null;
                             $model = null;
             
                             echo $output;
             } else{
                 $sql_stm = null;
-                unset($inputs);
+                unset_array($inputs);
                 $data = null;
                 $model = null;
 
@@ -413,14 +413,14 @@ class Service {
                                 </div>
                             </div>';
                             $sql_stm = null;
-                            unset($inputs);
+                            unset_array($inputs);
                             $data = null;
                             $model = null;
             
                             echo $output;
             } else{
                 $sql_stm = null;
-                unset($inputs);
+                unset_array($inputs);
                 $data = null;
                 $model = null;
 
@@ -490,7 +490,7 @@ class Service {
             }
             $output .= '</tbody>';
             $sql_stm = null;
-            unset($inputs);
+            unset_array($inputs);
             $data = null;
             $model = null;
 
@@ -498,7 +498,7 @@ class Service {
         }
         else{
             $sql_stm = null;
-            unset($inputs);
+            unset_array($inputs);
             $data = null;
             $model = null;
 
