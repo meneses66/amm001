@@ -83,14 +83,14 @@ class Orderx
             }
             $output .= '</tbody>';
             $sql_stm = null;
-            $inputs[]=null;
+            unset($inputs);
             $data = null;
             $model = null;
             echo $output;
         }
         else{
             $sql_stm = null;
-            $inputs[]=null;
+            unset($inputs);
             $data = null;
             $model = null;
             echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
@@ -196,14 +196,14 @@ class Orderx
                                     </div>
                                 </div>';
                                 $sql_stm = null;
-                                $inputs[]=null;
+                                unset($inputs);
                                 $data = null;
                                 $model = null;
                                 echo $output;
                    }
             } else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
                 show("No record to display!");
@@ -254,14 +254,14 @@ class Orderx
                                </tr>';
                 }
                 $output .= '</tbody>';
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
                 echo $output;
             }
             else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
                 echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
@@ -305,14 +305,14 @@ class Orderx
                 }
                 $output .= '</tbody>';
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
                 echo $output;
             }
             else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
                 echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
@@ -375,7 +375,7 @@ class Orderx
                 }
                 $output .= '</tbody>';
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $animal = null;
                 $animal_name=null;
@@ -386,7 +386,7 @@ class Orderx
             }
             else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $animal = null;
                 $animal_name=null;

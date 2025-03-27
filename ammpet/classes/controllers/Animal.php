@@ -286,13 +286,13 @@ class Animal {
                                     </div>
                                 </div>';
                                 $sql_stm = null;
-                                $inputs[]=null;
+                                unset($inputs);
                                 $data = null;
                                 $model = null;
                                 echo $output;
             } else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
                 show("No record to display!");
@@ -344,13 +344,13 @@ class Animal {
                                 </div>
                             </div>';
                             $sql_stm = null;
-                            $inputs[]=null;
+                            unset($inputs);
                             $data = null;
                             $model = null;
                             echo $output;
             } else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
                 show("No record to display!");
@@ -430,7 +430,7 @@ class Animal {
                     }
                     $output .= '</tbody><br>';
                     $sql_stm = null;
-                    $inputs[]=null;
+                    unset($inputs);
                     $data = null;
                     $client_data = null;
                     $client = null;
@@ -440,7 +440,7 @@ class Animal {
                 else{
                     $output_no_lines = '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3><br><br>';
                     $sql_stm = null;
-                    $inputs[]=null;
+                    unset($inputs);
                     $data = null;
                     $client_data = null;
                     $client = null;
@@ -493,13 +493,13 @@ class Animal {
                                 </div>
                             </div>';
                             $sql_stm = null;
-                            $inputs[]=null;
+                            unset($inputs);
                             $data = null;
                             $model = null;
                             echo $output;
             } else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
                 show("No record to display!");

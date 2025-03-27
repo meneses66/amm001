@@ -294,7 +294,7 @@ Trait _GlobalController{
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
                 $inputs['Quantity']="1";
-                unset($inputs["Order_Date"]);
+
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
@@ -433,19 +433,19 @@ Trait _GlobalController{
                 switch ($this->UCF_object) {
                     case 'Animal':
                         $path2 = "Client/_cli_animal?cli_id=".$inputs['Id_client'];
-                        $inputs[]=null;
+                        unset($inputs);
                         double_redirect("Animal", $path2);
                         break;
                     
                     case 'Orderx':
                         $view = "$this->UCF_object/_details?cli_id=".$inputs['Id_client']."&order_id=".$new_id;
-                        $inputs[]=null;
+                        unset($inputs);
                         redirect("$view");
                         break;
                     
                     default:
                         $view = "$this->UCF_object/_list";
-                        $inputs[]=null;
+                        unset($inputs);
                         redirect("$view");
                         break;
                 }
@@ -606,13 +606,13 @@ Trait _GlobalController{
                 switch ($this->UCF_object) {
                     case 'Animal':
                         $path2 = "Client/_cli_animal?cli_id=".$inputs['Id_client'];
-                        $inputs[]=null;
+                        unset($inputs);
                         double_redirect("Animal", $path2);
                         break;
                     
                     default:
                         $view = "$this->UCF_object/_list";
-                        $inputs[]=null;
+                        unset($inputs);
                         redirect("$view");
                         break;
                 }
@@ -634,7 +634,7 @@ Trait _GlobalController{
         if(isset($inputs["del_id"])){
 
             $id = $inputs["del_id"];
-            $inputs[]=null;
+            unset($inputs);
             try {
                 $model->delete($id);
             } catch (\Throwable $th) {

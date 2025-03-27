@@ -255,14 +255,14 @@ class Supplier {
                                 <input id="permission_el" type="hidden" name="Permissions" value="'.$data_form['PERMISSIONS'].'">
                             </div>';
                             $sql_stm = null;
-                            $inputs[]=null;
+                            unset($inputs);
                             $data = null;
                             $model = null;
             
                             echo $output;
             } else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
 
@@ -371,14 +371,14 @@ class Supplier {
                                 </div>
                             </div>';
                             $sql_stm = null;
-                            $inputs[]=null;
+                            unset($inputs);
                             $data = null;
                             $model = null;
             
                             echo $output;
             } else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
 
@@ -433,7 +433,7 @@ class Supplier {
                 }
                 $output .= '</tbody>';
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
 
@@ -441,7 +441,7 @@ class Supplier {
             }
             else{
                 $sql_stm = null;
-                $inputs[]=null;
+                unset($inputs);
                 $data = null;
                 $model = null;
 
