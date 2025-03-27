@@ -189,7 +189,7 @@ Trait _GlobalController{
             //$service = preg_replace('/[[:cntrl:]]/', '', $service);
             //$service = preg_replace( "/\p{Cc}*$/u", '', $service);
             //$service = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $service);
-            $service = str_replace('&apos;', '"', $service);
+            $service = str_replace("'", '"', $service);
             $service = iconv('UTF-8', 'UTF-8',$service);
 
             echo var_dump($service);
