@@ -441,11 +441,11 @@ class Service {
                         <tbody>';
             foreach ($data as $row) {
                 
-                $array=null;
-                foreach ($data as $key => $value) {
-                    $row_array[$key]=$value;
+                $full_array=null;
+                foreach ($row as $key => $value) {
+                    $full_array .= $row_array[$key]=$value;
                 }
-                $array = serialize($row_array);
+                $array = serialize($full_array);
                 
                 /*
                 $array = trim($array,",");
