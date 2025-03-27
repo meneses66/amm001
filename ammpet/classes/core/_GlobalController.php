@@ -161,18 +161,38 @@ Trait _GlobalController{
         $this->goto_view($operation);
     }
 
+    //GOES TO SCREEN TO SELECT SERVICE SO IT CAN BE INSERTED:
     public function _new_service(){
         
         if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
-            $path2 = "OrderItem/_new?cli_id=".$cli_id."&order_id=".$order_id;
-            double_redirect("Orderx",$path2);
+            $path2 = "OrderItem/_addService?cli_id=".$cli_id."&order_id=".$order_id;
+            double_redirect("Orderx", $path2);
         } else{
             echo "Issue to return Cli_Id.";
         }
     }
 
+    public function _addService(){
+        $operation = 'goto_addService';
+        $this->goto_view($operation);
+    }
+
+    public function _update_service(){
+        
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id']) AND isset($_GET['item_id'])){
+            $cli_id = $_GET['cli_id'];
+            $order_id = $_GET['order_id'];
+            $item_id = $_GET['item_id'];
+            $path = "OrderItem/_update?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$item_id;
+            redirect($path);
+        } else{
+            echo "Issue to return Cli_Id.";
+        }
+    }
+
+    //GET POST DATA AND CALL INSERT CALL TO ADD SERVICE INTO DATABASE
     public function _insert_service(){
         
         if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
@@ -278,6 +298,22 @@ Trait _GlobalController{
                 $this->view($view);
             break;
 
+            case 'goto_addService':
+                $view="$this->object/$this->object-addService";
+                $this->view($view);
+            break;
+
+            case 'goto_addProduct':
+                $view="$this->object/$this->object-addProduct";
+                $this->view($view);
+            break;
+
+            case 'goto_addPayment':
+                $view="$this->object/$this->object-addPayment";
+                $this->view($view);
+            break;
+
+
         }
     }
 
@@ -309,6 +345,8 @@ Trait _GlobalController{
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
                 $inputs['Quantity']="1";
+                $cli_id = $_GET['cli_id'];
+                $order_id = $_GET['order_id'];
                 unset($inputs["Order_Date"]);
                 unset($inputs["Status"]);
 
@@ -459,6 +497,12 @@ Trait _GlobalController{
                         unset_array($inputs);
                         redirect("$view");
                         break;
+
+                        case 'OrderItem':
+                            $view = "$this->UCF_object/_new_service?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
+                            unset_array($inputs);
+                            redirect("$view");
+                            break;
                     
                     default:
                         $view = "$this->UCF_object/_list";
