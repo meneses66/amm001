@@ -441,7 +441,7 @@ class Service {
                         <tbody>';
             foreach ($data as $row) {
                 
-                $full_array=null;
+                $array=null;
                 foreach ($row as $key => $value) {
                     $array .= $row_array[$key]=$value;
                 }
