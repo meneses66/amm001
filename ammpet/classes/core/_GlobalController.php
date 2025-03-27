@@ -276,7 +276,7 @@ Trait _GlobalController{
             $model = new('\Model\\'.$this->UCF_object);
 
             //Define inputs for DB operations:
-            $inputs=null;
+            $inputs[]=null;
             foreach ($_POST as $key => $value) {
                 //echo $key.": ".$value."<br>";
                 $inputs[$key]=$value;    
