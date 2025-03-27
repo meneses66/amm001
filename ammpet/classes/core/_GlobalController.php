@@ -203,7 +203,7 @@ Trait _GlobalController{
             $_POST['method']="insert_call";
             $_POST['Id_Client']=$cli_id;
             $_POST['Id_Order']=$order_id;
-            $_POST['Id_Prod_Serv']=$service_array->ID;
+            $_POST['Id_Prod_Serv']=$service_array["ID"];
 
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();
@@ -288,6 +288,13 @@ Trait _GlobalController{
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Order_Date']=date("Y-m-d");
                 $inputs['Status']="Aberto";
+            }
+
+            if($inputs['class']="OrderItem" AND isset($_GET['order_id'])){
+                $inputs['Created_by']=$_SESSION['username'];
+                $inputs['Updated_by']=$_SESSION['username'];
+                $inputs['Date']=date("Y-m-d");
+                $inputs['Quantity']="1";
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
