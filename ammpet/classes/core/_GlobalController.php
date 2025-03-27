@@ -180,13 +180,14 @@ Trait _GlobalController{
             $order_id = $_GET['order_id'];
             $service = $_GET['service'];
             echo var_dump($service);
-            //$service_array = explode('¡', $service);
+            $service_array = explode(';', $service);
+            echo var_dump($service_array);
             $service = preg_replace('/[[:cntrl:]]/', '', $service);
             $service = preg_replace( "/\p{Cc}*$/u", '', $service);
             $service = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $service);
             //$json_array = json_decode($json, true);
             //echo (var_dump($json_array));
-            $service_array = json_decode(trim($service), true);
+            //$service_array = json_decode(trim($service), true);
             //$service_array  = unserialize($service);
             echo var_dump($service_array);
             $_SERVER['REQUEST_METHOD'] = 'POST';
