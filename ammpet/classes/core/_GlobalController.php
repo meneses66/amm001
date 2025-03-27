@@ -42,8 +42,10 @@ Trait _GlobalController{
 
     //Sends to page to create NEW Params
     public function _new(){
-        $operation = 'goto_new';
-        $this->goto_view($operation);
+        //$operation = 'goto_new';
+        //$this->goto_view($operation);
+        $view="$this->object/$this->object-new";
+        $this->view($view);
     }
 
     //Sends to LIST View
@@ -197,67 +199,16 @@ Trait _GlobalController{
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
             $item_id = $_GET['item_id'];
-            $path = "OrderItem/_update?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$item_id;
+            $path = "OrderItem/_updateService?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$item_id;
             redirect($path);
         } else{
             echo "Issue to return Cli_Id.";
         }
     }
 
-    //GET POST DATA AND CALL INSERT CALL TO ADD SERVICE INTO DATABASE
-    public function _insert_service(){
-        
-        if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
-            $cli_id = $_GET['cli_id'];
-            $order_id = $_GET['order_id'];
-            $service = $_GET['service'];
-            $service = stripslashes(trim($service));
-
-            //$service_array = explode(';', $service);
-            //echo var_dump($service_array);
-            //$service = utf8_encode($service);
-
-            $service = cleanString($service);
-            //$service = preg_replace('/[[:cntrl:]]/', '', $service);
-            //$service = preg_replace( "/\p{Cc}*$/u", '', $service);
-            //$service = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $service);
-            $service = str_replace("'", '"', $service);
-            $service = iconv('UTF-8', 'UTF-8',$service);
-
-            echo var_dump($service);
-            //$json_array = json_decode($json, true);
-            //echo (var_dump($json_array));
-            $service_array = json_decode2(html_entity_decode($service), true);
-            //$service_array  = unserialize($service);
-            echo var_dump($service_array);
-            $_SERVER['REQUEST_METHOD'] = 'POST';
-            $_POST['class']="OrderItem";
-            $_POST['method']="insert_call";
-            $_POST['Id_Client']=$cli_id;
-            $_POST['Id_Order']=$order_id;
-            $_POST['Id_Prod_Serv']=$service_array->ID;
-
-            $_POST['Unit_Value']=$service_array->PRICE;
-            $_POST['Value_No_Discount']=$service_array->PRICE;
-            $_POST['Value_With_Discount']=$service_array->PRICE;
-            $_POST['Prod_Serv_Type']=$service_array->TYPE;
-            $_POST['Flag_Comission']=$service_array->COMISSION_FLG;
-            $_POST['External_Cost']=$service_array->EXTERNAL_COST;
-            $_POST['Comission_Percentage']=$service_array->COMISSION_PERCENTAGE;
-            $_POST['Cost_Center']=$service_array->CENTER;
-            $_POST['Prod_Serv_Category']=$service_array->CATEGORY;
-            $_POST['Item_Description']=$service_array->NAME;
-            $_POST['Price_Cash']=$service_array->PRICE_CASH;
-            $_POST['Total_Cash']=$service_array->PRICE_CASH;
-            $_POST['Price_Pix']=$service_array->PRICE_PIX;
-            $_POST['Total_Pix']=$service_array->PRICE_PIX;
-
-            $ajax_call = new('\Controller\\'."Ajax_call");
-            $ajax_call->index();
-            
-        } else{
-            echo "Issue to return Cli_Id and Order_id.";
-        }
+    public function _updateService(){
+        $operation = 'goto_updateService';
+        $this->goto_view($operation);
     }
 
     //Defines view to go to
@@ -315,6 +266,11 @@ Trait _GlobalController{
                 $this->view($view);
             break;
 
+            case 'goto_updateService':
+                $view="$this->object/$this->object-updateService";
+                $this->view($view);
+            break;
+
             case 'goto_addProduct':
                 $view="$this->object/$this->object-addProduct";
                 $this->view($view);
@@ -324,7 +280,6 @@ Trait _GlobalController{
                 $view="$this->object/$this->object-addPayment";
                 $this->view($view);
             break;
-
 
         }
     }
@@ -510,11 +465,11 @@ Trait _GlobalController{
                         redirect("$view");
                         break;
 
-                        case 'OrderItem':
-                            $view = "$this->UCF_object/_new_service?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
-                            unset_array($inputs);
-                            redirect("$view");
-                            break;
+                    case 'OrderItem':
+                        $view = "$this->UCF_object/_update_service?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
+                        unset_array($inputs);
+                        redirect("$view");
+                        break;
                     
                     default:
                         $view = "$this->UCF_object/_list";
@@ -719,6 +674,62 @@ Trait _GlobalController{
             die("Record Id not informed.");
         }
         
+    }
+
+    //GET POST DATA AND CALL INSERT CALL TO ADD SERVICE INTO DATABASE
+    public function _insert_service(){
+        
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
+            $cli_id = $_GET['cli_id'];
+            $order_id = $_GET['order_id'];
+            $service = $_GET['service'];
+            $service = stripslashes(trim($service));
+
+            //$service_array = explode(';', $service);
+            //echo var_dump($service_array);
+            //$service = utf8_encode($service);
+
+            $service = cleanString($service);
+            //$service = preg_replace('/[[:cntrl:]]/', '', $service);
+            //$service = preg_replace( "/\p{Cc}*$/u", '', $service);
+            //$service = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $service);
+            $service = str_replace("'", '"', $service);
+            $service = iconv('UTF-8', 'UTF-8',$service);
+
+            echo var_dump($service);
+            //$json_array = json_decode($json, true);
+            //echo (var_dump($json_array));
+            $service_array = json_decode2(html_entity_decode($service), true);
+            //$service_array  = unserialize($service);
+            echo var_dump($service_array);
+            $_SERVER['REQUEST_METHOD'] = 'POST';
+            $_POST['class']="OrderItem";
+            $_POST['method']="insert_call";
+            $_POST['Id_Client']=$cli_id;
+            $_POST['Id_Order']=$order_id;
+            $_POST['Id_Prod_Serv']=$service_array->ID;
+
+            $_POST['Unit_Value']=$service_array->PRICE;
+            $_POST['Value_No_Discount']=$service_array->PRICE;
+            $_POST['Value_With_Discount']=$service_array->PRICE;
+            $_POST['Prod_Serv_Type']=$service_array->TYPE;
+            $_POST['Flag_Comission']=$service_array->COMISSION_FLG;
+            $_POST['External_Cost']=$service_array->EXTERNAL_COST;
+            $_POST['Comission_Percentage']=$service_array->COMISSION_PERCENTAGE;
+            $_POST['Cost_Center']=$service_array->CENTER;
+            $_POST['Prod_Serv_Category']=$service_array->CATEGORY;
+            $_POST['Item_Description']=$service_array->NAME;
+            $_POST['Price_Cash']=$service_array->PRICE_CASH;
+            $_POST['Total_Cash']=$service_array->PRICE_CASH;
+            $_POST['Price_Pix']=$service_array->PRICE_PIX;
+            $_POST['Total_Pix']=$service_array->PRICE_PIX;
+
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+            
+        } else{
+            echo "Issue to return Cli_Id and Order_id.";
+        }
     }
 
 }
