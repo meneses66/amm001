@@ -443,9 +443,9 @@ class Service {
                 
                 $full_array=null;
                 foreach ($row as $key => $value) {
-                    $full_array .= $row_array[$key]=$value;
+                    $array .= $row_array[$key]=$value;
                 }
-                $array = serialize($full_array);
+                //$array = serialize($full_array);
                 
                 /*
                 $array = trim($array,",");
