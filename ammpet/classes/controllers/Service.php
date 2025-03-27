@@ -443,7 +443,8 @@ class Service {
                 
                 $array=null;
                 foreach ($row as $key => $value) {
-                    $array .= "\"\"".$key."\"\"=\"\"".$value."\"\"";
+                    //$array .= "\"".$key."\"=\"".$value."\"";
+                    $array = addslashes($key).":".addslashes($value);
                 }
                 //$array = serialize($full_array);
                 
