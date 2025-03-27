@@ -224,7 +224,12 @@ function json_decode2($valor){
     }
 
     function unset_array($array){
-        foreach ($array as $key => $value) {
-            unset($array[$key]);
+
+        if(is_array($array)){
+            foreach ($array as $key => $value) {
+                unset($array[$key]);
+            }
+        } else {
+            unset($array);
         }
     }
