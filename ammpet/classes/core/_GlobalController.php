@@ -205,6 +205,21 @@ Trait _GlobalController{
             $_POST['Id_Order']=$order_id;
             $_POST['Id_Prod_Serv']=$service_array->ID;
 
+            $_POST['Unit_Value']=$service_array->PRICE;
+            $_POST['Value_No_Discount']=$service_array->PRICE;
+            $_POST['Value_With_Discount']=$service_array->PRICE;
+            $_POST['Prod_Serv_Type']=$service_array->TYPE;
+            $_POST['Flag_Comission']=$service_array->COMISSION_FLG;
+            $_POST['External_Cost']=$service_array->EXTERNAL_COST;
+            $_POST['Comission_Percentage']=$service_array->COMISSION_PERCENTAGE;
+            $_POST['Cost_Center']=$service_array->CENTER;
+            $_POST['Prod_Serv_Category']=$service_array->CATEGORY;
+            $_POST['Item_Description']=$service_array->NAME;
+            $_POST['Price_Cash']=$service_array->PRICE_CASH;
+            $_POST['Total_Cash']=$service_array->PRICE_CASH;
+            $_POST['Price_Pix']=$service_array->PRICE_PIX;
+            $_POST['Total_Pix']=$service_array->PRICE_PIX;
+
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();
             
