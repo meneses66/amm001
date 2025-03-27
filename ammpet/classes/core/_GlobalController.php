@@ -294,6 +294,7 @@ Trait _GlobalController{
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
                 $inputs['Quantity']="1";
+                unset($inputs["Order_Date"]);
             }
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
