@@ -181,3 +181,25 @@ function return_param_value ($type, $name, $status){
     }
     return $param_value;
 }
+
+function json_decode2($valor){
+    $json = json_decode($valor);
+    
+    switch (json_last_error()) {
+        case JSON_ERROR_NONE:
+            return $json;
+        case JSON_ERROR_DEPTH:
+            return 'A profundidade máxima da pilha foi excedida';
+        case JSON_ERROR_STATE_MISMATCH:
+            return 'JSON inválido ou mal formado';
+        case JSON_ERROR_CTRL_CHAR:
+            return 'Erro de caractere de controle, possivelmente codificado incorretamente';
+        case JSON_ERROR_SYNTAX:
+            return 'Erro de sintaxe';
+        case JSON_ERROR_UTF8:  // O seu caso!
+            $json = iconv('UTF-8', 'UTF-8//IGNORE', utf8_encode($valor));
+            return json_encode($json);
+        default:
+            return 'Erro desconhecido';
+        }   
+    }

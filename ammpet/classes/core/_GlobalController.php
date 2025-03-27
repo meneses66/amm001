@@ -181,14 +181,14 @@ Trait _GlobalController{
             $service = $_GET['service'];
             //$service_array = explode(';', $service);
             //echo var_dump($service_array);
-            $service = utf8_encode($service);
+            //$service = utf8_encode($service);
             //$service = preg_replace('/[[:cntrl:]]/', '', $service);
             //$service = preg_replace( "/\p{Cc}*$/u", '', $service);
             //$service = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $service);
             echo var_dump($service);
             //$json_array = json_decode($json, true);
             //echo (var_dump($json_array));
-            $service_array = json_decode(trim($service), true);
+            $service_array = json_decode2(trim($service), true);
             //$service_array  = unserialize($service);
             echo var_dump($service_array);
             $_SERVER['REQUEST_METHOD'] = 'POST';
