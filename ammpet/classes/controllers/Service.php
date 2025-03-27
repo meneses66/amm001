@@ -442,7 +442,7 @@ class Service {
             foreach ($data as $row) {
                 
                 $array=null;
-                foreach ($row as $key => $value) {
+                foreach ($data as $key => $value) {
                     $row_array[$key]=$value;
                 }
                 $array = serialize($row_array);
