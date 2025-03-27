@@ -179,6 +179,8 @@ Trait _GlobalController{
             $cli_id = $_GET['cli_id'];
             $order_id = $_GET['order_id'];
             $service = $_GET['service'];
+            $service = stripslashes(trim($service));
+
             //$service_array = explode(';', $service);
             //echo var_dump($service_array);
             //$service = utf8_encode($service);
@@ -188,7 +190,7 @@ Trait _GlobalController{
             echo var_dump($service);
             //$json_array = json_decode($json, true);
             //echo (var_dump($json_array));
-            $service_array = json_decode2(trim($service), true);
+            $service_array = json_decode2(html_entity_decode($service), true);
             //$service_array  = unserialize($service);
             echo var_dump($service_array);
             $_SERVER['REQUEST_METHOD'] = 'POST';
