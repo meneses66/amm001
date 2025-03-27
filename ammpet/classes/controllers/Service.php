@@ -444,12 +444,12 @@ class Service {
                 $array=null;
                 foreach ($row as $key => $value) {
                     //$array .= "\"".$key."\"=\"".$value."\"";
-                    $array .= "'".$key."':'".$value."'";
+                    $array .= "'".$key."':'".$value."';";
                 }
-                //$array = serialize($full_array);
+                $array = trim($array,";");
                 
                 /*
-                $array = trim($array,",");
+                //$array = serialize($full_array);
                 //$string_array = implode('¡', $array);
                 */
 
