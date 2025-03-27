@@ -352,10 +352,14 @@ class Orderx
                     $service = null;
 
                     //GET PACKAGE ANIMAL DETAILS
-                    $animal_input['ID']= $row->ID_PACKAGE_ANIMAL;
-                    $animal = new('\Model\\'."Animal");
-                    $animal_name = $animal->getRow($animal_input)->NAME;
-                    $animal = null;
+                    if(is_null($row->ID_PACKAGE_ANIMAL) || $row->ID_PACKAGE_ANIMAL==""){
+                        $animal_name="";    
+                    } else{
+                        $animal_input['ID']= $row->ID_PACKAGE_ANIMAL;
+                        $animal = new('\Model\\'."Animal");
+                        $animal_name = $animal->getRow($animal_input)->NAME;
+                        $animal = null;
+                    }
 
                     $output .='<tr class="text-center text-secondary">
                                 <td>'.$service_code.'</td>
