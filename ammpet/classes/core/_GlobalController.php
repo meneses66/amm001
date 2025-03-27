@@ -184,9 +184,9 @@ Trait _GlobalController{
             //$service_array = explode(';', $service);
             //echo var_dump($service_array);
             //$service = utf8_encode($service);
-            //$service = preg_replace('/[[:cntrl:]]/', '', $service);
-            //$service = preg_replace( "/\p{Cc}*$/u", '', $service);
-            //$service = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $service);
+            $service = preg_replace('/[[:cntrl:]]/', '', $service);
+            $service = preg_replace( "/\p{Cc}*$/u", '', $service);
+            $service = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $service);
             echo var_dump($service);
             //$json_array = json_decode($json, true);
             //echo (var_dump($json_array));
