@@ -55,9 +55,15 @@ class OrderItem {
                             </td></tr>';
             }
             $output .= '</tbody>';
+            $model = null;
+            $data = null;
+
             echo $output;
         }
         else{
+            $model = null;
+            $data = null;
+
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
         }
     }
@@ -161,8 +167,17 @@ class OrderItem {
                                     </div>
                                 </div>';
                                 echo $output;
+                                $inputs[]=null;
+                                $model = null;
+                                $data = null;
+                                $sql_stm = null;
                    }
             } else{
+                $inputs[]=null;
+                $model = null;
+                $data = null;
+                $sql_stm = null;
+
                 show("No record to display!");
             }
 
