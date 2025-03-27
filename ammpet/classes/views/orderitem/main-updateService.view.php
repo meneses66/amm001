@@ -11,7 +11,7 @@ $GLOBALS['buttonenablerjs']='OrderItem';
             <h4>Selecionar Serviço</h4>
         </div>
         <div class="col-sm-6">
-                <a href="<?php echo ROOT."/Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                <a href="<?php echo ROOT."/OrderItem/_back_order?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
         </div>
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">

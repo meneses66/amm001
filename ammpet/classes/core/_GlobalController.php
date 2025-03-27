@@ -126,6 +126,18 @@ Trait _GlobalController{
 
     //SESSION FOR ORDERX:
 
+    public function _back_order(){
+        
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
+            $cli_id = $_GET['cli_id'];
+            $order_id = $_GET['order_id'];
+            $path2 = "Orderx/_details?cli_id=".$cli_id."&order_id=".$order_id;
+            double_redirect("OrderItem",$path2);
+        } else{
+            echo "Issue to return Cli_Id.";
+        }
+    }
+
     public function _new_order(){
         
         if (isset($_GET['cli_id'])){
