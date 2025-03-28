@@ -467,7 +467,7 @@ class Supplier {
             $option_list = '<option class="medium-label" value="----">----</option>';
         }
 
-        $sql_stm = "SELECT * FROM SUPPLIER WHERE TYPE = :TYPE AND STATUS = :STATUS AND (ROLE = : ROLE1 OR ROLE = :ROLE2)";
+        $sql_stm = "SELECT * FROM SUPPLIER WHERE TYPE=:TYPE AND STATUS=:STATUS AND (ROLE=:ROLE1 OR ROLE=:ROLE2)";
         
         $options = $model->exec_sqlstm($sql_stm, $inputs);
         if($options){
@@ -496,7 +496,7 @@ class Supplier {
         $inputs['ROLE1']="Proprietario";
         $inputs['ROLE2']="Recepcao";
 
-        $sql_stm = "SELECT * FROM SUPPLIER WHERE TYPE = :TYPE AND STATUS = :STATUS AND (ROLE = : ROLE1 OR ROLE = :ROLE2)";
+        $sql_stm = "SELECT * FROM SUPPLIER WHERE TYPE=:TYPE AND STATUS=:STATUS AND (ROLE=:ROLE1 OR ROLE=:ROLE2)";
         
         $options = $model->exec_sqlstm($sql_stm, $inputs);
         if($options){
