@@ -1,6 +1,8 @@
 <?php 
 $GLOBALS['classnamejs']='Client';
 $GLOBALS['buttonenablerjs']='Orderx';
+$GLOBALS['cli_id_js']='';
+$GLOBALS['order_id_js']='';
 ?>
 <!-- <link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/styles.css"> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">

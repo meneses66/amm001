@@ -1,5 +1,6 @@
 <?php 
 if((time()-$_SESSION['LAST_ACTIVE'])>TIMEOUT){
+    end_session();
     redirect("Login/_logout");
     die;
 }

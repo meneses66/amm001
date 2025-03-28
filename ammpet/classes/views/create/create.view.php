@@ -1,4 +1,10 @@
-<?php $_SESSION['LAST_ACTIVE']=time();?>
+<?php 
+if((time()-$_SESSION['LAST_ACTIVE'])>TIMEOUT){
+    end_session();
+    redirect("Login/_logout");
+    die;
+}
+$_SESSION['LAST_ACTIVE']=time();?>
 <!DOCTYPE html>
 <html lang="en">
     <head>

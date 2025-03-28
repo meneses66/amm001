@@ -100,6 +100,12 @@ function my_session_start() {
     }
 }
 
+function end_session(){
+    unset($_SESSION);
+    session_unset();
+    session_destroy();
+}
+
 // My session regenerate id function
 function my_session_regenerate_id() {
     // Call session_create_id() while session is active to 

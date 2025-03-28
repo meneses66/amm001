@@ -1,6 +1,8 @@
 <?php 
     $GLOBALS['classnamejs']='Service';
     $GLOBALS['buttonenablerjs']='Service';
+    $GLOBALS['cli_id_js']='';
+    $GLOBALS['order_id_js']='';
 ?>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
