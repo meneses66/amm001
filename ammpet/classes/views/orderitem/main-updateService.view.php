@@ -20,7 +20,7 @@ $GLOBALS['buttonenablerjs']='OrderItem';
             $controller1->load_parent_form();
         ?>
     </div>
-    <div class="row">
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <?php
             $controller2 = new ('\Controller\\'."OrderItem");
             $controller2->load_update_form();

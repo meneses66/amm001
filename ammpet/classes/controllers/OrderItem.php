@@ -225,13 +225,13 @@ class OrderItem {
                                         <label for="code" class="medium-label">Cód:</label>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input id="code" type="text" size="25" name="Code" value="'.$data_form['PRODSERV_CODE'].'">
+                                        <input id="code" type="text" size="25" name="Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
                                     </div>
                                     <div class="col-sm-1">
                                         <label for="desc" class="medium-label">Desc.:</label>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input id="desc" type="text" size="30" name="Desc" value="'.$data_form['ITEM_DESCRIPTION'].'">
+                                        <input id="desc" type="text" size="30" name="Desc" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
                                     </div>
                                     <div class="col-sm-1">
                                         <label for="date" class="medium-label">Data:</label>
@@ -253,7 +253,7 @@ class OrderItem {
                                         <label for="serv_pkg" class="medium-label">Serv.Pct.:</label>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input id="serv_pkg" type="text" size="30" name="Serv_pkg" value="'.$data_form['PACKAGE_SERVICE'].'">
+                                        <input id="serv_pkg" type="text" size="30" name="Serv_pkg" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
                                     </div>
                                     <div class="col-sm-1">
                                         <label for="executor" class="medium-label">Resp.:</label>
@@ -265,6 +265,14 @@ class OrderItem {
                                     </div>
                                 </div>
                                 <div class="row">
+                                    <div class="col-sm-1">
+                                        <label for="salesperson" class="medium-label">Vendedor:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select class="medium-label" id="salesperson" name="Salesperson">
+
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="row">
                                 </div>
@@ -273,6 +281,24 @@ class OrderItem {
                             </div>
                             <div class="col-sm-6>
                                 <div class="row">
+                                    <div class="col-sm-1">
+                                        <label for="code" class="medium-label">Cód:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input id="code" type="text" size="25" name="Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="desc" class="medium-label">Desc.:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input id="desc" type="text" size="30" name="Desc" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="date" class="medium-label">Data:</label>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <input id="date" type="date" size="25" name="Date" value="'.$data_form['DATE'].'">
+                                    </div>
                                 </div>
                                 <div class="row">
                                 </div>
@@ -283,68 +309,6 @@ class OrderItem {
                                 <div class="row">
                                 </div>
                                 <div class="row">
-                                </div>
-                            </div>
-                            <div class="row">
-                                
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="id" class="medium-label">XXXXXXX</label>
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                                <div class="col-sm-6">
-                                    
-                                </div>
-                            </div><br>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                            </div><br>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                            </div><br>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
                                 </div>
                             </div><br>';
                             $sql_stm = null;
