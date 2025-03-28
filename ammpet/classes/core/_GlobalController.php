@@ -232,80 +232,7 @@ Trait _GlobalController{
         $this->view($view);
     }
 
-    //Defines view to go to
-    private function goto_view($operation){
-    
-        switch($operation)
-        {
-            case 'goto_new':
-                $view="$this->object/$this->object-new";
-                $this->view($view);
-            break;
-
-            case 'goto_list':
-                $view="$this->object/$this->object-list";
-                $this->view($view);
-            break;
-
-            case 'goto_update':
-                $view="$this->object/$this->object-update";
-                $this->view($view);
-            break;
-
-            case 'goto_delete':
-                $view="$this->object/$this->object-delete";
-                $this->view($view);
-            break;
-
-            case 'goto_cli_animal':
-                $view="$this->object/$this->object-animal";
-                $this->view($view);
-            break;
-
-            case 'goto_cli_package':
-                $view="$this->object/$this->object-package";
-                $this->view($view);
-            break;
-
-            case 'goto_cli_product':
-                $view="$this->object/$this->object-product";
-                $this->view($view);
-            break;
-
-            case 'goto_cli_service':
-                $view="$this->object/$this->object-service";
-                $this->view($view);
-            break;
-
-            case 'goto_order_details':
-                $view="$this->object/$this->object-order_details";
-                $this->view($view);
-            break;
-
-            case 'goto_addService':
-                $view="$this->object/$this->object-addService";
-                $this->view($view);
-            break;
-
-            case 'goto_updateService':
-                $view="$this->object/$this->object-updateService";
-                $this->view($view);
-            break;
-
-            case 'goto_addProduct':
-                $view="$this->object/$this->object-addProduct";
-                $this->view($view);
-            break;
-
-            case 'goto_addPayment':
-                $view="$this->object/$this->object-addPayment";
-                $this->view($view);
-            break;
-
-        }
-    }
-
-        //SESSION TO CALL DB ACTIONS: INSERT, UPDATE, DELETE
+    //SESSION TO CALL DB ACTIONS: INSERT, UPDATE, DELETE
 
     //Inserts new Supplier into DB
     public function insert_call(){
@@ -614,6 +541,13 @@ Trait _GlobalController{
                 unset($inputs["temp_package"]);
                 unset($inputs["temp_executor"]);
                 unset($inputs["temp_salesperson"]);
+                unset($inputs["operation"]);
+                unset($inputs["class"]);
+                unset($inputs["method"]);
+                unset($inputs["Id"]);
+                //Remove items from array inputs that are populated automatically in DB
+                unset($inputs["Created"]);
+                unset($inputs["Updated"]);
             }
             
             //START UNSET CHECKBOXES IN SUPPLIET VIEW:
