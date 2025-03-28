@@ -194,7 +194,7 @@ class OrderItem {
             $inputs["ID"]=$_GET['item_id'];
             $id=$_GET['item_id'];
             $order_id = $_GET['order_id'];
-            $order_id = $_GET['client_id'];
+            $client_id = $_GET['cli_id'];
             $model = new('\Model\\'.$this->UCF_object);
             
             $data = $model->getRow($inputs);
