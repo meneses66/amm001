@@ -293,56 +293,52 @@ class OrderItem {
                                     <label for="id" class="medium-label">XXXXXXX</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'">
+                                    
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                                    
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="name" class="medium-label">Nome:</label>
+                                    
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="name" type="text" size="40" name="Name" value="'.$data_form['NAME'].'">
+                                    
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="value" class="medium-label">Valor: &nbsp;</label>
+                                    
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="value" type="text" size="40" name="value" value="'.$data_form['VALUE'].'">
+                                    
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="value" class="medium-label">Valor: &nbsp;</label>
+                                    
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="value" type="text" size="40" name="value" value="'.$data_form['VALUE'].'">
+                                    
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="type" class="medium-label">Tipo: &nbsp;</label>
+                                    
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="type" type="text" size="40" name="type" value="'.$data_form['TYPE'].'">
+                                    
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="status" class="medium-label">Status: &nbsp;</label>
+                                    
                                 </div>
                                 <div class="col-sm-5">
-                                    <select class="medium-label" id="status" name="Status">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
-                                        <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
-                                        <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
-                                    </select>
+                                    
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="comment" class="medium-label">Comentarios: &nbsp;</label>
+                                    
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'">
+                                    
                                 </div>
                                 <div class="col-sm-1">
                                     
