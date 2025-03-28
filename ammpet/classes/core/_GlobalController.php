@@ -261,6 +261,7 @@ Trait _GlobalController{
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
                 $inputs['Quantity']="1";
+                $inputs['Discount_Value']="0";
                 $inputs['Id_Package']="0";
                 $inputs['Serv_Executor']="----";
                 $inputs['Salesperson']="Viviam Bragantine";

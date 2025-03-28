@@ -95,6 +95,9 @@ class OrderItem {
                 //$data_form_type = $data_form['TYPE'];
                 //$type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", $data_form_type);
 
+                //DEFINE FLAGS:
+                $flag_contrario = ($data_form['FLAG_CONTRARIO']==1) ? "checked" : "";
+
                 //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
                                 <input id="id" type="hidden" name="Id" readonly value="'.$data_form['ID'].'">
@@ -110,19 +113,19 @@ class OrderItem {
                                     <label for="code" class="medium-label">Cód:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="code" type="text" size="25" name="Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
+                                    <input id="code" type="text" size="20" name="Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="desc" class="medium-label">Desc.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="desc" type="text" size="30" name="Desc" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
+                                    <input id="desc" type="text" size="25" name="Desc" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="date" class="medium-label">Data:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="date" type="date" size="25" name="Date" value="'.$data_form['DATE'].'">
+                                    <input id="date" type="date" size="20" name="Date" value="'.$data_form['DATE'].'">
                                 </div>
                             </div>
                             <div class="row">
@@ -138,12 +141,12 @@ class OrderItem {
                                     <label for="serv_pkg" class="medium-label">Serv.Pct.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="serv_pkg" type="text" size="30" name="Serv_pkg" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
+                                    <input id="serv_pkg" type="text" size="20" name="Serv_pkg" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="executor" class="medium-label">Resp.:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-23">
                                     <select class="medium-label" id="executor" name="Executor">
 
                                     </select>
@@ -151,37 +154,62 @@ class OrderItem {
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="salesperson" class="medium-label">Vendedor:</label>
+                                    <label for="quantity" class="medium-label">Qtde:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="quantity" type="number" size="20" name="Quantity" value="'.$data_form['QUANTITY'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="unit_value" class="medium-label">Valor Unit.:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="unit_value" type="number" size="20" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="discount_value" class="medium-label">Desc. Valor:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="discount_value" type="number" size="20" name="Discount_Value" value="'.$data_form['DISCOUNT_VALUE'].'">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="blade" class="medium-label">Lâm./Adap.Corpo:</label>
                                 </div>
                                 <div class="col-sm-3">
+                                    <select class="medium-label" id="blade" name="Blade">
+                                        <option class="medium-label" value="" '.(($data_form['BLADE'] == '')?"selected":"").'>Selecione uma opção</option>
+                                        <option class="medium-label" value="Lam01" '.(($data_form['BLADE'] == 'Lam01')?"selected":"").'>Lam01</option>
+                                        <option class="medium-label" value="Lam02" '.(($data_form['BLADE'] == 'Lam02')?"selected":"").'>Lam02</option>
+                                        <option class="medium-label" value="Lam03" '.(($data_form['BLADE'] == 'Lam03')?"selected":"").'>Lam03</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="adap_pata" class="medium-label">Adap.Pata:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="adap_pata" name="Adap_Pata">
+                                        <option class="medium-label" value="" '.(($data_form['ADAP_PATA'] == '')?"selected":"").'>Selecione uma opção</option>
+                                        <option class="medium-label" value="Lam01" '.(($data_form['ADAP_PATA'] == 'Lam01')?"selected":"").'>Lam01</option>
+                                        <option class="medium-label" value="Lam02" '.(($data_form['ADAP_PATA'] == 'Lam02')?"selected":"").'>Lam02</option>
+                                        <option class="medium-label" value="Lam03" '.(($data_form['ADAP_PATA'] == 'Lam03')?"selected":"").'>Lam03</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="flag_contrario" type="checkbox" name="Flag_Contrario" '.$flag_contrario.'>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="flag_contrario" class="medium-label">Ao contrário</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="salesperson" class="medium-label">Vendedor:</label>
+                                </div>
+                                <div class="col-sm-2">
                                     <select class="medium-label" id="salesperson" name="Salesperson">
 
                                     </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                            </div>
-                            <div class="row">
-                            </div>
-                        
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="code" class="medium-label">Cód:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="code" type="text" size="25" name="Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="desc" class="medium-label">Desc.:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="desc" type="text" size="30" name="Desc" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="date" class="medium-label">Data:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="date" type="date" size="25" name="Date" value="'.$data_form['DATE'].'">
                                 </div>
                             </div>
                             <div class="row">
