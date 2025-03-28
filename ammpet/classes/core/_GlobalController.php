@@ -421,6 +421,12 @@ Trait _GlobalController{
                     unset($inputs["Pass"]);    
                 }
 
+                //IF LOGIN == "" UPDATE TO NULL:
+                if($inputs["Login"]==""){
+                    $inputs["Login"]=null;
+                }
+
+                //UNSET PERMISSION FLAGS:
                 unset($inputs["client_view"]);
                 unset($inputs["client_add"]);
                 unset($inputs["client_edit"]);
@@ -608,6 +614,12 @@ Trait _GlobalController{
                     unset($inputs["Pass"]);    
                 }
 
+                //IF LOGIN == "" UPDATE TO NULL:
+                if($inputs["Login"]==""){
+                    $inputs["Login"]=null;
+                }
+
+                //UNSET PERMISSION FLAGS:
                 unset($inputs["client_view"]);
                 unset($inputs["client_add"]);
                 unset($inputs["client_edit"]);
