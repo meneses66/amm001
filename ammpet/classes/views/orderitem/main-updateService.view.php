@@ -21,8 +21,10 @@ $GLOBALS['buttonenablerjs']='OrderItem';
         ?>
     </div>
     <div class="row">
-        $controller2 = new ('\Controller\\'."OrderItem");
-        $controller2->load_update_form();
+        <?php
+            $controller2 = new ('\Controller\\'."OrderItem");
+            $controller2->load_update_form();
+        ?>
     </div>
     
 </div>
