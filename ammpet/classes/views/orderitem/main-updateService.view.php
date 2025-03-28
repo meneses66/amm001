@@ -49,7 +49,7 @@
                 </table>
             </div>
         </div>
-    </div><br>
+    </div>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <form method="post">
             <input type="hidden" name="operation" value="update">
