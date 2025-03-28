@@ -461,7 +461,7 @@ class Supplier {
 
         //echo var_dump($inputs);
 
-        if($data_form_executor="----" || $data_form_executor="" || $data_form_executor=null){
+        if($data_form_executor=="----" || $data_form_executor=="" || $data_form_executor==null){
             $option_list = '<option class="medium-label" value="----" "selected">----</option>';
         } else {
             $option_list = '<option class="medium-label" value="----">----</option>';
