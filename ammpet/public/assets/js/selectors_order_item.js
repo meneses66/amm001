@@ -27,7 +27,7 @@
     $.ajax({
       url: "/ammpet/public/Ajax_call",
       type: "POST",
-      data: {class:"Supplier", method:"load_salesperson_options",  dfexecutor: dataformsalesperson},
+      data: {class:"Supplier", method:"load_salesperson_options",  dfsalesperson: dataformsalesperson},
       success: function(response){
           $('#salesperson').html(response);
       }
