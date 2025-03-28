@@ -370,7 +370,7 @@ class Orderx
                                 <td>'.$animal_name.'</td>
                                 <td>'.$row->PACKAGE_SEQUENCE.'</td>
                                 <td>
-                                    <a href="'.ROOT."/OrderItem/_update_service?order_id=$row->ID_ORDER&id=$row->ID".'" title="Edit" class="text-primary updateBtn" order_id="'.$row->ID_ORDER.'" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/OrderItem/_updateService?cli_id=$row->ID_CLIENT&cli_id=$row->ID_ORDER&item_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                     <a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>
                                 </td>
                                </tr>';
