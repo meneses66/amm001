@@ -31,8 +31,8 @@
                 <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
                     <?php
                         require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
-                        $controller = new ('\Controller\\'."Orderx");
-                        $controller->get_animals();
+                        $controller2 = new ('\Controller\\'."Orderx");
+                        $controller2->get_animals();
                     ?>        
                 </table>
             </div>
@@ -43,8 +43,8 @@
                 <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
                     <?php
                         require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';    
-                        $controller = new ('\Controller\\'."Orderx");
-                        $controller->get_packages();
+                        $controller3 = new ('\Controller\\'."Orderx");
+                        $controller3->get_packages();
                     ?>        
                 </table>
             </div>
@@ -54,8 +54,8 @@
         <form method="post">
             <input type="hidden" name="operation" value="update">
             <?php
-                $controller2 = new ('\Controller\\'."OrderItem");
-                $controller2->load_update_form();
+                $controller4 = new ('\Controller\\'."OrderItem");
+                $controller4->load_update_form();
             ?>
         </form>
     </div>
