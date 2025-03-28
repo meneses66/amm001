@@ -23,7 +23,7 @@
                 $controller = new ('\Controller\\'."Orderx");
                 $controller->get_header();
             ?>
-    </div><br>
+    </div>
     <div class="row">
         <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
             <p style="font-size:12px;" >Animais</p>
@@ -51,27 +51,55 @@
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <div class="col-sm-6">
             <p style="font-size:12px;" >Serviços</p>
-            <div class="table-responsive" id="_services" style="font-size:12px;">
-                <table id="_table_services" class="table Table-stripped table-sm table-bordered small">
-                    <?php 
-                        $controller = new ('\Controller\\'."Orderx");
-                        $controller->get_services();
-                    ?>        
-                </table>
-            </div>
         </div>
         <div class="col-sm-6">
-            <a href="<?php echo ROOT."/Orderx/_new_service?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-lg m-1 btn-block">Novo Serviço</a>
+            <a href="<?php echo ROOT."/Orderx/_new_service?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Serviço</a>
         </div>
-    </div><br>
-    <div class="row">
-        <div class="col-sm-12" style="border: thin solid lightgray; font-size:12px;">
-            Lista Produtos
+    </div>
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
+        <div class="table-responsive" id="_services" style="font-size:12px;">
+            <table id="_table_services" class="table Table-stripped table-sm table-bordered small">
+                <?php 
+                    $controller = new ('\Controller\\'."Orderx");
+                    $controller->get_services();
+                ?>        
+            </table>
         </div>
-    </div><br>
-    <div class="row">
-        <div class="col-sm-12" style="border: thin solid lightgray; font-size:12px;">
-            Lista Pagamentos
+    </div>
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
+        <div class="col-sm-6">
+            <p style="font-size:12px;" >Produtos</p>
         </div>
-    </div><br>
+        <div class="col-sm-6">
+            <a href="<?php echo ROOT."/Orderx/_new_product?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Produto</a>
+        </div>
+    </div>
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
+        <div class="table-responsive" id="_products" style="font-size:12px;">
+            <table id="_table_products" class="table Table-stripped table-sm table-bordered small">
+                <?php 
+                    //$controller = new ('\Controller\\'."Orderx");
+                    //$controller->get_services();
+                ?>        
+            </table>
+        </div>
+    </div>
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
+        <div class="col-sm-6">
+            <p style="font-size:12px;" >Pagamentos</p>
+        </div>
+        <div class="col-sm-6">
+            <a href="<?php echo ROOT."/Orderx/_new_payment?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Pagamento</a>
+        </div>
+    </div>
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
+        <div class="table-responsive" id="_payments" style="font-size:12px;">
+            <table id="_table_payments" class="table Table-stripped table-sm table-bordered small">
+                <?php 
+                    //$controller = new ('\Controller\\'."Orderx");
+                    //$controller->get_services();
+                ?>        
+            </table>
+        </div>
+    </div>
 </div>
