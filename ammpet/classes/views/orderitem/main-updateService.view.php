@@ -8,7 +8,7 @@ $GLOBALS['buttonenablerjs']='OrderItem';
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-6">
-            <h4>Selecionar Serviço</h4>
+            <h4>Editar Serviço</h4>
         </div>
         <div class="col-sm-6">
                 <a href="<?php echo ROOT."/OrderItem/_back_order?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
@@ -21,10 +21,13 @@ $GLOBALS['buttonenablerjs']='OrderItem';
         ?>
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
-        <?php
-            $controller2 = new ('\Controller\\'."OrderItem");
-            $controller2->load_update_form();
-        ?>
+        <form method="post">
+            <input type="hidden" name="operation" value="update">
+            <?php
+                $controller2 = new ('\Controller\\'."OrderItem");
+                $controller2->load_update_form();
+            ?>
+        </form>
     </div>
     
 </div>

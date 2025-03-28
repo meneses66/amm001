@@ -204,7 +204,7 @@ class Animal {
                                     <label for="type" class="medium-label">Tipo:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="type" name="Type" onClick="getBreeds(this.value,'.$data_form['ID_BREED'].',\'update\')">
+                                    <select class="medium-label" id="type" name="Type" onChange="getBreeds(this.value,'.$data_form['ID_BREED'].',\'update\')">
                                         <option class="medium-label" value="" '.(($data_form['TYPE'] == '')?"selected":"").'>Selecione uma opção</option>
                                         <option class="medium-label" value="Cão" '.(($data_form['TYPE'] == 'Cão')?"selected":"").'>Cão</option>
                                         <option class="medium-label" value="Gato" '.(($data_form['TYPE'] == 'Gato')?"selected":"").'>Gato</option>
