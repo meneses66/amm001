@@ -2,7 +2,7 @@
 $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
             $model = new('\Model\\'."Supplier");            
-            $data = $model->getRowProperty($id, "PERMISSIONS");
+            $data = $model->getRowProperty($id, "PERMISSIONS", "SUPPLIER");
             if($data){
                 foreach ($data as $key => $value) {
                     $data_form[$key]=$value;

@@ -11,13 +11,13 @@
   }
 
   function load_executor(dataformexecutor){  
-    console.log("dataformexecutor-"+dataformexecutor);
+    //console.log("dataformexecutor-"+dataformexecutor);
     $.ajax({
       url: "/ammpet/public/Ajax_call",
       type: "POST",
       data: {class:"Supplier", method:"load_executor_options",  dfexecutor: dataformexecutor},
       success: function(response){
-        console.log(response);
+        //console.log(response);
           $('#executor').html(response);
       }
   });

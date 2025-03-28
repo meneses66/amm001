@@ -328,6 +328,7 @@ Trait _GlobalController{
                 $inputs['Status']="Aberto";
             }
 
+            //Special condition when Object is OrderItem:
             if($inputs['class']="OrderItem" AND isset($_GET['order_id'])){
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
@@ -352,6 +353,7 @@ Trait _GlobalController{
                 unset($inputs["Status"]);
                 unset($inputs["temp_package"]);
                 unset($inputs["temp_executor"]);
+                unset($inputs["temp_salesperson"]);
 
             }
 
@@ -602,6 +604,19 @@ Trait _GlobalController{
                 unset($inputs["temp_breed"]);
             }
             
+            //Special condition when Object is OrderItem:
+            if($inputs['class']="OrderItem" AND isset($_GET['order_id'])){
+ 
+                $cli_id = $_GET['cli_id'];
+                $order_id = $_GET['order_id'];
+                unset($inputs["Order_Date"]);
+                unset($inputs["Status"]);
+                unset($inputs["temp_package"]);
+                unset($inputs["temp_executor"]);
+                unset($inputs["temp_salesperson"]);
+
+            }
+            
             //START UNSET CHECKBOXES IN SUPPLIET VIEW:
 
             if($this->UCF_object=="Supplier"){
@@ -686,6 +701,12 @@ Trait _GlobalController{
                         double_redirect("Animal", $path2);
                         break;
                     
+                    case 'OrderItem':
+                        $path2 = "Orderx/_details?cli_id=".$inputs['Id_client']."&order_id=".$inputs['Id_order'];
+                        unset_array($inputs);
+                        double_redirect("OrderItem", $path2);
+                        break;
+    
                     default:
                         $view = "$this->UCF_object/_list";
                         unset_array($inputs);
