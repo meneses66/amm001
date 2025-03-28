@@ -10,6 +10,7 @@
         $array_permissions = (!($data_form['PERMISSIONS']==null || $data_form['PERMISSIONS']=="")) ? explode(",", $data_form['PERMISSIONS']) : [] ;
         //$array_permissions=explode(",", $data_form['PERMISSIONS']);
     }
+    unset($inputs);
 ?>
 <div id="permission_div" style="display:block">
     <div class="row">
