@@ -1,15 +1,15 @@
 <?php
-$inputs["ID"]=$_GET['id'];
-            $id=$_GET['id'];
-            $model = new('\Model\\'."Supplier");            
-            $data = $model->getRowProperty($id, "PERMISSIONS", "SUPPLIER");
-            if($data){
-                foreach ($data as $key => $value) {
-                    $data_form[$key]=$value;
-                }
-                $array_permissions = (!($data_form['PERMISSIONS']==null || $data_form['PERMISSIONS']=="")) ? explode(",", $data_form['PERMISSIONS']) : [] ;
-                //$array_permissions=explode(",", $data_form['PERMISSIONS']);
-            }
+    $inputs["ID"]=$_GET['id'];
+    //$inputs['ID']=$_GET['id'];
+    $model = new('\Model\\'."Supplier");            
+    $data = $model->getRowProperty($inputs, "PERMISSIONS", "SUPPLIER");
+    if($data){
+        foreach ($data as $key => $value) {
+            $data_form[$key]=$value;
+        }
+        $array_permissions = (!($data_form['PERMISSIONS']==null || $data_form['PERMISSIONS']=="")) ? explode(",", $data_form['PERMISSIONS']) : [] ;
+        //$array_permissions=explode(",", $data_form['PERMISSIONS']);
+    }
 ?>
 <div id="permission_div" style="display:block">
     <div class="row">
