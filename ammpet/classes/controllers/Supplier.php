@@ -459,8 +459,8 @@ class Supplier {
         $inputs['ROLE1']="Tosador";
         $inputs['ROLE2']="Veterinaria";
 
-        echo var_dump($inputs);
-        
+        //echo var_dump($inputs);
+
         if($data_form_executor="----" || $data_form_executor="" || $data_form_executor=null){
             $option_list = '<option class="medium-label" value="----" "selected">----</option>';
         } else {

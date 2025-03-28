@@ -5,6 +5,7 @@
       type: "POST",
       data: {class:"Package", method:"load_package_options",  dfpackage: dataformpackage, id_client: id_client},
       success: function(response){
+          console.log(response);
           $('#package').html(response);
       }
   });
