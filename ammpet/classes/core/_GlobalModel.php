@@ -166,12 +166,11 @@ Trait _GlobalModel{
         $sql_stm = "update $this->table set ";
 
         foreach ($keys as $key){
-            $sql_stm .= $key . " = :" . $key . ", ";
+            $sql_stm .= $key."=:".$key.", ";
         }
         $sql_stm = trim($sql_stm,", ");
-        $sql_stm .= " where ID = :ID";
+        $sql_stm .= " where ID=:ID";
         $this->query($sql_stm, $inputs);
-        return print_r($sql_stm);
         return false;
     }
 

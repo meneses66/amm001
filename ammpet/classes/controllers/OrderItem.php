@@ -144,10 +144,10 @@ class OrderItem {
                                     <input id="serv_pkg" type="text" size="20" name="Serv_pkg" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="executor" class="medium-label">Resp.:</label>
+                                    <label for="serv_executor" class="medium-label">Resp.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="executor" name="Executor">
+                                    <select class="medium-label" id="serv_sxecutor" name="Serv_Executor">
 
                                     </select>
                                 </div>
