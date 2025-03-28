@@ -1,5 +1,5 @@
   function load_package(dataformpackage, id_client){  
-    console.log("-"+dataformpackage+"-"+id_client);
+    //console.log("-"+dataformpackage+"-"+id_client);
     $.ajax({
       url: "/ammpet/public/Ajax_call",
       type: "POST",

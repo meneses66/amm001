@@ -75,7 +75,7 @@ class Params {
         $model = new('\Model\\'.$this->UCF_object);
         
         $data_form_package=$array['dfpackage'];
-        $inputs['ID_CLIENT']=$array['cli_id'];
+        $inputs['ID_CLIENT']=$array['id_client'];
         $inputs['PACK_STATUS']="Aberto";
 
         if($data_form_package="0" || $data_form_package="" || $data_form_package=null){
