@@ -1,5 +1,5 @@
   function load_package(dataformpackage, id_client){  
-    //console.log("-"+dataformpackage+"-"+id_client);
+    console.log("dataformpackage-"+dataformpackage+"id_client-"+id_client);
     $.ajax({
       url: "/ammpet/public/Ajax_call",
       type: "POST",
@@ -11,7 +11,7 @@
   }
 
   function load_executor(dataformexecutor){  
-    //console.log(breedType+"-"+dataformbreed+"-"+op);
+    console.log("dataformexecutor-"+dataformexecutor);
     $.ajax({
       url: "/ammpet/public/Ajax_call",
       type: "POST",
@@ -23,7 +23,7 @@
   }
 
   function load_salesperson(dataformsalesperson){  
-    //console.log(breedType+"-"+dataformbreed+"-"+op);
+    console.log("dataformsalesperson-"+dataformsalesperson);
     $.ajax({
       url: "/ammpet/public/Ajax_call",
       type: "POST",

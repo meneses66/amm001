@@ -78,7 +78,7 @@ class Params {
         $inputs['ID_CLIENT']=$array['id_client'];
         $inputs['PACK_STATUS']="Aberto";
 
-        if($data_form_package==0 || $data_form_package=="" || $data_form_package==null){
+        if($data_form_package==0 || $data_form_package=="0" || $data_form_package=="" || $data_form_package==null){
             $option_list = '<option class="medium-label" value="0" "selected">Avulso</option>';
         } else {
             $option_list = '<option class="medium-label" value="0">Avulso</option>';
