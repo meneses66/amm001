@@ -21,7 +21,7 @@
             //$controller1 = new ('\Controller\\'."OrderItem");
             require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
             $controller1 = new ('\Controller\\'."Orderx");
-            $controller1->load_parent_form();
+            $controller1->get_header();
         ?>
     </div>
     <div class="row">
