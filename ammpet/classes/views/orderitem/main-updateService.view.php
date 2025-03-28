@@ -18,10 +18,38 @@
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <?php 
-            $controller1 = new ('\Controller\\'."OrderItem");
+            //$controller1 = new ('\Controller\\'."OrderItem");
+            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
+            $controller1 = new ('\Controller\\'."Orderx");
             $controller1->load_parent_form();
         ?>
     </div>
+    <div class="row">
+        <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
+            <p style="font-size:12px;" >Animais</p>
+            <div class="table-responsive" id="_animals" style="font-size:12px;">
+                <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
+                    <?php
+                        require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
+                        $controller = new ('\Controller\\'."Orderx");
+                        $controller->get_animals();
+                    ?>        
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
+            <p style="font-size:10px;" >Pacotes</p>
+            <div class="table-responsive" id="_packages" style="font-size:12px;">
+                <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
+                    <?php
+                        require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';    
+                        $controller = new ('\Controller\\'."Orderx");
+                        $controller->get_packages();
+                    ?>        
+                </table>
+            </div>
+        </div>
+    </div><br>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <form method="post">
             <input type="hidden" name="operation" value="update">
