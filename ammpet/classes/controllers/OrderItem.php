@@ -119,27 +119,31 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <label for="prodserv_code" class="medium-label">Cód:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <input id="prodserv_code" type="text" size="20" name="Prodserv_Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="item_description" class="medium-label">Desc.:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <input id="item_description" type="text" size="25" name="Item_Description" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="date" class="medium-label">Data:</label>
                                 </div>
-                                <div class="col-sm-3">
-                                    <input id="date" type="date" size="20" name="Date" value="'.$data_form['DATE'].'">
+                                <div class="col-sm-2">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="quantity" class="medium-label">Qtde:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="quantity" type="text" size="15" name="Quantity" value="'.$data_form['QUANTITY'].'">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="id_package" class="medium-label">Pacote:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <select class="medium-label" id="id_package" name="Id_Package">
 
                                     </select>
@@ -147,35 +151,45 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <label for="package_service" class="medium-label">Serv.Pct.:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <input id="package_service" type="text" size="20" name="Package_Service" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="serv_executor" class="medium-label">Executor:</label>
                                 </div>
-                                <div class="col-sm-3">
-                                    <select class="medium-label" id="serv_executor" name="Serv_Executor">
-
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="quantity" class="medium-label">Qtde:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="quantity" type="text" size="15" name="Quantity" value="'.$data_form['QUANTITY'].'">
+                                <div class="col-sm-2">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="unit_value" class="medium-label">Valor Unit.:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <input id="unit_value" type="text" size="15" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="serv_executor" class="medium-label">Executor:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="medium-label" id="serv_executor" name="Serv_Executor">
+
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="date" class="medium-label">Data:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="date" type="date" size="20" name="Date" value="'.$data_form['DATE'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    
+                                </div>
+                                <div class="col-sm-2">
+                                    
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="discount_value" class="medium-label">Desc. Valor:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <input id="discount_value" type="text" size="15" name="Discount_Value" value="'.$data_form['DISCOUNT_VALUE'].'">
                                 </div>
                             </div><br>
@@ -183,7 +197,7 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <label for="blade" class="medium-label">Lâm./Adap.Corpo:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <select class="medium-label" id="blade" name="Blade">
                                         <option class="medium-label" value="" '.(($data_form['BLADE'] == '')?"selected":"").'>Selecione uma opção</option>
                                         <option class="medium-label" value="Lam01" '.(($data_form['BLADE'] == 'Lam01')?"selected":"").'>Lam01</option>
@@ -194,7 +208,7 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <label for="adap_pata" class="medium-label">Adap.Pata:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <select class="medium-label" id="adap_pata" name="Adap_Pata">
                                         <option class="medium-label" value="" '.(($data_form['ADAP_PATA'] == '')?"selected":"").'>Selecione uma opção</option>
                                         <option class="medium-label" value="Lam01" '.(($data_form['ADAP_PATA'] == 'Lam01')?"selected":"").'>Lam01</option>
@@ -205,8 +219,12 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <input id="flag_contrario" type="checkbox" name="Flag_Contrario" '.$flag_contrario.'>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="flag_contrario" class="medium-label">Ao contrário</label>
+                                </div>
+                                <div class="col-sm-1">
+                                </div>
+                                <div class="col-sm-2">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -254,6 +272,10 @@ class OrderItem {
                                 <div class="col-sm-3">
                                     <label for="flag_carrapato" class="medium-label">Carrapato</label>
                                 </div>
+                                <div class="col-sm-1">
+                                </div>
+                                <div class="col-sm-2">
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
@@ -273,6 +295,10 @@ class OrderItem {
                                 </div>
                                 <div class="col-sm-3">
                                     <label for="flag_contrario" class="medium-label">Olhos Verm.</label>
+                                </div>
+                                <div class="col-sm-1">
+                                </div>
+                                <div class="col-sm-2">
                                 </div>
                             </div>
                             <div class="row">
