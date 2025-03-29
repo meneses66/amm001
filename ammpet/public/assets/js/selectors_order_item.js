@@ -24,7 +24,7 @@
   }
 
   function load_salesperson(dataformsalesperson){  
-    console.log("dataformsalesperson-"+dataformsalesperson);
+    //console.log("dataformsalesperson-"+dataformsalesperson);
     $.ajax({
       url: "/ammpet/public/Ajax_call",
       type: "POST",

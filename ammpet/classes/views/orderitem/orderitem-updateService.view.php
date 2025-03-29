@@ -51,7 +51,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="<?php echo ROOT;?>/assets/js/selectors_order_item.js"></script>
 
         <!-- Calculate Order Item JS-->
-        <script src="<?php echo ROOT;?>/assets/js/calculate_order_item.js"></script>
+        <script src="<?php echo ROOT;?>/assets/js/calculate_item_service.js"></script>
 
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
