@@ -114,8 +114,8 @@ class OrderItem {
                                 <input id="temp_package" type="hidden" name="temp_package" value="'.$data_form['ID_PACKAGE'].'">
                                 <input id="temp_executor" type="hidden" name="temp_executor" value="'.$data_form['SERV_EXECUTOR'].'">
                                 <input id="temp_salesperson" type="hidden" name="temp_salesperson" value="'.$data_form['SALESPERSON'].'">
-                                <input id="price_cash" type="hidden" name="Price_Cash" value="'.$data_form['PRICE_CASH'].'">
-                                <input id="price_pix" type="hidden" name="Price_Pix" value="'.$data_form['PRICE_PIX'].'">
+                                <input id="oi_price_cash" type="hidden" name="OI_Price_Cash" value="'.$data_form['OI_PRICE_CASH'].'">
+                                <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" value="'.$data_form['OI_PRICE_PIX'].'">
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">

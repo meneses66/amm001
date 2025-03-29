@@ -47,9 +47,9 @@ Create Table ORDER_ITEM
     ADAP_PATA Varchar (5),
     FLAG_CONTRARIO BOOLEAN,
     TOSADOR Varchar (30),
-    PRICE_CASH Decimal(10,2),
+    OI_PRICE_CASH Decimal(10,2),
     TOTAL_CASH Decimal(10,2),
-    PRICE_PIX Decimal(10,2),
+    OI_PRICE_PIX Decimal(10,2),
     TOTAL_PIX Decimal(10,2),
 
     constraint FK_OI_ORDER foreign key (ID_ORDER) references ORDER_X(ID), 

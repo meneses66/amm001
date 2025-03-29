@@ -248,7 +248,7 @@ Trait _GlobalController{
             }
 
             //Special condition when Object is Orderx:
-            if($inputs['class']="Orderx" AND isset($_GET['cli_id'])){
+            if($inputs['class']=="Orderx" AND isset($_GET['cli_id'])){
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Order_Date']=date("Y-m-d");
@@ -256,7 +256,7 @@ Trait _GlobalController{
             }
 
             //Special condition when Object is OrderItem:
-            if($inputs['class']="OrderItem" AND isset($_GET['order_id'])){
+            if($inputs['class']=="OrderItem" AND isset($_GET['order_id'])){
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
@@ -789,9 +789,9 @@ Trait _GlobalController{
             $_POST['Cost_Center']=$service_array->CENTER;
             $_POST['Prod_Serv_Category']=$service_array->CATEGORY;
             $_POST['Item_Description']=$service_array->NAME;
-            $_POST['Price_Cash']=$service_array->PRICE_CASH;
+            $_POST['OI_Price_Cash']=$service_array->PRICE_CASH;
             $_POST['Total_Cash']=$service_array->PRICE_CASH;
-            $_POST['Price_Pix']=$service_array->PRICE_PIX;
+            $_POST['OI_Price_Pix']=$service_array->PRICE_PIX;
             $_POST['Total_Pix']=$service_array->PRICE_PIX;
             $_POST['Prodserv_Code']=$service_array->CODE;
 
