@@ -635,6 +635,7 @@ Trait _GlobalController{
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
 
             try {
+
                 $model->update($id, $inputs);
 
                 switch ($this->UCF_object) {
@@ -646,7 +647,7 @@ Trait _GlobalController{
                     
                     case 'OrderItem':
                         $path2 = "Orderx/_details?cli_id=".$inputs['Id_client']."&order_id=".$inputs['Id_order'];
-                        unset_array($inputs);
+                        //unset_array($inputs);
                         double_redirect("OrderItem", $path2);
                         break;
     
@@ -658,6 +659,7 @@ Trait _GlobalController{
                 }
                 
             } catch (\Throwable $th) {
+                echo $var_dump($inputs);
                 throw $th;
             }
         }
