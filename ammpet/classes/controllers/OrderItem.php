@@ -114,6 +114,8 @@ class OrderItem {
                                 <input id="temp_package" type="hidden" name="temp_package" value="'.$data_form['ID_PACKAGE'].'">
                                 <input id="temp_executor" type="hidden" name="temp_executor" value="'.$data_form['SERV_EXECUTOR'].'">
                                 <input id="temp_salesperson" type="hidden" name="temp_salesperson" value="'.$data_form['SALESPERSON'].'">
+                                <input id="price_cash" type="hidden" name="Price_Cash" value="'.$data_form['PRICE_CASH'].'">
+                                <input id="price_pix" type="hidden" name="Price_Pix" value="'.$data_form['PRICE_PIX'].'">
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
@@ -136,7 +138,7 @@ class OrderItem {
                                     <label for="quantity" class="medium-label">Qtde:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="quantity" type="text" size="15" name="Quantity" value="'.$data_form['QUANTITY'].'">
+                                    <input id="quantity" type="text" size="15" name="Quantity" onUpdate="calculate_item_service()" value="'.$data_form['QUANTITY'].'">
                                 </div>
                             </div>
                             <div class="row">
@@ -144,7 +146,7 @@ class OrderItem {
                                     <label for="id_package" class="medium-label">Pacote:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <select class="medium-label" id="id_package" name="Id_Package">
+                                    <select class="medium-label" id="id_package" onUpdate="calculate_item_service()" name="Id_Package">
 
                                     </select>
                                 </div>
@@ -162,7 +164,7 @@ class OrderItem {
                                     <label for="unit_value" class="medium-label">Valor Unit.:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="unit_value" type="text" size="15" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
+                                    <input id="unit_value" type="text" size="15" onUpdate="calculate_item_service()" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
                                 </div>
                             </div>
                             <div class="row">
@@ -190,7 +192,7 @@ class OrderItem {
                                     <label for="discount_value" class="medium-label">Desc. Valor:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="discount_value" type="text" size="15" name="Discount_Value" value="'.$data_form['DISCOUNT_VALUE'].'">
+                                    <input id="discount_value" type="text" size="15" name="Discount_Value" onUpdate="calculate_item_service()" value="'.$data_form['DISCOUNT_VALUE'].'">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -223,36 +225,12 @@ class OrderItem {
                                     <label for="flag_contrario" class="medium-label">Ao contrário</label>
                                 </div>
                                 <div class="col-sm-1">
-                                </div>
-                                <div class="col-sm-2">
-                                </div>
-                            </div><br>
-                            <div class="row">
-                                <div class="col-sm-1">
                                     <label for="total_cash" class="medium-label">Total Dinh:</label>
                                 </div>
                                 <div class="col-sm-2">
                                     <input id="total_cash" type="text" size="15" name="Total_Cash" readonly value="'.$data_form['TOTAL_CASH'].'">
                                 </div>
-                                <div class="col-sm-1">
-                                    <label for="total_pix" class="medium-label">Total Pix:</label>
-                                </div>
-                                <div class="col-sm-2">
-                                    <input id="total_pix" type="text" size="15" name="Total_Pix" readonly value="'.$data_form['TOTAL_PIX'].'">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="value_no_discount" class="medium-label">Valor s/ Desc:</label>
-                                </div>
-                                <div class="col-sm-2">
-                                    <input id="value_no_discount" type="text" size="15" readonly name="Value_No_Discount" value="'.$data_form['VALUE_NO_DISCOUNT'].'">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="value_with_discount" class="medium-label">Valor Final:</label>
-                                </div>
-                                <div class="col-sm-2">
-                                    <input id="value_with_discount" type="text" size="15" readonly name="Value_With_Discount" value="'.$data_form['VALUE_WITH_DISCOUNT'].'">
-                                </div>
-                            </div><br>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <input id="flag_otite" type="checkbox" name="Flag_Otite" '.$flag_otite.'>
@@ -273,8 +251,10 @@ class OrderItem {
                                     <label for="flag_carrapato" class="medium-label">Carrapato</label>
                                 </div>
                                 <div class="col-sm-1">
+                                    <label for="total_pix" class="medium-label">Total Pix:</label>
                                 </div>
                                 <div class="col-sm-2">
+                                    <input id="total_pix" type="text" size="15" name="Total_Pix" readonly value="'.$data_form['TOTAL_PIX'].'">
                                 </div>
                             </div>
                             <div class="row">
@@ -297,8 +277,10 @@ class OrderItem {
                                     <label for="flag_contrario" class="medium-label">Olhos Verm.</label>
                                 </div>
                                 <div class="col-sm-1">
+                                    <label for="value_no_discount" class="medium-label">Valor s/ Desc:</label>
                                 </div>
                                 <div class="col-sm-2">
+                                    <input id="value_no_discount" type="text" size="15" readonly name="Value_No_Discount" value="'.$data_form['VALUE_NO_DISCOUNT'].'">
                                 </div>
                             </div>
                             <div class="row">
@@ -311,16 +293,22 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <label for="checklist_description" class="medium-label">Descrição:</label>
                                 </div>
-                                <div class="col-sm-4">
-                                    <textarea id="checklist_description" name="Checklist_Description" rows="2" cols="50">'.$data_form['CHECKLIST_DESCRIPTION'].'</textarea>
+                                <div class="col-sm-2">
+                                    <textarea id="checklist_description" name="Checklist_Description" rows="2" cols="40">'.$data_form['CHECKLIST_DESCRIPTION'].'</textarea>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="salesperson" class="medium-label">Vendedor:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <select class="medium-label" id="salesperson" name="Salesperson">
 
                                     </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="value_with_discount" class="medium-label">Valor Final:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="value_with_discount" type="text" size="15" readonly name="Value_With_Discount" value="'.$data_form['VALUE_WITH_DISCOUNT'].'">
                                 </div>
                             </div>
                             <div class="row">
