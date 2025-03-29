@@ -156,20 +156,20 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <label for="quantity" class="medium-label">Qtde:</label>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     <input id="quantity" type="text" size="15" name="Quantity" value="'.$data_form['QUANTITY'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="unit_value" class="medium-label">Valor Unit.:</label>
                                 </div>
-                                <div class="col-sm-2">
-                                    <input id="unit_value" type="number" size="20" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
+                                <div class="col-sm-3">
+                                    <input id="unit_value" type="text" size="15" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="discount_value" class="medium-label">Desc. Valor:</label>
                                 </div>
-                                <div class="col-sm-2">
-                                    <input id="discount_value" type="number" size="20" name="Discount_Value" value="'.$data_form['DISCOUNT_VALUE'].'">
+                                <div class="col-sm-3">
+                                    <input id="discount_value" type="text" size="15" name="Discount_Value" value="'.$data_form['DISCOUNT_VALUE'].'">
                                 </div>
                             </div>
                             <div class="row">
@@ -198,7 +198,7 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <input id="flag_contrario" type="checkbox" name="Flag_Contrario" '.$flag_contrario.'>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     <label for="flag_contrario" class="medium-label">Ao contrário</label>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <label for="salesperson" class="medium-label">Vendedor:</label>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     <select class="medium-label" id="salesperson" name="Salesperson">
 
                                     </select>
