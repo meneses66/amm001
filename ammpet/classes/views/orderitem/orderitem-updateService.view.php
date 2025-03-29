@@ -37,18 +37,19 @@ $_SESSION['LAST_ACTIVE']=time();?>
 
         <!-- Table Column Date Formatting-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
-
-        <!-- Load Update Form JS-->
-        <script src="<?php echo ROOT;?>/assets/js/load_orderitem_form.js"></script>
-
-        <!-- Order Item Selectors JS-->
-        <script src="<?php echo ROOT;?>/assets/js/selectors_order_item.js"></script>
        
         <!-- jQuery Mask -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         
         <!-- Mask JS-->
         <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
+        
+        <!-- Load Update Form JS-->
+        <script src="<?php echo ROOT;?>/assets/js/load_orderitem_form.js"></script>
+
+        <!-- Order Item Selectors JS-->
+        <script src="<?php echo ROOT;?>/assets/js/selectors_order_item.js"></script>
+
 
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
