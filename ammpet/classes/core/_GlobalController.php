@@ -659,7 +659,7 @@ Trait _GlobalController{
                 }
                 
             } catch (\Throwable $th) {
-                echo $var_dump($inputs);
+                echo var_dump($inputs);
                 throw $th;
             }
         }
