@@ -8,10 +8,10 @@ function calculate_item_service(input){
     let oi_price_pix = document.getElementById("oi_price_pix").value;
 
     if (id_package=="0") {
-        var total_cash = quantity*oi_price_cash;
-        var total_pix = quantity*oi_price_pix;
-        var total_no_discount = quantity*unit_value;
-        var total_with_discount = quantity*unit_value - discount_value;        
+        var total_cash = round(quantity*oi_price_cash);
+        var total_pix = round(quantity*oi_price_pix);
+        var total_no_discount = round(quantity*unit_value);
+        var total_with_discount = round(round(quantity*unit_value) - discount_value);        
     } else{
         var total_cash = "0.00";
         var total_pix = "0.00";
@@ -28,4 +28,8 @@ function calculate_item_service(input){
     document.getElementById("value_no_discount").value = total_no_discount;
     document.getElementById("value_with_discount").value = total_with_discount;
 
+}
+
+function round(num, decimalPlaces = 0) {
+    return new Decimal(num).toDecimalPlaces(decimalPlaces).toNumber();
 }
