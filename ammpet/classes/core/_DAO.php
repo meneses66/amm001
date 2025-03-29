@@ -46,6 +46,7 @@ Trait _DAO{
         return $result;
       } else {
           $result = $stm->fetchAll(PDO::FETCH_OBJ);
+          echo($sql_stm);
             if(is_array($result) && count($result)){
               $stm=null;
               $connect=null;
