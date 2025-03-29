@@ -1,4 +1,4 @@
-function calculate_item_service(){
+function calculate_item_service(input){
     console.log("Entrei");
     let id_package = document.getElementById("id_package").value;
     let quantity = document.getElementById("quantity").value;
