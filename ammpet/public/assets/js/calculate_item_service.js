@@ -8,10 +8,10 @@ function calculate_item_service(input){
     let oi_price_pix = document.getElementById("oi_price_pix").value;
 
     if (id_package=="0") {
-        var total_cash = round(quantity*oi_price_cash);
-        var total_pix = round(quantity*oi_price_pix);
-        var total_no_discount = round(quantity*unit_value);
-        var total_with_discount = round(round(quantity*unit_value) - discount_value);        
+        var total_cash = round(quantity*oi_price_cash, 2);
+        var total_pix = round(quantity*oi_price_pix, 2);
+        var total_no_discount = round(quantity*unit_value, 2);
+        var total_with_discount = round((round(quantity*unit_value, 2) - discount_value),2);        
     } else{
         var total_cash = "0.00";
         var total_pix = "0.00";
