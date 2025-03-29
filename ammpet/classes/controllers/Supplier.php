@@ -461,10 +461,10 @@ class Supplier {
 
         //echo var_dump($inputs);
 
-        if($data_form_executor=="----" || $data_form_executor=="" || $data_form_executor==null){
-            $option_list = '<option class="medium-label" value="----" "selected">----</option>';
+        if($data_form_executor=="NONO" || $data_form_executor=="" || $data_form_executor==null){
+            $option_list = '<option class="medium-label" value="NONO" "selected">NONO</option>';
         } else {
-            $option_list = '<option class="medium-label" value="----">----</option>';
+            $option_list = '<option class="medium-label" value="NONO">NONO</option>';
         }
 
         $sql_stm = "SELECT * FROM SUPPLIER WHERE TYPE=:TYPE AND STATUS=:STATUS AND (ROLE=:ROLE1 OR ROLE=:ROLE2)";
