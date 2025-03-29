@@ -49,6 +49,9 @@ $_SESSION['LAST_ACTIVE']=time();?>
 
         <!-- Calculate Order Item JS-->
         <script src="<?php echo ROOT;?>/assets/js/calculate_item_service.js"></script>
+
+        <!-- Calculate Decimal Round JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/decimal.js/10.2.1/decimal.js" integrity="sha512-GKse2KVGCCMVBn4riigHjXE8j5hCxYLPXDw8AvcjUtrt+a9TbZFtIKGdArXwYOlZvdmkhQLWQ46ZE3Q1RIa7uQ==" crossorigin="anonymous"></script>
                 
         <!-- Mask JS-->
         <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
