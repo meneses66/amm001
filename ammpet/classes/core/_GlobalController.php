@@ -702,8 +702,29 @@ Trait _GlobalController{
                         break;
                     
                     case 'OrderItem':
+                        //CALL UPDATE ORDER TOTALS:
+                        //$_SERVER['REQUEST_METHOD'] = 'POST';
+                        //$_POST['class']="Orderx";
+                        //$_POST['method']="update_totals";
+                        //$_POST['Id_order']=$inputs['Id_order'];
+            
+                        //$ajax_call = new('\Controller\\'."Ajax_call");
+                        //$ajax_call->index();
+            
+
+                        //CALL UPDATE PACKAGES:
+                        //$_SERVER['REQUEST_METHOD'] = 'POST';
+                        //$_POST['class']="Package";
+                        //$_POST['method']="update_package";
+                        //$_POST['Id_Order_Item']=$id;
+            
+                        //$ajax_call = new('\Controller\\'."Ajax_call");
+                        //$ajax_call->index();
+
+
+                        //REDIRECT TO ORDER DETAILS:
                         $path2 = "Orderx/_details?cli_id=".$inputs['Id_client']."&order_id=".$inputs['Id_order'];
-                        //unset_array($inputs);
+                        unset_array($inputs);
                         double_redirect("OrderItem", $path2);
                         break;
     
