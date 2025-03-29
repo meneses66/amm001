@@ -130,10 +130,10 @@ class OrderItem {
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="package" class="medium-label">Pacote:</label>
+                                    <label for="id_package" class="medium-label">Pacote:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="package" name="Package">
+                                    <select class="medium-label" id="id_package" name="Id_Package">
 
                                     </select>
                                 </div>
@@ -144,7 +144,7 @@ class OrderItem {
                                     <input id="serv_pkg" type="text" size="20" name="Serv_pkg" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="serv_executor" class="medium-label">Resp.:</label>
+                                    <label for="serv_executor" class="medium-label">Executor:</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <select class="medium-label" id="serv_executor" name="Serv_Executor">
