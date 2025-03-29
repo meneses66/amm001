@@ -157,7 +157,7 @@ class OrderItem {
                                     <label for="quantity" class="medium-label">Qtde:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="quantity" type="number" size="20" name="Quantity" value="'.$data_form['QUANTITY'].'">
+                                    <input id="quantity" type="text" size="15" name="Quantity" value="'.$data_form['QUANTITY'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="unit_value" class="medium-label">Valor Unit.:</label>
