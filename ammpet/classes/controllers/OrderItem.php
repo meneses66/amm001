@@ -235,19 +235,19 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <input id="flag_otite" type="checkbox" name="Flag_Otite" '.$flag_otite.'>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="flag_otite" class="medium-label">Otite</label>
                                 </div>
                                 <div class="col-sm-1">
                                     <input id="flag_pulga" type="checkbox" name="Flag_Pulga" '.$flag_pulga.'>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="flag_pulga" class="medium-label">Pulga</label>
                                 </div>
                                 <div class="col-sm-1">
                                     <input id="flag_carrapato" type="checkbox" name="Flag_Carrapato" '.$flag_carrapato.'>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="flag_carrapato" class="medium-label">Carrapato</label>
                                 </div>
                                 <div class="col-sm-1">
@@ -261,19 +261,19 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <input id="flag_ferida" type="checkbox" name="Flag_Ferida" '.$flag_ferida.'>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="flag_ferida" class="medium-label">Ferida</label>
                                 </div>
                                 <div class="col-sm-1">
                                     <input id="flag_dermatite" type="checkbox" name="Flag_Dermatite" '.$flag_dermatite.'>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="flag_dermatite" class="medium-label">Dermatite</label>
                                 </div>
                                 <div class="col-sm-1">
                                     <input id="flag_olhos_verm" type="checkbox" name="Flag_Olhos_Verm" '.$flag_olhos_verm.'>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="flag_contrario" class="medium-label">Olhos Verm.</label>
                                 </div>
                                 <div class="col-sm-1">
@@ -294,7 +294,7 @@ class OrderItem {
                                     <label for="checklist_description" class="medium-label">Descrição:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <textarea id="checklist_description" name="Checklist_Description" rows="2" cols="40">'.$data_form['CHECKLIST_DESCRIPTION'].'</textarea>
+                                    <textarea id="checklist_description" name="Checklist_Description" rows="2" cols="30">'.$data_form['CHECKLIST_DESCRIPTION'].'</textarea>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="salesperson" class="medium-label">Vendedor:</label>
