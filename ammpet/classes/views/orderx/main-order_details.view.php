@@ -26,7 +26,7 @@
     </div>
     <div class="row">
         <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
-            <p style="font-size:12px font-weight:bold;" >Animais</p>
+            <p style="font-size:12px; font-weight:bold;" >Animais</p>
             <div class="table-responsive" id="_animals" style="font-size:12px;">
                 <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
                     <?php 
