@@ -170,9 +170,12 @@ Trait _GlobalModel{
         }
         $sql_stm = trim($sql_stm,", ");
         $sql_stm .= " where ID=:ID";
-        $this->query($sql_stm, $inputs);
-        //return false;
-        return $sql_stm;
+        try {
+            $this->query($sql_stm, $inputs);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+        return false;
     }
 
     #delete
