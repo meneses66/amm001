@@ -234,25 +234,7 @@ class OrderItem {
                                 <div class="col-sm-2">
                                     <input id="value_with_discount" type="text" size="15" readonly name="Value_With_Discount" value="'.$data_form['VALUE_WITH_DISCOUNT'].'">
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                </div>
-                                <div class="col-sm-3">
-                                </div>
-                                <div class="col-sm-1">
-                                </div>
-                                <div class="col-sm-3">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="salesperson" class="medium-label">Vendedor:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <select class="medium-label" id="salesperson" name="Salesperson">
-
-                                    </select>
-                                </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <input id="flag_otite" type="checkbox" name="Flag_Otite" '.$flag_otite.'>
@@ -303,8 +285,16 @@ class OrderItem {
                                 <div class="col-sm-1">
                                     <label for="checklist_description" class="medium-label">Descrição:</label>
                                 </div>
-                                <div class="col-sm-8">
+                                <div class="col-sm-4">
                                     <textarea id="checklist_description" name="Checklist_Description" rows="4" cols="50">'.$data_form['CHECKLIST_DESCRIPTION'].'</textarea>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="salesperson" class="medium-label">Vendedor:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="salesperson" name="Salesperson">
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="row">
