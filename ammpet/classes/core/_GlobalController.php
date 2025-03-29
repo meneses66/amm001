@@ -263,7 +263,7 @@ Trait _GlobalController{
                 $inputs['Quantity']="1";
                 $inputs['Discount_Value']="0";
                 $inputs['Id_Package']="0";
-                $inputs['Serv_Executor']="----";
+                $inputs['Serv_Executor']="XXXX";
                 $inputs['Salesperson']="Viviam Bragantine";
                 $inputs['Package_service']="Banho";
                 $inputs['Flag_Otite']=0;
