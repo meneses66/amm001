@@ -97,6 +97,13 @@ class OrderItem {
 
                 //DEFINE FLAGS:
                 $flag_contrario = ($data_form['FLAG_CONTRARIO']==1) ? "checked" : "";
+                $flag_otite = ($data_form['FLAG_OTITE']==1) ? "checked" : "";
+                $flag_olhos_verm = ($data_form['FLAG_OLHOS_VERM']==1) ? "checked" : "";
+                $flag_pulga = ($data_form['FLAG_PULGA']==1) ? "checked" : "";
+                $flag_carrapato = ($data_form['FLAG_CARRAPATO']==1) ? "checked" : "";
+                $flag_dermatite = ($data_form['FLAG_DERMATITE']==1) ? "checked" : "";
+                $flag_ferida = ($data_form['FLAG_FERIDA']==1) ? "checked" : "";
+                $flag_outro = ($data_form['FLAG_OUTRO']==1) ? "checked" : "";
 
                 //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
@@ -204,6 +211,40 @@ class OrderItem {
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
+                                    <label for="total_cash" class="medium-label">Total Dinh:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="total_cash" type="text" size="15" name="Total_Cash" readonly value="'.$data_form['TOTAL_CASH'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="total_pix" class="medium-label">Total Pix:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="total_pix" type="text" size="15" name="Total_Pix" readonly value="'.$data_form['TOTAL_PIX'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="value_no_discount" class="medium-label">Valor s/ Desc:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="value_no_discount" type="text" size="15" readonly name="Value_No_Discount" value="'.$data_form['VALUE_NO_DISCOUNT'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="value_with_discount" class="medium-label">Valor Final:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="value_with_discount" type="text" size="15" readonly name="Value_With_Discount" value="'.$data_form['VALUE_WITH_DISCOUNT'].'">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                </div>
+                                <div class="col-sm-3">
+                                </div>
+                                <div class="col-sm-1">
+                                </div>
+                                <div class="col-sm-3">
+                                </div>
+                                <div class="col-sm-1">
                                     <label for="salesperson" class="medium-label">Vendedor:</label>
                                 </div>
                                 <div class="col-sm-3">
@@ -213,12 +254,60 @@ class OrderItem {
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-sm-1">
+                                    <input id="flag_otite" type="checkbox" name="Flag_Otite" '.$flag_otite.'>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="flag_otite" class="medium-label">Otite</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="flag_pulga" type="checkbox" name="Flag_Pulga" '.$flag_pulga.'>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="flag_pulga" class="medium-label">Pulga</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="flag_carrapato" type="checkbox" name="Flag_Carrapato" '.$flag_carrapato.'>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="flag_carrapato" class="medium-label">Carrapato</label>
+                                </div>
                             </div>
                             <div class="row">
+                                <div class="col-sm-1">
+                                    <input id="flag_ferida" type="checkbox" name="Flag_Ferida" '.$flag_ferida.'>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="flag_ferida" class="medium-label">Ferida</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="flag_dermatite" type="checkbox" name="Flag_Dermatite" '.$flag_dermatite.'>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="flag_dermatite" class="medium-label">Dermatite</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="flag_olhos_verm" type="checkbox" name="Flag_Olhos_Verm" '.$flag_olhos_verm.'>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="flag_contrario" class="medium-label">Olhos Verm.</label>
+                                </div>
                             </div>
                             <div class="row">
-                            </div>
-                            <div class="row">
+                                <div class="col-sm-1">
+                                    <input id="flag_outro" type="checkbox" name="Flag_Outro" '.$flag_outro.'>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="flag_outro" class="medium-label">Outro</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="checklist_description" class="medium-label">Descrição:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <textarea id="checklist_description" name="Checklist_Description" rows="4" cols="50">
+                                    '.$data_form['CHECKLIST_DESCRIPTION'].'
+                                    </textarea>
+                                </div>
                             </div>
                             <div class="row">
                             </div><br>
