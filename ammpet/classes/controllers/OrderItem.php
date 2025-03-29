@@ -158,7 +158,7 @@ class OrderItem {
 
                                     </select>
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="quantity" class="medium-label">Qtde:</label>
@@ -178,7 +178,7 @@ class OrderItem {
                                 <div class="col-sm-3">
                                     <input id="discount_value" type="text" size="15" name="Discount_Value" value="'.$data_form['DISCOUNT_VALUE'].'">
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="blade" class="medium-label">Lâm./Adap.Corpo:</label>
@@ -208,7 +208,7 @@ class OrderItem {
                                 <div class="col-sm-3">
                                     <label for="flag_contrario" class="medium-label">Ao contrário</label>
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="total_cash" class="medium-label">Total Dinh:</label>
@@ -286,7 +286,7 @@ class OrderItem {
                                     <label for="checklist_description" class="medium-label">Descrição:</label>
                                 </div>
                                 <div class="col-sm-4">
-                                    <textarea id="checklist_description" name="Checklist_Description" rows="4" cols="50">'.$data_form['CHECKLIST_DESCRIPTION'].'</textarea>
+                                    <textarea id="checklist_description" name="Checklist_Description" rows="2" cols="50">'.$data_form['CHECKLIST_DESCRIPTION'].'</textarea>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="salesperson" class="medium-label">Vendedor:</label>
