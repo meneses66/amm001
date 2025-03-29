@@ -171,7 +171,8 @@ Trait _GlobalModel{
         $sql_stm = trim($sql_stm,", ");
         $sql_stm .= " where ID=:ID";
         $this->query($sql_stm, $inputs);
-        return false;
+        //return false;
+        return $sql_stm;
     }
 
     #delete
