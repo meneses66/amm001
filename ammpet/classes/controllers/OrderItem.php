@@ -304,9 +304,7 @@ class OrderItem {
                                     <label for="checklist_description" class="medium-label">Descrição:</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <textarea id="checklist_description" name="Checklist_Description" rows="4" cols="50">
-                                    '.$data_form['CHECKLIST_DESCRIPTION'].'
-                                    </textarea>
+                                    <textarea id="checklist_description" name="Checklist_Description" rows="4" cols="50">'.$data_form['CHECKLIST_DESCRIPTION'].'</textarea>
                                 </div>
                             </div>
                             <div class="row">
