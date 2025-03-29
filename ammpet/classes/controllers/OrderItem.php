@@ -147,7 +147,7 @@ class OrderItem {
                                     <label for="serv_executor" class="medium-label">Resp.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="serv_sxecutor" name="Serv_Executor">
+                                    <select class="medium-label" id="serv_executor" name="Serv_Executor">
 
                                     </select>
                                 </div>

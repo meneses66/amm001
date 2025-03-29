@@ -18,7 +18,7 @@
       data: {class:"Supplier", method:"load_executor_options",  dfexecutor: dataformexecutor},
       success: function(response){
         //console.log(response);
-          $('#executor').html(response);
+          $('#serv_executor').html(response);
       }
   });
   }
