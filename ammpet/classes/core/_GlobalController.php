@@ -549,6 +549,62 @@ Trait _GlobalController{
                 //Remove items from array inputs that are populated automatically in DB
                 unset($inputs["Created"]);
                 unset($inputs["Updated"]);
+
+                //FLAGS SERVICE:
+                if(isset($inputs['Flag_Contrario'])){
+                    $inputs['Flag_Contrario']="1";
+                }else{
+                    $inputs['Flag_Contrario']="0";
+                }
+
+                if(isset($inputs['Flag_Comission'])){
+                    $inputs['Flag_Comission']="1";
+                }else{
+                    $inputs['Flag_Comission']="0";
+                }
+
+                if(isset($inputs['Flag_Otite'])){
+                    $inputs['Flag_Otite']="1";
+                }else{
+                    $inputs['Flag_Otite']="0";
+                }
+
+                if(isset($inputs['Flag_Olhos_Verm'])){
+                    $inputs['Flag_Olhos_Verm']="1";
+                }else{
+                    $inputs['Flag_Olhos_Verm']="0";
+                }
+
+                if(isset($inputs['Flag_Pulga'])){
+                    $inputs['Flag_Pulga']="1";
+                }else{
+                    $inputs['Flag_Pulga']="0";
+                }
+
+                if(isset($inputs['Flag_Carrapato'])){
+                    $inputs['Flag_Carrapato']="1";
+                }else{
+                    $inputs['Flag_Carrapato']="0";
+                }
+
+                if(isset($inputs['Flag_Dermatite'])){
+                    $inputs['Flag_Dermatite']="1";
+                }else{
+                    $inputs['Flag_Dermatite']="0";
+                }
+
+                if(isset($inputs['Flag_Ferida'])){
+                    $inputs['Flag_Ferida']="1";
+                }else{
+                    $inputs['Flag_Ferida']="0";
+                }
+
+                if(isset($inputs['Flag_Outro'])){
+                    $inputs['Flag_Outro']="1";
+                }else{
+                    $inputs['Flag_Outro']="0";
+                }
+
             }
             
             //START UNSET CHECKBOXES IN SUPPLIET VIEW:
