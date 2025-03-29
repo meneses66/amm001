@@ -41,9 +41,6 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <!-- jQuery Mask -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         
-        <!-- Mask JS-->
-        <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
-        
         <!-- Load Update Form JS-->
         <script src="<?php echo ROOT;?>/assets/js/load_orderitem_form.js"></script>
 
@@ -52,6 +49,9 @@ $_SESSION['LAST_ACTIVE']=time();?>
 
         <!-- Calculate Order Item JS-->
         <script src="<?php echo ROOT;?>/assets/js/calculate_item_service.js"></script>
+                
+        <!-- Mask JS-->
+        <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
 
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
