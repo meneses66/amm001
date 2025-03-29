@@ -158,7 +158,7 @@ class OrderItem {
 
                                     </select>
                                 </div>
-                            </div><br>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="quantity" class="medium-label">Qtde:</label>
@@ -298,7 +298,7 @@ class OrderItem {
                                 </div>
                             </div>
                             <div class="row">
-                            </div><br>
+                            </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     
