@@ -248,7 +248,7 @@ Trait _GlobalController{
             }
 
             //Special condition when Object is Orderx:
-            if($inputs['class']=="Orderx" AND isset($_GET['cli_id'])){
+            if($this->UCF_object=="Orderx" AND isset($_GET['cli_id'])){
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Order_Date']=date("Y-m-d");
@@ -256,7 +256,7 @@ Trait _GlobalController{
             }
 
             //Special condition when Object is OrderItem:
-            if($inputs['class']=="OrderItem" AND isset($_GET['order_id'])){
+            if($this->UCF_object=="OrderItem" AND isset($_GET['order_id'])){
                 $inputs['Created_by']=$_SESSION['username'];
                 $inputs['Updated_by']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
