@@ -533,7 +533,7 @@ Trait _GlobalController{
             }
             
             //Special condition when Object is OrderItem:
-            if($this->UCF_object=="OrderItem" AND isset($_GET['order_id'])){
+            if($this->UCF_object=="OrderItem"){
  
                 $cli_id = $_GET['cli_id'];
                 $order_id = $_GET['order_id'];
