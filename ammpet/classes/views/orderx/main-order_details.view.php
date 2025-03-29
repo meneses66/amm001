@@ -47,7 +47,7 @@
                 </table>
             </div>
         </div>
-    </div><br>
+    </div>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <div class="col-sm-6">
             <p style="font-size:12px;" >Serviços</p>
