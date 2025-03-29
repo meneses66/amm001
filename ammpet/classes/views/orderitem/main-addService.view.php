@@ -12,7 +12,9 @@
         <div class="col-sm-6">
             <h4>Selecionar Serviço</h4>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-4">
                 <a href="<?php echo ROOT."/Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
         </div>
     </div>
