@@ -110,16 +110,16 @@ class OrderItem {
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="code" class="medium-label">Cód:</label>
+                                    <label for="prodserv_code" class="medium-label">Cód:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="code" type="text" size="20" name="Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
+                                    <input id="prodserv_code" type="text" size="20" name="Prodserv_Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="desc" class="medium-label">Desc.:</label>
+                                    <label for="item_description" class="medium-label">Desc.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="desc" type="text" size="25" name="Desc" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
+                                    <input id="item_description" type="text" size="25" name="Item_Description" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="date" class="medium-label">Data:</label>
@@ -138,10 +138,10 @@ class OrderItem {
                                     </select>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="serv_pkg" class="medium-label">Serv.Pct.:</label>
+                                    <label for="package_service" class="medium-label">Serv.Pct.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="serv_pkg" type="text" size="20" name="Serv_pkg" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
+                                    <input id="package_service" type="text" size="20" name="Package_Service" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="serv_executor" class="medium-label">Executor:</label>
