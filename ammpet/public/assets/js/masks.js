@@ -24,6 +24,8 @@ $(document).ready(function(){
     $('#comission_percentage').mask("#,##0.00", {reverse: true});
     $('#external_cost').mask("#,##0.00", {reverse: true});
     $('#package_price').mask("#,##0.00", {reverse: true});
+    $('#unit_value').mask("#,##0.00", {reverse: true});
+    $('#discount_value').mask("#,##0.00", {reverse: true});
 
 
   });
