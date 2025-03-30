@@ -412,13 +412,16 @@ class Orderx
         $result_totals = $order_model->exec_sqlstm($sql_stm_get_items, $inputs_order);
     
         if ($result_totals){
+
+            $result_totals = $result_totals->fetch();
+            
             $_SERVER['REQUEST_METHOD']="POST";
 
             $_POST['Order_value_no_discount'] = $result_totals->T_VALUE_NO_DISCOUNT;
             $_POST['Order_value_with_discount'] = $result_totals->T_VALUE_WITH_DISCOUNT;
             $_POST['Order_value_cash'] = $result_totals->T_TOTAL_CASH;
             $_POST['Order_value_pix'] = $result_totals->T_TOTAL_PIX;
-            $_POST['Id'] = $inputs['Id_Order'];
+            $_POST['Id'] = $inputs['Id'];
             
             $_POST['class']="Orderx";
             $_POST['method']="update_call";
