@@ -108,9 +108,9 @@ class OrderItem {
                 //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
                                 <input id="id" type="hidden" name="Id" readonly value="'.$data_form['ID'].'">
-                                <input id="id_client" type="hidden" name="Id_client" readonly value="'.$data_form['ID_CLIENT'].'">
-                                <input id="id_order" type="hidden" name="Id_order" readonly value="'.$data_form['ID_ORDER'].'">
-                                <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                                <input id="id_client" type="hidden" name="Id_Client" readonly value="'.$data_form['ID_CLIENT'].'">
+                                <input id="id_order" type="hidden" name="Id_Order" readonly value="'.$data_form['ID_ORDER'].'">
+                                <input id="updated_by" type="hidden" name="Updated_By" value="'.$_SESSION['username'].'">
                                 <input id="temp_package" type="hidden" name="temp_package" value="'.$data_form['ID_PACKAGE'].'">
                                 <input id="temp_executor" type="hidden" name="temp_executor" value="'.$data_form['SERV_EXECUTOR'].'">
                                 <input id="temp_salesperson" type="hidden" name="temp_salesperson" value="'.$data_form['SALESPERSON'].'">
