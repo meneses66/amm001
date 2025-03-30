@@ -413,23 +413,23 @@ class Orderx
     
         if ($result_totals){
 
-            $result_totals = $result_totals->fetch();
-            
-            $_SERVER['REQUEST_METHOD']="POST";
+            foreach ($result_totals as $row) {
+                $_SERVER['REQUEST_METHOD']="POST";
 
-            $_POST['Order_value_no_discount'] = $result_totals->T_VALUE_NO_DISCOUNT;
-            $_POST['Order_value_with_discount'] = $result_totals->T_VALUE_WITH_DISCOUNT;
-            $_POST['Order_value_cash'] = $result_totals->T_TOTAL_CASH;
-            $_POST['Order_value_pix'] = $result_totals->T_TOTAL_PIX;
-            $_POST['Id'] = $inputs['Id'];
-            
-            $_POST['class']="Orderx";
-            $_POST['method']="update_call";
-            //$_POST['type']="static";
+                $_POST['Order_value_no_discount'] = $row->T_VALUE_NO_DISCOUNT;
+                $_POST['Order_value_with_discount'] = $row->T_VALUE_WITH_DISCOUNT;
+                $_POST['Order_value_cash'] = $row->T_TOTAL_CASH;
+                $_POST['Order_value_pix'] = $row->T_TOTAL_PIX;
+                $_POST['Id'] = $inputs['Id'];
+                
+                $_POST['class']="Orderx";
+                $_POST['method']="update_call";
+                //$_POST['type']="static";
 
-            $ajax_call = new('\Controller\\'."Ajax_call");
-            $ajax_call->index();
-            
+                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call->index();
+            }
+   
         }else {
             $_SERVER['REQUEST_METHOD']="POST";
 
