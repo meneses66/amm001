@@ -414,11 +414,11 @@ class Orderx
         if ($result_totals){
             $_SERVER['REQUEST_METHOD']="POST";
 
-            $_POST['VALUE_NO_DISCOUNT'] = $result_totals->T_VALUE_NO_DISCOUNT;
-            $_POST['VALUE_WITH_DISCOUNT'] = $result_totals->T_VALUE_WITH_DISCOUNT;
-            $_POST['TOTAL_CASH'] = $result_totals->T_TOTAL_CASH;
-            $_POST['TOTAL_PIX'] = $result_totals->T_TOTAL_PIX;
-            $_POST['ID'] = $inputs['Id_Order'];
+            $_POST['Order_value_no_discount'] = $result_totals->T_VALUE_NO_DISCOUNT;
+            $_POST['Order_value_with_discount'] = $result_totals->T_VALUE_WITH_DISCOUNT;
+            $_POST['Order_value_cash'] = $result_totals->T_TOTAL_CASH;
+            $_POST['Order_value_pix'] = $result_totals->T_TOTAL_PIX;
+            $_POST['Id'] = $inputs['Id_Order'];
             
             $_POST['class']="Orderx";
             $_POST['method']="update_call";
