@@ -720,7 +720,7 @@ Trait _GlobalController{
                         $_SERVER['REQUEST_METHOD'] = 'POST';
                         $_POST['class']="Orderx";
                         $_POST['method']="update_totals";
-                        $_POST['Id']=$inputs['Id_order'];
+                        $_POST['Id']=$inputs['Id_Order'];
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
                         $ajax_call->index();
