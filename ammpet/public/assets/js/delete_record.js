@@ -6,6 +6,8 @@ $("body").on("click", ".deleteXBtn", function(e){
     e.preventDefault();
     var tr = $(this).closest('tr');
     var del_id = $(this).attr('id');
+    var order_id = $(this).attr('order_id');
+    var package_id = $(this).attr('package_id');
     var classforjs = $(this).attr('classforjs');
     Swal.fire({
         title: "Are you sure? Delete: " + del_id,
@@ -20,7 +22,7 @@ $("body").on("click", ".deleteXBtn", function(e){
                 $.ajax({
                     url:"/ammpet/public/Ajax_call",
                     type: "POST",
-                    data:{del_id:del_id, class:classforjs, method:"delete_call"},
+                    data:{del_id:del_id, class:classforjs, method:"delete_call", order_id:order_id, package_id:package_id},
                     success:function(response){
                         tr.css('background-color', '#ff6666');
                         window.location.reload()
