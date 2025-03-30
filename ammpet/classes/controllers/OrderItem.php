@@ -51,7 +51,7 @@ class OrderItem {
                             <td>'.$row->COMMENT.'</td>
                             <td>
                                 <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteOIBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_package.'"><i class="fas fa-eraser"></i></a>
                             </td></tr>';
             }
             $output .= '</tbody>';
