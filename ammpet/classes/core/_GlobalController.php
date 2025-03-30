@@ -742,7 +742,8 @@ Trait _GlobalController{
                         }
                         
                         //REDIRECT TO ORDER DETAILS:
-                        $path2 = "Orderx/_details?cli_id=".$inputs['Id_client']."&order_id=".$inputs['Id_order'];
+                        //$path2 = "Orderx/_details?cli_id=".$inputs['Id_client']."&order_id=".$inputs['Id_order'];
+                        $path2 = "Orderx/_details?cli_id=".$cli_id."&order_id=".$order_id;
                         unset_array($inputs);
                         double_redirect("OrderItem", $path2);
                         break;
