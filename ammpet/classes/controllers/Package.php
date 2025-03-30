@@ -100,5 +100,56 @@ class Package {
     
     }
     
+    //GET NEXT SEQUENCE:
+    public function get_next_pkg_sequence(){
+
+    }
+
+    //FUNCTION TO UPDATE PACKAGE DETAILS WHEN: ORDER ITEM SERVICE IS UPDATED OR DELETED   
+    public function update_package($inputs){
+	
+        $inputs_package['ID']=$inputs['Id_Package'];
+        $inputs_oi['ID']=$inputs['Id'];
+        
+        $sql_stm_get_package = "SELECT * FROM CLIENT_PACKAGE WHERE ID=:ID";
+        $sql_stm_get_oi = "SELECT * FROM ORDER_ITEM WHERE ID=:ID";
+        
+        $package_model = new('\Model\\'."Package");
+        $oi_model = new('\Model\\'."OrderItem");
+        
+        $result_package = $package_model->exec_sqlstm($sql_stm_get_package, $inputs_package);
+        $result_oi = $oi_model->exec_sqlstm($sql_stm_get_oi, $inputs_oi);
+    
+        if ($result_package){
+
+            $consumed_package = $result_package->PACK_CONSUMED;
+            $quantity_package = $result_package->PACK_QUANTITY;
+            $consumed_oi = $result_oi->QUANTIY;
+            $updated_consumed_package = $consumed_package+$consumed_oi;
+
+            $_SERVER['REQUEST_METHOD']="POST";
+
+            $_POST['PACK_CONSUMED'] = $updated_consumed_package;
+
+            if ($updated_consumed_package==$quantity_package) {
+                $_POST['PACK_STATUS']="Fechado";
+            } else{
+                $_POST['PACK_STATUS']="Aberto";
+            }
+            $_POST['ID'] = $inputs['Id_Package'];
+            $_POST['class']="Package";
+            $_POST['method']="update_call";
+            $_POST['type']="static";
+
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+            
+        }
+        
+        unset($inputs_package);
+        unset($inputs_oi);
+        $package_model=null;
+        $oi_model=null;
+    }
 
 }

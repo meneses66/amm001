@@ -531,7 +531,7 @@ Trait _GlobalController{
                 }
                 unset($inputs["temp_breed"]);
             }
-            
+
             //Special condition when Object is OrderItem:
             if($this->UCF_object=="OrderItem"){
  
@@ -688,6 +688,20 @@ Trait _GlobalController{
                 unset($inputs["month_closing_delete"]);
             }
 
+            if($this->UCF_object=="Package"){
+                $type_goto="dynamic";
+                if (isset(inputs['type'])) {
+                    $type_goto=$inputs['type'];
+                    unset($inputs["type"]);
+                }
+                if (isset(inputs['class'])) {
+                    unset($inputs["class"]);
+                }
+                if (isset(inputs['method'])) {
+                    unset($inputs["method"]);
+                }
+            }
+
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
 
             try {
@@ -703,31 +717,46 @@ Trait _GlobalController{
                     
                     case 'OrderItem':
                         //CALL UPDATE ORDER TOTALS:
-                        //$_SERVER['REQUEST_METHOD'] = 'POST';
-                        //$_POST['class']="Orderx";
-                        //$_POST['method']="update_totals";
-                        //$_POST['Id_order']=$inputs['Id_order'];
+                        $_SERVER['REQUEST_METHOD'] = 'POST';
+                        $_POST['class']="Orderx";
+                        $_POST['method']="update_totals";
+                        $_POST['Id_order']=$inputs['Id_order'];
             
-                        //$ajax_call = new('\Controller\\'."Ajax_call");
-                        //$ajax_call->index();
+                        $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call->index();
             
-
                         //CALL UPDATE PACKAGES:
-                        //$_SERVER['REQUEST_METHOD'] = 'POST';
-                        //$_POST['class']="Package";
-                        //$_POST['method']="update_package";
-                        //$_POST['Id_Order_Item']=$id;
-            
-                        //$ajax_call = new('\Controller\\'."Ajax_call");
-                        //$ajax_call->index();
-
-
+                        if (!($inputs['Id_Package']==0)) {
+                            $_SERVER['REQUEST_METHOD'] = 'POST';
+                            $_POST['class']="Package";
+                            $_POST['method']="update_package";
+                            $_POST['Id_Package']=$inputs['Id_Package'];
+                
+                            $ajax_call = new('\Controller\\'."Ajax_call");
+                            $ajax_call->index();
+                        }
+                        
                         //REDIRECT TO ORDER DETAILS:
                         $path2 = "Orderx/_details?cli_id=".$inputs['Id_client']."&order_id=".$inputs['Id_order'];
                         unset_array($inputs);
                         double_redirect("OrderItem", $path2);
                         break;
     
+                    case 'Orderx':
+                        unset_array($inputs);
+                        break;
+
+                    case 'Package':
+                        if ($type_goto=='static') {
+                            unset_array($inputs);
+                            break;
+                        } else {
+                            $view = "$this->UCF_object/_list";
+                            unset_array($inputs);
+                            redirect("$view");
+                            break;
+                        }
+
                     default:
                         $view = "$this->UCF_object/_list";
                         unset_array($inputs);
