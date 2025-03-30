@@ -403,7 +403,7 @@ class Orderx
     //FUNCTION TO UPDATE ORDER TOTALS WHEN: ORDER ITEM SERVICE IS UPDATED OR DELETED
     public function update_totals($inputs){
 	
-        $inputs_order['ID_ORDER']=$inputs['Id_Order'];
+        $inputs_order['ID_ORDER']=$inputs['Id'];
         
         $sql_stm_get_items = "SELECT SUM(VALUE_NO_DISCOUNT) AS T_VALUE_NO_DISCOUNT, SUM(VALUE_WITH_DISCOUNT) AS T_VALUE_WITH_DISCOUNT, SUM(TOTAL_CASH) AS T_TOTAL_CASH, SUM(TOTAL_PIX) AS T_TOTAL_PIX FROM ORDER_ITEM WHERE ID_ORDER=:ID_ORDER";
         
