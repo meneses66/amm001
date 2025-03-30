@@ -537,6 +537,7 @@ Trait _GlobalController{
  
                 $cli_id = $_GET['cli_id'];
                 $order_id = $_GET['order_id'];
+                $package_id = $inputs['id_package'];
                 unset($inputs["Order_Date"]);
                 unset($inputs["Status"]);
                 unset($inputs["temp_package"]);
@@ -717,20 +718,24 @@ Trait _GlobalController{
                     
                     case 'OrderItem':
                         //CALL UPDATE ORDER TOTALS:
+                        unset($_POST);
                         $_SERVER['REQUEST_METHOD'] = 'POST';
                         $_POST['class']="Orderx";
                         $_POST['method']="update_totals";
-                        $_POST['Id']=$inputs['Id_Order'];
+                        //$_POST['Id']=$inputs['Id_Order'];
+                        $_POST['Id']=$order_id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
                         $ajax_call->index();
             
                         //CALL UPDATE PACKAGES:
-                        if (!($inputs['Id_Package']==0)) {
+                        if (!($package_id==0)) {
+                            unset($_POST);
                             $_SERVER['REQUEST_METHOD'] = 'POST';
                             $_POST['class']="Package";
                             $_POST['method']="update_package";
-                            $_POST['Id_Package']=$inputs['Id_Package'];
+                            //$_POST['Id_Package']=$inputs['Id_Package'];
+                            $_POST['Id_Package']=$package_id;
                 
                             $ajax_call = new('\Controller\\'."Ajax_call");
                             $ajax_call->index();
