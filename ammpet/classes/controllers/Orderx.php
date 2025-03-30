@@ -403,13 +403,13 @@ class Orderx
     //FUNCTION TO UPDATE ORDER TOTALS WHEN: ORDER ITEM SERVICE IS UPDATED OR DELETED
     public function update_totals($inputs){
 	
-        $inputs_order['ID_ORDER']=$inputs['Id'];
+        $inputs_order_item['ID_ORDER']=$inputs['Id'];
         
         $sql_stm_get_items = "SELECT SUM(VALUE_NO_DISCOUNT) AS T_VALUE_NO_DISCOUNT, SUM(VALUE_WITH_DISCOUNT) AS T_VALUE_WITH_DISCOUNT, SUM(TOTAL_CASH) AS T_TOTAL_CASH, SUM(TOTAL_PIX) AS T_TOTAL_PIX FROM ORDER_ITEM WHERE ID_ORDER=:ID_ORDER";
         
-        $order_model = new('\Model\\'."Orderx");
+        $order_model = new('\Model\\'."OrderItem");
         
-        $result_totals = $order_model->exec_sqlstm($sql_stm_get_items, $inputs_order);
+        $result_totals = $order_model->exec_sqlstm($sql_stm_get_items, $inputs_order_item);
     
         if ($result_totals){
 
@@ -433,11 +433,11 @@ class Orderx
         }else {
             $_SERVER['REQUEST_METHOD']="POST";
 
-            $_POST['VALUE_NO_DISCOUNT'] = 0;
-            $_POST['VALUE_WITH_DISCOUNT'] = 0;
-            $_POST['TOTAL_CASH'] = 0;
-            $_POST['TOTAL_PIX'] = 0;
-            $_POST['ID'] = $inputs['Id_Order'];
+            $_POST['Order_value_no_discount'] = 0;
+            $_POST['Order_value_with_discount'] = 0;
+            $_POST['Order_value_cash'] = 0;
+            $_POST['Order_value_pix'] = 0;
+            $_POST['Id'] = $inputs['Id'];
             
             $_POST['class']="Orderx";
             $_POST['method']="update_call";
@@ -448,7 +448,7 @@ class Orderx
         
         }
         
-        unset($inputs_order);
+        unset($inputs_order_item);
         unset($inputs_order_totals);
         $order_model=null;
     }
