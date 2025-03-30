@@ -788,11 +788,11 @@ Trait _GlobalController{
         if(isset($inputs["del_id"])){
 
             $id = $inputs["del_id"];
-            if (isset($inputs['Id_Order'])) {
-                $order_id=$inputs['Id_Order'];
+            if (isset($inputs['order_id'])) {
+                $order_id=$inputs['order_id'];
             }
-            if (isset($inputs['Id_Package'])) {
-                $package_id=$inputs['Id_Package'];
+            if (isset($inputs['package_id'])) {
+                $package_id=$inputs['package_id'];
             }
             unset_array($inputs);
             try {
