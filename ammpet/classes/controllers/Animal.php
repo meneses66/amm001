@@ -405,12 +405,14 @@ class Animal {
 
                     foreach ($data as $row) {
 
-                        //GET BREED NAME
-                        $breed_input['ID']= $row->ID_BREED;
-                        $breed = new('\Model\\'."Breed");
-                        $breed_name = $breed->getRow($breed_input)->NAME;
-                        $breed = null;
-                        
+                        //GET BREED NAME IF BREED WAS DEFINED
+                        if ((!$row->ID_BREED==null || $row->ID_BREED=="")) {
+                            $breed_input['ID']= $row->ID_BREED;
+                            $breed = new('\Model\\'."Breed");
+                            $breed_name = $breed->getRow($breed_input)->NAME;
+                            $breed = null;
+                        }
+
                         //ADD ROW IN TABLE
                         $output .='<tr class="text-center text-secondary">
                                     <td>'.$row->ID.'</td>
