@@ -134,10 +134,10 @@ class OrderItem {
                                     <input id="item_description" type="text" size="25" name="Item_Description" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="id_animal" class="medium-label">Ani.Pct.:</label>
+                                    <label for="id_package_animal" class="medium-label">Ani.Pct.:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <select class="medium-label" id="id_animal" name="Id_Animal">
+                                    <select class="medium-label" id="id_package_animal" name="Id_Package_Animal">
 
                                     </select>
                                 </div>
