@@ -47,7 +47,7 @@ class Animal {
                                 <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
                                 <input id="created" type="hidden" name="Created" value="">
                                 <input id="updated" type="hidden" name="Updated" value="">
-                                <input id="id_client" type="hidden" name="Id_client" value="'.$cli_id.'">
+                                <input id="id_client" type="hidden" name="Id_Client" value="'.$cli_id.'">
                             </div>
                         </div>
                         <div class="row">
@@ -72,7 +72,7 @@ class Animal {
                                 <label for="id_breed" class="medium-label">Raça:</label>
                             </div>
                             <div class="col-sm-3">
-                                <select class="medium-label" id="id_breed" name="Id_breed">
+                                <select class="medium-label" id="id_breed" name="Id_Breed">
                                     
                                 </select>
                             </div>
@@ -189,7 +189,7 @@ class Animal {
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
-                                    <input id="id_client" type="hidden" name="Id_client" value="'.$data_form['ID_CLIENT'].'">
+                                    <input id="id_client" type="hidden" name="Id_Client" value="'.$data_form['ID_CLIENT'].'">
                                     <input id="temp_breed" type="hidden" name="temp_breed" value="'.$data_form['ID_BREED'].'">
                                 </div>
                             </div><br>
@@ -215,7 +215,7 @@ class Animal {
                                     <label for="id_breed" class="medium-label">Raça:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="medium-label" id="id_breed" name="Id_breed">
+                                    <select class="medium-label" id="id_breed" name="Id_Breed">
                                         
                                     </select>
                                 </div>
