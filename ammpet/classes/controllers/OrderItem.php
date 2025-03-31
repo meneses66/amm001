@@ -325,7 +325,7 @@ class OrderItem {
                                     
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Atualizar" formaction="../OrderItem/update_call?cli_id='.$data_form['ID_CLIENT'].'&order_id='.$data_form['ID_ORDER'].'&item_id='.$data_form['ID'].'">
+                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../OrderItem/update_call?cli_id='.$data_form['ID_CLIENT'].'&order_id='.$data_form['ID_ORDER'].'&item_id='.$data_form['ID'].'">
                                 </div>
                             </div>';
                             $sql_stm = null;

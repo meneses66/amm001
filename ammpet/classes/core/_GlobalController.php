@@ -249,16 +249,16 @@ Trait _GlobalController{
 
             //Special condition when Object is Orderx:
             if($this->UCF_object=="Orderx" AND isset($_GET['cli_id'])){
-                $inputs['Created_by']=$_SESSION['username'];
-                $inputs['Updated_by']=$_SESSION['username'];
+                $inputs['Created_By']=$_SESSION['username'];
+                $inputs['Updated_By']=$_SESSION['username'];
                 $inputs['Order_Date']=date("Y-m-d");
                 $inputs['Status']="Aberto";
             }
 
             //Special condition when Object is OrderItem:
             if($this->UCF_object=="OrderItem" AND isset($_GET['order_id'])){
-                $inputs['Created_by']=$_SESSION['username'];
-                $inputs['Updated_by']=$_SESSION['username'];
+                $inputs['Created_By']=$_SESSION['username'];
+                $inputs['Updated_By']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
                 $inputs['Quantity']="1";
                 $inputs['Discount_Value']="0";
@@ -763,7 +763,7 @@ Trait _GlobalController{
                             $_POST['Id_Client']=$cli_id;
                             $_POST['Id_Animal']=$inputs['Id_Package_Animal'];
                             $_POST['Id_Order']=$order_id;
-                            $_POST['Id_Order_Item']=$new_id;
+                            $_POST['Id_Order_Item']=$inputs['Id'];
                             $_POST['Id_Prod_Serv']=$inputs['Id_Prod_Serv'];
                             $_POST['Pack_Quantity']=$inputs['Package_Amount'];
                             $_POST['Pack_Name']=$inputs['Package_Service'];
