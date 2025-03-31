@@ -418,6 +418,7 @@ Trait _GlobalController{
 
             //Special condition when Object is Package:
             if($this->UCF_object=="Package"){
+                
                 $inputs['Created_By']=$_SESSION['username'];
                 $inputs['Updated_By']=$_SESSION['username'];
                 $inputs['Pack_Date']=date("Y-m-d");
@@ -764,21 +765,29 @@ Trait _GlobalController{
 
                         //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE:
                         if ($inputs['Prod_Serv_Category']=="Pacote") {
-                            unset($_POST);
-                            $_SERVER['REQUEST_METHOD'] = 'POST';
-                            $_POST['Id_Client']=$cli_id;
-                            $_POST['Id_Animal']=$inputs['Id_Package_Animal'];
-                            $_POST['Id_Order']=$order_id;
-                            $_POST['Id_Order_Item']=$inputs['Id'];
-                            $_POST['Id_Prod_Serv']=$inputs['Id_Prod_Serv'];
-                            $_POST['Pack_Quantity']=$inputs['Package_Amount'];
-                            $_POST['Pack_Name']=$inputs['Package_Service'];
-                            
-                            $_POST['class']="Package";
-                            $_POST['method']="insert_call";
-                
-                            $ajax_call = new('\Controller\\'."Ajax_call");
-                            $ajax_call->index();
+
+                            $package_input['Id_Order_Item'] = $inputs['Id'];
+                            require_once "Package";
+                            $package_model = new('\Model\\'."Package");
+                            $package_row = $package_model->getRow($package_input);
+
+                            if (!($package_row)) {
+                                unset($_POST);
+                                $_SERVER['REQUEST_METHOD'] = 'POST';
+                                $_POST['Id_Client']=$cli_id;
+                                $_POST['Id_Animal']=$inputs['Id_Package_Animal'];
+                                $_POST['Id_Order']=$order_id;
+                                $_POST['Id_Order_Item']=$inputs['Id'];
+                                $_POST['Id_Prod_Serv']=$inputs['Id_Prod_Serv'];
+                                $_POST['Pack_Quantity']=$inputs['Package_Amount'];
+                                $_POST['Pack_Name']=$inputs['Package_Service'];
+                                
+                                $_POST['class']="Package";
+                                $_POST['method']="insert_call";
+                    
+                                $ajax_call = new('\Controller\\'."Ajax_call");
+                                $ajax_call->index();
+                                }
 
                         }
 
