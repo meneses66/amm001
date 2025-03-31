@@ -537,7 +537,7 @@ Trait _GlobalController{
  
                 $cli_id = $_GET['cli_id'];
                 $order_id = $_GET['order_id'];
-                $package_id = $inputs['id_package'];
+                $package_id = $inputs['Id_Package'];
                 unset($inputs["Order_Date"]);
                 unset($inputs["Status"]);
                 unset($inputs["temp_package"]);
