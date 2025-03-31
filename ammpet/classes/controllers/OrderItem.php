@@ -119,7 +119,9 @@ class OrderItem {
                                 <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" value="'.$data_form['OI_PRICE_PIX'].'">
                                 <input id="package_sequence" type="hidden" name="Package_Sequence" value="'.$data_form['PACKAGE_SEQUENCE'].'">
                                 <input id="package_consume" type="hidden" name="Package_Consume" value="'.$data_form['PACKAGE_CONSUME'].'">
+                                <input id="package_amount" type="hidden" name="Package_Amount" value="'.$data_form['PACKAGE_AMOUNT'].'">
                                 <input id="prod_serv_category" type="hidden" name="Prod_Serv_Category" value="'.$data_form['PROD_SERV_CATEGORY'].'">
+                                <input id="id_prod_serv" type="hidden" name="Id_Prod_Serv" value="'.$data_form['Id_Prod_Serv'].'">
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">

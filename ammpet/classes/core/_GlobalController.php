@@ -766,7 +766,7 @@ Trait _GlobalController{
                         //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE:
                         if ($inputs['Prod_Serv_Category']=="Pacote") {
 
-                            $package_input['Id_Order_Item'] = $inputs['Id'];
+                            $package_input['Id_Order_Item'] = $id;
                             require_once "Package";
                             $package_model = new('\Model\\'."Package");
                             $package_row = $package_model->getRow($package_input);
@@ -777,7 +777,7 @@ Trait _GlobalController{
                                 $_POST['Id_Client']=$cli_id;
                                 $_POST['Id_Animal']=$inputs['Id_Package_Animal'];
                                 $_POST['Id_Order']=$order_id;
-                                $_POST['Id_Order_Item']=$inputs['Id'];
+                                $_POST['Id_Order_Item']=$id;
                                 $_POST['Id_Prod_Serv']=$inputs['Id_Prod_Serv'];
                                 $_POST['Pack_Quantity']=$inputs['Package_Amount'];
                                 $_POST['Pack_Name']=$inputs['Package_Service'];
@@ -788,6 +788,9 @@ Trait _GlobalController{
                                 $ajax_call = new('\Controller\\'."Ajax_call");
                                 $ajax_call->index();
                                 }
+
+                                unset($package_input);
+                                $package_model=null;
 
                         }
 
