@@ -34,3 +34,15 @@
       }
   });
   }
+
+  function load_animals(temp_id_animal_pkg, id_client){  
+    //console.log("dataformpackage-"+dataformpackage+"id_client-"+id_client);
+    $.ajax({
+      url: "/ammpet/public/Ajax_call",
+      type: "POST",
+      data: {class:"Animal", method:"load_animal_options",  data_form_info: temp_id_animal_pkg, id_client: id_client},
+      success: function(response){
+          $('#id_package_animal').html(response);
+      }
+  });
+  }

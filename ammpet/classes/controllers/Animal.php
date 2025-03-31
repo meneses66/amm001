@@ -525,4 +525,34 @@ class Animal {
         }
     }
 
+    public function load_animal_options ($array){
+        
+        //GET LIST OF ANIMALS FROM ANIMALS TABLE
+        $model = new('\Model\\'.$this->UCF_object);
+        
+        $data_form=$array['data_form_info'];
+        $inputs['ID_CLIENT']=$array['id_client'];
+
+        if($data_form==0 || $data_form=="0" || $data_form=="" || $data_form==null){
+            $option_list = '<option class="medium-label" value="0" "selected">N/A</option>';
+        } else {
+            $option_list = '<option class="medium-label" value="0">N/A</option>';
+        }
+        
+        $options = $model->listWhere($inputs);
+        if($options){
+            foreach ($options as $option) { 
+                $selected= ($data_form == $option->ID) ? "selected":"";
+                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
+            }
+        }
+        $sql_stm = null;
+        unset_array($inputs);
+        $data = null;
+        $options = null;
+        $model = null;
+        return $option_list;
+    
+    }
+
 }

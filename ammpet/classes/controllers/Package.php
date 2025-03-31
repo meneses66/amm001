@@ -71,7 +71,7 @@ class Package {
 
     public function load_package_options ($array){
         
-        //GET LIST OF BREEDS FROM BREED TABLE
+        //GET LIST OF PACKAGES FROM PACKAGES TABLE
         $model = new('\Model\\'.$this->UCF_object);
         
         $data_form_package=$array['dfpackage'];
@@ -87,7 +87,7 @@ class Package {
         $options = $model->listWhere($inputs);
         if($options){
             foreach ($options as $option) { 
-                $selected= ($data_form_breed == $option->ID) ? "selected":"";
+                $selected= ($data_form_package == $option->ID) ? "selected":"";
                 $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
             }
         }

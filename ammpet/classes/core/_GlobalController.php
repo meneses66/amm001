@@ -413,7 +413,14 @@ Trait _GlobalController{
                 unset($inputs["month_closing_delete"]);
             }
 
-            //END UNSET CHECKBOXES IN SUPPLIET VIEW:
+            //Special condition when Object is Package:
+            if($this->UCF_object=="Package"){
+                $inputs['Created_by']=$_SESSION['username'];
+                $inputs['Updated_by']=$_SESSION['username'];
+                $inputs['Pack_Date']=date("Y-m-d");
+                $inputs['Pack_Status']="Aberto";
+                $inputs['Pack_Consumed']=0;
+            }
 
             try {
                 //$model->insert($inputs);
@@ -703,6 +710,7 @@ Trait _GlobalController{
                 if (isset(inputs['method'])) {
                     unset($inputs["method"]);
                 }
+
             }
 
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
@@ -742,6 +750,27 @@ Trait _GlobalController{
                             $ajax_call = new('\Controller\\'."Ajax_call");
                             $ajax_call->index();
                         }
+
+                        //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE:
+                        if ($inputs['Prod_Serv_Category']=="Pacote") {
+                            unset($_POST);
+                            $_SERVER['REQUEST_METHOD'] = 'POST';
+                            $_POST['Id_Client']=$cli_id;
+                            $_POST['Id_Animal']=$inputs['Id_Package_Animal'];
+                            $_POST['Id_Order']=$order_id;
+                            $_POST['Id_Order_Item']=$new_id;
+                            $_POST['Id_Prod_Serv']=$inputs['Id_Prod_Serv'];
+                            $_POST['Pack_Quantity']=$inputs['Package_Amount'];
+                            $_POST['Pack_Name']=$inputs['Package_Service'];
+                            
+                            $_POST['class']="Package";
+                            $_POST['method']="insert_call";
+                
+                            $ajax_call = new('\Controller\\'."Ajax_call");
+                            $ajax_call->index();
+
+                        }
+
                         
                         //REDIRECT TO ORDER DETAILS:
                         //$path2 = "Orderx/_details?cli_id=".$inputs['Id_client']."&order_id=".$inputs['Id_order'];

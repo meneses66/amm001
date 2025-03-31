@@ -114,6 +114,7 @@ class OrderItem {
                                 <input id="temp_package" type="hidden" name="temp_package" value="'.$data_form['ID_PACKAGE'].'">
                                 <input id="temp_executor" type="hidden" name="temp_executor" value="'.$data_form['SERV_EXECUTOR'].'">
                                 <input id="temp_salesperson" type="hidden" name="temp_salesperson" value="'.$data_form['SALESPERSON'].'">
+                                <input id="temp_id_animal_pkg" type="hidden" name="temp_id_animal_pkg" value="'.$data_form['ID_PACKAGE_ANIMAL'].'">
                                 <input id="oi_price_cash" type="hidden" name="OI_Price_Cash" value="'.$data_form['OI_PRICE_CASH'].'">
                                 <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" value="'.$data_form['OI_PRICE_PIX'].'">
                                 <input id="package_sequence" type="hidden" name="Package_Sequence" value="'.$data_form['PACKAGE_SEQUENCE'].'">
@@ -133,8 +134,12 @@ class OrderItem {
                                     <input id="item_description" type="text" size="25" name="Item_Description" readonly value="'.$data_form['ITEM_DESCRIPTION'].'">
                                 </div>
                                 <div class="col-sm-1">
+                                    <label for="id_animal" class="medium-label">Ani.Pct.:</label>
                                 </div>
                                 <div class="col-sm-2">
+                                    <select class="medium-label" id="id_animal" name="Id_Animal">
+
+                                    </select>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="quantity" class="medium-label">Qtde:</label>
