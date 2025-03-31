@@ -552,6 +552,7 @@ Trait _GlobalController{
                 unset($inputs["temp_package"]);
                 unset($inputs["temp_executor"]);
                 unset($inputs["temp_salesperson"]);
+                unset($inputs["temp_id_animal_pkg"]);
                 unset($inputs["operation"]);
                 unset($inputs["class"]);
                 unset($inputs["method"]);
