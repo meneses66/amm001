@@ -415,8 +415,8 @@ Trait _GlobalController{
 
             //Special condition when Object is Package:
             if($this->UCF_object=="Package"){
-                $inputs['Created_by']=$_SESSION['username'];
-                $inputs['Updated_by']=$_SESSION['username'];
+                $inputs['Created_By']=$_SESSION['username'];
+                $inputs['Updated_By']=$_SESSION['username'];
                 $inputs['Pack_Date']=date("Y-m-d");
                 $inputs['Pack_Status']="Aberto";
                 $inputs['Pack_Consumed']=0;
@@ -450,6 +450,10 @@ Trait _GlobalController{
                         $view = "$this->UCF_object/_updateService?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
                         unset_array($inputs);
                         redirect("$view");
+                        break;
+
+                    case 'Package':
+                        unset_array($inputs);
                         break;
                     
                     default:
