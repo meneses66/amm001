@@ -538,10 +538,10 @@ class Animal {
 
         //POR ENQUANTO ESTÁ HARD-CODED ANIMAL ID=1 DO CLIENTE ID=1. ISSO PARA MANTER A FK DA COLUNA
         // VER UMA MELHOR OPÇÃO NO FUTURO (TALVEZ REMOVER A FK DA COLUNA)
-        if($data_form==9 || $data_form=="9" || $data_form=="" || $data_form==null){
-            $option_list = '<option class="medium-label" value="9" "selected">N/A</option>';
+        if($data_form==1 || $data_form=="1" || $data_form=="" || $data_form==null){
+            $option_list = '<option class="medium-label" value="1" "selected">N/A</option>';
         } else {
-            $option_list = '<option class="medium-label" value="9">N/A</option>';
+            $option_list = '<option class="medium-label" value="1">N/A</option>';
         }
         
         $options = $model->listWhere($inputs);
