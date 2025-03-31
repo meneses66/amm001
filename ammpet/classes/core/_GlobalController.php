@@ -438,7 +438,7 @@ Trait _GlobalController{
 
                 switch ($this->UCF_object) {
                     case 'Animal':
-                        $path2 = "Client/_cli_animal?cli_id=".$inputs['Id_client'];
+                        $path2 = "Client/_cli_animal?cli_id=".$inputs['Id_Client'];
                         unset_array($inputs);
                         double_redirect("Animal", $path2);
                         break;
