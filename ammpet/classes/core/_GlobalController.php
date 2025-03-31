@@ -339,8 +339,8 @@ Trait _GlobalController{
                 }else{
                     $inputs["Is_vaccinated"]="0";
                 }
-                if($inputs["Id_Breed"]==""){
-                    $inputs["Id_Breed"]=null;
+                if($inputs["Id_breed"]==""){
+                    $inputs["Id_breed"]=null;
                 }
             }
 
