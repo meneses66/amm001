@@ -15,9 +15,11 @@ class Animal {
     public $Created;
     public $Updated;
     public $Name;
-    public $Client;
+    //public $Client;
+    public $Id_Client;
     public $Type;
-    public $Breed;
+    //public $Breed;
+    public $Id_Breed;
     public $Gender;
     public $Birth_Date;
     public $Old_Id;
@@ -26,7 +28,7 @@ class Animal {
     public $Blade_Alergic;
     public $Vaccinated;
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, ?Client $client=null, $type=null, ?Breed $breed=null, $gender=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_is_danger=null, $flg_blade_alergic=null, $flg_vaccinated=null)
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $id_client=null, $type=null, $id_breed=null, $gender=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_is_danger=null, $flg_blade_alergic=null, $flg_vaccinated=null)
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
@@ -35,18 +37,11 @@ class Animal {
         $this -> Updated = $updated;
         $this -> Name = $name;
         
-        if ($client != null)
-            $this -> Client = $client;
-        else
-            $this -> Client = new Client();
+        $this -> Id_Client = $id_client;
         
         $this -> Type = $type;
 
-        $this -> Breed = $breed;
-        if ($breed != null)
-            $this -> Breed = $breed;
-        else
-            $this -> Breed = new Breed();
+        $this -> Id_Breed = $id_breed;
 
         $this -> Gender = $gender;
         $this -> Birth_Date = $birth_date;
