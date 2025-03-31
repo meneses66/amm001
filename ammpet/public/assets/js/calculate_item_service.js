@@ -43,7 +43,7 @@ function update_sequence(id_package){
         success: function(response){
             var result = response + 1;
             $('#package_sequence').html(result);
-            $('#package_consumed').html(result);
+            $('#package_consume').html(result);
         }
     });
 

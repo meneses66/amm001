@@ -107,7 +107,7 @@ class Package {
         $package_model = new('\Model\\'."Package");
         $result_package = $package_model->exec_sqlstm($sql_stm_get_package, $inputs_package);
         if ($result_package){
-            return $result_package->PACK_CONSUMED;
+            return $result_package->PACK_CONSUME;
         } else{
             return false;
         }
