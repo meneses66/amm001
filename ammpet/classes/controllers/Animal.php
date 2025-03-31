@@ -406,6 +406,7 @@ class Animal {
                     foreach ($data as $row) {
 
                         //GET BREED NAME IF BREED WAS DEFINED
+                        $breed_name="";
                         if (!($row->ID_BREED==null || $row->ID_BREED=="" || $row->ID_BREED==0)) {
                             $breed_input['ID']= $row->ID_BREED;
                             $breed = new('\Model\\'."Breed");
