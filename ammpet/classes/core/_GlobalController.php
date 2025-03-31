@@ -339,6 +339,9 @@ Trait _GlobalController{
                 }else{
                     $inputs["Is_vaccinated"]="0";
                 }
+                if($inputs["Id_Breed"]==""){
+                    $inputs["Id_Breed"]=null;
+                }
             }
 
             //START UNSET CHECKBOXES IN SUPPLIET VIEW:
@@ -541,6 +544,9 @@ Trait _GlobalController{
                     $inputs["Is_vaccinated"]="1";
                 }else{
                     $inputs["Is_vaccinated"]="0";
+                }
+                if($inputs["Id_Breed"]==""){
+                    $inputs["Id_Breed"]=null;
                 }
                 unset($inputs["temp_breed"]);
             }
