@@ -41,7 +41,7 @@ class Orderx
             GROUP BY O.ID;";
 
         $data = $model->exec_sqlstm($sql_stm);
-        if($model->countAll()>0){
+        if($data){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
@@ -61,6 +61,7 @@ class Orderx
                             </tr>
                         </thead>
                         <tbody>';
+
             foreach ($data as $row) {
                 $output .='<tr class="text-center text-secondary">
                             <td>'.$row->ID.'</td>
