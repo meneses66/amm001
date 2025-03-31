@@ -78,10 +78,10 @@ class Package {
         $inputs['ID_CLIENT']=$array['id_client'];
         $inputs['PACK_STATUS']="Aberto";
 
-        if($data_form_package==0 || $data_form_package=="0" || $data_form_package=="" || $data_form_package==null){
-            $option_list = '<option class="medium-label" value="0" "selected">Avulso</option>';
+        if($data_form_package==1 || $data_form_package=="1"){
+            $option_list = '<option class="medium-label" value="1" "selected">Avulso</option>';
         } else {
-            $option_list = '<option class="medium-label" value="0">Avulso</option>';
+            $option_list = '<option class="medium-label" value="1">Avulso</option>';
         }
         
         $options = $model->listWhere($inputs);

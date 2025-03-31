@@ -536,7 +536,7 @@ class Animal {
         $data_form=$array['data_form_info'];
         $inputs['ID_CLIENT']=$array['id_client'];
 
-        //POR ENQUANTO ESTÁ HARD-CODED ANIMAL ID=9 DO CLIENTE ID=19. ISSO PARA MANTER A FK DA COLUNA
+        //POR ENQUANTO ESTÁ HARD-CODED ANIMAL ID=1 DO CLIENTE ID=1. ISSO PARA MANTER A FK DA COLUNA
         // VER UMA MELHOR OPÇÃO NO FUTURO (TALVEZ REMOVER A FK DA COLUNA)
         if($data_form==9 || $data_form=="9" || $data_form=="" || $data_form==null){
             $option_list = '<option class="medium-label" value="9" "selected">N/A</option>';

@@ -262,7 +262,7 @@ Trait _GlobalController{
                 $inputs['Date']=date("Y-m-d");
                 $inputs['Quantity']="1";
                 $inputs['Discount_Value']="0";
-                $inputs['Id_Package']="0";
+                $inputs['Id_Package']="1";
                 $inputs['Serv_Executor']="XXXX";
                 $inputs['Salesperson']="Viviam Bragantine";
                 $inputs['Package_Service']="Banho";
@@ -339,8 +339,8 @@ Trait _GlobalController{
                 }else{
                     $inputs["Is_vaccinated"]="0";
                 }
-                if($inputs["Id_breed"]==""){
-                    $inputs["Id_breed"]=null;
+                if($inputs["Id_Breed"]==""){
+                    $inputs["Id_Breed"]=null;
                 }
             }
 
