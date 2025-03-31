@@ -265,7 +265,8 @@ Trait _GlobalController{
                 $inputs['Id_Package']="0";
                 $inputs['Serv_Executor']="XXXX";
                 $inputs['Salesperson']="Viviam Bragantine";
-                $inputs['Package_service']="Banho";
+                $inputs['Package_Service']="Banho";
+                $inputs['Package_Sequence']=0;
                 $inputs['Flag_Otite']=0;
                 $inputs['Flag_Olhos_Verm']=0;
                 $inputs['Flag_Pulga']=0;
@@ -888,6 +889,7 @@ Trait _GlobalController{
             $_POST['OI_Price_Pix']=$service_array->PRICE_PIX;
             $_POST['Total_Pix']=$service_array->PRICE_PIX;
             $_POST['Prodserv_Code']=$service_array->CODE;
+            $_POST['Package_Amount']=$service_array->PACKAGE_AMOUNT;
 
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();
