@@ -750,7 +750,7 @@ Trait _GlobalController{
                         $ajax_call->index();
             
                         //CALL UPDATE PACKAGES:
-                        if (!($package_id==0)) {
+                        if (!($package_id==1)) {
                             unset($_POST);
                             $_SERVER['REQUEST_METHOD'] = 'POST';
                             $_POST['class']="Package";
@@ -857,7 +857,7 @@ Trait _GlobalController{
                     $ajax_call->index();
         
                     //CALL UPDATE PACKAGES:
-                    if (!($inputs['Id_Package']==0)) {
+                    if (!($inputs['Id_Package']==1)) {
                         unset($_POST);
                         $_SERVER['REQUEST_METHOD'] = 'POST';
                         $_POST['class']="Package";
