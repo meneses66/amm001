@@ -267,6 +267,7 @@ Trait _GlobalController{
                 $inputs['Salesperson']="Viviam Bragantine";
                 $inputs['Package_Service']="Banho";
                 $inputs['Package_Sequence']=0;
+                $inputs['Package_Consume']=0;
                 $inputs['Flag_Otite']=0;
                 $inputs['Flag_Olhos_Verm']=0;
                 $inputs['Flag_Pulga']=0;
