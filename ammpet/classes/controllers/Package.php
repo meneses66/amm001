@@ -101,7 +101,16 @@ class Package {
     }
     
     //GET NEXT SEQUENCE:
-    public function get_next_pkg_sequence(){
+    public function get_next_pkg_sequence($inputs){
+        $inputs_package['ID']=$inputs['Id_Package'];
+        $sql_stm_get_package = "SELECT * FROM CLIENT_PACKAGE WHERE ID=:ID";
+        $package_model = new('\Model\\'."Package");
+        $result_package = $package_model->exec_sqlstm($sql_stm_get_package, $inputs_package);
+        if ($result_package){
+            return $result_package->PACK_CONSUMED;
+        } else{
+            return false;
+        }
 
     }
 

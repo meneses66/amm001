@@ -17,6 +17,7 @@ function calculate_item_service(input){
         var total_pix = "0.00";
         var total_no_discount = "0.00";
         var total_with_discount = "0.00";
+        update_sequence(id_package);
     }
 
     //document.getElementById("total_pix").readonly=false;
@@ -32,4 +33,18 @@ function calculate_item_service(input){
 
 function round(num, decimalPlaces = 0) {
     return new Decimal(num).toDecimalPlaces(decimalPlaces).toNumber();
+}
+
+function update_sequence(id_package){
+    $.ajax({
+        url: "/ammpet/public/Ajax_call",
+        type: "POST",
+        data: {operation:op, class:"Package", method:"get_next_pkg_sequence", Id_Package:id_package},
+        success: function(response){
+            var result = response + 1;
+            $('#package_sequence').html(result);
+            $('#package_consumed').html(result);
+        }
+    });
+
 }
