@@ -767,7 +767,7 @@ Trait _GlobalController{
                         if ($inputs['Prod_Serv_Category']=="Pacote") {
 
                             $package_input['Id_Order_Item'] = $id;
-                            require_once "Package";
+                            require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Package.php';
                             $package_model = new('\Model\\'."Package");
                             $package_row = $package_model->getRow($package_input);
 
