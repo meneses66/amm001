@@ -371,7 +371,7 @@ class Orderx
                                 <td>'.$row->PACKAGE_SEQUENCE.'</td>
                                 <td>
                                     <a href="'.ROOT."/OrderItem/_updateService?cli_id=$row->ID_CLIENT&order_id=$row->ID_ORDER&item_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                    <a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_package.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>
+                                    <a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_PACKAGE.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>
                                 </td>
                                </tr>';
                 }
