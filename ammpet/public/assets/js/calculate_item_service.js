@@ -34,13 +34,12 @@ function round(num, decimalPlaces = 0) {
 }
 
 function update_sequence(id_package){
-    console.log("Entrei-01");
     $.ajax({
         url: "/ammpet/public/Ajax_call",
         type: "POST",
         data: {class:"Package", method:"get_next_pkg_sequence", Id_Package:id_package},
         success: function(response){
-            console.log("Entrei-02");
+            console.log("Entrei-02: "+response);
             var result = response + 1;
             $('#package_sequence').html(result);
             $('#package_consume').html(result);
