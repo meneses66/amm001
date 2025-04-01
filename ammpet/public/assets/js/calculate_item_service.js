@@ -7,7 +7,7 @@ function calculate_item_service(input){
     let oi_price_cash = document.getElementById("oi_price_cash").value;
     let oi_price_pix = document.getElementById("oi_price_pix").value;
 
-    if (id_package=="0") {
+    if (id_package=="1") {
         var total_cash = round(quantity*oi_price_cash, 2);
         var total_pix = round(quantity*oi_price_pix, 2);
         var total_no_discount = round(quantity*unit_value, 2);
@@ -20,11 +20,7 @@ function calculate_item_service(input){
         update_sequence(id_package);
     }
 
-    //document.getElementById("total_pix").readonly=false;
     document.getElementById("total_pix").value = total_pix;
-    //document.getElementById("total_pix").readonly=true;
-    //document.getElementById("total_pix").setAttribute('readonly', true);
-
     document.getElementById("total_cash").value = total_cash;
     document.getElementById("value_no_discount").value = total_no_discount;
     document.getElementById("value_with_discount").value = total_with_discount;
