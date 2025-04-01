@@ -722,6 +722,9 @@ Trait _GlobalController{
                 if (isset($inputs['method'])) {
                     unset($inputs["method"]);
                 }
+                if (isset($inputs['Id_Package'])) {
+                    unset($inputs["Id_Package"]);
+                }
 
             }
 
