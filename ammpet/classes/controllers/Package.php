@@ -142,7 +142,7 @@ class Package {
 
             $consumed_package = $result_package->PACK_CONSUMED;
             $quantity_package = $result_package->PACK_QUANTITY;
-            $consumed_oi = $result_oi->QUANTIY;
+            $consumed_oi = $result_oi->QUANTITY;
             $updated_consumed_package = $consumed_package+$consumed_oi;
 
             $_SERVER['REQUEST_METHOD']="POST";
