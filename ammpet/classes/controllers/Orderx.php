@@ -276,7 +276,7 @@ class Orderx
             $inputs["ID_CLIENT"]=$_GET['cli_id'];
             $inputs["PACK_STATUS"]="Aberto";
 
-            $sql_stm = "SELECT CP.ID_ORDER AS ID_ORDER, A.NAME AS ANIMAL, OI.PACKAGE_SERVICE AS SERVICE, OI.DATE AS DT, OI.PACKAGE_SEQUENCE AS SEQ, OI.ID FROM `CLIENT_PACKAGE` CP, `ANIMAL` A, `ORDER_ITEM` OI WHERE CP.ID_ANIMAL=A.ID AND CP.ID_ORDER_ITEM=OI.ID AND CP.PACK_STATUS=:PACK_STATUS AND CP.ID_CLIENT=:ID_CLIENT ORDER BY A.NAME, OI.PACKAGE_SEQUENCE";
+            $sql_stm = "SELECT CP.ID_ORDER AS ID_ORDER, A.NAME AS ANIMAL, OI.PACKAGE_SERVICE AS SERVICE, OI.DATE AS DT, CP.PACK_CONSUMED AS CONS, OI.ID FROM `CLIENT_PACKAGE` CP, `ANIMAL` A, `ORDER_ITEM` OI WHERE CP.ID_ANIMAL=A.ID AND CP.ID_ORDER_ITEM=OI.ID AND CP.PACK_STATUS=:PACK_STATUS AND CP.ID_CLIENT=:ID_CLIENT ORDER BY A.NAME, OI.PACKAGE_SEQUENCE";
             $model = new('\Model\\'."Package");
             $data = $model->exec_sqlstm($sql_stm, $inputs);
             if($data){
@@ -286,7 +286,7 @@ class Orderx
                                     <th>Animal</th>
                                     <th>Serviço</th>
                                     <th>Data</th>
-                                    <th>Seq</th>
+                                    <th>Cons</th>
                                     <th>Id</th>
                                 </tr>
                             </thead>
