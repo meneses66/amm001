@@ -93,12 +93,13 @@ class Package {
                 $animal_model = new('\Model\\'."Animal");
                 //$animal_name = $animal_model->get_row($animal_inputs)->NAME;
                
-                
                 //$option_to_show = $option->ID."-".$animal_name;
+
+                $option_to_show = $option->ID."-".$animal_inputs['ID'];
 
                 //BUILD LIST:
                 $selected= ($data_form_package == $option->ID) ? "selected":"";
-                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->ID.'</option>';
+                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option_to_show.'</option>';
             }
         }
         $sql_stm = null;
