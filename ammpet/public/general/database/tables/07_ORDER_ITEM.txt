@@ -55,7 +55,15 @@ Create Table ORDER_ITEM
     constraint FK_OI_ORDER foreign key (ID_ORDER) references ORDER_X(ID), 
     constraint FK_OI_PROD_SERV foreign key (ID_PROD_SERV) references PROD_SERV(ID), 
     constraint FK_OI_CLIENT foreign key (ID_CLIENT) references CLIENT(ID), 
-    constraint FK_OI_PACKAGE foreign key (ID_PACKAGE) references CLIENT_PACKAGE(ID), 
     constraint FK_OI_PACKAGE_ANIMAL foreign key (ID_PACKAGE_ANIMAL) references ANIMAL(ID)
 
 );
+
+//ADD AFTER CLIENT_PACKAGE:
+//ALTER TABLE ORDER_ITEM ADD CONSTRAINT FK_OI_PACKAGE
+//FOREIGN KEY(ID) REFERENCES CLIENT_PACKAGE(ID_ORDER_ITEM);
+
+
+
+// REMOVED
+//    constraint FK_OI_PACKAGE foreign key (ID_PACKAGE) references CLIENT_PACKAGE(ID) ON DELETE CASCADE, 
