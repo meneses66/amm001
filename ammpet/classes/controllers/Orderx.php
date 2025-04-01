@@ -286,8 +286,8 @@ class Orderx
                                     <th>Ord</th>
                                     <th>Animal</th>
                                     <th>Serviço</th>
+                                    <th>Seq</th>
                                     <th>Data</th>
-                                    <th>Cons</th>
                                     <th>Id</th>
                                 </tr>
                             </thead>
@@ -298,8 +298,8 @@ class Orderx
                                 <td>'.$row->ID_ORDER.'</td>
                                 <td>'.$row->ANIMAL.'</td>
                                 <td>'.$row->SERVICE.'</td>
+                                <td>'.$row->SEQ.'</td>
                                 <td>'.$row->DT.'</td>
-                                <td>'.$row->CONS.'</td>
                                 <td>'.$row->ID.'</td>
                                </tr>';
                 }
