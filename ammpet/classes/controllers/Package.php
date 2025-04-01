@@ -75,6 +75,7 @@ class Package {
         $model = new('\Model\\'.$this->UCF_object);
         
         $data_form_package=$array['dfpackage'];
+
         $inputs['ID_CLIENT']=$array['id_client'];
         $inputs['PACK_STATUS']="Aberto";
 
@@ -86,9 +87,13 @@ class Package {
         
         $options = $model->listWhere($inputs);
         if($options){
-            foreach ($options as $option) { 
+            foreach ($options as $option) {
+                //BUSCAR ID_ANIMAL NA CLIENT_PACKAGE:
+                $inputs_animal['ID']=$option->ID_ANIMAL;
+                $animal_model = $model_animal = new('\Model\\'."Animal");
+                $animal_name = $animal_model->get_row($inputs_animal)->NAME;
                 $selected= ($data_form_package == $option->ID) ? "selected":"";
-                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
+                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->ID.''-''.$animal_name.'</option>';
             }
         }
         $sql_stm = null;
