@@ -39,10 +39,10 @@ function update_sequence(id_package){
         type: "POST",
         data: {class:"Package", method:"get_next_pkg_sequence", Id_Package:id_package},
         success: function(response){
-            console.log("Entrei-02: "+response);
-            var result = response + 1;
-            document.getElementById("package_sequence").value = result;
-            document.getElementById("package_consume").value = result;
+            var result = response;
+            var sequence_updated = result+1;
+            document.getElementById("package_sequence").value = sequence_updated;
+            document.getElementById("package_consume").value = sequence_updated;
             //$('#package_sequence').html(result);
             //$('#package_consume').html(result);
         }
