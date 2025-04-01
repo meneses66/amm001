@@ -92,7 +92,7 @@ class Package {
                 $animal_inputs['ID']=$option->ID_ANIMAL;
                 $animal_model = new('\Model\\'."Animal");
                 $animal_row = $animal_model->get_row($animal_inputs);
-                $animal_name = $animal_row->NAME;
+                //$animal_name = $animal_row->NAME;
                
                 //$option_to_show = $option->ID."-".$animal_name;
 
