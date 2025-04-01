@@ -7,7 +7,7 @@ function calculate_item_service(input){
     let oi_price_cash = document.getElementById("oi_price_cash").value;
     let oi_price_pix = document.getElementById("oi_price_pix").value;
 
-    if (id_package=="1") {
+    if (id_package=="1" || id_package==1) {
         var total_cash = round(quantity*oi_price_cash, 2);
         var total_pix = round(quantity*oi_price_pix, 2);
         var total_no_discount = round(quantity*unit_value, 2);
