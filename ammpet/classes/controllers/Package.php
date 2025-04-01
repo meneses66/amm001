@@ -159,6 +159,12 @@ class Package {
             $_POST['method']="update_call";
             $_POST['type']="static";
 
+            unset($inputs);
+            unset($inputs_package);
+            unset($inputs_oi);
+            $package_model=null;
+            $oi_model=null;
+
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();
             
