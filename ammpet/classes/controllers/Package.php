@@ -147,14 +147,14 @@ class Package {
 
             $_SERVER['REQUEST_METHOD']="POST";
 
-            $_POST['PACK_CONSUMED'] = $updated_consumed_package;
+            $_POST['Pack_Consumed'] = $updated_consumed_package;
 
             if ($updated_consumed_package==$quantity_package) {
-                $_POST['PACK_STATUS']="Fechado";
+                $_POST['Pack_Status']="Fechado";
             } else{
-                $_POST['PACK_STATUS']="Aberto";
+                $_POST['Pack_Status']="Aberto";
             }
-            $_POST['ID'] = $inputs['Id_Package'];
+            $_POST['Id'] = $inputs['Id_Package'];
             $_POST['class']="Package";
             $_POST['method']="update_call";
             $_POST['type']="static";
