@@ -353,6 +353,7 @@ class Orderx
                     $service = null;
 
                     //GET PACKAGE ANIMAL DETAILS
+                    /*
                     if(is_null($row->ID_PACKAGE_ANIMAL) || $row->ID_PACKAGE_ANIMAL==""){
                         $animal_name="";    
                     } else{
@@ -360,6 +361,29 @@ class Orderx
                         $animal = new('\Model\\'."Animal");
                         $animal_name = $animal->getRow($animal_input)->NAME;
                         $animal = null;
+                    }
+                    */
+
+                    //SE PCK_ID == 1 => USE ANI FROM SCRENN, OTHERWISE USE ANI FROM PACKGE
+                    if ($row->ID_PACKAGE==1) {
+                        $animal_input['ID']= $row->ID_PACKAGE_ANIMAL;
+                        $animal = new('\Model\\'."Animal");
+                        $animal_name = $animal->getRow($animal_input)->NAME;
+                        $animal = null;
+                        unset($animal_input);
+
+                    } else {
+                        $package_input['ID']=$row->ID_PACKAGE;
+                        $package = new('\Model\\'."Package");
+                        $animal_input['ID'] = $package->getRow($package_input)->ID_ANIMAL;
+                        $animal = new('\Model\\'."Animal");
+                        $animal_name = $animal->getRow($animal_input)->NAME;
+
+                        $package = null;
+                        $package_ani_id = null;
+                        unset($package_input);
+                        $animal = null;
+                        unset($animal_input);
                     }
 
                     $output .='<tr class="text-center text-secondary">
