@@ -16,6 +16,8 @@ function calculate_item_service(input){
         document.getElementById("total_cash").value = total_cash;
         document.getElementById("value_no_discount").value = total_no_discount;
         document.getElementById("value_with_discount").value = total_with_discount;
+        document.getElementById("package_sequence").value = 0;
+        document.getElementById("package_consume").value = 0;
     } else{
         //console.log("Entrei - 4");
         var total_cash = "0.00";
