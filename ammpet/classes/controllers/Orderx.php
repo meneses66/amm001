@@ -298,7 +298,7 @@ class Orderx
                                 <td>'.$row->ANIMAL.'</td>
                                 <td>'.$row->SERVICE.'</td>
                                 <td>'.$row->DT.'</td>
-                                <td>'.$row->SEQ.'</td>
+                                <td>'.$row->CONS.'</td>
                                 <td>'.$row->ID.'</td>
                                </tr>';
                 }
