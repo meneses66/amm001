@@ -712,14 +712,14 @@ Trait _GlobalController{
 
             if($this->UCF_object=="Package"){
                 $type_goto="dynamic";
-                if (isset(inputs['type'])) {
+                if (isset($inputs['type'])) {
                     $type_goto=$inputs['type'];
                     unset($inputs["type"]);
                 }
-                if (isset(inputs['class'])) {
+                if (isset($inputs['class'])) {
                     unset($inputs["class"]);
                 }
-                if (isset(inputs['method'])) {
+                if (isset($inputs['method'])) {
                     unset($inputs["method"]);
                 }
 
