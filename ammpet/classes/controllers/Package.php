@@ -129,14 +129,14 @@ class Package {
         $inputs_package['ID']=$inputs['Id_Package'];
         $inputs_oi['ID']=$inputs['Id'];
         
-        $sql_stm_get_package = "SELECT * FROM CLIENT_PACKAGE WHERE ID=:ID";
-        $sql_stm_get_oi = "SELECT * FROM ORDER_ITEM WHERE ID=:ID";
+        //$sql_stm_get_package = "SELECT * FROM CLIENT_PACKAGE WHERE ID=:ID";
+        //$sql_stm_get_oi = "SELECT * FROM ORDER_ITEM WHERE ID=:ID";
         
         $package_model = new('\Model\\'."Package");
         $oi_model = new('\Model\\'."OrderItem");
         
-        $result_package = $package_model->exec_sqlstm($sql_stm_get_package, $inputs_package);
-        $result_oi = $oi_model->exec_sqlstm($sql_stm_get_oi, $inputs_oi);
+        $result_package = $package_model->getRow($inputs_package);
+        $result_oi = $oi_model->getRow($inputs_oi);
     
         if ($result_package){
 
