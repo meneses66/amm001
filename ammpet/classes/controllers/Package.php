@@ -112,7 +112,6 @@ class Package {
     //GET NEXT SEQUENCE:
     public function get_next_pkg_sequence($inputs){
         $inputs_package['ID']=$inputs['Id_Package'];
-        //$sql_stm_get_package = "SELECT * FROM CLIENT_PACKAGE WHERE ID=:ID";
         $package_model = new('\Model\\'."Package");
         $result_package = $package_model->getRow($inputs_package);
         if ($result_package){
