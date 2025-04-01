@@ -758,6 +758,8 @@ Trait _GlobalController{
                             $_POST['method']="update_package";
                             //$_POST['Id_Package']=$inputs['Id_Package'];
                             $_POST['Id_Package']=$package_id;
+                            $_POST['Id']=$id;
+
                 
                             $ajax_call = new('\Controller\\'."Ajax_call");
                             $ajax_call->index();
@@ -876,6 +878,7 @@ Trait _GlobalController{
                         $_POST['method']="update_package";
                         //$_POST['Id_Package']=$inputs['Id_Package'];
                         $_POST['Id_Package']=$package_id;
+                        $_POST['Id']=$id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
                         $ajax_call->index();
