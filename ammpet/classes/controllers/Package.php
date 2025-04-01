@@ -95,7 +95,7 @@ class Package {
 
                 //BUILD LIST:
                 $selected= ($data_form_package == $option->ID) ? "selected":"";
-                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->ID.''-''.$animal_name.'</option>';
+                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->ID.'</option>';
             }
         }
         $sql_stm = null;
