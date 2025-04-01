@@ -4,6 +4,14 @@ $(document).ready(function(){
     let temp_executor = document.getElementById("temp_executor").value;
     let temp_salesperson = document.getElementById("temp_salesperson").value;
     let temp_id_animal_pkg = document.getElementById("temp_id_animal_pkg").value;
+
+    if(!(temp_package==1||temp_package=="1")){
+        document.getElementById('quantity').removeAttribute('readonly');
+    } else {
+        document.getElementById("quantity").value = 1;
+        document.getElementById('quantity').setAttribute('readonly', true);
+    }
+
     load_package(temp_package, id_client);
     load_executor(temp_executor);
     load_salesperson(temp_salesperson);
