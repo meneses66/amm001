@@ -36,10 +36,9 @@ function round(num, decimalPlaces = 0) {
 function update_sequence(id_package){
     console.log("Entrei-01");
     $.ajax({
-        
         url: "/ammpet/public/Ajax_call",
         type: "POST",
-        data: {operation:op, class:"Package", method:"get_next_pkg_sequence", Id_Package:id_package},
+        data: {class:"Package", method:"get_next_pkg_sequence", Id_Package:id_package},
         success: function(response){
             console.log("Entrei-02");
             var result = response + 1;
