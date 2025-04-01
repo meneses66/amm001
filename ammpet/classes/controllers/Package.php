@@ -91,11 +91,8 @@ class Package {
                 //WITH ID_ANIMAL GET ITS NAME:
                 $animal_inputs['ID']=$option->ID_ANIMAL;
                 $animal_model = new('\Model\\'."Animal");
-                try {
-                    $animal_name = $animal_model->get_row($animal_inputs)->NAME;
-                } catch (\Throwable $th) {
-                    throw $th;
-                }
+                //$animal_name = $animal_model->get_row($animal_inputs)->NAME;
+               
                 
                 //$option_to_show = $option->ID."-".$animal_name;
 
