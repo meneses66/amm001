@@ -110,18 +110,18 @@ class OrderItem {
                                 <input id="id" type="hidden" name="Id" readonly value="'.$data_form['ID'].'">
                                 <input id="id_client" type="hidden" name="Id_Client" readonly value="'.$data_form['ID_CLIENT'].'">
                                 <input id="id_order" type="hidden" name="Id_Order" readonly value="'.$data_form['ID_ORDER'].'">
-                                <input id="updated_by" type="hidden" name="Updated_By" value="'.$_SESSION['username'].'">
-                                <input id="temp_package" type="hidden" name="temp_package" value="'.$data_form['ID_PACKAGE'].'">
-                                <input id="temp_executor" type="hidden" name="temp_executor" value="'.$data_form['SERV_EXECUTOR'].'">
-                                <input id="temp_salesperson" type="hidden" name="temp_salesperson" value="'.$data_form['SALESPERSON'].'">
-                                <input id="temp_id_animal_pkg" type="hidden" name="temp_id_animal_pkg" value="'.$data_form['ID_PACKAGE_ANIMAL'].'">
-                                <input id="oi_price_cash" type="hidden" name="OI_Price_Cash" value="'.$data_form['OI_PRICE_CASH'].'">
-                                <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" value="'.$data_form['OI_PRICE_PIX'].'">
-                                <input id="package_sequence" type="hidden" name="Package_Sequence" value="'.$data_form['PACKAGE_SEQUENCE'].'">
-                                <input id="package_consume" type="hidden" name="Package_Consume" value="'.$data_form['PACKAGE_CONSUME'].'">
-                                <input id="package_amount" type="hidden" name="Package_Amount" value="'.$data_form['PACKAGE_AMOUNT'].'">
-                                <input id="prod_serv_category" type="hidden" name="Prod_Serv_Category" value="'.$data_form['PROD_SERV_CATEGORY'].'">
-                                <input id="id_prod_serv" type="hidden" name="Id_Prod_Serv" value="'.$data_form['ID_PROD_SERV'].'">
+                                <input id="updated_by" type="hidden" name="Updated_By" readonly value="'.$_SESSION['username'].'">
+                                <input id="temp_package" type="hidden" name="temp_package" readonly value="'.$data_form['ID_PACKAGE'].'">
+                                <input id="temp_executor" type="hidden" name="temp_executor" readonly value="'.$data_form['SERV_EXECUTOR'].'">
+                                <input id="temp_salesperson" type="hidden" name="temp_salesperson" readonly value="'.$data_form['SALESPERSON'].'">
+                                <input id="temp_id_animal_pkg" type="hidden" name="temp_id_animal_pkg" readonly value="'.$data_form['ID_PACKAGE_ANIMAL'].'">
+                                <input id="oi_price_cash" type="hidden" name="OI_Price_Cash" readonly value="'.$data_form['OI_PRICE_CASH'].'">
+                                <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" readonly value="'.$data_form['OI_PRICE_PIX'].'">
+                                <input id="package_sequence" type="text" name="Package_Sequence" readonly value="'.$data_form['PACKAGE_SEQUENCE'].'">
+                                <input id="package_consume" type="hidden" name="Package_Consume" readonly value="'.$data_form['PACKAGE_CONSUME'].'">
+                                <input id="package_amount" type="hidden" name="Package_Amount" readonly value="'.$data_form['PACKAGE_AMOUNT'].'">
+                                <input id="prod_serv_category" type="hidden" name="Prod_Serv_Category" readonly value="'.$data_form['PROD_SERV_CATEGORY'].'">
+                                <input id="id_prod_serv" type="hidden" name="Id_Prod_Serv" readonly value="'.$data_form['ID_PROD_SERV'].'">
                             </div>
                             <div class="row">
                                 <div class="col-sm-1">
