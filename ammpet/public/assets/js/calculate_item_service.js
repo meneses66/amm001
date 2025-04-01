@@ -40,7 +40,7 @@ function update_sequence(id_package){
         data: {class:"Package", method:"get_next_pkg_sequence", Id_Package:id_package},
         success: function(response){
             var result = response;
-            var sequence_updated = result+1;
+            var sequence_updated = Number(result)+1;
             document.getElementById("package_sequence").value = sequence_updated;
             document.getElementById("package_consume").value = sequence_updated;
             //$('#package_sequence').html(result);
