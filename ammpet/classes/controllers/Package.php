@@ -91,12 +91,9 @@ class Package {
                 //WITH ID_ANIMAL GET ITS NAME:
                 $animal_inputs['ID']=$option->ID_ANIMAL;
                 $animal_model = new('\Model\\'."Animal");
-                $animal_row = $animal_model->get_row($animal_inputs);
-                //$animal_name = $animal_row->NAME;
+                $animal_name = $animal_model->getRow($animal_inputs)->NAME;
                
-                //$option_to_show = $option->ID."-".$animal_name;
-
-                $option_to_show = $option->ID."-".$animal_inputs['ID'];
+                $option_to_show = $option->ID."-".$animal_name;
 
                 //BUILD LIST:
                 $selected= ($data_form_package == $option->ID) ? "selected":"";
