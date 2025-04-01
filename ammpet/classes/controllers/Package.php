@@ -93,7 +93,7 @@ class Package {
                 $animal_model = $model_animal = new('\Model\\'."Animal");
                 $animal_name = $animal_model->get_row($inputs_animal)->NAME;
                 $selected= ($data_form_package == $option->ID) ? "selected":"";
-                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->ID.''-''.$animal_name.'</option>';
+                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->ID.'.'-'.'.$animal_name.'</option>';
             }
         }
         $sql_stm = null;
