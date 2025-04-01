@@ -5,7 +5,7 @@ $(document).ready(function(){
     let temp_salesperson = document.getElementById("temp_salesperson").value;
     let temp_id_animal_pkg = document.getElementById("temp_id_animal_pkg").value;
 
-    if(!(temp_package==1||temp_package=="1")){
+    if((temp_package==1||temp_package=="1")){
         document.getElementById('quantity').removeAttribute('readonly');
     } else {
         document.getElementById("quantity").value = 1;
