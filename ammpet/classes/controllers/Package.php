@@ -89,9 +89,10 @@ class Package {
         if($options){
             foreach ($options as $option) {
                 //WITH ID_ANIMAL GET ITS NAME:
-                //$inputs_animal['ID']=$option->ID_ANIMAL;
-                //$animal_model = $model_animal = new('\Model\\'."Animal");
-                //$animal_name = $animal_model->get_row($inputs_animal)->NAME;
+                $inputs_animal['ID']=$option->ID_ANIMAL;
+                $animal_model = $model_animal = new('\Model\\'."Animal");
+                $animal_name = $animal_model->get_row($inputs_animal)->NAME;
+                $option_to_show = $option->ID."-".$animal_name;
 
                 //BUILD LIST:
                 $selected= ($data_form_package == $option->ID) ? "selected":"";
