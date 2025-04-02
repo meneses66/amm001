@@ -405,86 +405,10 @@ class OrderItem {
                                         <input id="item_description" type="text" size="25" name="Item_Description" value="'.$data_form['ITEM_DESCRIPTION'].'">
                                     </div>
                                     <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
                                         <label for="quantity" class="medium-label">Qtde:</label>
                                     </div>
                                     <div class="col-sm-2">
                                         <input id="quantity" type="text" size="15" name="Quantity" onInput="calculate_item_product()" value="'.$data_form['QUANTITY'].'">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                    </div>
-                                    <div class="col-sm-2">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="unit_value" class="medium-label">Valor Unit.:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="unit_value" type="text" size="15" onInput="calculate_item_product(this.value)" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="date" class="medium-label">Data:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="date" type="date" size="20" name="Date" value="'.$data_form['DATE'].'">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="discount_value" class="medium-label">Desc. Valor:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="discount_value" type="text" size="15" name="Discount_Value" onInput="calculate_item_product(this.value)" value="'.$data_form['DISCOUNT_VALUE'].'">
-                                    </div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                       
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
                                     </div>
                                     <div class="col-sm-1">
                                         <label for="total_cash" class="medium-label">Total Dinh:</label>
@@ -507,10 +431,10 @@ class OrderItem {
                                         
                                     </div>
                                     <div class="col-sm-1">
-                                        
+                                        <label for="unit_value" class="medium-label">Valor Unit.:</label>
                                     </div>
                                     <div class="col-sm-2">
-                                        
+                                        <input id="unit_value" type="text" size="15" onInput="calculate_item_product(this.value)" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
                                     </div>
                                     <div class="col-sm-1">
                                         <label for="total_pix" class="medium-label">Total Pix:</label>
@@ -521,44 +445,6 @@ class OrderItem {
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="value_no_discount" class="medium-label">Valor s/ Desc:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="value_no_discount" type="text" size="15" readonly name="Value_No_Discount" value="'.$data_form['VALUE_NO_DISCOUNT'].'">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
                                         <label for="salesperson" class="medium-label">Vendedor:</label>
                                     </div>
                                     <div class="col-sm-2">
@@ -567,13 +453,43 @@ class OrderItem {
                                         </select>
                                     </div>
                                     <div class="col-sm-1">
+                                        <label for="date" class="medium-label">Data:</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input id="date" type="date" size="20" name="Date" value="'.$data_form['DATE'].'">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="discount_value" class="medium-label">Desc. Valor:</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input id="discount_value" type="text" size="15" name="Discount_Value" onInput="calculate_item_product(this.value)" value="'.$data_form['DISCOUNT_VALUE'].'">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="value_no_discount" class="medium-label">Valor s/ Desc:</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input id="value_no_discount" type="text" size="15" readonly name="Value_No_Discount" value="'.$data_form['VALUE_NO_DISCOUNT'].'">
+                                    </div>
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-sm-1">
+                                        
+                                    </div>
+                                    <div class="col-sm-2">
+                                        
+                                    </div>
+                                    <div class="col-sm-1">
+                                       
+                                    </div>
+                                    <div class="col-sm-2">
+                                        
+                                    </div>
+                                    <div class="col-sm-1">
                                         <label for="value_with_discount" class="medium-label">Valor Final:</label>
                                     </div>
                                     <div class="col-sm-2">
                                         <input id="value_with_discount" type="text" size="15" readonly name="Value_With_Discount" value="'.$data_form['VALUE_WITH_DISCOUNT'].'">
                                     </div>
-                                </div>
-                                <div class="row">
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6">
