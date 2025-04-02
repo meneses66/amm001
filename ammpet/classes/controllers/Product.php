@@ -378,7 +378,7 @@ class Product {
     }
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE
-    public function load_rows(){
+    public function load_rows($inputs){
             
         $inputs_buttons=$inputs['buttons'];
         $inputs_cli_id=$inputs['cli_id'];
