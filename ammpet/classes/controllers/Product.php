@@ -387,6 +387,7 @@ class Product {
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
         $inputs['TYPE']="PROD";
+        unset($inputs["operation"]);
         
         $data = $model->listWhere($inputs);
         if($model->countWhere($inputs)>0){
