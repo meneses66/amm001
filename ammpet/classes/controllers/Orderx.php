@@ -282,7 +282,7 @@ class Orderx
             $data = $model->exec_sqlstm($sql_stm, $inputs);
             if($data){
                 $output .='<thead>
-                                <tr class="text-center text-secondary" style="height: 10px;">
+                                <tr class="text-center text-secondary" style="height: 5px;">
                                     <th>Ord</th>
                                     <th>Animal</th>
                                     <th>Serviço</th>
