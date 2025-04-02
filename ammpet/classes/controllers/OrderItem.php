@@ -356,7 +356,7 @@ class OrderItem {
     }
 
         //LOAD HTML FORM FOR UPDATING PRODUCT RECORD
-        public function load_update_product_form(){
+        public function load_update_prod_form(){
 
             if (isset($_GET['item_id'])){
     
