@@ -485,6 +485,12 @@ class OrderItem {
                                         
                                     </div>
                                     <div class="col-sm-1">
+                                       
+                                    </div>
+                                    <div class="col-sm-2">
+                                        
+                                    </div>
+                                    <div class="col-sm-1">
                                         <label for="value_with_discount" class="medium-label">Valor Final:</label>
                                     </div>
                                     <div class="col-sm-2">
