@@ -472,10 +472,10 @@ Trait _GlobalController{
                         break;
 
                     case 'OrderItem':
-                        if($prod_serv_type=="SERV"){
+                        if($prod_serv_type=="Serv"){
                             $view = "$this->UCF_object/_updateService?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
                         }
-                        if($prod_serv_type=="PROD"){
+                        if($prod_serv_type=="Prod"){
                             $view = "$this->UCF_object/_updateProduct?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
                         }
                         unset_array($inputs);
@@ -780,7 +780,7 @@ Trait _GlobalController{
                         $ajax_call->index();
             
                         //UPDATES WHEN SERVICE:
-                        if($prod_serv_type=="SERV"){
+                        if($prod_serv_type=="Serv"){
 
                             //CALL UPDATE PACKAGES:
                             if (!($package_id==1)) {
@@ -829,10 +829,8 @@ Trait _GlobalController{
                         }
 
                         //UPDATES WHEN PRODUCT:
-                        if($prod_serv_type=="PROD"){
-
-
-                        }
+                        //if($prod_serv_type=="Prod"){
+                        //}
 
                         
                         //REDIRECT TO ORDER DETAILS:
