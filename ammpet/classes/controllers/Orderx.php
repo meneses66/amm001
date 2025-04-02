@@ -457,13 +457,13 @@ class Orderx
                     $product = null;
 
                     $output .='<tr class="text-center text-secondary">
-                                <td>'.$service_code.'</td>
+                                <td>'.$product_code.'</td>
                                 <td>'.$row->ITEM_DESCRIPTION.'</td>
                                 <td>'.$row->QUANTITY.'</td>
                                 <td>'.$row->VALUE_WITH_DISCOUNT.'</td>
                                 <td>'.$row->SALESPERSON.'</td>
                                 <td>
-                                    <a href="'.ROOT."/OrderItem/_updateService?cli_id=$row->ID_CLIENT&order_id=$row->ID_ORDER&item_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/OrderItem/_updateProduct?cli_id=$row->ID_CLIENT&order_id=$row->ID_ORDER&item_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                     <a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_PACKAGE.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>
                                 </td>
                                </tr>';
