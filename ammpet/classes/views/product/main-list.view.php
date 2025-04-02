@@ -1,6 +1,6 @@
 <?php 
     $GLOBALS['classnamejs']='Product';
-    $GLOBALS['buttonenablerjs']='';
+    $GLOBALS['buttonenablerjs']='Product';
     $GLOBALS['cli_id_js']='';
     $GLOBALS['order_id_js']='';
 ?>
