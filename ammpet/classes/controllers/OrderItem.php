@@ -114,7 +114,6 @@ class OrderItem {
                                 <input id="temp_package" type="hidden" name="temp_package" readonly value="'.$data_form['ID_PACKAGE'].'">
                                 <input id="temp_executor" type="hidden" name="temp_executor" readonly value="'.$data_form['SERV_EXECUTOR'].'">
                                 <input id="temp_salesperson" type="hidden" name="temp_salesperson" readonly value="'.$data_form['SALESPERSON'].'">
-                                <input id="temp_serv_package" type="hidden" name="temp_serv_package" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
                                 <input id="temp_id_animal_pkg" type="hidden" name="temp_id_animal_pkg" readonly value="'.$data_form['ID_PACKAGE_ANIMAL'].'">
                                 <input id="oi_price_cash" type="hidden" name="OI_Price_Cash" readonly value="'.$data_form['OI_PRICE_CASH'].'">
                                 <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" readonly value="'.$data_form['OI_PRICE_PIX'].'">
