@@ -1033,7 +1033,7 @@ Trait _GlobalController{
             $_POST['Total_Cash']=$product_array->PRICE_CASH;
             $_POST['OI_Price_Pix']=$product_array->PRICE_PIX;
             $_POST['Total_Pix']=$product_array->PRICE_PIX;
-            //$_POST['Prodserv_Code']=$product_array->CODE;
+            $_POST['Prodserv_Code']=$product_array->CODE;
             //$_POST['Package_Amount']=$product_array->PACKAGE_AMOUNT;
             $_POST['OI_Comission_Overwrite_Flg']=$product_array->COMISSION_OVERWRITE_FLG;
             $_POST['Prod_Serv_Group']=$product_array->GROUP_X;
