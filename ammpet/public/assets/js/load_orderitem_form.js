@@ -4,6 +4,13 @@ $(document).ready(function(){
     let temp_executor = document.getElementById("temp_executor").value;
     let temp_salesperson = document.getElementById("temp_salesperson").value;
     let temp_id_animal_pkg = document.getElementById("temp_id_animal_pkg").value;
+    let prod_serv_category = document.getElementById("prod_serv_category").value;
+
+    if((prod_serv_category=="Pacote")){
+        document.getElementById('id_package').setAttribute("disabled", "disabled");
+    } else {
+        document.getElementById('id_package').removeAttribute("disabled");
+    }
 
     if((temp_package==1||temp_package=="1")){
         document.getElementById('quantity').removeAttribute('readonly');
