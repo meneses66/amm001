@@ -8,6 +8,8 @@ function calculate_item_service(input){
 
     if (id_package=="1" || id_package==1) {
         document.getElementById('quantity').removeAttribute('readonly')
+        document.getElementById("package_service").value = "Banho";
+        document.getElementById("package_service").setAttribute("disabled", "disabled");
         var total_cash = round(quantity*oi_price_cash, 2).toFixed(2);
         var total_pix = round(quantity*oi_price_pix, 2).toFixed(2);
         var total_no_discount = round(quantity*unit_value, 2).toFixed(2);
@@ -30,6 +32,7 @@ function calculate_item_service(input){
         document.getElementById("value_with_discount").value = total_with_discount;
         document.getElementById("quantity").value = 1;
         document.getElementById('quantity').setAttribute('readonly', true);
+        document.getElementById('package_service').removeAttribute("disabled");
         update_sequence(id_package);
     }
 }

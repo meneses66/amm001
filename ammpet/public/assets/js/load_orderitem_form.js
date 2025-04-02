@@ -5,6 +5,7 @@ $(document).ready(function(){
     let temp_salesperson = document.getElementById("temp_salesperson").value;
     let temp_id_animal_pkg = document.getElementById("temp_id_animal_pkg").value;
     let prod_serv_category = document.getElementById("prod_serv_category").value;
+    let id_package = document.getElementById("id_package").value;
 
     if((prod_serv_category=="Pacote")){
         document.getElementById('id_package').setAttribute("disabled", "disabled");
