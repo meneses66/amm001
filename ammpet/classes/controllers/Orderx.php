@@ -294,7 +294,7 @@ class Orderx
                             <tbody>';
                 foreach ($data as $row) {
 
-                    $output .='<tr class="text-center text-secondary">
+                    $output .='<tr class="text-center text-secondary" style="height: 5px;">
                                 <td>'.$row->ID_ORDER.'</td>
                                 <td>'.$row->ANIMAL.'</td>
                                 <td>'.$row->SERVICE.'</td>
