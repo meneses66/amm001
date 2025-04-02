@@ -365,7 +365,7 @@ class Orderx
                     }
                     */
 
-                    //SE PCK_ID == 1 => USE ANI FROM SCRENN, OTHERWISE USE ANI FROM PACKGE
+                    //SE PCK_ID == 1 => USE ANI FROM SCREEN, OTHERWISE USE ANI FROM PACKGE
                     if ($row->ID_PACKAGE==1) {
                         $animal_input['ID']= $row->ID_PACKAGE_ANIMAL;
                         $animal = new('\Model\\'."Animal");
