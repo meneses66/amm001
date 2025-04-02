@@ -26,32 +26,6 @@
         ?>
     </div>
     <div class="row">
-        <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
-            <p style="font-size:12px; font-weight:bold;" >Animais</p>
-            <div class="table-responsive" id="_animals" style="font-size:12px;">
-                <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
-                    <?php
-                        require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
-                        $controller2 = new ('\Controller\\'."Orderx");
-                        $controller2->get_animals();
-                    ?>        
-                </table>
-            </div>
-        </div>
-        <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
-            <p style="font-size:10px; font-weight:bold;" >Pacotes</p>
-            <div class="table-responsive" id="_packages" style="font-size:12px;">
-                <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
-                    <?php
-                        require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';    
-                        $controller3 = new ('\Controller\\'."Orderx");
-                        $controller3->get_packages();
-                    ?>        
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="_list_id">
                 <table id="_table" class="table Table-stripped table-sm table-bordered small">
