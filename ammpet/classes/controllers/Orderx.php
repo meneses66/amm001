@@ -133,6 +133,12 @@ class Orderx
                                     <div class="col-sm-2">
                                         <input id="order_value_with_discount" type="text" size="10" name="Order_Value_With_Discount" readonly value="'.$row->ORDER_VALUE_WITH_DISCOUNT.'">
                                     </div>
+                                     <div class="col-sm-1">
+                                        <label for="order_date" class="medium-label float-left">Data:</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input id="order_date" type="date" size="8" name="Order_date" readonly value="'.$row->ORDER_DATE.'">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-1">
@@ -145,13 +151,19 @@ class Orderx
                                         <label for="order_value_cash" class="medium-label float-left">Total Dinh:</label>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input id="order_value_cash" type="text" size="15" name="Order_value_cash" readonly value="'.$row->ORDER_VALUE_CASH.'">
+                                        <input id="order_value_cash" type="text" size="10" name="Order_value_cash" readonly value="'.$row->ORDER_VALUE_CASH.'">
                                     </div>
                                     <div class="col-sm-1">
                                         <label for="order_value_pix" class="medium-label float-left">Total Pix:</label>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input id="order_value_pix" type="text" size="15" name="Order_value_pix" readonly value="'.$row->ORDER_VALUE_PIX.'">
+                                        <input id="order_value_pix" type="text" size="10" name="Order_value_pix" readonly value="'.$row->ORDER_VALUE_PIX.'">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <label for="status" class="medium-label float-left">Status:</label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input id="status" type="text" size="8" name="Status" readonly value="'.$row->STATUS.'">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -165,33 +177,13 @@ class Orderx
                                         <label for="order_paid_amount" class="medium-label float-left">Total Pago:</label>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input id="order_paid_amount" type="text" size="15" name="Order_paid_amount" readonly value="'.$row->ORDER_PAID_AMOUNT.'">
+                                        <input id="order_paid_amount" type="text" size="10" name="Order_paid_amount" readonly value="'.$row->ORDER_PAID_AMOUNT.'">
                                     </div>
                                     <div class="col-sm-1">
                                         <label for="order_debt" class="medium-label float-left">Total Pend.:</label>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input id="order_debt" type="text" size="15" name="Order_debt" readonly value="'.$row->ORDER_DEBT.'">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        <label for="order_date" class="medium-label float-left">Data:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="order_date" type="date" size="8" name="Order_date" readonly value="'.$row->ORDER_DATE.'">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="status" class="medium-label float-left">Status:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="status" type="text" size="8" name="Status" readonly value="'.$row->STATUS.'">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
+                                        <input id="order_debt" type="text" size="10" name="Order_debt" readonly value="'.$row->ORDER_DEBT.'">
                                     </div>
                                 </div>';
                                 $sql_stm = null;
