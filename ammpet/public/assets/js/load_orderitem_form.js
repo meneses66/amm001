@@ -3,13 +3,17 @@ $(document).ready(function(){
     let temp_package = document.getElementById("temp_package").value;
     let temp_executor = document.getElementById("temp_executor").value;
     let temp_salesperson = document.getElementById("temp_salesperson").value;
+    let temp_serv_package = document.getElementById("temp_serv_package").value;
     let temp_id_animal_pkg = document.getElementById("temp_id_animal_pkg").value;
 
     if((temp_package==1||temp_package=="1")){
         document.getElementById('quantity').removeAttribute('readonly');
+        document.getElementById("package_service").value = "Banho";
+        document.getElementById("package_service").setAttribute('readonly', true);
     } else {
         document.getElementById("quantity").value = 1;
         document.getElementById('quantity').setAttribute('readonly', true);
+        document.getElementById('package_service').removeAttribute('readonly');
     }
 
     load_package(temp_package, id_client);

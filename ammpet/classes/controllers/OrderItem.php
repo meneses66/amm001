@@ -114,6 +114,7 @@ class OrderItem {
                                 <input id="temp_package" type="hidden" name="temp_package" readonly value="'.$data_form['ID_PACKAGE'].'">
                                 <input id="temp_executor" type="hidden" name="temp_executor" readonly value="'.$data_form['SERV_EXECUTOR'].'">
                                 <input id="temp_salesperson" type="hidden" name="temp_salesperson" readonly value="'.$data_form['SALESPERSON'].'">
+                                <input id="temp_serv_package" type="hidden" name="temp_serv_package" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
                                 <input id="temp_id_animal_pkg" type="hidden" name="temp_id_animal_pkg" readonly value="'.$data_form['ID_PACKAGE_ANIMAL'].'">
                                 <input id="oi_price_cash" type="hidden" name="OI_Price_Cash" readonly value="'.$data_form['OI_PRICE_CASH'].'">
                                 <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" readonly value="'.$data_form['OI_PRICE_PIX'].'">
@@ -164,7 +165,16 @@ class OrderItem {
                                     <label for="package_service" class="medium-label">Serv.Pct.:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="package_service" type="text" size="20" name="Package_Service" readonly value="'.$data_form['PACKAGE_SERVICE'].'">
+                                    <select class="medium-label" id="package_service" name="Package_Service">
+                                        <option class="medium-label" value="Banho" '.(($data_form['PACKAGE_SERVICE'] == 'Banho')?"selected":"").'>Banho</option>
+                                        <option class="medium-label" value="Banho + Tosa Hig" '.(($data_form['PACKAGE_SERVICE'] == 'Banho + Tosa Hig')?"selected":"").'>Banho + Tosa Hig</option>
+                                        <option class="medium-label" value="Banho + Hidrat" '.(($data_form['PACKAGE_SERVICE'] == 'Banho + Hidrat')?"selected":"").'>Banho + Hidrat</option>
+                                        <option class="medium-label" value="Banho + Tosa Hig + Hidrat" '.(($data_form['PACKAGE_SERVICE'] == 'Banho + Tosa Hig + Hidrat')?"selected":"").'>Banho + Tosa Hig + Hidrat</option>
+                                        <option class="medium-label" value="Banho + Tosa Tesoura" '.(($data_form['PACKAGE_SERVICE'] == 'Banho + Tosa Tesoura')?"selected":"").'>Banho + Tosa Tesoura</option>
+                                        <option class="medium-label" value="Banho + Tosa Maq" '.(($data_form['PACKAGE_SERVICE'] == 'Banho + Tosa Maq')?"selected":"").'>Banho + Tosa Maq</option>
+                                        <option class="medium-label" value="Pacote expirado" '.(($data_form['PACKAGE_SERVICE'] == 'Pacote expirado')?"selected":"").'>Pacote expirado</option>
+                                        <option class="medium-label" value="Falta sem justificativa" '.(($data_form['PACKAGE_SERVICE'] == 'Falta sem justificativa')?"selected":"").'>Falta sem justificativa</option>
+                                    </select>
                                 </div>
                                 <div class="col-sm-1">
                                 </div>
