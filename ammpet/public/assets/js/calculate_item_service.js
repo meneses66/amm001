@@ -51,8 +51,6 @@ function update_sequence(id_package){
             var sequence_updated = Number(result)+1;
             document.getElementById("package_sequence").value = sequence_updated;
             document.getElementById("package_consume").value = sequence_updated;
-            //$('#package_sequence').html(result);
-            //$('#package_consume').html(result);
         }
     });
 

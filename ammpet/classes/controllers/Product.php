@@ -10,6 +10,7 @@ class Product {
     use _GlobalController;
     private $object = 'product';
     private $UCF_object = 'Product';
+    private $OrderItem = 'OrderItem';
 
     public function index()
     {
@@ -379,6 +380,9 @@ class Product {
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
             
+        $inputs_buttons=$inputs['buttons'];
+        $inputs_cli_id=$inputs['cli_id'];
+        $inputs_order_id=$inputs['order_id'];
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
@@ -411,8 +415,9 @@ class Product {
                             <td>'.$row->PRICE_PIX.'</td>
                             <td>'.$row->STATUS.'</td>
                             <td>
-                                <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                '.(($inputs_buttons==$this->OrderItem)? "<a href=\"" : "").''.(($inputs_buttons==$this->OrderItem)? ROOT."/OrderItem/_insert_product?cli_id=" : "").''.(($inputs_buttons==$this->OrderItem)? $inputs_cli_id : "").''.(($inputs_buttons==$this->OrderItem)? "&order_id=" : "").''.(($inputs_buttons==$this->OrderItem)? $inputs_order_id : "").''.(($inputs_buttons==$this->OrderItem)? "&product={" : "").''.(($inputs_buttons==$this->OrderItem)? $array : "").''.(($inputs_buttons==$this->OrderItem)? "}\" title=\"New_Product\" class=\"text-primary newOrderBtn\" cli_id=" : "").''.(($inputs_buttons==$this->OrderItem)? $inputs_cli_id : "").''.(($inputs_buttons==$this->OrderItem)? "\" order_id=" : "").''.(($inputs_buttons==$this->OrderItem)? $inputs_order_id : "").''.(($inputs_buttons==$this->OrderItem)? "\"><i class=\"fas fa-plus\"></i></a>" : "").'
+                                '.(($inputs_buttons==$this->UCF_object)? "<a href=\"" : "").''.(($inputs_buttons==$this->UCF_object)? ROOT."/$this->UCF_object/_update?id=$row->ID\"" : "").''.(($inputs_buttons==$this->UCF_object)? " title=\"Edit\" class=\"text-primary updateBtn\" id=" : "").''.(($inputs_buttons==$this->UCF_object)? $row->ID : "").''.(($inputs_buttons==$this->UCF_object)? "><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
+                                '.(($inputs_buttons==$this->UCF_object)? "<a href=\"" : "").''.(($inputs_buttons==$this->UCF_object)? ROOT."/$this->UCF_object/_delete?id=$row->ID\"" : "").''.(($inputs_buttons==$this->UCF_object)? " title=\"Delete\" class=\"text-danger deleteBtn\" id=" : "").''.(($inputs_buttons==$this->UCF_object)? $row->ID : "").''.(($inputs_buttons==$this->UCF_object)? "><i class=\"fas fa-eraser\"></i></a>" : "").'
                             </td></tr>';
             }
             $output .= '</tbody>';

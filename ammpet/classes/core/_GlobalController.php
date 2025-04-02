@@ -205,10 +205,26 @@ Trait _GlobalController{
         }
     }
 
+    //GOES TO SCREEN TO SELECT PRODUCT SO IT CAN BE INSERTED:
+    public function _new_product(){
+        
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
+            $cli_id = $_GET['cli_id'];
+            $order_id = $_GET['order_id'];
+            $path2 = "OrderItem/_addProduct?cli_id=".$cli_id."&order_id=".$order_id;
+            double_redirect("Orderx", $path2);
+        } else{
+            echo "Issue to return Cli_Id.";
+        }
+    }
+
     public function _addService(){
-        //$operation = 'goto_addService';
-        //$this->goto_view($operation);
         $view="$this->object/$this->object-addService";
+        $this->view($view);
+    }
+
+    public function _addProduct(){
+        $view="$this->object/$this->object-addProduct";
         $this->view($view);
     }
 
@@ -225,10 +241,26 @@ Trait _GlobalController{
         }
     }
 
+    public function _update_product(){
+        
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id']) AND isset($_GET['item_id'])){
+            $cli_id = $_GET['cli_id'];
+            $order_id = $_GET['order_id'];
+            $item_id = $_GET['item_id'];
+            $path = "OrderItem/_updateProduct?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$item_id;
+            redirect($path);
+        } else{
+            echo "Issue to return Cli_Id.";
+        }
+    }
+
     public function _updateService(){
-        //$operation = 'goto_updateService';
-        //$this->goto_view($operation);
         $view="$this->object/$this->object-updateService";
+        $this->view($view);
+    }
+
+    public function _updateProduct(){
+        $view="$this->object/$this->object-updateProduct";
         $this->view($view);
     }
 
@@ -257,26 +289,14 @@ Trait _GlobalController{
 
             //Special condition when Object is OrderItem:
             if($this->UCF_object=="OrderItem" AND isset($_GET['order_id'])){
+
+                $prod_serv_type = $inputs['Prod_Serv_Type'];
                 $inputs['Created_By']=$_SESSION['username'];
                 $inputs['Updated_By']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
                 $inputs['Quantity']="1";
                 $inputs['Discount_Value']="0";
-                $inputs['Id_Package']="1";
-                $inputs['Id_Package_Animal']="1";
-                $inputs['Serv_Executor']="XXXX";
                 $inputs['Salesperson']="Viviam Bragantine";
-                $inputs['Package_Service']="Banho";
-                $inputs['Package_Sequence']=0;
-                $inputs['Package_Consume']=0;
-                $inputs['Flag_Otite']=0;
-                $inputs['Flag_Olhos_Verm']=0;
-                $inputs['Flag_Pulga']=0;
-                $inputs['Flag_Carrapato']=0;
-                $inputs['Flag_Dermatite']=0;
-                $inputs['Flag_Ferida']=0;
-                $inputs['Flag_Outro']=0;
-                $inputs['Flag_Contrario']=0;
 
                 $cli_id = $_GET['cli_id'];
                 $order_id = $_GET['order_id'];
@@ -452,7 +472,12 @@ Trait _GlobalController{
                         break;
 
                     case 'OrderItem':
-                        $view = "$this->UCF_object/_updateService?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
+                        if($prod_serv_type=="SERV"){
+                            $view = "$this->UCF_object/_updateService?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
+                        }
+                        if($prod_serv_type=="PROD"){
+                            $view = "$this->UCF_object/_updateProduct?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
+                        }
                         unset_array($inputs);
                         redirect("$view");
                         break;
@@ -948,6 +973,70 @@ Trait _GlobalController{
             $_POST['Total_Pix']=$service_array->PRICE_PIX;
             $_POST['Prodserv_Code']=$service_array->CODE;
             $_POST['Package_Amount']=$service_array->PACKAGE_AMOUNT;
+            $_POST['OI_Comission_Overwrite_Flg']=$product_array->COMISSION_OVERWRITE_FLG;
+
+            $_POST['Id_Package']="1";
+            $_POST['Id_Package_Animal']="1";
+            $_POST['Serv_Executor']="XXXX";
+            $_POST['Package_Service']="Banho";
+            $_POST['Package_Sequence']=0;
+            $_POST['Package_Consume']=0;
+            $_POST['Flag_Otite']=0;
+            $_POST['Flag_Olhos_Verm']=0;
+            $_POST['Flag_Pulga']=0;
+            $_POST['Flag_Carrapato']=0;
+            $_POST['Flag_Dermatite']=0;
+            $_POST['Flag_Ferida']=0;
+            $_POST['Flag_Outro']=0;
+            $_POST['Flag_Contrario']=0;
+
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+            
+        } else{
+            echo "Issue to return Cli_Id and Order_id.";
+        }
+    }
+
+    //GET POST DATA AND CALL INSERT CALL TO ADD Product INTO DATABASE
+    public function _insert_product(){
+        
+        if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
+            $cli_id = $_GET['cli_id'];
+            $order_id = $_GET['order_id'];
+            $product = $_GET['product'];
+            $product = stripslashes(trim($product));
+
+            $product = cleanString($product);
+            $product = str_replace("'", '"', $product);
+            $product = iconv('UTF-8', 'UTF-8',$product);
+
+            $product_array = json_decode2(html_entity_decode($product), true);
+            $_SERVER['REQUEST_METHOD'] = 'POST';
+            $_POST['class']="OrderItem";
+            $_POST['method']="insert_call";
+            $_POST['Id_Client']=$cli_id;
+            $_POST['Id_Order']=$order_id;
+            $_POST['Id_Prod_Serv']=$product_array->ID;
+
+            $_POST['Unit_Value']=$product_array->PRICE;
+            $_POST['Value_No_Discount']=$product_array->PRICE;
+            $_POST['Value_With_Discount']=$product_array->PRICE;
+            $_POST['Prod_Serv_Type']=$product_array->TYPE;
+            $_POST['Flag_Comission']=$product_array->COMISSION_FLG;
+            $_POST['External_Cost']=$product_array->EXTERNAL_COST;
+            $_POST['Comission_Percentage']=$product_array->COMISSION_PERCENTAGE;
+            $_POST['Cost_Center']=$product_array->CENTER;
+            $_POST['Prod_Serv_Category']=$product_array->CATEGORY;
+            $_POST['Item_Description']=$product_array->NAME;
+            $_POST['OI_Price_Cash']=$product_array->PRICE_CASH;
+            $_POST['Total_Cash']=$product_array->PRICE_CASH;
+            $_POST['OI_Price_Pix']=$product_array->PRICE_PIX;
+            $_POST['Total_Pix']=$product_array->PRICE_PIX;
+            //$_POST['Prodserv_Code']=$product_array->CODE;
+            //$_POST['Package_Amount']=$product_array->PACKAGE_AMOUNT;
+            $_POST['OI_Comission_Overwrite_Flg']=$product_array->COMISSION_OVERWRITE_FLG;
+            $_POST['Prod_Serv_Group']=$product_array->GROUP_X;
 
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();

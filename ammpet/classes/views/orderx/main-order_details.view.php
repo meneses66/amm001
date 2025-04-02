@@ -78,8 +78,8 @@
         <div class="table-responsive" id="_products" style="font-size:12px;">
             <table id="_table_products" class="table Table-stripped table-sm table-bordered small">
                 <?php 
-                    //$controller = new ('\Controller\\'."Orderx");
-                    //$controller->get_products();
+                    $controller = new ('\Controller\\'."Orderx");
+                    $controller->get_products();
                 ?>        
             </table>
         </div>

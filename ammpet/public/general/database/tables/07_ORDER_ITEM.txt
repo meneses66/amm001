@@ -51,6 +51,7 @@ Create Table ORDER_ITEM
     TOTAL_CASH Decimal(10,2),
     OI_PRICE_PIX Decimal(10,2),
     TOTAL_PIX Decimal(10,2),
+    OI_COMISSION_OVERWRITE_FLG BOOLEAN,
 
     constraint FK_OI_ORDER foreign key (ID_ORDER) references ORDER_X(ID), 
     constraint FK_OI_PROD_SERV foreign key (ID_PROD_SERV) references PROD_SERV(ID), 
