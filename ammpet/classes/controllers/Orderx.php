@@ -282,7 +282,7 @@ class Orderx
             $data = $model->exec_sqlstm($sql_stm, $inputs);
             if($data){
                 $output .='<thead>
-                                <tr class="text-center text-secondary" style="height: 5px;">
+                                <tr class="text-center text-secondary">
                                     <th>Ord</th>
                                     <th>Animal</th>
                                     <th>Serviço</th>
@@ -294,7 +294,7 @@ class Orderx
                             <tbody>';
                 foreach ($data as $row) {
 
-                    $output .='<tr class="text-center text-secondary" style="height: 5px;">
+                    $output .='<tr class="text-center text-secondary">
                                 <td>'.$row->ID_ORDER.'</td>
                                 <td>'.$row->ANIMAL.'</td>
                                 <td>'.$row->SERVICE.'</td>

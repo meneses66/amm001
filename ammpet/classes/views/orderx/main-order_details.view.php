@@ -39,7 +39,7 @@
         <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
             <p style="font-size:12px; font-weight:bold;" >Pacotes</p>
             <div class="table-responsive" id="_packages" style="font-size:12px;">
-                <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
+                <table id="_table_pkg" class="table table-sm table-bordered small">
                     <?php 
                         $controller = new ('\Controller\\'."Orderx");
                         $controller->get_packages();
