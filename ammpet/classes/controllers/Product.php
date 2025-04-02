@@ -405,6 +405,14 @@ class Product {
                         </thead>
                         <tbody>';
             foreach ($data as $row) {
+
+                $array=null;
+                foreach ($row as $key => $value) {
+                    //$array .= "\"".$key."\"=\"".$value."\"";
+                    $array .= "'".$key."':'".$value."',";
+                }
+                $array = trim($array,",");
+
                 $output .='<tr class="text-center text-secondary">
                             <td>'.$row->ID.'</td>
                             <td>'.$row->UPDATED.'</td>
