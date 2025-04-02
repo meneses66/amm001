@@ -9,11 +9,11 @@ $(document).ready(function(){
     if((temp_package==1||temp_package=="1")){
         document.getElementById('quantity').removeAttribute('readonly');
         document.getElementById("package_service").value = "Banho";
-        document.getElementById("package_service").setAttribute('readonly', true);
+        document.getElementById("package_service").setAttribute("disabled", "disabled");
     } else {
         document.getElementById("quantity").value = 1;
         document.getElementById('quantity').setAttribute('readonly', true);
-        document.getElementById('package_service').removeAttribute('readonly');
+        document.getElementById('package_service').removeAttribute("disabled");
     }
 
     load_package(temp_package, id_client);
