@@ -426,6 +426,73 @@ class Orderx
         }
     }
 
+    public function get_products(){
+        if (isset($_GET['order_id'])){
+
+            if(session_status() === PHP_SESSION_NONE) session_start();
+            $output = "";
+            $inputs["ID_ORDER"]=$_GET['order_id'];
+            $inputs["PROD_SERV_TYPE"]="PROD";
+            
+            $model = new('\Model\\'."OrderItem");
+            $data = $model->listWhere($inputs);
+            if($data){
+                $output .='<thead>
+                                <tr class="text-center text-secondary">
+                                    <th>Cód.</th>
+                                    <th>Produto</th>
+                                    <th>Quant.</th>
+                                    <th>Valor c/ Desc.</th>
+                                    <th>Vendedor</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+                foreach ($data as $row) {
+
+                    //GET product DETAILS
+                    $product_input['ID']= $row->ID_PROD_SERV;
+                    $product = new('\Model\\'."Product");
+                    $product_code = $product->getRow($product_input)->CODE;
+                    $product = null;
+
+                    $output .='<tr class="text-center text-secondary">
+                                <td>'.$service_code.'</td>
+                                <td>'.$row->ITEM_DESCRIPTION.'</td>
+                                <td>'.$row->QUANTITY.'</td>
+                                <td>'.$row->VALUE_WITH_DISCOUNT.'</td>
+                                <td>'.$row->SALESPERSON.'</td>
+                                <td>
+                                    <a href="'.ROOT."/OrderItem/_updateService?cli_id=$row->ID_CLIENT&order_id=$row->ID_ORDER&item_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                    <a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_PACKAGE.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>
+                                </td>
+                               </tr>';
+                }
+                $output .= '</tbody>';
+                $sql_stm = null;
+                unset_array($inputs);
+                $data = null;
+                $animal = null;
+                $animal_name=null;
+                $service=null;
+                $service_name=null;
+                $model = null;
+                echo $output;
+            }
+            else{
+                $sql_stm = null;
+                unset_array($inputs);
+                $data = null;
+                $animal = null;
+                $animal_name=null;
+                $service=null;
+                $service_name=null;
+                $model = null;
+                echo '<h4 class="text-center text-secondary mt-5">Sem dados para mostrar</h4>';
+            }
+        }
+    }
+
     //FUNCTION TO UPDATE ORDER TOTALS WHEN: ORDER ITEM SERVICE IS UPDATED OR DELETED
     public function update_totals($inputs){
 	
