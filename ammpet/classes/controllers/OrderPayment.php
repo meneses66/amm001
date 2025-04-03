@@ -56,7 +56,7 @@ class OrderPayment {
                     $flag1 = ($data_form['FLAG1']==1) ? "checked" : "";
                     $updated_by=$_SESSION['username'];
                     $created_by=$data_form['CREATED_BY'];
-                    $id=$data_form['PAID_AMOUNT'];
+                    $id=$data_form['ID'];
                     $date=$data_form['DATE'];
 
                 }
@@ -96,7 +96,7 @@ class OrderPayment {
                                 <label for="flag1" class="medium-label">Flag:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="flag1" type="checkbox" name="Flag1">
+                                <input id="flag1" type="checkbox" name="Flag1" '.$flag1.'>
                             </div>
                         </div>
                         <div class="row">
@@ -135,7 +135,7 @@ class OrderPayment {
                                     
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../OrderPayment/update_call?cli_id='.$cli_id.'&order_id='.$order_id.'&paym_id='.$data_form['ID'].'">
+                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../OrderPayment/update_call?cli_id='.$cli_id.'&order_id='.$order_id.'&paym_id='.$id.'">
                                 </div>
                             </div>';
 
