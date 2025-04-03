@@ -611,7 +611,10 @@ class Orderx
 
             $_SERVER['REQUEST_METHOD']="POST";
 
-            $paid_amount = $result_order_payment->PAID_AMOUNT;
+            foreach ($result_order_payment as $row_payment) {
+                $paid_amount = $row_payment->PAID_AMOUNT;
+            }
+
             $updated_order_debt = $order_debt - $paid_amount;
 
             if ($paid_amount >= $order_debt) {
