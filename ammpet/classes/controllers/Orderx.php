@@ -599,7 +599,8 @@ class Orderx
 
         $inputs_order_payment['ID_ORDER']=$inputs['Id'];
         $orderpayment_model = new('\Model\\'."OrderPayment");
-        $result_order_payment = $orderpayment_model->getRow($inputs_order_payment);
+        $sqlsql_payments = "SELECT SUM(PAID_AMOUNT) AS PAID_AMOUNT FROM ORDER_PAYMENT WHERE ID_ORDER=:ID_ORDER";
+        $result_order_payment = $orderpayment_model->exec_sqlstm($sqlsql_payments, $inputs_order_payment);
     
         if ($result_order) {
                 $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
