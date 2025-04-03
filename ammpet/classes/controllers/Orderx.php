@@ -589,12 +589,7 @@ class Orderx
 
     //FUNCTION TO UPDATE ORDER PAYMENTS WHEN: ORDER PAYMENT IS UPDATED OR DELETED
     public function update_payments($inputs){
-	
-        
-        //$sql_stm_get_payments = "SELECT SUM(PAID_AMOUNT) AS PAID_AMOUND FROM ORDER_PAYMENT WHERE ID_ORDER=:ID_ORDER";
-        //$sql_stm_get_order = "SELECT ORDER_VALUE_WITH_DISCOUNT  FROM ORDER_X WHERE ID=:ID";
 
-        
         $inputs_order['ID']=$inputs['Id'];
         $order_model = new('\Model\\'."Orderx");
         $result_order = $order_model->getRow($inputs_order);
@@ -604,16 +599,18 @@ class Orderx
         $result_order_payment = $orderpayment_model->getRow($inputs_order_payment);
     
         if ($result_order) {
-                $order_debt = $result_order->ORDER_DEBT;
+                $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
         } else {
-            $order_debt = 0;
+            $order_debt = 999999;
         }
         if ($result_order_payment){
 
             $_SERVER['REQUEST_METHOD']="POST";
 
-            $_POST['Order_paid_amount'] = $result_order_payment->PAID_AMOUNT;
-            $_POST['Order_debt'] = $order_debt;
+            $paid_amount = $result_order_payment->PAID_AMOUNT;
+            $updated_order_debt = $order_debt - $paid_amount;
+            $_POST['Order_paid_amount'] = $paid_amount;
+            $_POST['Order_debt'] = $updated_order_debt;
             $_POST['Id'] = $inputs['Id'];
             $_POST['class']="Orderx";
             $_POST['method']="update_call";
@@ -625,7 +622,7 @@ class Orderx
             $_SERVER['REQUEST_METHOD']="POST";
 
             $_POST['Order_paid_amount'] = 0;
-            $_POST['Order_debt'] = 0;
+            $_POST['Order_debt'] = $order_debt;
             $_POST['Id'] = $inputs['Id'];
             
             $_POST['class']="Orderx";

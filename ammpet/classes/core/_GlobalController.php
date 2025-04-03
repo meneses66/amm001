@@ -473,6 +473,12 @@ Trait _GlobalController{
 
             if($this->UCF_object=="OrderPayment"){
                 $order_id=$_GET['order_id'];
+
+                if(isset($inputs["Flag1"])){
+                    $inputs["Flag1"]="1";
+                }else{
+                    $inputs["Flag1"]="0";
+                }
             }
 
             try {
@@ -801,6 +807,12 @@ Trait _GlobalController{
 
             if ($this->UCF_object=="OrderPayment") {
                 $order_id=$_GET['order_id'];
+
+                if(isset($inputs["Flag1"])){
+                    $inputs["Flag1"]="1";
+                }else{
+                    $inputs["Flag1"]="0";
+                }
             }
 
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
