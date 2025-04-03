@@ -96,8 +96,8 @@
         <div class="table-responsive" id="_payments" style="font-size:12px;">
             <table id="_table_payments" class="table Table-stripped table-sm table-bordered small">
                 <?php 
-                    //$controller = new ('\Controller\\'."Orderx");
-                    //$controller->get_payments();
+                    $controller = new ('\Controller\\'."Orderx");
+                    $controller->get_payments();
                 ?>        
             </table>
         </div>
