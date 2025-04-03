@@ -51,13 +51,13 @@ class OrderPayment {
                         $data_form[$key]=$value;
                     }
                 
-                    $payment_type=data_form['PAYMENT_TYPE'];
-                    $paid_amount=data_form['PAID_AMOUNT'];
+                    $payment_type=$data_form['PAYMENT_TYPE'];
+                    $paid_amount=$data_form['PAID_AMOUNT'];
                     $flag1 = ($data_form['FLAG1']==1) ? "checked" : "";
                     $updated_by=$_SESSION['username'];
-                    $created_by=data_form['CREATED_BY'];
-                    $id=data_form['PAID_AMOUNT'];
-                    $date=data_form['DATE'];
+                    $created_by=$data_form['CREATED_BY'];
+                    $id=$data_form['PAID_AMOUNT'];
+                    $date=$data_form['DATE'];
 
                 }
 
