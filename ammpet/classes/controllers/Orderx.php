@@ -491,7 +491,7 @@ class Orderx
         $output = "";
         $model = new('\Model\\'."OrderPayment");
         
-        $inputs_payments['order_id']=$_GET['order_id'];
+        $inputs_payments['ID_ORDER']=$_GET['order_id'];
         $order_id=$_GET['order_id'];
         $cli_id=$_GET['cli_id'];
         $data = $model->listWhere($inputs_payments);
