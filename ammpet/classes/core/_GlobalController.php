@@ -799,7 +799,7 @@ Trait _GlobalController{
 
             }
 
-            if ($this->UFC_object=="OrderPayment") {
+            if ($this->UCF_object=="OrderPayment") {
                 $order_id=$_GET['order_id'];
             }
 
