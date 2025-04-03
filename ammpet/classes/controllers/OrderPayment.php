@@ -30,16 +30,17 @@ class OrderPayment {
             $paid_amount=null;
             $flag1=0;
             $created_by=$_SESSION['username'];
-            $update_by=$_SESSION['username'];
+            $updated_by=$_SESSION['username'];
             $id="new";
             $order_id=$_GET['order_id'];
             $cli_id=$_GET['cli_id'];
             $date=date('Y-m-d');
+            $inputs['ID']="new";
 
             if(!($_GET['paym_id']=='new')){
 
-                $inputs["ID"]=$_GET['id'];
-                $id=$_GET['id'];
+                $inputs['ID']=$_GET['paym_id'];
+                $id=$_GET['paym_id'];
                 $model = new('\Model\\'.$this->UCF_object);
                 
                 $data = $model->getRow($inputs);
@@ -53,7 +54,7 @@ class OrderPayment {
                     $payment_type=data_form['PAYMENT_TYPE'];
                     $paid_amount=data_form['PAID_AMOUNT'];
                     $flag1 = ($data_form['FLAG1']==1) ? "checked" : "";
-                    $update_by=$_SESSION['username'];
+                    $updated_by=$_SESSION['username'];
                     $created_by=data_form['CREATED_BY'];
                     $id=data_form['PAID_AMOUNT'];
                     $date=data_form['DATE'];
