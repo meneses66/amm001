@@ -36,6 +36,7 @@ $(document).ready(function(){
     $('#order_value_pix').mask("#,##0.00", {reverse: true});
     $('#order_paid_amount').mask("#,##0.00", {reverse: true});
     $('#order_debt').mask("#,##0.00", {reverse: true});
+    $('#paid_amount').mask("#,##0.00", {reverse: true});
     
   });
   
