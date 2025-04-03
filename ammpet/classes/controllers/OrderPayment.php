@@ -28,7 +28,7 @@ class OrderPayment {
             //IF NOT NEW RECORD GET DATA FROM DATABASE TO SET FIELDS:
             $payment_type="N/A";
             $paid_amount=null;
-            $flag1=0;
+            $flag1="";
             $created_by=$_SESSION['username'];
             $updated_by=$_SESSION['username'];
             $id="new";

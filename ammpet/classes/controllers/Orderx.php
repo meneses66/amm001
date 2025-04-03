@@ -555,6 +555,7 @@ class Orderx
                 $_POST['Order_value_cash'] = $row->T_TOTAL_CASH;
                 $_POST['Order_value_pix'] = $row->T_TOTAL_PIX;
                 $_POST['Id'] = $inputs['Id'];
+                $_POST['Status'] = "Pendente";
                 
                 $_POST['class']="Orderx";
                 $_POST['method']="update_call";
@@ -566,12 +567,13 @@ class Orderx
    
         }else {
             $_SERVER['REQUEST_METHOD']="POST";
-
+            
             $_POST['Order_value_no_discount'] = 0;
             $_POST['Order_value_with_discount'] = 0;
             $_POST['Order_value_cash'] = 0;
             $_POST['Order_value_pix'] = 0;
             $_POST['Id'] = $inputs['Id'];
+            $_POST['Status'] = "Aberto";
             
             $_POST['class']="Orderx";
             $_POST['method']="update_call";
@@ -582,6 +584,7 @@ class Orderx
         
         }
         
+        unset($_POST);
         unset($inputs_order_item);
         unset($inputs_order_totals);
         $order_model=null;
@@ -609,6 +612,11 @@ class Orderx
 
             $paid_amount = $result_order_payment->PAID_AMOUNT;
             $updated_order_debt = $order_debt - $paid_amount;
+
+            if ($paid_amount >= $order_debt) {
+                $_POST['Status']="Fechado";
+            }
+            
             $_POST['Order_paid_amount'] = $paid_amount;
             $_POST['Order_debt'] = $updated_order_debt;
             $_POST['Id'] = $inputs['Id'];
@@ -617,8 +625,11 @@ class Orderx
             
             $ajax_call = new('\Controller\\'."Ajax_call");
             $ajax_call->index();
+
+ 
    
         }else {
+            
             $_SERVER['REQUEST_METHOD']="POST";
 
             $_POST['Order_paid_amount'] = 0;
@@ -633,6 +644,7 @@ class Orderx
         
         }
         
+        unset($_POST);
         unset($inputs_order_payment);
         unset($inputs_order);
         $order_model=null;
