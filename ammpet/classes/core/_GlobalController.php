@@ -64,6 +64,12 @@ Trait _GlobalController{
         $this->view($view);
     }
 
+    //Sends to UPDATE View
+    public function _update_payment(){
+        $view="$this->object/$this->object-addPayment";
+        $this->view($view);
+    }
+
     //Sends to DELETE View
     public function _delete(){
         //$operation = 'goto_delete';
