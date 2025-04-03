@@ -605,7 +605,7 @@ class Orderx
         } else {
             $order_debt = 0;
         }
-        if ($result_totals){
+        if ($result_order_payment){
 
             $_SERVER['REQUEST_METHOD']="POST";
 

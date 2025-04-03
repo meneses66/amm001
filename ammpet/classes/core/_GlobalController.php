@@ -465,7 +465,7 @@ Trait _GlobalController{
                 $inputs['Pack_Consumed']=0;
             }
 
-            if($this->UCF_object=="Package"){
+            if($this->UCF_object=="OrderPayment"){
                 $order_id=$_GET['order_id'];
             }
 

@@ -30,7 +30,7 @@ class OrderPayment {
         $this -> Updated = $updated;
         $this -> Date = $date;
         $this -> Id_Order = $id_order;
-        $this -> Paid_Amount = $Paid_Amount;
+        $this -> Paid_Amount = $paid_amount;
         $this -> Payment_Type = $payment_type;
         $this -> Flag1 = $flag1;
     }
