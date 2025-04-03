@@ -485,6 +485,55 @@ class Orderx
         }
     }
 
+    //LOAD HTML FOR LISTING RECORDS IN TABLE
+    public function get_payments(){
+            
+        $output = "";
+        $model = new('\Model\\'."OrderPayment");
+        
+        $inputs_payments['order_id']=$_GET['order_id'];
+        $order_id=$_GET['order_id'];
+        $cli_id=$_GET['cli_id'];
+        $data = $model->listWhere($inputs_payments);
+        if($data){
+            $output .='<thead>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Pedido</th>
+                                <th>Valor Pago</th>
+                                <th>Tipo Pagamento</th>
+                                <th>Flag</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+            foreach ($data as $row) {
+                $output .='<tr class="text-center text-secondary">
+                            <td>'.$row->ID.'</td>
+                            <td>'.$row->UPDATED.'</td>
+                            <td>'.$row->ID_ORDER.'</td>
+                            <td>'.$row->PAID_AMOUNT.'</td>
+                            <td>'.$row->PAYMENT_TYPE.'</td>
+                            <td>'.($row->FLAG1==1?"■":"").'</td>
+                            <td>
+                                <a href="'.ROOT."/OrderPayment/_update?cli_id=$cli_id&order_id=$row->ID_ORDER&paym_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$cli_id.'" order_id="'.$row->ID_ORDER.'" paym_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                <a href="'.ROOT."/OrderPayment/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$order_id.'" classforjs="OrderPayment"><i class="fas fa-eraser"></i></a>
+                            </td></tr>';
+            }
+            $output .= '</tbody>';
+            $data = null;
+            $model = null;
+
+            echo $output;
+        }
+        else{
+            $data = null;
+            $model = null;
+            echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+        }
+    }
+
     //FUNCTION TO UPDATE ORDER TOTALS WHEN: ORDER ITEM SERVICE IS UPDATED OR DELETED
     public function update_totals($inputs){
 	
@@ -536,6 +585,59 @@ class Orderx
         unset($inputs_order_item);
         unset($inputs_order_totals);
         $order_model=null;
+    }
+
+    //FUNCTION TO UPDATE ORDER PAYMENTS WHEN: ORDER PAYMENT IS UPDATED OR DELETED
+    public function update_payments($inputs){
+	
+        $inputs_order_payment['ID_ORDER']=$inputs['Id'];
+        $inputs_order['ID']=$inputs['Id'];
+        //$sql_stm_get_payments = "SELECT SUM(PAID_AMOUNT) AS PAID_AMOUND FROM ORDER_PAYMENT WHERE ID_ORDER=:ID_ORDER";
+        //$sql_stm_get_order = "SELECT ORDER_VALUE_WITH_DISCOUNT  FROM ORDER_X WHERE ID=:ID";
+        $orderpayment_model = new('\Model\\'."OrderPayment");
+        $order_model = new('\Model\\'."Orderx");
+        
+        $result_order = $order_model->getRow($inputs_order);
+        $result_order_payment = $orderpayment_model->getRow($inputs_order_payment);
+    
+        if ($result_order) {
+                $order_debt = $row_order->ORDER_DEBT;
+        } else {
+            $order_debt = 0;
+        }
+        if ($result_totals){
+
+            $_SERVER['REQUEST_METHOD']="POST";
+
+            $_POST['Order_paid_amount'] = $row->PAID_AMOUNT;
+            $_POST['Order_debt'] = $order_debt;
+            $_POST['Id'] = $inputs['Id'];
+            $_POST['class']="Orderx";
+            $_POST['method']="update_call";
+            
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+   
+        }else {
+            $_SERVER['REQUEST_METHOD']="POST";
+
+            $_POST['Order_paid_amount'] = 0;
+            $_POST['Order_debt'] = 0;
+            $_POST['Id'] = $inputs['Id'];
+            
+            $_POST['class']="Orderx";
+            $_POST['method']="update_call";
+            //$_POST['type']="static";
+
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+        
+        }
+        
+        unset($inputs_order_payment);
+        unset($inputs_order);
+        $order_model=null;
+        $orderpayment_model=null;
     }
 
 }

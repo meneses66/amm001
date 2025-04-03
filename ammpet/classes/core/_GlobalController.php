@@ -218,6 +218,19 @@ Trait _GlobalController{
         }
     }
 
+        //GOES TO SCREEN TO AD NEW PAYMENT:
+        public function _new_payment(){
+        
+            if (isset($_GET['cli_id']) AND isset($_GET['order_id'])){
+                $cli_id = $_GET['cli_id'];
+                $order_id = $_GET['order_id'];
+                $path2 = "OrderPayment/_addPayment?cli_id=".$cli_id."&order_id=".$order_id."&paym_id=new";
+                double_redirect("Orderx", $path2);
+            } else{
+                echo "Issue to return Cli_Id.";
+            }
+        }
+
     public function _addService(){
         $view="$this->object/$this->object-addService";
         $this->view($view);
@@ -225,6 +238,11 @@ Trait _GlobalController{
 
     public function _addProduct(){
         $view="$this->object/$this->object-addProduct";
+        $this->view($view);
+    }
+
+    public function _addPayment(){
+        $view="$this->object/$this->object-addPayment";
         $this->view($view);
     }
 
@@ -447,6 +465,10 @@ Trait _GlobalController{
                 $inputs['Pack_Consumed']=0;
             }
 
+            if($this->UCF_object=="Package"){
+                $order_id=$_GET['order_id'];
+            }
+
             try {
                 //$model->insert($inputs);
                 $new_id=$model->insert($inputs);
@@ -484,6 +506,23 @@ Trait _GlobalController{
 
                     case 'Package':
                         unset_array($inputs);
+                        break;
+                    
+                    case 'OrderPayment':
+
+                        //CALL UPDATE ORDER PAYMENTS:
+                        unset($_POST);
+                        $_SERVER['REQUEST_METHOD'] = 'POST';
+                        $_POST['class']="Orderx";
+                        $_POST['method']="update_payments";
+                        $_POST['Id']=$order_id;
+            
+                        $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call->index();
+
+                        $path2 = "Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];
+                        unset_array($inputs);
+                        double_redirect("OrderPayment", $path2);
                         break;
                     
                     default:
@@ -754,6 +793,10 @@ Trait _GlobalController{
 
             }
 
+            if ($this->UFC_object=="OrderPayment") {
+                $order_id=$_GET['order_id'];
+            }
+
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
 
             try {
@@ -855,6 +898,23 @@ Trait _GlobalController{
                             break;
                         }
 
+                    case 'OrderPayment':
+
+                        //CALL UPDATE ORDER PAYMENTS:
+                        unset($_POST);
+                        $_SERVER['REQUEST_METHOD'] = 'POST';
+                        $_POST['class']="Orderx";
+                        $_POST['method']="update_payments";
+                        $_POST['Id']=$order_id;
+            
+                        $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call->index();
+
+                        $path2 = "Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];
+                        unset_array($inputs);
+                        double_redirect("OrderPayment", $path2);
+                        break;
+
                     default:
                         $view = "$this->UCF_object/_list";
                         unset_array($inputs);
@@ -918,6 +978,20 @@ Trait _GlobalController{
                         $ajax_call->index();
                     }
                 break;
+            
+                case 'OrderPayment':
+
+                    //CALL UPDATE ORDER PAYMENTS:
+                    unset($_POST);
+                    $_SERVER['REQUEST_METHOD'] = 'POST';
+                    $_POST['class']="Orderx";
+                    $_POST['method']="update_payments";
+                    $_POST['Id']=$order_id;
+        
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                    
+                    break;
                 
                 default:
                     # code...
