@@ -18,7 +18,7 @@ $output = '<script type="text/javascript">
                             $("table").DataTable({
                                   dom: \'Blfrtip\',
                                   layout: {
-                                            topStart: {
+                                            topEnd: {
                                                         buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
                                             }
                                         },
