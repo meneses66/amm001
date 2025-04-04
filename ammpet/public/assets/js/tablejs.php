@@ -16,13 +16,7 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
-                                layout: {
-                                            topStart: {
-                                                        dom: \'lBfrtip\',
-                                                        buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
-                                            }
-                                        },
-                                columnDefs: [
+                                  columnDefs: [
                                                 {
                                                     targets: 1,
                                                     render: DataTable.render.datetime(\'YYYY-MM-DD\')
