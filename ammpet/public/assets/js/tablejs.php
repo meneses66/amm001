@@ -23,7 +23,7 @@ $output = '<script type="text/javascript">
                                             bottomStart: \'info\',
                                             bottomEnd: \'paging\',
                                             topStart: {
-                                                        buttons: [\'pageLength\', \'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
+                                                        buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\', \'pageLength\']
                                             }
                                         },
                                   columnDefs: [
