@@ -54,6 +54,9 @@
                 <div class="col-sm-2">
                     <p style="font-size:12px; font-weight:bold;">Serviços</p>
                 </div>
+                <div class="col-sm-6">
+                    
+                </div>
                 <div class="col-sm-4">
                     <a href="<?php echo ROOT."/Orderx/_new_service?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Serviço</a>
                 </div>
@@ -73,6 +76,9 @@
             <div class="row">
                 <div class="col-sm-2">
                     <p style="font-size:12px; font-weight:bold;">Produtos</p>
+                </div>
+                <div class="col-sm-6">
+                    
                 </div>
                 <div class="col-sm-4">
                     <a href="<?php echo ROOT."/Orderx/_new_product?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Produto</a>
