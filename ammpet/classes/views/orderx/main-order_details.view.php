@@ -54,19 +54,19 @@
                 <div class="col-sm-2">
                     <p style="font-size:12px; font-weight:bold;">Serviços</p>
                 </div>
-                <div class="col-sm-4" style="border-right: thin solid lightgray;">
+                <div class="col-sm-4">
                     <a href="<?php echo ROOT."/Orderx/_new_service?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Serviço</a>
                 </div>
             </div>
-            <div class="row" style="border-right: thin solid lightgray;">
-                    <div class="table-responsive" id="_services" style="font-size:11px;">
-                        <table id="_table_services" class="table Table-stripped table-sm table-bordered small">
-                            <?php 
-                                $controller = new ('\Controller\\'."Orderx");
-                                $controller->get_services();
-                            ?>        
-                        </table>
-                    </div>
+            <div class="row">
+                <div class="table-responsive" id="_services" style="font-size:11px;">
+                    <table id="_table_services" class="table Table-stripped table-sm table-bordered small">
+                        <?php 
+                            $controller = new ('\Controller\\'."Orderx");
+                            $controller->get_services();
+                        ?>        
+                    </table>
+                </div>
             </div>
         </div>
         <div class="col-sm-6" style="border-right: thin solid lightgray;">
@@ -78,7 +78,6 @@
                     <a href="<?php echo ROOT."/Orderx/_new_product?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Produto</a>
                 </div>
             </div>
-        </div>
             <div class="row">
                 <div class="table-responsive" id="_products" style="font-size:11px;">
                     <table id="_table_products" class="table Table-stripped table-sm table-bordered small">
