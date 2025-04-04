@@ -53,5 +53,8 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <!-- Table Column Date Formatting-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
 
+        <!-- Export to Excel -->
+        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/export_to_excel.js";?>
+
     </body>
 </html>
