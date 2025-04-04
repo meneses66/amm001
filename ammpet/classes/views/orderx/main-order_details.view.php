@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
-        <div class="col-sm-6">
+        <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
             <div class="table-responsive" id="_services" style="font-size:12px;">
                     <table id="_table_services" class="table Table-stripped table-sm table-bordered small">
                         <?php 
@@ -73,7 +73,7 @@
                     </table>
                 </div>
             </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6" style="border: thin solid lightgray; font-size:12px;">
             <div class="table-responsive" id="_products" style="font-size:12px;">
                 <table id="_table_products" class="table Table-stripped table-sm table-bordered small">
                     <?php 
