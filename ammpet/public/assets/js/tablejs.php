@@ -16,11 +16,7 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
-                                  dom: \'Bfrtip\',
-                                  lengthMenu: [
-                                                [ 10, 25, 50, -1 ],
-                                                [\'10 rows\', \'25 rows\', \'50 rows\', \'Show all\']
-                                            ],
+                                  dom: \'lBfrtip\',
                                   buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\'],
                                   layout: {
                                             
