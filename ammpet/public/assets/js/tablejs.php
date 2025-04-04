@@ -18,12 +18,12 @@ $output = '<script type="text/javascript">
                             $("table").DataTable({
                                   
                                   layout: {
-                                            topStart: \'pageLength\',
+                                            
                                             topEnd: \'search\',
                                             bottomStart: \'info\',
                                             bottomEnd: \'paging\',
                                             topStart: {
-                                                        buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
+                                                        \'pageLength\', buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
                                             }
                                         },
                                   columnDefs: [
