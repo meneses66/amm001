@@ -16,14 +16,12 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
-                                  dom: \'lBfrtip\',
-                                  buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\'],
                                   layout: {
-                                            
                                             topEnd: \'search\',
                                             bottomStart: \'info\',
                                             bottomEnd: \'paging\',
-                                            
+                                            topStart: {
+                                                        buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\', \'pageLength\']                                            
                                             }
                                         },
                                   columnDefs: [
