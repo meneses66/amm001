@@ -20,7 +20,7 @@ $output = '<script type="text/javascript">
                                     [ 10, 25, 50, -1 ],
                                     [\'10 rows\', \'25 rows\', \'50 rows\', \'Show all\']
                                     ]
-                                  buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\', \'pageLength\']
+                                  buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
                                   layout: {
                                             
                                             topEnd: \'search\',
