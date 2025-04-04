@@ -27,7 +27,7 @@ $output = '<script type="text/javascript">
                                             topEnd: \'search\',
                                             bottomStart: \'info\',
                                             bottomEnd: \'paging\',
-                                            topStart: { \'pageLength\', \'buttons\'
+                                            
                                             }
                                         },
                                   columnDefs: [
