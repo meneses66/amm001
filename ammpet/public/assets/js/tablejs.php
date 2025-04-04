@@ -18,6 +18,10 @@ $output = '<script type="text/javascript">
                             $("table").DataTable({
                                   dom: \'lBfrtip\',
                                   layout: {
+                                            topStart: \'pageLength\',
+                                            topEnd: \'search\',
+                                            bottomStart: \'info\',
+                                            bottomEnd: \'paging\',
                                             topStart: {
                                                         buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
                                             }
