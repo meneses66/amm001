@@ -49,7 +49,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6" style="border-right: thin solid lightgray;">
+        <div class="col-sm-6" style="border: thin solid lightgray;>
             <div class="row">
                 <div class="col-sm-2">
                     <p style="font-size:12px; font-weight:bold;">Serviços</p>
@@ -69,9 +69,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6" style="border-right: thin solid lightgray;">
+        <div class="col-sm-6" style="border: thin solid lightgray;>
             <div class="row">
-                <div class="col-sm-2" style="border-left: thin solid lightgray;">
+                <div class="col-sm-2">
                     <p style="font-size:12px; font-weight:bold;">Produtos</p>
                 </div>
                 <div class="col-sm-4">
