@@ -16,9 +16,9 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
-                                  dom: \'Blfrtip\',
+                                  dom: \'lfrtip\',
                                   layout: {
-                                            topRight: {
+                                            topStart: {
                                                         buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
                                             }
                                         },
