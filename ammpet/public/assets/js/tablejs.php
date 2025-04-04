@@ -16,6 +16,11 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
+                                layout: {
+                                            topStart: {
+                                                buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
+                                            }
+                                        };
                                 columnDefs: [
                                                 {
                                                     targets: 1,

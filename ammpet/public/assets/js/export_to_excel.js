@@ -1,6 +1,6 @@
     $(function () 
     {
-        var table = $('#_table').DataTable();
+        var table = $('#_table').dataTable();
     
         $("#btnExport").click(function(e) 
         {
