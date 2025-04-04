@@ -18,10 +18,7 @@ $output = '<script type="text/javascript">
                             $("table").DataTable({
                                 layout: {
                                             topStart: {
-                                                extensions = \'Buttons\', options = list(
-                                                                                            dom = \'Blfrtip\',
-                                                                                            buttons = c(\'copy\', \'csv\', \'excel\', \'pdf\', \'print\')
-                                                                                        )
+                                                        buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
                                             }
                                         },
                                 columnDefs: [
