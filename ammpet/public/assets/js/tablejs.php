@@ -20,7 +20,7 @@ $output = '<script type="text/javascript">
                                             topStart: {
                                                 buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
                                             }
-                                        };
+                                        },
                                 columnDefs: [
                                                 {
                                                     targets: 1,
