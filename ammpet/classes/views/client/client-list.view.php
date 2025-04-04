@@ -62,7 +62,5 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
 
-        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/export_to_excel.js";?>
-
     </body>
 </html>

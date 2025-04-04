@@ -21,7 +21,7 @@ $output = '<script type="text/javascript">
                                             bottomStart: \'info\',
                                             bottomEnd: \'paging\',
                                             topStart: {
-                                                        buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\', \'pageLength\']                                            
+                                                        buttons: [\'copy\', \'excel\', \'pdf\', \'print\', \'pageLength\']                                            
                                             }
                                         },
                                   columnDefs: [
