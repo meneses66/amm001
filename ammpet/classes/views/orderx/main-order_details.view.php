@@ -97,10 +97,12 @@
         </div>
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:11px;">
-        <div class="col-sm-6">
+        <div class="col-sm-2">
             <p style="font-size:12px; font-weight:bold;">Pagamentos</p>
         </div>
         <div class="col-sm-6">
+        </div>
+        <div class="col-sm-4">
             <a href="<?php echo ROOT."/Orderx/_new_payment?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Pagamento</a>
         </div>
     </div>
