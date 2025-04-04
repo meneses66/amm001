@@ -239,24 +239,3 @@ function json_decode2($valor){
             unset($array);
         }
     }
-
-    function export_to_excel($columns, $content){
- 
-        // Include XLSX generator library 
-        require_once 'PhpXlsxGenerator.php'; 
-         
-        // Excel file name for download 
-        $fileName = "export-data_" . date('Y-m-d') . ".xlsx"; 
-         
-        // Define column names 
-        $excelData[] = $columns;
-         
-        // Fetch records from database and store in an array 
-        $excelData[] = $content; 
-         
-        // Export data to excel and download as xlsx file 
-        $xlsx = CodexWorld\PhpXlsxGenerator::fromArray( $excelData ); 
-        $xlsx->downloadAs($fileName); 
-         
-        exit; 
-    }
