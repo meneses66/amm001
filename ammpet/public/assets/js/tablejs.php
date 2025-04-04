@@ -17,15 +17,15 @@ $output = '<script type="text/javascript">
                             $(\'#_table\').html(response);
                             $("table").DataTable({
                                   lengthMenu: [
-                                    [ 10, 25, 50, -1 ],
-                                    [\'10 rows\', \'25 rows\', \'50 rows\', \'Show all\']
-                                    ]
+                                                [ 10, 25, 50, -1 ],
+                                                [\'10 rows\', \'25 rows\', \'50 rows\', \'Show all\']
+                                            ]
                                   layout: {
                                             buttons: [\'copy\', \'csv\', \'excel\', \'pdf\', \'print\']
                                             topEnd: \'search\',
                                             bottomStart: \'info\',
                                             bottomEnd: \'paging\',
-                                            topStart: { \'pageLength\', buttons
+                                            topStart: { \'pageLength\', \'buttons\'
                                             }
                                         },
                                   columnDefs: [
