@@ -16,7 +16,6 @@
         </div>
         <div class="col-lg-6">
             <a href="<?php echo ROOT."/Product/_new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Produto</a>
-            <a href="#" class="btn btn-primary m-1 float-right"><i class="fas fa-table"></i>&nbsp;Export</a>
         </div>
         <hr class="my-1">
     <div class="row">
