@@ -16,9 +16,9 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
-                                  //dom: \'lfBrtip\',
+                                  dom: \'lfBrtip\',
                                   buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
-                                  dom: \'<"top"lfB>rt<"bottom"ip><"clear">\',
+                                  //dom: \'<"top"lfB>rt<"bottom"ip><"clear">\',
                                  columnDefs: [
                                                 {
                                                     targets: 1,
