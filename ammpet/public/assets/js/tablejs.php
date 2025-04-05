@@ -18,7 +18,7 @@ $output = '<script type="text/javascript">
                             $("table").DataTable({
                                   dom: \'lfBrtip\',
                                   layout: {
-                                            topEnd: \'filtering\',
+                                            topEnd: \'filter\',
                                             bottomStart: \'info\',
                                             bottomEnd: \'paging\',
                                             topStart: {
