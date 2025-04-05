@@ -17,16 +17,9 @@ $output = '<script type="text/javascript">
                             $(\'#_table\').html(response);
                             $("table").DataTable({
                                   //dom: \'lfBrtip\',
+                                  buttons: [\'copy\', \'excel\', \'pdf\', \'print\', \'pageLength\'],
                                   dom: \'<"topStart"lB><"topEnd"f>rt<"bottomStart"i><"bottomEnd"p><"clear">\',
-                                  layout: {
-                                            topEnd: \'search\',
-                                            bottomStart: \'info\',
-                                            bottomEnd: \'paging\',
-                                            topStart: {
-                                                        buttons: [\'copy\', \'excel\', \'pdf\', \'print\', \'pageLength\']                                            
-                                            }
-                                        },
-                                  columnDefs: [
+                                 columnDefs: [
                                                 {
                                                     targets: 1,
                                                     render: DataTable.render.datetime(\'YYYY-MM-DD\')
