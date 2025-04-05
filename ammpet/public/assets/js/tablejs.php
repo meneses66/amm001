@@ -17,8 +17,8 @@ $output = '<script type="text/javascript">
                             $(\'#_table\').html(response);
                             $("table").DataTable({
                                   //dom: \'lfBrtip\',
-                                  buttons: [\'copy\', \'excel\', \'pdf\', \'print\', \'pageLength\'],
-                                  dom: \'<"topStart"lB><"topEnd"f>rt<"bottomStart"i><"bottomEnd"p><"clear">\',
+                                  buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
+                                  dom: \'<"top"lfB>rt<"bottom"ip><"clear">\',
                                  columnDefs: [
                                                 {
                                                     targets: 1,
