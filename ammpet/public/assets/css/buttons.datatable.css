@@ -38,18 +38,18 @@ div.dt-button-info {
     color: black;
     white-space: nowrap;
     overflow: hidden;
-    background-color: #7196f4;
+    background-color: #a2bbfa;
     /* Fallback */
-    background-image: -webkit-linear-gradient(top, white 0%, #7196f4 100%);
+    background-image: -webkit-linear-gradient(top, white 0%, #a2bbfa 100%);
     /* Chrome 10+, Saf5.1+, iOS 5+ */
-    background-image: -moz-linear-gradient(top, white 0%, #7196f4 100%);
+    background-image: -moz-linear-gradient(top, white 0%, #a2bbfa 100%);
     /* FF3.6 */
-    background-image: -ms-linear-gradient(top, white 0%, #7196f4 100%);
+    background-image: -ms-linear-gradient(top, white 0%, #a2bbfa 100%);
     /* IE10 */
-    background-image: -o-linear-gradient(top, white 0%, #7196f4 100%);
+    background-image: -o-linear-gradient(top, white 0%, #a2bbfa 100%);
     /* Opera 11.10+ */
-    background-image: linear-gradient(to bottom, white 0%, #7196f4 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#7196f4');
+    background-image: linear-gradient(to bottom, white 0%, #a2bbfa 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#a2bbfa');
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -123,18 +123,18 @@ div.dt-button-info {
   div.dt-button:hover:not(.disabled),
   a.dt-button:hover:not(.disabled) {
     border: 1px solid #666;
-    background-color: #e0e0e0;
+    background-color: #6ebeff;
     /* Fallback */
-    background-image: -webkit-linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
+    background-image: -webkit-linear-gradient(top, #f9f9f9 0%, #6ebeff 100%);
     /* Chrome 10+, Saf5.1+, iOS 5+ */
-    background-image: -moz-linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
+    background-image: -moz-linear-gradient(top, #f9f9f9 0%, #6ebeff 100%);
     /* FF3.6 */
-    background-image: -ms-linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
+    background-image: -ms-linear-gradient(top, #f9f9f9 0%, #6ebeff 100%);
     /* IE10 */
-    background-image: -o-linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
+    background-image: -o-linear-gradient(top, #f9f9f9 0%, #6ebeff 100%);
     /* Opera 11.10+ */
-    background-image: linear-gradient(to bottom, #f9f9f9 0%, #e0e0e0 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#e0e0e0');
+    background-image: linear-gradient(to bottom, #f9f9f9 0%, #6ebeff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#f9f9f9', EndColorStr='#6ebeff');
   }
   button.dt-button:focus:not(.disabled),
   div.dt-button:focus:not(.disabled),
