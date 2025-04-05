@@ -123,7 +123,7 @@ div.dt-button-info {
   div.dt-button:hover:not(.disabled),
   a.dt-button:hover:not(.disabled) {
     border: 1px solid #666;
-    background-color: #a3a3ed;
+    background-color: #e0e0e0;
     /* Fallback */
     background-image: -webkit-linear-gradient(top, #f9f9f9 0%, #e0e0e0 100%);
     /* Chrome 10+, Saf5.1+, iOS 5+ */
@@ -175,7 +175,7 @@ div.dt-button-info {
     width: 150px;
     margin-top: 3px;
     padding: 8px 8px 4px 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #93bef3;
     border: 1px solid rgba(0, 0, 0, 0.4);
     background-color: white;
     overflow: hidden;
