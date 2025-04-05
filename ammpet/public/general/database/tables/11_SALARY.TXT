@@ -11,7 +11,7 @@ Create Table SALARY
     SALARY_ITEM_TYPE Varchar(30),
     SALARY_ITEM_VALUE Decimal(10,2),
     ORIGINAL_VALUE Decimal(10,2),
-    POSTPONEED_VALUE Decimal(10,2),
+    POSTPONED_VALUE Decimal(10,2),
     SALARY_ITEM_STATUS Varchar(30),
     SALARY_ITEM_DESCRIPTION Varchar(100),
 

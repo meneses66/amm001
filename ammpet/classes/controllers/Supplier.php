@@ -519,26 +519,21 @@ class Supplier {
         //GET LIST OF executo FROM Supplier TABLE
         $model = new('\Model\\'.$this->UCF_object);
         
-        $data_form_executor=$array['dfemployee'];
-        $inputs['TYPE1']="Funcionario";
-        $inputs['TYPE2']="Funcionario";
+        $data_form_employee=$array['dfemployee'];
+        $inputs['TYPE']="Funcionario";
         $inputs['STATUS']="Ativo";
 
-        //echo var_dump($inputs);
-
-        if($data_form_executor=="XXXX" || $data_form_executor=="" || $data_form_executor==null){
-            $option_list = '<option class="medium-label" value="XXXX" "selected">XXXX</option>';
+        if($data_form_employee=="" || $data_form_employee==null){
+            $option_list = '<option class="medium-label" value="" "selected">XXXX</option>';
         } else {
-            $option_list = '<option class="medium-label" value="XXXX">XXXX</option>';
+            $option_list = '<option class="medium-label" value="">XXXX</option>';
         }
-
-        $sql_stm = "SELECT * FROM SUPPLIER WHERE TYPE=:TYPE AND STATUS=:STATUS AND (ROLE=:ROLE1 OR ROLE=:ROLE2)";
         
-        $options = $model->exec_sqlstm($sql_stm, $inputs);
+        $options = $model->listWhere($inputs);
         if($options){
             foreach ($options as $option) { 
-                $selected= ($data_form_executor == $option->NAME) ? "selected":"";
-                $option_list .= '<option class="medium-label" value="'.$option->NAME.'" '.$selected.'>'.$option->NAME.'</option>';
+                $selected= ($data_form_employee == $option->NAME) ? "selected":"";
+                $option_list .= '<option class="medium-label" value="'.$option->ID.'" '.$selected.'>'.$option->NAME.'</option>';
             }
         }
         $sql_stm = null;

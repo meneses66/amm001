@@ -10,11 +10,11 @@
     <hr class="my-1">
     <br><br><br><br>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Cash_Register/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-cash-register"></i>&nbsp;Caixa</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Costs/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-file-invoice-dollar"></i>&nbsp;Custos</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Daily_Accounting/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-cash-register"></i>&nbsp;Caixa</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Payments/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-file-invoice-dollar"></i>&nbsp;Custos</a></div>
     </div>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Salaries/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-hand-holding-usd"></i>&nbsp;Salários</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Salary/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-hand-holding-usd"></i>&nbsp;Salários</a></div>
         <div class="col-sm-6"><a href="<?php echo ROOT."/Params/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-indent"></i>&nbsp;Parâmetros Sistema</a></div>
     </div>
     <div class="row">
