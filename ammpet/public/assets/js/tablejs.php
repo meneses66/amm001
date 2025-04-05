@@ -18,7 +18,13 @@ $output = '<script type="text/javascript">
                             $("table").DataTable({
                                   //dom: \'lfBrtip\',
                                   buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
-                                  dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
+                                  //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
+                                  layout: {
+                                                topStart: {\'pageLength\', buttons},
+                                                topEnd: \'search\',
+                                                bottomStart: \'info\',
+                                                bottomEnd: \'paging\',
+                                            },
                                  columnDefs: [
                                                 {
                                                     targets: 1,
