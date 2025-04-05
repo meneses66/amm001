@@ -16,9 +16,10 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
-                                  dom: \'lfBrtip\',
+                                  //dom: \'lfBrtip\',
+                                  dom: \'<"topStart"lB><"topEnd"f>rt<"bottomStart"i><"bottomEnd"p><"clear">\',
                                   layout: {
-                                            topEnd: \'filter\',
+                                            topEnd: \'search\',
                                             bottomStart: \'info\',
                                             bottomEnd: \'paging\',
                                             topStart: {
