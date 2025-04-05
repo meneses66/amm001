@@ -22,7 +22,7 @@ $output = '<script type="text/javascript">
                                         [ 10, 25, 50, -1 ],
                                         [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
                                     ],
-                                  buttons: [\'copy\', \'excel\', \'pdf\', \'print\', \'pageLength\'],
+                                  buttons: [\'pageLength\', \'copy\', \'excel\', \'pdf\', \'print\'],
                                   //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
                                   layout: {
                                                 topStart: \'buttons\',
