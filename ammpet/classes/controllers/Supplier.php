@@ -514,5 +514,41 @@ class Supplier {
     
     }
 
+    public function load_employees_options ($array){
+        
+        //GET LIST OF executo FROM Supplier TABLE
+        $model = new('\Model\\'.$this->UCF_object);
+        
+        $data_form_executor=$array['dfemployee'];
+        $inputs['TYPE1']="Funcionario";
+        $inputs['TYPE2']="Funcionario";
+        $inputs['STATUS']="Ativo";
+
+        //echo var_dump($inputs);
+
+        if($data_form_executor=="XXXX" || $data_form_executor=="" || $data_form_executor==null){
+            $option_list = '<option class="medium-label" value="XXXX" "selected">XXXX</option>';
+        } else {
+            $option_list = '<option class="medium-label" value="XXXX">XXXX</option>';
+        }
+
+        $sql_stm = "SELECT * FROM SUPPLIER WHERE TYPE=:TYPE AND STATUS=:STATUS AND (ROLE=:ROLE1 OR ROLE=:ROLE2)";
+        
+        $options = $model->exec_sqlstm($sql_stm, $inputs);
+        if($options){
+            foreach ($options as $option) { 
+                $selected= ($data_form_executor == $option->NAME) ? "selected":"";
+                $option_list .= '<option class="medium-label" value="'.$option->NAME.'" '.$selected.'>'.$option->NAME.'</option>';
+            }
+        }
+        $sql_stm = null;
+        unset_array($inputs);
+        $data = null;
+        $options = null;
+        $model = null;
+        return $option_list;
+    
+    }
+
 
 }
