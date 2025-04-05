@@ -16,7 +16,7 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
-                                  dom: \'lBfrtip\',
+                                  dom: \'lfrtipB\',
                                   layout: {
                                             topEnd: \'search\',
                                             bottomStart: \'info\',
