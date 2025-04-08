@@ -188,7 +188,7 @@ class Salary {
                                 <label for="ref_date" class="medium-label">Data:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="ref_date" type="date" size="30" name="Ref_Date" value="'.$date.'"><br><br>
+                                <input id="ref_date" type="date" size="30" name="Ref_Date" value="'.$date.'"><br>
                             </div>
                         </div>
                         <div class="row">
@@ -232,7 +232,8 @@ class Salary {
                             <div class="col-sm-3">
                                 <input id="salary_item_description" type="text" size="35" name="Salary_Item_Description" value="'.$salary_item_description.'">
                             </div>
-                        </div>';
+                        </div>
+                        ';
             
             if ($id=="new") {
                 $output .= '<div class="row">
