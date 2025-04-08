@@ -67,7 +67,7 @@ class Salary {
                         <div class="col-sm-5">
                             <select class="medium-label" id="status" name="Status">
                                 <option class="medium-label" value="Ativo" selected>Ativo</option>
-                                <option class="medium-label" value="Inativo">Inativo</option>
+                                <option class="medium-label" value="Desativado">Desativado</option>
                             </select>
                         </div>
                     </div><br>

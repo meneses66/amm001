@@ -121,7 +121,7 @@ class Client
                         <div class="col-sm-3">
                             <select class="medium-label" id="status" name="Status">
                                 <option class="medium-label" value="Ativo" selected>Ativo</option>
-                                <option class="medium-label" value="Inativo">Inativo</option>
+                                <option class="medium-label" value="Desativado">Desativado</option>
                             </select>
                         </div>
                     </div><br>';
@@ -250,7 +250,7 @@ class Client
                                 <div class="col-sm-3">
                                     <select class="medium-label" id="status" name="Status">
                                         <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
-                                        <option class="medium-label" value="Inativo" '.(($data_form['STATUS'] == 'Inativo')?"selected":"").'>Inativo</option>
+                                        <option class="medium-label" value="Desativado" '.(($data_form['STATUS'] == 'Desativado')?"selected":"").'>Desativado</option>
                                     </select>
                                 </div>
                             </div><br>';
