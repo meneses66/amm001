@@ -277,7 +277,7 @@ class Salary {
                         <tbody>';
             foreach ($data as $row) {
 
-                $id_employee=$row->ID_EMPLOYEE;
+                $inputs_employee['ID']=$id_employee=$row->ID_EMPLOYEE;
                 $data_form_employee['NAME']="";
                 if (!($id_employee=="")) {
                     $employee_model = new('\Model\\'.$this->parent_object);
