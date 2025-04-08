@@ -28,10 +28,10 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
+        <!-- Load Options JS-->
+        <script src="<?php echo ROOT;?>/assets/js/load_employee_options.js"></script>
         <!-- Selectors JS-->
         <script src="<?php echo ROOT;?>/assets/js/selectors_salary.js"></script>
-        <!-- Load Form JS-->
-        <script src="<?php echo ROOT;?>/assets/js/load_employee_options.js"></script>
         <!-- Masks JS-->
         <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
 
