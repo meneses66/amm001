@@ -104,6 +104,7 @@ class Salary {
             $date=date('Y-m-d');
             $inputs['ID']="new";
             $id_employee="";
+            $temp_id_employee="";
             $salary_item_type=$data_form_type="Selecione uma opção";
             $salary_item_value="0";
             $status="Aberto";
@@ -131,6 +132,7 @@ class Salary {
                         $id=$data_form['ID'];
                         $date=$data_form['DATE'];
                         $id_employee=$data_form['ID_EMPLOYEE'];
+                        $temp_id_employee=$data_form['ID_EMPLOYEE'];
                         $inputs_employee['ID']=$data_form['ID_EMPLOYEE'];
                         $salary_item_type=$data_form['SALARY_ITEM_TYPE'];
                         $data_form_type = $data_form['SALARY_ITEM_TYPE'];
@@ -165,6 +167,7 @@ class Salary {
             $output .= '<div class="row">
                             <input id="created_by" type="hidden" name="Updated_by" value="'.$created_by.'">
                             <input id="updated_by" type="hidden" name="Updated_by" value="'.$updated_by.'">
+                            <input id="temp_id_employee" type="hidden" name="Temp_id_employee" value="'.$temp_id_employee.'">
                         </div>
                         <div class="row">
                             <div class="col-sm-1">
@@ -194,20 +197,20 @@ class Salary {
                             </div>
                             <div class="col-sm-3">
                                 <select class="medium-label" id="salary_item_type" name="Salary_Item_Type">
-                                        
+                                    '.$type_option_list.'
                                 </select>
                             </div>
                             <div class="col-sm-1">
                                 <label for="salary_item_value" class="medium-label">Valor:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="salary_item_value" type="text" size="40" name="Salary_Item_Value" value="'.$salary_item_value.'">
+                                <input id="salary_item_value" type="text" size="20" name="Salary_Item_Value" value="'.$salary_item_value.'">
                             </div>
                             <div class="col-sm-1">
                                 <label for="salary_item_status" class="medium-label">Status:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="salary_item_status" type="text" size="40" name="Salary_Item_Status" value="'.$status.'">
+                                <input id="salary_item_status" type="text" size="20" name="Salary_Item_Status" value="'.$status.'">
                             </div>
                         </div>
                         <div class="row">
@@ -215,19 +218,19 @@ class Salary {
                                 <label for="original_value" class="medium-label">Valor Original:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="original_value" type="text" size="40" name="Orignal_Value" value="'.$original_value.'">
+                                <input id="original_value" type="text" size="20" name="Orignal_Value" value="'.$original_value.'">
                             </div>
                             <div class="col-sm-1">
                                 <label for="postponed_value" class="medium-label">Valor Postergado:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="postponed_value" type="text" size="40" name="Postponed_Value" value="'.$postponed_value.'">
+                                <input id="postponed_value" type="text" size="20" name="Postponed_Value" value="'.$postponed_value.'">
                             </div>
                             <div class="col-sm-1">
                                 <label for="salary_item_description" class="medium-label">Descrição:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="salary_item_description" type="text" size="50" name="Salary_Item_Description" value="'.$salary_item_description.'">
+                                <input id="salary_item_description" type="text" size="40" name="Salary_Item_Description" value="'.$salary_item_description.'">
                             </div>
                         </div>';
             
