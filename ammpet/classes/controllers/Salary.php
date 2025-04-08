@@ -133,7 +133,7 @@ class Salary {
                         $date=$data_form['DATE'];
                         $id_employee=$data_form['ID_EMPLOYEE'];
                         $temp_id_employee=$data_form['ID_EMPLOYEE'];
-                        $inputs_employee['ID']=$data_form['ID_EMPLOYEE'];
+                        //$inputs_employee['ID']=$data_form['ID_EMPLOYEE'];
                         $salary_item_type=$data_form['SALARY_ITEM_TYPE'];
                         $data_form_type = $data_form['SALARY_ITEM_TYPE'];
                         $salary_item_value=$data_form['SALARY_ITEM_VALUE'];
@@ -145,23 +145,9 @@ class Salary {
                 }    
             }
             
-
             //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
             //$data_form_type = $data_form['TYPE'];
             $type_option_list = load_options_update("SALARY_TYPE", "Ativo", $data_form_type);
-            
-            /*
-            if (!($id_employee=="")) {
-                $employee_model = new('\Model\\'.$this->parent_object);
-                $employee_data = $employee_model->getRow($inputs_employee);
-    
-                if($employee_data){
-                    foreach ($employee_data as $key => $value) {
-                        $data_form_employee[$key]=$value;
-                    }
-                }    
-            }
-            */
 
             //START TO LOAD THE UPDATE FORM:
             $output .= '<div class="row">
@@ -210,7 +196,7 @@ class Salary {
                                 <label for="salary_item_status" class="medium-label">Status:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="salary_item_status" type="text" size="20" name="Salary_Item_Status" value="'.$status.'">
+                                <input id="salary_item_status" type="text" size="20" readonly name="Salary_Item_Status" value="'.$status.'">
                             </div>
                         </div>
                         <div class="row">
@@ -218,7 +204,7 @@ class Salary {
                                 <label for="original_value" class="medium-label">Valor Original:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="original_value" type="text" size="20" name="Orignal_Value" value="'.$original_value.'">
+                                <input id="original_value" type="text" size="20" readonly name="Orignal_Value" value="'.$original_value.'">
                             </div>
                             <div class="col-sm-1">
                                 <label for="postponed_value" class="medium-label">Valor Postergado:</label>

@@ -481,6 +481,10 @@ Trait _GlobalController{
                 }
             }
 
+            if($this->UCF_object=="Salary"){
+                unset($inputs["Temp_Id_Employee"]);
+            }
+
             try {
                 //$model->insert($inputs);
                 $new_id=$model->insert($inputs);
