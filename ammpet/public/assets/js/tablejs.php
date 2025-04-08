@@ -16,7 +16,7 @@ $output = '<script type="text/javascript">
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
-                                  //dom: \'lfBrtip\',
+                                    //dom: \'lfBrtip\',
                                     //dom: \'Bfrtip\',
                                     lengthMenu: [
                                         [ 10, 25, 50, -1 ],
