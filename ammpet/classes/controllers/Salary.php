@@ -203,7 +203,7 @@ class Salary {
                                 <label for="original_value" class="medium-label">Valor Original:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="original_value" type="text" size="20" readonly name="Orignal_Value" value="'.$original_value.'">
+                                <input id="original_value" type="text" size="20" readonly name="Original_Value" value="'.$original_value.'">
                             </div>
                             <div class="col-sm-1">
                                 <label for="postponed_value" class="medium-label">Valor Postergado:</label>
