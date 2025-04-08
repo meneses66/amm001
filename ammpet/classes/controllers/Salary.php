@@ -299,7 +299,7 @@ class Salary {
                             <td>'.$row->SALARY_ITEM_VALUE.'</td>
                             <td>'.$row->SALARY_ITEM_STATUS.'</td>
                             <td>'.$row->ORIGINAL_VALUE.'</td>
-                            <td>'.$row->POSTPONEED_VALUE.'</td>
+                            <td>'.$row->POSTPONED_VALUE.'</td>
                             <td>
                                 <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                 <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
