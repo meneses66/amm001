@@ -146,7 +146,6 @@ class Salary {
             }
             
             //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
-            //$data_form_type = $data_form['TYPE'];
             $type_option_list = load_options_update("SALARY_TYPE", "Ativo", $data_form_type);
 
             //START TO LOAD THE UPDATE FORM:

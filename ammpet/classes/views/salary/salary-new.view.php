@@ -24,16 +24,21 @@ $_SESSION['LAST_ACTIVE']=time();?>
                 <?php include "main-new.view.php";?>
             </div>
         </div>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery library -->
+        <script src="<?php echo ROOT;?>/assets/js/jquery-3.7.1.js"></script>
+        <!-- jQuery Mask -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+        <!-- Mask JS-->
+        <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
         <!-- Load Options JS-->
         <script src="<?php echo ROOT;?>/assets/js/load_employee_options.js"></script>
         <!-- Selectors JS-->
         <script src="<?php echo ROOT;?>/assets/js/selectors_salary.js"></script>
-        <!-- Masks JS-->
-        <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
 
     </body>
 </html>
