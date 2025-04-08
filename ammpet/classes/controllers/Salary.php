@@ -167,7 +167,7 @@ class Salary {
             $output .= '<div class="row">
                             <input id="created_by" type="hidden" name="Updated_by" value="'.$created_by.'">
                             <input id="updated_by" type="hidden" name="Updated_by" value="'.$updated_by.'">
-                            <input id="temp_id_employee" type="hidden" name="Temp_id_employee" value="'.$temp_id_employee.'">
+                            <input id="temp_id_employee" type="hidden" name="Temp_Id_Employee" value="'.$temp_id_employee.'">
                         </div>
                         <div class="row">
                             <div class="col-sm-1">

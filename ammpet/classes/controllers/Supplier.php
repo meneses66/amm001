@@ -514,7 +514,7 @@ class Supplier {
     
     }
 
-    public function load_employees_options ($array){
+    public function load_employee_options ($array){
         
         //GET LIST OF executo FROM Supplier TABLE
         $model = new('\Model\\'.$this->UCF_object);
