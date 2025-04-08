@@ -229,10 +229,13 @@ class Orderx
                 foreach ($data as $row) {
 
                     //GET BREED NAME
-                    $breed_input['ID']= $row->ID_BREED;
-                    $breed = new('\Model\\'."Breed");
-                    $breed_name = $breed->getRow($breed_input)->NAME;
-                    $breed = null;
+                    $breed_name ="";
+                    if(!($row->ID_BREED=="" || $row->ID_BREED==null)){
+                        $breed_input['ID']= $row->ID_BREED;
+                        $breed = new('\Model\\'."Breed");
+                        $breed_name = $breed->getRow($breed_input)->NAME;
+                        $breed = null;
+                    }
 
                     $output .='<tr class="text-center text-secondary">
                                 <td>'.$row->NAME.'</td>
