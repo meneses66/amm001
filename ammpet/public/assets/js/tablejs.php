@@ -12,7 +12,7 @@ $output = '<script type="text/javascript">
                     $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
-                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttonsx: "'.$GLOBALS['buttonenablerjs'].'"},
+                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                         success: function(response){
                             $(\'#_table\').html(response);
                             $("table").DataTable({
@@ -53,6 +53,20 @@ $output = '<script type="text/javascript">
                                 table.destroy();
                                 $(\'#_table\').html(response);
                                 $("table").DataTable({
+                                    //dom: \'lfBrtip\',
+                                    //dom: \'Bfrtip\',
+                                    lengthMenu: [
+                                        [ 10, 25, 50, -1 ],
+                                        [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
+                                    ],
+                                    buttons: [\'pageLength\', \'copy\', \'excel\', \'pdf\', \'print\'],
+                                    //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
+                                    layout: {
+                                                    topStart: \'buttons\',
+                                                    topEnd: \'search\',
+                                                    bottomStart: \'info\',
+                                                    bottomEnd: \'paging\',
+                                                },
                                     columnDefs: [
                                                     {
                                                         targets: 1,
