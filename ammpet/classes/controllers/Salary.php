@@ -230,7 +230,7 @@ class Salary {
                                 <label for="salary_item_description" class="medium-label">Descrição:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="salary_item_description" type="text" size="40" name="Salary_Item_Description" value="'.$salary_item_description.'">
+                                <input id="salary_item_description" type="text" size="35" name="Salary_Item_Description" value="'.$salary_item_description.'">
                             </div>
                         </div>';
             
