@@ -26,7 +26,7 @@ $output = '<script type="text/javascript">
                                   //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
                                   layout: {
                                                 topStart: \'buttons\',
-                                                topMiddle: \'searchBuilder\',
+                                                topEnd: \'searchBuilder\',
                                                 topEnd: \'search\',
                                                 bottomStart: \'info\',
                                                 bottomEnd: \'paging\',
