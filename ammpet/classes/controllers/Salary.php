@@ -56,11 +56,11 @@ class Salary {
                     }
 
                     //REDEFINE VARIABLES FOR INPUTS BASED ON DB VALUES
-                    $status=$data_form['STATUS'];
+                    $status=$data_form['SALARY_ITEM_STATUS'];
                     $updated_by=$_SESSION['username'];
                     $created_by=$data_form['CREATED_BY'];
                     $id=$data_form['ID'];
-                    $date=$data_form['DATE'];
+                    $date=$data_form['REF_DATE'];
                     $id_employee=$data_form['ID_EMPLOYEE'];
                     $temp_id_employee=$data_form['ID_EMPLOYEE'];
                     $salary_item_type=$data_form['SALARY_ITEM_TYPE'];
