@@ -193,10 +193,6 @@ class Salary {
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
                                 <th>Atualiz.</th>
-                                <th style="visibility:hidden;">Criado por</th>
-                                <th style="visibility:hidden;">Atualizado por</th>
-                                <th style="visibility:hidden;">Temp_Id_Employee</th>
-                                <th style="visibility:hidden;">Id Funcionário</th>
                                 <th>Funcionário</th>
                                 <th>Tipo Movimentação</th>
                                 <th>Data</th>
@@ -205,6 +201,10 @@ class Salary {
                                 <th>Valor Original</th>
                                 <th>Valor Postergado</th>
                                 <th>Ações</th>
+                                <th style="display:none">Criado por</th>
+                                <th style="display:none">Atualizado por</th>
+                                <th style="display:none">Temp_Id_Employee</th>
+                                <th style="display:none">Id Funcionário</th>
                             </tr>
                         </thead>
                         <tbody>';
@@ -226,10 +226,6 @@ class Salary {
                 $output .='<tr class="text-center text-secondary">
                             <td>'.$row->ID.'</td>
                             <td>'.$row->UPDATED.'</td>
-                            <td style="visibility:hidden;">'.$row->CREATED_BY.'</td>
-                            <td style="visibility:hidden;">'.$row->UPDATED_BY.'</td>
-                            <td style="visibility:hidden;">'.$row->ID_EMPLOYEE.'</td>
-                            <td style="visibility:hidden;">'.$row->ID_EMPLOYEE.'</td>
                             <td>'.$data_form_employee['NAME'].'</td>
                             <td>'.$row->SALARY_ITEM_TYPE.'</td>
                             <td>'.$row->REF_DATE.'</td>
@@ -241,6 +237,10 @@ class Salary {
                                 <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                 <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                             </td>
+                            <td style="display:none">'.$row->CREATED_BY.'</td>
+                            <td style="display:none">'.$row->UPDATED_BY.'</td>
+                            <td style="display:none">'.$row->ID_EMPLOYEE.'</td>
+                            <td style="display:none">'.$row->ID_EMPLOYEE.'</td>
                         </tr>';
             }
             $output .= '</tbody>';
