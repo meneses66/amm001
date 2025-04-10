@@ -56,19 +56,19 @@ class Salary {
                     }
 
                     //REDEFINE VARIABLES FOR INPUTS BASED ON DB VALUES
-                    $status=$data_form["STATUS"];
+                    $status=$data_form['STATUS'];
                     $updated_by=$_SESSION['username'];
-                    $created_by=$data_form["CREATED_BY"];
-                    $id=$data_form["ID"];
-                    $date=$data_form["DATE"];
-                    $id_employee=$data_form["ID_EMPLOYEE"];
-                    $temp_id_employee=$data_form["ID_EMPLOYEE"];
-                    $salary_item_type=$data_form["SALARY_ITEM_TYPE"];
-                    $data_form_type = $data_form["SALARY_ITEM_TYPE"];
-                    $salary_item_value=$data_form["SALARY_ITEM_VALUE"];
-                    $salary_item_description=$data_form["SALARY_ITEM_DESCRIPTION"];
-                    $original_value=$data_form["ORIGINAL_VALUE"];
-                    $postponed_value=$data_form["POSTPONED_VALUE"];
+                    $created_by=$data_form['CREATED_BY'];
+                    $id=$data_form['ID'];
+                    $date=$data_form['DATE'];
+                    $id_employee=$data_form['ID_EMPLOYEE'];
+                    $temp_id_employee=$data_form['ID_EMPLOYEE'];
+                    $salary_item_type=$data_form['SALARY_ITEM_TYPE'];
+                    $data_form_type = $data_form['SALARY_ITEM_TYPE'];
+                    $salary_item_value=$data_form['SALARY_ITEM_VALUE'];
+                    $salary_item_description=$data_form['SALARY_ITEM_DESCRIPTION'];
+                    $original_value=$data_form['ORIGINAL_VALUE'];
+                    $postponed_value=$data_form['POSTPONED_VALUE'];
                 
                 }    
             }
