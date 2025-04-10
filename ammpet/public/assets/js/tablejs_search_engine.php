@@ -65,10 +65,9 @@ $output = '<script type="text/javascript">
                                     layout: {
                                                     topStart: \'buttons\',
                                                     topEnd: \'search\',
-                                                    topEnd: \'search\',
                                                     bottomStart: \'info\',
                                                     bottomEnd: \'paging\',
-                                                    bottom: \'searchBuilder\',
+                                                    bottom2: \'searchBuilder\',
                                                 },
                                     columnDefs: [
                                                     {
