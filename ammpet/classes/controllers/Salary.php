@@ -193,6 +193,10 @@ class Salary {
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
                                 <th>Atualiz.</th>
+                                <th style="display:none;">Criado por</th>
+                                <th style="display:none;">Atualizado por</th>
+                                <th style="display:none;">Temp_Id_Employee</th>
+                                <th style="display:none;">Id Funcionário</th>
                                 <th>Funcionário</th>
                                 <th>Tipo Movimentação</th>
                                 <th>Data</th>
@@ -222,6 +226,10 @@ class Salary {
                 $output .='<tr class="text-center text-secondary">
                             <td>'.$row->ID.'</td>
                             <td>'.$row->UPDATED.'</td>
+                            <td style="display:none;">'.$row->CREATED_BY.'</td>
+                            <td style="display:none;">'.$row->UPDATED_BY.'</td>
+                            <td style="display:none;">'.$row->ID_EMPLOYEE.'</td>
+                            <td style="display:none;">'.$row->ID_EMPLOYEE.'</td>
                             <td>'.$data_form_employee['NAME'].'</td>
                             <td>'.$row->SALARY_ITEM_TYPE.'</td>
                             <td>'.$row->REF_DATE.'</td>

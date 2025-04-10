@@ -16,9 +16,19 @@
             <h4>Lista Salários</h4>
         </div>
         <div class="col-lg-6">
-            <a href="<?php echo ROOT."/Salary/_new?id=new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Parâmetro</a>
+            <a href="<?php echo ROOT."/Salary/_new?id=new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Registro</a>
         </div>
-        <hr class="my-1">
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+    <div class="row">
+        <form method="post">
+            <input type="hidden" name="operation" value="update">
+            <?php 
+                $controller = new ('\Controller\\'."Salary");
+                $controller->load_salary_form();
+            ?>
+        </form>
+    </div>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="_list_id">
