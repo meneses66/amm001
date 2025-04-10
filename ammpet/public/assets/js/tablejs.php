@@ -25,7 +25,8 @@ $output = '<script type="text/javascript">
                                   buttons: [\'pageLength\', \'copy\', \'excel\', \'pdf\', \'print\'],
                                   //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
                                   layout: {
-                                                topStart: \'buttons\',
+                                                top: \'buttons\',
+                                                topStart: \'pageLength\',
                                                 topEnd: \'search\',
                                                 bottomStart: \'info\',
                                                 bottomEnd: \'paging\',
