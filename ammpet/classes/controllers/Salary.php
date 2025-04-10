@@ -35,11 +35,11 @@ class Salary {
             $id_employee="";
             $temp_id_employee="";
             $salary_item_type=$data_form_type="Selecione uma opção";
-            $salary_item_value="0";
+            $salary_item_value=0.00;
             $status="Aberto";
             $salary_item_description=null;
-            $original_value=0;
-            $postponed_value=0;
+            $original_value=0.00;
+            $postponed_value=0.00;
         
             if (!($_GET['id']=='new')) {
             
@@ -103,7 +103,7 @@ class Salary {
                             <div class="col-sm-3">
                                 <input id="ref_date" type="date" size="30" name="Ref_Date" value="'.$date.'"><br>
                             </div>
-                        </div>
+                        </div><br>
                         <div class="row">
                             <div class="col-sm-1">
                                 <label for="salary_item_type" class="medium-label">Tipo de Movimento:</label>
