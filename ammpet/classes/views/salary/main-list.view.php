@@ -20,6 +20,7 @@
         </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class="row">
+        <h4>Formulário:</h4>
         <form method="post">
             <input type="hidden" name="operation" value="update">
             <?php 
