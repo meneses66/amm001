@@ -30,6 +30,7 @@ $output = '<script type="text/javascript">
                                                 topEnd: \'search\',
                                                 bottomStart: \'info\',
                                                 bottomEnd: \'paging\',
+                                                bottom2: \'searchBuilder\',
                                             },
                                  columnDefs: [
                                                 {
@@ -68,7 +69,7 @@ $output = '<script type="text/javascript">
                                                     topEnd: \'search\',
                                                     bottomStart: \'info\',
                                                     bottomEnd: \'paging\',
-                                                    bottom: \'searchBuilder\',
+                                                    bottom2: \'searchBuilder\',
                                                 },
                                     columnDefs: [
                                                     {
