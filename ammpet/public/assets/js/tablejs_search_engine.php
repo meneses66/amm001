@@ -27,7 +27,7 @@ $output = '<script type="text/javascript">
                                   layout: {
                                                 topStart: \'buttons\',
                                                 topEnd: \'searchBuilder\',
-                                                topEnd: \'search\',
+                                                //topEnd: \'search\',
                                                 bottomStart: \'info\',
                                                 bottomEnd: \'paging\',
                                             },
@@ -64,6 +64,8 @@ $output = '<script type="text/javascript">
                                     //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
                                     layout: {
                                                     topStart: \'buttons\',
+                                                    topEnd: \'searchBuilder\',
+                                                    //topEnd: \'search\',
                                                     topEnd: \'search\',
                                                     bottomStart: \'info\',
                                                     bottomEnd: \'paging\',
