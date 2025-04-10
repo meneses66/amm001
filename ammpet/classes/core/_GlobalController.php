@@ -819,6 +819,10 @@ Trait _GlobalController{
                 }
             }
 
+            if($this->UCF_object=="Salary"){
+                unset($inputs["Temp_Id_Employee"]);
+            }
+
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
 
             try {
