@@ -20,17 +20,6 @@
         </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class="row">
-        <h4>Formulário:</h4>
-        <form method="post">
-            <input type="hidden" name="operation" value="update">
-            <?php 
-                $controller = new ('\Controller\\'."Salary");
-                $controller->load_salary_form();
-            ?>
-        </form>
-    </div>
-    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-    <div class="row">
         <div class="col-lg-12">
             <div class="table-responsive" id="_list_id">
                 <table id="_table" class="table Table-stripped table-sm table-bordered small">

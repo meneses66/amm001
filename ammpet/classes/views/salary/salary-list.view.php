@@ -62,15 +62,5 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
 
-        <!-- ADDED WHEN FORM AND LIST WHERE MERGED IN THE SAME PAGE -->
-        <!-- jQuery Mask -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-        <!-- Mask JS-->
-        <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
-        <!-- Load Options JS-->
-        <script src="<?php echo ROOT;?>/assets/js/load_salary_form.js"></script>
-        <!-- Selectors JS-->
-        <script src="<?php echo ROOT;?>/assets/js/selectors_employee.js"></script>
-
     </body>
 </html>
