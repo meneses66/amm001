@@ -51,24 +51,24 @@ class Salary {
 
                 if($data){
 
-                    foreach ($data as $key => $value) {
-                        $data_form[$key]=$value;
+                    foreach ($data as $row) {
+                        //$data_form[$key]=$value;
                         
                         //REDEFINE VARIABLES FOR INPUTS BASED ON DB VALUES
-                        $status=$data_form['STATUS'];
+                        $status=$row->STATUS;
                         $updated_by=$_SESSION['username'];
-                        $created_by=$data_form['CREATED_BY'];
-                        $id=$data_form['ID'];
-                        $date=$data_form['DATE'];
-                        $id_employee=$data_form['ID_EMPLOYEE'];
-                        $temp_id_employee=$data_form['ID_EMPLOYEE'];
-                        //$inputs_employee['ID']=$data_form['ID_EMPLOYEE'];
-                        $salary_item_type=$data_form['SALARY_ITEM_TYPE'];
-                        $data_form_type = $data_form['SALARY_ITEM_TYPE'];
-                        $salary_item_value=$data_form['SALARY_ITEM_VALUE'];
-                        $salary_item_description=$data_form['SALARY_ITEM_DESCRIPTION'];
-                        $original_value=$data_form['ORIGINAL_VALUE'];
-                        $postponed_value=$data_form['POSTPONED_VALUE'];
+                        $created_by=$row->CREATED_BY;
+                        $id=$row->ID;
+                        $date=$row->DATE;
+                        $id_employee=$row->ID_EMPLOYEE;
+                        $temp_id_employee=$row->ID_EMPLOYEE;
+                        //$inputs_employee['ID']=$row->ID_EMPLOYEE;
+                        $salary_item_type=$row->SALARY_ITEM_TYPE;
+                        $data_form_type = $row->SALARY_ITEM_TYPE;
+                        $salary_item_value=$row->SALARY_ITEM_VALUE;
+                        $salary_item_description=$row->SALARY_ITEM_DESCRIPTION;
+                        $original_value=$row->ORIGINAL_VALUE;
+                        $postponed_value=$row->POSTPONED_VALUE;
                     
                     }
                 }    
