@@ -37,8 +37,6 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
         <!-- Load Options JS-->
         <script src="<?php echo ROOT;?>/assets/js/load_employee_options.js"></script>
-        <!-- Selectors JS-->
-        <script src="<?php echo ROOT;?>/assets/js/selectors_salary.js"></script>
-
+        
     </body>
 </html>
