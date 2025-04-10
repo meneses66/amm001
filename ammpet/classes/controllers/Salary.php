@@ -55,20 +55,20 @@ class Salary {
                         //$data_form[$key]=$value;
                         
                         //REDEFINE VARIABLES FOR INPUTS BASED ON DB VALUES
-                        $status=$row->STATUS;
+                        $status=$data->STATUS;
                         $updated_by=$_SESSION['username'];
-                        $created_by=$row->CREATED_BY;
-                        $id=$row->ID;
-                        $date=$row->DATE;
-                        $id_employee=$row->ID_EMPLOYEE;
-                        $temp_id_employee=$row->ID_EMPLOYEE;
-                        //$inputs_employee['ID']=$row->ID_EMPLOYEE;
-                        $salary_item_type=$row->SALARY_ITEM_TYPE;
-                        $data_form_type = $row->SALARY_ITEM_TYPE;
-                        $salary_item_value=$row->SALARY_ITEM_VALUE;
-                        $salary_item_description=$row->SALARY_ITEM_DESCRIPTION;
-                        $original_value=$row->ORIGINAL_VALUE;
-                        $postponed_value=$row->POSTPONED_VALUE;
+                        $created_by=$data->CREATED_BY;
+                        $id=$data->ID;
+                        $date=$data->DATE;
+                        $id_employee=$data->ID_EMPLOYEE;
+                        $temp_id_employee=$data->ID_EMPLOYEE;
+                        //$inputs_employee['ID']=$data->ID_EMPLOYEE;
+                        $salary_item_type=$data->SALARY_ITEM_TYPE;
+                        $data_form_type = $data->SALARY_ITEM_TYPE;
+                        $salary_item_value=$data->SALARY_ITEM_VALUE;
+                        $salary_item_description=$data->SALARY_ITEM_DESCRIPTION;
+                        $original_value=$data->ORIGINAL_VALUE;
+                        $postponed_value=$data->POSTPONED_VALUE;
                     
                     }
                 }    
