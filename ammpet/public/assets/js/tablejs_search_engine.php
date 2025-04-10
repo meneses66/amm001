@@ -22,10 +22,11 @@ $output = '<script type="text/javascript">
                                         [ 10, 25, 50, -1 ],
                                         [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
                                     ],
-                                  buttons: [\'pageLength\', \'copy\', \'excel\', \'pdf\', \'print\', \'searchBuilder\'],
+                                  buttons: [\'pageLength\', \'copy\', \'excel\', \'pdf\', \'print\'],
                                   //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
                                   layout: {
                                                 topStart: \'buttons\',
+                                                topMiddle: \'searchBuilder\',
                                                 topEnd: \'search\',
                                                 bottomStart: \'info\',
                                                 bottomEnd: \'paging\',
