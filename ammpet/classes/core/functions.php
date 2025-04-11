@@ -108,7 +108,6 @@ function end_session(){
 
 function restart_session(){
     if(session_status() === PHP_SESSION_NONE){
-        my_session_start();
         my_session_regenerate_id();
     }
 }
