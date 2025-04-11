@@ -276,66 +276,6 @@ class Client
 
     }
 
-    //LOAD HTML FORM FOR DELETING RECORD
-    public function load_delete_form(){
-
-        if (isset($_GET['id'])){
-
-            //if(!isset($_SESSION['username'])) {session_start();}
-            //if(session_status() === PHP_SESSION_NONE) session_start();
-            //restart_session();
-
-            $output = "";
-            $inputs["ID"]=$_GET['id'];
-            $id=$_GET['id'];
-            $model = new('\Model\\'.$this->UCF_object);
-            $data = $model->getRow($inputs);
-
-            if($data){
-
-                foreach ($data as $key => $value) {
-                    $data_form[$key]=$value;
-                }
-
-                $output .= '<div class="row">
-                                <div class="col-sm-1">
-                                    <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="name" class="medium-label">Nome: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="name" type="text" size="50" name="Name" readonly value="'.$data_form['NAME'].'"><br<br>
-                                </div>
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                            </div>';
-                            $sql_stm = null;
-                            unset_array($inputs);
-                            $data = null;
-                            $model = null;
-                            echo $output;
-            } else{
-                $sql_stm = null;
-                unset_array($inputs);
-                $data = null;
-                $model = null;
-                show("No record to display!");
-            }
-
-        }
-
-    }
-
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows($inputs){
