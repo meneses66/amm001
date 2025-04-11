@@ -25,7 +25,7 @@ class OrderItem {
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
         
-        restart_session();
+        //restart_session();
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
@@ -78,7 +78,7 @@ class OrderItem {
         if (isset($_GET['item_id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['item_id'];
@@ -366,8 +366,8 @@ class OrderItem {
 
             if (isset($_GET['item_id'])){
     
-                if(session_status() === PHP_SESSION_NONE) session_start();
-                restart_session();
+                //if(session_status() === PHP_SESSION_NONE) session_start();
+                //restart_session();
                 
                 $output = "";
                 $inputs["ID"]=$_GET['item_id'];

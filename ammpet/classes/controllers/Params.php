@@ -61,7 +61,7 @@ class Params {
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         //if(session_status() === PHP_SESSION_NONE) session_start();
-        restart_session();
+        //restart_session();
 
         //DEFINE OPTION LISTS:
         //$type_option_list = load_options_new("SUPPLIER_TYPE", "Ativo");
@@ -135,7 +135,7 @@ class Params {
 
             //if(!isset($_SESSION['username'])) {session_start();}
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -237,7 +237,7 @@ class Params {
 
             //if(!isset($_SESSION['username'])) {session_start();}
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -294,7 +294,7 @@ class Params {
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
         
-        restart_session();
+        //restart_session();
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);

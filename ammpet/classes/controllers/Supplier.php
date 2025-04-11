@@ -139,7 +139,7 @@ class Supplier {
 
             //if(!isset($_SESSION['username'])) {session_start();}
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -286,7 +286,7 @@ class Supplier {
 
             //if(!isset($_SESSION['username'])) {session_start();}
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -400,7 +400,7 @@ class Supplier {
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
-        restart_session();    
+        //restart_session();    
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         $data = $model->listAll();

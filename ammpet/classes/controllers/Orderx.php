@@ -32,7 +32,7 @@ class Orderx
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows(){
         
-        restart_session();
+        //restart_session();
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
@@ -103,7 +103,7 @@ class Orderx
         if (isset($_GET['order_id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['order_id'];
@@ -212,7 +212,7 @@ class Orderx
         if (isset($_GET['cli_id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID_CLIENT"]=$_GET['cli_id'];
@@ -274,7 +274,7 @@ class Orderx
         if (isset($_GET['cli_id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID_CLIENT"]=$_GET['cli_id'];
@@ -328,7 +328,7 @@ class Orderx
         if (isset($_GET['order_id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID_ORDER"]=$_GET['order_id'];
@@ -436,7 +436,7 @@ class Orderx
         if (isset($_GET['order_id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID_ORDER"]=$_GET['order_id'];
@@ -504,7 +504,7 @@ class Orderx
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function get_payments(){
         
-        restart_session();
+        //restart_session();
         $output = "";
         $model = new('\Model\\'."OrderPayment");
         

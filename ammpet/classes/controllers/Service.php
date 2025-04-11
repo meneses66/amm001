@@ -28,7 +28,7 @@ class Service {
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         //if(session_status() === PHP_SESSION_NONE) session_start();
-        restart_session();
+       // restart_session();
 
         $category_option_list = load_options_new("SERV_CATEGORY", "Ativo");
         $center_option_list = load_options_new("SERV_CENTER", "Ativo");
@@ -189,7 +189,7 @@ class Service {
         if (isset($_GET['id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -385,7 +385,7 @@ class Service {
 
             //if(!isset($_SESSION['username'])) {session_start();}
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -445,7 +445,7 @@ class Service {
     public function load_rows($inputs){
         
         //if(session_status() === PHP_SESSION_NONE) session_start();
-        restart_session();
+        //restart_session();
         
         $inputs_buttons=$inputs['buttons'];
         $inputs_cli_id=$inputs['cli_id'];

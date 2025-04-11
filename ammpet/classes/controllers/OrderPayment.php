@@ -27,7 +27,7 @@ class OrderPayment {
         if (isset($_GET['paym_id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             //IF NOT NEW RECORD GET DATA FROM DATABASE TO SET FIELDS:
             $payment_type="N/A";
@@ -158,7 +158,7 @@ class OrderPayment {
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows($inputs){
         
-        restart_session();
+        //restart_session();
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);

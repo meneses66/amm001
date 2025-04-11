@@ -28,7 +28,7 @@ class Product {
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         //if(session_status() === PHP_SESSION_NONE) session_start();
-        restart_session();
+        //restart_session();
 
         $category_option_list = load_options_new("PROD_CATEGORY", "Ativo");
         //$center_option_list = load_options_new("PROD_CENTER", "Ativo");
@@ -163,7 +163,7 @@ class Product {
         if (isset($_GET['id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+           //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -330,7 +330,7 @@ class Product {
 
             //if(!isset($_SESSION['username'])) {session_start();}
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -388,7 +388,7 @@ class Product {
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows($inputs){
         
-        restart_session();
+        //restart_session();
         $inputs_buttons=$inputs['buttons'];
         $inputs_cli_id=$inputs['cli_id'];
         $inputs_order_id=$inputs['order_id'];

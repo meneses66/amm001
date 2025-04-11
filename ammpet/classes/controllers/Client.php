@@ -29,7 +29,7 @@ class Client
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         //if(session_status() === PHP_SESSION_NONE) session_start();
-        restart_session();
+        //restart_session();
 
         //$category_option_list = load_options_new("SERV_CATEGORY", "Ativo");
 
@@ -138,7 +138,7 @@ class Client
         if (isset($_GET['id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -283,7 +283,7 @@ class Client
 
             //if(!isset($_SESSION['username'])) {session_start();}
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -340,7 +340,7 @@ class Client
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows($inputs){
         
-        restart_session();
+        //restart_session();
         $inputs_buttons=$inputs['buttons'];
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);

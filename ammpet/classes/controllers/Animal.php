@@ -27,7 +27,7 @@ class Animal {
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         //if(session_status() === PHP_SESSION_NONE) session_start();
-        restart_session();
+        //restart_session();
 
         if (isset($_GET['cli_id'])){
 
@@ -155,7 +155,7 @@ class Animal {
         if (isset($_GET['id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -317,7 +317,7 @@ class Animal {
         //if (isset($_GET['cli_id'])){
             $output=2;
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
             
@@ -410,7 +410,7 @@ class Animal {
         if (isset($_GET['cli_id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
             
             $output = "";
             $inputs["ID"]=$_GET['cli_id'];
