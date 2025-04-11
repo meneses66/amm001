@@ -4,10 +4,7 @@ namespace Controller;
 
 //if(session_status() === PHP_SESSION_NONE) session_start();
 
-if(session_status() === PHP_SESSION_NONE){
-    my_session_start();
-    my_session_regenerate_id();
-}
+restart_session();
 
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
@@ -29,7 +26,8 @@ class OrderPayment {
 
         if (isset($_GET['paym_id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
 
             //IF NOT NEW RECORD GET DATA FROM DATABASE TO SET FIELDS:
             $payment_type="N/A";
@@ -159,7 +157,8 @@ class OrderPayment {
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows($inputs){
-            
+        
+        restart_session();
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);

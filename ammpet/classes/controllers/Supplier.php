@@ -4,10 +4,7 @@ namespace Controller;
 
 //if(session_status() === PHP_SESSION_NONE) session_start();
 
-if(session_status() === PHP_SESSION_NONE){
-    my_session_start();
-    my_session_regenerate_id();
-}
+restart_session();
 
 defined('ROOTPATH') OR exit('Access denied!');
 
@@ -33,6 +30,7 @@ class Supplier {
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         //if(!isset($_SESSION['username'])) {session_start();}
+        //restart_session();
 
         //DEFINE OPTION LISTS:
         $type_option_list = load_options_new("SUPPLIER_TYPE", "Ativo");
@@ -140,7 +138,9 @@ class Supplier {
         if (isset($_GET['id'])){
 
             //if(!isset($_SESSION['username'])) {session_start();}
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -285,7 +285,9 @@ class Supplier {
         if (isset($_GET['id'])){
 
             //if(!isset($_SESSION['username'])) {session_start();}
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -398,60 +400,61 @@ class Supplier {
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
-            $output = "";
-            $model = new('\Model\\'.$this->UCF_object);
-            $data = $model->listAll();
-            if($model->countAll()>0){
-                $output .='<thead>
-                                <tr class="text-center text-secondary">
-                                    <th>Id</th>
-                                    <th>Atualiz.</th>
-                                    <th>Nome</th>
-                                    <th>Login</th>
-                                    <th>Cargo</th>
-                                    <th>Tipo</th>
-                                    <th>Status</th>
-                                    <th>CNPJ</th>
-                                    <th>CPF</th>
-                                    <th>DataInício</th>
-                                    <th>Comentários</th>
-                                    <th>Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>';
-                foreach ($data as $row) {
-                    $output .='<tr class="text-center text-secondary">
-                                <td>'.$row->ID.'</td>
-                                <td>'.$row->UPDATED.'</td>
-                                <td>'.$row->NAME.'</td>
-                                <td>'.$row->LOGIN.'</td>
-                                <td>'.$row->ROLE.'</td>
-                                <td>'.$row->TYPE.'</td>
-                                <td>'.$row->STATUS.'</td>
-                                <td>'.$row->CNPJ.'</td>
-                                <td>'.$row->CPF.'</td>
-                                <td>'.$row->HIRE_DATE.'</td>
-                                <td>'.$row->COMMENT.'</td>
-                                <td>
-                                    <a href="'.ROOT."/Supplier/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                    <a href="'.ROOT."/Supplier/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
-                                </td></tr>';
-                }
-                $output .= '</tbody>';
-                $sql_stm = null;
-                $data = null;
-                $model = null;
-
-                echo $output;
+        restart_session();    
+        $output = "";
+        $model = new('\Model\\'.$this->UCF_object);
+        $data = $model->listAll();
+        if($model->countAll()>0){
+            $output .='<thead>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Nome</th>
+                                <th>Login</th>
+                                <th>Cargo</th>
+                                <th>Tipo</th>
+                                <th>Status</th>
+                                <th>CNPJ</th>
+                                <th>CPF</th>
+                                <th>DataInício</th>
+                                <th>Comentários</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+            foreach ($data as $row) {
+                $output .='<tr class="text-center text-secondary">
+                            <td>'.$row->ID.'</td>
+                            <td>'.$row->UPDATED.'</td>
+                            <td>'.$row->NAME.'</td>
+                            <td>'.$row->LOGIN.'</td>
+                            <td>'.$row->ROLE.'</td>
+                            <td>'.$row->TYPE.'</td>
+                            <td>'.$row->STATUS.'</td>
+                            <td>'.$row->CNPJ.'</td>
+                            <td>'.$row->CPF.'</td>
+                            <td>'.$row->HIRE_DATE.'</td>
+                            <td>'.$row->COMMENT.'</td>
+                            <td>
+                                <a href="'.ROOT."/Supplier/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                <a href="'.ROOT."/Supplier/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                            </td></tr>';
             }
-            else{
-                $sql_stm = null;
-                $data = null;
-                $model = null;
+            $output .= '</tbody>';
+            $sql_stm = null;
+            $data = null;
+            $model = null;
 
-                echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
-            }
-        //}
+            echo $output;
+        }
+        else{
+            $sql_stm = null;
+            $data = null;
+            $model = null;
+
+            echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+        }
+    //}
     }
 
     public function load_executor_options ($array){

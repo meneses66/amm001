@@ -4,10 +4,7 @@ namespace Controller;
 
 //if(session_status() === PHP_SESSION_NONE) session_start();
 
-if(session_status() === PHP_SESSION_NONE){
-    my_session_start();
-    my_session_regenerate_id();
-}
+restart_session();
 
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
@@ -31,7 +28,8 @@ class Client
     public function load_new_form(){
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
-        if(session_status() === PHP_SESSION_NONE) session_start();
+        //if(session_status() === PHP_SESSION_NONE) session_start();
+        restart_session();
 
         //$category_option_list = load_options_new("SERV_CATEGORY", "Ativo");
 
@@ -139,7 +137,9 @@ class Client
 
         if (isset($_GET['id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -282,7 +282,9 @@ class Client
         if (isset($_GET['id'])){
 
             //if(!isset($_SESSION['username'])) {session_start();}
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -337,7 +339,8 @@ class Client
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows($inputs){
-            
+        
+        restart_session();
         $inputs_buttons=$inputs['buttons'];
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
@@ -395,7 +398,8 @@ class Client
     }
 
     public function order_pick_client_load_rows(){
-            
+        
+        restart_session();
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
@@ -452,7 +456,8 @@ class Client
     public function load_parent_form(){
         if (isset($_GET['cli_id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
             $output = "";
             $inputs["ID"]=$_GET['cli_id'];
             $id=$_GET['cli_id'];

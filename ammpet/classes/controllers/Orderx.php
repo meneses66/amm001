@@ -4,10 +4,7 @@ namespace Controller;
 
 //if(session_status() === PHP_SESSION_NONE) session_start();
 
-if(session_status() === PHP_SESSION_NONE){
-    my_session_start();
-    my_session_regenerate_id();
-}
+restart_session();
 
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
@@ -34,7 +31,8 @@ class Orderx
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows(){
-            
+        
+        restart_session();
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
@@ -104,7 +102,9 @@ class Orderx
     public function get_header(){
         if (isset($_GET['order_id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID"]=$_GET['order_id'];
             $cli_id=$_GET['cli_id'];
@@ -211,7 +211,9 @@ class Orderx
     public function get_animals(){
         if (isset($_GET['cli_id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID_CLIENT"]=$_GET['cli_id'];
             //$cli_id=$_GET['cli_id'];
@@ -271,7 +273,9 @@ class Orderx
     public function get_packages(){
         if (isset($_GET['cli_id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID_CLIENT"]=$_GET['cli_id'];
             $inputs["PACK_STATUS"]="Aberto";
@@ -323,7 +327,9 @@ class Orderx
     public function get_services(){
         if (isset($_GET['order_id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID_ORDER"]=$_GET['order_id'];
             $inputs["PROD_SERV_TYPE"]="SERV";
@@ -429,7 +435,9 @@ class Orderx
     public function get_products(){
         if (isset($_GET['order_id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID_ORDER"]=$_GET['order_id'];
             $inputs["PROD_SERV_TYPE"]="PROD";
@@ -495,7 +503,8 @@ class Orderx
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function get_payments(){
-            
+        
+        restart_session();
         $output = "";
         $model = new('\Model\\'."OrderPayment");
         

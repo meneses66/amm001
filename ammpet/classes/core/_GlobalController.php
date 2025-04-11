@@ -2,8 +2,9 @@
 
 namespace Controller;
 
-if(session_status() === PHP_SESSION_NONE) session_start();
+//if(session_status() === PHP_SESSION_NONE) session_start();
 
+restart_session();
 
 defined('ROOTPATH') OR exit('Access denied!');
 

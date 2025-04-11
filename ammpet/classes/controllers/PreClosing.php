@@ -4,10 +4,7 @@ namespace Controller;
 
 //if(session_status() === PHP_SESSION_NONE) session_start();
 
-if(session_status() === PHP_SESSION_NONE){
-    my_session_start();
-    my_session_regenerate_id();
-}
+restart_session();
 
 //defined('ROOTPATH') OR exit('Access denied!');
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
@@ -25,46 +22,14 @@ class Params {
         //$this->view('params/params');
     }
 
-
-    //SESSION WITH FUNCTIONS TO ALLOWS OTHER CLASSES TO GET PARAM VALUES
-    public function getParamValue($type, $name, $status){
-        $model = new('\Model\\'.$this->UCF_object);
-        $inputs['TYPE']=$type;
-        $inputs['NAME']=$name;
-        $inputs['STATUS']=$status;
-        $result = $model->getRow($inputs);
-        if($result){
-            return $result;
-        }
-        else{
-            return false;
-        }
-        
-    }
-
-    public function getParamListByType($type, $status){
-        $model = new('\Model\\'.$this->UCF_object);
-        $inputs['TYPE']=$type;
-        $inputs['STATUS']=$status;
-        $result = $model->listWhere($inputs);
-        if($result){
-            return $result;
-        }
-        else{
-            return false;
-        }
-        
-    }
-    
-
     //SESSION TO LOAD HTML FORMS:
 
     //LOAD HTML FORM FOR CREATING NEW RECORD
     public function load_new_form(){
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
-        if(session_status() === PHP_SESSION_NONE) session_start();
-        //if(!isset($_SESSION['username'])) {session_start();}
+        //if(session_status() === PHP_SESSION_NONE) session_start();
+        restart_session();
 
         //DEFINE OPTION LISTS:
         //$type_option_list = load_options_new("SUPPLIER_TYPE", "Ativo");
@@ -137,7 +102,9 @@ class Params {
         if (isset($_GET['id'])){
 
             //if(!isset($_SESSION['username'])) {session_start();}
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -231,68 +198,10 @@ class Params {
 
     }
 
-    //LOAD HTML FORM FOR DELETING RECORD
-    public function load_delete_form(){
-
-        if (isset($_GET['id'])){
-
-            //if(!isset($_SESSION['username'])) {session_start();}
-            if(session_status() === PHP_SESSION_NONE) session_start();
-            $output = "";
-            $inputs["ID"]=$_GET['id'];
-            $id=$_GET['id'];
-            $model = new('\Model\\'.$this->UCF_object);
-            $data = $model->getRow($inputs);
-
-            if($data){
-
-                foreach ($data as $key => $value) {
-                    $data_form[$key]=$value;
-                }
-
-                $output .= '<div class="row">
-                                <div class="col-sm-1">
-                                    <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
-                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="name" class="medium-label">Nome: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="name" type="text" size="50" name="Name" readonly value="'.$data_form['NAME'].'"><br<br>
-                                </div>
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                            </div>';
-                            $sql_stm = null;
-                            unset_array($inputs);
-                            $data = null;
-                            $model = null;
-                            echo $output;
-            } else{
-                $sql_stm = null;
-                unset_array($inputs);
-                $data = null;
-                $model = null;
-                show("No record to display!");
-            }
-
-        }
-
-    }
-
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
-            
+    
+        restart_session();
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);

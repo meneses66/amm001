@@ -4,10 +4,7 @@ namespace Controller;
 
 //if(session_status() === PHP_SESSION_NONE) session_start();
 
-if(session_status() === PHP_SESSION_NONE){
-    my_session_start();
-    my_session_regenerate_id();
-}
+restart_session();
 
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
@@ -30,10 +27,7 @@ class Animal {
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         //if(session_status() === PHP_SESSION_NONE) session_start();
-        if(session_status() === PHP_SESSION_NONE){
-            my_session_start();
-            my_session_regenerate_id();
-        }
+        restart_session();
 
         if (isset($_GET['cli_id'])){
 
@@ -161,10 +155,7 @@ class Animal {
         if (isset($_GET['id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            if(session_status() === PHP_SESSION_NONE){
-                my_session_start();
-                my_session_regenerate_id();
-            }
+            restart_session();
 
             $output = "";
             $inputs["ID"]=$_GET['id'];
@@ -326,10 +317,7 @@ class Animal {
         //if (isset($_GET['cli_id'])){
             $output=2;
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            if(session_status() === PHP_SESSION_NONE){
-                my_session_start();
-                my_session_regenerate_id();
-            }
+            restart_session();
 
             $output = "";
             
@@ -422,10 +410,7 @@ class Animal {
         if (isset($_GET['cli_id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            if(session_status() === PHP_SESSION_NONE){
-                my_session_start();
-                my_session_regenerate_id();
-            }
+            restart_session();
             
             $output = "";
             $inputs["ID"]=$_GET['cli_id'];
@@ -480,7 +465,8 @@ class Animal {
     public function load_buttons_for_list_view(){
         if (isset($_GET['cli_id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+
             $id=$_GET['cli_id'];
             $output_buttons='<div class="row">
                                 <div class="col-sm-6">

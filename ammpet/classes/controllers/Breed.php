@@ -4,10 +4,7 @@ namespace Controller;
 
 //if(session_status() === PHP_SESSION_NONE) session_start();
 
-if(session_status() === PHP_SESSION_NONE){
-    my_session_start();
-    my_session_regenerate_id();
-}
+restart_session();
 
 //defined('ROOTPATH') OR exit('Access denied!');
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
@@ -30,7 +27,8 @@ class Breed {
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
         //if(!isset($_SESSION['username'])) {session_start();}
-        if(session_status() === PHP_SESSION_NONE) session_start();
+        //if(session_status() === PHP_SESSION_NONE) session_start();
+        restart_session();
 
         //DEFINE OPTION LISTS:
         $type_option_list = load_options_new("BREED_TYPE", "Ativo");
@@ -75,7 +73,9 @@ class Breed {
         if (isset($_GET['id'])){
 
             //if(!isset($_SESSION['username'])) {session_start();}
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -149,7 +149,9 @@ class Breed {
         if (isset($_GET['id'])){
 
             //if(!isset($_SESSION['username'])) {session_start();}
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -203,7 +205,8 @@ class Breed {
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
-            
+        
+        restart_session();
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         

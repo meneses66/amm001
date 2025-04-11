@@ -4,10 +4,7 @@ namespace Controller;
 
 //if(session_status() === PHP_SESSION_NONE) session_start();
 
-if(session_status() === PHP_SESSION_NONE){
-    my_session_start();
-    my_session_regenerate_id();
-}
+restart_session();
 
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
@@ -29,7 +26,9 @@ class Salary {
 
         if (isset($_GET['id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            restart_session();
+
             $output = "";
 
             //DEFINIR VARIAVEIS PARA OS INPUTS:
@@ -186,7 +185,8 @@ class Salary {
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
-            
+           
+        restart_session();
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
