@@ -27,7 +27,7 @@ class Salary {
         if (isset($_GET['id'])){
 
             //if(session_status() === PHP_SESSION_NONE) session_start();
-            restart_session();
+            //restart_session();
 
             $output = "";
 
@@ -186,7 +186,7 @@ class Salary {
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
            
-        restart_session();
+        //restart_session();
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
