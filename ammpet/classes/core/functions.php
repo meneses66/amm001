@@ -106,6 +106,13 @@ function end_session(){
     session_destroy();
 }
 
+function restart_session(){
+    if(session_status() === PHP_SESSION_NONE){
+        my_session_start();
+        my_session_regenerate_id();
+    }
+}
+
 // My session regenerate id function
 function my_session_regenerate_id() {
     // Call session_create_id() while session is active to 

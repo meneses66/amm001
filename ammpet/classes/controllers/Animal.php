@@ -29,7 +29,11 @@ class Animal {
     public function load_new_form(){
 
         //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
-        if(session_status() === PHP_SESSION_NONE) session_start();
+        //if(session_status() === PHP_SESSION_NONE) session_start();
+        if(session_status() === PHP_SESSION_NONE){
+            my_session_start();
+            my_session_regenerate_id();
+        }
 
         if (isset($_GET['cli_id'])){
 
@@ -156,7 +160,12 @@ class Animal {
 
         if (isset($_GET['id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            if(session_status() === PHP_SESSION_NONE){
+                my_session_start();
+                my_session_regenerate_id();
+            }
+
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
@@ -307,64 +316,6 @@ class Animal {
 
     }
 
-    //LOAD HTML FORM FOR DELETING RECORD
-    public function load_delete_form(){
-
-        if (isset($_GET['id'])){
-
-            //if(!isset($_SESSION['username'])) {session_start();}
-            if(session_status() === PHP_SESSION_NONE) session_start();
-            $output = "";
-            $inputs["ID"]=$_GET['id'];
-            $id=$_GET['id'];
-            $model = new('\Model\\'.$this->UCF_object);
-            $data = $model->getRow($inputs);
-
-            if($data){
-
-                foreach ($data as $key => $value) {
-                    $data_form[$key]=$value;
-                }
-
-                $output .= '<div class="row">
-                                <div class="col-sm-1">
-                                    <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="name" class="medium-label">Nome: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="name" type="text" size="50" name="Name" readonly value="'.$data_form['NAME'].'"><br<br>
-                                </div>
-                                <div class="col-sm-1">
-                                    
-                                </div>
-                                <div class="col-sm-5">
-                                    
-                                </div>
-                            </div>';
-                            $sql_stm = null;
-                            unset_array($inputs);
-                            $data = null;
-                            $model = null;
-                            echo $output;
-            } else{
-                $sql_stm = null;
-                unset_array($inputs);
-                $data = null;
-                $model = null;
-                show("No record to display!");
-            }
-
-        }
-
-    }
-
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows($inputs){
@@ -374,7 +325,12 @@ class Animal {
         //$id=$inputs['cli_id'];
         //if (isset($_GET['cli_id'])){
             $output=2;
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            if(session_status() === PHP_SESSION_NONE){
+                my_session_start();
+                my_session_regenerate_id();
+            }
+
             $output = "";
             
             $client = new('\Model\\'.$this->parent_object);
@@ -465,7 +421,12 @@ class Animal {
     public function load_parent_form(){
         if (isset($_GET['cli_id'])){
 
-            if(session_status() === PHP_SESSION_NONE) session_start();
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            if(session_status() === PHP_SESSION_NONE){
+                my_session_start();
+                my_session_regenerate_id();
+            }
+            
             $output = "";
             $inputs["ID"]=$_GET['cli_id'];
             $id=$_GET['cli_id'];
