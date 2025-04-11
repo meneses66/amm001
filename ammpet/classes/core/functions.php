@@ -107,8 +107,8 @@ function end_session(){
 }
 
 function restart_session(){
-    if(session_status() != PHP_SESSION_ACTIVE){
-        my_session_regenerate_id();
+    if(session_status() === PHP_SESSION_NONE){
+        session_start();
     }
 }
 
