@@ -822,9 +822,21 @@ Trait _GlobalController{
             }
 
             if($this->UCF_object=="Salary"){
-                unset($inputs["Temp_Id_Employee"]);
-                unset($inputs["type"]);
 
+                $type_goto="dynamic";
+                if (isset($inputs['type'])) {
+                    $type_goto=$inputs['type'];
+                    unset($inputs["type"]);
+                }
+                if (isset($inputs['class'])) {
+                    unset($inputs["class"]);
+                }
+                if (isset($inputs['method'])) {
+                    unset($inputs["method"]);
+                }
+                if (isset($inputs['Temp_Id_Employee'])) {
+                    unset($inputs["Temp_Id_Employee"]);
+                }
                 if (isset($inputs["Created_By2"])) {
                     $created_by2 = $inputs["Created_By2"];
                     unset($inputs["Created_By2"]);
