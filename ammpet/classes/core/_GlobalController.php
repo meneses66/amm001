@@ -989,6 +989,8 @@ Trait _GlobalController{
                                 $_POST['Ref_Date']=$ref_date2;
                                 $_POST['Salary_Item_Status']=$salary_item_status2;
                                 $_POST['Salary_Item_Description']=$salary_item_description2;
+                                $_POST['Original_Value']=0.00;
+                                $_POST['Postponed_Value']=0.00;
                     
                                 $ajax_call = new('\Controller\\'."Ajax_call");
                                 $ajax_call->index();
