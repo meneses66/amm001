@@ -930,7 +930,7 @@ Trait _GlobalController{
                     case 'Salary':
                             if ($type_goto=='static') {
                                 unset_array($inputs);
-                                break;
+                                return;
                             } else {
                                 $view = "$this->UCF_object/_list";
                                 unset_array($inputs);
