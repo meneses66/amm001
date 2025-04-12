@@ -37,9 +37,9 @@ $(document).ready(function(){
     $('#order_paid_amount').mask("#,##0.00", {reverse: true});
     $('#order_debt').mask("#,##0.00", {reverse: true});
     $('#paid_amount').mask("#,##0.00", {reverse: true});
-    $('#salary_item_value').mask("#,##0.00", {reverse: true});
-    $('#original_value').mask("#,##0.00", {reverse: true});
-    $('#postponed_value').mask("#,##0.00", {reverse: true});
+    $('#salary_item_value').mask("##0.00", {reverse: true});
+    $('#original_value').mask("##0.00", {reverse: true});
+    $('#postponed_value').mask("##0.00", {reverse: true});
     
   });
   
