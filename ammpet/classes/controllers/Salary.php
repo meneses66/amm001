@@ -279,12 +279,12 @@ class Salary {
                 $_POST['Original_Value']=$_POST['Salary_Item_Value'];
                 $_POST['Salary_Item_Value']=0.00;
                 $_POST['Salary_Item_Status']="Fechado";
-                $_POST['Salary_Item_Description']="Data: ".Date()." -- Valor adiado: ".$_POST['Postponed_Value'];
+                $_POST['Salary_Item_Description']="Data: ".date('Y-m-d')." -- Valor adiado: ".$_POST['Postponed_Value'];
                 
             } else {
                 $_POST['Original_Value']=$_POST['Salary_Item_Value'];
                 $_POST['Salary_Item_Value']=$_POST['Salary_Item_Value'] - $_POST['Postponed_Value'];
-                $_POST['Salary_Item_Description']="Data: ".Date()." -- Valor adiado: ".$_POST['Postponed_Value'];
+                $_POST['Salary_Item_Description']="Data: ".date('Y-m-d')." -- Valor adiado: ".$_POST['Postponed_Value'];
             }
 
             //CALLS UPDATE FOR CURRENT RECORD
