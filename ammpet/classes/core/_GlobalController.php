@@ -824,6 +824,39 @@ Trait _GlobalController{
             if($this->UCF_object=="Salary"){
                 unset($inputs["Temp_Id_Employee"]);
                 unset($inputs["type"]);
+
+                if (isset($inputs["Created_By2"])) {
+                    $created_by2 = $inputs["Created_By2"];
+                    unset($inputs["Created_By2"]);
+                }
+                if (isset($inputs["Updated_By2"])) {
+                    $updated_by2 = $inputs["Updated_By2"];
+                    unset($inputs["Updated_By2"]);
+                }
+                if (isset($inputs["Salary_Item_Value2"])) {
+                    $salary_item_value2 = $inputs["Salary_Item_Value2"];
+                    unset($inputs["Salary_Item_Value2"]);
+                }
+                if (isset($inputs["Salary_Item_Type2"])) {
+                    $salary_item_type2 = $inputs["Salary_Item_Type2"];
+                    unset($inputs["Salary_Item_Type2"]);
+                }
+                if (isset($inputs["Id_Employee2"])) {
+                    $id_employee2 = $inputs["Id_Employee2"];
+                    unset($inputs["Id_Employee2"]);
+                }
+                if (isset($inputs["Ref_Date2"])) {
+                    $ref_date2 = $inputs["Ref_Date2"];
+                    unset($inputs["Ref_Date2"]);
+                }
+                if (isset($inputs["Salary_Item_Status2"])) {
+                    $salary_item_status2 = $inputs["Salary_Item_Status2"];
+                    unset($inputs["Salary_Item_Status2"]);
+                }
+                if (isset($inputs["Salary_Item_Description2"])) {
+                    $salary_item_description2 = $inputs["Salary_Item_Description2"];
+                    unset($inputs["Salary_Item_Description2"]);
+                }
             }
 
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
@@ -929,8 +962,26 @@ Trait _GlobalController{
 
                     case 'Salary':
                             if ($type_goto=='static') {
-                                unset_array($inputs);
-                                return;
+                                //unset_array($inputs);
+                                unset($_POST);
+                                $_SERVER['REQUEST_METHOD']="POST";
+                               
+                                $_POST['class']="Salary";
+                                $_POST['method']="insert_call";
+                                
+                                $_POST['Created_By']=$created_by2;
+                                $_POST['Updated_By']=$updated_by2;
+                                $_POST['Salary_Item_Value']=$salary_item_value2;
+                                $_POST['Salary_Item_Type']=$salary_item_type2;
+                                $_POST['Id_Employee']=$id_employee2;
+                                $_POST['Ref_Date']=$ref_date2;
+                                $_POST['Salary_Item_Status']=$salary_item_status2;
+                                $_POST['Salary_Item_Description']=$salary_item_description2;
+                    
+                                $ajax_call = new('\Controller\\'."Ajax_call");
+                                $ajax_call->index();
+                    
+                                break;
                             } else {
                                 $view = "$this->UCF_object/_list";
                                 unset_array($inputs);
