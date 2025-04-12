@@ -172,6 +172,14 @@ class Salary {
                                 </div>
                             </div>';
             }
+
+            $output .= '<div class="row">
+                                <div class="col-sm-6">
+                                    <input id="button" class="btn btn-info btn-lg m-1 btn-block" type="submit" value="Adiar Valor" formaction="../Salary/postpone_value?id='.$id.'">
+                                </div>
+                                <div class="col-sm-6">
+                                </div>
+                            </div>';
             
             $sql_stm = null;
             unset_array($inputs);
@@ -252,5 +260,65 @@ class Salary {
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
         }
     }
+
+    public function postpone_value(){
+        if (isset($_GET['id'])){
+            
+            //PREPARE VALUES TO BE INSERTED LATER
+            $_POST2['Created_By']=$_SESSION['username'];
+            $_POST2['Updated_By']=$_SESSION['username'];
+            $_POST2['Salary_Item_Value']=$_POST['Postponed_Value'];
+            $_POST2['Salary_Item_Type']=$_POST['Salary_Item_Type'];
+            $_POST2['Id_Employee']=$_POST['Id_Employee'];
+            $_POST2['Ref_Date']=addTime($_POST['Ref_Date'],0,1,0);
+            $_POST2['Salary_Item_Status']="Aberto";
+            $_POST2['Salary_Item_Description']="Adiado do item: ".$_POST['Id']." -- Valor Original: R$ ".$_POST['Salary_Item_Value'];
+
+            //DEFINE UPDATES IN CURRENT VALUE
+            if ($_POST['Postponed_Value'] == $_POST['Salary_Item_Value']) {
+                $_POST['Original_Value']=$_POST['Salary_Item_Value'];
+                $_POST['Salary_Item_Value']=0.00;
+                $_POST['Salary_Item_Status']="Fechado";
+                $_POST['Salary_Item_Description']="Data: ".Date()." -- Valor adiado: ".$_POST['Postponed_Value'];
+                
+            } else {
+                $_POST['Original_Value']=$_POST['Salary_Item_Value'];
+                $_POST['Salary_Item_Value']=$_POST['Salary_Item_Value'] - $_POST['Postponed_Value'];
+                $_POST['Salary_Item_Description']="Data: ".Date()." -- Valor adiado: ".$_POST['Postponed_Value'];
+            }
+
+            //CALLS UPDATE FOR CURRENT RECORD
+            $_SERVER['REQUEST_METHOD']="POST";
+           
+            $_POST['class']="Salary";
+            $_POST['method']="update_call";
+            $_POST['type']="static";
+
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+            
+            //INSERT NEW RECORD WITH POSTPONED VALEU:
+            unset($_POST);
+            $_SERVER['REQUEST_METHOD']="POST";
+           
+            $_POST['class']="Salary";
+            $_POST['method']="insert_call";
+            
+            $_POST['Created_By']=$_POST2['Created_By'];
+            $_POST['Updated_By']=$_POST2['Updated_By'];
+            $_POST['Salary_Item_Value']=$_POST2['Salary_Item_Value'];
+            $_POST['Salary_Item_Type']=$_POST2['Salary_Item_Type'];
+            $_POST['Id_Employee']=$_POST2['Id_Employee'];
+            $_POST['Ref_Date']=$_POST2['Ref_Date'];
+            $_POST['Salary_Item_Status']=$_POST2['Salary_Item_Status'];
+            $_POST['Salary_Item_Description']=$_POST2['Salary_Item_Description'];
+
+            unset($_POST2);
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+
+        }
+    }
+    
 
 }

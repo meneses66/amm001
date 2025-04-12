@@ -926,6 +926,17 @@ Trait _GlobalController{
                             break;
                         }
 
+                    case 'Salary':
+                            if ($type_goto=='static') {
+                                unset_array($inputs);
+                                break;
+                            } else {
+                                $view = "$this->UCF_object/_list";
+                                unset_array($inputs);
+                                redirect("$view");
+                                break;
+                            }
+    
                     case 'OrderPayment':
 
                         //CALL UPDATE ORDER PAYMENTS:
