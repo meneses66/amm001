@@ -53,9 +53,9 @@ class Login {
 
             if(password_verify($p,$data_form['PASS']))
             {
-                $authentic=true;
                 $_SESSION['permissions']=$data_form['PERMISSIONS'];
-                $GLOBALS['global_permissions']=$data_form['PERMISSIONS'];
+                $authentic=true;
+                
             }
             
         }
