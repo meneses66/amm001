@@ -11,6 +11,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
     <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
     </head>
     <body>
+        <input id="user_permissions" type="hidden" value="<?php print_r($_SESSION['permissions']); ?>">
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
@@ -24,7 +25,6 @@ $_SESSION['LAST_ACTIVE']=time();?>
                 <?php include "main.view.php";?>
             </div>
         </div>
-        <input id="user_permissions" type="hidden" value="<?php echo $_SESSION['permissions']; ?>">
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- jQuery library -->
