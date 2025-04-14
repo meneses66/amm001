@@ -11,7 +11,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
     <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
     </head>
     <body>
-        <input id="user_permissions" type="text" value="<?php echo ($_SESSION["permissions"]); ?>">
+        <input id="user_permissions" type="text" value=<?php echo $_SESSION['permissions']; ?>>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
