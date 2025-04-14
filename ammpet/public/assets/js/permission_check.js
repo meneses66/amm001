@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    let permissions = $_SESSION['permissions'];
+    let permissions = sessionStorage.getItem('permissions');
 
     if (!(permissions.includes("client_view"))){
         document.getElementById('client_list').setAttribute('readonly', true);
