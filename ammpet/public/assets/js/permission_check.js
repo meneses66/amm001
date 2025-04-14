@@ -12,14 +12,18 @@ $(document).ready(function(){
     }
 
     if (!(permissions.includes("client_add"))){
+        console.log("client view NOT found in permissions: "+permissions);
         $('#button_client_add').attr('disabled', 'disabled');    
     } else{
+        console.log("client view found in permissions: "+permissions);
         $('#button_client_add').removeAttr('disabled');
     }
 
     if (!(permissions.includes("client_edit"))){
+        console.log("client view NOT found in permissions: "+permissions);
         $('#button_client_edit').attr('disabled', 'disabled');
     } else{
+        console.log("client view found in permissions: "+permissions);
         $('#button_client_edit').removeAttr('disabled');
     }
 
