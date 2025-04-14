@@ -53,7 +53,7 @@ class Login {
 
             if(password_verify($p,$data_form['PASS']))
             {
-                $_SESSION['permissions']=$data_form['PERMISSIONS'];
+                $_SESSION['permissions']=json_decode($data_form['PERMISSIONS']);
                 $authentic=true;
                 
             }
