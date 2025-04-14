@@ -1,10 +1,11 @@
 <?php 
-if((time()-$_SESSION['LAST_ACTIVE'])>TIMEOUT){
-    end_session();
-    redirect("Login/_logout");
-    die;
-}
-$_SESSION['LAST_ACTIVE']=time();?>
+    if((time()-$_SESSION['LAST_ACTIVE'])>TIMEOUT){
+        end_session();
+        redirect("Login/_logout");
+        die;
+    }
+    $_SESSION['LAST_ACTIVE']=time();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,6 +25,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
                 <?php include "main.view.php";?>
             </div>
         </div>
+        <input id="user_permissions" type="hidden" value="<?php echo $_SESSION['permissions']; ?>">
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
