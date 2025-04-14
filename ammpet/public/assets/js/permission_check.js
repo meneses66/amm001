@@ -10,11 +10,13 @@ $(document).ready(function(){
     $(document).on('click', 'a', function(e) {
         if ($(this).attr('disabled') == 'disabled') {
             e.preventDefault();
-    }
+        }
+    });
 
 });
 
-/* ALL PERMISSIONS:
+
+/**  ALL PERMISSIONS
 client_view
 client_add
 client_edit
