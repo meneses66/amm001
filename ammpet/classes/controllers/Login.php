@@ -35,27 +35,6 @@ class Login {
         }
     }
 
-    public function get_user_permissions($username){
-        
-        //New Define Inputs for function:
-        $array['LOGIN']=$username;
-        $model = new \Model\User;
-        $permissions=[];
-        $data = $model->getRow($array);
-        if($data){
-            foreach ($data as $key => $value) {
-                $data_form[$key]=$value;
-            }
-        }
-
-        return $permissions = $data_form['PERMISSIONS'];
-
-        unset($data);
-        $model=null;
-        unset($array);
-   
-    }
-
     public function authenticate($u, $p){
         $authentic=false;
         
