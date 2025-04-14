@@ -4,7 +4,8 @@ $(document).ready(function(){
     if (!(permissions.includes("client_view"))){
         $('#client_list').attr('disabled', 'disabled');    
     } else{
-        $('#client_list').removeAttr('disabled');
+        //$('#client_list').removeAttr('disabled');
+        $('#client_list').attr('disabled',false);
     }
 
     $(document).on('click', 'a', function(e) {
