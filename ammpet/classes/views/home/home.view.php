@@ -5,7 +5,8 @@
         die;
     }
     restart_session();
-    $user_permission = $global_permissions;
+    var_dump($_SESSION);
+    //$user_permission = $global_permissions;
     $_SESSION['LAST_ACTIVE']=time();
 ?>
 <!DOCTYPE html>
