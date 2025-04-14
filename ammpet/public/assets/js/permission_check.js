@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    let permissions = getElementById('user_permissions').value;
+    let permissions = document.getElementById('user_permissions').value;
 
     if (!(permissions.includes("client_view"))){
         document.getElementById('client_list').setAttribute('readonly', true);
