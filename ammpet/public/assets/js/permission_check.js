@@ -2,10 +2,10 @@ $(document).ready(function(){
     let permissions = document.getElementById('user_permissions').value;
 
     if (!(permissions.includes("client_view"))){
-        console.log("cliente view not in permissions");
+        console.log("client view not in permissions: "+permissions);
         $('#client_list').attr('disabled', 'disabled');    
     } else{
-        console.log("cliente view found in permissions");
+        console.log("client view found in permissions: "+permissions);
         //$('#client_list').removeAttr('disabled');
         $('#client_list').attr('disabled',false);
         $('#client_list').removeAttr('disabled');
