@@ -28,9 +28,6 @@ class Login {
             $_SESSION['user']=$user;
             $_SESSION['username']=$username;
 
-            //CALL NEW FUNCTION TO DEFINE $_SESSION[permissions]
-            set_session_permission($user);
-
             $_SESSION['LAST_ACTIVE']=time();
             return true;
         } else {
@@ -38,20 +35,20 @@ class Login {
         }
     }
 
-    public function set_session_permission($user){
+    public function get_user_permissions($username){
         
         //New Define Inputs for function:
-        $array['LOGIN']=$user;
+        $array['LOGIN']=$username;
         $model = new \Model\User;
+        $permissions=[];
         $data = $model->getRow($array);
         if($data){
-            
             foreach ($data as $key => $value) {
                 $data_form[$key]=$value;
             }
         }
 
-        $_SESSION['permissions'] = $data_form['PERMISSIONS'];
+        return $permissions = $data_form['PERMISSIONS'];
 
         unset($data);
         $model=null;
