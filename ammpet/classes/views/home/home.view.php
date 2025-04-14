@@ -26,6 +26,8 @@ $_SESSION['LAST_ACTIVE']=time();?>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery library -->
+        <script src="<?php echo ROOT;?>/assets/js/jquery-3.7.1.js"></script>
         <!-- Core theme JS-->
         <script src="../public/assets/js/scripts.js"></script>
         <!-- Permission Check JS-->
