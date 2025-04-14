@@ -10,7 +10,7 @@
     <hr class="my-1">
     <br><br><br><br>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Client/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-user-plus"></i>&nbsp;Novo Cliente</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Client/_new";?>" class="btn btn-primary btn-lg m-1 btn-block" id="client_new"><i class="fas fa-user-plus"></i>&nbsp;Novo Cliente</a></div>
         <div class="col-sm-6"><a href="<?php echo ROOT."/Supplier/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-id-badge"></i>&nbsp;Novo Fornecedor</a></div>
     </div>
     <div class="row">
