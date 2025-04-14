@@ -7,11 +7,10 @@ $(document).ready(function(){
         $('#client_list').removeAttr('disabled');
     }
 
-    $('a').live('click', function(e) {
+    $(document).on('click', 'a', function(e) {
         if ($(this).attr('disabled') == 'disabled') {
             e.preventDefault();
-        }
-    });
+    }
 
 });
 
