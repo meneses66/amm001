@@ -27,11 +27,36 @@ class Login {
             // set username into global session
             $_SESSION['user']=$user;
             $_SESSION['username']=$username;
+
+            //CALL NEW FUNCTION TO DEFINE $_SESSION[permissions]
+            set_session_permission($user);
+
             $_SESSION['LAST_ACTIVE']=time();
             return true;
         } else {
             return false;
         }
+    }
+
+    public function set_session_permission($user){
+        
+        //New Define Inputs for function:
+        $array['LOGIN']=$user;
+        $model = new \Model\User;
+        $data = $model->getRow($array);
+        if($data){
+            
+            foreach ($data as $key => $value) {
+                $data_form[$key]=$value;
+            }
+        }
+
+        $_SESSION['permissions'] = $data_form['PERMISSIONS'];
+
+        unset($data);
+        $model=null;
+        unset($array);
+   
     }
 
     public function authenticate($u, $p){
@@ -53,7 +78,7 @@ class Login {
 
             if(password_verify($p,$data_form['PASS']))
             {
-                $_SESSION['permissions']=json_decode($data_form['PERMISSIONS']);
+                //$_SESSION['permissions']=json_decode($data_form['PERMISSIONS']);
                 $authentic=true;
                 
             }
