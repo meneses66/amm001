@@ -4,6 +4,7 @@ if((time()-$_SESSION['LAST_ACTIVE'])>TIMEOUT){
     redirect("Login/_logout");
     die;
 }
+$user_permission = get_user_permissions($_SESSION['username']);
 $_SESSION['LAST_ACTIVE']=time();?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,6 +12,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
     <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
     </head>
     <body>
+        <input id="user_permissions" type="hidden" value="<?php echo $user_permission; ?>">
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
@@ -61,6 +63,10 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
+
+        <!-- Permission Check JS-->
+        <script src="../public/assets/js/permission_check.js"></script>
+
 
     </body>
 </html>
