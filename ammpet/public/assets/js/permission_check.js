@@ -18,9 +18,11 @@ $(document).ready(function(){
     }
 
     if (!(permissions.includes("client_edit"))){
-        $('text-primary updateBtn').attr('disabled', 'disabled');    
+        //$('text-primary updateBtn').attr('disabled', 'disabled');    
+        document.getElementsByClassName('text-primary updateBtn').attr('disabled', 'disabled');
     } else{
-        $('text-primary updateBtn').removeAttr('disabled');
+        //$('text-primary updateBtn').removeAttr('disabled');
+        document.getElementsByClassName('text-primary updateBtn').removeAttr('disabled');
     }
 
     if (!(permissions.includes("client_delete"))){
