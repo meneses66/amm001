@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     let permissions = document.getElementById("user_permissions").value;
-    //console.log("Permissions: "+permissions);
+    console.log("Permissions: "+permissions);
 
     if (!(permissions.includes("client_view"))){
         //console.log("client view not in permissions: "+permissions);
