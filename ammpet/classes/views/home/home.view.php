@@ -6,7 +6,6 @@
     }
     restart_session();
     $user_permission = get_user_permissions($_SESSION['username']);
-    //$user_permission = $global_permissions;
     $_SESSION['LAST_ACTIVE']=time();
 ?>
 <!DOCTYPE html>
@@ -15,7 +14,7 @@
     <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
     </head>
     <body>
-        <input id="user_permissions" type="text" value="<?php echo $user_permission; ?>">
+        <input id="user_permissions" type="hidden" value="<?php echo $user_permission; ?>">
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
