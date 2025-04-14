@@ -2,10 +2,16 @@ $(document).ready(function(){
     let permissions = document.getElementById('user_permissions').value;
 
     if (!(permissions.includes("client_view"))){
-        document.getElementById('client_list').setAttribute('readonly', true);
+        $('#client_list').attr('disabled', 'disabled');    
     } else{
-        document.getElementById('client_list').removeAttribute('readonly');
+        $('#client_list').removeAttr('disabled');
     }
+
+    $('a').live('click', function(e) {
+        if ($(this).attr('disabled') == 'disabled') {
+            e.preventDefault();
+        }
+    });
 
 });
 
