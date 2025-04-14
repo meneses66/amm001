@@ -4,7 +4,7 @@
         redirect("Login/_logout");
         die;
     }
-    restart_session();
+    //restart_session();
     $user_permission = get_user_permissions($_SESSION['username']);
     $_SESSION['LAST_ACTIVE']=time();
 ?>
