@@ -4,14 +4,32 @@ $(document).ready(function(){
     //console.log("Permissions: "+permissions);
 
     if (!(permissions.includes("client_view"))){
-        console.log("client view not in permissions: "+permissions);
-        $('#client_list').attr('disabled', 'disabled');    
+        //console.log("client view not in permissions: "+permissions);
+        $('#button_client_list').attr('disabled', 'disabled');    
     } else{
-        console.log("client view found in permissions: "+permissions);
-        //$('#client_list').removeAttr('disabled');
-        //$('#client_list').attr('disabled',false);
-        $('#client_list').removeAttr('disabled');
+        //console.log("client view found in permissions: "+permissions);
+        $('#button_client_list').removeAttr('disabled');
     }
+
+    if (!(permissions.includes("client_add"))){
+        $('#button_client_add').attr('disabled', 'disabled');    
+    } else{
+        $('#button_client_add').removeAttr('disabled');
+    }
+
+    if (!(permissions.includes("client_edit"))){
+        $('text-primary updateBtn').attr('disabled', 'disabled');    
+    } else{
+        $('text-primary updateBtn').removeAttr('disabled');
+    }
+
+    if (!(permissions.includes("client_delete"))){
+        $('#button_client_delete').attr('disabled', 'disabled');    
+    } else{
+        $('#button_client_delete').removeAttr('disabled');
+    }
+
+
 
     $(document).on('click', 'a', function(e) {
         if ($(this).attr('disabled') == 'disabled') {
