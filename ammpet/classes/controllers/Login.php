@@ -55,7 +55,7 @@ class Login {
             {
                 $authentic=true;
                 $_SESSION['permissions']=$data_form['PERMISSIONS'];
-                $GLOBALS['upermissions']=$data_form['PERMISSIONS'];
+                $GLOBALS["upermissions"]=$data_form['PERMISSIONS'];
             }
             
         }

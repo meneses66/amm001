@@ -5,7 +5,7 @@
         die;
     }
     restart_session();
-    $user_permission = $GLOBALS['upermissions'];
+    $user_permission = $GLOBALS["upermissions"];
     $_SESSION['LAST_ACTIVE']=time();
 ?>
 <!DOCTYPE html>
