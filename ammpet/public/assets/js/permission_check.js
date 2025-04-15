@@ -3,20 +3,20 @@ $(document).ready(function(){
     let permissions = document.getElementById("user_permissions").value;
     console.log("Permissions: "+permissions);
 
-    if (!(permissions.includes("client_view"))){
-        //console.log("client view not in permissions: "+permissions);
-        $('#button_client_list').attr('disabled', 'disabled');    
-    } else{
-        //console.log("client view found in permissions: "+permissions);
-        $('#button_client_list').removeAttr('disabled');
-    }
-
     if (!(permissions.includes("client_add"))){
         console.log("client view NOT found in permissions: "+permissions);
         $('#button_client_add').attr('disabled', 'disabled');    
     } else{
         console.log("client view found in permissions: "+permissions);
         $('#button_client_add').removeAttr('disabled');
+    }
+
+    if (!(permissions.includes("client_view"))){
+        //console.log("client view not in permissions: "+permissions);
+        $('#button_client_list').attr('disabled', 'disabled');    
+    } else{
+        //console.log("client view found in permissions: "+permissions);
+        $('#button_client_list').removeAttr('disabled');
     }
 
     if (!(permissions.includes("client_edit"))){
