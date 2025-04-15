@@ -11,8 +11,8 @@
     <br><br><br><br>
     <div class="row">
         <div class="row">
-            <div class="col-sm-6"><?((check_permission($_SESSION['username'],"client_add"))? "<a href=\"" . ROOT . "/Client/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-user-plus\"></i>&nbsp;Novo Cliente</a>" :"");?></div>
-            <div class="col-sm-6"><?((check_permission($_SESSION['username'],"supplier_add"))? "<a href=\"" . ROOT . "/Supplier/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"far fa-id-badge\"></i>&nbsp;Novo Fornecedor</a>" :"");?></div>
+            <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"client_add"))? print_r("<a href=\"" . ROOT . "/Client/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-user-plus\"></i>&nbsp;Novo Cliente</a>") :"");?></div>
+            <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"supplier_add"))? "<a href=\"" . ROOT . "/Supplier/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"far fa-id-badge\"></i>&nbsp;Novo Fornecedor</a>" :"");?></div>
         </div>
         <div class="row">
             <div class="col-sm-6"><a href=\"" . ROOT . "/Product/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-barcode\"></i>&nbsp;Novo Produto</a></div>
