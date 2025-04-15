@@ -465,6 +465,14 @@ Trait _GlobalController{
                 unset($inputs["breed_add"]);
                 unset($inputs["breed_edit"]);
                 unset($inputs["breed_delete"]);
+                unset($inputs["cobrancas_view"]);
+                unset($inputs["vencimento_pacotes_view"]);
+                unset($inputs["vencimento_vacinas_view"]);
+                unset($inputs["tosador_view"]);
+                unset($inputs["vet_view"]);
+                unset($inputs["comis_view"]);
+                unset($inputs["result_view"]);
+
             }
 
             //Special condition when Object is Package:
@@ -799,6 +807,14 @@ Trait _GlobalController{
                 unset($inputs["breed_add"]);
                 unset($inputs["breed_edit"]);
                 unset($inputs["breed_delete"]);
+                unset($inputs["cobrancas_view"]);
+                unset($inputs["vencimento_pacotes_view"]);
+                unset($inputs["vencimento_vacinas_view"]);
+                unset($inputs["tosador_view"]);
+                unset($inputs["vet_view"]);
+                unset($inputs["comis_view"]);
+                unset($inputs["result_view"]);
+
             }
 
             if($this->UCF_object=="Package"){
