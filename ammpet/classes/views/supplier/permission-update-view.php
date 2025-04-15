@@ -268,5 +268,133 @@
             <input type="checkbox" id="breed_delete" name="breed_delete" value="breed_delete" <?php if (in_array("breed_delete",$array_permissions)){ echo "checked";}?>>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Relatórios:</p>
+        </div>
+        <div class="col-sm-9">
+            <p>-----------------------------------------------------------------------------------------------------------</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            <p>---- </p>
+        </div>
+        <div class="col-sm-2">
+            <p>Cobranças</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cobrancas_view" name="cobrancas_view" value="cobrancas_view" <?php if (in_array("cobrancas_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            <p>---- </p>
+        </div>
+        <div class="col-sm-2">
+            <p>Vencimento Pacotes</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="vencimento_pacotes_view" name="vencimento_pacotes_view" value="vencimento_pacotes_view" <?php if (in_array("vencimento_pacotes_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            <p>---- </p>
+        </div>
+        <div class="col-sm-2">
+            <p>Vencimento Vacinas</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="vencimento_vacinas_view" name="vencimento_vacinas_view" value="vencimento_vacinas_view" <?php if (in_array("vencimento_vacinas_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            <p>---- </p>
+        </div>
+        <div class="col-sm-2">
+            <p>Tosador</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="tosador_view" name="tosador_view" value="tosador_view" <?php if (in_array("tosador_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            <p>---- </p>
+        </div>
+        <div class="col-sm-2">
+            <p>Veterinária</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="vet_view" name="vet_view" value="vet_view" <?php if (in_array("vet_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            <p>---- </p>
+        </div>
+        <div class="col-sm-2">
+            <p>Comissões</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="comis_view" name="comis_view" value="comis_view" <?php if (in_array("comis_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            <p>---- </p>
+        </div>
+        <div class="col-sm-2">
+            <p>Resultados</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="result_view" name="result_view" value="result_view" <?php if (in_array("result_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
 </div>
 </div>
