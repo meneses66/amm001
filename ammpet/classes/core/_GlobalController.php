@@ -461,6 +461,10 @@ Trait _GlobalController{
                 unset($inputs["month_closing_add"]);
                 unset($inputs["month_closing_edit"]);
                 unset($inputs["month_closing_delete"]);
+                unset($inputs["breed_view"]);
+                unset($inputs["breed_add"]);
+                unset($inputs["breed_edit"]);
+                unset($inputs["breed_delete"]);
             }
 
             //Special condition when Object is Package:
@@ -791,6 +795,10 @@ Trait _GlobalController{
                 unset($inputs["month_closing_add"]);
                 unset($inputs["month_closing_edit"]);
                 unset($inputs["month_closing_delete"]);
+                unset($inputs["breed_view"]);
+                unset($inputs["breed_add"]);
+                unset($inputs["breed_edit"]);
+                unset($inputs["breed_delete"]);
             }
 
             if($this->UCF_object=="Package"){

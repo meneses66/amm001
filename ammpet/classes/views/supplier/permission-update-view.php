@@ -251,5 +251,22 @@
             <input type="checkbox" id="month_closing_delete" name="month_closing_delete" value="month_closing_delete" <?php if (in_array("month_closing_delete",$array_permissions)){ echo "checked";}?>>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Raças</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="breed_view" name="breed_view" value="breed_view" <?php if (in_array("breed_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="breed_add" name="breed_add" value="breed_add" <?php if (in_array("breed_add",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="breed_edit" name="breed_edit" value="breed_edit" <?php if (in_array("breed_edit",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="breed_delete" name="breed_delete" value="breed_delete" <?php if (in_array("breed_delete",$array_permissions)){ echo "checked";}?>>
+        </div>
+    </div>
 </div>
 </div>

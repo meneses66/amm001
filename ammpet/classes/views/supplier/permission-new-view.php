@@ -240,4 +240,21 @@
             <input type="checkbox" id="month_closing_delete" name="month_closing_delete" value="month_closing_delete">
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Raças</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="breed_view" name="breed_view" value="breed_view">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="breed_add" name="breed_add" value="breed_add">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="breed_edit" name="breed_edit" value="breed_edit">
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="breed_delete" name="breed_delete" value="breed_delete">
+        </div>
+    </div>
 </div> 
