@@ -34,7 +34,6 @@
         <script src="<?php echo ROOT;?>/assets/js/jquery-3.7.1.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
-        <!-- Permission Check JS-->
-        <script src="<?php echo ROOT;?>/assets/js/permission_check.js"></script>
+
     </body>
 </html>
