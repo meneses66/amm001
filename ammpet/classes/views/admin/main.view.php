@@ -22,7 +22,7 @@
         <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"month_closing_view"))? print_r("<a href=\"" . ROOT ."/Month_Closing/month_closing\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-chart-pie\"></i>&nbsp;Fechamento Mês</a>") : print_r(""))?></div>
     </div>
     <div class="row">
-        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"client_add"))? print_r("<a href=\"" . ROOT ."/Results/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-chart-line\"></i>&nbsp;Resultados</a>") : print_r(""))?></div>
+        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"result_view"))? print_r("<a href=\"" . ROOT ."/Results/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-chart-line\"></i>&nbsp;Resultados</a>") : print_r(""))?></div>
         <div class="col-sm-6"></div>
     </div>
     <br>

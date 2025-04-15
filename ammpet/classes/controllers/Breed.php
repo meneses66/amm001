@@ -147,6 +147,8 @@ class Breed {
     public function load_rows(){
         
         //restart_session();
+        $breed_edit_check = check_permission($_SESSION['username'],"breed_edit");
+        $breed_delete_check = check_permission($_SESSION['username'],"breed_delete");
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
@@ -169,8 +171,8 @@ class Breed {
                             <td>'.$row->NAME.'</td>
                             <td>'.$row->TYPE.'</td>
                             <td>
-                                <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                '.(($breed_edit_check) ? "<a href=\"" . ROOT . "/$this->UCF_object/_update?id=$row->ID\" title=\"Edit\" class=\"text-primary updateBtn\" id=" . $row->ID . "><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
+                                '.(($breed_delete_check) ? "<a href=\"" . ROOT . "/$this->UCF_object/_delete?id=$row->ID\" title=\"Edit\" class=\"text-danger deleteBtn\" id=" . $row->ID . "><i class=\"fas fa-eraser\"></i></a>" : "").'
                             </td></tr>';
             }
             $output .= '</tbody>';
