@@ -13,7 +13,7 @@
     <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
     </head>
     <body>
-        <input id="user_permissions" type="text" value="<?php echo $user_permission; ?>">
+        <input id="user_permissions" type="hidden" value="<?php echo $user_permission; ?>">
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
@@ -30,9 +30,6 @@
         
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
-
-        <!-- Permission Check JS-->
-        <script src="../public/assets/js/permission_check.js"></script>
 
         <!-- jQuery library -->
         <script src="<?php echo ROOT;?>/assets/js/jquery-3.7.1.js"></script>
@@ -67,6 +64,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
+
+        <!-- Permission Check JS-->
+        <script src="../public/assets/js/permission_check.js"></script>
 
     </body>
 </html>
