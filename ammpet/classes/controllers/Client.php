@@ -282,6 +282,9 @@ class Client
         
         //restart_session();
         $inputs_buttons=$inputs['buttons'];
+        $client_edit_check = check_permission($_SESSION['username'], "client_edit");
+        $client_delete_check = check_permission($_SESSION['username'], "client_delete");
+        $orderx_add_check = check_permission($_SESSION['username'], "orderx_add");
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         
@@ -316,10 +319,9 @@ class Client
                             <td>'.$row->STATUS.'</td>
                             <td>'.$row->ANIMALS.'</td>
                             <td>
-                                '.(($inputs_buttons=='Orderx')? "<a href=\"" : "").''.(($inputs_buttons=='Orderx')? ROOT."/Orderx/_new_order?cli_id=$row->ID\"" : "").''.(($inputs_buttons=='Orderx')? " title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id=" : "").''.(($inputs_buttons=='Orderx')? $row->ID : "").''.(($inputs_buttons=='Orderx')? "id=\"button_orderx_add\" \"><i class=\"fas fa-plus\"></i></a>" : "").'
-                                '.(($inputs_buttons=="Client" && check_permission($_SESSION['username'], "client_edit"))? "<a href=\"" : "").''.(($inputs_buttons=="Client" && check_permission($_SESSION['username'], "client_edit"))? ROOT."/Client/_update?id=$row->ID\"" : "").''.(($inputs_buttons=="Client" && check_permission($_SESSION['username'], "client_edit"))? " title=\"Edit\" class=\"text-primary updateBtn\" cli_id=" : "").''.(($inputs_buttons=="Client" && check_permission($_SESSION['username'], "client_edit"))? $row->ID : "").''.(($inputs_buttons=="Client" && check_permission($_SESSION['username'], "client_edit"))? "><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
-                                '.(($inputs_buttons=='Client')? "<a href=\"" : "").''.(($inputs_buttons=='Client')? ROOT."/Client/_delete?id=$row->ID\"" : "").''.(($inputs_buttons=='Client')? " title=\"Delete\" class=\"text-danger deleteBtn\" cli_id=" : "").''.(($inputs_buttons=='Client')? $row->ID : "").''.(($inputs_buttons=='Client')? "id=\"button_client_delete\"><i class=\"fas fa-eraser\"></i></a>" : "").'
-                                '.(($inputs_buttons == 'Client' && check_permission($_SESSION['username'], "client_delete")) ? "<a href=\"" . ROOT . "/Client/_delete?id=$row->ID\" title=\"Delete\" class=\"text-danger deleteBtn\" cli_id=" . $row->ID . " id=\"button_client_delete\"><i class=\"fas fa-eraser\"></i></a>" : "").'
+                                '.(($inputs_buttons == 'Orderx' && $orderx_add_check) ? "<a href=\"" . ROOT . "/Orderx/_new_order?cli_id=$row->ID\" title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id= .$row->ID . ><i class=\"fas fa-plus\"></i></a>" : "").'
+                                '.(($inputs_buttons == "Client" && $client_edit_check) ? "<a href=\"" . ROOT . "/Client/_update?id=$row->ID\" title=\"Edit\" class=\"text-primary updateBtn\" cli_id=" . $row->ID . "><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
+                                '.(($inputs_buttons == 'Client' && $client_delete_check) ? "<a href=\"" . ROOT . "/Client/_delete?id=$row->ID\" title=\"Delete\" class=\"text-danger deleteBtn\" cli_id=" . $row->ID . "><i class=\"fas fa-eraser\"></i></a>" : "").'
                             </td></tr>';
             }
             $output .= '</tbody>';
