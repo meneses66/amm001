@@ -66,7 +66,7 @@
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
 
         <!-- Permission Check JS-->
-        <script src="../public/assets/js/permission_check.js"></script>
+        <script src="<?php echo ROOT;?>/assets/js/permission_check.js"></script>
 
     </body>
 </html>
