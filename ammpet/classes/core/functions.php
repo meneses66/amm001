@@ -312,3 +312,14 @@ function get_user_permissions($username){
     unset($array);
 
 }
+
+function check_permission($username, $permission_to_check){
+
+    $user_permission = get_user_permissions($username);
+
+    if(in_array($permission_to_check, $user_permission)){
+        return true;
+    } else{
+        return false;
+    }
+}
