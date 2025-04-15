@@ -317,7 +317,7 @@ function check_permission($username, $permission_to_check){
 
     $user_permission = get_user_permissions($username);
 
-    if(in_array($permission_to_check, $user_permission)){
+    if(str_contains($user_permission, $permission_to_check)){
         return true;
     } else{
         return false;
