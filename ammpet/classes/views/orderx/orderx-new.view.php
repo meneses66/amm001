@@ -59,6 +59,9 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
 
+        <!-- Table Column Date Formatting-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+
         <!-- Export to Excel -->
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.js"></script>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.dataTables.js"></script>
