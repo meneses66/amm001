@@ -19,6 +19,7 @@
     </div>
     <div class="row">
         <div class="col-sm-6"><a href="<?php echo ROOT."/Report/veterinaria";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-list-alt"></i>&nbsp;Veterinária</a></div>
+        <div class="col-sm-6"><a href="<?php echo ROOT."/Report/comissoes";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-list-alt"></i>&nbsp;Comissões</a></div>
     </div>
     <br>
 </div>

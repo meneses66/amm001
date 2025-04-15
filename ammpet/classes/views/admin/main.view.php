@@ -10,9 +10,6 @@
     <hr class="my-1">
     <br><br><br><br>
     <div class="row">
-    
-        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"client_add"))? print_r("<a href=\"" . ROOT . "/Client/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-user-plus\"></i>&nbsp;Novo Cliente</a>") : print_r(""))?></div>
-
         <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"cash_register_view"))? print_r("<a href=\"" . ROOT ."/Daily_Accounting/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-cash-register\"></i>&nbsp;Caixa</a>") : print_r(""))?></div>
         <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"cost_view"))? print_r("<a href=\"" . ROOT ."/Payments/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-file-invoice-dollar\"></i>&nbsp;Custos</a>") : print_r(""))?></div>
     </div>

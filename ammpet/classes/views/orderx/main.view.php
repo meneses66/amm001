@@ -10,8 +10,8 @@
     <hr class="my-1">
     <br><br><br><br>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Orderx/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-money-bill-alt"></i>&nbsp;Histórico de Vendas</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Orderx/_new";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-donate"></i>&nbsp;Nova Venda</a></div>
+        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"orderx_view"))? print_r("<a href=\"". ROOT."/Orderx/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"far fa-money-bill-alt\"></i>&nbsp;Histórico de Vendas</a>") : print_r(""))?></div>
+        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"orderx_add"))? print_r("<a href=\"". ROOT."/Orderx/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-donate\"></i>&nbsp;Nova Venda</a>") : print_r(""))?></div>
     </div>
     <br>
 </div>

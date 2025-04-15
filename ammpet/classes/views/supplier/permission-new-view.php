@@ -257,4 +257,46 @@
             <input type="checkbox" id="breed_delete" name="breed_delete" value="breed_delete">
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Relatórios</p>
+        </div>
+        <div class="col-sm-9">
+            <p>-----------------------------------------------------------------------------------------------------------</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            <p>-- </p>
+        </div>
+        <div class="col-sm-2">
+            <p>Cobranças</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="cobrancas_view" name="cobrancas_view" value="cobrancas_view">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1">
+            <p>-- </p>
+        </div>
+        <div class="col-sm-2">
+            <p>Vencimento Pacotes</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="vencimento_pacotes_view" name="vencimento_pacotes_view" value="vencimento_pacotes_view">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
 </div> 
