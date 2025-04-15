@@ -11,16 +11,16 @@
     <br><br><br><br>
     <div class="row">
         <div class="row">
-                <div class="col-sm-6"><?((check_permission($_SESSION['username'],"client_add"))? "<a href=\"" . ROOT . "/Client/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-user-plus\"></i>&nbsp;Novo Cliente</a>" :"");?></div>
-                <div class=\"col-sm-6\"><a href=\"" . ROOT . "/Supplier/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"far fa-id-badge\"></i>&nbsp;Novo Fornecedor</a></div>
-                </div>
-                <div class=\"row\">
-                    <div class=\"col-sm-6\"><a href=\"" . ROOT . "/Product/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-barcode\"></i>&nbsp;Novo Produto</a></div>
-                    <div class=\"col-sm-6\"><a href=\"" . ROOT . "/Service/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-cut\"></i>&nbsp;Novo Serviço</a></div>
-                </div>
-                <div class=\"row\">
-                    <div class=\"col-sm-6\"><a href=\"" . ROOT . "/Breed/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-paw\"></i>&nbsp;Nova Raça</a></div>
-                    <div class=\"col-sm-6\"></div>
+            <div class="col-sm-6"><?((check_permission($_SESSION['username'],"client_add"))? "<a href=\"" . ROOT . "/Client/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-user-plus\"></i>&nbsp;Novo Cliente</a>" :"");?></div>
+            <div class="col-sm-6"><?((check_permission($_SESSION['username'],"supplier_add"))? "<a href=\"" . ROOT . "/Supplier/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"far fa-id-badge\"></i>&nbsp;Novo Fornecedor</a>" :"");?></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6"><a href=\"" . ROOT . "/Product/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-barcode\"></i>&nbsp;Novo Produto</a></div>
+            <div class="col-sm-6"><a href=\"" . ROOT . "/Service/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-cut\"></i>&nbsp;Novo Serviço</a></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6"><a href=\"" . ROOT . "/Breed/_new\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-paw\"></i>&nbsp;Nova Raça</a></div>
+            <div class="col-sm-6"></div>
         </div>;
     </div>
 </div>
