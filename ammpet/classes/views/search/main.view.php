@@ -10,15 +10,15 @@
     <hr class="my-1">
     <br><br><br><br>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Client/_list";?>" class="btn btn-primary btn-lg m-1 btn-block" id="client_list"><i class="fas fa-user"></i>&nbsp;Clientes</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Supplier/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="far fa-id-badge"></i>&nbsp;Fornecedores</a></div>
+        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"client_view"))? print_r("<a href=\"" . ROOT. "/Client/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-user\"></i>&nbsp;Clientes</a>") : print_r(""))?></div>
+        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"supplier_view"))? print_r("<a href=\"" . ROOT. "/Supplier/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"far fa-id-badge\"></i>&nbsp;Fornecedores</a>") : print_r(""))?></div>
     </div>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Product/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-barcode"></i>&nbsp;Produtos</a></div>
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Service/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-cut"></i>&nbsp;Serviços</a></div>
+        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"product_view"))? print_r("<a href=\"" . ROOT."/Product/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-barcode\"></i>&nbsp;Produtos</a>") : print_r(""))?></div>
+        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"service_view"))? print_r("<a href=\"" . ROOT."/Service/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-cut\"></i>&nbsp;Serviços</a>") : print_r(""))?></div>
     </div>
     <div class="row">
-        <div class="col-sm-6"><a href="<?php echo ROOT."/Breed/_list";?>" class="btn btn-primary btn-lg m-1 btn-block"><i class="fas fa-paw"></i>&nbsp;Raças</a></div>
+        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"breed_view"))? print_r("<a href=\"" . ROOT."/Breed/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-paw\"></i>&nbsp;Raças</a>") : print_r(""))?></div>
     </div>
     <br>
 </div>
