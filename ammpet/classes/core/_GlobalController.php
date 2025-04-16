@@ -317,6 +317,7 @@ Trait _GlobalController{
             if($this->UCF_object=="OrderItem" AND isset($_GET['order_id'])){
 
                 $prod_serv_type = $inputs['Prod_Serv_Type'];
+                $prod_serv_category = $inputs['Prod_Serv_Category'];
                 $inputs['Created_By']=$_SESSION['username'];
                 $inputs['Updated_By']=$_SESSION['username'];
                 $inputs['Date']=date("Y-m-d");
@@ -525,6 +526,34 @@ Trait _GlobalController{
 
                     case 'OrderItem':
                         if($prod_serv_type=="Serv"){
+                            //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE:
+                            if ($prod_serv_category=="Pacote") {
+
+                                //$package_input['Id_Order_Item'] = $new_id;
+                                //require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Package.php';
+                                //$package_model = new('\Model\\'."Package");
+                                //$package_row = $package_model->getRow($package_input);
+
+                                //if (!($package_row)) {
+                                    unset($_POST);
+                                    $_SERVER['REQUEST_METHOD'] = 'POST';
+                                    $_POST['Id_Client']=$cli_id;
+                                    $_POST['Id_Animal']=$inputs['Id_Package_Animal'];
+                                    $_POST['Id_Order']=$order_id;
+                                    $_POST['Id_Order_Item']=$new_id;
+                                    $_POST['Id_Prod_Serv']=$inputs['Id_Prod_Serv'];
+                                    $_POST['Pack_Quantity']=$inputs['Package_Amount'];
+                                    $_POST['Pack_Name']=$inputs['Package_Service'];
+                                    
+                                    $_POST['class']="Package";
+                                    $_POST['method']="insert_call";
+                        
+                                    $ajax_call = new('\Controller\\'."Ajax_call");
+                                    $ajax_call->index();
+                                //}
+                                //unset($package_input);
+                                //$package_model=null;
+                            }
                             $view = "$this->UCF_object/_updateService?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
                         }
                         if($prod_serv_type=="Prod"){
@@ -937,7 +966,8 @@ Trait _GlobalController{
                                 $ajax_call->index();
                             }
 
-                            //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE:
+                            //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE: (MOVED TO INSERT_CALL)
+                            /*
                             if ($inputs['Prod_Serv_Category']=="Pacote") {
 
                                 $package_input['Id_Order_Item'] = $id;
@@ -966,6 +996,7 @@ Trait _GlobalController{
                                 unset($package_input);
                                 $package_model=null;
                             }
+                            */
 
                         }
 
