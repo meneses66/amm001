@@ -565,40 +565,44 @@ class Orderx
         if ($result_totals){
 
             foreach ($result_totals as $row) {
-                $_SERVER['REQUEST_METHOD']="POST";
 
-                $_POST['Order_value_no_discount'] = $row->T_VALUE_NO_DISCOUNT;
-                $_POST['Order_value_with_discount'] = $row->T_VALUE_WITH_DISCOUNT;
-                $_POST['Order_value_cash'] = $row->T_TOTAL_CASH;
-                $_POST['Order_value_pix'] = $row->T_TOTAL_PIX;
-                $_POST['Id'] = $inputs['Id'];
-                $_POST['Status'] = "Pendente";
+                if (!($row->T_VALUE_NO_DISCOUNT==null)) {
+                    $_SERVER['REQUEST_METHOD']="POST";
+
+                    $_POST['Order_value_no_discount'] = $row->T_VALUE_NO_DISCOUNT;
+                    $_POST['Order_value_with_discount'] = $row->T_VALUE_WITH_DISCOUNT;
+                    $_POST['Order_value_cash'] = $row->T_TOTAL_CASH;
+                    $_POST['Order_value_pix'] = $row->T_TOTAL_PIX;
+                    $_POST['Id'] = $inputs['Id'];
+                    $_POST['Status'] = "Pendente";
+                    
+                    $_POST['class']="Orderx";
+                    $_POST['method']="update_call";
+                    //$_POST['type']="static";
+
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();    
+                } else{
+                    $_SERVER['REQUEST_METHOD']="POST";
+            
+                    $_POST['Order_value_no_discount'] = 0;
+                    $_POST['Order_value_with_discount'] = 0;
+                    $_POST['Order_value_cash'] = 0;
+                    $_POST['Order_value_pix'] = 0;
+                    $_POST['Id'] = $inputs['Id'];
+                    $_POST['Status'] = "Aberto";
+                    
+                    $_POST['class']="Orderx";
+                    $_POST['method']="update_call";
+                    //$_POST['type']="static";
+
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+
+                }
                 
-                $_POST['class']="Orderx";
-                $_POST['method']="update_call";
-                //$_POST['type']="static";
-
-                $ajax_call = new('\Controller\\'."Ajax_call");
-                $ajax_call->index();
             }
    
-        }else {
-            $_SERVER['REQUEST_METHOD']="POST";
-            
-            $_POST['Order_value_no_discount'] = 0;
-            $_POST['Order_value_with_discount'] = 0;
-            $_POST['Order_value_cash'] = 0;
-            $_POST['Order_value_pix'] = 0;
-            $_POST['Id'] = $inputs['Id'];
-            $_POST['Status'] = "Aberto";
-            
-            $_POST['class']="Orderx";
-            $_POST['method']="update_call";
-            //$_POST['type']="static";
-
-            $ajax_call = new('\Controller\\'."Ajax_call");
-            $ajax_call->index();
-        
         }
         
         unset($_POST);
