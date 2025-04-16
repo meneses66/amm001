@@ -17,7 +17,7 @@
             <h4>Lista Salários</h4>
         </div>
         <div class="col-lg-6">
-            <a href="<?php echo ROOT."/Salary/_new?id=new";?>" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Registro</a>
+            <?php ((check_permission($_SESSION['username'],"salary_add"))? print_r("<a href=\"". ROOT."/Salary/_new?id=new\" class=\"btn btn-success m-1 float-right\"><i class=\"fas fa-plus-circle\"></i>&nbsp;Novo Registro</a>") : print_r(""))?>
         </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class="row">
