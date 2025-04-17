@@ -655,60 +655,67 @@ class Orderx
 
         $result_order_payment = $orderpayment_model->exec_sqlstm($sqlsql_payments, $inputs_order_payment);
     
-        if ($result_order) {
-                $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
-        } else {
-            $order_debt = 999999;
-        }
-        if ($result_order_payment){
+        foreach ($result_order_payment as $row) {
 
-            $_SERVER['REQUEST_METHOD']="POST";
-
-            foreach ($result_order_payment as $row_payment) {
-                $paid_amount = $row_payment->PAID_AMOUNT;
+            if (!($row->PAID_AMOUNT==null)) {
+                    $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
+                    $paid_amount = $row->PAID_AMOUNT;
+            } else {
+                $order_debt = 999999;
             }
 
-            $updated_order_debt = $order_debt - $paid_amount;
+            if (!($row->PAID_AMOUNT==null)){
 
-            if ($paid_amount >= $order_debt && $has_items) {
-                $_POST['Status']="Fechado";
+                $_SERVER['REQUEST_METHOD']="POST";
+
+                /*
+                foreach ($result_order_payment as $row_payment) {
+                    $paid_amount = $row_payment->PAID_AMOUNT;
+                }
+                */
+
+                $updated_order_debt = $order_debt - $paid_amount;
+
+                if ($paid_amount >= $order_debt && $has_items) {
+                    $_POST['Status']="Fechado";
+                }
+                
+                if ($paid_amount >= $order_debt && !($has_items)) {
+                    $_POST['Status']="Pagamento sem itens";
+                }
+
+                $_POST['Order_paid_amount'] = $paid_amount;
+                $_POST['Order_debt'] = $updated_order_debt;
+                $_POST['Id'] = $inputs['Id'];
+                $_POST['class']="Orderx";
+                $_POST['method']="update_call";
+                
+                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call->index();
+
+    
+    
+            }else {
+                
+                $_SERVER['REQUEST_METHOD']="POST";
+
+                $_POST['Order_paid_amount'] = 0;
+                $_POST['Order_debt'] = $order_debt;
+                $_POST['Id'] = $inputs['Id'];
+
+                if ($has_items) {
+                    $_POST['Status']="Pendente";
+                } else{
+                    $_POST['Status']="Aberto";
+                }
+                
+                $_POST['class']="Orderx";
+                $_POST['method']="update_call";
+
+                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call->index();
+            
             }
-            
-            if ($paid_amount >= $order_debt && !($has_items)) {
-                $_POST['Status']="Pagamento sem itens";
-            }
-
-            $_POST['Order_paid_amount'] = $paid_amount;
-            $_POST['Order_debt'] = $updated_order_debt;
-            $_POST['Id'] = $inputs['Id'];
-            $_POST['class']="Orderx";
-            $_POST['method']="update_call";
-            
-            $ajax_call = new('\Controller\\'."Ajax_call");
-            $ajax_call->index();
-
- 
-   
-        }else {
-            
-            $_SERVER['REQUEST_METHOD']="POST";
-
-            $_POST['Order_paid_amount'] = 0;
-            $_POST['Order_debt'] = $order_debt;
-            $_POST['Id'] = $inputs['Id'];
-
-            if ($has_items) {
-                $_POST['Status']="Pendente";
-            } else{
-                $_POST['Status']="Aberto";
-            }
-            
-            $_POST['class']="Orderx";
-            $_POST['method']="update_call";
-
-            $ajax_call = new('\Controller\\'."Ajax_call");
-            $ajax_call->index();
-        
         }
         
         unset($_POST);
