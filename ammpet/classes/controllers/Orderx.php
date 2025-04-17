@@ -290,7 +290,7 @@ class Orderx
                         CP.PACK_QUANTITY, 
                         CP.PACK_CONSUMED, 
                         CP.PACK_STATUS, 
-                        GROUP_CONCAT(OI.DATE,\" | \", OI.PACKAGE_SEQUENCE,\" | \", OI.ID,\" | \", OI.PACKAGE_SERVICE  SEPARATOR '<br>') AS DETAIL 
+                        GROUP_CONCAT(OI.DATE,\" ▪ \", OI.PACKAGE_SEQUENCE,\" ▪ \", OI.ID,\" ▪ \", OI.PACKAGE_SERVICE  SEPARATOR '<br>') AS DETAIL 
                         FROM 
                             CLIENT_PACKAGE CP
                                 LEFT JOIN ANIMAL A ON CP.ID_ANIMAL=A.ID
