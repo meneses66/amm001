@@ -25,6 +25,9 @@ class Ajax_call {
         $class = new ('\Controller\\'.$className);
 
         try {
+            $log="ClassName = ".$classname." | Method = ".$method;
+            $log .= $inputs;
+            wh_log($log);
             $result = $class->$method($inputs);
         } catch (\Throwable $th) {
             throw $th;
