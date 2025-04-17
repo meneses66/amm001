@@ -45,4 +45,11 @@
           $('#id_package_animal').html(response);
       }
   });
+
+
+  function validate_service(){
+    document.getElementById('package_service').removeAttribute("disabled");
+    return true;
+  }
+
   }

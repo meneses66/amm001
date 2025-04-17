@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
-        <form method="post">
+        <form method="post" onsubmit="return validate_service()">
             <input type="hidden" name="operation" value="update">
             <?php
                 $controller4 = new ('\Controller\\'."OrderItem");
