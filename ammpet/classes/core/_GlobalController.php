@@ -949,6 +949,7 @@ Trait _GlobalController{
                             $ajax_call->index();
                         }
                         
+                        wh_log(date("H:i:s")."--> PS_TYPE: ".$prod_serv_type."PS_CATEGORY: ".$prod_serv_category);
                         if ($prod_serv_type=="Serv" && $prod_serv_category=="Pacote") {
 
                             wh_log("PACKAGE UPDATE ACCESSED");
@@ -958,7 +959,7 @@ Trait _GlobalController{
                             $package_model = new('\Model\\'."Package");
                             $package_row = $package_model->getRow($package_input);
 
-                            $package_log = "Package_Row: ".$package_row;
+                            $package_log = date("H:i:s"). " --> Package_Row: ".$package_row;
                             wh_log($package_log);
 
                             if (!($package_row)) {
