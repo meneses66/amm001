@@ -647,22 +647,22 @@ Trait _GlobalController{
                 $cli_id = $_GET['cli_id'];
                 $order_id = $_GET['order_id'];
 
-                if (isset($inputs['Id_Package'])) {
+                if (isset($inputs["Id_Package"])) {
                     $package_id = $inputs['Id_Package'];
                 }
-                if (isset($inputs['Id_Package_Animal'])) {
+                if (isset($inputs["Id_Package_Animal"])) {
                     $animal_id = $inputs['Id_Package_Animal'];
                 }
-                if (isset($inputs['Id_Prod_Serv'])) {
+                if (isset($inputs["Id_Prod_Serv"])) {
                     $prod_serv_id = $inputs['Id_Prod_Serv'];
                 }
-                if (isset($inputs['Package_Amount'])) {
+                if (isset($inputs["Package_Amount"])) {
                     $pack_quantity = $inputs['Package_Amount'];
                 }
-                if (isset($inputs['Package_Service'])) {
+                if (isset($inputs["Package_Service"])) {
                     $pack_name = $inputs['Package_Service'];
                 }
-                if (isset($inputs['Prod_Serv_Category'])) {
+                if (isset($inputs["Prod_Serv_Category"])) {
                     $prod_serv_category = $inputs['Prod_Serv_Category'];
                 }
                 
