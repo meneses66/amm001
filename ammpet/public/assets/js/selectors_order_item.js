@@ -46,10 +46,4 @@
       }
   });
 
-
-  function validate_service(){
-    document.getElementById('package_service').removeAttribute("disabled");
-    return true;
-  }
-
   }

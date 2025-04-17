@@ -23,6 +23,10 @@ $(document).ready(function(){
         document.getElementById('package_service').removeAttribute("disabled");
     }
 
+    document.getElementById("update_form").onsubmit = function() {
+        document.getElementById('package_service').removeAttribute("disabled");
+    };
+
     load_package(temp_package, id_client);
     load_executor(temp_executor);
     load_salesperson(temp_salesperson);
