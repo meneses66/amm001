@@ -583,7 +583,7 @@ Trait _GlobalController{
             $log = "::UPDATE CALL::";
             foreach ($_POST as $key => $value) {
                 $inputs[$key]=$value;
-                $log .= date("H:i:s")."--> Input: ".$inputs[$key]." = Value: ".$value;
+                $log .= date("H:i:s")."--> Input: ".$key." = ".$value."| ";
             }
             wh_log($log);
 
