@@ -657,11 +657,12 @@ class Orderx
     
         foreach ($result_order_payment as $row) {
 
-            if (!($row->PAID_AMOUNT==null)) {
+            if (($row->PAID_AMOUNT==null)) {
                     $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
-                    $paid_amount = $row->PAID_AMOUNT;
+                    $paid_amount = 0;
             } else {
-                $order_debt = 999999;
+                $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
+                $paid_amount = $row->PAID_AMOUNT;
             }
 
             if (!($row->PAID_AMOUNT==null)){
