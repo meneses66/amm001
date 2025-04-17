@@ -951,14 +951,21 @@ Trait _GlobalController{
                         
                         if ($prod_serv_type=="Serv" && $prod_serv_category=="Pacote") {
 
+                            wh_log("PACKAGE UPDATE ACCESSED");
+
                             $package_input['Id_Order_Item'] = $id;
                             require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Package.php';
                             $package_model = new('\Model\\'."Package");
                             $package_row = $package_model->getRow($package_input);
 
+                            $package_log = "Package_Row: ".$package_row;
+                            wh_log($package_log);
+
                             if (!($package_row)) {
                                 unset($_POST);
                                 $_SERVER['REQUEST_METHOD'] = 'POST';
+                                $package_log2 = "Cli_id: ".$cli_id." | Ani_id: ".$animal_id." | Order_id: ".$order_id." | Id: ".$id." | PS_id: ".$prod_serv_id." | Pack_qty: ".$pack_quantity." | Pack_Name: ".$pack_name;
+                                wh_log($package_log2);
                                 $_POST['Id_Client']=$cli_id;
                                 $_POST['Id_Animal']=$animal_id;
                                 $_POST['Id_Order']=$order_id;
