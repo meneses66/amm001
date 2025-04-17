@@ -326,7 +326,7 @@ function check_permission($username, $permission_to_check){
 
 function wh_log($log_msg)
 {
-    $log_filename = "log";
+    $log_filename = $_SERVER['DOCUMENT_ROOT']."/log";
     if (!file_exists($log_filename)) 
     {
         // create directory/folder uploads.
