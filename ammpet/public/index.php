@@ -9,7 +9,7 @@
 	}
 
 	/** Path to this file */
-	define('ROOTPATH', __DIR__ . DIRECTORY_SEPARATOR);
+	define('', __DIR__ . DIRECTORY_SEPARATOR);
 	define('TIMEOUT',1800);
 	require '../classes/core/init.php';
 
