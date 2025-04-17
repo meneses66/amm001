@@ -330,7 +330,7 @@ function wh_log($log_msg)
     if (!file_exists($log_filename)) 
     {
         // create directory/folder uploads.
-        mkdir($log_filename, 0777, true);
+        mkdir($log_filename, 0755, true);
     }
     $log_file_data = $log_filename.'/log_amm_' . date('Y-M-d') . '.log';
     file_put_contents($log_file_data, $log_msg . "\n", FILE_APPEND);
