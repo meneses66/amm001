@@ -646,6 +646,7 @@ Trait _GlobalController{
  
                 $cli_id = $_GET['cli_id'];
                 $order_id = $_GET['order_id'];
+                $item_id = $_GET['item_id'];
 
                 if (isset($inputs["Id_Package"])) {
                     $package_id = $inputs['Id_Package'];
@@ -947,8 +948,6 @@ Trait _GlobalController{
                                 $ajax_call = new('\Controller\\'."Ajax_call");
                                 $ajax_call->index();
                             }
-
-                            //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE: (MOVED TO INSERT_CALL)
                             
                             if ($prod_serv_category=="Pacote") {
 
@@ -977,6 +976,7 @@ Trait _GlobalController{
 
                                 unset($package_input);
                                 $package_model=null;
+                                $package_row=null;
                             }
                             
 
