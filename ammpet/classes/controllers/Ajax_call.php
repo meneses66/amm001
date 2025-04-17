@@ -11,42 +11,41 @@ class Ajax_call {
     public function index()
     {    
         if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['class']) && isset($_POST['method']) )
-    {
-        $className = $_POST['class'];
-        $method = $_POST['method'];
-        require_once $_POST['class'].'.php';
-
-        //echo var_dump($_POST);
-        
-        foreach ($_POST as $key => $value) {
-            $inputs[$key]=$value;    
-        }
-
-        $class = new ('\Controller\\'.$className);
-
-        try {
-            $log="ClassName = ".$className." | Method = ".$method;
-            $log .= "---------------------------------";
-            $log .= json_encode($inputs);
-            wh_log($log);
-            $result = $class->$method($inputs);
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-        
-        if(is_array($result))
         {
-            print_r($result);
-        }
-            elseif(is_string($result) && is_array(json_decode($result , true)))
-            {
-                print_r(json_decode($string, true));
+            $className = $_POST['class'];
+            $method = $_POST['method'];
+            require_once $_POST['class'].'.php';
+            
+            foreach ($_POST as $key => $value) {
+                $inputs[$key]=$value;    
             }
-                else
+
+            $class = new ('\Controller\\'.$className);
+
+            try {
+                $log="ClassName = ".$className." | Method = ".$method;
+                $log .= "---------------------------------";
+                $log .= json_encode($inputs);
+                wh_log($log);
+                $result = $class->$method($inputs);
+            } catch (\Throwable $th) {
+                wh_log($th);
+                //throw $th;
+            }
+            
+            if(is_array($result))
+            {
+                print_r($result);
+            }
+                elseif(is_string($result) && is_array(json_decode($result , true)))
                 {
-                    echo $result;
+                    print_r(json_decode($string, true));
                 }
-    }    
+                    else
+                    {
+                        echo $result;
+                    }
+        }    
     }
 
 }
