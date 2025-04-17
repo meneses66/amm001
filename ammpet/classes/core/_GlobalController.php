@@ -478,7 +478,6 @@ Trait _GlobalController{
 
             //Special condition when Object is Package:
             if($this->UCF_object=="Package"){
-                
                 $inputs['Created_By']=$_SESSION['username'];
                 $inputs['Updated_By']=$_SESSION['username'];
                 $inputs['Pack_Date']=date("Y-m-d");
@@ -501,7 +500,7 @@ Trait _GlobalController{
             }
 
             try {
-                //$model->insert($inputs);
+
                 $new_id=$model->insert($inputs);
 
                 switch ($this->UCF_object) {

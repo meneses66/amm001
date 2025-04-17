@@ -23,7 +23,12 @@ class Ajax_call {
         }
 
         $class = new ('\Controller\\'.$className);
-        $result = $class->$method($inputs);
+
+        try {
+            $result = $class->$method($inputs);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
         
         if(is_array($result))
         {
