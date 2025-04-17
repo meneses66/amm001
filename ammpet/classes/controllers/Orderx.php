@@ -326,7 +326,7 @@ class Orderx
                                 <td>'.$row->PACK_QUANTITY.'</td>
                                 <td>'.$row->PACK_CONSUMED.'</td>
                                 <td>'.$row->PACK_STATUS.'</td>
-                                <td>'.$row->DETAIL.'</td>
+                                <td style="text-align: left;">'.$row->DETAIL.'</td>
                                </tr>';
                 }
                 $output .= '</tbody>';
