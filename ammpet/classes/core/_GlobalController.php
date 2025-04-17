@@ -543,6 +543,7 @@ Trait _GlobalController{
                         $ajax_call = new('\Controller\\'."Ajax_call");
                         $ajax_call->index();
 
+                        //AFTER ORDER PAYMENTS HAS BEEN UPDATED, REDIRECTS TO ORDER DETAILS:
                         $path2 = "Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];
                         unset_array($inputs);
                         double_redirect("OrderPayment", $path2);
@@ -933,53 +934,52 @@ Trait _GlobalController{
                         $ajax_call->index();
             
                         //UPDATES WHEN SERVICE:
-                        if($prod_serv_type=="Serv"){
+                        //if($prod_serv_type=="Serv"){
 
-                            //CALL UPDATE PACKAGES:
-                            if (!($package_id==1)) {
+                        //CALL UPDATE PACKAGES:
+                        if ( $prod_serv_type=="Serv" && !($package_id==1)) {
+                            unset($_POST);
+                            $_SERVER['REQUEST_METHOD'] = 'POST';
+                            $_POST['class']="Package";
+                            $_POST['method']="update_package";
+                            $_POST['Id_Package']=$package_id;
+                            $_POST['Id']=$id;
+
+                            $ajax_call = new('\Controller\\'."Ajax_call");
+                            $ajax_call->index();
+                        }
+                        
+                        if ($prod_serv_type=="Serv" && $prod_serv_category=="Pacote") {
+
+                            $package_input['Id_Order_Item'] = $id;
+                            require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Package.php';
+                            $package_model = new('\Model\\'."Package");
+                            $package_row = $package_model->getRow($package_input);
+
+                            if (!($package_row)) {
                                 unset($_POST);
                                 $_SERVER['REQUEST_METHOD'] = 'POST';
+                                $_POST['Id_Client']=$cli_id;
+                                $_POST['Id_Animal']=$animal_id;
+                                $_POST['Id_Order']=$order_id;
+                                $_POST['Id_Order_Item']=$id;
+                                $_POST['Id_Prod_Serv']=$prod_serv_id;
+                                $_POST['Pack_Quantity']=$pack_quantity;
+                                $_POST['Pack_Name']=$pack_name;
+                                
                                 $_POST['class']="Package";
-                                $_POST['method']="update_package";
-                                $_POST['Id_Package']=$package_id;
-                                $_POST['Id']=$id;
-
+                                $_POST['method']="insert_call";
+                    
                                 $ajax_call = new('\Controller\\'."Ajax_call");
                                 $ajax_call->index();
                             }
-                            
-                            if ($prod_serv_category=="Pacote") {
 
-                                $package_input['Id_Order_Item'] = $id;
-                                require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Package.php';
-                                $package_model = new('\Model\\'."Package");
-                                $package_row = $package_model->getRow($package_input);
-
-                                if (!($package_row)) {
-                                    unset($_POST);
-                                    $_SERVER['REQUEST_METHOD'] = 'POST';
-                                    $_POST['Id_Client']=$cli_id;
-                                    $_POST['Id_Animal']=$animal_id;
-                                    $_POST['Id_Order']=$order_id;
-                                    $_POST['Id_Order_Item']=$id;
-                                    $_POST['Id_Prod_Serv']=$prod_serv_id;
-                                    $_POST['Pack_Quantity']=$pack_quantity;
-                                    $_POST['Pack_Name']=$pack_name;
-                                    
-                                    $_POST['class']="Package";
-                                    $_POST['method']="insert_call";
-                        
-                                    $ajax_call = new('\Controller\\'."Ajax_call");
-                                    $ajax_call->index();
-                                }
-
-                                unset($package_input);
-                                $package_model=null;
-                                $package_row=null;
-                            }
-                            
-
+                            unset($package_input);
+                            $package_model=null;
+                            $package_row=null;
                         }
+                            
+                        //}
 
                         //UPDATES WHEN PRODUCT:
                         //if($prod_serv_type=="Prod"){
