@@ -290,7 +290,7 @@ class Orderx
                         CP.PACK_QUANTITY, 
                         CP.PACK_CONSUMED, 
                         CP.PACK_STATUS, 
-                        GROUP_CONCAT(OI.DATE," | ", OI.PACKAGE_SERVICE," | ", OI.PACKAGE_SEQUENCE," | ", OI.ID  SEPARATOR '\r\n') AS DETAIL 
+                        GROUP_CONCAT(OI.DATE,\" | \", OI.PACKAGE_SERVICE,\" | \", OI.PACKAGE_SEQUENCE,\" | \", OI.ID  SEPARATOR '<br>') AS DETAIL 
                         FROM 
                             CLIENT_PACKAGE CP
                                 LEFT JOIN ANIMAL A ON CP.ID_ANIMAL=A.ID
@@ -298,7 +298,8 @@ class Orderx
                         WHERE 
                             CP.ID_CLIENT=:ID_CLIENT and 
                             CP.PACK_STATUS =:PACK_STATUS 
-                        GROUP BY CP.ID";
+                        GROUP BY CP.ID
+                        ORDER BY CP.ID DESC";
             $model = new('\Model\\'."Package");
             $data = $model->exec_sqlstm($sql_stm, $inputs);
             if($data){
