@@ -27,7 +27,7 @@ class Ajax_call {
         try {
             $log="ClassName = ".$className." | Method = ".$method;
             $log .= "---------------------------------";
-            $log .= jason_encode($inputs);
+            $log .= json_encode($inputs);
             wh_log($log);
             $result = $class->$method($inputs);
         } catch (\Throwable $th) {
