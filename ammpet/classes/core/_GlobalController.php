@@ -646,12 +646,26 @@ Trait _GlobalController{
  
                 $cli_id = $_GET['cli_id'];
                 $order_id = $_GET['order_id'];
-                $package_id = $inputs['Id_Package'];
-                $animal_id = $inputs['Id_Package_Animal'];
-                $prod_serv_id = $inputs['Id_Prod_Serv'];
-                $pack_qauntity = $inputs['Package_Amount'];
-                $pack_name = $inputs['Package_Service'];
 
+                if (isset($inputs['Id_Package'])) {
+                    $package_id = $inputs['Id_Package'];
+                }
+                if (isset($inputs['Id_Package_Animal'])) {
+                    $animal_id = $inputs['Id_Package_Animal'];
+                }
+                if (isset($inputs['Id_Prod_Serv'])) {
+                    $prod_serv_id = $inputs['Id_Prod_Serv'];
+                }
+                if (isset($inputs['Package_Amount'])) {
+                    $pack_quantity = $inputs['Package_Amount'];
+                }
+                if (isset($inputs['Package_Service'])) {
+                    $pack_name = $inputs['Package_Service'];
+                }
+                if (isset($inputs['Prod_Serv_Category'])) {
+                    $prod_serv_category = $inputs['Prod_Serv_Category'];
+                }
+                
                 unset($inputs["Order_Date"]);
                 unset($inputs["Status"]);
                 unset($inputs["temp_package"]);
@@ -936,7 +950,7 @@ Trait _GlobalController{
 
                             //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE: (MOVED TO INSERT_CALL)
                             
-                            if ($inputs['Prod_Serv_Category']=="Pacote") {
+                            if ($prod_serv_category=="Pacote") {
 
                                 $package_input['Id_Order_Item'] = $id;
                                 require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Package.php';
@@ -951,7 +965,7 @@ Trait _GlobalController{
                                     $_POST['Id_Order']=$order_id;
                                     $_POST['Id_Order_Item']=$id;
                                     $_POST['Id_Prod_Serv']=$prod_serv_id;
-                                    $_POST['Pack_Quantity']=$pack_qauntity;
+                                    $_POST['Pack_Quantity']=$pack_quantity;
                                     $_POST['Pack_Name']=$pack_name;
                                     
                                     $_POST['class']="Package";
