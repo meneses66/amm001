@@ -125,6 +125,7 @@ class OrderItem {
                                 <input id="package_consume" type="hidden" name="Package_Consume" readonly value="'.$data_form['PACKAGE_CONSUME'].'">
                                 <input id="package_amount" type="hidden" name="Package_Amount" readonly value="'.$data_form['PACKAGE_AMOUNT'].'">
                                 <input id="prod_serv_category" type="hidden" name="Prod_Serv_Category" readonly value="'.$data_form['PROD_SERV_CATEGORY'].'">
+                                <input id="prod_serv_type" type="hidden" name="Prod_Serv_Type" readonly value="'.$data_form['PROD_SERV_TYPE'].'">
                                 <input id="id_prod_serv" type="hidden" name="Id_Prod_Serv" readonly value="'.$data_form['ID_PROD_SERV'].'">
                             </div>
                             <div class="row">
