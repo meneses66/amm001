@@ -940,6 +940,16 @@ Trait _GlobalController{
                         $ajax_call = new('\Controller\\'."Ajax_call");
                         $ajax_call->index();
             
+                        //CALL UPDATE ORDER PAYMENTS:
+                        unset($_POST);
+                        $_SERVER['REQUEST_METHOD'] = 'POST';
+                        $_POST['class']="Orderx";
+                        $_POST['method']="update_payments";
+                        $_POST['Id']=$order_id;
+            
+                        $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call->index();
+
                         //UPDATES WHEN SERVICE:
                         //if($prod_serv_type=="Serv"){
 

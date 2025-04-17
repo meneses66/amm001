@@ -643,6 +643,16 @@ class Orderx
         $inputs_order_payment['ID_ORDER']=$inputs['Id'];
         $orderpayment_model = new('\Model\\'."OrderPayment");
         $sqlsql_payments = "SELECT SUM(PAID_AMOUNT) AS PAID_AMOUNT FROM ORDER_PAYMENT WHERE ID_ORDER=:ID_ORDER";
+        
+        $inputs_items['ID_ORDER']=$inputs['Id'];
+        $orderitem_model = new('\Model\\'."OrderItem");
+        $result_items = $orderitem_model->countWhere($inputs_items);
+        $has_items = false;
+
+        if ($result_items) {
+            $has_items = true;
+        }
+
         $result_order_payment = $orderpayment_model->exec_sqlstm($sqlsql_payments, $inputs_order_payment);
     
         if ($result_order) {
@@ -660,10 +670,14 @@ class Orderx
 
             $updated_order_debt = $order_debt - $paid_amount;
 
-            if ($paid_amount >= $order_debt) {
+            if ($paid_amount >= $order_debt && $has_items) {
                 $_POST['Status']="Fechado";
             }
             
+            if ($paid_amount >= $order_debt && !($has_items)) {
+                $_POST['Status']="Pagamento sem itens";
+            }
+
             $_POST['Order_paid_amount'] = $paid_amount;
             $_POST['Order_debt'] = $updated_order_debt;
             $_POST['Id'] = $inputs['Id'];
@@ -682,6 +696,12 @@ class Orderx
             $_POST['Order_paid_amount'] = 0;
             $_POST['Order_debt'] = $order_debt;
             $_POST['Id'] = $inputs['Id'];
+
+            if ($has_items) {
+                $_POST['Status']="Pendente";
+            } else{
+                $_POST['Status']="Aberto";
+            }
             
             $_POST['class']="Orderx";
             $_POST['method']="update_call";
