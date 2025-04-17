@@ -300,10 +300,12 @@ Trait _GlobalController{
             $model = new('\Model\\'.$this->UCF_object);
 
             //Define inputs for DB operations:
+            $log = "::INSERT CALL::";
             foreach ($_POST as $key => $value) {
-                //echo $key.": ".$value."<br>";
-                $inputs[$key]=$value;    
+                $inputs[$key]=$value;
+                $log .= date("H:i:s")."--> Input: ".$inputs[$key]." = Value: ".$value;
             }
+            wh_log($log);
 
             //Special condition when Object is Orderx:
             if($this->UCF_object=="Orderx" AND isset($_GET['cli_id'])){
@@ -578,10 +580,12 @@ Trait _GlobalController{
             }
 
             //Define inputs for DB operations:
-                
+            $log = "::UPDATE CALL::";
             foreach ($_POST as $key => $value) {
-                $inputs[$key]=$value;    
+                $inputs[$key]=$value;
+                $log .= date("H:i:s")."--> Input: ".$inputs[$key]." = Value: ".$value;
             }
+            wh_log($log);
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
             unset($inputs["operation"]);
@@ -952,24 +956,17 @@ Trait _GlobalController{
                             $ajax_call->index();
                         }
                         
-                        wh_log(date("H:i:s")."--> PS_TYPE: ".$prod_serv_type."PS_CATEGORY: ".$prod_serv_category);
                         if ($prod_serv_type=="Serv" && $prod_serv_category=="Pacote") {
-
-                            wh_log("PACKAGE UPDATE ACCESSED");
 
                             $package_input['Id_Order_Item'] = $id;
                             require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Package.php';
                             $package_model = new('\Model\\'."Package");
                             $package_row = $package_model->getRow($package_input);
 
-                            $package_log = date("H:i:s"). " --> Package_Row: ".$package_row;
-                            wh_log($package_log);
-
                             if (!($package_row)) {
                                 unset($_POST);
                                 $_SERVER['REQUEST_METHOD'] = 'POST';
-                                $package_log2 = "Cli_id: ".$cli_id." | Ani_id: ".$animal_id." | Order_id: ".$order_id." | Id: ".$id." | PS_id: ".$prod_serv_id." | Pack_qty: ".$pack_quantity." | Pack_Name: ".$pack_name;
-                                wh_log($package_log2);
+
                                 $_POST['Id_Client']=$cli_id;
                                 $_POST['Id_Animal']=$animal_id;
                                 $_POST['Id_Order']=$order_id;

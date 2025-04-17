@@ -161,7 +161,7 @@ class OrderItem {
                                     <label for="id_package" class="medium-label">Pacote:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <select class="medium-label" id="id_package" onChange="calculate_item_service()" name="Id_Package">
+                                    <select class="medium-label" id="id_package" name="Id_Package" onChange="calculate_item_service()">
 
                                     </select>
                                 </div>

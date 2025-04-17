@@ -23,14 +23,14 @@ class Ajax_call {
             $class = new ('\Controller\\'.$className);
 
             try {
-                $log=date("H:i:s")." -> ClassName = ".$className." | Method = ".$method;
-                $log .= "------------------------------------------------------------------------";
-                $log .= json_encode($inputs);
-                wh_log($log);
+                //$log=date("H:i:s")." -> ClassName = ".$className." | Method = ".$method;
+                //$log .= "------------------------------------------------------------------------";
+                //$log .= json_encode($inputs);
+                //wh_log($log);
                 $result = $class->$method($inputs);
             } catch (\Throwable $th) {
-                wh_log($th);
-                //throw $th;
+                //wh_log($th);
+                throw $th;
             }
             
             if(is_array($result))
