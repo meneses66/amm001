@@ -300,12 +300,12 @@ Trait _GlobalController{
             $model = new('\Model\\'.$this->UCF_object);
 
             //Define inputs for DB operations:
-            $log = "::INSERT CALL::";
+            //$log = "::INSERT CALL::";
             foreach ($_POST as $key => $value) {
                 $inputs[$key]=$value;
-                $log .= date("H:i:s")."--> Input: ".$key." = ".$value."| ";
+                //$log .= date("H:i:s")."--> Input: ".$key." = ".$value."| ";
             }
-            wh_log($log);
+            //wh_log($log);
 
             //Special condition when Object is Orderx:
             if($this->UCF_object=="Orderx" AND isset($_GET['cli_id'])){
@@ -580,12 +580,12 @@ Trait _GlobalController{
             }
 
             //Define inputs for DB operations:
-            $log = "::UPDATE CALL::";
+            //$log = "::UPDATE CALL::";
             foreach ($_POST as $key => $value) {
                 $inputs[$key]=$value;
-                $log .= date("H:i:s")."--> Input: ".$key." = ".$value."| ";
+                //$log .= date("H:i:s")."--> Input: ".$key." = ".$value."| ";
             }
-            wh_log($log);
+            //wh_log($log);
 
             //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
             unset($inputs["operation"]);
