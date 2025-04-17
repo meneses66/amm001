@@ -503,13 +503,6 @@ Trait _GlobalController{
             try {
                 //$model->insert($inputs);
                 $new_id=$model->insert($inputs);
-                
-                /**
-                foreach ($model as $key => $value) {
-                    $new_record['$key']=$value;
-                    //debug_to_console($new_record['$key']);
-                }
-                */
 
                 switch ($this->UCF_object) {
                     case 'Animal':
@@ -526,34 +519,6 @@ Trait _GlobalController{
 
                     case 'OrderItem':
                         if($prod_serv_type=="Serv"){
-                            //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE:
-                            if ($prod_serv_category=="Pacote") {
-
-                                //$package_input['Id_Order_Item'] = $new_id;
-                                //require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Package.php';
-                                //$package_model = new('\Model\\'."Package");
-                                //$package_row = $package_model->getRow($package_input);
-
-                                //if (!($package_row)) {
-                                    unset($_POST);
-                                    $_SERVER['REQUEST_METHOD'] = 'POST';
-                                    $_POST['Id_Client']=$cli_id;
-                                    $_POST['Id_Animal']=$inputs['Id_Package_Animal'];
-                                    $_POST['Id_Order']=$order_id;
-                                    $_POST['Id_Order_Item']=$new_id;
-                                    $_POST['Id_Prod_Serv']=$inputs['Id_Prod_Serv'];
-                                    $_POST['Pack_Quantity']=$inputs['Package_Amount'];
-                                    $_POST['Pack_Name']=$inputs['Package_Service'];
-                                    
-                                    $_POST['class']="Package";
-                                    $_POST['method']="insert_call";
-                        
-                                    $ajax_call = new('\Controller\\'."Ajax_call");
-                                    $ajax_call->index();
-                                //}
-                                //unset($package_input);
-                                //$package_model=null;
-                            }
                             $view = "$this->UCF_object/_updateService?cli_id=".$cli_id."&order_id=".$order_id."&item_id=".$new_id;
                         }
                         if($prod_serv_type=="Prod"){
@@ -682,6 +647,11 @@ Trait _GlobalController{
                 $cli_id = $_GET['cli_id'];
                 $order_id = $_GET['order_id'];
                 $package_id = $inputs['Id_Package'];
+                $animal_id = $inputs['Id_Package_Animal'];
+                $prod_serv_id = $inputs['Id_Prod_Serv'];
+                $pack_qauntity = $inputs['Package_Amount'];
+                $pack_name = $inputs['Package_Service'];
+
                 unset($inputs["Order_Date"]);
                 unset($inputs["Status"]);
                 unset($inputs["temp_package"]);
@@ -943,7 +913,6 @@ Trait _GlobalController{
                         $_SERVER['REQUEST_METHOD'] = 'POST';
                         $_POST['class']="Orderx";
                         $_POST['method']="update_totals";
-                        //$_POST['Id']=$inputs['Id_Order'];
                         $_POST['Id']=$order_id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
@@ -958,7 +927,6 @@ Trait _GlobalController{
                                 $_SERVER['REQUEST_METHOD'] = 'POST';
                                 $_POST['class']="Package";
                                 $_POST['method']="update_package";
-                                //$_POST['Id_Package']=$inputs['Id_Package'];
                                 $_POST['Id_Package']=$package_id;
                                 $_POST['Id']=$id;
 
@@ -967,7 +935,7 @@ Trait _GlobalController{
                             }
 
                             //ADD CLIENT_PACKAGE IF CATEGORY IS PACOTE: (MOVED TO INSERT_CALL)
-                            /*
+                            
                             if ($inputs['Prod_Serv_Category']=="Pacote") {
 
                                 $package_input['Id_Order_Item'] = $id;
@@ -979,12 +947,12 @@ Trait _GlobalController{
                                     unset($_POST);
                                     $_SERVER['REQUEST_METHOD'] = 'POST';
                                     $_POST['Id_Client']=$cli_id;
-                                    $_POST['Id_Animal']=$inputs['Id_Package_Animal'];
+                                    $_POST['Id_Animal']=$animal_id;
                                     $_POST['Id_Order']=$order_id;
                                     $_POST['Id_Order_Item']=$id;
-                                    $_POST['Id_Prod_Serv']=$inputs['Id_Prod_Serv'];
-                                    $_POST['Pack_Quantity']=$inputs['Package_Amount'];
-                                    $_POST['Pack_Name']=$inputs['Package_Service'];
+                                    $_POST['Id_Prod_Serv']=$prod_serv_id;
+                                    $_POST['Pack_Quantity']=$pack_qauntity;
+                                    $_POST['Pack_Name']=$pack_name;
                                     
                                     $_POST['class']="Package";
                                     $_POST['method']="insert_call";
@@ -996,7 +964,7 @@ Trait _GlobalController{
                                 unset($package_input);
                                 $package_model=null;
                             }
-                            */
+                            
 
                         }
 
