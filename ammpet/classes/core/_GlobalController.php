@@ -303,7 +303,7 @@ Trait _GlobalController{
             $log = "::INSERT CALL::";
             foreach ($_POST as $key => $value) {
                 $inputs[$key]=$value;
-                $log .= date("H:i:s")."--> Input: ".$inputs[$key]." = Value: ".$value;
+                $log .= date("H:i:s")."--> Input: ".$inputs[$key]." = Value: ".$value."| ";
             }
             wh_log($log);
 
