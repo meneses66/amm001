@@ -666,6 +666,9 @@ Trait _GlobalController{
                 if (isset($inputs["Prod_Serv_Category"])) {
                     $prod_serv_category = $inputs['Prod_Serv_Category'];
                 }
+                if (isset($inputs["Prod_Serv_Tyoe"])) {
+                    $prod_serv_type = $inputs['Prod_Serv_Type'];
+                }
                 
                 unset($inputs["Order_Date"]);
                 unset($inputs["Status"]);
