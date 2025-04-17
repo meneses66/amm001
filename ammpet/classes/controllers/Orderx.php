@@ -306,6 +306,7 @@ class Orderx
                 $output .='<thead>
                                 <tr class="text-center text-secondary">
                                     <th>Pct</th>
+                                    <th>Animal</th>
                                     <th>Ord</th>
                                     <th>OrdIt</th>
                                     <th>Pct_Qtde</th>
@@ -319,6 +320,7 @@ class Orderx
 
                     $output .='<tr class="text-center text-secondary">
                                 <td>'.$row->PCT.'</td>
+                                <td>'.$row->ANIMAL.'</td>
                                 <td>'.$row->ID_ORDER.'</td>
                                 <td>'.$row->ID_ORDER_IT.'</td>
                                 <td>'.$row->PACK_QUANTITY.'</td>
