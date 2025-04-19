@@ -645,7 +645,7 @@ class Orderx
         $result_items = $orderitem_model->countWhere($inputs_items);
         $has_items = false;
 
-        if ($result_items > 0) {
+        if (!($result_items->PAID_AMOUNT==null)) {
             $has_items = true;
         }
 
