@@ -576,12 +576,10 @@ class Orderx
     //FUNCTION TO UPDATE ORDER TOTALS WHEN: ORDER ITEM SERVICE IS UPDATED OR DELETED
     public function update_totals($inputs){
 	
-        $inputs_order_item['ID_ORDER']=$inputs['Id'];
-        
+        //UPDATE TOTAL BASED ON ITEMS:
+        $inputs_order_item['ID_ORDER']=$inputs['Id'];    
         $sql_stm_get_items = "SELECT SUM(VALUE_NO_DISCOUNT) AS T_VALUE_NO_DISCOUNT, SUM(VALUE_WITH_DISCOUNT) AS T_VALUE_WITH_DISCOUNT, SUM(TOTAL_CASH) AS T_TOTAL_CASH, SUM(TOTAL_PIX) AS T_TOTAL_PIX FROM ORDER_ITEM WHERE ID_ORDER=:ID_ORDER";
-        
         $order_model = new('\Model\\'."OrderItem");
-        
         $result_totals = $order_model->exec_sqlstm($sql_stm_get_items, $inputs_order_item);
     
         if ($result_totals){
@@ -631,6 +629,94 @@ class Orderx
         unset($inputs_order_item);
         unset($inputs_order_totals);
         $order_model=null;
+
+        //---------------UPDATE TOTAL PAID AND TOTAL DEBT-------------------------:
+        $inputs_order['ID']=$inputs['Id'];
+        $order_model = new('\Model\\'."Orderx");
+        $result_order = $order_model->getRow($inputs_order);
+
+        $inputs_order_payment['ID_ORDER']=$inputs['Id'];
+        $orderpayment_model = new('\Model\\'."OrderPayment");
+        $sqlsql_payments = "SELECT SUM(PAID_AMOUNT) AS PAID_AMOUNT FROM ORDER_PAYMENT WHERE ID_ORDER=:ID_ORDER";
+        
+        $inputs_items['ID_ORDER']=$inputs['Id'];
+        $orderitem_model = new('\Model\\'."OrderItem");
+        $result_items = $orderitem_model->countWhere($inputs_items);
+        $has_items = false;
+
+        if ($result_items > 0) {
+            $has_items = true;
+        }
+
+        $result_order_payment = $orderpayment_model->exec_sqlstm($sqlsql_payments, $inputs_order_payment);
+    
+        foreach ($result_order_payment as $row) {
+
+            $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
+
+            if (($row->PAID_AMOUNT==null)) {
+                    $paid_amount = 0;
+            } else {
+                $paid_amount = $row->PAID_AMOUNT;
+            }
+
+            if (!($row->PAID_AMOUNT==null)){
+
+                $_SERVER['REQUEST_METHOD']="POST";
+
+                /*
+                foreach ($result_order_payment as $row_payment) {
+                    $paid_amount = $row_payment->PAID_AMOUNT;
+                }
+                */
+
+                $updated_order_debt = $order_debt - $paid_amount;
+
+                if ($paid_amount >= $order_debt && $has_items) {
+                    $_POST['Status']="Fechado";
+                }
+                
+                if ($paid_amount >= $order_debt && !($has_items)) {
+                    $_POST['Status']="Pagamento sem itens";
+                }
+
+                $_POST['Order_paid_amount'] = $paid_amount;
+                $_POST['Order_debt'] = $updated_order_debt;
+                $_POST['Id'] = $inputs['Id'];
+                $_POST['class']="Orderx";
+                $_POST['method']="update_call";
+                
+                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call->index();
+    
+            }else {
+                
+                $_SERVER['REQUEST_METHOD']="POST";
+
+                $_POST['Order_paid_amount'] = 0;
+                $_POST['Order_debt'] = $order_debt;
+                $_POST['Id'] = $inputs['Id'];
+                $_POST['class']="Orderx";
+                $_POST['method']="update_call";
+
+                if ($has_items) {
+                    $_POST['Status']="Pendente";
+                } else{
+                    $_POST['Status']="Aberto";
+                }
+                
+                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call->index();
+            
+            }
+        }
+        
+        unset($_POST);
+        unset($inputs_order_payment);
+        unset($inputs_order);
+        $order_model=null;
+        $orderpayment_model=null;
+
     }
 
     //FUNCTION TO UPDATE ORDER PAYMENTS WHEN: ORDER PAYMENT IS UPDATED OR DELETED

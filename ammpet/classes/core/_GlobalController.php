@@ -941,6 +941,7 @@ Trait _GlobalController{
                         $ajax_call = new('\Controller\\'."Ajax_call");
                         $ajax_call->index();
             
+                        /* FUNCTION update_payments merged into update_totals
                         //CALL UPDATE ORDER PAYMENTS:
                         unset($_POST);
                         $_SERVER['REQUEST_METHOD'] = 'POST';
@@ -950,6 +951,7 @@ Trait _GlobalController{
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
                         $ajax_call->index();
+                        */
 
                         //UPDATES WHEN SERVICE:
                         //if($prod_serv_type=="Serv"){
@@ -1125,6 +1127,7 @@ Trait _GlobalController{
                     $ajax_call = new('\Controller\\'."Ajax_call");
                     $ajax_call->index();
         
+                    /* FUNCTION update_payments merged into update_totals
                     //CALL UPDATE ORDER PAYMENTS:
                     unset($_POST);
                     $_SERVER['REQUEST_METHOD'] = 'POST';
@@ -1134,6 +1137,7 @@ Trait _GlobalController{
         
                     $ajax_call = new('\Controller\\'."Ajax_call");
                     $ajax_call->index();
+                    */
         
                     //CALL UPDATE PACKAGES:
                     if (!($inputs['Id_Package']==1)) {
