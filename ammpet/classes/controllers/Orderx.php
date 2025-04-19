@@ -674,7 +674,7 @@ class Orderx
                 }
                 
                 if (($paid_amount >= $order_debt) && !($has_items)) {
-                    $_POST['Status']="Pagamento sem itens";
+                    $_POST['Status']="Pgto s/ itens";
                 }
 
                 amm_log("paid_amount = ".$paid_amount);
