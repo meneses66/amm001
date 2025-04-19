@@ -738,6 +738,7 @@ class Orderx
             $has_items = true;
         }
 
+        amm_log("=================================================");
         amm_log("has_items = ".$has_items);
 
         $result_order_payment = $orderpayment_model->exec_sqlstm($sqlsql_payments, $inputs_order_payment);
