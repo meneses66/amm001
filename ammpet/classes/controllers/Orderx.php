@@ -634,6 +634,7 @@ class Orderx
         $inputs_order['ID']=$inputs['Id'];
         $order_model = new('\Model\\'."Orderx");
         $result_order = $order_model->getRow($inputs_order);
+        $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
 
         $inputs_order_payment['ID_ORDER']=$inputs['Id'];
         $orderpayment_model = new('\Model\\'."OrderPayment");
@@ -652,8 +653,6 @@ class Orderx
     
         foreach ($result_order_payment as $row) {
 
-            $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
-
             if (($row->PAID_AMOUNT==null)) {
                     $paid_amount = 0;
             } else {
@@ -663,12 +662,6 @@ class Orderx
             if (!($row->PAID_AMOUNT==null)){
 
                 $_SERVER['REQUEST_METHOD']="POST";
-
-                /*
-                foreach ($result_order_payment as $row_payment) {
-                    $paid_amount = $row_payment->PAID_AMOUNT;
-                }
-                */
 
                 $updated_order_debt = $order_debt - $paid_amount;
 
@@ -714,8 +707,14 @@ class Orderx
         unset($_POST);
         unset($inputs_order_payment);
         unset($inputs_order);
+        unset($inputs_items);
         $order_model=null;
-        $orderpayment_model=null;
+        $result_order = null;
+        $order_debt = null;
+        $orderpayment_model = null;
+        $sqlsql_payments = null;        
+        $orderitem_model = null;
+        $result_items = null;
 
     }
 
