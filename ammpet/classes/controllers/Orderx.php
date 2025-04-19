@@ -657,11 +657,11 @@ class Orderx
     
         foreach ($result_order_payment as $row) {
 
+            $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
+
             if (($row->PAID_AMOUNT==null)) {
-                    $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
                     $paid_amount = 0;
             } else {
-                $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
                 $paid_amount = $row->PAID_AMOUNT;
             }
 
@@ -693,8 +693,6 @@ class Orderx
                 
                 $ajax_call = new('\Controller\\'."Ajax_call");
                 $ajax_call->index();
-
-    
     
             }else {
                 
@@ -703,6 +701,8 @@ class Orderx
                 $_POST['Order_paid_amount'] = 0;
                 $_POST['Order_debt'] = $order_debt;
                 $_POST['Id'] = $inputs['Id'];
+                $_POST['class']="Orderx";
+                $_POST['method']="update_call";
 
                 if ($has_items) {
                     $_POST['Status']="Pendente";
@@ -710,9 +710,6 @@ class Orderx
                     $_POST['Status']="Aberto";
                 }
                 
-                $_POST['class']="Orderx";
-                $_POST['method']="update_call";
-
                 $ajax_call = new('\Controller\\'."Ajax_call");
                 $ajax_call->index();
             
