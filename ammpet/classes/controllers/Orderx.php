@@ -645,7 +645,7 @@ class Orderx
         $result_items = $orderitem_model->countWhere($inputs_items);
         $has_items = false;
 
-        if (!($result_items->PAID_AMOUNT==null)) {
+        if (($result_items>0)) {
             $has_items = true;
         }
 
@@ -790,9 +790,9 @@ class Orderx
                 $_POST['method']="update_call";
 
                 if ($has_items) {
-                    $_POST['Status']="Pendente";
-                } else{
                     $_POST['Status']="Aberto";
+                } else{
+                    $_POST['Status']="Pendente";
                 }
                 
                 $ajax_call = new('\Controller\\'."Ajax_call");
