@@ -49,13 +49,12 @@ Trait _DAO{
       } else {
           $result = $stm->fetchAll(PDO::FETCH_OBJ);
             if(is_array($result) && count($result)){
-              if(str_contains($sql_stm, "count")){
-                amm_log(var_dump($result));
-            }        
+              amm_log("IF: ".var_dump($result));        
               $stm=null;
               $connect=null;
               return $result;
             } else{
+              amm_log("ELSE: ".var_dump($result));
               $stm=null;
               $connect=null;
               return false;
