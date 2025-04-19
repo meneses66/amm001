@@ -756,11 +756,11 @@ class Orderx
 
                 $updated_order_debt = $order_debt - $paid_amount;
 
-                if (($paid_amount >= $updated_order_debt) && $has_items) {
+                if (($paid_amount >= $order_debt) && $has_items) {
                     $_POST['Status']="Fechado";
                 }
                 
-                if (($paid_amount >= $updated_order_debt) && !($has_items)) {
+                if (($paid_amount >= $order_debt) && !($has_items)) {
                     $_POST['Status']="Pagamento sem itens";
                 }
 
