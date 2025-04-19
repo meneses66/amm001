@@ -49,12 +49,12 @@ Trait _DAO{
       } else {
           $result = $stm->fetchAll(PDO::FETCH_OBJ);
             if(is_array($result) && count($result)){
-              amm_log(date("H:i:m")." -> IF: ".$sql_stm."-".var_dump($result));        
+              amm_log(date("H:i:m")." -> IF: ".$sql_stm);        
               $stm=null;
               $connect=null;
               return $result;
             } else{
-              amm_log(date("H:i:m")." -> ELSE: ".$sql_stm."-".var_dump($result));
+              amm_log(date("H:i:m")." -> ELSE: ".$sql_stm);
               $stm=null;
               $connect=null;
               return false;
