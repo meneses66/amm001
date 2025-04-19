@@ -652,8 +652,8 @@ class Orderx
             $has_items = true;
         }
 
-        amm_log(date("H:i:s")." =================================================");
-        amm_log("total_items = ".$total_items);
+        //amm_log(date("H:i:s")." =================================================");
+        //amm_log("total_items = ".$total_items);
 
         $result_order_payment = $orderpayment_model->exec_sqlstm($sqlsql_payments, $inputs_order_payment);
     
@@ -665,7 +665,6 @@ class Orderx
                 $paid_amount = $row->PAID_AMOUNT;
             }
 
-            amm_log("row->PAID_AMOUNT = ".$row->PAID_AMOUNT);
             if (!($row->PAID_AMOUNT==null)){
 
                 $_SERVER['REQUEST_METHOD']="POST";
@@ -679,10 +678,6 @@ class Orderx
                 if (($paid_amount >= $order_debt) && !($has_items)) {
                     $_POST['Status']="Pgto s/ itens";
                 }
-
-                amm_log("paid_amount = ".$paid_amount);
-                amm_log("order_debt = ".$order_debt);
-                amm_log("updated_order_debt = ".$updated_order_debt);
 
                 $_POST['Order_paid_amount'] = $paid_amount;
                 $_POST['Order_debt'] = $updated_order_debt;
