@@ -326,7 +326,7 @@ function check_permission($username, $permission_to_check){
 
 function amm_log($log_msg)
 {
-    $log_filename = ROOTPATH_CLASSES."/log";
+    $log_filename = ROOTPATH_CLASSES."/log_amm";
     if (!file_exists($log_filename)) 
     {
         // create directory/folder uploads.
