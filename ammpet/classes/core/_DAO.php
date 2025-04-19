@@ -32,6 +32,11 @@ Trait _DAO{
   
   public function query($sql_stm, $inputs=[])
   {
+
+    if(str_contains($sql_stm, "count")){
+        amm_log($sql_stm);
+    }
+
     $connect = $this->connect();
     
     $stm = $connect->prepare($sql_stm);
