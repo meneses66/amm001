@@ -1066,7 +1066,7 @@ Trait _GlobalController{
                         unset($_POST);
                         $_SERVER['REQUEST_METHOD'] = 'POST';
                         $_POST['class']="Orderx";
-                        $_POST['method']="update_payments";
+                        $_POST['method']="update_totals";
                         $_POST['Id']=$order_id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
@@ -1159,7 +1159,7 @@ Trait _GlobalController{
                     unset($_POST);
                     $_SERVER['REQUEST_METHOD'] = 'POST';
                     $_POST['class']="Orderx";
-                    $_POST['method']="update_payments";
+                    $_POST['method']="update_totals";
                     $_POST['Id']=$order_id;
         
                     $ajax_call = new('\Controller\\'."Ajax_call");
