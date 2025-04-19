@@ -643,7 +643,7 @@ class Orderx
         $inputs_items['ID_ORDER']=$inputs['Id'];
         $orderitem_model = new('\Model\\'."OrderItem");
         $result_items = $orderitem_model->countWhere($inputs_items);
-        $total_items = $result_items->fetchColumn();
+        $total_items = $result_items;
         $has_items = false;
 
         if (($total_items > 0)) {
