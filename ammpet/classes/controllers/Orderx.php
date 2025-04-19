@@ -644,7 +644,7 @@ class Orderx
         $orderitem_model = new('\Model\\'."OrderItem");
         $result_items = $orderitem_model->countWhere($inputs_items);
         
-        while ($result_items) {
+        if ($result_items) {
             $total_items = $result_items->COUNTW;
         }
         $has_items = false;
