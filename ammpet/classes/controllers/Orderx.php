@@ -642,15 +642,16 @@ class Orderx
         
         $inputs_items['ID_ORDER']=$inputs['Id'];
         $orderitem_model = new('\Model\\'."OrderItem");
-        $result_items = $orderitem_model->countWhere($inputs_items)->COUNT;
+        $result_items = $orderitem_model->countWhere($inputs_items);
+        $total_items = $result_items->fetchColumn();
         $has_items = false;
 
-        if (($result_items > 0)) {
+        if (($total_items > 0)) {
             $has_items = true;
         }
 
         amm_log("=================================================");
-        amm_log("result_items = ".var_dump($result_items));
+        amm_log("total_items = ".$total_items);
 
         $result_order_payment = $orderpayment_model->exec_sqlstm($sqlsql_payments, $inputs_order_payment);
     
