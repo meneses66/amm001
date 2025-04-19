@@ -653,7 +653,7 @@ class Orderx
             $has_items = true;
         }
 
-        amm_log("=================================================");
+        amm_log(date("H:i:s")." =================================================");
         amm_log("total_items = ".$total_items);
 
         $result_order_payment = $orderpayment_model->exec_sqlstm($sqlsql_payments, $inputs_order_payment);
