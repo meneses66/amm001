@@ -645,12 +645,12 @@ class Orderx
         $result_items = $orderitem_model->countWhere($inputs_items)->COUNT;
         $has_items = false;
 
-        if (($result_items>0)) {
+        if (($result_items > 0)) {
             $has_items = true;
         }
 
         amm_log("=================================================");
-        amm_log("result_items = ".$result_items);
+        amm_log("result_items = ".var_dump($result_items));
 
         $result_order_payment = $orderpayment_model->exec_sqlstm($sqlsql_payments, $inputs_order_payment);
     
