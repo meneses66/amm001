@@ -268,7 +268,57 @@
             <input type="checkbox" id="breed_delete" name="breed_delete" value="breed_delete" <?php if (in_array("breed_delete",$array_permissions)){ echo "checked";}?>>
         </div>
     </div>
-
+    <div class="row">
+    <div class="col-sm-3">
+            <p>Items de Venda - Serviços</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderitem_view" name="orderitem_view" value="orderitem_view" <?php if (in_array("orderitem_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderitem_add" name="orderitem_add" value="orderitem_add" <?php if (in_array("orderitem_add",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderitem_edit" name="orderitem_edit" value="orderitem_edit" <?php if (in_array("orderitem_edit",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderitem_delete" name="orderitem_delete" value="orderitem_delete" <?php if (in_array("orderitem_delete",$array_permissions)){ echo "checked";}?>>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Venda - Pagamentos</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderpayment_view" name="orderpayment_view" value="orderpayment_view" <?php if (in_array("orderpayment_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderitem_add" name="orderpayment_add" value="orderpayment_add" <?php if (in_array("orderpayment_add",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderpayment_edit" name="orderpayment_edit" value="orderpayment_edit" <?php if (in_array("orderpayment_edit",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderpayment_delete" name="orderpayment_delete" value="orderpayment_delete" <?php if (in_array("orderpayment_delete",$array_permissions)){ echo "checked";}?>>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Items de Venda - Produtos</p>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderitemprod_view" name="orderitemprod_view" value="orderitemprod_view" <?php if (in_array("orderitemprod_view",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderitemprod_add" name="orderitemprod_add" value="orderitemprod_add" <?php if (in_array("orderitemprod_add",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderitemprod_edit" name="orderitemprod_edit" value="orderitemprod_edit" <?php if (in_array("orderitemprod_edit",$array_permissions)){ echo "checked";}?>>
+        </div>
+        <div class="col-sm-2">
+            <input type="checkbox" id="orderitemprod_delete" name="orderitemprod_delete" value="orderitemprod_delete" <?php if (in_array("orderitemprod_delete",$array_permissions)){ echo "checked";}?>>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-3">
             <p>Relatórios:</p>

@@ -475,6 +475,18 @@ Trait _GlobalController{
                 unset($inputs["vet_view"]);
                 unset($inputs["comis_view"]);
                 unset($inputs["result_view"]);
+                unset($inputs["orderitem_view"]);
+                unset($inputs["orderitem_add"]);
+                unset($inputs["orderitem_edit"]);
+                unset($inputs["orderitem_delete"]);
+                unset($inputs["orderpayment_view"]);
+                unset($inputs["orderpayment_add"]);
+                unset($inputs["orderpayment_edit"]);
+                unset($inputs["orderpayment_delete"]);
+                unset($inputs["orderitemprod_view"]);
+                unset($inputs["orderitemprod_add"]);
+                unset($inputs["orderitemprod_edit"]);
+                unset($inputs["orderitemprod_delete"]);
 
             }
 
@@ -835,6 +847,18 @@ Trait _GlobalController{
                 unset($inputs["vet_view"]);
                 unset($inputs["comis_view"]);
                 unset($inputs["result_view"]);
+                unset($inputs["orderitem_view"]);
+                unset($inputs["orderitem_add"]);
+                unset($inputs["orderitem_edit"]);
+                unset($inputs["orderitem_delete"]);
+                unset($inputs["orderpayment_view"]);
+                unset($inputs["orderpayment_add"]);
+                unset($inputs["orderpayment_edit"]);
+                unset($inputs["orderpayment_delete"]);
+                unset($inputs["orderitemprod_view"]);
+                unset($inputs["orderitemprod_add"]);
+                unset($inputs["orderitemprod_edit"]);
+                unset($inputs["orderitemprod_delete"]);
 
             }
 
