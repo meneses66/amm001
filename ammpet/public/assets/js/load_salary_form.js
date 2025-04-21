@@ -13,7 +13,7 @@ $(document).ready(function(){
         document.getElementById('salary_item_status').removeAttribute("disabled");
     }
 
-    document.getElementById("form_salary").onsubmit= function(event) {
+    document.getElementById("save_submit").onclick= function(event) {
         console.log("form_salary submit hit");
         event.preventDefault();
         let supplier = document.getElementById("id_employee").value;
@@ -42,7 +42,7 @@ $(document).ready(function(){
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
             console.log("validation OK");
             document.getElementById('error_msg').setAttribute('type',"hidden");
-            document.getElementById("form_salary").submit();
+            return true;
         } else{
             console.log("validation failed");
             document.getElementById('error_msg').value = error_msg;

@@ -83,7 +83,6 @@ class Salary {
 
             //START TO LOAD THE UPDATE FORM:
             $output .= '<div class="row">
-                            <input id="error_msg" type="hidden" name="Error_Msg" value="">
                             <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'">
                             <input id="updated_by" type="hidden" name="Updated_by" value="'.$updated_by.'">
                             <input id="temp_id_employee" type="hidden" name="Temp_Id_Employee" value="'.$temp_id_employee.'">
@@ -164,7 +163,7 @@ class Salary {
                                     <a href="'.ROOT.'/Salary/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Salvar" formaction="../Salary/insert_call">
+                                    <input id="save_submit" class="btn btn-primary btn-lg m-1 btn-block" type="save_submit" value="Salvar" formaction="../Salary/insert_call">
                                 </div>
                             </div>';
             } else {
@@ -173,14 +172,14 @@ class Salary {
                                     <a href="'.ROOT.'/Salary/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../Salary/update_call?id='.$id.'">
+                                    <input id="save_submit" class="btn btn-primary btn-lg m-1 btn-block" type="save_submit" value="Salvar" formaction="../Salary/update_call?id='.$id.'">
                                 </div>
                             </div>';
             }
 
             $output .= '<div class="row">
                                 <div class="col-sm-6">
-                                    <input id="button" class="btn btn-info btn-lg m-1 btn-block" type="submit" value="Adiar Valor" formaction="../Salary/postpone_value?id='.$id.'">
+                                    <input id="postpone_submit" class="btn btn-info btn-lg m-1 btn-block" type="postpone_submit" value="Adiar Valor" formaction="../Salary/postpone_value?id='.$id.'">
                                 </div>
                                 <div class="col-sm-6">
                                 </div>
