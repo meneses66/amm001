@@ -83,6 +83,7 @@ class Salary {
 
             //START TO LOAD THE UPDATE FORM:
             $output .= '<div class="row">
+                            <input id="error_msg" type="hidden" name="Error_Msg" value="">
                             <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'">
                             <input id="updated_by" type="hidden" name="Updated_by" value="'.$updated_by.'">
                             <input id="temp_id_employee" type="hidden" name="Temp_Id_Employee" value="'.$temp_id_employee.'">
