@@ -308,6 +308,46 @@ class Salary {
         }
     }
 
+    public function postpone_value_ajax($inputs){
+        if (isset($inputs['Id'])){
+            
+            //PREPARE VALUES TO BE INSERTED LATER - THEY ARE USED IN GLOBAL CONTROLLER - UPDATE CALL
+            $_POST['Created_By2']=$_SESSION['username'];
+            $_POST['Updated_By2']=$_SESSION['username'];
+            $_POST['Salary_Item_Value2']=$inputs['Postponed_Value'];
+            $_POST['Salary_Item_Type2']=$inputs['Salary_Item_Type'];
+            $_POST['Id_Employee2']=$inputs['Id_Employee'];
+            $_POST['Ref_Date2']=addTime($inputs['Ref_Date'],0,1,0);
+            $_POST['Salary_Item_Status2']="Aberto";
+            $_POST['Salary_Item_Description2']="Adiado do item: ".$inputs['Id']." -- Valor Original: R$ ".$inputs['Salary_Item_Value'];
+
+            //DEFINE UPDATES IN CURRENT VALUE
+            if ($_POST['Postponed_Value'] == $inputs['Salary_Item_Value']) {
+                $_POST['Original_Value']=$inputs['Salary_Item_Value'];
+                $_POST['Salary_Item_Value']=0.00;
+                $_POST['Salary_Item_Status']="Fechado";
+                $_POST['Salary_Item_Description']="Data: ".date('Y-m-d')." -- Valor adiado: ".$inputs['Postponed_Value'];
+                
+            } else {
+                $_POST['Original_Value']=$inputs['Salary_Item_Value'];
+                $_POST['Salary_Item_Value']=$inputs['Salary_Item_Value'] - $inputs['Postponed_Value'];
+                $_POST['Salary_Item_Description']="Data: ".date('Y-m-d')." -- Valor adiado: ".$inputs['Postponed_Value'];
+            }
+
+            //CALLS UPDATE FOR CURRENT RECORD
+            $_SERVER['REQUEST_METHOD']="POST";
+            
+            $_POST['Id'] = $inputs['Id'];
+            $_POST['class']="Salary";
+            $_POST['method']="update_call";
+            $_POST['type']="static";
+
+            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call->index();
+
+        }
+    }
+
     public function close_period($year, $month){
 
     }

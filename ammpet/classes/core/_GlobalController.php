@@ -1082,9 +1082,9 @@ Trait _GlobalController{
                     
                                 break;
                             } else {
-                                $view = "$this->UCF_object/_list";
-                                unset_array($inputs);
-                                redirect("$view");
+                                //$view = "$this->UCF_object/_list";
+                                //unset_array($inputs);
+                                //redirect("$view");
                                 break;
                             }
     
@@ -1103,10 +1103,6 @@ Trait _GlobalController{
                         $path2 = "Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];
                         unset_array($inputs);
                         double_redirect("OrderPayment", $path2);
-                        break;
-
-                    case 'Salary':
-                        unset_array($inputs);
                         break;
                             
                     default:

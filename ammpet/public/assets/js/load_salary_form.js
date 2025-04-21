@@ -60,6 +60,39 @@ $(document).ready(function(){
         }
       };
 
+      document.getElementById("postpone_submit").onclick= function(event) {
+        //console.log("form_salary submit hit");
+        event.preventDefault();
+        let postponed_value = document.getElementById("postponed_value").value;
+        let salary_item_value = document.getElementById("salary_item_value").value;
+        let id = document.getElementById("id").value;
+        let form_salary = document.getElementById("form_salary");
+
+        var data_form = decodeURIComponent($(form_salary).serialize());
+        var error_msg = "";
+        var check_postponed_value = 1;
+      
+        if(postponed_value==0){
+            error_msg = error_msg+"| Indique um valor > 0 para adiar.";
+            check_postponed_value = 0;
+        }
+        if(postponed_value>salary_item_value){
+            error_msg = error_msg+"| Indique um valor para adiar que seja menor que o valor do item.";
+            check_postponed_value = 0;
+        }
+
+        if(check_postponed_value==1){
+            //console.log("validation OK");
+            document.getElementById('error_msg').setAttribute('type',"hidden");
+                postpone_value(data_form, id);
+        } else{
+            //console.log("validation failed");
+            document.getElementById('error_msg').value = error_msg;
+            document.getElementById('error_msg').setAttribute('type', "text");
+            return false;
+        }
+      };
+
       function insert_salary(data_form){
         //var data_form2 = splitSerializedEncoded(data_form);
         data_form3 = splitUrlEncoded(data_form);
@@ -82,6 +115,18 @@ $(document).ready(function(){
             url: "/ammpet/public/Ajax_call",
             type: "POST",
             data: {class:"Salary", method:"update_call", Id:id, Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
+            success: function(response){
+                window.location.replace("/ammpet/public/Salary/_list");
+            }
+        });
+    }
+
+    function postpone_value(data_form, id){
+        data_form3 = splitUrlEncoded(data_form);
+        $.ajax({
+            url: "/ammpet/public/Ajax_call",
+            type: "POST",
+            data: {class:"Salary", method:"postpone_value_ajax", Id:id, Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
             success: function(response){
                 window.location.replace("/ammpet/public/Salary/_list");
             }
