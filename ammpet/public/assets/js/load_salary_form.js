@@ -62,11 +62,12 @@ $(document).ready(function(){
       };
 
       function insert_salary(data_form){
+        var data_form2 = splitSerializedEncoded(data_form);
         console.log("INSERT ACCESSED:"+data_form);
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
-            data: {class:"Salary", method:"insert_call", post:data_form},
+            data: {class:"Salary", method:"insert_call", data_form2},
             success
         });
     }
@@ -79,5 +80,25 @@ $(document).ready(function(){
             success
         });
     }
+
+    function splitUrlEncoded(str) {
+        const result = {};
+        str.split('&').forEach(pair => {
+          const [key, value] = pair.split('=');
+          result[key] = value;
+        });
+        return result;
+      }
+
+      function splitSerializedEncoded(str) {
+        const result = "";
+        str.split('&').forEach(pair => {
+          const [key, value] = pair.split('=');
+          result = result+key+":"+value+",";
+        });
+        result = result.replace(/(^,)|(,$)/g, "");
+        return result;
+      }
+
 });
 
