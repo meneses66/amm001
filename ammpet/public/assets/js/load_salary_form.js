@@ -45,23 +45,9 @@ $(document).ready(function(){
             document.getElementById('error_msg').setAttribute('type',"hidden");
             var method_update="update_call?id="+id;
             if (id=="new") {
-                $.ajax({
-                    url: "/ammpet/public/Ajax_call",
-                    type: "POST",
-                    data: {class:"Salary", method:"insert_call"},
-                    success: function(response){
-                        
-                    }
-                });
+                insert_salary($.post);
             } else{
-                $.ajax({
-                    url: "/ammpet/public/Ajax_call",
-                    type: "POST",
-                    data: {class:"Salary", method:method_update},
-                    success: function(response){
-                        
-                    }
-                });
+                update_salary($.post, method_update);
             }
         } else{
             console.log("validation failed");
@@ -70,4 +56,23 @@ $(document).ready(function(){
             return false;
         }
       };
+
+      function insert_salary($post){
+        $.ajax({
+            url: "/ammpet/public/Ajax_call",
+            type: "POST",
+            data: {class:"Salary", method:"insert_call", post:$post},
+            success
+        });
+    }
+    
+    function update_salary($post, method_update){
+        $.ajax({
+            url: "/ammpet/public/Ajax_call",
+            type: "POST",
+            data: {class:"Salary", method:method_update, post:$post},
+            success
+        });
+    }
 });
+
