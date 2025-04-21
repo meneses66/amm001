@@ -352,6 +352,8 @@ class Orderx
             //if(session_status() === PHP_SESSION_NONE) session_start();
             //restart_session();
 
+            $orderitem_edit_check = check_permission($_SESSION['username'], "orderitem_edit");
+            $orderitem_delete_check = check_permission($_SESSION['username'], "orderitem_delete");
             $output = "";
             $inputs["ID_ORDER"]=$_GET['order_id'];
             $inputs["PROD_SERV_TYPE"]="SERV";
@@ -424,8 +426,8 @@ class Orderx
                                 <td>'.$animal_name.'</td>
                                 <td>'.$row->PACKAGE_SEQUENCE.'</td>
                                 <td>
-                                    <a href="'.ROOT."/OrderItem/_updateService?cli_id=$row->ID_CLIENT&order_id=$row->ID_ORDER&item_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                    <a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_PACKAGE.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>
+                                    '.(($orderitem_edit_check) ? '<a href="'.ROOT.'/OrderItem/_updateService?cli_id='.$row->ID_CLIENT.'&order_id='.$row->ID_ORDER.'&item_id='.$row->ID.'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                    '.(($orderitem_delete_check) ? '<a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_PACKAGE.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>' : '').'   
                                 </td>
                                </tr>';
                 }
