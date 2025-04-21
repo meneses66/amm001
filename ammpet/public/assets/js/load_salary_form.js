@@ -63,21 +63,25 @@ $(document).ready(function(){
 
       function insert_salary(data_form){
         var data_form2 = splitSerializedEncoded(data_form);
-        console.log("INSERT ACCESSED:"+data_form);
+        console.log("INSERT ACCESSED:"+data_form2);
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
             data: {class:"Salary", method:"insert_call", data_form2},
-            success
+            success: function(response){
+              }
         });
     }
     
     function update_salary(data_form, method_update){
+        var data_form2 = splitSerializedEncoded(data_form);
+        console.log("INSERT ACCESSED:"+data_form2);
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
-            data: {class:"Salary", method:method_update, post:data_form},
-            success
+            data: {class:"Salary", method:method_update, data_form2},
+            success: function(response){
+            }
         });
     }
 
