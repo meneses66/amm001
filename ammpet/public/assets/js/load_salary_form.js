@@ -14,6 +14,7 @@ $(document).ready(function(){
     }
 
     document.getElementById("form_salary").onsubmit((event) => {
+        console.log("form_salary submit hit");
         event.preventDefault();
         let supplier = document.getElementById("id_employee").value;
         let salary_item_value = document.getElementById("salary_item_value").value;
@@ -25,9 +26,11 @@ $(document).ready(function(){
         var check_salary_item_value = (salary_item_value > 0) ? 1 : error_msg=error_msg+"| Indique um valor > 0.";
 
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
+            console.log("validation OK");
             document.getElementById('error_msg').setAttribute('hidden','hidden');
             document.getElementById("form_salary").submit();
         } else{
+            console.log("validation failed");
             document.getElementById('error_msg').value=error_msg;
             document.getElementById('error_msg').removeAttribute('hidden');
             return false;
