@@ -13,21 +13,29 @@ $(document).ready(function(){
         document.getElementById('salary_item_status').removeAttribute("disabled");
     }
 
-    document.getElementById("update_form").onsubmit = function() {
-        document.getElementById('package_service').removeAttribute("disabled");
-    };
-
-    document.getElementById("form_salary").onsubmit= function(event) {
+    document.getElementById("form_salary").submit= function(event) {
         console.log("form_salary submit hit");
         event.preventDefault();
         let supplier = document.getElementById("id_employee").value;
         let salary_item_value = document.getElementById("salary_item_value").value;
         let salary_item_type = document.getElementById("salary_item_type").value;
         var error_msg = "";
+        var check_supplier = 1;
+        var check_salary_item_type = 1;
+        var check_salary_item_value = 1;
       
-        var check_supplier = (supplier == "XXXX") ? error_msg=error_msg+"| Selecione um fucnionário." : 1;
-        var check_salary_item_type = (salary_item_type == "Selecione uma opção") ? error_msg=error_msg+"| Selecione um tipo de item." : 1;
-        var check_salary_item_value = (salary_item_value > 0) ? 1 : error_msg=error_msg+"| Indique um valor > 0.";
+        if(supplier=="XXXX"){
+            error_msg = error_msg+"| Selecione um fucnionário.";
+            check_supplier = 0;
+        }
+        if (salary_item_type == "Selecione uma opção") {
+            error_msg=error_msg+"| Selecione um tipo de item.";
+            check_salary_item_type = 0;
+        }
+        if (!(salary_item_value > 0)) {
+            error_msg=error_msg+"| Indique um valor > 0."
+            check_salary_item_value = 0;
+        }
 
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
             console.log("validation OK");
@@ -35,7 +43,7 @@ $(document).ready(function(){
             document.getElementById("form_salary").submit();
         } else{
             console.log("validation failed");
-            document.getElementById('error_msg').value=error_msg;
+            document.getElementById('error_msg').value = error_msg;
             document.getElementById('error_msg').removeAttribute('hidden');
             return false;
         }
