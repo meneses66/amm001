@@ -16,5 +16,5 @@
             $controller->load_salary_form();
         ?>
     </form>
-    <input id="error_msg" type="hidden" name="Error_Msg" value="">
+    <input id="error_msg" size="100px" type="hidden" name="Error_Msg" value="">
 </div>

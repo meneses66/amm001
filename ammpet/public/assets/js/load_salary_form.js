@@ -19,6 +19,7 @@ $(document).ready(function(){
         let supplier = document.getElementById("id_employee").value;
         let salary_item_value = document.getElementById("salary_item_value").value;
         let salary_item_type = document.getElementById("salary_item_type").value;
+        let id = document.getElementById("id").value;
         var error_msg = "";
         var check_supplier = 1;
         var check_salary_item_type = 1;
@@ -26,7 +27,7 @@ $(document).ready(function(){
 
         console.log("supplier - "+supplier+" | salary_item_value - "+salary_item_value+" | salary_item_type - "+salary_item_type);
       
-        if(supplier==""){
+        if(supplier=="XXXX"){
             error_msg = error_msg+"| Selecione um fucnionário.";
             check_supplier = 0;
         }
@@ -42,7 +43,26 @@ $(document).ready(function(){
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
             console.log("validation OK");
             document.getElementById('error_msg').setAttribute('type',"hidden");
-            return true;
+            var method_update="update_call?id="+id;
+            if (id=="new") {
+                $.ajax({
+                    url: "/ammpet/public/Ajax_call",
+                    type: "POST",
+                    data: {class:"Salary", method:"insert_call"},
+                    success: function(response){
+                        
+                    }
+                });
+            } else{
+                $.ajax({
+                    url: "/ammpet/public/Ajax_call",
+                    type: "POST",
+                    data: {class:"Salary", method:method_update},
+                    success: function(response){
+                        
+                    }
+                });
+            }
         } else{
             console.log("validation failed");
             document.getElementById('error_msg').value = error_msg;
