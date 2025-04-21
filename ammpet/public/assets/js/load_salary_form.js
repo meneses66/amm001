@@ -45,6 +45,7 @@ $(document).ready(function(){
             document.getElementById('error_msg').setAttribute('type',"hidden");
             var method_update="update_call?id="+id;
             if (id=="new") {
+                console.log("ID = NEW");
                 insert_salary($.post);
             } else{
                 update_salary($.post, method_update);
@@ -58,6 +59,7 @@ $(document).ready(function(){
       };
 
       function insert_salary($post){
+        console.log("INSERT ACCESSED");
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
