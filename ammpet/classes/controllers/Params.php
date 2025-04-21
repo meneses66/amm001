@@ -234,6 +234,8 @@ class Params {
     public function load_rows(){
         
         //restart_session();
+        $params_edit_check = check_permission($_SESSION['username'], "params_edit");
+        $params_delete_check = check_permission($_SESSION['username'], "params_delete");
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
@@ -263,8 +265,8 @@ class Params {
                             <td>'.$row->STATUS.'</td>
                             <td>'.$row->COMMENT.'</td>
                             <td>
-                                <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                '.(($params_edit_check) ? '<a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                '.(($params_delete_check) ? '<a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>' : '').'
                             </td></tr>';
             }
             $output .= '</tbody>';

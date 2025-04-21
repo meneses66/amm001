@@ -462,6 +462,8 @@ class Orderx
             //if(session_status() === PHP_SESSION_NONE) session_start();
             //restart_session();
 
+            $orderitemprod_edit_check = check_permission($_SESSION['username'], "orderitemprod_edit");
+            $orderitemprod_delete_check = check_permission($_SESSION['username'], "orderitemprod_delete");
             $output = "";
             $inputs["ID_ORDER"]=$_GET['order_id'];
             $inputs["PROD_SERV_TYPE"]="PROD";
@@ -495,8 +497,8 @@ class Orderx
                                 <td>'.$row->VALUE_WITH_DISCOUNT.'</td>
                                 <td>'.$row->SALESPERSON.'</td>
                                 <td>
-                                    <a href="'.ROOT."/OrderItem/_updateProduct?cli_id=$row->ID_CLIENT&order_id=$row->ID_ORDER&item_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                    <a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_PACKAGE.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>
+                                    '.(($orderitemprod_edit_check) ? '<a href="'.ROOT."/OrderItem/_updateProduct?cli_id=$row->ID_CLIENT&order_id=$row->ID_ORDER&item_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                    '.(($orderitemprod_delete_check) ? '<a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_PACKAGE.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>' : '').'
                                 </td>
                                </tr>';
                 }
@@ -529,6 +531,8 @@ class Orderx
     public function get_payments(){
         
         //restart_session();
+        $orderpayment_edit_check = check_permission($_SESSION['username'], "orderpayment_edit");
+        $orderpayment_delete_check = check_permission($_SESSION['username'], "orderpayment_delete");
         $output = "";
         $model = new('\Model\\'."OrderPayment");
         
@@ -558,8 +562,8 @@ class Orderx
                             <td>'.$row->PAYMENT_TYPE.'</td>
                             <td>'.($row->FLAG1==1?"■":"").'</td>
                             <td>
-                                <a href="'.ROOT."/OrderPayment/_update_payment?cli_id=$cli_id&order_id=$row->ID_ORDER&paym_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$cli_id.'" order_id="'.$row->ID_ORDER.'" paym_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/OrderPayment/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$order_id.'" classforjs="OrderPayment"><i class="fas fa-eraser"></i></a>
+                                '.(($orderpayment_edit_check) ? '<a href="'.ROOT."/OrderPayment/_update_payment?cli_id=$cli_id&order_id=$row->ID_ORDER&paym_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$cli_id.'" order_id="'.$row->ID_ORDER.'" paym_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                '.(($orderpayment_delete_check) ? '<a href="'.ROOT."/OrderPayment/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$order_id.'" classforjs="OrderPayment"><i class="fas fa-eraser"></i></a>' : '').'                                
                             </td></tr>';
             }
             $output .= '</tbody>';
