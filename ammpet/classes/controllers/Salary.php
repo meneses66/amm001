@@ -163,7 +163,7 @@ class Salary {
                                     <a href="'.ROOT.'/Salary/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../Salary/insert_call">
+                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Salvar" formaction="../Salary/insert_call">
                                 </div>
                             </div>';
             } else {
