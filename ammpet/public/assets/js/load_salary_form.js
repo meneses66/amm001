@@ -41,12 +41,12 @@ $(document).ready(function(){
 
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
             console.log("validation OK");
-            document.getElementById('error_msg').setAttribute('hidden','hidden');
-            document.getElementById("form_salary").submit();
+            document.getElementById('error_msg').setAttribute('type',"hidden");
+            document.getElementById("form_salary").
         } else{
             console.log("validation failed");
             document.getElementById('error_msg').value = error_msg;
-            document.getElementById('error_msg').removeAttribute('hidden');
+            document.getElementById('error_msg').setAttribute('type', "text");
             return false;
         }
       };
