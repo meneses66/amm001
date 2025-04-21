@@ -128,7 +128,11 @@ class Salary {
                                 <label for="salary_item_status" class="medium-label">Status:</label>
                             </div>
                             <div class="col-sm-3">
-                                <input id="salary_item_status" type="text" size="20" readonly name="Salary_Item_Status" value="'.$status.'">
+                                <select class="medium-label" id="salary_item_status" name="Salary_Item_Status">
+                                        <option class="medium-label" value="Aberto" '.(($status == 'Aberto')?"selected":"").'>Aberto</option>
+                                        <option class="medium-label" value="Confirmado" '.(($status == 'Confirmado')?"selected":"").'>Confirmado</option>
+                                        <option class="medium-label" value="Fechado" '.(($status == 'Fechado')?"selected":"").'>Fechado</option>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
@@ -303,6 +307,17 @@ class Salary {
 
         }
     }
+
+    public function close_period($year, $month){
+
+    }
     
+    public function update_conission(){
+        
+    }
+
+    public function batch_confirm(){}
+
+
 
 }
