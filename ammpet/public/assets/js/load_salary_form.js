@@ -86,7 +86,7 @@ $(document).ready(function(){
     }
 
     function splitUrlEncoded(str) {
-        const result = {};
+        var result = {};
         str.split('&').forEach(pair => {
           const [key, value] = pair.split('=');
           result[key] = value;
@@ -95,10 +95,10 @@ $(document).ready(function(){
       }
 
       function splitSerializedEncoded(str) {
-        const result = "";
+        var result = "";
         str.split('&').forEach(pair => {
           const [key, value] = pair.split('=');
-          result = result+key+":"+value+",";
+          result = result + key + ":" + value + ",";
         });
         result = result.replace(/(^,)|(,$)/g, "");
         return result;
