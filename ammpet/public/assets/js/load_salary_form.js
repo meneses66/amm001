@@ -14,7 +14,7 @@ $(document).ready(function(){
     }
 
     document.getElementById("save_submit").onclick= function(event) {
-        console.log("form_salary submit hit");
+        //console.log("form_salary submit hit");
         event.preventDefault();
         let supplier = document.getElementById("id_employee").value;
         let salary_item_value = document.getElementById("salary_item_value").value;
@@ -59,7 +59,7 @@ $(document).ready(function(){
       };
 
       function insert_salary($post){
-        console.log("INSERT ACCESSED");
+        console.log("INSERT ACCESSED:"+$post);
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
