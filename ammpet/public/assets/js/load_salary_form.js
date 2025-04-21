@@ -38,7 +38,7 @@ $(document).ready(function(){
             error_msg=error_msg+"| Selecione um tipo de item.";
             check_salary_item_type = 0;
         }
-        if (!(salary_item_value > 0)) {
+        if (!(Number(salary_item_value) > 0)) {
             error_msg=error_msg+"| Indique um valor > 0."
             check_salary_item_value = 0;
         }
@@ -72,11 +72,11 @@ $(document).ready(function(){
         var error_msg = "";
         var check_postponed_value = 1;
       
-        if(postponed_value==0){
+        if(Number(postponed_value)==0){
             error_msg = error_msg+"| Indique um valor > 0 para adiar.";
             check_postponed_value = 0;
         }
-        if(postponed_value > salary_item_value){
+        if(Number(postponed_value) > Number(salary_item_value)){
             error_msg = error_msg+"| Indique um valor para adiar que seja menor que o valor do item. Valor indicado: "+postponed_value+" |Valor do Item: "+salary_item_value;
             check_postponed_value = 0;
         }
