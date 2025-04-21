@@ -23,6 +23,8 @@ $(document).ready(function(){
         var check_supplier = 1;
         var check_salary_item_type = 1;
         var check_salary_item_value = 1;
+
+        console.log("supplier - "+supplier+" | salary_item_value - "+salary_item_value+" | salary_item_type - "+salary_item_type);
       
         if(supplier=="XXXX"){
             error_msg = error_msg+"| Selecione um fucnionário.";
