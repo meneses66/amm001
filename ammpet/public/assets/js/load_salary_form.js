@@ -39,5 +39,5 @@ $(document).ready(function(){
             document.getElementById('error_msg').removeAttribute('hidden');
             return false;
         }
-      });
+      };
 });
