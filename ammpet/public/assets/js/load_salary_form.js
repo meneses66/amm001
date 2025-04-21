@@ -25,7 +25,7 @@ $(document).ready(function(){
         var check_salary_item_type = 1;
         var check_salary_item_value = 1;
 
-        console.log("supplier - "+supplier+" | salary_item_value - "+salary_item_value+" | salary_item_type - "+salary_item_type);
+        //console.log("supplier - "+supplier+" | salary_item_value - "+salary_item_value+" | salary_item_type - "+salary_item_type);
       
         if(supplier=="XXXX"){
             error_msg = error_msg+"| Selecione um fucnionário.";
@@ -41,17 +41,17 @@ $(document).ready(function(){
         }
 
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
-            console.log("validation OK");
+            //console.log("validation OK");
             document.getElementById('error_msg').setAttribute('type',"hidden");
             var method_update="update_call?id="+id;
             if (id=="new") {
-                console.log("ID = NEW");
+                //console.log("ID = NEW");
                 insert_salary($.post);
             } else{
                 update_salary($.post, method_update);
             }
         } else{
-            console.log("validation failed");
+            //console.log("validation failed");
             document.getElementById('error_msg').value = error_msg;
             document.getElementById('error_msg').setAttribute('type', "text");
             return false;
