@@ -37,8 +37,8 @@ class Salary {
             $id="new";
             $date=date('Y-m-d');
             $inputs['ID']="new";
-            $id_employee="";
-            $temp_id_employee="";
+            $id_employee="XXXX";
+            $temp_id_employee="XXXX";
             $salary_item_type=$data_form_type="Selecione uma opção";
             $salary_item_value=0.00;
             $status="Aberto";

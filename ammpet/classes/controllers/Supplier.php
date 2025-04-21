@@ -417,9 +417,9 @@ class Supplier {
         $inputs['STATUS']="Ativo";
 
         if($data_form_employee=="" || $data_form_employee==null){
-            $option_list = '<option class="medium-label" value="" "selected">XXXX</option>';
+            $option_list = '<option class="medium-label" value="XXXX" "selected">XXXX</option>';
         } else {
-            $option_list = '<option class="medium-label" value="">XXXX</option>';
+            $option_list = '<option class="medium-label" value="XXXX">XXXX</option>';
         }
         
         $options = $model->listWhere($inputs);
