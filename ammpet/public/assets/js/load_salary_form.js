@@ -13,11 +13,11 @@ $(document).ready(function(){
         document.getElementById('salary_item_status').removeAttribute("disabled");
     }
 
-    document.form[0].onsubmit((event) => {
+    document.getElementById("form_salary").onsubmit((event) => {
         event.preventDefault();
-        let supplier = document.form[0].elements.id_employee.value;
-        let salary_item_value = document.form[0].elements.salary_item_value.value;
-        let salary_item_type = document.form[0].elements.salary_item_type.value;
+        let supplier = document.getElementById("id_employee").value;
+        let salary_item_value = document.getElementById("salary_item_value").value;
+        let salary_item_type = document.getElementById("salary_item_type").value;
         var error_msg = "";
       
         var check_supplier = (supplier == "XXXX") ? error_msg=error_msg+"| Selecione um fucnionário." : 1;
@@ -26,7 +26,7 @@ $(document).ready(function(){
 
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
             document.getElementById('error_msg').setAttribute('hidden','hidden');
-            document.form[0].submit();
+            document.getElementById("form_salary").submit();
         } else{
             document.getElementById('error_msg').value=error_msg;
             document.getElementById('error_msg').removeAttribute('hidden');
