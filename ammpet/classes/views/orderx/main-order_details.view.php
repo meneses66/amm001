@@ -58,7 +58,7 @@
                     
                 </div>
                 <div class="col-sm-4">
-                    ((check_permission($_SESSION['username'],"orderitem_add")) ? '<a href="<?php echo ROOT."/Orderx/_new_service?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Serviço</a>' : '')
+                    <?php if(check_permission($_SESSION['username'],"orderitem_add")) {echo '<a href="' . ROOT . '/Orderx/_new_service?cli_id='.$_GET['cli_id'].'&order_id='.$_GET['order_id'].'" class="btn btn-primary btn-sm m-1 btn-block">Novo Serviço</a>';}?>
                 </div>
             </div>
             <div class="row">
@@ -81,7 +81,7 @@
                     
                 </div>
                 <div class="col-sm-4">
-                    ((check_permission($_SESSION['username'],"orderitemprod_add")) ? '<a href="<?php echo ROOT."/Orderx/_new_product?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Produto</a>' : '')
+                    <?php if(check_permission($_SESSION['username'],"orderitemprod_add")) {echo '<a href="' . ROOT . '/Orderx/_new_product?cli_id='.$_GET['cli_id'].'&order_id='.$_GET['order_id'].'" class="btn btn-primary btn-sm m-1 btn-block">Novo Produto</a>';}?>
                 </div>
             </div>
             <div class="row">
@@ -103,7 +103,7 @@
         <div class="col-sm-6">
         </div>
         <div class="col-sm-4">
-            ((check_permission($_SESSION['username'],"orderpayment_add")) ? '<a href="<?php echo ROOT."/Orderx/_new_payment?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];?>" class="btn btn-primary btn-sm m-1 btn-block">Novo Pagamento</a>' : '')
+            <?php if(check_permission($_SESSION['username'],"orderpayment_add")) {echo '<a href="' . ROOT . '/Orderx/_new_payment?cli_id='.$_GET['cli_id'].'&order_id='.$_GET['order_id'].'" class="btn btn-primary btn-sm m-1 btn-block">Novo Pagamento</a>';}?>
         </div>
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:11px;">

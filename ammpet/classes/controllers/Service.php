@@ -385,6 +385,10 @@ class Service {
         //if(session_status() === PHP_SESSION_NONE) session_start();
         //restart_session();
         
+        $orderitem_add_check = check_permission($_SESSION['username'], "orderitem_add");
+        $service_edit_check = check_permission($_SESSION['username'], "service_edit");
+        $service_delete_check = check_permission($_SESSION['username'], "service_delete");
+
         $inputs_buttons=$inputs['buttons'];
         $inputs_cli_id=$inputs['cli_id'];
         $inputs_order_id=$inputs['order_id'];
@@ -432,9 +436,9 @@ class Service {
                             <td>'.$row->PRICE_PIX.'</td>
                             <td>'.$row->STATUS.'</td>
                             <td>
-                                '.(($inputs_buttons==$this->OrderItem)? "<a href=\"" : "").''.(($inputs_buttons==$this->OrderItem)? ROOT."/OrderItem/_insert_service?cli_id=" : "").''.(($inputs_buttons==$this->OrderItem)? $inputs_cli_id : "").''.(($inputs_buttons==$this->OrderItem)? "&order_id=" : "").''.(($inputs_buttons==$this->OrderItem)? $inputs_order_id : "").''.(($inputs_buttons==$this->OrderItem)? "&service={" : "").''.(($inputs_buttons==$this->OrderItem)? $array : "").''.(($inputs_buttons==$this->OrderItem)? "}\" title=\"New_Service\" class=\"text-primary newOrderBtn\" cli_id=" : "").''.(($inputs_buttons==$this->OrderItem)? $inputs_cli_id : "").''.(($inputs_buttons==$this->OrderItem)? "\" order_id=" : "").''.(($inputs_buttons==$this->OrderItem)? $inputs_order_id : "").''.(($inputs_buttons==$this->OrderItem)? "\"><i class=\"fas fa-plus\"></i></a>" : "").'
-                                '.(($inputs_buttons==$this->UCF_object)? "<a href=\"" : "").''.(($inputs_buttons==$this->UCF_object)? ROOT."/$this->UCF_object/_update?id=$row->ID\"" : "").''.(($inputs_buttons==$this->UCF_object)? " title=\"Edit\" class=\"text-primary updateBtn\" id=" : "").''.(($inputs_buttons==$this->UCF_object)? $row->ID : "").''.(($inputs_buttons==$this->UCF_object)? "><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
-                                '.(($inputs_buttons==$this->UCF_object)? "<a href=\"" : "").''.(($inputs_buttons==$this->UCF_object)? ROOT."/$this->UCF_object/_delete?id=$row->ID\"" : "").''.(($inputs_buttons==$this->UCF_object)? " title=\"Delete\" class=\"text-danger deleteBtn\" id=" : "").''.(($inputs_buttons==$this->UCF_object)? $row->ID : "").''.(($inputs_buttons==$this->UCF_object)? "><i class=\"fas fa-eraser\"></i></a>" : "").'
+                                '.(($inputs_buttons == $this->OrderItem && $orderitem_add_check) ? '<a href="' . ROOT . '/OrderItem/_insert_service?cli_id=' . $inputs_cli_id . '&order_id=' . $inputs_order_id . '&service={' . $array . '}" title="New_Service" class="text-primary newOrderBtn" cli_id="' . $inputs_cli_id . '" order_id="' . $inputs_order_id . '"><i class="fas fa-plus"></i></a>' : '').'
+                                '.(($inputs_buttons == $this->UCF_object && $service_edit_check) ? '<a href="' . ROOT . '/' . $this->UCF_object . '/_update?id=' . $row->ID . '" title="Edit" class="text-primary updateBtn" id="' . $row->ID . '"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                '.(($inputs_buttons == $this->UCF_object && $service_delete_check) ? '<a href="' . ROOT . '/' . $this->UCF_object . '/_delete?id=' . $row->ID . '" title="Delete" class="text-danger deleteBtn" id="' . $row->ID . '"><i class="fas fa-eraser"></i></a>' : '').'
                             </td></tr>';
             }
             $output .= '</tbody>';

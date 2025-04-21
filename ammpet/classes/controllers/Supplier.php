@@ -282,7 +282,9 @@ class Supplier {
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
         //if(isset($_POST['operation']) && $_POST['operation']==="view"){
-        //restart_session();    
+        //restart_session();   
+        $supplier_edit_check = check_permission($_SESSION['username'], "supplier_edit");
+        $supplier_delete_check = check_permission($_SESSION['username'], "supplier_delete"); 
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
         $data = $model->listAll();
@@ -318,8 +320,8 @@ class Supplier {
                             <td>'.$row->HIRE_DATE.'</td>
                             <td>'.$row->COMMENT.'</td>
                             <td>
-                                <a href="'.ROOT."/Supplier/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/Supplier/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                '.(($supplier_edit_check) ? '<a href="'.ROOT."/Supplier/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                '.(($supplier_delete_check) ? '<a href="'.ROOT."/Supplier/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>' : '').'
                             </td></tr>';
             }
             $output .= '</tbody>';

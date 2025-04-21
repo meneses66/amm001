@@ -195,6 +195,8 @@ class Salary {
     public function load_rows(){
            
         //restart_session();
+        $salary_edit_check = check_permission($_SESSION['username'], "salary_edit");
+        $salary_delete_check = check_permission($_SESSION['username'], "salary_delete");
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
@@ -243,8 +245,8 @@ class Salary {
                             <td>'.$row->ORIGINAL_VALUE.'</td>
                             <td>'.$row->POSTPONED_VALUE.'</td>
                             <td>
-                                <a href="'.ROOT."/$this->UCF_object/_new?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                '.(($salary_edit_check) ? '<a href="'.ROOT."/$this->UCF_object/_new?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                '.(($salary_delete_check) ? '<a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>' : '').'
                             </td>
                         </tr>';
             }
