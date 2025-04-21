@@ -20,6 +20,9 @@ $(document).ready(function(){
         let salary_item_value = document.getElementById("salary_item_value").value;
         let salary_item_type = document.getElementById("salary_item_type").value;
         let id = document.getElementById("id").value;
+        let form_salary = document.getElementById("form_salary");
+
+        var data_form = $(form_salary).serialize();
         var error_msg = "";
         var check_supplier = 1;
         var check_salary_item_type = 1;
@@ -46,9 +49,9 @@ $(document).ready(function(){
             var method_update="update_call?id="+id;
             if (id=="new") {
                 //console.log("ID = NEW");
-                insert_salary($.post);
+                insert_salary(data_form);
             } else{
-                update_salary($.post, method_update);
+                update_salary(data_form, method_update);
             }
         } else{
             //console.log("validation failed");
@@ -58,21 +61,21 @@ $(document).ready(function(){
         }
       };
 
-      function insert_salary($post){
-        console.log("INSERT ACCESSED:"+$post);
+      function insert_salary(data_form){
+        console.log("INSERT ACCESSED:"+data_form);
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
-            data: {class:"Salary", method:"insert_call", post:$post},
+            data: {class:"Salary", method:"insert_call", post:data_form},
             success
         });
     }
     
-    function update_salary($post, method_update){
+    function update_salary(data_form, method_update){
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
-            data: {class:"Salary", method:method_update, post:$post},
+            data: {class:"Salary", method:method_update, post:data_form},
             success
         });
     }
