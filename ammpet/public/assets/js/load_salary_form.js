@@ -76,8 +76,8 @@ $(document).ready(function(){
             error_msg = error_msg+"| Indique um valor > 0 para adiar.";
             check_postponed_value = 0;
         }
-        if(postponed_value>salary_item_value){
-            error_msg = error_msg+"| Indique um valor para adiar que seja menor que o valor do item. Valor indicado: "+postponed_value;
+        if(postponed_value > salary_item_value){
+            error_msg = error_msg+"| Indique um valor para adiar que seja menor que o valor do item. Valor indicado: "+postponed_value+" |Valor do Item: "+salary_item_value;
             check_postponed_value = 0;
         }
 
