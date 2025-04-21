@@ -13,7 +13,11 @@ $(document).ready(function(){
         document.getElementById('salary_item_status').removeAttribute("disabled");
     }
 
-    document.getElementById("form_salary").onsubmit((event) => {
+    document.getElementById("update_form").onsubmit = function() {
+        document.getElementById('package_service').removeAttribute("disabled");
+    };
+
+    document.getElementById("form_salary").onsubmit= function(event) {
         console.log("form_salary submit hit");
         event.preventDefault();
         let supplier = document.getElementById("id_employee").value;
