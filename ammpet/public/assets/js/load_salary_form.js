@@ -26,7 +26,7 @@ $(document).ready(function(){
 
         console.log("supplier - "+supplier+" | salary_item_value - "+salary_item_value+" | salary_item_type - "+salary_item_type);
       
-        if(supplier=="XXXX"){
+        if(supplier==""){
             error_msg = error_msg+"| Selecione um fucnionário.";
             check_supplier = 0;
         }
