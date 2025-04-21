@@ -70,7 +70,7 @@ $(document).ready(function(){
             type: "POST",
             data: {class:"Salary", method:"insert_call", Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
             success: function(response){
-                location.reload();
+                location.replace(response);
               }
         });
     }
@@ -84,7 +84,7 @@ $(document).ready(function(){
             type: "POST",
             data: {class:"Salary", method:method_update, Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
             success: function(response){
-                location.reload();
+                location.replace(response);
             }
         });
     }
