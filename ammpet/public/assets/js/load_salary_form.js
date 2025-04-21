@@ -22,7 +22,7 @@ $(document).ready(function(){
         let id = document.getElementById("id").value;
         let form_salary = document.getElementById("form_salary");
 
-        var data_form = decodeURI($(form_salary).serialize());
+        var data_form = decodeURIComponent($(form_salary).serialize());
         var error_msg = "";
         var check_supplier = 1;
         var check_salary_item_type = 1;
@@ -46,7 +46,6 @@ $(document).ready(function(){
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
             //console.log("validation OK");
             document.getElementById('error_msg').setAttribute('type',"hidden");
-            var method_update="update_call?id="+id;
             if (id=="new") {
                 //console.log("ID = NEW");
                 insert_salary(data_form);
@@ -95,16 +94,6 @@ $(document).ready(function(){
           const [key, value] = pair.split('=');
           result[key] = value;
         });
-        return result;
-      }
-
-      function splitSerializedEncoded(str) {
-        var result = "";
-        str.split('&').forEach(pair => {
-          const [key, value] = pair.split('=');
-          result = result + key + ":" + value + ",";
-        });
-        result = result.replace(/(^,)|(,$)/g, "");
         return result;
       }
 
