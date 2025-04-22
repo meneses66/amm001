@@ -397,7 +397,7 @@ class Product {
                                     <input id="id" type="text" name="Id" value="'.$id.'" readonly>
                                     <input id="type" type="hidden" name="Type" value="Prod">
                                     <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'">
-                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$updated_by.'">
+                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'">
                                 </div>
                             </div><br>
                             <div class="row">
