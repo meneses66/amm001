@@ -1104,7 +1104,12 @@ Trait _GlobalController{
                         unset_array($inputs);
                         double_redirect("OrderPayment", $path2);
                         break;
-                            
+                    
+                    case 'Product':
+                        unset($_POST);
+                        unset($inputs);
+                        break;
+
                     default:
                         $view = "$this->UCF_object/_list";
                         unset_array($inputs);
