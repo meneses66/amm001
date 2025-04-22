@@ -12,7 +12,7 @@ $(document).ready(function(){
             let created_by = document.getElementById("created_by").value;
         } 
 
-        var data_form = decodeURIComponent($(form_salary).serialize());
+        var data_form = decodeURIComponent($(form).serialize());
         data_form_array = splitUrlEncoded(data_form);
         $.ajax({
             url: "/ammpet/public/Ajax_call",
