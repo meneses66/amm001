@@ -514,7 +514,7 @@ class Product {
                                                     <a href="'.ROOT.'/Product/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input id="save_submit" class="btn btn-primary btn-lg m-1 btn-block" type="save_submit" value="Salvar" formaction="../Product/insert_call">
+                                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="save_submit" value="Salvar" formaction="../Product/insert_call">
                                                 </div>
                                             </div>';
                             } else {
@@ -523,7 +523,7 @@ class Product {
                                                     <a href="'.ROOT.'/Product/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input id="save_submit" class="btn btn-primary btn-lg m-1 btn-block" type="save_submit" value="Salvar" formaction="../Product/update_call?id='.$id.'">
+                                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="save_submit" value="Salvar" formaction="../Product/update_call?id='.$id.'">
                                                 </div>
                                             </div>';
                             }
