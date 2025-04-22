@@ -118,8 +118,6 @@ class Product {
                                 <div class="col-sm-1">
                                     <input id="price" type="number" size="10" name="Price" value="'.$price.'" step="0.01" required>
                                 </div>
-                                <div class="col-sm-1">
-                                </div>
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
@@ -138,7 +136,7 @@ class Product {
                                     </select>
                                 </div>
                                 <div class="col-sm-2">
-                                    <label for="price_cash" class="medium-label">Preço Dinh. *:</label>
+                                    <label for="price_cash" class="medium-label">Preço Dinh.: *</label>
                                 </div>
                                 <div class="col-sm-1">
                                     <input id="price_cash" type="number" size="10" name="Price_cash" value="'.$price_cash.'" step="0.01" required>
