@@ -39,7 +39,7 @@ class Product {
         //CREATE VIEW HTML STRUCTURE
         $output .= '<div class="row">
                         <div class="col-sm-6">
-                            <input id="id" type="hidden" name="Id" value="">
+                            <input id="id" type="hidden" name="Id" value="new">
                             <input id="type" type="hidden" name="Type" value="Prod">
                             <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
                             <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
@@ -394,6 +394,49 @@ class Product {
             $model = null;
 
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+        }
+    }
+
+    public function validate_product($inputs){
+        $error=0;
+        $error_msg="";
+        if (isset($inputs['submit'])) {
+            if ( $inputs['Name']==null || $inputs['Name']=="") {
+                $error=1;
+                $error_msg .= " | Indique um valor para \"Nome\".";
+            }
+            if ( $inputs['Code']==null || $inputs['Code']=="") {
+                $error=1;
+                $error_msg .= " | Indique um valor para \"Código\".";
+            }
+            if ( $inputs['Price']==null || $inputs['Price']=="" || $inputs['Price']<=0 ) {
+                $error=1;
+                $error_msg .= " | Indique um valor para \"Preço\" > 0.";
+            }
+        }
+        if ($error == 0) {
+            return $error_msg;
+        } else {
+
+            unset($_POST);
+
+            foreach ($inputs as $key => $value) {
+                $_POST[$key]=$value;
+            }
+
+            $_SERVER['REQUEST_METHOD']="POST";
+            $_POST['class']="Product";
+
+            if ($inputs['Id']=="new") {
+                unset($_POST['Id']);                
+                $_POST['method']="insert_call";
+                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call->index();
+            } else{
+                $_POST['method']="update_call";
+                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call->index();
+            }
         }
     }
 

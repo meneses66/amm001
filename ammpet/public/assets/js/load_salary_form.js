@@ -31,15 +31,15 @@ $(document).ready(function(){
         //console.log("supplier - "+supplier+" | salary_item_value - "+salary_item_value+" | salary_item_type - "+salary_item_type);
       
         if(supplier=="XXXX"){
-            error_msg = error_msg+"| Selecione um fucnionário.";
+            error_msg = error_msg+"| Selecione um \"Funcionário\".";
             check_supplier = 0;
         }
         if (salary_item_type == "Selecione uma opção") {
-            error_msg=error_msg+"| Selecione um tipo de item.";
+            error_msg=error_msg+"| Selecione um \"Tipo de Movimento\".";
             check_salary_item_type = 0;
         }
         if (!(Number(salary_item_value) > 0)) {
-            error_msg=error_msg+"| Indique um valor > 0."
+            error_msg=error_msg+"| Indique um \"Valor\" > 0."
             check_salary_item_value = 0;
         }
 

@@ -10,7 +10,7 @@
     <hr class="my-1">
     <br>
 
-    <form method="post">
+    <form method="post" id="form" name="form_new">
         <input type="hidden" name="operation" value="insert">
 
         <?php 

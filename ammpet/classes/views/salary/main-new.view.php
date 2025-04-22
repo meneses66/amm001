@@ -17,5 +17,6 @@
             $controller->load_salary_form();
         ?>
     </form>
+    <br><br>
     <p class="error_message" id="error_message"></p>
 </div>

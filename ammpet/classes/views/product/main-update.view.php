@@ -10,7 +10,7 @@
     <hr class="my-1">
     <br>
 
-    <form method="post">
+    <form method="post" id="form" name="form_update">
         <input type="hidden" name="operation" value="update">
         <?php 
             $controller = new ('\Controller\\'."Product");
