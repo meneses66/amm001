@@ -567,6 +567,11 @@ Trait _GlobalController{
                         unset_array($inputs);
                         break;
 
+                    case 'Product':
+                        unset($_POST);
+                        unset($inputs);
+                        break;
+
                     default:
                         $view = "$this->UCF_object/_list";
                         unset_array($inputs);
