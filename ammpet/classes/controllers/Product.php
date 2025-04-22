@@ -400,7 +400,7 @@ class Product {
     public function validate_product($inputs){
         $error=0;
         $error_msg="";
-        amm_log(var_dump($inputs));
+        amm_log(date("H:i:s")+":: "+var_dump($inputs));
         if (isset($inputs['operation'])) {
             if ( $inputs['Name']==null || $inputs['Name']=="") {
                 $error=1;
@@ -414,43 +414,48 @@ class Product {
                 $error=1;
                 $error_msg .= " | Indique um valor para \"Preço\" > 0.";
             }
-        }
-        if ($error == 0) {
-            return $error_msg;
-        } else {
+            if ($error == 0) {
+                amm_log(date("H:i:s")+":: Error: "+$error+" | Error_Msg: "+$error_msg);
+                return $error_msg;
+            } else {
 
-            unset($_POST);
+                unset($_POST);
 
-            foreach ($inputs as $key => $value) {
-                $_POST[$key]=$value;
-            }
+                foreach ($inputs as $key => $value) {
+                    $_POST[$key]=$value;
+                }
 
-            if (isset($_POST['Flag1'])) {
-                $_POST['Flag1']=1;
-            }
-            if (isset($_POST['Comission_flg'])) {
-                $_POST['Comission_flg']=1;
-            }
-            if (isset($_POST['Comission_overwrite_flg'])) {
-                $_POST['Comission_overwrite_flg']=1;
-            }
+                if (isset($_POST['Flag1'])) {
+                    $_POST['Flag1']=1;
+                }
+                if (isset($_POST['Comission_flg'])) {
+                    $_POST['Comission_flg']=1;
+                }
+                if (isset($_POST['Comission_overwrite_flg'])) {
+                    $_POST['Comission_overwrite_flg']=1;
+                }
 
-            unset($_POST['operation']);
-            unset($_POST['class']);
-            unset($_POST['method']);
-            $_SERVER['REQUEST_METHOD']="POST";
-            $_POST['class']="Product";
+                unset($_POST['operation']);
+                unset($_POST['class']);
+                unset($_POST['method']);
+                $_SERVER['REQUEST_METHOD']="POST";
+                $_POST['class']="Product";
 
-            if ($inputs['Id']=="new") {
-                unset($_POST['Id']);                
-                $_POST['method']="insert_call";
-                $ajax_call = new('\Controller\\'."Ajax_call");
-                $ajax_call->index();
-            } else{
-                $_POST['method']="update_call";
-                $ajax_call = new('\Controller\\'."Ajax_call");
-                $ajax_call->index();
+                amm_log(date("H:i:s")+":: _POST: "+var_dump($_POST));
+
+                if ($inputs['Id']=="new") {
+                    unset($_POST['Id']);                
+                    $_POST['method']="insert_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                } else{
+                    $_POST['method']="update_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                }
             }
+        } else{
+            return $error_msg="Operation failed";
         }
     }
 

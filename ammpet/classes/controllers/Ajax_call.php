@@ -23,7 +23,7 @@ class Ajax_call {
             $class = new ('\Controller\\'.$className);
 
             try {
-                $log=date("H:i:s")." -> ClassName = ".$className." | Method = ".$method;
+                $log=date("H:i:s").":: ClassName = ".$className." | Method = ".$method;
                 $log .= "------------------------------------------------------------------------";
                 $log .= json_encode($inputs);
                 amm_log($log);
