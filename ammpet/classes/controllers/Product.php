@@ -425,6 +425,16 @@ class Product {
                 $_POST[$key]=$value;
             }
 
+            if (isset($_POST['Flag1'])) {
+                $_POST['Flag1']=1;
+            }
+            if (isset($_POST['Comission_flg'])) {
+                $_POST['Comission_flg']=1;
+            }
+            if (isset($_POST['Comission_overwrite_flg'])) {
+                $_POST['Comission_overwrite_flg']=1;
+            }
+
             unset($_POST['operation']);
             unset($_POST['class']);
             unset($_POST['method']);
