@@ -135,13 +135,11 @@ class Product {
                                         '.$category_option_list.'
                                     </select>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-1">
                                     <label for="price_cash" class="medium-label">Preço Dinh.: *</label>
                                 </div>
-                                <div class="col-sm-1">
+                                <div class="col-sm-2">
                                     <input id="price_cash" type="number" size="10" name="Price_cash" value="'.$price_cash.'" step="0.01" required>
-                                </div>
-                                <div class="col-sm-1">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -157,13 +155,11 @@ class Product {
                                 <div class="col-sm-3">
                                     <input id="supplier" type="text" size="30" name="Supplier" value="'.$supplier.'">
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-1">
                                     <label for="price_pix" class="medium-label">Preço Pix: *</label>
                                 </div>
-                                <div class="col-sm-1">
+                                <div class="col-sm-2">
                                     <input id="price_pix" type="number" size="10" name="Price_pix" value="'.$price_pix.'" step="0.01" required>
-                                </div>
-                                <div class="col-sm-1">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -179,13 +175,11 @@ class Product {
                                 <div class="col-sm-3">
                                     <input id="comission_overwrite_flg" type="checkbox" size="30" name="Comission_overwrite_flg" '.$flag_comission_overwrite.'>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-1">
                                     <label for="comission_percentage" class="medium-label">% Comissão:</label>
                                 </div>
-                                <div class="col-sm-1">
+                                <div class="col-sm-2">
                                     <input id="comission_percentage" type="number" size="10" name="Comission_percentage" value="'.$comission_percentage.'" step="0.01">
-                                </div>
-                                <div class="col-sm-1">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -204,13 +198,11 @@ class Product {
                                 <div class="col-sm-3">
                                     <input id="flag1" type="checkbox" name="Flag1" '.$flag_flag1.'>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-1">
                                     <label for="external_cost" class="medium-label">Custo Externo:</label>
                                 </div>
-                                <div class="col-sm-1">
+                                <div class="col-sm-2">
                                     <input id="external_cost" type="number" size="10" name="External_cost" value="'.$external_cost.'" step="0.01">
-                                </div>
-                                <div class="col-sm-1">
                                 </div>
                             </div><br>';
 
