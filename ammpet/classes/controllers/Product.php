@@ -414,11 +414,11 @@ class Product {
                 $error=1;
                 $error_msg .= " | Indique um valor para \"Preço\" > 0.";
             }
-            if ($error == 0) {
+            if ($error == 1) {
                 amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
                 return $error_msg;
             } else {
-
+                amm_log(date("H:i:s").":: NO Errors");
                 unset($_POST);
 
                 foreach ($inputs as $key => $value) {
