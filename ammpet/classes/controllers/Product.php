@@ -238,7 +238,7 @@ class Product {
                                     <label for="price_cash" class="medium-label">Preço Dinh.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="price_cash" type="number" size="20" name="Price_Cash" value="'.$data_form['PRICE_CASH'].'" step="0.01" required>
+                                    <input id="price_cash" type="number" size="20" name="Price_cash" value="'.$data_form['PRICE_CASH'].'" step="0.01" required>
                                 </div>
                             </div><br>
                             <div class="row">
