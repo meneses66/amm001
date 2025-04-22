@@ -323,7 +323,7 @@ class Product {
         if (isset($inputs['operation'])) {
             if ( $inputs['Name']==null || $inputs['Name']=="") {
                 $error=1;
-                $error_msg .= " | Indique um valor para \"Nome\".<br>";
+                $error_msg .= " | Indique um valor para \"Nome\".\n";
             }
             if ( $inputs['Code']==null || $inputs['Code']=="") {
                 $error=1;
