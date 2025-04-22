@@ -26,8 +26,6 @@ $(document).ready(function(){
     $('#package_price').mask("##0.00", {reverse: true});
     $('#unit_value').mask("##0.00", {reverse: true});
     $('#discount_value').mask("##0.00", {reverse: true});
-    //$('#price_pix').mask("##0.00", {reverse: true});
-    //$('#price_cash').mask("##0.00", {reverse: true});
     $('#total_pix').mask("##0.00", {reverse: true});
     $('#total_cash').mask("##0.00", {reverse: true});
     $('#order_value_with_discount').mask("##0.00", {reverse: true});

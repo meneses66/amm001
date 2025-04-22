@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <head>
     <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
     </head>
