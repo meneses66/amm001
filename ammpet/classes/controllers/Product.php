@@ -341,10 +341,19 @@ class Product {
                 $error=1;
                 $error_msg .= " | Indique um valor para \"Preço Pix\" > 0.";
             }
+            if ( $inputs['Category']==null || $inputs['Category']=="" || $inputs['Category']=="Selecione uma opção" ) {
+                $error=1;
+                $error_msg .= " | Selecione uma opção para \"Categoria\".";
+            }
+
+            //IF ANY ERROR FOUND: RETURN ERROR
             if ($error == 1) {
                 //amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
                 return $error_msg;
-            } else {
+            } 
+
+            //IF NO ERROR PROCESS WITH INSERT (id=new) OR UPDATE
+            else {
                 //amm_log(date("H:i:s").":: NO Errors");
                 unset($_POST);
 
