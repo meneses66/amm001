@@ -41,8 +41,8 @@ class Product {
                         <div class="col-sm-6">
                             <input id="id" type="hidden" name="Id" value="new">
                             <input id="type" type="hidden" name="Type" value="Prod">
-                            <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
-                            <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                            <input id="created_by" type="hidden" name="Created_By" value="'.$_SESSION['username'].'">
+                            <input id="updated_by" type="hidden" name="Updated_By" value="'.$_SESSION['username'].'">
                             <input id="created" type="hidden" name="Created" value="">
                             <input id="updated" type="hidden" name="Updated" value="">
                         </div>
@@ -400,7 +400,6 @@ class Product {
     public function validate_product($inputs){
         $error=0;
         $error_msg="";
-        //amm_log(date("H:i:s").":: ".var_dump($inputs));
         if (isset($inputs['operation'])) {
             if ( $inputs['Name']==null || $inputs['Name']=="") {
                 $error=1;
@@ -440,8 +439,6 @@ class Product {
                 unset($_POST['method']);
                 $_SERVER['REQUEST_METHOD']="POST";
                 $_POST['class']="Product";
-
-                //amm_log(date("H:i:s").":: _POST: ".var_dump($_POST));
 
                 if ($inputs['Id']=="new") {
                     unset($_POST['Id']);                
