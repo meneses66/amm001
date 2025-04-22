@@ -76,6 +76,8 @@ class Product {
                     $comission_overwrite_flg = $data_form['COMISSION_OVERWRITE_FLG'];
 
                 }
+                unset($data_form);
+                unset($inputs);
             }
                 //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
                 //$data_form_category = $data_form['CATEGORY'];
@@ -234,7 +236,6 @@ class Product {
                             echo $output;
         } else{
             $sql_stm = null;
-            unset_array($inputs);
             $data = null;
             $model = null;
 
