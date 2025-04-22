@@ -400,7 +400,7 @@ class Product {
     public function validate_product($inputs){
         $error=0;
         $error_msg="";
-        amm_log(date("H:i:s").":: ".var_dump($inputs));
+        //amm_log(date("H:i:s").":: ".var_dump($inputs));
         if (isset($inputs['operation'])) {
             if ( $inputs['Name']==null || $inputs['Name']=="") {
                 $error=1;
