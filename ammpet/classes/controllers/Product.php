@@ -400,7 +400,7 @@ class Product {
     public function validate_product($inputs){
         $error=0;
         $error_msg="";
-        amm_log(date("H:i:s")+":: "+var_dump($inputs));
+        amm_log(date("H:i:s").":: ".var_dump($inputs));
         if (isset($inputs['operation'])) {
             if ( $inputs['Name']==null || $inputs['Name']=="") {
                 $error=1;
@@ -415,7 +415,7 @@ class Product {
                 $error_msg .= " | Indique um valor para \"Preço\" > 0.";
             }
             if ($error == 0) {
-                amm_log(date("H:i:s")+":: Error: "+$error+" | Error_Msg: "+$error_msg);
+                amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
                 return $error_msg;
             } else {
 
@@ -441,7 +441,7 @@ class Product {
                 $_SERVER['REQUEST_METHOD']="POST";
                 $_POST['class']="Product";
 
-                amm_log(date("H:i:s")+":: _POST: "+var_dump($_POST));
+                amm_log(date("H:i:s").":: _POST: ".var_dump($_POST));
 
                 if ($inputs['Id']=="new") {
                     unset($_POST['Id']);                
