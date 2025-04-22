@@ -96,9 +96,9 @@ class Product {
                                 </div>
                                 <div class="col-sm-6">
                                     <input id="id" type="text" name="Id" value="'.$id.'" readonly>
-                                    <input id="type" type="hidden" name="Type" value="Prod">
-                                    <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'">
-                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'">
+                                    <input id="type" type="hidden" name="Type" value="Prod" readonly>
+                                    <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
+                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
                                 </div>
                             </div><br>
                             <div class="row">
@@ -123,7 +123,7 @@ class Product {
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="center" class="medium-label">Centro:</label>
+                                    <label for="center" class="medium-label">Centro: *</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="center" type="text" size="30" name="Center" value="Loja" readonly>
@@ -318,6 +318,7 @@ class Product {
         }
     }
 
+    //FUNCTION USED TO PRE-VALIDATE PRODUCT INFO BEFORE IT'S SUBMITTED
     public function validate_product($inputs){
         $error=0;
         $error_msg="";
