@@ -46,8 +46,10 @@ $(document).ready(function(){
             success: function(response){
                 console.log("AJAX SUCCESS");
                 if (typeof response === 'string' || response instanceof String) {
+                    console.log("AJAX SUCCESS == STRING");
                     document.getElementById('error_message').innerText = response;
                 } else {
+                    console.log("AJAX SUCCESS == NOT STRING");
                     window.location.replace("/ammpet/public/Product/_list");
                 }
               }
