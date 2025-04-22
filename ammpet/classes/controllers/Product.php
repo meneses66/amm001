@@ -441,7 +441,7 @@ class Product {
                 $_SERVER['REQUEST_METHOD']="POST";
                 $_POST['class']="Product";
 
-                amm_log(date("H:i:s").":: _POST: ".var_dump($_POST));
+                //amm_log(date("H:i:s").":: _POST: ".var_dump($_POST));
 
                 if ($inputs['Id']=="new") {
                     unset($_POST['Id']);                
