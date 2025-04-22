@@ -323,27 +323,27 @@ class Product {
         if (isset($inputs['operation'])) {
             if ( $inputs['Name']==null || $inputs['Name']=="") {
                 $error=1;
-                $error_msg .= " | Indique um valor para \"Nome\".\n";
+                $error_msg .= "Indique um valor para \"Nome\".\n";
             }
             if ( $inputs['Code']==null || $inputs['Code']=="") {
                 $error=1;
-                $error_msg .= " | Indique um valor para \"Código\".";
+                $error_msg .= "Indique um valor para \"Código\".\n";
             }
             if ( $inputs['Price']==null || $inputs['Price']=="" || $inputs['Price']<=0 ) {
                 $error=1;
-                $error_msg .= " | Indique um valor para \"Preço\" > 0.";
+                $error_msg .= "Indique um valor para \"Preço\" > 0.\n";
             }
             if ( $inputs['Price_cash']==null || $inputs['Price_cash']=="" || $inputs['Price_cash']<=0 ) {
                 $error=1;
-                $error_msg .= " | Indique um valor para \"Preço Dinh.\" > 0.";
+                $error_msg .= "Indique um valor para \"Preço Dinh.\" > 0.\n";
             }
             if ( $inputs['Price_pix']==null || $inputs['Price_pix']=="" || $inputs['Price_pix']<=0 ) {
                 $error=1;
-                $error_msg .= " | Indique um valor para \"Preço Pix\" > 0.";
+                $error_msg .= "Indique um valor para \"Preço Pix\" > 0.\n";
             }
             if ( $inputs['Category']==null || $inputs['Category']=="" || $inputs['Category']=="Selecione uma opção" ) {
                 $error=1;
-                $error_msg .= " | Selecione uma opção para \"Categoria\".";
+                $error_msg .= "Selecione uma opção para \"Categoria\".\n";
             }
 
             //IF ANY ERROR FOUND: RETURN ERROR
