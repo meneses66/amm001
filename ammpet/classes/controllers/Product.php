@@ -101,19 +101,19 @@ class Product {
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="name" class="medium-label">Nome:</label>
+                                    <label for="name" class="medium-label">Nome: *</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="name" type="text" size="30" name="Name" value="'.$name.'" required>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="code" class="medium-label">Código:</label>
+                                    <label for="code" class="medium-label">Código: *</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="code" type="text" size="30" name="Code" value="'.$code.'" required>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="price" class="medium-label">Preço:</label>
+                                    <label for="price" class="medium-label">Preço: *</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="price" type="number" size="20" name="Price" value="'.$price.'" step="0.01" required>
@@ -127,7 +127,7 @@ class Product {
                                     <input id="center" type="text" size="30" name="Center" value="Loja" readonly>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="category" class="medium-label">Categoria:</label>
+                                    <label for="category" class="medium-label">Categoria: *</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <select class="medium-label" id="category" name="Category">
@@ -136,7 +136,7 @@ class Product {
                                     </select>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="price_cash" class="medium-label">Preço Dinh.:</label>
+                                    <label for="price_cash" class="medium-label">Preço Dinh. *:</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="price_cash" type="number" size="20" name="Price_cash" value="'.$price_cash.'" step="0.01" required>
@@ -156,7 +156,7 @@ class Product {
                                     <input id="supplier" type="text" size="30" name="Supplier" value="'.$supplier.'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="price_pix" class="medium-label">Preço Pix:</label>
+                                    <label for="price_pix" class="medium-label">Preço Pix: *</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="price_pix" type="number" size="20" name="Price_pix" value="'.$price_pix.'" step="0.01" required>
