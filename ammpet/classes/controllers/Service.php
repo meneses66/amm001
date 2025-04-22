@@ -465,7 +465,7 @@ class Service {
                                     <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
                                     <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="name" class="medium-label">Nome: *</label>
@@ -509,9 +509,9 @@ class Service {
                                     <label for="price_cash" class="medium-label">Preço Din.: *</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="price_cash" type="text" size="10" name="Price_Cash" value="'.$price_cash.'" step="0.01" required>
+                                    <input id="price_cash" type="text" size="10" name="Price_cash" value="'.$price_cash.'" step="0.01" required>
                                 </div>
-                            </div>
+                            </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
                                     <label for="group_x" class="medium-label">Grupo: *</label>
