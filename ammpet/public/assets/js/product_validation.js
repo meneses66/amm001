@@ -45,7 +45,7 @@ $(document).ready(function(){
             },
             success: function(response){
                 console.log("AJAX SUCCESS");
-                if ((typeof response === 'string' || response instanceof String)&&!(response===false)) {
+                if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
                     console.log("AJAX SUCCESS == STRING ==> "+response);
                     document.getElementById('error_message').innerText = response;
                 } else {
