@@ -13,6 +13,7 @@ $(document).ready(function(){
         } 
 
         var data_form = decodeURIComponent($(form_prod).serialize());
+        console.log("data_form: "+data_form);
         data_form_array = splitUrlEncoded(data_form);
         $.ajax({
             url: "/ammpet/public/Ajax_call",
