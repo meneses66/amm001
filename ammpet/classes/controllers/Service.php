@@ -406,6 +406,7 @@ class Service {
             $comission_overwrite_flg = 0;
             $package_amount = 0;
             $package_price = 0;
+            $group_x = "Individual";
 
             if (!($id=='new')) {
                 $inputs["ID"]=$_GET['id'];
@@ -434,6 +435,7 @@ class Service {
                     $comission_overwrite_flg = $data_form['COMISSION_OVERWRITE_FLG'];
                     $package_amount = $data_form['PACKAGE_AMOUNT'];
                     $package_price = $data_form['PACKAGE_PRICE'];
+                    $group_x = $data_form['GROUP_X'];
 
                 }
                 unset($data_form);
