@@ -136,7 +136,7 @@ class Product {
                                     </select>
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="price_cash" class="medium-label">Preço Dinh.: *</label>
+                                    <label for="price_cash" class="medium-label">Preço Din.: *</label>
                                 </div>
                                 <div class="col-sm-2">
                                     <input id="price_cash" type="number" size="10" name="Price_cash" value="'.$price_cash.'" step="0.01" required>
