@@ -10,13 +10,15 @@
     </div>
     <hr class="my-1">
     <br>
-    <form method="post" id="form_prod" name="form_new">
-        <input type="hidden" name="operation" value="update">
-        <?php 
-            $controller = new ('\Controller\\'."Product");
-            $controller->load_product_form();
-        ?>
-    </form>
+    <div class="row" style="border: thin solid lightgray; font-size:11px;">
+        <form method="post" id="form_prod" name="form_new">
+            <input type="hidden" name="operation" value="update">
+            <?php 
+                $controller = new ('\Controller\\'."Product");
+                $controller->load_product_form();
+            ?>
+        </form>
+    </div>
     <br><br>
     <p class="error_message" id="error_message"></p>
 </div>
