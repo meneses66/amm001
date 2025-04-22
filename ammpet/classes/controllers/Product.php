@@ -379,8 +379,8 @@ class Product {
                 }
             }
                 //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
-                $data_form_category = $data_form['CATEGORY'];
-                $category_option_list = load_options_update("PROD_CATEGORY", "Ativo", $data_form_category);
+                //$data_form_category = $data_form['CATEGORY'];
+                $category_option_list = load_options_update("PROD_CATEGORY", "Ativo", $category);
 
                 //FOR EACH FLAG CONVERT TINNY TO CHECKED:
                 $flag_comission = ($comission_flg==1) ? "checked" : "";
@@ -529,7 +529,6 @@ class Product {
                             }
 
                             $sql_stm = null;
-                            unset_array($inputs);
                             $data = null;
                             $model = null;
             
