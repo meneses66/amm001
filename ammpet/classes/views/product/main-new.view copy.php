@@ -10,13 +10,23 @@
     </div>
     <hr class="my-1">
     <br>
+
     <form method="post" id="form_prod" name="form_new">
         <input type="hidden" name="operation" value="update">
+
         <?php 
             $controller = new ('\Controller\\'."Product");
             $controller->load_product_form();
         ?>
+        
+        <div class="row">
+            <div class="col-sm-6">
+                <a href="<?php echo ROOT."/Product/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+            </div>
+            <div class="col-sm-6">
+                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Product/insert_call">
+            </div>
+        </div>
     </form>
-    <br><br>
     <p class="error_message" id="error_message"></p>
 </div>

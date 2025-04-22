@@ -178,12 +178,12 @@ class Salary {
             }
 
             $output .= '<div class="row">
-                                <div class="col-sm-6">
-                                    <input id="postpone_submit" class="btn btn-info btn-lg m-1 btn-block" type="postpone_submit" value="Adiar Valor" formaction="../Salary/postpone_value?id='.$id.'">
-                                </div>
-                                <div class="col-sm-6">
-                                </div>
-                            </div>';
+                            <div class="col-sm-6">
+                                <input id="postpone_submit" class="btn btn-info btn-lg m-1 btn-block" type="postpone_submit" value="Adiar Valor" formaction="../Salary/postpone_value?id='.$id.'">
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
+                        </div>';
             
             $sql_stm = null;
             unset_array($inputs);

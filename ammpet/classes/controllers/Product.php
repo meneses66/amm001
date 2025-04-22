@@ -323,6 +323,228 @@ class Product {
 
     }
 
+    //LOAD HTML FORM FOR UPDATING RECORD
+    public function load_product_form(){
+
+        if (isset($_GET['id'])){
+
+            $output = "";
+
+            //DEFINIR VARIAVEIS PARA OS INPUTS:
+
+            $id = $_GET['id'];
+            $created_by = $_SESSION['username'];
+            $updated_by = $_SESSION['username'];
+            $code = null;
+            $name = null;
+            $category = "";
+            $supplier = null;
+            $status = "Ativo";
+            $price = null;
+            $flag1 = 0;
+            $comission_flg = 0;
+            $center = "Loja";
+            $external_cost = 0; 
+            $comission_percentage = 0;
+            $price_cash = null;
+            $price_pix = null;
+            $comission_overwrite_flg = 0;
+
+            if (!($id=='new')) {
+                $inputs["ID"]=$_GET['id'];
+                $model = new('\Model\\'.$this->UCF_object);
+                
+                $data = $model->getRow($inputs);
+                if($data){
+                    foreach ($data as $key => $value) {
+                        $data_form[$key]=$value;
+                    }
+
+                    $updated_by = $_SESSION['username'];
+                    $code = $data_form['CODE'];
+                    $name = $data_form['NAME'];
+                    $category = $data_form['CATEGORY'];
+                    $supplier = $data_form['SUPPLIER'];
+                    $status = $data_form['STATUS'];
+                    $price = $data_form['PRICE'];
+                    $flag1 = $data_form['FLAG1'];
+                    $comission_flg = $data_form['COMISSION_FLG'];
+                    $center = $data_form['CENTER'];
+                    $external_cost = $data_form['EXTERNAL_COST']; 
+                    $comission_percentage = $data_form['COMISSION_PERCENTAGE'];
+                    $price_cash = $data_form['PRICE_CASH'];
+                    $price_pix = $data_form['PRICE_PIX'];
+                    $comission_overwrite_flg = $data_form['COMISSION_OVERWRITE_FLG'];
+
+                }
+            }
+                //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
+                $data_form_category = $data_form['CATEGORY'];
+                $category_option_list = load_options_update("PROD_CATEGORY", "Ativo", $data_form_category);
+
+                //FOR EACH FLAG CONVERT TINNY TO CHECKED:
+                $flag_comission = ($comission_flg==1) ? "checked" : "";
+                $flag_comission_overwrite = ($comission_overwrite_flg==1) ? "checked" : "";
+                $flag_flag1 = ($flag1==1) ? "checked" : "";
+
+
+                //START TO LOAD THE UPDATE FORM:
+                $output .= '<div class="row">
+                                <div class="col-sm-1">
+                                    <label for="id" class="medium-label">Id:</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input id="id" type="text" name="Id" value="'.$id.'" readonly>
+                                    <input id="type" type="hidden" name="Type" value="Prod">
+                                    <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'">
+                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$updated_by.'">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="name" class="medium-label">Nome:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="name" type="text" size="30" name="Name" value="'.$name.'" required>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="code" class="medium-label">Código:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="code" type="text" size="30" name="Code" value="'.$code.'" required>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="price" class="medium-label">Preço:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="price" type="number" size="20" name="Price" value="'.$price.'" step="0.01" required>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="center" class="medium-label">Centro:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="center" type="text" size="30" name="Center" value="Loja" readonly>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="category" class="medium-label">Categoria:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="category" name="Category">
+                                        <option class="medium-label" value="" selected>Selecione uma opção</option>
+                                        '.$category_option_list.'
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="price_cash" class="medium-label">Preço Dinh.:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="price_cash" type="number" size="20" name="Price_cash" value="'.$price_cash.'" step="0.01" required>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="group_x" class="medium-label">Grupo:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="group_x" type="text" size="30" name="Group_x" value="Item" readonly>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="supplier" class="medium-label">Fornecedor:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="supplier" type="text" size="30" name="Supplier" value="'.$supplier.'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="price_pix" class="medium-label">Preço Pix:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="price_pix" type="number" size="20" name="Price_pix" value="'.$price_pix.'" step="0.01" required>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="comission_flg" class="medium-label">Comissão?:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="comission_flg" type="checkbox" name="Comission_flg" '.$flag_comission.'>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="comission_overwrite_flg" class="medium-label">Sobrescrever comissão:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="comission_overwrite_flg" type="checkbox" size="30" name="Comission_overwrite_flg" '.$flag_comission_overwrite.'>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="comission_percentage" class="medium-label">% Comissão:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="comission_percentage" type="number" size="20" name="Comission_percentage" value="'.$comission_percentage.'" step="0.01">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="status" class="medium-label">Status:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="status" name="Status">
+                                        <option class="medium-label" value="Ativo" '.(($status == 'Ativo')?"selected":"").'>Ativo</option>
+                                        <option class="medium-label" value="Desativado" '.(($status == 'Desativado')?"selected":"").'>Desativado</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="flag1" class="medium-label">Flag1</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="flag1" type="checkbox" name="Flag1" '.$flag_flag1.'>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="external_cost" class="medium-label">Custo Externo:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="external_cost" type="number" size="20" name="External_cost" value="'.$external_cost.'" step="0.01">
+                                </div>
+                            </div><br>';
+
+                            //INCLUDE BUTTONS:
+                            if ($id=="new") {
+                                $output .= '<div class="row">
+                                                <div class="col-sm-6">
+                                                    <a href="'.ROOT.'/Product/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input id="save_submit" class="btn btn-primary btn-lg m-1 btn-block" type="save_submit" value="Salvar" formaction="../Product/insert_call">
+                                                </div>
+                                            </div>';
+                            } else {
+                                $output .= '<div class="row">
+                                                <div class="col-sm-6">
+                                                    <a href="'.ROOT.'/Product/_list" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input id="save_submit" class="btn btn-primary btn-lg m-1 btn-block" type="save_submit" value="Salvar" formaction="../Product/update_call?id='.$id.'">
+                                                </div>
+                                            </div>';
+                            }
+
+                            $sql_stm = null;
+                            unset_array($inputs);
+                            $data = null;
+                            $model = null;
+            
+                            echo $output;
+        } else{
+            $sql_stm = null;
+            unset_array($inputs);
+            $data = null;
+            $model = null;
+
+            show("No record to display!");
+        }
+
+    }
+
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows($inputs){
         
@@ -413,11 +635,19 @@ class Product {
                 $error=1;
                 $error_msg .= " | Indique um valor para \"Preço\" > 0.";
             }
+            if ( $inputs['Price_cash']==null || $inputs['Price_cash']=="" || $inputs['Price_cash']<=0 ) {
+                $error=1;
+                $error_msg .= " | Indique um valor para \"Preço Dinh.\" > 0.";
+            }
+            if ( $inputs['Price_pix']==null || $inputs['Price_pix']=="" || $inputs['Price_pix']<=0 ) {
+                $error=1;
+                $error_msg .= " | Indique um valor para \"Preço Pix\" > 0.";
+            }
             if ($error == 1) {
-                amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
+                //amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
                 return $error_msg;
             } else {
-                amm_log(date("H:i:s").":: NO Errors");
+                //amm_log(date("H:i:s").":: NO Errors");
                 unset($_POST);
 
                 foreach ($inputs as $key => $value) {

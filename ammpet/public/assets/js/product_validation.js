@@ -1,19 +1,10 @@
 $(document).ready(function(){
     
     document.getElementById("button").onclick= function(event) {
-        //console.log("form_salary submit hit");
         event.preventDefault();
 
-        //let form = document.getElementById("form").getAttribute("name");
-
-        let id = document.getElementById("id").value;
-
-        if (id == "new") {
-            let created_by = document.getElementById("created_by").value;
-        } 
-
         var data_form = decodeURIComponent($(form_prod).serialize());
-        console.log("data_form: "+data_form);
+        //console.log("data_form: "+data_form);
         data_form_array = splitUrlEncoded(data_form);
         $.ajax({
             url: "/ammpet/public/Ajax_call",
@@ -44,12 +35,9 @@ $(document).ready(function(){
                     Comission_overwrite_flg:data_form_array.Comission_overwrite_flg
             },
             success: function(response){
-                console.log("AJAX SUCCESS");
                 if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
-                    console.log("AJAX SUCCESS == STRING ==> "+response);
                     document.getElementById('error_message').innerText = response;
                 } else {
-                    console.log("AJAX SUCCESS == NOT STRING");
                     window.location.replace("/ammpet/public/Product/_list");
                 }
               }
