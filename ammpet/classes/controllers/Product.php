@@ -115,8 +115,10 @@ class Product {
                                 <div class="col-sm-2">
                                     <label for="price" class="medium-label">Preço: *</label>
                                 </div>
-                                <div class="col-sm-2">
-                                    <input id="price" type="number" size="15" name="Price" value="'.$price.'" step="0.01" required>
+                                <div class="col-sm-1">
+                                    <input id="price" type="number" size="10" name="Price" value="'.$price.'" step="0.01" required>
+                                </div>
+                                <div class="col-sm-1">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -138,8 +140,10 @@ class Product {
                                 <div class="col-sm-2">
                                     <label for="price_cash" class="medium-label">Preço Dinh. *:</label>
                                 </div>
-                                <div class="col-sm-2">
-                                    <input id="price_cash" type="number" size="15" name="Price_cash" value="'.$price_cash.'" step="0.01" required>
+                                <div class="col-sm-1">
+                                    <input id="price_cash" type="number" size="10" name="Price_cash" value="'.$price_cash.'" step="0.01" required>
+                                </div>
+                                <div class="col-sm-1">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -158,8 +162,10 @@ class Product {
                                 <div class="col-sm-2">
                                     <label for="price_pix" class="medium-label">Preço Pix: *</label>
                                 </div>
-                                <div class="col-sm-2">
-                                    <input id="price_pix" type="number" size="15" name="Price_pix" value="'.$price_pix.'" step="0.01" required>
+                                <div class="col-sm-1">
+                                    <input id="price_pix" type="number" size="10" name="Price_pix" value="'.$price_pix.'" step="0.01" required>
+                                </div>
+                                <div class="col-sm-1">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -178,8 +184,10 @@ class Product {
                                 <div class="col-sm-2">
                                     <label for="comission_percentage" class="medium-label">% Comissão:</label>
                                 </div>
-                                <div class="col-sm-2">
-                                    <input id="comission_percentage" type="number" size="15" name="Comission_percentage" value="'.$comission_percentage.'" step="0.01">
+                                <div class="col-sm-1">
+                                    <input id="comission_percentage" type="number" size="10" name="Comission_percentage" value="'.$comission_percentage.'" step="0.01">
+                                </div>
+                                <div class="col-sm-1">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -201,8 +209,10 @@ class Product {
                                 <div class="col-sm-2">
                                     <label for="external_cost" class="medium-label">Custo Externo:</label>
                                 </div>
-                                <div class="col-sm-2">
-                                    <input id="external_cost" type="number" size="15" name="External_cost" value="'.$external_cost.'" step="0.01">
+                                <div class="col-sm-1">
+                                    <input id="external_cost" type="number" size="10" name="External_cost" value="'.$external_cost.'" step="0.01">
+                                </div>
+                                <div class="col-sm-1">
                                 </div>
                             </div><br>';
 
