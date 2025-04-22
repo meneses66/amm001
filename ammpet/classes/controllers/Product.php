@@ -112,10 +112,10 @@ class Product {
                                 <div class="col-sm-3">
                                     <input id="code" type="text" size="30" name="Code" value="'.$code.'" required>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-1">
                                     <label for="price" class="medium-label">Preço: *</label>
                                 </div>
-                                <div class="col-sm-1">
+                                <div class="col-sm-2">
                                     <input id="price" type="number" size="10" name="Price" value="'.$price.'" step="0.01" required>
                                 </div>
                             </div><br>
