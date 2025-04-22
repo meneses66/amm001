@@ -44,6 +44,7 @@ $(document).ready(function(){
                 Comission_overwrite_flg:data_form_array.comission_overwrite_flg
             },
             success: function(response){
+                console.log("AJAX SUCCESS");
                 if (typeof response === 'string' || response instanceof String) {
                     document.getElementById('error_message').innerText = response;
                 } else {
