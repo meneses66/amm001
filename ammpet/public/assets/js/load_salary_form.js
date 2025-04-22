@@ -46,6 +46,8 @@ $(document).ready(function(){
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
             //console.log("validation OK");
             document.getElementById('error_msg').setAttribute('type',"hidden");
+            document.getElementById('error_message').innerText = "";
+
             if (id=="new") {
                 //console.log("ID = NEW");
                 insert_salary(data_form);
@@ -55,6 +57,7 @@ $(document).ready(function(){
         } else{
             //console.log("validation failed");
             document.getElementById('error_msg').value = error_msg;
+            document.getElementById('error_message').innerText = error_msg;
             document.getElementById('error_msg').setAttribute('type', "text");
             return false;
         }
@@ -108,9 +111,7 @@ $(document).ready(function(){
     }
     
     function update_salary(data_form, id){
-        //var data_form2 = splitSerializedEncoded(data_form);
         data_form3 = splitUrlEncoded(data_form);
-        //console.log("INSERT ACCESSED:"+data_form2);
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",

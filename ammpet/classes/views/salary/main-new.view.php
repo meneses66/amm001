@@ -17,4 +17,5 @@
         ?>
     </form>
     <input id="error_msg" size="100px" type="hidden" name="Error_Msg" value="">
+    <p id="error_message"></p>
 </div>
