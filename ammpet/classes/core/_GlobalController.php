@@ -1108,6 +1108,7 @@ Trait _GlobalController{
                     case 'Product':
                         unset($_POST);
                         unset($inputs);
+                        return false;
                         break;
 
                     default:
