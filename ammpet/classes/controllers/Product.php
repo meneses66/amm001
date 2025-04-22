@@ -400,7 +400,7 @@ class Product {
     public function validate_product($inputs){
         $error=0;
         $error_msg="";
-        if (isset($inputs['submit'])) {
+        if (isset($inputs['operation'])) {
             if ( $inputs['Name']==null || $inputs['Name']=="") {
                 $error=1;
                 $error_msg .= " | Indique um valor para \"Nome\".";
@@ -424,6 +424,9 @@ class Product {
                 $_POST[$key]=$value;
             }
 
+            unset($_POST['operation']);
+            unset($_POST['class']);
+            unset($_POST['method']);
             $_SERVER['REQUEST_METHOD']="POST";
             $_POST['class']="Product";
 

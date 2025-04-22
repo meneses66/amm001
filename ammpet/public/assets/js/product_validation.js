@@ -17,7 +17,7 @@ $(document).ready(function(){
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
-            data: {class:"Product", method:"validate_product", 
+            data: {operation: "submit", class:"Product", method:"validate_product", 
                 Id:data_form_array.id, 
                 Created_By:data_form_array.created_by, 
                 Updated_By:data_form_array.updated_by, 
