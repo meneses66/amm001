@@ -4,7 +4,7 @@ $(document).ready(function(){
         //console.log("form_salary submit hit");
         event.preventDefault();
 
-        let form = document.getElementById("form").getAttribute("name");
+        //let form = document.getElementById("form").getAttribute("name");
 
         let id = document.getElementById("id").value;
 
