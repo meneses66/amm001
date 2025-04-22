@@ -10,7 +10,7 @@
     </div>
     <hr class="my-1">
     <br>
-    <div class="row" style="border: thin solid lightgray; font-size:12px;">
+    <div class="row" style="border: thin solid lightgray; font-size:14px;">
         <form method="post" id="form_prod" name="form_new">
             <input type="hidden" name="operation" value="update">
             <?php 
@@ -19,6 +19,6 @@
             ?>
         </form>
     </div>
-    <br><br>
+    <br>
     <p class="error_message" id="error_message"></p>
 </div>
