@@ -87,7 +87,7 @@ class Product {
                             <label for="price_cash" class="medium-label">Preço Dinh.:</label>
                         </div>
                         <div class="col-sm-3">
-                            <input id="price_cash" type="text" size="20" name="Price_Cash" step="0.01" required>
+                            <input id="price_cash" type="text" size="20" name="Price_cash" step="0.01" required>
                         </div>
                     </div><br>
                     <div class="row">
