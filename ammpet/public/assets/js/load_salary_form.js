@@ -45,7 +45,7 @@ $(document).ready(function(){
 
         if(check_supplier==1 && check_salary_item_type==1 && check_salary_item_value==1){
             //console.log("validation OK");
-            document.getElementById('error_msg').setAttribute('type',"hidden");
+            //document.getElementById('error_msg').setAttribute('type',"hidden");
             document.getElementById('error_message').innerText = "";
 
             if (id=="new") {
@@ -56,9 +56,9 @@ $(document).ready(function(){
             }
         } else{
             //console.log("validation failed");
-            document.getElementById('error_msg').value = error_msg;
+            //document.getElementById('error_msg').value = error_msg;
             document.getElementById('error_message').innerText = error_msg;
-            document.getElementById('error_msg').setAttribute('type', "text");
+            //document.getElementById('error_msg').setAttribute('type', "text");
             return false;
         }
       };
