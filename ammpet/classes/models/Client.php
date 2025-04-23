@@ -15,8 +15,8 @@ class Client {
     public $Created;
     public $Updated;
     public $Name;
-    public $Mobile1;
-    public $Mobile2;
+    public $Mobile_1;
+    public $Mobile_2;
     public $Client_Since;
     public $Preferred_Dog_Food;
     public $Status;
@@ -28,7 +28,7 @@ class Client {
     public $CPF;
     public $Address;
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $mobile1=null, $mobile2=null, $client_since=null, $preferred_dog_food=null, $status=null, $origin=null, $old_id=null, $comment=null, $birth_date=null, $email=null, $cpf=null, $address=null)
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $mobile_1=null, $mobile_2=null, $client_since=null, $preferred_dog_food=null, $status=null, $origin=null, $old_id=null, $comment=null, $birth_date=null, $email=null, $cpf=null, $address=null)
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
@@ -36,8 +36,8 @@ class Client {
         $this -> Created = $created;
         $this -> Updated = $updated;
         $this -> Name = $name;
-        $this -> Mobile1 = $mobile1;
-        $this -> Mobile2 = $mobile2;
+        $this -> Mobile_1 = $mobile_1;
+        $this -> Mobile_2 = $mobile_2;
         $this -> Client_Since = $client_since;
         $this -> Preferred_Dog_Food = $preferred_dog_food;
         $this -> Status = $status;

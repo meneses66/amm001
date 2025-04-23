@@ -287,8 +287,8 @@ class Client
             $created_by = $_SESSION['username'];
             $updated_by = $_SESSION['username'];
             $name = null;
-            $mobile1 = null;
-            $mobile2 = null;
+            $mobile_1 = null;
+            $mobile_2 = null;
             $client_since = date('Y-m-d');
             $preferred_dog_food = null;
             $status = "Ativo";
@@ -312,8 +312,8 @@ class Client
                     $created_by = $data_form['CREATED_BY'];
                     $updated_by = $_SESSION['username'];
                     $name = $data_form['NAME'];
-                    $mobile1 = $data_form['MOBILE_1'];
-                    $mobile2 = $data_form['MOBILE_2'];
+                    $mobile_1 = $data_form['MOBILE_1'];
+                    $mobile_2 = $data_form['MOBILE_2'];
                     $client_since = $data_form['CLIENT_SINCE'];
                     $preferred_dog_food = $data_form['PREFERRED_DOG_FOOD'];
                     $status = $data_form['STATUS'];
@@ -352,13 +352,13 @@ class Client
                                     <label for="mobile_1" class="medium-label">Celular 1: *</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="mobile_1" type="tel" size="25" name="Mobile_1" value="'.$mobile1.'">
+                                    <input id="mobile_1" type="tel" size="25" name="Mobile_1" value="'.$mobile_1.'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="mobile_2" class="medium-label">Celular 2:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="mobile_2" type="tel" size="25" name="Mobile_2" value="'.$mobile2.'">
+                                    <input id="mobile_2" type="tel" size="25" name="Mobile_2" value="'.$mobile_2.'">
                                 </div>
                             </div><br>
                             <div class="row">
