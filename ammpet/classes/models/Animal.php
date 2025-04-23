@@ -29,7 +29,7 @@ class Animal {
     public $Vaccinated;
     public $Size;
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $id_client=null, $type=null, $id_breed=null, $gender=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_is_danger=null, $flg_blade_alergic=null, $flg_vaccinated=null, $size)
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $id_client=null, $type=null, $id_breed=null, $gender=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_is_danger=null, $flg_blade_alergic=null, $flg_vaccinated=null, $size=null)
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
