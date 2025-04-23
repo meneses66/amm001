@@ -307,6 +307,192 @@ class Animal {
 
     }
 
+    //LOAD HTML FORM FOR UPDATING RECORD
+    public function load_animal_form(){
+
+        if (isset($_GET['id'])){
+
+            $output = "";
+
+            $id = $_GET['id'];
+            $created_by = $_SESSION['username'];
+            $updated_by = $_SESSION['username'];
+
+            $name = null;
+            $id_client = $_GET['cli_id'];
+            $type = "";
+            $id_breed = "";
+            $temp_breed = "";
+            $gender = "";
+            $birth_date = date('Y-m-d');
+            $no_perfume = 0;
+            $is_danger = 0;
+            $blade_alergic = 0;
+            $vaccinated = 0;
+
+            if (!($id=='new')) {
+                $inputs["ID"]=$_GET['id'];
+                $model = new('\Model\\'.$this->UCF_object);
+                
+                $data = $model->getRow($inputs);
+                if($data){
+                    foreach ($data as $key => $value) {
+                        $data_form[$key]=$value;
+                    }
+
+                    $created_by = $data_form['CREATED_BY'];
+                    $updated_by = $_SESSION['username'];
+                    $name = $data_form['NAME'];
+                    $id = $data_form['ID'];
+                    $id_client = $data_form['ID_CLIENT'];
+                    $type = $data_form['TYPE'];
+                    $id_breed = $data_form['ID_BREED'];
+                    $temp_breed = $data_form['ID_BREED'];
+                    $gender = $data_form['GENDER'];
+                    $birth_date = $data_form['BIRTH_DATE'];
+                    $no_perfume = $data_form['NO_PERFUME'];
+                    $is_danger = $data_form['IS_DANGER'];
+                    $blade_alergic = $data_form['BLADE_ALERGIC'];
+                    $vaccinated = $data_form['VACCINATED'];
+
+                }
+                unset($data_form);
+                unset($inputs);
+            }
+
+                //FOR EACH FLAG CONVERT TINNY TO CHECKED:
+                $flag_is_danger = ($is_danger==1) ? "checked" : "";
+                $flag_is_no_perfume = ($no_perfume==1) ? "checked" : "";
+                $flag_is_blade_alergic = ($blade_alergic==1) ? "checked" : "";
+                $flag_is_vaccinated = ($vaccinated==1) ? "checked" : "";
+
+
+                //START TO LOAD THE UPDATE FORM:
+                $output .= '<div class="row">
+                                <div class="col-sm-1">
+                                    <label for="id" class="medium-label">Id:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="id" type="text" name="Id" readonly value="'.$id.'">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
+                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
+                                    <input id="id_client" type="hidden" name="Id_Client" value="'.$id_client.'" readonly>
+                                    <input id="temp_breed" type="hidden" name="temp_breed" value="'.$temp_breed.'" readonly>
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="name" class="medium-label">Nome:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="name" type="text" size="30" name="Name" value="'.$name.'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="type" class="medium-label">Tipo:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="type" name="Type" onChange="getBreeds(this.value,'.$id_breed.',\'update\')">
+                                        <option class="medium-label" value="" '.(($type == '')?"selected":"").'>Selecione uma opção</option>
+                                        <option class="medium-label" value="Cão" '.(($type == 'Cão')?"selected":"").'>Cão</option>
+                                        <option class="medium-label" value="Gato" '.(($type == 'Gato')?"selected":"").'>Gato</option>
+                                        <option class="medium-label" value="Outro" '.(($type == 'Outro')?"selected":"").'>Outro</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="id_breed" class="medium-label">Raça:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="id_breed" name="Id_Breed">
+                                        
+                                    </select>
+                                </div>
+                            </div><br><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="gender" class="medium-label">Sexo:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="gender" name="Gender">
+                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="Macho" '.(($gender == 'Macho')?"selected":"").'>Macho</option>
+                                        <option class="medium-label" value="Femea" '.(($gender == 'Femea')?"selected":"").'>Fêmea</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="size" class="medium-label">Porte:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="size" name="Size">
+                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="Enorme" '.(($size == 'Enorme')?"selected":"").'>Enorme</option>
+                                        <option class="medium-label" value="Grande" '.(($size == 'Grande')?"selected":"").'>Grande</option>
+                                        <option class="medium-label" value="Medio" '.(($size == 'Medio')?"selected":"").'>Médio</option>
+                                        <option class="medium-label" value="Pequeno" '.(($size == 'Pequeno')?"selected":"").'>Pequeno</option>
+                                        <option class="medium-label" value="Mini" '.(($size == 'Mini')?"selected":"").'>Mini</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="birth_date" class="medium-label">Dt.Nasc.:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="birth_date" type="date" size="30" name="Birth_date" value="'.$birth_date.'">
+                                </div>
+                            </div><br><br>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <label for="is_danger" class="medium-label">Morde:</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="is_danger" type="checkbox" name="Is_danger" '.$flag_is_danger.'>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="is_no_perfume" class="medium-label">Não passar perfume:</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="is_no_perfume" type="checkbox" name="Is_no_perfume" '.$flag_is_no_perfume.'>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="is_blade_alergic" class="medium-label">Alérgico Lâmina:</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="is_blade_alergic" type="checkbox" name="Is_blade_alergic" '.$flag_is_blade_alergic.'>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label for="is_vaccinated" class="medium-label">Vacinado:</label>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input id="is_vaccinated" type="checkbox" name="Is_vaccinated" '.$flag_is_vaccinated.'>
+                                </div>
+                            </div><br><br>';
+
+                // ADD BUTTONS:
+                
+                $output .= '<div class="row">
+                                <div class="col-sm-6">
+                                    <a href="'.ROOT.'/Animal/_back_cli?cli_id='.$id_client.'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$id_client.'">Voltar</a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Salvar" formaction="../Animal/update_call">
+                                </div>
+                            </div>';
+            
+                $sql_stm = null;
+                $data = null;
+                $model = null;
+                echo $output;
+            
+            } else{
+                $sql_stm = null;
+                $data = null;
+                $model = null;
+                show("No record to display!");
+
+        }
+
+    }
+
     //LOAD HTML FOR LISTING RECORDS IN TABLE -- SERVICE AND PRODUCT SHARE SAME TABLE PRODSERV 
     // THEREFORE CHANGED FROM LISTALL AND COUNTALL to LISTWHARE AND COUNTWHERE
     public function load_rows($inputs){
@@ -470,7 +656,7 @@ class Animal {
             $id=$_GET['cli_id'];
             $output_buttons='<div class="row">
                                 <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Client/_update?id='.$id.'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$id.'">Voltar</a>
+                                    <a href="'.ROOT.'/Client/_new?id='.$id.'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$id.'">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
                                     <a href="'.ROOT.'/Client/_new_animal?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Novo Animal</a>
@@ -510,6 +696,69 @@ class Animal {
         $model = null;
         return $option_list;
     
+    }
+
+    //FUNCTION USED TO PRE-VALIDATE CLIENT INFO BEFORE IT'S SUBMITTED
+    public function validate_animal($inputs){
+        $error=0;
+        $error_msg="";
+        if (isset($inputs['operation'])) {
+            if ( $inputs['Name']==null || $inputs['Name']=="") {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Nome\".\n";
+            }
+            if ( $inputs['Type']==null || $inputs['Type']=="" || $inputs['Type']=="Selecione uma opção") {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Tipo\".\n";
+            }
+            if ( ($inputs['Type']=="Cão" || $inputs['Type']=="Gato") && ($inputs['Id_Breed']=="Selecione uma opção" || $inputs['Id_Breed']=="" || $inputs['Id_Breed']==null)) {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Raça\" do seu Cão ou Gato.\n";
+            }
+            if ( $inputs['Gender']==null || $inputs['Gender']=="" || $inputs['Gender']=="Selecione uma opção") {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Sexo\".\n";
+            }
+            if ( $inputs['Size']==null || $inputs['Size']=="" || $inputs['Size']=="Selecione uma opção") {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Porte\".\n";
+            }
+
+            //IF ANY ERROR FOUND: RETURN ERROR
+            if ($error == 1) {
+                //amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
+                return $error_msg;
+            } 
+
+            //IF NO ERROR PROCESS WITH INSERT (id=new) OR UPDATE
+            else {
+                //amm_log(date("H:i:s").":: NO Errors");
+                unset($_POST);
+
+                foreach ($inputs as $key => $value) {
+                    $_POST[$key]=$value;
+                }
+
+                unset($_POST['operation']);
+                unset($_POST['class']);
+                unset($_POST['method']);
+                $_SERVER['REQUEST_METHOD']="POST";
+                $_POST['class']="Animal";
+
+                if ($inputs['Id']=="new") {
+                    unset($_POST['Id']);                
+                    $_POST['method']="insert_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                } else{
+                    $_POST['method']="update_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                }
+            }
+        } else{
+            return $error_msg="Operation failed";
+        }
     }
 
 }

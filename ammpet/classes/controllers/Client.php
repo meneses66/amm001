@@ -381,55 +381,55 @@ class Client
         }
     }
 
-        //FUNCTION USED TO PRE-VALIDATE CLIENT INFO BEFORE IT'S SUBMITTED
-        public function validate_client($inputs){
-            $error=0;
-            $error_msg="";
-            if (isset($inputs['operation'])) {
-                if ( $inputs['Name']==null || $inputs['Name']=="") {
-                    $error=1;
-                    $error_msg .= "Indique um valor para \"Nome\".\n";
-                }
-                if ( $inputs['Mobile_1']==null || $inputs['Mobile_1']=="") {
-                    $error=1;
-                    $error_msg .= "Indique um valor para \"Celular 1\".\n";
-                }
-    
-                //IF ANY ERROR FOUND: RETURN ERROR
-                if ($error == 1) {
-                    //amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
-                    return $error_msg;
-                } 
-    
-                //IF NO ERROR PROCESS WITH INSERT (id=new) OR UPDATE
-                else {
-                    //amm_log(date("H:i:s").":: NO Errors");
-                    unset($_POST);
-    
-                    foreach ($inputs as $key => $value) {
-                        $_POST[$key]=$value;
-                    }
-    
-                    unset($_POST['operation']);
-                    unset($_POST['class']);
-                    unset($_POST['method']);
-                    $_SERVER['REQUEST_METHOD']="POST";
-                    $_POST['class']="Client";
-    
-                    if ($inputs['Id']=="new") {
-                        unset($_POST['Id']);                
-                        $_POST['method']="insert_call";
-                        $ajax_call = new('\Controller\\'."Ajax_call");
-                        $ajax_call->index();
-                    } else{
-                        $_POST['method']="update_call";
-                        $ajax_call = new('\Controller\\'."Ajax_call");
-                        $ajax_call->index();
-                    }
-                }
-            } else{
-                return $error_msg="Operation failed";
+    //FUNCTION USED TO PRE-VALIDATE CLIENT INFO BEFORE IT'S SUBMITTED
+    public function validate_client($inputs){
+        $error=0;
+        $error_msg="";
+        if (isset($inputs['operation'])) {
+            if ( $inputs['Name']==null || $inputs['Name']=="") {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Nome\".\n";
             }
+            if ( $inputs['Mobile_1']==null || $inputs['Mobile_1']=="") {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Celular 1\".\n";
+            }
+
+            //IF ANY ERROR FOUND: RETURN ERROR
+            if ($error == 1) {
+                //amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
+                return $error_msg;
+            } 
+
+            //IF NO ERROR PROCESS WITH INSERT (id=new) OR UPDATE
+            else {
+                //amm_log(date("H:i:s").":: NO Errors");
+                unset($_POST);
+
+                foreach ($inputs as $key => $value) {
+                    $_POST[$key]=$value;
+                }
+
+                unset($_POST['operation']);
+                unset($_POST['class']);
+                unset($_POST['method']);
+                $_SERVER['REQUEST_METHOD']="POST";
+                $_POST['class']="Client";
+
+                if ($inputs['Id']=="new") {
+                    unset($_POST['Id']);                
+                    $_POST['method']="insert_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                } else{
+                    $_POST['method']="update_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                }
+            }
+        } else{
+            return $error_msg="Operation failed";
         }
+    }
 
 }

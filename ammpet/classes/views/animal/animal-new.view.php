@@ -36,5 +36,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="<?php echo ROOT;?>/assets/js/select_breed.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
+        <!-- Form Validation JS-->
+        <script src="<?php echo ROOT;?>/assets/js/validation_animal.js"></script>
     </body>
 </html>
