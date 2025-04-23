@@ -1,7 +1,7 @@
 function getBreeds(breedType, dataformbreed, operation){
     console.log(breedType+"-"+dataformbreed+"-"+operation);
     let breedDropDown = document.getElementById("id_breed");
-    if(breedType.trim() ===""){
+    if(breedType.trim() ==="X"){
       breedDropDown.disabled = true;
       breedDropDown.selectedIndex = 0;
       return false;
