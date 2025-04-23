@@ -352,10 +352,10 @@ class Animal {
                     $gender = $data_form['GENDER'];
                     $size = $data_form['SIZE'];
                     $birth_date = $data_form['BIRTH_DATE'];
-                    $no_perfume = $data_form['NO_PERFUME'];
+                    $no_perfume = $data_form['IS_NO_PERFUME'];
                     $is_danger = $data_form['IS_DANGER'];
-                    $blade_alergic = $data_form['BLADE_ALERGIC'];
-                    $vaccinated = $data_form['VACCINATED'];
+                    $blade_alergic = $data_form['IS_BLADE_ALERGIC'];
+                    $vaccinated = $data_form['IS_VACCINATED'];
 
                 }
                 unset($data_form);
