@@ -734,7 +734,7 @@ class Animal {
 
             //IF NO ERROR PROCESS WITH INSERT (id=new) OR UPDATE
             else {
-                //amm_log(date("H:i:s").":: NO Errors");
+                amm_log(date("H:i:s").":: NO Errors");
                 unset($_POST);
 
                 foreach ($inputs as $key => $value) {
@@ -748,6 +748,7 @@ class Animal {
                 $_POST['class']="Animal";
 
                 if ($inputs['Id']=="new") {
+                    amm_log(date("H:i:s").":: ID = NEW");
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
                     $ajax_call = new('\Controller\\'."Ajax_call");
