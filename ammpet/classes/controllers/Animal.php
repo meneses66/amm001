@@ -562,7 +562,7 @@ class Animal {
                                     <td>'.($row->IS_BLADE_ALERGIC==1?"■":"").'</td>
                                     <td>'.($row->IS_VACCINATED==1?"■":"").'</td>
                                     <td>
-                                        <a href="'.ROOT."/$this->parent_object/_update_animal?cli_id=$row->ID_CLIENT&id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                        <a href="'.ROOT."/$this->parent_object/_new_animal?cli_id=$row->ID_CLIENT&id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                         <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" cli_id="'.$row->ID_CLIENT.'" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                                     </td></tr>';
                     }
@@ -659,7 +659,7 @@ class Animal {
                                     <a href="'.ROOT.'/Client/_new?id='.$id.'" class="btn btn-secondary btn-lg m-1 btn-block" cli_id="'.$id.'">Voltar</a>
                                 </div>
                                 <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Client/_new_animal?cli_id='.$id.'" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Novo Animal</a>
+                                    <a href="'.ROOT.'/Client/_new_animal?cli_id='.$id.'&id=new" class="btn btn-primary btn-lg m-1 btn-block" cli_id="'.$id.'">Novo Animal</a>
                                 </div>
                             </div>';
             echo $output_buttons;
