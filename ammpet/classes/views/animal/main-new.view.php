@@ -25,7 +25,7 @@
             <?php
                 //removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
                 $controller2 = new ('\Controller\\'."Animal");
-                $controller2->load_new_form();
+                $controller2->load_animal_form();
             ?>
         </form>
     </div>
