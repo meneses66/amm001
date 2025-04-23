@@ -329,6 +329,7 @@ class Animal {
             $is_danger = 0;
             $blade_alergic = 0;
             $vaccinated = 0;
+            $size = "";
 
             if (!($id=='new')) {
                 $inputs["ID"]=$_GET['id'];
@@ -349,6 +350,7 @@ class Animal {
                     $id_breed = $data_form['ID_BREED'];
                     $temp_breed = $data_form['ID_BREED'];
                     $gender = $data_form['GENDER'];
+                    $size = $data_form['SIZE'];
                     $birth_date = $data_form['BIRTH_DATE'];
                     $no_perfume = $data_form['NO_PERFUME'];
                     $is_danger = $data_form['IS_DANGER'];
