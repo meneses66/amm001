@@ -338,7 +338,7 @@ class Client
                             <div class="col-sm-6">
                                     <input id="id" type="text" name="Id" value="'.$id.'" readonly>
                                     <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
-                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$update_by.'" readonly>
+                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
                                 </div>
                             </div><br>
                             <div class="row">
