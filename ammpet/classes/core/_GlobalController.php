@@ -114,9 +114,10 @@ Trait _GlobalController{
     public function _new_animal(){
         $operation = 'goto_cli_new_animal';
         
-        if (isset($_GET['cli_id'])){
+        if (isset($_GET['cli_id'])&&isset($_GET['id'])){
             $cli_id = $_GET['cli_id'];
-            $path2 = "Animal/_new?cli_id=".$cli_id;
+            $id = $_GET['id'];
+            $path2 = "Animal/_new?cli_id=".$cli_id."&id=".$id;
             double_redirect("Client",$path2);
         } else{
             echo "Issue to return Cli_Id.";
