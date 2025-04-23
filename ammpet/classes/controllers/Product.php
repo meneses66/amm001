@@ -60,6 +60,7 @@ class Product {
                     }
 
                     $updated_by = $_SESSION['username'];
+                    $created_by = $data_form['CREATED_BY'];
                     $code = $data_form['CODE'];
                     $name = $data_form['NAME'];
                     $category = $data_form['CATEGORY'];

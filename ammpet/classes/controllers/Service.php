@@ -418,6 +418,7 @@ class Service {
                         $data_form[$key]=$value;
                     }
 
+                    $created_by = $data_form['CREATED_BY'];
                     $updated_by = $_SESSION['username'];
                     $code = $data_form['CODE'];
                     $name = $data_form['NAME'];

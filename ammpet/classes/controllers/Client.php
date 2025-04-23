@@ -309,10 +309,11 @@ class Client
                         $data_form[$key]=$value;
                     }
 
+                    $created_by = $data_form['CREATED_BY'];
                     $updated_by = $_SESSION['username'];
                     $name = $data_form['NAME'];
-                    $mobile1 = $data_form['MOBILE1'];
-                    $mobile2 = $data_form['MOBILE2'];
+                    $mobile1 = $data_form['MOBILE_1'];
+                    $mobile2 = $data_form['MOBILE_2'];
                     $client_since = $data_form['CLIENT_SINCE'];
                     $preferred_dog_food = $data_form['PREFERRED_DOG_FOOD'];
                     $status = $data_form['STATUS'];
@@ -337,7 +338,7 @@ class Client
                             <div class="col-sm-6">
                                     <input id="id" type="text" name="Id" value="'.$id.'" readonly>
                                     <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
-                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$update_by.'" readonly>
+                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$update_by.'" readonly>
                                 </div>
                             </div><br>
                             <div class="row">
