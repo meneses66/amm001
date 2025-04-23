@@ -27,8 +27,9 @@ class Animal {
     public $Is_Danger;
     public $Blade_Alergic;
     public $Vaccinated;
+    public $Size;
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $id_client=null, $type=null, $id_breed=null, $gender=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_is_danger=null, $flg_blade_alergic=null, $flg_vaccinated=null)
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $name=null, $id_client=null, $type=null, $id_breed=null, $gender=null, $birth_date=null, $old_id=null, $flg_no_perfume=null, $flg_is_danger=null, $flg_blade_alergic=null, $flg_vaccinated=null, $size)
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
@@ -50,6 +51,7 @@ class Animal {
         $this -> Is_Danger = $flg_is_danger;
         $this -> Blade_Alergic = $flg_blade_alergic;
         $this -> Vaccinated = $flg_vaccinated;
+        $this -> Size = $size;
 
     }
 }
