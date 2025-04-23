@@ -643,7 +643,7 @@ class Client
                     $error=1;
                     $error_msg .= "Indique um valor para \"Nome\".\n";
                 }
-                if ( $inputs['Mobile1']==null || $inputs['Mobile1']=="") {
+                if ( $inputs['Mobile_1']==null || $inputs['Mobile_1']=="") {
                     $error=1;
                     $error_msg .= "Indique um valor para \"Celular 1\".\n";
                 }
