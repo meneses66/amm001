@@ -4,11 +4,12 @@
 <link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/error_message.css">
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-sm-4">
             <h4>Atualizar Cliente</h4>
         </div>
+        <?php include "client-nav.view.php";?>
     </div>
-    <hr class="my-1">
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <br>
     <div class="row" style="border: thin solid lightgray; font-size:14px;">
         <form method="post" id="form_client" name="form_new">
