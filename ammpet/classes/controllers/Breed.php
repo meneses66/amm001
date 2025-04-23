@@ -198,7 +198,7 @@ class Breed {
         $inputs['TYPE']=$array['type'];
         $op=$array['operation'];
         if($op=="new"){
-            $option_list = '<option class="medium-label" value="" selected>Selecione uma opção</option>';
+            $option_list = '<option class="medium-label" value="X" selected>Selecione uma opção</option>';
             $options = $model->listWhere($inputs);
             if($options){
                 foreach ($options as $option) { 
@@ -208,7 +208,8 @@ class Breed {
             return $option_list;
         } elseif($op=="update"){
             $data_form_breed=$array['dfbreed'];
-            $option_list = '<option class="medium-label" value="">Selecione uma opção</option>';
+            $selectedX= ($data_form_breed == "X") ? "selected":"";
+            $option_list = '<option class="medium-label" value="X" '.$selectedX.'>Selecione uma opção</option>';
             $options = $model->listWhere($inputs);
             if($options){
                 foreach ($options as $option) { 

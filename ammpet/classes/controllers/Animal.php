@@ -320,10 +320,10 @@ class Animal {
 
             $name = null;
             $id_client = $_GET['cli_id'];
-            $type = "";
-            $id_breed = "";
-            $temp_breed = "";
-            $gender = "";
+            $type = "X";
+            $id_breed = "X";
+            $temp_breed = "X";
+            $gender = "X";
             $birth_date = date('Y-m-d');
             $no_perfume = 0;
             $is_danger = 0;
@@ -396,7 +396,7 @@ class Animal {
                                 </div>
                                 <div class="col-sm-3">
                                     <select class="medium-label" id="type" name="Type" onChange="getBreeds(this.value,'.$id_breed.',\'update\')">
-                                        <option class="medium-label" value="" '.(($type == '')?"selected":"").'>Selecione uma opção</option>
+                                        <option class="medium-label" value="X" '.(($type == '')?"selected":"").'>Selecione uma opção</option>
                                         <option class="medium-label" value="Cão" '.(($type == 'Cão')?"selected":"").'>Cão</option>
                                         <option class="medium-label" value="Gato" '.(($type == 'Gato')?"selected":"").'>Gato</option>
                                         <option class="medium-label" value="Outro" '.(($type == 'Outro')?"selected":"").'>Outro</option>
@@ -417,7 +417,7 @@ class Animal {
                                 </div>
                                 <div class="col-sm-3">
                                     <select class="medium-label" id="gender" name="Gender">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="X">Selecione uma opção</option>
                                         <option class="medium-label" value="Macho" '.(($gender == 'Macho')?"selected":"").'>Macho</option>
                                         <option class="medium-label" value="Femea" '.(($gender == 'Femea')?"selected":"").'>Fêmea</option>
                                     </select>
@@ -427,7 +427,7 @@ class Animal {
                                 </div>
                                 <div class="col-sm-3">
                                     <select class="medium-label" id="size" name="Size">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
+                                        <option class="medium-label" value="X">Selecione uma opção</option>
                                         <option class="medium-label" value="Enorme" '.(($size == 'Enorme')?"selected":"").'>Enorme</option>
                                         <option class="medium-label" value="Grande" '.(($size == 'Grande')?"selected":"").'>Grande</option>
                                         <option class="medium-label" value="Medio" '.(($size == 'Medio')?"selected":"").'>Médio</option>
