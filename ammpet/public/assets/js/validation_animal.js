@@ -6,6 +6,7 @@ $(document).ready(function(){
         var data_form = decodeURIComponent($(form_animal).serialize());
         //console.log("data_form: "+data_form);
         data_form_array = splitUrlEncoded(data_form);
+        const cli_id_back = data_form_array.Id_Client;
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
@@ -35,7 +36,7 @@ $(document).ready(function(){
                 if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
                     document.getElementById('error_message').innerText = response;
                 } else {
-                    window.location.replace("/ammpet/public/Client/_cli_animal?cli_id="+data_form_array.Id_Client);
+                    window.location.replace("/ammpet/public/Client/_cli_animal?cli_id="+cli_id_back);
                 }
               }
         });
