@@ -41,7 +41,7 @@ class Client
             $status = "Ativo";
             $origin = null;
             $comment = null;
-            $birth_date = null;
+            $birth_date = date('Y-m-d', '1900-01-01');
             $email = null;
             $cpf = null;
             $address = null;
