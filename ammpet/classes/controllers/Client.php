@@ -294,7 +294,7 @@ class Client
             $status = "Ativo";
             $origin = null;
             $comment = null;
-            $birth_date = date('1900-1-1');
+            $birth_date = null;
             $email = null;
             $cpf = null;
             $address = null;
@@ -372,13 +372,13 @@ class Client
                                     <label for="client_since" class="medium-label">Clnte Dsd:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="client_since" type="date" size="30" name="Client_since" value="'.$client_since.'">
+                                    <input id="client_since" type="date" size="30" name="Client_Since" value="'.$client_since.'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="birth_date" class="medium-label">Data Aniv.:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="birth_date" type="date" size="30" name="Birth_date" value="'.$birth_date.'">
+                                    <input id="birth_date" type="date" size="30" name="Birth_Date" value="'.$birth_date.'">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -398,7 +398,7 @@ class Client
                                     <label for="preferred_dog_food" class="medium-label">Marca Pref:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="preferred_dog_food" type="text" size="25" name="Preferred_dog_food"  value="'.$preferred_dog_food.'">
+                                    <input id="preferred_dog_food" type="text" size="25" name="Preferred_Dog_Food"  value="'.$preferred_dog_food.'">
                                 </div>
                             </div><br>
                             <div class="row">
