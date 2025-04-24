@@ -296,7 +296,6 @@ class Supplier {
             $cnpj = null;
             $cpf = null;
             $type = "X";
-            $sequence = null;
             $hire_date = date('Y-m-d');
             $status = "Ativo";
             $comment = null;
@@ -322,7 +321,6 @@ class Supplier {
                     $cnpj = $data_form['CNPJ'];
                     $cpf = $data_form['CPF'];
                     $type = $data_form['TYPE'];
-                    $sequence = $data_form['SEQUENCE'];
                     $hire_date = $data_form['HIRE_DATE'];
                     $status = $data_form['STATUS'];
                     $comment = $data_form['COMMENT'];
@@ -347,7 +345,7 @@ class Supplier {
                                 <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
+                                <input id="id" type="text" size="8" name="Id" readonly value="'.$id.'"><br><br>
                             </div>
                             <div class="col-sm-6">
                                 <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
@@ -449,7 +447,6 @@ class Supplier {
                             </div>
                         </div>';
             $sql_stm = null;
-            unset_array($inputs);
             $data = null;
             $model = null;
 
@@ -457,7 +454,6 @@ class Supplier {
             
         } else{
                 $sql_stm = null;
-                unset_array($inputs);
                 $data = null;
                 $model = null;
 
