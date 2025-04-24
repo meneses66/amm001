@@ -29,4 +29,6 @@
             </div>
         </form>
     </div>
+    <br>
+    <p class="error_message" id="error_message"></p>
 </div>
