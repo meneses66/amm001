@@ -25,7 +25,7 @@
                     <a href="<?php echo ROOT."/Supplier/_list";?>" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
                 </div>
                 <div class="col-sm-6">
-                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Criar" formaction="../Supplier/update_call">
+                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Salvar" formaction="../Supplier/update_call">
                 </div>
             </div>        
         </form>
