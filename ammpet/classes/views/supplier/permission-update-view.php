@@ -18,7 +18,7 @@
     }
     unset($inputs);
 ?>
-<div id="permission_div" style="display:none">
+<div id="permission_div" style="display:block">
     <div class="row">
         <div class="col-sm-3">
             <p></p>
