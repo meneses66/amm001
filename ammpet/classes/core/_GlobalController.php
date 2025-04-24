@@ -590,6 +590,11 @@ Trait _GlobalController{
                         unset($inputs);
                         break;
 
+                    case 'Params':
+                        unset($_POST);
+                        unset($inputs);
+                        break;
+
                     default:
                         $view = "$this->UCF_object/_list";
                         unset_array($inputs);
@@ -1146,6 +1151,11 @@ Trait _GlobalController{
                         break;
 
                     case 'Supplier':
+                        unset($_POST);
+                        unset($inputs);
+                        break;
+
+                    case 'Params':
                         unset($_POST);
                         unset($inputs);
                         break;
