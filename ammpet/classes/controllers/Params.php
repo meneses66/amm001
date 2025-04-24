@@ -295,7 +295,7 @@ class Params {
                                     <label for="value" class="medium-label">Valor: *</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="value" type="text" size="40" name="value" value="'.$value.'">
+                                    <input id="value" type="text" size="40" name="Value" value="'.$value.'">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -303,7 +303,7 @@ class Params {
                                     <label for="type" class="medium-label">Tipo: *</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="type" type="text" size="40" name="type" value="'.$type.'">
+                                    <input id="type" type="text" size="40" name="Type" value="'.$type.'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="status" class="medium-label">Status:</label>
@@ -408,7 +408,7 @@ class Params {
                 $error=1;
                 $error_msg .= "Indique um valor para \"Valor\".\n";
             }
-            if ( $inputs['Type']==null || $inputs['Role']=="") {
+            if ( $inputs['Type']==null || $inputs['Type']=="") {
                 $error=1;
                 $error_msg .= "Indique um valor para \"Tipo\".\n";
             }
