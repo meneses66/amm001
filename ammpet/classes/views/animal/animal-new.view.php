@@ -33,6 +33,8 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <!-- Mask JS-->
         <script src="<?php echo ROOT;?>/assets/js/masks.js"></script>
         <!-- Breed JS-->
+        <script src="<?php echo ROOT;?>/assets/js/load_breed_update_form.js"></script>
+        <!-- Form Validation JS-->
         <script src="<?php echo ROOT;?>/assets/js/select_breed.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
