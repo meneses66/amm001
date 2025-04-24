@@ -299,7 +299,7 @@
             <input type="checkbox" id="orderpayment_view" name="orderpayment_view" value="orderpayment_view" <?php if (in_array("orderpayment_view",$array_permissions)){ echo "checked";}?>>
         </div>
         <div class="col-sm-2">
-            <input type="checkbox" id="orderitem_add" name="orderpayment_add" value="orderpayment_add" <?php if (in_array("orderpayment_add",$array_permissions)){ echo "checked";}?>>
+            <input type="checkbox" id="orderpayment_add" name="orderpayment_add" value="orderpayment_add" <?php if (in_array("orderpayment_add",$array_permissions)){ echo "checked";}?>>
         </div>
         <div class="col-sm-2">
             <input type="checkbox" id="orderpayment_edit" name="orderpayment_edit" value="orderpayment_edit" <?php if (in_array("orderpayment_edit",$array_permissions)){ echo "checked";}?>>
