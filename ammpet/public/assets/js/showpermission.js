@@ -1,3 +1,7 @@
+$(document).ready(function(){
+
+    showHidePermission();
+
 function showHidePermission(){
     if(document.getElementById('login').value == null || document.getElementById('login').value == ''){
         document.getElementById('permission_div').style.display='none';
@@ -26,3 +30,4 @@ checkboxes.forEach(function(checkbox) {
     })
 });
 
+});
