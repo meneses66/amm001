@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6">
-            <h4>Novo Parâmetro</h4>
+            <h4>Atualizar Parâmetro</h4>
         </div>
     </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">

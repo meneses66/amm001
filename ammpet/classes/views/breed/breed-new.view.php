@@ -24,9 +24,13 @@ $_SESSION['LAST_ACTIVE']=time();?>
                 <?php include "main-new.view.php";?>
             </div>
         </div>
+        <!-- jQuery library -->
+        <script src="<?php echo ROOT;?>/assets/js/jquery-3.7.1.js"></script>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
+        <!-- Form Validation JS-->
+        <script src="<?php echo ROOT;?>/assets/js/validation_breed.js"></script>
     </body>
 </html>
