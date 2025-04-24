@@ -1,15 +1,24 @@
 $(document).ready(function(){
 
-    showHidePermission();
+    let login = document.getElementById('login').value;
+    showHidePermission(login);
 
-function showHidePermission(){
-    if(document.getElementById('login').value == null || document.getElementById('login').value == ''){
+
+function showHidePermission(login){
+    if(login == null || login == ""){
         document.getElementById('permission_div').style.display='none';
     } else {
         document.getElementById('permission_div').style.display='block';
     }
 }
 
+function showHidePermission2(login){
+    if(document.getElementById('login').value == null || document.getElementById('login').value == ''){
+        document.getElementById('permission_div').style.display='none';
+    } else {
+        document.getElementById('permission_div').style.display='block';
+    }
+}
 
 let checkboxes = document.querySelectorAll("input[type=checkbox]");
 //let enabledSettings = document.getElementById("permission_el").value;
