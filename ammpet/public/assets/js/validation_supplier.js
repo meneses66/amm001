@@ -32,7 +32,7 @@ $(document).ready(function(){
                 if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
                     document.getElementById('error_message').innerText = response;
                 } else {
-                    window.location.replace("/ammpet/public/Client/_list");
+                    window.location.replace("/ammpet/public/Supplier/_list");
                 }
               }
         });
