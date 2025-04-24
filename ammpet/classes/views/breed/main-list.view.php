@@ -17,7 +17,7 @@
             <h4>Lista Raças</h4>
         </div>
         <div class="col-lg-6">
-            <?php ((check_permission($_SESSION['username'],"breed_add"))? print_r("<a href=\"". ROOT."/Breed/_new\" class=\"btn btn-success m-1 float-right\"><i class=\"fas fa-plus-circle\"></i>&nbsp;Nova Raça</a>") : print_r(""))?>
+            <?php ((check_permission($_SESSION['username'],"breed_add"))? print_r("<a href=\"". ROOT."/Breed/_new?id=new\" class=\"btn btn-success m-1 float-right\"><i class=\"fas fa-plus-circle\"></i>&nbsp;Nova Raça</a>") : print_r(""))?>
         </div>
         <hr class="my-1">
     <div class="row">
