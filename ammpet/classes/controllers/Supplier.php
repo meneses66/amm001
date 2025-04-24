@@ -371,7 +371,7 @@ class Supplier {
                                 <label for="login" class="medium-label">Login:</label><br><br>
                             </div>
                             <div class="col-sm-5">
-                                <input id="login" type="text" size="20" name="Login" value="'.$login.'" oninput="showHidePermission()"><br><br>
+                                <input id="login" type="text" size="20" name="Login" value="'.$login.'" oninput="showHidePermission(this.value)"><br><br>
                             </div>
                             <div class="col-sm-1">
                                 <label for="cnpj" class="medium-label">CNPJ:</label><br><br>
