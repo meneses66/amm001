@@ -18,7 +18,7 @@
                 $controller->load_supplier_form();
             ?>
             <br>
-            <?php include "permission-new-view.php";?>
+            <?php include "permission-update-view.php";?>
             <br>        
         </form>
     </div>

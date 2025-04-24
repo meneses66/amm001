@@ -297,7 +297,7 @@ class Supplier {
             $cpf = null;
             $type = "X";
             $sequence = null;
-            $hire_date = data("Y-m-d");
+            $hire_date = data('Y-m-d');
             $status = "Ativo";
             $comment = null;
             $permissions = null;
@@ -334,128 +334,128 @@ class Supplier {
             }
 
             
-                //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
-                //$data_form_type = $data_form['TYPE'];
-                $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", $type);
+            //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
+            //$data_form_type = $data_form['TYPE'];
+            $type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", $type);
 
-                //$data_form_role = $data_form['ROLE'];
-                $role_option_list = load_options_update("SUPPLIER_ROLE", "Ativo", $role);
+            //$data_form_role = $data_form['ROLE'];
+            $role_option_list = load_options_update("SUPPLIER_ROLE", "Ativo", $role);
 
-                //START TO LOAD THE UPDATE FORM:
-                $output .= '<div class="row">
-                                <div class="col-sm-1">
-                                    <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
-                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
-                                </div>
+            //START TO LOAD THE UPDATE FORM:
+            $output .= '<div class="row">
+                            <div class="col-sm-1">
+                                <label for="id" class="medium-label">Id: &nbsp;</label><br><br>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="name" class="medium-label">Nome: *</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="name" type="text" size="50" name="Name" value="'.$name.'"><br<br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="hire_date" class="medium-label">Dt Inicio:</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="hire_date" type="date" size="30" name="Hire_Date" value="'.$hire_date.'"><br><br>
-                                </div>
+                            <div class="col-sm-5">
+                                <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'"><br><br>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="login" class="medium-label">Login:</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="login" type="text" size="20" name="Login" value="'.$login.'"><br><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="cnpj" class="medium-label">CNPJ:</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="cnpj" type="text" size="10" name="CNPJ" value="'.$cnpj.'"><br><br>
-                                </div>
+                            <div class="col-sm-6">
+                                <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
+                                <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="pass" class="medium-label">Senha:</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="pass" type="password" name="Pass"><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="cpf" class="medium-label">CPF:</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="cpf" type="text" size="10" name="CPF" value="'.$cpf.'"><br><br>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="name" class="medium-label">Nome: *</label><br><br>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="type" class="medium-label">Tipo: *</label><br><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <select class="medium-label" id="type" name="Type">
-                                        <option class="medium-label" value="X">Selecione uma opção</option>
-                                        '.$type_option_list.'
-                                    </select><br><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="status" class="medium-label">Status:</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <select class="medium-label" id="status" name="Status">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
-                                        <option class="medium-label" value="Ativo" '.(($status == 'Ativo')?"selected":"").'>Ativo</option>
-                                        <option class="medium-label" value="Desativado" '.(($status == 'Desativado')?"selected":"").'>Desativado</option>
-                                    </select><br>
-                                </div>
+                            <div class="col-sm-5">
+                                <input id="name" type="text" size="50" name="Name" value="'.$name.'"><br<br>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="role" class="medium-label">Cargo: *</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <select class="medium-label" id="role" name="Role">
-                                        <option class="medium-label" value="X">Selecione uma opção</option>
-                                        '.$role_option_list.'
-                                    </select><br>
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="comment" class="medium-label">Comentarios:</label><br>
-                                </div>
-                                <div class="col-sm-5">
-                                    <input id="comment" type="text" size="50" name="Comment" value="'.$comment.'"><br>
-                                </div>
+                            <div class="col-sm-1">
+                                <label for="hire_date" class="medium-label">Dt Inicio:</label><br><br>
                             </div>
-                            <div class="row">
-                                <input id="permission_el" type="hidden" name="Permissions" value="'.$permissions.'">
-                            </div>';
+                            <div class="col-sm-5">
+                                <input id="hire_date" type="date" size="30" name="Hire_Date" value="'.$hire_date.'"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="login" class="medium-label">Login:</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="login" type="text" size="20" name="Login" value="'.$login.'"><br><br>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="cnpj" class="medium-label">CNPJ:</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="cnpj" type="text" size="10" name="CNPJ" value="'.$cnpj.'"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="pass" class="medium-label">Senha:</label><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="pass" type="password" name="Pass"><br>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="cpf" class="medium-label">CPF:</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="cpf" type="text" size="10" name="CPF" value="'.$cpf.'"><br><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="type" class="medium-label">Tipo: *</label><br><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <select class="medium-label" id="type" name="Type">
+                                    <option class="medium-label" value="X">Selecione uma opção</option>
+                                    '.$type_option_list.'
+                                </select><br><br>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="status" class="medium-label">Status:</label><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <select class="medium-label" id="status" name="Status">
+                                    <option class="medium-label" value="">Selecione uma opção</option>
+                                    <option class="medium-label" value="Ativo" '.(($status == 'Ativo')?"selected":"").'>Ativo</option>
+                                    <option class="medium-label" value="Desativado" '.(($status == 'Desativado')?"selected":"").'>Desativado</option>
+                                </select><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-1">
+                                <label for="role" class="medium-label">Cargo: *</label><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <select class="medium-label" id="role" name="Role">
+                                    <option class="medium-label" value="X">Selecione uma opção</option>
+                                    '.$role_option_list.'
+                                </select><br>
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="comment" class="medium-label">Comentarios:</label><br>
+                            </div>
+                            <div class="col-sm-5">
+                                <input id="comment" type="text" size="50" name="Comment" value="'.$comment.'"><br>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input id="permission_el" type="hidden" name="Permissions" value="'.$permissions.'">
+                        </div>';
 
-                             // ADD BUTTONS:
-                
-                $output .= '<div class="row">
-                                <div class="col-sm-6">
-                                    <a href="'.ROOT.'/Supplier/_list?" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Salvar" formaction="../Supplier/update_call">
-                                </div>
-                            </div>';
-                $sql_stm = null;
-                unset_array($inputs);
-                $data = null;
-                $model = null;
-
-                echo $output;
+                            // ADD BUTTONS:
             
-            } else{
+            $output .= '<div class="row">
+                            <div class="col-sm-6">
+                                <a href="'.ROOT.'/Supplier/_list?" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Salvar" formaction="../Supplier/update_call">
+                            </div>
+                        </div>';
+            $sql_stm = null;
+            unset_array($inputs);
+            $data = null;
+            $model = null;
+
+            echo $output;
+            
+        } else{
                 $sql_stm = null;
                 unset_array($inputs);
                 $data = null;
@@ -463,7 +463,7 @@ class Supplier {
 
                 show("No record to display!");
 
-        }
+            }
     }
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE
