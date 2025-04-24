@@ -317,7 +317,7 @@ class Breed {
                 $error=1;
                 $error_msg .= "Indique um valor para \"Nome\".\n";
             }
-            if ( $inputs['type']=="X" || $inputs['type']=="Selecione uma opção") {
+            if ( $inputs['Type']=="X" || $inputs['Type']=="Selecione uma opção") {
                 $error=1;
                 $error_msg .= "Indique um valor para \"Tipo\".\n";
             }
