@@ -30,6 +30,8 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
         <!-- Show Permission Session-->
         <script src="<?php echo ROOT;?>/assets/js/showpermission.js"></script>
+        <!-- Show Permission Session-->
+        <script src="<?php echo ROOT;?>/assets/js/supplier_load_permission.js"></script>
         <!-- Form Validation JS-->
         <script src="<?php echo ROOT;?>/assets/js/validation_supplier.js"></script>
     </body>

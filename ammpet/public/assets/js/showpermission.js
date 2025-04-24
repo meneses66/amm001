@@ -1,9 +1,3 @@
-$(document).ready(function(){
-
-    let login = document.getElementById('login').value;
-    showHidePermission(login);
-
-
 function showHidePermission(login){
     if(login == null || login == ""){
         document.getElementById('permission_div').style.display='none';
@@ -37,6 +31,4 @@ checkboxes.forEach(function(checkbox) {
         document.getElementById('permission_el').value = enabledSettings;
         
     })
-});
-
 });
