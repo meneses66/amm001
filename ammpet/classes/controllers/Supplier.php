@@ -297,7 +297,7 @@ class Supplier {
             $cpf = null;
             $type = "X";
             $sequence = null;
-            $hire_date = data('Y-m-d');
+            $hire_date = date('Y-m-d');
             $status = "Ativo";
             $comment = null;
             $permissions = null;
