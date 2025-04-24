@@ -4,7 +4,6 @@ $(document).ready(function(){
     
     load_employee(temp_id_employee);
 
-    
     let status = document.getElementById("salary_item_status").value;
 
     if (status == "Fechado") {
