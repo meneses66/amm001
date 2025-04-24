@@ -437,7 +437,7 @@ class Supplier {
                         </div>';
 
                             // ADD BUTTONS:
-            
+            /*
             $output .= '<div class="row">
                             <div class="col-sm-6">
                                 <a href="'.ROOT.'/Supplier/_list?" class="btn btn-secondary btn-lg m-1 btn-block">Voltar</a>
@@ -446,6 +446,7 @@ class Supplier {
                                 <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Salvar" formaction="../Supplier/update_call">
                             </div>
                         </div>';
+            */
             $sql_stm = null;
             $data = null;
             $model = null;
