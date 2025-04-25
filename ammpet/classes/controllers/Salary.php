@@ -349,7 +349,9 @@ class Salary {
     }
 
     public function close_period($inputs){
-
+        $year=$inputs['Year'];
+        $month=$inputs['Month'];
+        return "Ano:".$year."/Mês".$month;
     }
     
     public function update_comission($inputs){
@@ -359,7 +361,9 @@ class Salary {
     }
 
     public function batch_confirm($inputs){
-
+        $year=$inputs['Year'];
+        $month=$inputs['Month'];
+        return "Ano:".$year."/Mês".$month;
     }
 
 }
