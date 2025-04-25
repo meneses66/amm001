@@ -45,24 +45,37 @@ $(document).ready(function(){
         var year = document.getElementById("year").value;
         var month = document.getElementById("month").value;
 
-        $.ajax({
-            url: "/ammpet/public/Ajax_call",
-            type: "POST",
-            data: {
-                    operation: "submit", 
-                    class:"Salary", 
-                    method:"batch_confirm", 
-                    Year:year, 
-                    Month:month
-            },
-            success: function(response){
-                if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
-                    document.getElementById('error_message').innerText = response;
-                } else {
-                    window.location.reload;
-                }
-              }
-        });
+        Swal.fire({
+			title: "Confirmar Todos os Registros do Período?",
+			text: "Não será possível desfazer!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#d33",
+			cancelButtonColor: "#3085d6",
+			confirmButtonText: "Sim!"
+		}).then((result) => {
+				if (result.isConfirmed) {
+					//AJAX
+                    $.ajax({
+                        url: "/ammpet/public/Ajax_call",
+                        type: "POST",
+                        data: {
+                                operation: "submit", 
+                                class:"Salary", 
+                                method:"batch_confirm", 
+                                Year:year, 
+                                Month:month
+                        },
+                        success: function(response){
+                            if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
+                                document.getElementById('error_message').innerText = response;
+                            } else {
+                                window.location.reload;
+                            }
+                          }
+                    });            
+				}
+			});
 
       };
 
@@ -72,25 +85,37 @@ $(document).ready(function(){
         var year = document.getElementById("year").value;
         var month = document.getElementById("month").value;
 
-        $.ajax({
-            url: "/ammpet/public/Ajax_call",
-            type: "POST",
-            data: {
-                    operation: "submit", 
-                    class:"Salary", 
-                    method:"close_period", 
-                    Year:year, 
-                    Month:month
-            },
-            success: function(response){
-                if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
-                    document.getElementById('error_message').innerText = response;
-                } else {
-                    window.location.reload;
-                }
-              }
-        });
-
+        Swal.fire({
+			title: "Encerrar período?",
+			text: "Não será possível desfazer!",
+			icon: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#d33",
+			cancelButtonColor: "#3085d6",
+			confirmButtonText: "Sim!"
+		}).then((result) => {
+				if (result.isConfirmed) {
+					//AJAX
+                    $.ajax({
+                        url: "/ammpet/public/Ajax_call",
+                        type: "POST",
+                        data: {
+                                operation: "submit", 
+                                class:"Salary", 
+                                method:"close_period", 
+                                Year:year, 
+                                Month:month
+                        },
+                        success: function(response){
+                            if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
+                                document.getElementById('error_message').innerText = response;
+                            } else {
+                                window.location.reload;
+                            }
+                          }
+                    });            
+				}
+			});
       };
 
     function splitUrlEncoded(str) {
