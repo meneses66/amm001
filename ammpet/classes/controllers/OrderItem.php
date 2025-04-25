@@ -409,7 +409,7 @@ class OrderItem {
                                     <input id="prodserv_code" type="text" size="20" name="Prodserv_Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="item_description" class="medium-label">Desc.:</label>
+                                    <label for="item_description" class="medium-label">Desc.: *</label>
                                 </div>
                                 <div class="col-sm-2">
                                     <input id="item_description" type="text" size="25" name="Item_Description" value="'.$data_form['ITEM_DESCRIPTION'].'">
@@ -587,5 +587,62 @@ class OrderItem {
             return $error_msg="Operation failed";
         }
     }
+
+    //FUNCTION USED TO PRE-VALIDATE ORDER ITEM PRODUCT INFO BEFORE IT'S SUBMITTED
+    public function validate_oi_product($inputs){
+        $error=0;
+        $error_msg="";
+        if (isset($inputs['operation'])) {
+            if ( $inputs['Quantity']==null || $inputs['Quantity']=="" || $inputs['Quantity']<=0) {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Qtde\".\n";
+            }
+            if ( $inputs['Unit_Value']==null || $inputs['Unit_Value']=="" || $inputs['Unit_Value']<=0) {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Valor Unit.\".\n";
+            }
+            if ( $inputs['Item_Description']==null || $inputs['Item_Description']=="") {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Descr.\".\n";
+            }
+
+            //IF ANY ERROR FOUND: RETURN ERROR
+            if ($error == 1) {
+                //amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
+                return $error_msg;
+            } 
+
+            //IF NO ERROR PROCESS WITH INSERT (id=new) OR UPDATE
+            else {
+                //amm_log(date("H:i:s").":: NO Errors");
+                unset($_POST);
+
+                foreach ($inputs as $key => $value) {
+                    $_POST[$key]=$value;
+                }
+
+                unset($_POST['operation']);
+                unset($_POST['class']);
+                unset($_POST['method']);
+                $_SERVER['REQUEST_METHOD']="POST";
+                $_POST['class']="OrderItem";
+
+                if ($inputs['Id']=="new") {
+                    //amm_log(date("H:i:s").":: ID = NEW");
+                    unset($_POST['Id']);                
+                    $_POST['method']="insert_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                } else{
+                    $_POST['method']="update_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                }
+            }
+        } else{
+            return $error_msg="Operation failed";
+        }
+    }
+    
 
 }
