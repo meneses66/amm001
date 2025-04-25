@@ -348,16 +348,18 @@ class Salary {
         }
     }
 
-    public function close_period($year, $month){
+    public function close_period($inputs){
 
     }
     
-    public function update_conission(){
-        
+    public function update_comission($inputs){
+        $year=$inputs['Year'];
+        $month=$inputs['Month'];
+        return "Ano:".$year."/Mês".$month;
     }
 
-    public function batch_confirm(){}
+    public function batch_confirm($inputs){
 
-
+    }
 
 }
