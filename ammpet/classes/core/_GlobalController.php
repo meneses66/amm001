@@ -697,9 +697,26 @@ Trait _GlobalController{
             //Special condition when Object is OrderItem:
             if($this->UCF_object=="OrderItem"){
  
-                $cli_id = $_GET['cli_id'];
-                $order_id = $_GET['order_id'];
-                $item_id = $_GET['item_id'];
+
+                if (isset($_GET['cli_id'])) {
+                    $cli_id = $_GET['cli_id'];
+                }
+                if (isset($_GET['order_id'])) {
+                    $order_id = $_GET['order_id'];
+                }
+                if (isset($_GET['item_id'])) {
+                    $item_id = $_GET['item_id'];
+                }
+
+                if (isset($inputs["Id_Client"])) {
+                    $cli_id = $inputs["Id_Client"];
+                }
+                if (isset($inputs["Id_Order"])) {
+                    $order_id = $inputs["Id_Order"];
+                }
+                if (isset($inputs["Id"])) {
+                    $item_id = $inputs["Id"];
+                }
 
                 if (isset($inputs["Id_Package"])) {
                     $package_id = $inputs['Id_Package'];
