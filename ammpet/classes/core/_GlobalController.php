@@ -568,9 +568,11 @@ Trait _GlobalController{
                         $ajax_call->index();
 
                         //AFTER ORDER PAYMENTS HAS BEEN UPDATED, REDIRECTS TO ORDER DETAILS:
-                        $path2 = "Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];
-                        unset_array($inputs);
-                        double_redirect("OrderPayment", $path2);
+                        //$path2 = "Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];
+                        //unset_array($inputs);
+                        //double_redirect("OrderPayment", $path2);
+                        unset($_POST);
+                        unset($inputs);
                         break;
 
                     case 'Salary':
@@ -942,7 +944,13 @@ Trait _GlobalController{
             }
 
             if ($this->UCF_object=="OrderPayment") {
-                $order_id=$_GET['order_id'];
+                
+                if (isset($_GET['order_id'])) {
+                    $order_id=$_GET['order_id'];
+                }
+                if (isset($inputs['order_id'])) {
+                    $order_id=$inputs['Id_Order'];
+                }
 
                 if(isset($inputs["Flag1"])){
                     $inputs["Flag1"]="1";
