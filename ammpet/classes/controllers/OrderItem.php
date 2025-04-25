@@ -362,173 +362,229 @@ class OrderItem {
 
     }
 
-        //LOAD HTML FORM FOR UPDATING PRODUCT RECORD
-        public function load_update_prod_form(){
+    //LOAD HTML FORM FOR UPDATING PRODUCT RECORD
+    public function load_update_prod_form(){
 
-            if (isset($_GET['item_id'])){
-    
-                //if(session_status() === PHP_SESSION_NONE) session_start();
-                //restart_session();
-                
-                $output = "";
-                $inputs["ID"]=$_GET['item_id'];
-                $id=$_GET['item_id'];
-                $order_id = $_GET['order_id'];
-                $client_id = $_GET['cli_id'];
-                $model = new('\Model\\'.$this->UCF_object);
-                
-                $data = $model->getRow($inputs);
-    
-                if($data){
-    
-                    foreach ($data as $key => $value) {
-                        $data_form[$key]=$value;
-                    }
-    
-                    //DEFINE FLAGS:
-    
-                    //START TO LOAD THE UPDATE FORM:
-                    $output .= '<div class="row">
-                                    <input id="id" type="hidden" name="Id" readonly value="'.$data_form['ID'].'">
-                                    <input id="id_client" type="hidden" name="Id_Client" readonly value="'.$data_form['ID_CLIENT'].'">
-                                    <input id="id_order" type="hidden" name="Id_Order" readonly value="'.$data_form['ID_ORDER'].'">
-                                    <input id="updated_by" type="hidden" name="Updated_By" readonly value="'.$_SESSION['username'].'">
-                                    <input id="temp_salesperson" type="hidden" name="temp_salesperson" readonly value="'.$data_form['SALESPERSON'].'">
-                                    <input id="oi_price_cash" type="hidden" name="OI_Price_Cash" readonly value="'.$data_form['OI_PRICE_CASH'].'">
-                                    <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" readonly value="'.$data_form['OI_PRICE_PIX'].'">
-                                    <input id="prod_serv_category" type="hidden" name="Prod_Serv_Category" readonly value="'.$data_form['PROD_SERV_CATEGORY'].'">
-                                    <input id="prod_serv_group" type="hidden" name="Prod_Serv_Group" readonly value="'.$data_form['PROD_SERV_GROUP'].'">
-                                    <input id="id_prod_serv" type="hidden" name="Id_Prod_Serv" readonly value="'.$data_form['ID_PROD_SERV'].'">
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        <label for="prodserv_code" class="medium-label">Cód:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="prodserv_code" type="text" size="20" name="Prodserv_Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="item_description" class="medium-label">Desc.:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="item_description" type="text" size="25" name="Item_Description" value="'.$data_form['ITEM_DESCRIPTION'].'">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="quantity" class="medium-label">Qtde:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="quantity" type="text" size="15" name="Quantity" onInput="calculate_item_product()" value="'.$data_form['QUANTITY'].'">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="total_cash" class="medium-label">Total Dinh:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="total_cash" type="text" size="15" name="Total_Cash" readonly value="'.$data_form['TOTAL_CASH'].'">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="unit_value" class="medium-label">Valor Unit.:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="unit_value" type="text" size="15" onInput="calculate_item_product(this.value)" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="total_pix" class="medium-label">Total Pix:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="total_pix" type="text" size="15" name="Total_Pix" readonly value="'.$data_form['TOTAL_PIX'].'">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        <label for="salesperson" class="medium-label">Vendedor:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select class="medium-label" id="salesperson" name="Salesperson">
-    
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="date" class="medium-label">Data:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="date" type="date" size="20" name="Date" value="'.$data_form['DATE'].'">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="discount_value" class="medium-label">Desc. Valor:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="discount_value" type="text" size="15" name="Discount_Value" onInput="calculate_item_product(this.value)" value="'.$data_form['DISCOUNT_VALUE'].'">
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="value_no_discount" class="medium-label">Valor s/ Desc:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="value_no_discount" type="text" size="15" readonly name="Value_No_Discount" value="'.$data_form['VALUE_NO_DISCOUNT'].'">
-                                    </div>
-                                </div><br>
-                                <div class="row">
-                                    <div class="col-sm-1">
-                                        
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                       
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                       
-                                    </div>
-                                    <div class="col-sm-2">
-                                        
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <label for="value_with_discount" class="medium-label">Valor Final:</label>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input id="value_with_discount" type="text" size="15" readonly name="Value_With_Discount" value="'.$data_form['VALUE_WITH_DISCOUNT'].'">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../OrderItem/update_call?cli_id='.$data_form['ID_CLIENT'].'&order_id='.$data_form['ID_ORDER'].'&item_id='.$data_form['ID'].'">
-                                    </div>
-                                </div>';
-                                $sql_stm = null;
-                                unset_array($inputs);
-                                $data = null;
-                                $model = null;
-                                echo $output;
-                } else{
-                    $sql_stm = null;
-                    unset_array($inputs);
-                    $data = null;
-                    $model = null;
-                    show("No record to display!");
+        if (isset($_GET['item_id'])){
+
+            //if(session_status() === PHP_SESSION_NONE) session_start();
+            //restart_session();
+            
+            $output = "";
+            $inputs["ID"]=$_GET['item_id'];
+            $id=$_GET['item_id'];
+            $order_id = $_GET['order_id'];
+            $client_id = $_GET['cli_id'];
+            $model = new('\Model\\'.$this->UCF_object);
+            
+            $data = $model->getRow($inputs);
+
+            if($data){
+
+                foreach ($data as $key => $value) {
+                    $data_form[$key]=$value;
                 }
-    
+
+                //DEFINE FLAGS:
+
+                //START TO LOAD THE UPDATE FORM:
+                $output .= '<div class="row">
+                                <input id="id" type="hidden" name="Id" readonly value="'.$data_form['ID'].'">
+                                <input id="id_client" type="hidden" name="Id_Client" readonly value="'.$data_form['ID_CLIENT'].'">
+                                <input id="id_order" type="hidden" name="Id_Order" readonly value="'.$data_form['ID_ORDER'].'">
+                                <input id="updated_by" type="hidden" name="Updated_By" readonly value="'.$_SESSION['username'].'">
+                                <input id="temp_salesperson" type="hidden" name="temp_salesperson" readonly value="'.$data_form['SALESPERSON'].'">
+                                <input id="oi_price_cash" type="hidden" name="OI_Price_Cash" readonly value="'.$data_form['OI_PRICE_CASH'].'">
+                                <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" readonly value="'.$data_form['OI_PRICE_PIX'].'">
+                                <input id="prod_serv_category" type="hidden" name="Prod_Serv_Category" readonly value="'.$data_form['PROD_SERV_CATEGORY'].'">
+                                <input id="prod_serv_group" type="hidden" name="Prod_Serv_Group" readonly value="'.$data_form['PROD_SERV_GROUP'].'">
+                                <input id="id_prod_serv" type="hidden" name="Id_Prod_Serv" readonly value="'.$data_form['ID_PROD_SERV'].'">
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="prodserv_code" class="medium-label">Cód:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="prodserv_code" type="text" size="20" name="Prodserv_Code" readonly value="'.$data_form['PRODSERV_CODE'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="item_description" class="medium-label">Desc.:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="item_description" type="text" size="25" name="Item_Description" value="'.$data_form['ITEM_DESCRIPTION'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="quantity" class="medium-label">Qtde: *</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="quantity" type="text" size="15" name="Quantity" onInput="calculate_item_product()" value="'.$data_form['QUANTITY'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="total_cash" class="medium-label">Total Dinh:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="total_cash" type="text" size="15" name="Total_Cash" readonly value="'.$data_form['TOTAL_CASH'].'">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    
+                                </div>
+                                <div class="col-sm-2">
+                                    
+                                </div>
+                                <div class="col-sm-1">
+                                    
+                                </div>
+                                <div class="col-sm-2">
+                                    
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="unit_value" class="medium-label">Valor Unit.: *</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="unit_value" type="text" size="15" onInput="calculate_item_product(this.value)" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="total_pix" class="medium-label">Total Pix:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="total_pix" type="text" size="15" name="Total_Pix" readonly value="'.$data_form['TOTAL_PIX'].'">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="salesperson" class="medium-label">Vendedor:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <select class="medium-label" id="salesperson" name="Salesperson">
+
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="date" class="medium-label">Data:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="date" type="date" size="20" name="Date" value="'.$data_form['DATE'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="discount_value" class="medium-label">Desc. Valor:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="discount_value" type="text" size="15" name="Discount_Value" onInput="calculate_item_product(this.value)" value="'.$data_form['DISCOUNT_VALUE'].'">
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="value_no_discount" class="medium-label">Valor s/ Desc:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="value_no_discount" type="text" size="15" readonly name="Value_No_Discount" value="'.$data_form['VALUE_NO_DISCOUNT'].'">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    
+                                </div>
+                                <div class="col-sm-2">
+                                    
+                                </div>
+                                <div class="col-sm-1">
+                                    
+                                </div>
+                                <div class="col-sm-2">
+                                    
+                                </div>
+                                <div class="col-sm-1">
+                                    
+                                </div>
+                                <div class="col-sm-2">
+                                    
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="value_with_discount" class="medium-label">Valor Final:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="value_with_discount" type="text" size="15" readonly name="Value_With_Discount" value="'.$data_form['VALUE_WITH_DISCOUNT'].'">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    
+                                </div>
+                                <div class="col-sm-6">
+                                    <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../OrderItem/update_call?cli_id='.$data_form['ID_CLIENT'].'&order_id='.$data_form['ID_ORDER'].'&item_id='.$data_form['ID'].'">
+                                </div>
+                            </div>';
+                            $sql_stm = null;
+                            unset_array($inputs);
+                            $data = null;
+                            $model = null;
+                            echo $output;
+            } else{
+                $sql_stm = null;
+                unset_array($inputs);
+                $data = null;
+                $model = null;
+                show("No record to display!");
             }
-    
-        }    
+
+        }
+
+    }
+
+    //FUNCTION USED TO PRE-VALIDATE ORDER ITEM SERVICE INFO BEFORE IT'S SUBMITTED
+    public function validate_oi_service($inputs){
+        $error=0;
+        $error_msg="";
+        if (isset($inputs['operation'])) {
+            if ( $inputs['Quantity']==null || $inputs['Quantity']=="" || $inputs['Quantity']<=0) {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Qtde\".\n";
+            }
+            if ( $inputs['Unit_Value']==null || $inputs['Unit_Value']=="" || $inputs['Unit_Value']<=0) {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Valor Unit.\".\n";
+            }
+            if ( $inputs['Prod_Serv_Category']=="Pacote" && $inputs['Id_Package_Animal'] == 1 ) {
+                $error=1;
+                $error_msg .= "Selecione um Animal para o Pacote.\n";
+            }
+
+            //IF ANY ERROR FOUND: RETURN ERROR
+            if ($error == 1) {
+                //amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
+                return $error_msg;
+            } 
+
+            //IF NO ERROR PROCESS WITH INSERT (id=new) OR UPDATE
+            else {
+                //amm_log(date("H:i:s").":: NO Errors");
+                unset($_POST);
+
+                foreach ($inputs as $key => $value) {
+                    $_POST[$key]=$value;
+                }
+
+                unset($_POST['operation']);
+                unset($_POST['class']);
+                unset($_POST['method']);
+                $_SERVER['REQUEST_METHOD']="POST";
+                $_POST['class']="Animal";
+
+                if ($inputs['Id']=="new") {
+                    //amm_log(date("H:i:s").":: ID = NEW");
+                    unset($_POST['Id']);                
+                    $_POST['method']="insert_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                } else{
+                    $_POST['method']="update_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                }
+            }
+        } else{
+            return $error_msg="Operation failed";
+        }
+    }
 
 }
