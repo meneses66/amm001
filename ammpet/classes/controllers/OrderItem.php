@@ -568,7 +568,7 @@ class OrderItem {
                 unset($_POST['class']);
                 unset($_POST['method']);
                 $_SERVER['REQUEST_METHOD']="POST";
-                $_POST['class']="Animal";
+                $_POST['class']="OrderItem";
 
                 if ($inputs['Id']=="new") {
                     //amm_log(date("H:i:s").":: ID = NEW");
