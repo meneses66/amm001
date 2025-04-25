@@ -68,5 +68,8 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdn.datatables.net/searchbuilder/1.8.2/js/searchBuilder.dataTables.js"></script>
         <script src="https://cdn.datatables.net/datetime/1.5.5/js/dataTables.dateTime.min.js"></script>
         
+       <!-- SALARY FUNCTIONS CALLS JS-->
+       <script src="<?php echo ROOT;?>/assets/js/salary_functions_calls.js"></script>
+
     </body>
 </html>
