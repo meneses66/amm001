@@ -3,8 +3,8 @@ $(document).ready(function(){
     document.getElementById("update_comission").onclick= function(event) {
         event.preventDefault();
 
-        var year = getElementById("year").value;
-        var month = getElementById("month").value;
+        var year = document.getElementById("year").value;
+        var month = document.getElementById("month").value;
 
         $.ajax({
             url: "/ammpet/public/Ajax_call",
