@@ -501,7 +501,14 @@ Trait _GlobalController{
             }
 
             if($this->UCF_object=="OrderPayment"){
-                $order_id=$_GET['order_id'];
+                
+                if (isset($_GET['order_id'])) {
+                    $order_id=$_GET['order_id'];
+                }
+                if (isset($inputs['order_id'])) {
+                    $order_id=$inputs['Id_Order'];
+                }
+                
 
                 if(isset($inputs["Flag1"])){
                     $inputs["Flag1"]="1";
