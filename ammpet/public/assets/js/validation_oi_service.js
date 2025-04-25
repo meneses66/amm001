@@ -3,6 +3,9 @@ $(document).ready(function(){
     document.getElementById("button").onclick= function(event) {
         event.preventDefault();
 
+        document.getElementById('package_service').removeAttribute("disabled");
+        document.getElementById('id_package').removeAttribute("disabled");
+
         var data_form = decodeURIComponent($(update_form).serialize());
         //console.log("data_form: "+data_form);
         data_form_array = splitUrlEncoded(data_form);
