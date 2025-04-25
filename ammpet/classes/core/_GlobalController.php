@@ -505,7 +505,7 @@ Trait _GlobalController{
                 if (isset($_GET['order_id'])) {
                     $order_id=$_GET['order_id'];
                 }
-                if (isset($inputs['order_id'])) {
+                if (isset($inputs['Id_Order'])) {
                     $order_id=$inputs['Id_Order'];
                 }
                 
@@ -948,7 +948,7 @@ Trait _GlobalController{
                 if (isset($_GET['order_id'])) {
                     $order_id=$_GET['order_id'];
                 }
-                if (isset($inputs['order_id'])) {
+                if (isset($inputs['Id_Order'])) {
                     $order_id=$inputs['Id_Order'];
                 }
 
