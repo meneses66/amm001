@@ -398,6 +398,7 @@ class OrderItem {
                                 <input id="oi_price_pix" type="hidden" name="OI_Price_Pix" readonly value="'.$data_form['OI_PRICE_PIX'].'">
                                 <input id="prod_serv_category" type="hidden" name="Prod_Serv_Category" readonly value="'.$data_form['PROD_SERV_CATEGORY'].'">
                                 <input id="prod_serv_group" type="hidden" name="Prod_Serv_Group" readonly value="'.$data_form['PROD_SERV_GROUP'].'">
+                                <input id="prod_serv_type" type="hidden" name="Prod_Serv_Type" readonly value="'.$data_form['PROD_SERV_TYPE'].'">
                                 <input id="id_prod_serv" type="hidden" name="Id_Prod_Serv" readonly value="'.$data_form['ID_PROD_SERV'].'">
                             </div>
                             <div class="row">
