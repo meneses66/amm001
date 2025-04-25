@@ -1156,9 +1156,11 @@ Trait _GlobalController{
                         $ajax_call = new('\Controller\\'."Ajax_call");
                         $ajax_call->index();
 
-                        $path2 = "Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];
-                        unset_array($inputs);
-                        double_redirect("OrderPayment", $path2);
+                        //$path2 = "Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];
+                        //unset_array($inputs);
+                        //double_redirect("OrderPayment", $path2);
+                        unset($_POST);
+                        unset($inputs);
                         break;
                     
                     case 'Product':

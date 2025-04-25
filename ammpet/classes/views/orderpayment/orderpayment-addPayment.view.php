@@ -58,6 +58,9 @@ $_SESSION['LAST_ACTIVE']=time();?>
 
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
+
+        <!-- Form Validation JS-->
+        <script src="<?php echo ROOT;?>/assets/js/validation_order_payment.js"></script>
         
     </body>
 </html>

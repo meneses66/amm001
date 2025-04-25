@@ -72,9 +72,10 @@ class OrderPayment {
             //START TO LOAD THE UPDATE FORM:
             $output .= '<div class="row">
                             <div class="col-sm-1">
-                                <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'">
-                                <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'">
-                                <input id="id_order" type="hidden" name="Id_Order" value="'.$order_id.'">
+                                <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
+                                <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
+                                <input id="id_order" type="hidden" name="Id_Order" value="'.$order_id.'" readonly>
+                                <input id="id_client" type="hidden" name="Id_Client" value="'.$cli_id.'" readonly>
                             </div>
                         </div>
                         <div class="row">
@@ -85,11 +86,11 @@ class OrderPayment {
                                 <input id="id" type="text" size="10" name="Id" readonly value="'.$id.'">
                             </div>
                             <div class="col-sm-1">
-                                <label for="payment_type" class="medium-label">Tipo Pagamento:</label>
+                                <label for="payment_type" class="medium-label">Tipo Pagamento: *</label>
                             </div>
                             <div class="col-sm-3">
                                 <select class="medium-label" id="payment_type" name="Payment_Type">
-                                    <option class="medium-label" value="N/A" '.(($payment_type == 'Dinheiro')?"selected":"").'>Selecione uma opção</option>
+                                    <option class="medium-label" value="X" '.(($payment_type == 'X')?"selected":"").'>Selecione uma opção</option>
                                     <option class="medium-label" value="Dinheiro" '.(($payment_type == 'Dinheiro')?"selected":"").'>Dinheiro</option>
                                     <option class="medium-label" value="Pix" '.(($payment_type == 'Pix')?"selected":"").'>Pix</option>
                                     <option class="medium-label" value="Credito" '.(($payment_type == 'Credito')?"selected":"").'>Crédito</option>
@@ -111,7 +112,7 @@ class OrderPayment {
                                 <input id="date" type="date" size="10" name="Date" value="'.$date.'">
                             </div>
                             <div class="col-sm-1">
-                                <label for="paid_amount" class="medium-label">Valor Pago:</label>
+                                <label for="paid_amount" class="medium-label">Valor Pago: *</label>
                             </div>
                             <div class="col-sm-3">
                                 <input id="paid_amount" type="text" size="15" name="Paid_Amount" value="'.$paid_amount.'">
@@ -196,6 +197,57 @@ class OrderPayment {
             $data = null;
             $model = null;
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+        }
+    }
+
+    //FUNCTION USED TO PRE-VALIDATE ORDER_PAYM INFO BEFORE IT'S SUBMITTED
+    public function validate_order_payment($inputs){
+        $error=0;
+        $error_msg="";
+        if (isset($inputs['operation'])) {
+            if ( $inputs['Payment_Type']=="X") {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Tipo de Pagamento\".\n";
+            }
+            if ( $inputs['Payment_Amount']==null || $inputs['Payment_Amount']=="" || $inputs['Payment_Amount']<=0 ) {
+                $error=1;
+                $error_msg .= "Indique um valor para \"Valor Pago\" > 0.\n";
+            }
+
+            //IF ANY ERROR FOUND: RETURN ERROR
+            if ($error == 1) {
+                //amm_log(date("H:i:s").":: Error: ".$error." | Error_Msg: ".$error_msg);
+                return $error_msg;
+            } 
+
+            //IF NO ERROR PROCESS WITH INSERT (id=new) OR UPDATE
+            else {
+                //amm_log(date("H:i:s").":: NO Errors");
+                unset($_POST);
+
+                foreach ($inputs as $key => $value) {
+                    $_POST[$key]=$value;
+                }
+
+                unset($_POST['operation']);
+                unset($_POST['class']);
+                unset($_POST['method']);
+                $_SERVER['REQUEST_METHOD']="POST";
+                $_POST['class']="OrderPayment";
+
+                if ($inputs['Id']=="new") {
+                    unset($_POST['Id']);                
+                    $_POST['method']="insert_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                } else{
+                    $_POST['method']="update_call";
+                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call->index();
+                }
+            }
+        } else{
+            return $error_msg="Operation failed";
         }
     }
 
