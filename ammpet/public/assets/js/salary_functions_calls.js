@@ -3,10 +3,6 @@ $(document).ready(function(){
     document.getElementById("update_comission").onclick= function(event) {
         event.preventDefault();
 
-        var data_form = decodeURIComponent($(form_animal).serialize());
-        //console.log("data_form: "+data_form);
-        data_form_array = splitUrlEncoded(data_form);
-
         var year = getElementById("year").value;
         var month = getElementById("month").value;
 

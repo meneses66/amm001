@@ -34,13 +34,13 @@
             ?>
         </div>
         <div class="col-lg-2">
-            <?php ((check_permission($_SESSION['username'],"admin_add"))? print_r("<input id=\"update_comission\" class=\"btn btn-primary btn-lg m-1 btn-block\" type=\"save_submit\" value=\"Atualizar Comissão\">") : print_r(""))?>
+            <?php ((check_permission($_SESSION['username'],"admin_add"))? print_r("<input id=\"update_comission\" class=\"btn btn-primary btn-sm m-1 btn-block\" type=\"save_submit\" value=\"Atualizar Comissão\">") : print_r(""))?>
         </div>
         <div class="col-lg-2">
-            <?php ((check_permission($_SESSION['username'],"admin_add"))? print_r("<input id=\"batch_confirm\" class=\"btn btn-primary btn-lg m-1 btn-block\" type=\"save_submit\" value=\"Confirmar Todos\">") : print_r(""))?>
+            <?php ((check_permission($_SESSION['username'],"admin_add"))? print_r("<input id=\"batch_confirm\" class=\"btn btn-primary btn-sm m-1 btn-block\" type=\"save_submit\" value=\"Confirmar Todos\">") : print_r(""))?>
         </div>
         <div class="col-lg-2">
-            <?php ((check_permission($_SESSION['username'],"admin_add"))? print_r("<input id=\"close_period\" class=\"btn btn-primary btn-lg m-1 btn-block\" type=\"save_submit\" value=\"Fechar Período\">") : print_r(""))?>
+            <?php ((check_permission($_SESSION['username'],"admin_add"))? print_r("<input id=\"close_period\" class=\"btn btn-primary btn-sm m-1 btn-block\" type=\"save_submit\" value=\"Fechar Período\">") : print_r(""))?>
         </div>
         <div class="col-lg-2">
             <?php ((check_permission($_SESSION['username'],"salary_add"))? print_r("<a href=\"". ROOT."/Salary/_new?id=new\" class=\"btn btn-success m-1 float-right\"><i class=\"fas fa-plus-circle\"></i>&nbsp;Novo Registro</a>") : print_r(""))?>
