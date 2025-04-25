@@ -12,7 +12,7 @@ $(document).ready(function(){
             data: {
                     operation: "submit", 
                     class:"Salary", 
-                    method:"updated_comission", 
+                    method:"update_comission", 
                     Year:year, 
                     Month:month
             },
