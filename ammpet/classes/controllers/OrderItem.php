@@ -544,7 +544,7 @@ class OrderItem {
                 $error=1;
                 $error_msg .= "Indique um valor para \"Valor Unit.\".\n";
             }
-            if ( $inputs['Prod_Serv_Category']=="Pacote" && $inputs['Id_Package_Animal'] == 1 ) {
+            if ( $inputs['Prod_Serv_Category']=="Pacote" && ($inputs['Id_Package_Animal'] == 1 || $inputs['Id_Package_Animal'] == "1")) {
                 $error=1;
                 $error_msg .= "Selecione um Animal para o Pacote.\n";
             }
