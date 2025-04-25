@@ -209,7 +209,7 @@ class OrderPayment {
                 $error=1;
                 $error_msg .= "Indique um valor para \"Tipo de Pagamento\".\n";
             }
-            if ( $inputs['Payment_Amount']==null || $inputs['Payment_Amount']=="" || $inputs['Payment_Amount']<=0 ) {
+            if ( $inputs['Paid_Amount']==null || $inputs['Paid_Amount']=="" || $inputs['Paid_Amount']<=0 ) {
                 $error=1;
                 $error_msg .= "Indique um valor para \"Valor Pago\" > 0.\n";
             }
