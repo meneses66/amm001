@@ -306,7 +306,7 @@ Trait _GlobalController{
                 $inputs[$key]=$value;
                 $log .= date("H:i:s")."--> Input: ".$key." = ".$value."| ";
             }
-            amm_log(date("H:i:s")."--------------------------------------------------------\n".$log);
+            //amm_log(date("H:i:s")."--------------------------------------------------------\n".$log);
 
             //Special condition when Object is Orderx:
             if($this->UCF_object=="Orderx" AND isset($_GET['cli_id'])){

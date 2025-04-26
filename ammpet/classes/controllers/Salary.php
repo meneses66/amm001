@@ -351,6 +351,10 @@ class Salary {
     public function close_period($inputs){
         $year=$inputs['Year'];
         $month=$inputs['Month'];
+        // Select all from year + month status Confirmado
+        // Create new for the same day next month status Aberto
+        // Update previous month to status Fechado
+        // 
         return "Ano:".$year."/Mês".$month;
     }
     
@@ -363,7 +367,36 @@ class Salary {
     public function batch_confirm($inputs){
         $year=$inputs['Year'];
         $month=$inputs['Month'];
-        return "Ano:".$year."/Mês".$month;
+        //Select all from year + month status <> Confimado
+
+        $inputs_salary['STATUS']='Aberto';
+        $salary_model = new('\Model\\'."Salary");
+
+        $salary_tobe_count = $salary_model->countWhere($inputs_salary);
+        foreach ($salary_tobe_count as $row_item) {
+            $total_items = $row_item->COUNTW;
+        }
+        $has_items = false;
+        if (($total_items > 0)) {
+            $has_items = true;
+        }
+
+        if ($has_items) {
+            $salary_result = $salary_model->listWhere($inputs_salary);
+            $inputs_update['ID']="";
+            foreach ($salary_result as $row) {
+                $inputs_update['ID'].=$row->ID.",";
+            }
+            $inputs_update['ID'] = trim($inputs_update['ID'],",");
+            $inputs_update['STATUS']="Confirmado";
+            $sql_stm="UPDATE SALARY SET STATUS=:STATUS WHERE ID IN (:ID)";
+            $salary_update = $salary_model->exec_sqlstm($sql_stm, $inputs_update);
+            return "Sucesso:"+$salary_update;
+        }
+        else {
+            return "Nenhum registro encontrado para Ano:".$year."/Mês".$month;
+        }
+        
     }
 
 }

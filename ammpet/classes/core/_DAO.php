@@ -54,7 +54,7 @@ Trait _DAO{
               $connect=null;
               return $result;
             } else{
-              //amm_log(date("H:i:m")." -> ELSE: ".$sql_stm);
+              amm_log(date("H:i:m")." -> ELSE: ".$sql_stm);
               $stm=null;
               $connect=null;
               return false;
