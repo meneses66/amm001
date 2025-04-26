@@ -60,8 +60,13 @@ Trait _GlobalModel{
     public function exec_sqlstm($sql_stm, $inputs=[])
     {
         return $this->query($sql_stm, $inputs);
+    } 
+    
+    #Run a SQL Statement passed through function input:
+    public function exec_sqlstm_query_with_bind($sql_stm, $inputs=[])
+    {
+        return $this->query_with_bind($sql_stm, $inputs);
     }   
-
 
     #list where
     public function listWhere($inputs, $inputs_not=[])

@@ -45,7 +45,7 @@ Trait _DAO{
       if(str_contains($sql_stm, "insert")){
         $result = $connect->lastInsertId();
         $stm=null;
-        $connect=null;
+        $connect->close();
         return $result;
       } else {
           $result = $stm->fetchAll(PDO::FETCH_OBJ);
@@ -63,4 +63,44 @@ Trait _DAO{
         }
     }
   }
+
+  public function query_with_bind($sql_stm, $inputs=[])
+  {
+
+    $connect = $this->connect();
+    
+    $stm = $connect->prepare($sql_stm);
+    $result = false;
+    foreach ($inputs as $key => $value) {
+      if ($key == "ID") {
+        $stm->bindValue(':ID',$value,PDO::PARAM_INT);
+      } else{
+        $stm->bindValue(':'.$key,$value,PDO::PARAM_STR);
+      }
+    }
+    $check = $stm->execute();
+    if($check)
+    {
+      if(str_contains($sql_stm, "insert")){
+        $result = $connect->lastInsertId();
+        $stm=null;
+        $connect->close();
+        return $result;
+      } else {
+          $result = $stm->fetchAll(PDO::FETCH_OBJ);
+            if(is_array($result) && count($result)){
+              //amm_log(date("H:i:m")." -> IF: ".$sql_stm);        
+              $stm=null;
+              $connect=null;
+              return $result;
+            } else{
+              //amm_log(date("H:i:m")." -> ELSE: ".$sql_stm);
+              $stm=null;
+              $connect=null;
+              return false;
+            }
+        }
+    }
+  }
+
 }
