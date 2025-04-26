@@ -369,7 +369,7 @@ class Salary {
         $month=$inputs['Month'];
         //Select all from year + month status <> Confimado
 
-        $inputs_salary['STATUS']='Aberto';
+        $inputs_salary['SALARY_ITEM_STATUS']='Aberto';
         $salary_model = new('\Model\\'."Salary");
 
         $salary_tobe_count = $salary_model->countWhere($inputs_salary);
@@ -388,8 +388,8 @@ class Salary {
                 $inputs_update['ID'].=$row->ID.",";
             }
             $inputs_update['ID'] = trim($inputs_update['ID'],",");
-            $inputs_update['STATUS']="Confirmado";
-            $sql_stm="UPDATE SALARY SET STATUS=:STATUS WHERE ID IN (:ID)";
+            $inputs_update['SALARY_ITEM_STATUS']="Confirmado";
+            $sql_stm="UPDATE SALARY SET SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS WHERE ID IN (:ID)";
             $salary_update = $salary_model->exec_sqlstm($sql_stm, $inputs_update);
             return "Sucesso:"+$salary_update;
         }
