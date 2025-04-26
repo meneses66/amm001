@@ -37,8 +37,8 @@ Trait _DAO{
     
     $stm = $connect->prepare($sql_stm);
     $result = false;
-    amm_log(date("H:i:m")." SQL -> ".$sql_stm);
-    amm_log(date("H:i:m")." INPUTS -> ".var_dump($inputs));
+    //amm_log(date("H:i:m")." SQL -> ".$sql_stm);
+    //amm_log(date("H:i:m")." INPUTS -> ".var_dump($inputs));
     $check = $stm->execute($inputs);
     if($check)
     {
@@ -55,7 +55,7 @@ Trait _DAO{
               $connect=null;
               return $result;
             } else{
-              amm_log(date("H:i:m")." -> ELSE: ".$sql_stm);
+              //amm_log(date("H:i:m")." -> ELSE: ".$sql_stm);
               $stm=null;
               $connect=null;
               return false;
