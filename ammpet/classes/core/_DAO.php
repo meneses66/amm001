@@ -38,7 +38,7 @@ Trait _DAO{
     $stm = $connect->prepare($sql_stm);
     $result = false;
     $check = $stm->execute($inputs);
-    
+    amm_log(date("H:i:m")." SQL -> ".$sql_stm);
     if($check)
     {
       if(str_contains($sql_stm, "insert")){
