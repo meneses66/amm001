@@ -348,13 +348,59 @@ class Salary {
     }
 
     public function close_period($inputs){
-        $year=$inputs['Year'];
-        $month=$inputs['Month'];
+        
         // Select all from year + month status Confirmado
         // Create new for the same day next month status Aberto
         // Update previous month to status Fechado
-        // 
-        return "Ano:".$year."/Mês".$month;
+        
+        $year=$inputs['Year'];
+        $month=$inputs['Month'];
+        //Select all from year + month status <> Confimado
+
+        $sql_stlm_sqlary_count = "SELECT COUNT(1) AS COUNTW FROM SALARY WHERE YEAR(REF_DATE)=:YEAR AND MONTH(REF_DATE)=:MONTH AND SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS";
+        $inputs_salary['SALARY_ITEM_STATUS']='Confirmado';
+        $inputs_salary['YEAR']=$year;
+        $inputs_salary['MONTH']=$month;
+        $salary_model = new('\Model\\'."Salary");
+
+        $salary_tobe_count = $salary_model->count_exec_sqlstm_with_bind($sql_stlm_sqlary_count, $inputs_salary);
+        foreach ($salary_tobe_count as $row_item) {
+            $total_items = $row_item->COUNTW;
+        }
+        $has_items = false;
+        if (($total_items > 0)) {
+            $has_items = true;
+        }
+
+        if ($has_items) {
+            $sql_stlm_salary = "SELECT * FROM SALARY WHERE YEAR(REF_DATE)=:YEAR AND MONTH(REF_DATE)=:MONTH AND SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS";
+            $salary_result = $salary_model->exec_sqlstm_query_with_bind($sql_stlm_salary, $inputs_salary);
+            $inputs_update['SALARY_ITEM_STATUS']="Fechado";
+            $ids_updated="";
+            $error = "";
+            foreach ($salary_result as $row) {
+                $inputs_update['ID']=$row->ID;
+                $ids_updated.=$row->ID.",";
+                $sql_stm="UPDATE SALARY SET SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS WHERE ID=:ID";
+                $salary_update = $salary_model->exec_sqlstm($sql_stm, $inputs_update);
+                if ($salary_update===false) {
+                    
+                }else{
+                    $error .= "Error in Id: ".$inputs_update['ID'];
+                }
+            }
+            $ids_updated = trim($ids_updated,",");
+            if ($error=="") {
+                return "Sucesso. Registros atualizados: ".$ids_updated;
+            } else{
+                return $error;
+            }
+            
+        }
+        else {
+            return "Nenhum registro encontrado para Ano:".$year."/Mês".$month;
+        }
+        
     }
     
     public function update_comission($inputs){

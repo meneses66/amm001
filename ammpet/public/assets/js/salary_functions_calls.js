@@ -28,14 +28,8 @@ $(document).ready(function(){
                                 Month:month
                         },
                         success: function(response){
-                            window.location.reload();
-                            if ((typeof response === 'string' || response instanceof String)&&(response.startsWith("Sucesso"))) {
-                              //console.log("RESPONSE = SUCESSO");
-                              document.getElementById('error_message').innerText = response;  
-                            } else {
-                              //console.log("RESPONSE = NOT SUCESSO");
-                              document.getElementById('error_message').innerText = response;
-                            }
+                            document.getElementById('error_message').innerText = response;
+                            reload_rows();
                           }
                     });            
 				}
@@ -70,9 +64,7 @@ $(document).ready(function(){
                                 Month:month
                         },
                         success: function(response){
-                          //window.location.reload();
                           document.getElementById('error_message').innerText = response;
-                          //$( "#_list_id" ).load(window.location.href + " #_list_id" );
                           reload_rows();
                         }
                     });            
@@ -109,11 +101,8 @@ $(document).ready(function(){
                                 Month:month
                         },
                         success: function(response){
-                            if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
-                                document.getElementById('error_message').innerText = response;
-                            } else {
-                                window.location.reload();
-                            }
+                            document.getElementById('error_message').innerText = response;
+                            reload_rows();
                           }
                     });            
 				}
