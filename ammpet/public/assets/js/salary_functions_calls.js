@@ -72,7 +72,8 @@ $(document).ready(function(){
                         success: function(response){
                           //window.location.reload();
                           document.getElementById('error_message').innerText = response;
-                          $( "#_list_id" ).load(window.location.href + " #_list_id" );
+                          //$( "#_list_id" ).load(window.location.href + " #_list_id" );
+                          reload_rows();
                         }
                     });            
 				}
