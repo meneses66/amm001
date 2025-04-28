@@ -28,7 +28,7 @@ $(document).ready(function(){
                                 Month:month
                         },
                         success: function(response){
-                            if ((typeof response === 'string' || response instanceof String)&&(response.startsWith("Success"))) {
+                            if ((typeof response === 'string' || response instanceof String)&&(response.startsWith("Sucesso"))) {
                                 document.getElementById('error_message').innerText = response;
                                 window.location.reload;
                             } else {
