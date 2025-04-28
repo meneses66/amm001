@@ -71,6 +71,7 @@ Trait _DAO{
     
     $stm = $connect->prepare($sql_stm);
     $result = false;
+    $keys = array_keys($inputs);
     foreach ($inputs as $key => $value) {
       if ($key == "ID") {
         $stm->bindValue(':ID',$value,PDO::PARAM_INT);
