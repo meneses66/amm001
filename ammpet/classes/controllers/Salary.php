@@ -401,7 +401,7 @@ class Salary {
                 }
             }
             $ids_updated = trim($ids_updated,",");
-            if ($success=="") {
+            if ($error=="") {
                 return "Sucesso. Registros atualizados: ".$ids_updated;
             } else{
                 return $error;
