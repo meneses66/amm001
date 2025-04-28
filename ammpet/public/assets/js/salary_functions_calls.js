@@ -28,10 +28,11 @@ $(document).ready(function(){
                                 Month:month
                         },
                         success: function(response){
-                            if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
+                            if ((typeof response === 'string' || response instanceof String)&&(response.startsWith("Success"))) {
                                 document.getElementById('error_message').innerText = response;
-                            } else {
                                 window.location.reload;
+                            } else {
+                              document.getElementById('error_message').innerText = response;
                             }
                           }
                     });            
