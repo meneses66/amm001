@@ -386,20 +386,25 @@ class Salary {
         if ($has_items) {
             $sql_stlm_salary = "SELECT * FROM SALARY WHERE YEAR(REF_DATE)=:YEAR AND MONTH(REF_DATE)=:MONTH AND SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS";
             $salary_result = $salary_model->exec_sqlstm_query_with_bind($sql_stlm_salary, $inputs_salary);
-            $inputs_update['ID']="";
-            foreach ($salary_result as $row) {
-                $inputs_update['ID'].=$row->ID.",";
-            }
-            $inputs_update['ID'] = trim($inputs_update['ID'],",");
             $inputs_update['SALARY_ITEM_STATUS']="Confirmado";
-            //$inputs_update['YEAR']=$year;
-            //$inputs_update['MONTH']=$month;
-            $sql_stm="UPDATE SALARY SET SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS WHERE ID IN (:ID)";
-            $salary_update = $salary_model->exec_sqlstm_query_with_bind($sql_stm, $inputs_update);
-            if (!($salary_update)) {
-                return "Sucesso. Registros atualizados: ".$inputs_update['ID'];
+            $ids_updated="";
+            $error = "";
+            foreach ($salary_result as $row) {
+                $inputs_update['ID']=$row->ID;
+                $ids_updated.=$row->ID.",";
+                $sql_stm="UPDATE SALARY SET SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS WHERE ID=:ID";
+                $salary_update = $salary_model->exec_sqlstm($sql_stm, $inputs_update);
+                if ($salary_update===false) {
+                    
+                }else{
+                    $error .= "Error in Id: ".$inputs_update['ID'];
+                }
+            }
+            $ids_updated = trim($ids_updated,",");
+            if ($success=="") {
+                return "Sucesso. Registros atualizados: ".$ids_updated;
             } else{
-                return "Erro:".strval($salary_update);
+                return $error;
             }
             
         }
