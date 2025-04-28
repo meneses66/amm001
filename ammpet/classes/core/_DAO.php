@@ -74,31 +74,34 @@ Trait _DAO{
     $keys = array_keys($inputs);
     foreach ($inputs as $key => $value) {
       if ($key == "ID") {
-        amm_log(date("H:i:m")." -> BIND ID: ".$value);
+        //amm_log(date("H:i:m")." -> BIND ID: ".$value);
         $stm->bindValue(':ID',$value,PDO::PARAM_INT);
       } else{
-        amm_log(date("H:i:m")." -> BIND ".$key.": ".$value);
+        //amm_log(date("H:i:m")." -> BIND ".$key.": ".$value);
         $stm->bindValue(':'.$key,$value,PDO::PARAM_STR);
       }
     }
-    amm_log(date("H:i:m")." -> SQL: ".$sql_stm);
+    //amm_log(date("H:i:m")." -> SQL: ".$sql_stm);
     $check = $stm->execute();
     if($check)
     {
+      amm_log(date("H:i:m")." -> IF CHECK: OK ".$stm);
       if(str_contains($sql_stm, "insert")){
+        amm_log(date("H:i:m")." -> IF INSERT: OK ".$stm);
         $result = $connect->lastInsertId();
         $stm=null;
         $connect->close();
         return $result;
       } else {
+        amm_log(date("H:i:m")." -> ELSE INSERT: OK ".$stm);
           $result = $stm->fetchAll(PDO::FETCH_OBJ);
             if(is_array($result) && count($result)){
-              //amm_log(date("H:i:m")." -> IF: ".$sql_stm);        
+              amm_log(date("H:i:m")." -> IF IS_ARRAY: OK ".$stm);
               $stm=null;
               $connect=null;
               return $result;
             } else{
-              //amm_log(date("H:i:m")." -> ELSE: ".$sql_stm);
+              amm_log(date("H:i:m")." -> ELSE IS_ARRAY: OK ".$stm);
               $stm=null;
               $connect=null;
               return false;
