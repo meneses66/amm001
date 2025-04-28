@@ -74,8 +74,10 @@ Trait _DAO{
     $keys = array_keys($inputs);
     foreach ($inputs as $key => $value) {
       if ($key == "ID") {
+        amm_log(date("H:i:m")." -> BIND ID: ".$value);
         $stm->bindValue(':ID',$value,PDO::PARAM_INT);
       } else{
+        amm_log(date("H:i:m")." -> BIND ".$key.": ".$value);
         $stm->bindValue(':'.$key,$value,PDO::PARAM_STR);
       }
     }
