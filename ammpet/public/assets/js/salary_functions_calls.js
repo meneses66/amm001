@@ -70,8 +70,9 @@ $(document).ready(function(){
                                 Month:month
                         },
                         success: function(response){
-                          window.location.reload();
-                          document.getElementById('error_message').innerText = response; 
+                          //window.location.reload();
+                          document.getElementById('error_message').innerText = response;
+                          $( "#_list_id" ).load(window.location.href + " #_list_id" );
                         }
                     });            
 				}
