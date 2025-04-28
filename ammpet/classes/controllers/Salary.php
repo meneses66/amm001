@@ -131,7 +131,6 @@ class Salary {
                                 <select class="medium-label" id="salary_item_status" name="Salary_Item_Status">
                                         <option class="medium-label" value="Aberto" '.(($status == 'Aberto')?"selected":"").'>Aberto</option>
                                         <option class="medium-label" value="Confirmado" '.(($status == 'Confirmado')?"selected":"").'>Confirmado</option>
-                                        <option class="medium-label" value="Fechado" '.(($status == 'Fechado')?"selected":"").'>Fechado</option>
                                 </select>
                             </div>
                         </div>
