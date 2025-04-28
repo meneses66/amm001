@@ -28,13 +28,12 @@ $(document).ready(function(){
                                 Month:month
                         },
                         success: function(response){
+                            window.location.reload();
                             if ((typeof response === 'string' || response instanceof String)&&(response.startsWith("Sucesso"))) {
                               //console.log("RESPONSE = SUCESSO");
-                              window.location.reload();
                               document.getElementById('error_message').innerText = response;  
                             } else {
                               //console.log("RESPONSE = NOT SUCESSO");
-                              window.location.reload();
                               document.getElementById('error_message').innerText = response;
                             }
                           }
@@ -71,12 +70,9 @@ $(document).ready(function(){
                                 Month:month
                         },
                         success: function(response){
-                            if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
-                                document.getElementById('error_message').innerText = response;
-                            } else {
-                                window.location.reload;
-                            }
-                          }
+                          window.location.reload();
+                          document.getElementById('error_message').innerText = response; 
+                        }
                     });            
 				}
 			});
@@ -114,7 +110,7 @@ $(document).ready(function(){
                             if ((typeof response === 'string' || response instanceof String)&&!(response==false)) {
                                 document.getElementById('error_message').innerText = response;
                             } else {
-                                window.location.reload;
+                                window.location.reload();
                             }
                           }
                     });            
