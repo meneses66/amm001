@@ -393,7 +393,7 @@ class Salary {
             $inputs_update['MONTH']=$month;
             $sql_stm="UPDATE SALARY SET SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS WHERE YEAR(REF_DATE)=:YEAR AND MONTH(REF_DATE)=:MONTH AND ID IN (:ID)";
             $salary_update = $salary_model->exec_sqlstm_query_with_bind($sql_stm, $inputs_update);
-            return "Sucesso:"+strval($salary_update);
+            return "Sucesso:".strval($salary_update);
         }
         else {
             return "Nenhum registro encontrado para Ano:".$year."/Mês".$month;
