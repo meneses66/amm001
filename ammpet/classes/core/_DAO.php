@@ -78,6 +78,7 @@ Trait _DAO{
         $stm->bindValue(':'.$key,$value,PDO::PARAM_STR);
       }
     }
+    amm_log(date("H:i:m")." -> SQL: ".$sql_stm);
     $check = $stm->execute();
     if($check)
     {
