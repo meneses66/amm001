@@ -85,23 +85,23 @@ Trait _DAO{
     $check = $stm->execute();
     if($check)
     {
-      amm_log(date("H:i:m")." -> IF CHECK: OK ".$sql_stm);
+      //amm_log(date("H:i:m")." -> IF CHECK: OK ".$sql_stm);
       if(str_contains($sql_stm, "insert")){
-        amm_log(date("H:i:m")." -> IF INSERT: OK ".$sql_stm);
+        //amm_log(date("H:i:m")." -> IF INSERT: OK ".$sql_stm);
         $result = $connect->lastInsertId();
         $stm=null;
         $connect->close();
         return $result;
       } else {
-        amm_log(date("H:i:m")." -> ELSE INSERT: OK ".$sql_stm);
+        //amm_log(date("H:i:m")." -> ELSE INSERT: OK ".$sql_stm);
           $result = $stm->fetchAll(PDO::FETCH_OBJ);
             if(is_array($result) && count($result)){
-              amm_log(date("H:i:m")." -> IF IS_ARRAY: OK ".$sql_stm);
+              //amm_log(date("H:i:m")." -> IF IS_ARRAY: OK ".$sql_stm);
               $stm=null;
               $connect=null;
               return $result;
             } else{
-              amm_log(date("H:i:m")." -> ELSE IS_ARRAY: OK ".$sql_stm);
+              //amm_log(date("H:i:m")." -> ELSE IS_ARRAY: OK ".$sql_stm);
               $stm=null;
               $connect=null;
               return false;
