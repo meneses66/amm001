@@ -29,11 +29,11 @@ $(document).ready(function(){
                         },
                         success: function(response){
                             if ((typeof response === 'string' || response instanceof String)&&(response.startsWith("Sucesso"))) {
-                              console.log("RESPONSE = SUCESSO");
+                              //console.log("RESPONSE = SUCESSO");
                                 document.getElementById('error_message').innerText = response;
-                                window.location.reload;
+                                window.location.reload();
                             } else {
-                              console.log("RESPONSE = NOT SUCESSO");
+                              //console.log("RESPONSE = NOT SUCESSO");
                               document.getElementById('error_message').innerText = response;
                             }
                           }
