@@ -30,10 +30,11 @@ $(document).ready(function(){
                         success: function(response){
                             if ((typeof response === 'string' || response instanceof String)&&(response.startsWith("Sucesso"))) {
                               //console.log("RESPONSE = SUCESSO");
-                                document.getElementById('error_message').innerText = response;
-                                window.location.reload();
+                              window.location.reload();
+                              document.getElementById('error_message').innerText = response;  
                             } else {
                               //console.log("RESPONSE = NOT SUCESSO");
+                              window.location.reload();
                               document.getElementById('error_message').innerText = response;
                             }
                           }
