@@ -48,7 +48,6 @@ Trait _GlobalModel{
 
     public function count_exec_sqlstm_with_bind($sql_stm, $inputs)
     {
-        
         return $this->query_with_bind($sql_stm, $inputs);
     }
 

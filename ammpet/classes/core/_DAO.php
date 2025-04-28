@@ -71,7 +71,7 @@ Trait _DAO{
     
     $stm = $connect->prepare($sql_stm);
     $result = false;
-    $keys = array_keys($inputs);
+    //$keys = array_keys($inputs);
     foreach ($inputs as $key => $value) {
       if ($key == "ID") {
         //amm_log(date("H:i:m")." -> BIND ID: ".$value);
