@@ -368,13 +368,13 @@ class Salary {
         $month=$inputs['Month'];
         //Select all from year + month status <> Confimado
 
-        $sql_stl_sqlary_count = "SELECT COUNT(1) AS COUNTW FROM SALARY WHERE YEAR(REF_DATE)=:YEAR AND MONTH(REF_DATE)=:MONTH AND SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS";
+        $sql_stlm_sqlary_count = "SELECT COUNT(1) AS COUNTW FROM SALARY WHERE YEAR(REF_DATE)=:YEAR AND MONTH(REF_DATE)=:MONTH AND SALARY_ITEM_STATUS=:SALARY_ITEM_STATUS";
         $inputs_salary['SALARY_ITEM_STATUS']='Aberto';
         $inputs_salary['YEAR']=$year;
         $inputs_salary['MONTH']=$month;
         $salary_model = new('\Model\\'."Salary");
 
-        $salary_tobe_count = $salary_model->count_exec_sqlstm_with_bind($inputs_salary);
+        $salary_tobe_count = $salary_model->count_exec_sqlstm_with_bind($sql_stlm_sqlary_count, $inputs_salary);
         foreach ($salary_tobe_count as $row_item) {
             $total_items = $row_item->COUNTW;
         }
