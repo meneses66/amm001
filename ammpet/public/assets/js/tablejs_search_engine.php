@@ -44,45 +44,6 @@ $output = '<script type="text/javascript">
                     });
                 }
 
-                //Function to reload the rows in table when record is deleted:
-                function reload_rows(){
-                    $.ajax({
-                            url: "/ammpet/public/Ajax_call",
-                            type: "POST",
-                            data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
-                            success: function(response){
-                                table = $(\'#_table\').DataTable();
-                                table.destroy();
-                                $(\'#_table\').html(response);
-                                $("table").DataTable({
-                                    //dom: \'lfBrtip\',
-                                    //dom: \'Bfrtip\',
-                                    lengthMenu: [
-                                        [ 10, 25, 50, -1 ],
-                                        [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
-                                    ],
-                                    buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
-                                    //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
-                                    layout: {
-                                                    top: \'buttons\',
-                                                    topStart: \'pageLength\',
-                                                    topEnd: \'search\',
-                                                    bottomStart: \'info\',
-                                                    bottomEnd: \'paging\',
-                                                    bottom2: \'searchBuilder\',
-                                                },
-                                    columnDefs: [
-                                                    {
-                                                        targets: 1,
-                                                        render: DataTable.render.datetime(\'YYYY-MM-DD\')
-                                                    }
-                                                ],
-                                    "order": [[ 1, "desc" ]]
-                                });
-                            }
-                        });                    
-                    }
-
                 //Function to call Modal for delete confirmation and execution - when success reloads table:
                 $("body").on("click", ".deleteBtn", function(e){
                     e.preventDefault();
@@ -127,6 +88,46 @@ $output = '<script type="text/javascript">
                 });
 
             });
+
+            //Function to reload the rows in table when record is deleted:
+            function reload_rows(){
+                $.ajax({
+                        url: "/ammpet/public/Ajax_call",
+                        type: "POST",
+                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
+                        success: function(response){
+                            table = $(\'#_table\').DataTable();
+                            table.destroy();
+                            $(\'#_table\').html(response);
+                            $("table").DataTable({
+                                //dom: \'lfBrtip\',
+                                //dom: \'Bfrtip\',
+                                lengthMenu: [
+                                    [ 10, 25, 50, -1 ],
+                                    [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
+                                ],
+                                buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
+                                //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
+                                layout: {
+                                                top: \'buttons\',
+                                                topStart: \'pageLength\',
+                                                topEnd: \'search\',
+                                                bottomStart: \'info\',
+                                                bottomEnd: \'paging\',
+                                                bottom2: \'searchBuilder\',
+                                            },
+                                columnDefs: [
+                                                {
+                                                    targets: 1,
+                                                    render: DataTable.render.datetime(\'YYYY-MM-DD\')
+                                                }
+                                            ],
+                                "order": [[ 1, "desc" ]]
+                            });
+                        }
+                });                    
+            }
+
         </script>';
     
     echo $output;
