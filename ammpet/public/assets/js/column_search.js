@@ -8,6 +8,7 @@ $(document).ready(function(){
     // DataTable
     //var table = $('#_table').DataTable();
     var table = $('#_table').DataTable( {
+        retrieve: true,
         paging: false,
         searching: false
     } );
