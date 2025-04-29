@@ -3,65 +3,10 @@
 $output = '<script type="text/javascript">
             //When the document is ready it loads the rows in table:
 
-            $(document).ready(function(){
+            window.onload = function(){
+            //$(document).ready(function(){
                 
                 load_rows();
-
-                //Function to load the rows in table:
-                function load_rows(){
-                    $.ajax({
-                        url: "/ammpet/public/Ajax_call",
-                        type: "POST",
-                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
-                        success: function(response){
-                            $(\'#_table\').html(response);
-                            $("table").DataTable({
-                                lengthMenu: [
-                                    [ 10, 25, 50, -1 ],
-                                    [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
-                                ],
-                                buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
-                                layout: {
-                                    top: \'buttons\',
-                                    topStart: \'pageLength\',
-                                    topEnd: \'search\',
-                                    bottomStart: \'info\',
-                                    bottomEnd: \'paging\',
-                                    bottom2: \'searchBuilder\',
-                                },
-                                columnDefs: [
-                                    {
-                                        targets: 1,
-                                        render: DataTable.render.datetime(\'YYYY-MM-DD\')
-                                    }
-                                            ],
-                                "order": [[ 1, "desc" ]],
-                                initComplete: function () {
-                                                    $(\'#dtbl tfoot tr\').insertAfter($(\'#dtbl thead tr\'))
-                                                    this.api()
-                                                        .columns()
-                                                        .every(function () {
-                                                            let column = this;
-                                                            let title = column.footer().textContent;
-                                            
-                                                            // Create input element
-                                                            let input = document.createElement(\'input\');
-                                                            input.placeholder = title;
-                                                            column.footer().replaceChildren(input);
-                                            
-                                                            // Event listener for user input
-                                                            input.addEventListener(\'keyup\', () => {
-                                                                if (column.search() !== this.value) {
-                                                                    column.search(input.value).draw();
-                                                                }
-                                                            });
-                                                        });
-                                }
-
-                            });
-                        }
-                    });
-                }
 
                 //Function to call Modal for delete confirmation and execution - when success reloads table:
                 $("body").on("click", ".deleteBtn", function(e){
@@ -107,6 +52,62 @@ $output = '<script type="text/javascript">
                 });
 
             });
+
+            //Function to load the rows in table:
+            function load_rows(){
+                $.ajax({
+                    url: "/ammpet/public/Ajax_call",
+                    type: "POST",
+                    data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
+                    success: function(response){
+                        $(\'#_table\').html(response);
+                        $("table").DataTable({
+                            lengthMenu: [
+                                [ 10, 25, 50, -1 ],
+                                [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
+                            ],
+                            buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
+                            layout: {
+                                top: \'buttons\',
+                                topStart: \'pageLength\',
+                                topEnd: \'search\',
+                                bottomStart: \'info\',
+                                bottomEnd: \'paging\',
+                                bottom2: \'searchBuilder\',
+                            },
+                            columnDefs: [
+                                {
+                                    targets: 1,
+                                    render: DataTable.render.datetime(\'YYYY-MM-DD\')
+                                }
+                                        ],
+                            "order": [[ 1, "desc" ]],
+                            initComplete: function () {
+                                                $(\'#dtbl tfoot tr\').insertAfter($(\'#dtbl thead tr\'))
+                                                this.api()
+                                                    .columns()
+                                                    .every(function () {
+                                                        let column = this;
+                                                        let title = column.footer().textContent;
+                                        
+                                                        // Create input element
+                                                        let input = document.createElement(\'input\');
+                                                        input.placeholder = title;
+                                                        column.footer().replaceChildren(input);
+                                        
+                                                        // Event listener for user input
+                                                        input.addEventListener(\'keyup\', () => {
+                                                            if (column.search() !== this.value) {
+                                                                column.search(input.value).draw();
+                                                            }
+                                                        });
+                                                    });
+                            }
+
+                        });
+                    }
+                });
+            }
 
             //Function to reload the rows in table when record is deleted:
             function reload_rows(){
