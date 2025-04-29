@@ -104,14 +104,6 @@ $output = '<script type="text/javascript">
                                 ],
                     "order": [[ 1, "desc" ]]
                 });
-                table.columns().eq( 0 ).each( function ( colIdx ) {
-                    $( \'input\', table.column( colIdx ).header() ).on( \'keyup change\', function () {
-                        table
-                            .column( colIdx )
-                            .search( this.value )
-                            .draw();
-                    } );
-                } );
             }
 
         </script>';
