@@ -8,7 +8,7 @@ $output = '<script type="text/javascript">
                 load_rows();
                 setTimeout(function() {
                     format_table();
-                }, 500); 
+                }, 1000); 
                 
 
                 //Function to call Modal for delete confirmation and execution - when success reloads table:
