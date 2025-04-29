@@ -52,9 +52,10 @@ class PreClosing {
     public $D29;
     public $D30;
     public $D31;
+    public $Serv_Count;
 
 
-    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $year=null, $month=null, $id_employee=null, $comission_prod=null, $comission_serv=null, $status=null, $d01=null, $d02=null, $d03=null, $d04=null, $d05=null, $d06=null, $d07=null, $d08=null, $d09=null, $d10=null, $d11=null, $d12=null, $d13=null, $d14=null, $d15=null, $d16=null, $d17=null, $d18=null, $d19=null, $d20=null, $d21=null, $d22=null, $d23=null, $d24=null, $d25=null, $d26=null, $d27=null, $d28=null, $d29=null, $d30=null, $d31=null)
+    function __construct($id=null, $created_by=null, $updated_by=null, $created=null, $updated=null, $year=null, $month=null, $id_employee=null, $comission_prod=null, $comission_serv=null, $status=null, $d01=null, $d02=null, $d03=null, $d04=null, $d05=null, $d06=null, $d07=null, $d08=null, $d09=null, $d10=null, $d11=null, $d12=null, $d13=null, $d14=null, $d15=null, $d16=null, $d17=null, $d18=null, $d19=null, $d20=null, $d21=null, $d22=null, $d23=null, $d24=null, $d25=null, $d26=null, $d27=null, $d28=null, $d29=null, $d30=null, $d31=null, $serv_count=null)
     {
         $this -> Id = $id;
         $this -> Created_By = $created_by;
@@ -99,6 +100,7 @@ class PreClosing {
         $this -> D29 = $d29;
         $this -> D30 = $d30;
         $this -> D31 = $d31;
+        $this -> Serv_Count = $serv_count;
 
     }
 

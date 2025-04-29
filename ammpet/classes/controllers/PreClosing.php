@@ -2,177 +2,110 @@
 
 namespace Controller;
 
-//if(session_status() === PHP_SESSION_NONE) session_start();
-
 restart_session();
 
-//defined('ROOTPATH') OR exit('Access denied!');
 (defined('ROOTPATH') AND isset($_SESSION['username']) AND ($_SESSION['username']!="" || $_SESSION['username']!=null  )) OR exit('Access denied!');
 
-class Params {
+class PreClosing {
 
     use _GlobalController;
-    private $object = 'params';
-    private $UCF_object = 'Params';
+    private $object = 'preclosing';
+    private $UCF_object = 'PreClosing';
 
     public function index()
-    {
-        //echo "This is Params controller";
+    {}
 
-        //$this->view('params/params');
-    }
-
-    //SESSION TO LOAD HTML FORMS:
-
-    //LOAD HTML FORM FOR CREATING NEW RECORD
-    public function load_new_form(){
-
-        //START SESSION IF NOT STARTED TO GET $SESSION USERNAME
-        //if(session_status() === PHP_SESSION_NONE) session_start();
-        //restart_session();
-
-        //DEFINE OPTION LISTS:
-        //$type_option_list = load_options_new("SUPPLIER_TYPE", "Ativo");
-        //$role_option_list = load_options_new("SUPPLIER_ROLE", "Ativo");
-
-        $output = "";
-
-        //CREATE VIEW HTML STRUCTURE
-        $output .= '<div class="row">
-                        <div class="col-sm-6">
-                            <input id="id" type="hidden" name="Id" value="">
-                            <input id="created_by" type="hidden" name="Created_by" value="'.$_SESSION['username'].'">
-                            <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
-                            <input id="created" type="hidden" name="Created" value="">
-                            <input id="updated" type="hidden" name="Updated" value="">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <label for="name" class="medium-label">Nome: &nbsp;</label>
-                        </div>
-                        <div class="col-sm-5">
-                            <input id="name" type="text" size="40" name="Name">
-                        </div>
-                        <div class="col-sm-1">
-                            <label for="value" class="medium-label">Valor: &nbsp;</label>
-                        </div>
-                        <div class="col-sm-5">
-                            <input id="value" type="text" size="40" name="Value">
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <label for="type" class="medium-label">Tipo: &nbsp;</label>
-                        </div>
-                        <div class="col-sm-5">
-                            <input id="type" type="text" size="40" name="Type">
-                        </div>
-                        <div class="col-sm-1">
-                            <label for="status" class="medium-label">Status: &nbsp;</label>
-                        </div>
-                        <div class="col-sm-5">
-                            <select class="medium-label" id="status" name="Status">
-                                <option class="medium-label" value="Ativo" selected>Ativo</option>
-                                <option class="medium-label" value="Desativado">Desativado</option>
-                            </select>
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <label for="comment" class="medium-label">Comentário: &nbsp;</label>
-                        </div>
-                        <div class="col-sm-5">
-                            <input id="comment" type="text" size="40" name="Comment">
-                        </div>
-                        <div class="col-sm-1">
-                            
-                        </div>
-                        <div class="col-sm-5">
-                            
-                        </div>
-                    </div><br>';
-                    echo $output;
-
-    }
-
+        //SESSION TO LOAD HTML FORMS:
     //LOAD HTML FORM FOR UPDATING RECORD
-    public function load_update_form(){
+    public function load_preclosing_form(){
 
         if (isset($_GET['id'])){
 
-            //if(!isset($_SESSION['username'])) {session_start();}
-            //if(session_status() === PHP_SESSION_NONE) session_start();
-            //restart_session();
-
             $output = "";
-            $inputs["ID"]=$_GET['id'];
-            $id=$_GET['id'];
-            $model = new('\Model\\'.$this->UCF_object);
-            
-            $data = $model->getRow($inputs);
 
-            if($data){
+            $id = $_GET['id'];
+            $created_by = $_SESSION['username'];
+            $updated_by = $_SESSION['username'];
+            $name = null;
+            $value = null;
+            $type = null;
+            $status = "Ativo";
+            $comment = null;
+ 
+            if (!($id=='new')) {
+                $inputs["ID"]=$_GET['id'];
+                $model = new('\Model\\'.$this->UCF_object);
+                
+                $data = $model->getRow($inputs);
+                if($data){
+                    foreach ($data as $key => $value) {
+                        $data_form[$key]=$value;
+                    }
 
-                foreach ($data as $key => $value) {
-                    $data_form[$key]=$value;
+                    $created_by = $data_form['CREATED_BY'];
+                    $updated_by = $data_form['UPDATED_BY'];
+                    $name = $data_form['NAME'];
+                    $id = $data_form['ID'];
+                    $type = $data_form['TYPE'];
+                    $value = $data_form['VALUE'];
+                    $status = $data_form['STATUS'];
+                    $comment = $data_form['COMMENT'];
+
                 }
-
-                //FOR EACH DROPDOWN GET $data_form and send to load_options_update to get the selected option
-                //$data_form_type = $data_form['TYPE'];
-                //$type_option_list = load_options_update("SUPPLIER_TYPE", "Ativo", $data_form_type);
-
+                unset($data_form);
+                unset($inputs);
+            }
 
                 //START TO LOAD THE UPDATE FORM:
                 $output .= '<div class="row">
                                 <div class="col-sm-1">
-                                    <label for="id" class="medium-label">Id: &nbsp;</label>
+                                    <label for="id" class="medium-label">Id:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$data_form['ID'].'">
+                                    <input id="id" type="text" size="8" name="Id" readonly value="'.$id.'">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="updated_by" type="hidden" name="Updated_by" value="'.$_SESSION['username'].'">
+                                    <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
+                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="name" class="medium-label">Nome: &nbsp;</label>
+                                    <label for="name" class="medium-label">Nome: *</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="name" type="text" size="40" name="Name" value="'.$data_form['NAME'].'">
+                                    <input id="name" type="text" size="40" name="Name" value="'.$name.'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="value" class="medium-label">Valor: &nbsp;</label>
+                                    <label for="value" class="medium-label">Valor: *</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="value" type="text" size="40" name="value" value="'.$data_form['VALUE'].'">
+                                    <input id="value" type="text" size="40" name="Value" value="'.$value.'">
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="type" class="medium-label">Tipo: &nbsp;</label>
+                                    <label for="type" class="medium-label">Tipo: *</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="type" type="text" size="40" name="type" value="'.$data_form['TYPE'].'">
+                                    <input id="type" type="text" size="40" name="Type" value="'.$type.'">
                                 </div>
                                 <div class="col-sm-1">
-                                    <label for="status" class="medium-label">Status: &nbsp;</label>
+                                    <label for="status" class="medium-label">Status:</label>
                                 </div>
                                 <div class="col-sm-5">
                                     <select class="medium-label" id="status" name="Status">
-                                        <option class="medium-label" value="">Selecione uma opção</option>
-                                        <option class="medium-label" value="Ativo" '.(($data_form['STATUS'] == 'Ativo')?"selected":"").'>Ativo</option>
-                                        <option class="medium-label" value="Desativado" '.(($data_form['STATUS'] == 'Desativado')?"selected":"").'>Desativado</option>
+                                        <option class="medium-label" value="Ativo" '.(($status == 'Ativo')?"selected":"").'>Ativo</option>
+                                        <option class="medium-label" value="Desativado" '.(($status == 'Desativado')?"selected":"").'>Desativado</option>
                                     </select>
                                 </div>
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
-                                    <label for="comment" class="medium-label">Comentarios: &nbsp;</label>
+                                    <label for="comment" class="medium-label">Comentarios:</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <input id="comment" type="text" size="50" name="Comment" value="'.$data_form['COMMENT'].'">
+                                    <input id="comment" type="text" size="50" name="Comment" value="'.$comment.'">
                                 </div>
                                 <div class="col-sm-1">
                                     
@@ -182,26 +115,25 @@ class Params {
                                 </div>
                             </div><br>';
                             $sql_stm = null;
-                            unset_array($inputs);
                             $data = null;
                             $model = null;
                             echo $output;
-            } else{
-                $sql_stm = null;
-                unset_array($inputs);
-                $data = null;
-                $model = null;
-                show("No record to display!");
-            }
-
+         
+        } else{
+            $sql_stm = null;
+            $data = null;
+            $model = null;
+            show("No record to display!");
         }
 
     }
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE
     public function load_rows(){
-    
+        
         //restart_session();
+        $params_edit_check = check_permission($_SESSION['username'], "params_edit");
+        $params_delete_check = check_permission($_SESSION['username'], "params_delete");
         $output = "";
         //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
@@ -231,8 +163,8 @@ class Params {
                             <td>'.$row->STATUS.'</td>
                             <td>'.$row->COMMENT.'</td>
                             <td>
-                                <a href="'.ROOT."/$this->UCF_object/_update?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                '.(($params_edit_check) ? '<a href="'.ROOT."/$this->UCF_object/_new?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                '.(($params_delete_check) ? '<a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>' : '').'
                             </td></tr>';
             }
             $output .= '</tbody>';

@@ -43,6 +43,7 @@ Create Table PRE_CLOSING
     D29 Decimal(10,2),
     D30 Decimal(10,2),
     D31 Decimal(10,2),
+    SERV_COUNT INT,
 
     constraint FK_PRE_CLOSING_EMPLOYEE foreign key (ID_EMPLOYEE) references SUPPLIER(ID),
     INDEX INDEX_PRE_CLOSING_MONTH (MONTH),
