@@ -6,7 +6,6 @@ $output = '<script type="text/javascript">
             $(document).ready(function(){
                 
                 load_rows();
-                format_table();
 
                 //Function to call Modal for delete confirmation and execution - when success reloads table:
                 $("body").on("click", ".deleteBtn", function(e){
@@ -63,6 +62,7 @@ $output = '<script type="text/javascript">
                     data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                     success: function(response){
                         $(\'#_table\').html(response);
+                        format_table();
                     }
                 });
             }
