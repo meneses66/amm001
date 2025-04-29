@@ -83,7 +83,7 @@ $output = '<script type="text/javascript">
 
             function format_table(){
 
-                let table = $(\'#_table\').DataTable({
+                var table = $(\'#_table\').DataTable({
                     
                 });
             }
