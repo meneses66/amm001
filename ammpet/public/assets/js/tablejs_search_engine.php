@@ -35,7 +35,28 @@ $output = '<script type="text/javascript">
                                         render: DataTable.render.datetime(\'YYYY-MM-DD\')
                                     }
                                             ],
-                                "order": [[ 1, "desc" ]]
+                                "order": [[ 1, "desc" ]],
+                                initComplete: function () {
+                                                    $(\'#dtbl tfoot tr\').insertAfter($(\'#dtbl thead tr\'))
+                                                    this.api()
+                                                        .columns()
+                                                        .every(function () {
+                                                            let column = this;
+                                                            let title = column.footer().textContent;
+                                            
+                                                            // Create input element
+                                                            let input = document.createElement(\'input\');
+                                                            input.placeholder = title;
+                                                            column.footer().replaceChildren(input);
+                                            
+                                                            // Event listener for user input
+                                                            input.addEventListener(\'keyup\', () => {
+                                                                if (column.search() !== this.value) {
+                                                                    column.search(input.value).draw();
+                                                                }
+                                                            });
+                                                        });
+                                }
 
                             });
                         }
@@ -98,22 +119,19 @@ $output = '<script type="text/javascript">
                             table.destroy();
                             $(\'#_table\').html(response);
                             $("table").DataTable({
-                                //dom: \'lfBrtip\',
-                                //dom: \'Bfrtip\',
                                 lengthMenu: [
                                     [ 10, 25, 50, -1 ],
                                     [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
                                 ],
                                 buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
-                                //dom: \'<"floatleft"lB><"floatright"f>rt<"floatleft"i><"floatright"p><"clear">\',
                                 layout: {
-                                                top: \'buttons\',
-                                                topStart: \'pageLength\',
-                                                topEnd: \'search\',
-                                                bottomStart: \'info\',
-                                                bottomEnd: \'paging\',
-                                                bottom2: \'searchBuilder\',
-                                            },
+                                            top: \'buttons\',
+                                            topStart: \'pageLength\',
+                                            topEnd: \'search\',
+                                            bottomStart: \'info\',
+                                            bottomEnd: \'paging\',
+                                            bottom2: \'searchBuilder\',
+                                        },
                                 columnDefs: [
                                                 {
                                                     targets: 1,
