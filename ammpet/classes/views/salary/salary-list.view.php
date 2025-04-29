@@ -61,8 +61,6 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
 
-
-
        <!-- SALARY FUNCTIONS CALLS JS-->
        <script src="<?php echo ROOT;?>/assets/js/salary_functions_calls.js"></script>
 

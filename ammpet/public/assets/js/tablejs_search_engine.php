@@ -63,7 +63,6 @@ $output = '<script type="text/javascript">
                     data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                     success: function(response){
                         $(\'#_table\').html(response);
-                        //REMOVED DATATABLE DEFINITIONS
                     }
                 });
             }
@@ -78,19 +77,18 @@ $output = '<script type="text/javascript">
                             table = $(\'#_table\').DataTable();
                             table.destroy();
                             $(\'#_table\').html(response);
-                            
                         }
                 });                    
             }
 
             function format_table(){
-                        $(\'#_table thead th\').each( function () {
-                        var title = $(\'#_table tfoot th\').eq( $(this).index() ).text();
-                        if(title!=""){
-                            console.log("Title: "+title);
-                            $(this).html( \'<input type="text" placeholder="\'+title+\'" />\' );
-                        }
-                        } );
+                    $(\'#_table thead th\').each( function () {
+                    var title = $(\'#_table tfoot th\').eq( $(this).index() ).text();
+                    if(title!=""){
+                        console.log("Title: "+title);
+                        $(this).html( \'<input type="text" placeholder="\'+title+\'" />\' );
+                    }
+                    } );
                 
                     // DataTable
                     let table = $(\'#_table\').DataTable({
@@ -117,7 +115,7 @@ $output = '<script type="text/javascript">
                 
                     // Apply the search
                     table.columns().eq( 0 ).each( function ( colIdx ) {
-                        $( \'input\', table.column( colIdx ).header() ).on( \'keyup change\', function () {
+                        $(\'input\', table.column( colIdx ).header() ).on( \'keyup change\', function () {
                             table
                                 .column( colIdx )
                                 .search( this.value )
