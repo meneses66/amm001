@@ -86,8 +86,10 @@ $output = '<script type="text/javascript">
             function format_table(){
                         $(\'#_table thead th\').each( function () {
                         var title = $(\'#_table tfoot th\').eq( $(this).index() ).text();
-                        $(this).html( \'&amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;Search \'+title+\'&amp;quot; /&amp;gt;\' );
-                    } );
+                        if(title!=""){
+                            $(this).html( \'<input type="text" placeholder="\'+title+\'" />\' );
+                        }
+                        } );
                 
                     // DataTable
                     let table = $(\'#_table\').DataTable({
