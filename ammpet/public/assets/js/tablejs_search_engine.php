@@ -81,28 +81,15 @@ $output = '<script type="text/javascript">
                                 }
                                         ],
                             "order": [[ 1, "desc" ]],
-                            initComplete: function () {
-                                                $(\'#dtbl tfoot tr\').insertAfter($(\'#dtbl thead tr\'))
-                                                this.api()
-                                                    .columns()
-                                                    .every(function () {
-                                                        let column = this;
-                                                        //let title = column.footer().textContent;
-                                        
-                                                        // Create input element
-                                                        let input = document.createElement(\'input\');
-                                                        //input.placeholder = title;
-                                                        column.footer().replaceChildren(input);
-                                        
-                                                        // Event listener for user input
-                                                        input.addEventListener(\'keyup\', () => {
-                                                            if (column.search() !== this.value) {
-                                                                column.search(input.value).draw();
-                                                            }
-                                                        });
-                                                    });
+                            initComplete: function ()
+                                                {
+                                                var r = $(\'#_table tfoot tr\');
+                                                r.find(\'th\').each(function(){
+                                                    $(this).css(\'padding\', 8);
+                                                });
+                                                $(\'#_table thead\').append(r);
+                                                $(\'#search_0\').css(\'text-align\', \'center\');
                             }
-
                         });
                     }
                 });
