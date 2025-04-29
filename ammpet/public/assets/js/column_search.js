@@ -7,8 +7,7 @@ $(document).ready(function(){
     } );
   
     // DataTable
-    var table = $('#_table').DataTable({
-        });
+    var table = document.getElementById('_table');
 
     // Apply the search
     table.columns().eq( 0 ).each( function ( colIdx ) {
