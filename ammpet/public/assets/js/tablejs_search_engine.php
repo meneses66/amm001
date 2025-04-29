@@ -82,8 +82,8 @@ $output = '<script type="text/javascript">
 
             function format_table(){
 
-                $(\'#_table thead th\').each( function () {
-                    var title = $(\'#_table tfoot th\').eq( $(this).index() ).text();
+                $(\'#_table tfoot th\').each( function () {
+                    var title = $(\'#_table thead th\').eq( $(this).index() ).text();
                     if(title!=""){
                         $(this).html( \'<input type="text" placeholder="Search \'+title+\'" />\' );
                     }
