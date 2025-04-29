@@ -6,6 +6,10 @@ $(document).ready(function(){
       }
     } );
   
+    // DataTable
+    var table = $('#_table').DataTable({
+        });
+
     // Apply the search
     table.columns().eq( 0 ).each( function ( colIdx ) {
         if( !table.settings()[0].aoColumns[colIdx].bSearchable ){
