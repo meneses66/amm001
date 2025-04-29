@@ -82,47 +82,47 @@ $output = '<script type="text/javascript">
             }
 
             function format_table(){
-                    $(\'#_table thead th\').each( function () {
-                    var title = $(\'#_table tfoot th\').eq( $(this).index() ).text();
-                    if(title!=""){
-                        console.log("Title: "+title);
-                        $(this).html( \'<input type="text" placeholder="\'+title+\'" />\' );
-                    }
-                    } );
-                
-                    // DataTable
-                    let table = $("table").DataTable({
-                            lengthMenu: [
-                                [ 10, 25, 50, -1 ],
-                                [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
-                            ],
-                            buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
-                            layout: {
-                                top: \'buttons\',
-                                topStart: \'pageLength\',
-                                topEnd: \'search\',
-                                bottomStart: \'info\',
-                                bottomEnd: \'paging\',
-                            },
-                            columnDefs: [
-                                {
-                                    targets: 1,
-                                    render: DataTable.render.datetime(\'YYYY-MM-DD\')
-                                }
+                    new DataTable(\'#_table\', {
+                                        lengthMenu: [
+                                            [ 10, 25, 50, -1 ],
+                                            [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
                                         ],
-                            "order": [[ 1, "desc" ]]
-                        });
-                
-                    // Apply the search
-                    table.columns().eq( 0 ).each( function ( colIdx ) {
-                        $(\'input\', table.column( colIdx ).header() ).on( \'keyup change\', function () {
-                            table
-                                .column( colIdx )
-                                .search( this.value )
-                                .draw();
-                        } );
-                    } );
-
+                                        buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
+                                        layout: {
+                                            top: \'buttons\',
+                                            topStart: \'pageLength\',
+                                            topEnd: \'search\',
+                                            bottomStart: \'info\',
+                                            bottomEnd: \'paging\',
+                                        },
+                                        columnDefs: [
+                                            {
+                                                targets: 1,
+                                                render: DataTable.render.datetime(\'YYYY-MM-DD\')
+                                            }
+                                                    ],
+                                        "order": [[ 1, "desc" ]],
+                                        initComplete: function () {
+                                            this.api()
+                                                .columns()
+                                                .every(function () {
+                                                    let column = this;
+                                                    let title = column.footer().textContent;
+                                    
+                                                    // Create input element
+                                                    let input = document.createElement(\'input\');
+                                                    input.placeholder = title;
+                                                    column.footer().replaceChildren(input);
+                                    
+                                                    // Event listener for user input
+                                                    input.addEventListener(\'keyup\', () => {
+                                                        if (column.search() !== this.value) {
+                                                            column.search(input.value).draw();
+                                                        }
+                                                    });
+                                                });
+                                    }
+                                });
             }
 
         </script>';
