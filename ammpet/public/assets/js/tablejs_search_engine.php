@@ -29,8 +29,6 @@ $output = '<script type="text/javascript">
                                     success:function(response){
                                         tr.css(\'background-color\', \'#ff6666\');
                                         reload_rows();
-                                        //ADDED AFTER INCLUSION OF SEARCH COLUMNS
-                                        format_table();
                                     }
                                 });
                             }
@@ -77,6 +75,7 @@ $output = '<script type="text/javascript">
                             table = $(\'#_table\').DataTable();
                             table.destroy();
                             $(\'#_table\').html(response);
+                            format_table();
                         }
                 });                    
             }

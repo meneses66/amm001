@@ -253,7 +253,21 @@ class Salary {
                             </td>
                         </tr>';
             }
-            $output .= '</tbody>';
+            $output .= '</tbody>
+                        <tfoot>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Funcionário</th>
+                                <th>Tipo Movimentação</th>
+                                <th>Data</th>
+                                <th>Valor</th>
+                                <th>Status</th>
+                                <th>Valor Original</th>
+                                <th>Valor Postergado</th>
+                                <th>Ações</th>
+                            </tr>
+                        </tfoot>';
             $data = null;
             $model = null;
 
