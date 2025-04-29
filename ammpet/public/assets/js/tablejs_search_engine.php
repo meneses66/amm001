@@ -51,7 +51,7 @@ $output = '<script type="text/javascript">
                     
                 });
 
-            });
+            };
 
             //Function to load the rows in table:
             function load_rows(){
