@@ -60,8 +60,28 @@ $output = '<script type="text/javascript">
                     data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                     success: function(response){
                         $(\'#_table\').html(response);
-                        new DataTable(\'#_table\', {
-                        //$("table").DataTable({
+                        //new DataTable(\'#_table\', {
+                        $("table").DataTable({
+                        initComplete: function () {
+                                                this.api()
+                                                    .columns()
+                                                    .every(function () {
+                                                        let column = this;
+                                                        let title = column.footer().textContent;
+                                        
+                                                        // Create input element
+                                                        let input = document.createElement(\'input\');
+                                                        input.placeholder = title;
+                                                        column.footer().replaceChildren(input);
+                                        
+                                                        // Event listener for user input
+                                                        input.addEventListener(\'keyup\', () => {
+                                                            if (column.search() !== this.value) {
+                                                                column.search(input.value).draw();
+                                                            }
+                                                        });
+                                                    });
+                                            },
                             lengthMenu: [
                                 [ 10, 25, 50, -1 ],
                                 [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
@@ -81,27 +101,7 @@ $output = '<script type="text/javascript">
                                     render: DataTable.render.datetime(\'YYYY-MM-DD\')
                                 }
                                         ],
-                            "order": [[ 1, "desc" ]],
-                            initComplete: function () {
-                                                this.api()
-                                                    .columns()
-                                                    .every(function () {
-                                                        let column = this;
-                                                        let title = column.footer().textContent;
-                                        
-                                                        // Create input element
-                                                        let input = document.createElement(\'input\');
-                                                        input.placeholder = title;
-                                                        column.footer().replaceChildren(input);
-                                        
-                                                        // Event listener for user input
-                                                        input.addEventListener(\'keyup\', () => {
-                                                            if (column.search() !== this.value) {
-                                                                column.search(input.value).draw();
-                                                            }
-                                                        });
-                                                    });
-                                            }
+                            "order": [[ 1, "desc" ]]
                         });
                     }
                 });
