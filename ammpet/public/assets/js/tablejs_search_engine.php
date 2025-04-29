@@ -83,11 +83,6 @@ $output = '<script type="text/javascript">
 
             function format_table(){
 
-                $(\'#_table thead th\').each( function () {
-                    var title = $(\'#_table tfoot th\').eq( $(this).index() ).text();
-                    $(this).html( \'&amp;lt;input type=&amp;quot;text&amp;quot; placeholder=&amp;quot;Search \'+title+\'&amp;quot; /&amp;gt;\' );
-                } );
-
                 let table = $(\'#_table\').DataTable({
                     lengthMenu: [
                                     [ 10, 25, 50, -1 ],
@@ -117,6 +112,7 @@ $output = '<script type="text/javascript">
                             .draw();
                     } );
                 } );
+                $(\'#_table tfoot tr\').appendTo(\'#_table thead\');
             }
 
         </script>';
