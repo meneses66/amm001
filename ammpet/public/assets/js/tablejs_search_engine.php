@@ -85,7 +85,7 @@ $output = '<script type="text/javascript">
                 $(\'#_table tfoot th\').each( function () {
                     var title = $(\'#_table thead th\').eq( $(this).index() ).text();
                     if(title!=""){
-                        $(this).html( \'<input type="text" placeholder="\'+title+\'" />\' );
+                        $(this).html( \'<input type="text" size="8" placeholder="\'+title+\'" />\' );
                     }
                 } );
 
