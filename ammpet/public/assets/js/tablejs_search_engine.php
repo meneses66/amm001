@@ -3,8 +3,7 @@
 $output = '<script type="text/javascript">
             //When the document is ready it loads the rows in table:
 
-            window.onload = function(){
-            //$(document).ready(function(){
+            $(document).ready(function(){
                 
                 load_rows();
 
@@ -51,7 +50,7 @@ $output = '<script type="text/javascript">
                     
                 });
 
-            };
+            });
 
             //Function to load the rows in table:
             function load_rows(){
@@ -88,11 +87,11 @@ $output = '<script type="text/javascript">
                                                     .columns()
                                                     .every(function () {
                                                         let column = this;
-                                                        let title = column.footer().textContent;
+                                                        //let title = column.footer().textContent;
                                         
                                                         // Create input element
                                                         let input = document.createElement(\'input\');
-                                                        input.placeholder = title;
+                                                        //input.placeholder = title;
                                                         column.footer().replaceChildren(input);
                                         
                                                         // Event listener for user input
