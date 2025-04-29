@@ -83,9 +83,47 @@ $output = '<script type="text/javascript">
 
             function format_table(){
 
+                $(\'#_table thead th\').each( function () {
+                    var title = $(\'#_table tfoot th\').eq( $(this).index() ).text();
+                    if(title!=""){
+                        $(this).html( \'<input type="text" placeholder="Search \'+title+\'" />\' );
+                }
+                } );
+
                 var table = $(\'#_table\').DataTable({
-                    
+                    lengthMenu: [
+                                    [ 10, 25, 50, -1 ],
+                                    [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
+                                ],
+                    buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
+                    layout: {
+                        top: \'buttons\',
+                        topStart: \'pageLength\',
+                        topEnd: \'search\',
+                        bottomStart: \'info\',
+                        bottomEnd: \'paging\',
+                    },
+                    columnDefs: [
+                        {
+                            targets: 1,
+                            render: DataTable.render.datetime(\'YYYY-MM-DD\')
+                        }
+                                ],
+                    "order": [[ 1, "desc" ]],
                 });
+
+                // Apply the search
+                table.columns().eq( 0 ).each( function ( colIdx ) {
+                    if( !table.settings()[0].aoColumns[colIdx].bSearchable ){
+                    table.column( colIdx ).header().innerHTML=table.column( colIdx ).footer().innerHTML;
+                }
+                    $( \'input\', table.column( colIdx ).header() ).on( \'keyup change\', function () {
+                        table
+                            .column( colIdx )
+                            .search( this.value )
+                            .draw();
+                    } );
+                } );
             }
 
         </script>';
