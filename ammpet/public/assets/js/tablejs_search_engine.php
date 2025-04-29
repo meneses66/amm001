@@ -95,7 +95,7 @@ $output = '<script type="text/javascript">
                         bottomStart: \'info\',
                         bottomEnd: \'paging\',
                     },
-                    columnDefs: [
+                    "columnDefs": [
                         {
                             targets: 1,
                             render: DataTable.render.datetime(\'YYYY-MM-DD\')
