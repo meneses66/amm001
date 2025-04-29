@@ -112,7 +112,6 @@ $output = '<script type="text/javascript">
                             .draw();
                     } );
                 } );
-                $(\'#_table tfoot tr\').appendTo(\'#_table thead\');
             }
 
         </script>';
