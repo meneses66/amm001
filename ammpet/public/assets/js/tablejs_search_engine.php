@@ -87,43 +87,31 @@ $output = '<script type="text/javascript">
                                     [ 10, 25, 50, -1 ],
                                     [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
                                 ],
-                                buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
-                                layout: {
-                                    top: \'buttons\',
-                                    topStart: \'pageLength\',
-                                    topEnd: \'search\',
-                                    bottomStart: \'info\',
-                                    bottomEnd: \'paging\'
-                                },
-                                columnDefs: [
-                                    {
-                                        targets: 1,
-                                        render: DataTable.render.datetime(\'YYYY-MM-DD\')
-                                    }
-                                            ],
-                                "order": [[ 1, "desc" ]]
+                    buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
+                    layout: {
+                        top: \'buttons\',
+                        topStart: \'pageLength\',
+                        topEnd: \'search\',
+                        bottomStart: \'info\',
+                        bottomEnd: \'paging\',
+                    },
+                    columnDefs: [
+                        {
+                            targets: 1,
+                            render: DataTable.render.datetime(\'YYYY-MM-DD\')
+                        }
+                                ],
+                    "order": [[ 1, "desc" ]]
                 });
-                table.function(){
-                                    this.api()
-                                        .columns()
-                                        .every(function () {
-                                            let column = this;
-                                            let title = column.footer().textContent;
-                            
-                                            // Create input element
-                                            let input = document.createElement(\'input\');
-                                            input.placeholder = title;
-                                            column.footer().replaceChildren(input);
-                            
-                                            // Event listener for user input
-                                            input.addEventListener(\'keyup\', () => {
-                                                if (column.search() !== this.value) {
-                                                    column.search(input.value).draw();
-                                                }
-                                            });
-                                        });
-                                }
-        }
+                table.columns().eq( 0 ).each( function ( colIdx ) {
+                    $( \'input\', table.column( colIdx ).header() ).on( \'keyup change\', function () {
+                        table
+                            .column( colIdx )
+                            .search( this.value )
+                            .draw();
+                    } );
+                } );
+            }
 
         </script>';
     
