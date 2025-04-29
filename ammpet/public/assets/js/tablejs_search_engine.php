@@ -82,8 +82,8 @@ $output = '<script type="text/javascript">
             }
 
             function format_table(){
-                    new DataTable(\'#_table\', {
-                                        lengthMenu: [
+                let table = $(\'#_table\').DataTable({
+                    lengthMenu: [
                                             [ 10, 25, 50, -1 ],
                                             [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
                                         ],
@@ -101,29 +101,29 @@ $output = '<script type="text/javascript">
                                                 render: DataTable.render.datetime(\'YYYY-MM-DD\')
                                             }
                                                     ],
-                                        "order": [[ 1, "desc" ]],
-                                        initComplete: function () {
-                                            this.api()
-                                                .columns()
-                                                .every(function () {
-                                                    let column = this;
-                                                    let title = column.footer().textContent;
-                                    
-                                                    // Create input element
-                                                    let input = document.createElement(\'input\');
-                                                    input.placeholder = title;
-                                                    column.footer().replaceChildren(input);
-                                    
-                                                    // Event listener for user input
-                                                    input.addEventListener(\'keyup\', () => {
-                                                        if (column.search() !== this.value) {
-                                                            column.search(input.value).draw();
-                                                        }
-                                                    });
-                                                });
-                                    }
-                                });
-            }
+                                        "order": [[ 1, "desc" ]]
+                });
+                table.function(){
+                                    this.api()
+                                        .columns()
+                                        .every(function () {
+                                            let column = this;
+                                            let title = column.footer().textContent;
+                            
+                                            // Create input element
+                                            let input = document.createElement(\'input\');
+                                            input.placeholder = title;
+                                            column.footer().replaceChildren(input);
+                            
+                                            // Event listener for user input
+                                            input.addEventListener(\'keyup\', () => {
+                                                if (column.search() !== this.value) {
+                                                    column.search(input.value).draw();
+                                                }
+                                            });
+                                        });
+                                }
+        }
 
         </script>';
     
