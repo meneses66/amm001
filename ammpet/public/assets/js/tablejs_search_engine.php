@@ -87,10 +87,10 @@ $output = '<script type="text/javascript">
                     var title = $(\'#_table tfoot th\').eq( $(this).index() ).text();
                     if(title!=""){
                         $(this).html( \'<input type="text" placeholder="Search \'+title+\'" />\' );
-                }
+                    }
                 } );
 
-                var table = $(\'#_table\').DataTable({
+                table = $(\'#_table\').DataTable({
                     lengthMenu: [
                                     [ 10, 25, 50, -1 ],
                                     [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
