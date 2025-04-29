@@ -6,7 +6,10 @@ $output = '<script type="text/javascript">
             $(document).ready(function(){
                 
                 load_rows();
-                format_table();
+                setTimeout(function() {
+                    format_table();
+                }, 500); 
+                
 
                 //Function to call Modal for delete confirmation and execution - when success reloads table:
                 $("body").on("click", ".deleteBtn", function(e){
