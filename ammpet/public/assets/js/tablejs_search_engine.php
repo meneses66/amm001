@@ -84,25 +84,7 @@ $output = '<script type="text/javascript">
             function format_table(){
 
                 let table = $(\'#_table\').DataTable({
-                    lengthMenu: [
-                                    [ 10, 25, 50, -1 ],
-                                    [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
-                                ],
-                    buttons: [\'copy\', \'excel\', \'pdf\', \'print\'],
-                    layout: {
-                        top: \'buttons\',
-                        topStart: \'pageLength\',
-                        topEnd: \'search\',
-                        bottomStart: \'info\',
-                        bottomEnd: \'paging\',
-                    },
-                    columnDefs: [
-                        {
-                            targets: 1,
-                            render: DataTable.render.datetime(\'YYYY-MM-DD\')
-                        }
-                                ],
-                    "order": [[ 1, "desc" ]]
+                    
                 });
             }
 
