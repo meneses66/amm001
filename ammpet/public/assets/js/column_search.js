@@ -6,7 +6,11 @@ $(document).ready(function(){
     });
     
     // DataTable
-    var table = $('#_table').DataTable();
+    //var table = $('#_table').DataTable();
+    var table = $('#_table').DataTable( {
+        //paging: false,
+        searching: false
+    } );
     
     // Apply the search
     table.columns().eq(0).each(function(colIdx) {
