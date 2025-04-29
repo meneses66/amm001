@@ -62,6 +62,8 @@ $output = '<script type="text/javascript">
                     type: "POST",
                     data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                     success: function(response){
+                        table = $(\'#_table\').DataTable();
+                        table.destroy();
                         $(\'#_table\').html(response);
                     }
                 });
@@ -95,7 +97,7 @@ $output = '<script type="text/javascript">
                         bottomStart: \'info\',
                         bottomEnd: \'paging\',
                     },
-                    "columnDefs": [
+                    columnDefs: [
                         {
                             targets: 1,
                             render: DataTable.render.datetime(\'YYYY-MM-DD\')
