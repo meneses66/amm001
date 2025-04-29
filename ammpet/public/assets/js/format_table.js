@@ -30,6 +30,7 @@ function format_table(){
     });
 
     $('#_table thead th').css('text-align', 'center');
+    $('#_table tbody th').css('text-align', 'center');
 
     // Apply the search
     table.columns().eq( 0 ).each( function ( colIdx ) {
