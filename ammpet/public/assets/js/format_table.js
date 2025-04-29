@@ -29,6 +29,8 @@ function format_table(){
         "order": [[ 1, "desc" ]],
     });
 
+    $('#_table thead th').css('text-align', 'center');
+
     // Apply the search
     table.columns().eq( 0 ).each( function ( colIdx ) {
         if( !table.settings()[0].aoColumns[colIdx].bSearchable ){
