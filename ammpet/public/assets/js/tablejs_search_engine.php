@@ -89,7 +89,7 @@ $output = '<script type="text/javascript">
                                                     });
                                                     $(\'#_table thead\').append(r);
                                                     $(\'#search_0\').css(\'text-align\', \'center\');
-                                                };
+                                                }
                         });
                     }
                 });
