@@ -62,14 +62,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
 
-        <!-- New Search Engine - Will Require a separated tablejs.php (will be called tablejs_search_engine.php) -->
-        <!-- //https://cdn.datatables.net/2.2.2/js/dataTables.js-->
-        <script src="https://cdn.datatables.net/searchbuilder/1.8.2/js/dataTables.searchBuilder.js"></script>
-        <script src="https://cdn.datatables.net/searchbuilder/1.8.2/js/searchBuilder.dataTables.js"></script>
-        <script src="https://cdn.datatables.net/datetime/1.5.5/js/dataTables.dateTime.min.js"></script>
-        
-       !-- Column Search JS-->
-       <script src="<?php echo ROOT;?>/assets/js/column_search.js"></script>
+
 
        <!-- SALARY FUNCTIONS CALLS JS-->
        <script src="<?php echo ROOT;?>/assets/js/salary_functions_calls.js"></script>
