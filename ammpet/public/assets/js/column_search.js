@@ -5,7 +5,28 @@ $(document).ready(function(){
     } );
  
     // DataTable
-    let table = $('#_table').DataTable();
+    let table = $('#_table').DataTable({
+            lengthMenu: [
+                [ 10, 25, 50, -1 ],
+                [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+            ],
+            buttons: ['copy', 'excel', 'pdf', 'print'],
+            layout: {
+                top: 'buttons',
+                topStart: 'pageLength',
+                topEnd: 'search',
+                bottomStart: 'info',
+                bottomEnd: 'paging',
+                bottom2: 'searchBuilder',
+            },
+            columnDefs: [
+                {
+                    targets: 1,
+                    render: DataTable.render.datetime('YYYY-MM-DD')
+                }
+                        ],
+            "order": [[ 1, "desc" ]]
+        });
  
     // Apply the search
     table.columns().eq( 0 ).each( function ( colIdx ) {
