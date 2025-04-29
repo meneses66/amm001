@@ -104,7 +104,6 @@ $output = '<script type="text/javascript">
                                 topEnd: \'search\',
                                 bottomStart: \'info\',
                                 bottomEnd: \'paging\',
-                                bottom2: \'searchBuilder\',
                             },
                             columnDefs: [
                                 {
