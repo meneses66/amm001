@@ -83,13 +83,13 @@ $output = '<script type="text/javascript">
                             "order": [[ 1, "desc" ]],
                             initComplete: function ()
                                                 {
-                                                var r = $(\'#_table tfoot tr\');
-                                                r.find(\'th\').each(function(){
-                                                    $(this).css(\'padding\', 8);
-                                                });
-                                                $(\'#_table thead\').append(r);
-                                                $(\'#search_0\').css(\'text-align\', \'center\');
-                            }
+                                                    var r = $(\'#_table tfoot tr\');
+                                                    r.find(\'th\').each(function(){
+                                                        $(this).css(\'padding\', 8);
+                                                    });
+                                                    $(\'#_table thead\').append(r);
+                                                    $(\'#search_0\').css(\'text-align\', \'center\');
+                                                };
                         });
                     }
                 });
