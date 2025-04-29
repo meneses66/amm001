@@ -1,24 +1,21 @@
 $(document).ready(function(){
-    new DataTable('#_table', {
-        initComplete: function () {
-            this.api()
-                .columns()
-                .every(function () {
-                    let column = this;
-                    let title = column.footer().textContent;
-    
-                    // Create input element
-                    let input = document.createElement('input');
-                    input.placeholder = title;
-                    column.footer().replaceChildren(input);
-    
-                    // Event listener for user input
-                    input.addEventListener('keyup', () => {
-                        if (column.search() !== this.value) {
-                            column.search(input.value).draw();
-                        }
-                    });
-                });
-        }
-    });
-});
+    $('#_table thead th').each( function () {
+        var title = $('#_table tfoot th').eq( $(this).index() ).text();
+        if(title!=""){
+            $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+      }
+    } );
+  
+    // Apply the search
+    table.columns().eq( 0 ).each( function ( colIdx ) {
+        if( !table.settings()[0].aoColumns[colIdx].bSearchable ){
+        table.column( colIdx ).header().innerHTML=table.column( colIdx ).footer().innerHTML;
+    }
+        $( 'input', table.column( colIdx ).header() ).on( 'keyup change', function () {
+            table
+                .column( colIdx )
+                .search( this.value )
+                .draw();
+        } );
+    } );
+} );
