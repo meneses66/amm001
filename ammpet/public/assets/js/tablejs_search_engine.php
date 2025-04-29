@@ -6,10 +6,7 @@ $output = '<script type="text/javascript">
             $(document).ready(function(){
                 
                 load_rows();
-                setTimeout(function() {
-                    format_table();
-                }, 1000); 
-                
+                format_table();
 
                 //Function to call Modal for delete confirmation and execution - when success reloads table:
                 $("body").on("click", ".deleteBtn", function(e){
@@ -94,7 +91,7 @@ $output = '<script type="text/javascript">
                     } );
                 
                     // DataTable
-                    let table = $(\'#_table\').DataTable({
+                    let table = $("table").DataTable({
                             lengthMenu: [
                                 [ 10, 25, 50, -1 ],
                                 [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
