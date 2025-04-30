@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/buttons.datatable.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.8.2/css/searchBuilder.dataTables.css">
 <link rel="stylesheet" href="<?php echo ROOT."/";?>../public/assets/css/error_message.css">
+<input id="classnamejs" type="hidden" readonly value="Salary">
+<input id="buttonenablerjs" type="hidden" readonly value="">
+<input id="cli_id_js" type="hidden" readonly value="">
+<input id="order_id_js" type="hidden" readonly value="">
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-2">

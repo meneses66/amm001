@@ -1,5 +1,9 @@
             $(document).ready(function(){
                 
+                var classnamejs = document.getElementById('classnamejs').value;
+                var cli_id_js = document.getElementById('cli_id_js').value;
+                var order_id_js = document.getElementById('order_id_js').value;
+                var buttonenablerjs = document.getElementById('buttonenablerjs').value;
                 load_rows();
 
                 //Function to call Modal for delete confirmation and execution - when success reloads table:
@@ -20,7 +24,7 @@
                                 $.ajax({
                                     url:"/ammpet/public/Ajax_call",
                                     type: "POST",
-                                    data:{del_id:del_id, class:"'.$GLOBALS['classnamejs'].'", method:"delete_call"},
+                                    data:{del_id:del_id, class:classnamejs, method:"delete_call"},
                                     success:function(response){
                                         tr.css('background-color', '#ff6666');
                                         reload_rows();
@@ -52,7 +56,7 @@
                 $.ajax({
                     url: "/ammpet/public/Ajax_call",
                     type: "POST",
-                    data: {operation:"view", class:"<?php echo $GLOBALS['classnamejs'] ?>", method:"load_rows", cli_id: "<?php echo $GLOBALS['cli_id_js'] ?>", order_id: "<?php echo $GLOBALS['order_id_js'] ?>", buttons: "<?php echo $GLOBALS['buttonenablerjs'] ?>"},
+                    data: {operation:"view", class:classnamejs, method:"load_rows", cli_id:cli_id_js, order_id:order_id_js, buttons:buttonenablerjs},
                     success: function(response){
                         $('#_table').html(response);
                         format_table();
@@ -65,7 +69,7 @@
                 $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
-                        data: {operation:"view", class:"<?php echo $GLOBALS['classnamejs'] ?>", method:"load_rows", cli_id: "<?php echo $GLOBALS['cli_id_js']?>", order_id: "<?php echo $GLOBALS['order_id_js']?>", buttons: "<?php echo $GLOBALS['buttonenablerjs']?>"},
+                        data: {operation:"view", class:classnamejs, method:"load_rows", cli_id:cli_id_js, order_id:order_id_js, buttons:buttonenablerjs},
                         success: function(response){
                             table = $('#_table').DataTable();
                             table.destroy();
