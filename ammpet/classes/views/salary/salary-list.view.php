@@ -50,7 +50,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
        <script src="<?php echo ROOT;?>/assets/js/format_table.js"></script>
 
        <!-- Table Pagination, Search, Refresh and Ajax Call JS-->
-       <script src="<?php echo ROOT;?>/assets/js/table_search_engine.js"></script>
+       <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs_search_engine.php";?>
 
         <!-- Table Column Date Formatting-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
