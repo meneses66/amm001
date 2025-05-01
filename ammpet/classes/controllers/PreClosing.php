@@ -17,7 +17,7 @@ class PreClosing {
 
         //SESSION TO LOAD HTML FORMS:
     //LOAD HTML FORM FOR UPDATING RECORD
-    public function load_preclosing_form(){
+    public function load_preclosing_form($inputs){
 
         if (isset($_GET['id'])){
 
@@ -26,11 +26,46 @@ class PreClosing {
             $id = $_GET['id'];
             $created_by = $_SESSION['username'];
             $updated_by = $_SESSION['username'];
-            $name = null;
-            $value = null;
-            $type = null;
-            $status = "Ativo";
-            $comment = null;
+
+            $year = "";
+            $month = "";
+            $id_employee = "";
+            $comission_prod = "";
+            $comission_serv = "";
+            $status = "";
+            $d01 = "";
+            $d02 = "";
+            $d03 = "";
+            $d04 = "";
+            $d05 = "";
+            $d06 = "";
+            $d07 = "";
+            $d08 = "";
+            $d09 = "";
+            $d10 = "";
+            $d11 = "";
+            $d12 = "";
+            $d13 = "";
+            $d14 = "";
+            $d15 = "";
+            $d16 = "";
+            $d17 = "";
+            $d18 = "";
+            $d19 = "";
+            $d20 = "";
+            $d21 = "";
+            $d22 = "";
+            $d23 = "";
+            $d24 = "";
+            $d25 = "";
+            $d26 = "";
+            $d27 = "";
+            $d28 = "";
+            $d29 = "";
+            $d30 = "";
+            $d31 = "";
+            $serv_count = "";
+
  
             if (!($id=='new')) {
                 $inputs["ID"]=$_GET['id'];
