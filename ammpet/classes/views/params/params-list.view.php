@@ -47,8 +47,11 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <!-- Sweet Alert -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+        <!-- FORMAT TABLE JS-->
+        <script src="<?php echo ROOT;?>/assets/js/format_table.js"></script>
+
         <!-- Table Pagination, Search, Refresh and Ajax Call-->
-        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs.php";?>
+        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs_no_buttons.php";?>
 
         <!-- Table Column Date Formatting-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>

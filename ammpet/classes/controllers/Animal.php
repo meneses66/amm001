@@ -568,7 +568,22 @@ class Animal {
                                         <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" cli_id="'.$row->ID_CLIENT.'" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                                     </td></tr>';
                     }
-                    $output .= '</tbody><br>';
+                    $output .= '</tbody>
+                                <tfoot>
+                                    <tr class="text-center text-secondary">
+                                        <th>Id</th>
+                                        <th>Atualiz.</th>
+                                        <th>Nome</th>
+                                        <th>Raça</th>
+                                        <th>Sexo</th>
+                                        <th>Porte</th>
+                                        <th>Morde</th>
+                                        <th>Não perfume</th>
+                                        <th>Alérg.Lâm.</th>
+                                        <th>Vacinado</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </tfoot><br>';
                     $sql_stm = null;
                     unset_array($inputs);
                     $data = null;

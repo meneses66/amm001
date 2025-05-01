@@ -6,71 +6,7 @@ $output = '<script type="text/javascript">
             $(document).ready(function(){
                 
                 load_rows();
-
-                //Function to load the rows in table:
-                function load_rows(){
-                    $.ajax({
-                        url: "/ammpet/public/Ajax_call",
-                        type: "POST",
-                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
-                        success: function(response){
-                            $(\'#_table\').html(response);
-                            $("table").DataTable({
-                                    lengthMenu: [
-                                        [ 10, 25, 50, -1 ],
-                                        [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
-                                    ],
-                                  layout: {
-                                                topStart: \'pageLength\',
-                                                topEnd: \'search\',
-                                                bottomStart: \'info\',
-                                                bottomEnd: \'paging\',
-                                            },
-                                 columnDefs: [
-                                                {
-                                                    targets: 1,
-                                                    render: DataTable.render.datetime(\'YYYY-MM-DD\')
-                                                }
-                                            ],
-                                "order": [[ 1, "desc" ]]
-                            });
-                        }
-                    });
-                }
-
-                //Function to reload the rows in table when record is deleted:
-                function reload_rows(){
-                    $.ajax({
-                            url: "/ammpet/public/Ajax_call",
-                            type: "POST",
-                            data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
-                            success: function(response){
-                                table = $(\'#_table\').DataTable();
-                                table.destroy();
-                                $(\'#_table\').html(response);
-                                $("table").DataTable({
-                                    lengthMenu: [
-                                        [ 10, 25, 50, -1 ],
-                                        [ \'10 rows\', \'25 rows\', \'50 rows\', \'Show all\' ]
-                                    ],
-                                    layout: {
-                                                topStart: \'pageLength\',
-                                                topEnd: \'search\',
-                                                bottomStart: \'info\',
-                                                bottomEnd: \'paging\',
-                                                },
-                                    columnDefs: [
-                                                    {
-                                                        targets: 1,
-                                                        render: DataTable.render.datetime(\'YYYY-MM-DD\')
-                                                    }
-                                                ],
-                                    "order": [[ 1, "desc" ]]
-                                });
-                            }
-                        });                    
-                    }
-
+    
                 //Function to call Modal for delete confirmation and execution - when success reloads table:
                 $("body").on("click", ".deleteBtn", function(e){
                     e.preventDefault();
@@ -115,6 +51,35 @@ $output = '<script type="text/javascript">
                 });
 
             });
+
+            //Function to load the rows in table:
+            function load_rows(){
+                $.ajax({
+                    url: "/ammpet/public/Ajax_call",
+                    type: "POST",
+                    data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
+                    success: function(response){
+                        $(\'#_table\').html(response);
+                        format_table();
+                    }
+                });
+            }
+
+            //Function to reload the rows in table when record is deleted:
+            function reload_rows(){
+                $.ajax({
+                        url: "/ammpet/public/Ajax_call",
+                        type: "POST",
+                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
+                        success: function(response){
+                            table = $(\'#_table\').DataTable();
+                            table.destroy();
+                            $(\'#_table\').html(response);
+                            format_table();
+                            });
+                        }
+                    });                    
+                }
         </script>';
     
     echo $output;

@@ -136,7 +136,16 @@ class Breed {
                                 '.(($breed_delete_check) ? "<a href=\"" . ROOT . "/$this->UCF_object/_delete?id=$row->ID\" title=\"Edit\" class=\"text-danger deleteBtn\" id=" . $row->ID . "><i class=\"fas fa-eraser\"></i></a>" : "").'
                             </td></tr>';
             }
-            $output .= '</tbody>';
+            $output .= '</tbody>
+                        <tfoot>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Raça</th>
+                                <th>Tipo</th>
+                                <th>Ações</th>
+                            </tr>
+                        </tfoot>';
             $sql_stm = null;
             //unset_array($inputs);
             $data = null;
