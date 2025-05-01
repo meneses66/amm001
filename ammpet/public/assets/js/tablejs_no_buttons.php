@@ -76,7 +76,6 @@ $output = '<script type="text/javascript">
                             table.destroy();
                             $(\'#_table\').html(response);
                             format_table();
-                            });
                         }
                     });                    
                 }
