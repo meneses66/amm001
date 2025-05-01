@@ -85,7 +85,25 @@ class Orderx
                                 <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
                             </td></tr>';
             }
-            $output .= '</tbody>';
+            $output .= '</tbody>
+                        <tfoot>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Data</th>
+                                <th>Cliente</th>
+                                <th>Celular 1</th>
+                                <th>Animais</th>
+                                <th>Total sem Desc.</th>
+                                <th>Total com Desc.</th>
+                                <th>Total Dinh.</th>
+                                <th>Total Pix</th>
+                                <th>Total Pago</th>
+                                <th>Total Devedor</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </tfoot>';
             $sql_stm = null;
             $data = null;
             $model = null;
@@ -566,18 +584,7 @@ class Orderx
                                 '.(($orderpayment_delete_check) ? '<a href="'.ROOT."/OrderPayment/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$order_id.'" classforjs="OrderPayment"><i class="fas fa-eraser"></i></a>' : '').'                                
                             </td></tr>';
             }
-            $output .= '</tbody>
-                        <tfoot>
-                            <tr class="text-center text-secondary">
-                                <th>Id</th>
-                                <th>Atualiz.</th>
-                                <th>Pedido</th>
-                                <th>Valor Pago</th>
-                                <th>Tipo Pagamento</th>
-                                <th>Flag</th>
-                                <th>Ações</th>
-                            </tr>
-                        </tfoot>';
+            $output .= '</tbody>';
             $data = null;
             $model = null;
 
