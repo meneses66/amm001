@@ -256,7 +256,21 @@ class Client
                                 '.(($inputs_buttons == 'Client' && $client_delete_check) ? "<a href=\"" . ROOT . "/Client/_delete?id=$row->ID\" title=\"Delete\" class=\"text-danger deleteBtn\" id=" . $row->ID . "><i class=\"fas fa-eraser\"></i></a>" : "").'
                             </td></tr>';
             }
-            $output .= '</tbody>';
+            $output .= '</tbody>
+                        <tfoot>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Nome</th>
+                                <th>Celular 1</th>
+                                <th>Celular 2</th>
+                                <th>Origin</th>
+                                <th>Old Id</th>
+                                <th>Status</th>
+                                <th>Animais</th>
+                                <th>Ações</th>
+                            </tr>
+                        </tfoot>';
             $sql_stm = null;
             unset_array($inputs);
             $data = null;
