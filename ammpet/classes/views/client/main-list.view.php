@@ -20,7 +20,7 @@
             <?php if(check_permission($_SESSION['username'],"client_add")) {echo '<a href="' . ROOT . '/Client/_new?id=new" class="btn btn-success m-1 float-right"><i class="fas fa-plus-circle"></i>&nbsp;Novo Cliente</a>';}?>
         </div>
         <hr class="my-1">
-    <div class="row">
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <div class="col-lg-12">
             <div class="table-responsive" id="_list_id">
                 <table id="_table" class="table Table-stripped table-sm table-bordered small">

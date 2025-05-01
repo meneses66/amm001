@@ -26,7 +26,7 @@
         ?>
     </div>
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12" style="border: thin solid lightgray; font-size:12px;">
             <div class="table-responsive" id="_list_id">
                 <table id="_table" class="table Table-stripped table-sm table-bordered small">
                     

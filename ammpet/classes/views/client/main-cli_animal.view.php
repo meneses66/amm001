@@ -24,7 +24,7 @@
         ?>
     </div>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-    <div class="row">
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <div class="col-lg-12">
             <div class="table-responsive" id="_list_id">
                 <table id="_table" class="table Table-stripped table-sm table-bordered small">
