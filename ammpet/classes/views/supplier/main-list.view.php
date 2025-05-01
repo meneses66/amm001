@@ -19,7 +19,7 @@
             <?php ((check_permission($_SESSION['username'],"supplier_add"))? print_r("<a href=\"". ROOT."/Supplier/_new?id=new\" class=\"btn btn-success m-1 float-right\"><i class=\"fas fa-plus-circle\"></i>&nbsp;Novo Fornecedor</a>") : print_r(""))?>
         </div>
         <hr class="my-1">
-    <div class="row">
+    <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <div class="col-lg-12">
             <div class="table-responsive" id="_list_id">
                 <table id="_table" class="table Table-stripped table-sm table-bordered small">
