@@ -29,8 +29,7 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
 
         <!-- jQuery library -->
-        <script src="<?php echo ROOT;?>/assets/js/jquery-3.7.1.js"></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
         <!-- Latest compiled JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -48,10 +47,10 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- FORMAT TABLE JS-->
-        <script src="<?php echo ROOT;?>/assets/js/format_table.js"></script>
+        <script src="<?php echo ROOT;?>/assets/js/format_table_search.js"></script>
 
         <!-- Table Pagination, Search, Refresh and Ajax Call-->
-        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs_no_buttons.php";?>
+        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs_v2.php";?>
 
         <!-- Table Column Date Formatting-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>

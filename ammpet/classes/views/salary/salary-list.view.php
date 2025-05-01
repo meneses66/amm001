@@ -47,10 +47,10 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
        <!-- FORMAT TABLE JS-->
-       <script src="<?php echo ROOT;?>/assets/js/format_table.js"></script>
+       <script src="<?php echo ROOT;?>/assets/js/format_table_full.js"></script>
 
        <!-- Table Pagination, Search, Refresh and Ajax Call JS-->
-       <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs_search_engine.php";?>
+       <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/tablejs_v2.php";?>
 
         <!-- Table Column Date Formatting-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>

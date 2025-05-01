@@ -566,7 +566,18 @@ class Orderx
                                 '.(($orderpayment_delete_check) ? '<a href="'.ROOT."/OrderPayment/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$order_id.'" classforjs="OrderPayment"><i class="fas fa-eraser"></i></a>' : '').'                                
                             </td></tr>';
             }
-            $output .= '</tbody>';
+            $output .= '</tbody>
+                        <tfoot>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Pedido</th>
+                                <th>Valor Pago</th>
+                                <th>Tipo Pagamento</th>
+                                <th>Flag</th>
+                                <th>Ações</th>
+                            </tr>
+                        </tfoot>';
             $data = null;
             $model = null;
 
