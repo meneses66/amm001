@@ -173,7 +173,7 @@ class PreClosing {
         $model = new('\Model\\'.$this->UCF_object);
         
         $data = $model->listAll();
-        if(f_countAll()>0){
+        if(f_countAll("PreClosing")>0){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>

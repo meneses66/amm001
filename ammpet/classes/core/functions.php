@@ -352,7 +352,7 @@ function f_countWhere($inputs, $model){
     return $total_items;    
 }
 
-function f_countAll($inputs, $model){
+function f_countAll($model){
     
     $model = new('\Model\\'.$model);
     $result = $model->countAll();
