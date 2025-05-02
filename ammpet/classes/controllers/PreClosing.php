@@ -167,10 +167,9 @@ class PreClosing {
     public function load_rows(){
         
         //restart_session();
-        $params_edit_check = check_permission($_SESSION['username'], "params_edit");
-        $params_delete_check = check_permission($_SESSION['username'], "params_delete");
+        $preclosing_edit_check = check_permission($_SESSION['username'], "pre_closing_edit");
+        $preclosing_delete_check = check_permission($_SESSION['username'], "pre_closing_delete");
         $output = "";
-        //$model = new \Model\Params;
         $model = new('\Model\\'.$this->UCF_object);
         
         $data = $model->listAll();
@@ -179,30 +178,62 @@ class PreClosing {
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
                                 <th>Atualiz.</th>
-                                <th>Nome</th>
-                                <th>Valor</th>
-                                <th>Tipo</th>
+                                <th>Ano</th>
+                                <th>Mês</th>
+                                <th>Funcionário</th>
+                                <th>Comis_Prod</th>
+                                <th>Comis_Serv</th>
                                 <th>Status</th>
-                                <th>Comentários</th>
+                                <th>Banhos</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>';
             foreach ($data as $row) {
+
+                $inputs_employee['ID']=$id_employee=$row->ID_EMPLOYEE;
+                $data_form_employee['NAME']="";
+                if (!($id_employee=="")) {
+                    $employee_model = new('\Model\\'.$this->parent_object);
+                    $employee_data = $employee_model->getRow($inputs_employee);
+        
+                    if($employee_data){
+                        foreach ($employee_data as $key => $value) {
+                            $data_form_employee[$key]=$value;
+                        }
+                    }    
+                }
+
                 $output .='<tr class="text-center text-secondary">
                             <td>'.$row->ID.'</td>
                             <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->NAME.'</td>
-                            <td>'.$row->VALUE.'</td>
-                            <td>'.$row->TYPE.'</td>
+                            <td>'.$row->YEAR.'</td>
+                            <td>'.$row->MONTH.'</td>
+                            <td>'.$data_form_employee['NAME'].'</td>
+                            <td>'.$row->COMISSION_PROD.'</td>
+                            <td>'.$row->COMISSION_SERV.'</td>
                             <td>'.$row->STATUS.'</td>
-                            <td>'.$row->COMMENT.'</td>
+                            <td>'.$row->SERV_COUNT.'</td>
                             <td>
-                                '.(($params_edit_check) ? '<a href="'.ROOT."/$this->UCF_object/_new?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
-                                '.(($params_delete_check) ? '<a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>' : '').'
+                                '.(($preclosing_edit_check) ? '<a href="'.ROOT."/$this->UCF_object/_new?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                '.(($preclosing_delete_check) ? '<a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>' : '').'
                             </td></tr>';
             }
-            $output .= '</tbody>';
+            $output .= '</tbody>
+                        <tfoot>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Ano</th>
+                                <th>Mês</th>
+                                <th>Funcionário</th>
+                                <th>Comis_Prod</th>
+                                <th>Comis_Serv</th>
+                                <th>Status</th>
+                                <th>Banhos</th>
+                                <th>Ações</th>
+                            </tr>
+                        </tfoot>';
             $data = null;
             $model = null;
 

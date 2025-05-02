@@ -18,7 +18,7 @@
         <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"params_view"))? print_r("<a href=\"" . ROOT ."/Params/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-indent\"></i>&nbsp;Parâmetros Sistema</a>") : print_r(""))?></div>
     </div>
     <div class="row">
-        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"pre_closing_view"))? print_r("<a href=\"" . ROOT ."/Pre_Closing/pre_closing\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-percent\"></i>&nbsp;Pré Fechamento</a>") : print_r(""))?></div>
+        <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"pre_closing_view"))? print_r("<a href=\"" . ROOT ."/PreClosing/_list\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-percent\"></i>&nbsp;Pré Fechamento</a>") : print_r(""))?></div>
         <div class="col-sm-6"><?php ((check_permission($_SESSION['username'],"month_closing_view"))? print_r("<a href=\"" . ROOT ."/Month_Closing/month_closing\" class=\"btn btn-primary btn-lg m-1 btn-block\"><i class=\"fas fa-chart-pie\"></i>&nbsp;Fechamento Mês</a>") : print_r(""))?></div>
     </div>
     <div class="row">
