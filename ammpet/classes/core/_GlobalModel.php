@@ -14,7 +14,7 @@ Trait _GlobalModel{
     #count all
     public function countAll()
     {
-        $sql_stm = "select count(1) from $this->table";
+        $sql_stm = "select count(1) AS COUNTW from $this->table";
         return $this->query($sql_stm);
 
     }

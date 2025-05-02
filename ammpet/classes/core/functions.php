@@ -335,3 +335,30 @@ function amm_log($log_msg)
     $log_file_data = $log_filename.'/log_amm_' . date('Y-M-d') . '.log';
     file_put_contents($log_file_data, $log_msg . "\n", FILE_APPEND);
 } 
+
+function f_countWhere($inputs, $model){
+    
+    foreach ($inputs as $key => $value) {
+        $upper_key = strtoupper($key);
+        $inputs_items[$upper_key]=$value;    
+    }
+
+    $model = new('\Model\\'.$model);
+    $result = $model->countWhere($inputs_items);
+    $total_items = 0;
+    foreach ($result as $row) {
+        $total_items = $row->COUNTW;
+    }
+    return $total_items;    
+}
+
+function f_countAll($inputs, $model){
+    
+    $model = new('\Model\\'.$model);
+    $result = $model->countAll();
+    $total_items = 0;
+    foreach ($result as $row) {
+        $total_items = $row->COUNTW;
+    }
+    return $total_items;    
+}
