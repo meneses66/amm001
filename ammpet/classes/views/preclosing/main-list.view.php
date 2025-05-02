@@ -15,7 +15,7 @@
             <h4>Lista Pre-Fechamento</h4>
         </div>
         <div class="col-lg-6">
-            <?php ((check_permission($_SESSION['username'],"preclosing_add"))? print_r("<a href=\"". ROOT."/PreClosing/_new?id=new\" class=\"btn btn-success m-1 float-right\"><i class=\"fas fa-plus-circle\"></i>&nbsp;Novo Registro</a>") : print_r(""))?>
+            <?php ((check_permission($_SESSION['username'],"pre_closing_add"))? print_r("<a href=\"". ROOT."/PreClosing/_new?id=new\" class=\"btn btn-success m-1 float-right\"><i class=\"fas fa-plus-circle\"></i>&nbsp;Novo Registro</a>") : print_r(""))?>
         </div>
         <hr class="my-1">
     <div class="row">
