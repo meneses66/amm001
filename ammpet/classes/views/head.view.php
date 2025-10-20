@@ -3,6 +3,8 @@
 <meta name="description" content="System ABC - PHP" />
 <meta name="author" content="AlexM.Melo" />
 <title>System ABC</title>
+<!-- CSRF token for AJAX/forms -->
+<meta name="csrf-token" content="<?php echo csrf_token(); ?>" />
 <!-- Favicon-->
 <link rel="icon" type="image/x-icon" href="../public/assets/images/dog_icon.ico" />
 <!-- Core theme CSS (includes Bootstrap)-->

@@ -22,10 +22,11 @@ $output = '<script type="text/javascript">
                         confirmButtonText: "Yes, delete it!"
                     }).then((result) => {
                             if (result.isConfirmed) {
+                                const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                                 $.ajax({
                                     url:"/ammpet/public/Ajax_call",
                                     type: "POST",
-                                    data:{del_id:del_id, class:"'.$GLOBALS['classnamejs'].'", method:"delete_call"},
+                                    data:{del_id:del_id, class:"'.$GLOBALS['classnamejs'].'", method:"delete_call", csrf_token: csrf},
                                     success:function(response){
                                         tr.css(\'background-color\', \'#ff6666\');
                                         reload_rows();
@@ -39,10 +40,11 @@ $output = '<script type="text/javascript">
                     e.preventDefault();
                     var tr = $(this).closest(\'tr\');
                     cli_id = $(this).attr(\'cli_id\');
+                        const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                         $.ajax({
                             url:"/ammpet/public/Ajax_call",
                             type: "POST",
-                            data:{Id_client:cli_id, class:"Orderx", method:"insert_call"},
+                            data:{Id_client:cli_id, class:"Orderx", method:"insert_call", csrf_token: csrf},
                             success:function(response){
                                 
                             }
@@ -54,10 +56,11 @@ $output = '<script type="text/javascript">
 
             //Function to load the rows in table:
             function load_rows(){
+                const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                 $.ajax({
                     url: "/ammpet/public/Ajax_call",
                     type: "POST",
-                    data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
+                    data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", csrf_token: csrf, cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                     success: function(response){
                         $(\'#_table\').html(response);
                         format_table();
@@ -67,10 +70,11 @@ $output = '<script type="text/javascript">
 
             //Function to reload the rows in table when record is deleted:
             function reload_rows(){
+                const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                 $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
-                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
+                        data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", csrf_token: csrf, cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                         success: function(response){
                             table = $(\'#_table\').DataTable();
                             table.destroy();

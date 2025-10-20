@@ -112,6 +112,27 @@ function restart_session(){
     }
 }
 
+// CSRF helpers
+function csrf_token(): string {
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start();
+    }
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
+}
+
+function csrf_validate(?string $token): bool {
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start();
+    }
+    if (!$token || empty($_SESSION['csrf_token'])) {
+        return false;
+    }
+    return hash_equals($_SESSION['csrf_token'], $token);
+}
+
 // My session regenerate id function
 function my_session_regenerate_id() {
     // Call session_create_id() while session is active to 

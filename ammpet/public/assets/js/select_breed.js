@@ -18,10 +18,11 @@ function getBreeds(breedType, dataformbreed, operation){
 
   function load_breed(breedType, dataformbreed, op){  
     //console.log(breedType+"-"+dataformbreed+"-"+op);
+    const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     $.ajax({
       url: "/ammpet/public/Ajax_call",
       type: "POST",
-      data: {operation:op, class:"Breed", method:"load_breed_options", type:breedType, dfbreed: dataformbreed},
+      data: {operation:op, class:"Breed", method:"load_breed_options", csrf_token: csrf, type:breedType, dfbreed: dataformbreed},
       success: function(response){
           $('#id_breed').html(response);
       }

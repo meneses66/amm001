@@ -7,6 +7,7 @@ $(document).ready(function(){
         //console.log("data_form: "+data_form);
         data_form_array = splitUrlEncoded(data_form);
         const cli_id_back = data_form_array.Id_Client;
+        const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
@@ -14,6 +15,7 @@ $(document).ready(function(){
                     operation: "submit", 
                     class:"Animal", 
                     method:"validate_animal", 
+                    csrf_token: csrf,
                     Id:data_form_array.Id, 
                     Created_By:data_form_array.Created_By, 
                     Updated_By:data_form_array.Updated_By, 

@@ -21,12 +21,14 @@ class App{
         $URL = $this->splitURL();
 
         /** select controller according to URL */
-        $fileName = "../classes/controllers/".ucfirst($URL[0]).".php";
+        $ctrlRaw = $URL[0] ?? 'login';
+        $ctrlSafe = preg_replace('/[^A-Za-z0-9_]/', '', $ctrlRaw);
+        $fileName = "../classes/controllers/".ucfirst($ctrlSafe).".php";
         if(file_exists($fileName))
         {
             require $fileName;
-            $this->controller = ucfirst($URL[0]);
-            define('URL_0',$URL[0]);
+            $this->controller = ucfirst($ctrlSafe);
+            define('URL_0',$ctrlSafe);
             unset($URL[0]);
 
         } else{
@@ -38,17 +40,18 @@ class App{
         $controller = new ('\Controller\\'.$this->controller);
 
 		/**select method according to URL */
-		if(!empty($URL[1]))
-		{
-			if(method_exists($controller, $URL[1]))
-			{
-				$this->method = $URL[1];
-				define('URL_1',$URL[1]);
-				unset($URL[1]);
-			}
-		} else {
-			define('URL_1',"");
-		}
+        if(!empty($URL[1]))
+        {
+            $methodCandidate = preg_replace('/[^A-Za-z0-9_]/', '', $URL[1]);
+            if(method_exists($controller, $methodCandidate))
+            {
+                $this->method = $methodCandidate;
+                define('URL_1',$methodCandidate);
+                unset($URL[1]);
+            }
+        } else {
+            define('URL_1',"");
+        }
 
 		// Reindex URL arguments to avoid sparse numeric keys
 		$args = array_values($URL);
