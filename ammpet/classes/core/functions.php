@@ -62,7 +62,7 @@ function redirect($path){
 }
 
 function double_redirect($path1, $path2){
-    header("Location: " . ROOT."/".$path1);
+    // Only a single Location header is effective; redirect to the intended destination
     header("Location: " . ROOT."/".$path2);
     die;
 }

@@ -113,9 +113,8 @@ Trait _GlobalModel{
 
         $sql_stm .= " order by $this->order_column $this->order_type";
 
-        $all_inputs =array_merge($inputs, $inputs_not);
-
-        return $this->query($sql_stm, $all_inputs);
+        // Only inputs provided are required for binding
+        return $this->query($sql_stm, $inputs);
 
     }
 
@@ -143,11 +142,9 @@ Trait _GlobalModel{
     #getRow by Id
     public function getRowbyId($id)
     {
-        $sql_stm = "select * from $this->table where ID=";
-        
-        $sql_stm .= $id;
+        $sql_stm = "select * from $this->table where ID = :ID";
 
-        $result = $this->query($sql_stm);
+        $result = $this->query($sql_stm, ['ID' => $id]);
 
         if ($result)
             return $result[0];

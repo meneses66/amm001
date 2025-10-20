@@ -37,20 +37,22 @@ class App{
 
         $controller = new ('\Controller\\'.$this->controller);
 
-        /**select method according to URL */
-        if(!empty($URL[1]))
-        {
-            if(method_exists($controller, $URL[1]))
-            {
-                $this->method = $URL[1];
-                define('URL_1',$URL[1]);
-                unset($URL[1]);
-            }
-        } else {
-            define('URL_1',"");
-        }
+		/**select method according to URL */
+		if(!empty($URL[1]))
+		{
+			if(method_exists($controller, $URL[1]))
+			{
+				$this->method = $URL[1];
+				define('URL_1',$URL[1]);
+				unset($URL[1]);
+			}
+		} else {
+			define('URL_1',"");
+		}
 
-        call_user_func_array([$controller,$this->method],$URL);
-    }
+		// Reindex URL arguments to avoid sparse numeric keys
+		$args = array_values($URL);
+		call_user_func_array([$controller,$this->method], $args);
+	}
         
 }

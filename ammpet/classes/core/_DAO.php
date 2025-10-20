@@ -15,8 +15,10 @@ Trait _DAO{
     $dbname = DBNAME;
     $username = DBUSER;
     $password = DBPWD;
-  
-    $string = "mysql:host=$servername;dbname=$dbname";
+
+    // Normalize host (remove any trailing slash) and add charset
+    $host = rtrim($servername, '/');
+    $string = "mysql:host={$host};dbname={$dbname};charset=utf8mb4";
 
     try {
       $conn = new PDO($string, $username, $password);
@@ -25,7 +27,8 @@ Trait _DAO{
       return $conn;
 
     } catch(PDOException $e) {
-      echo "Connection failed with: String= ".$string." +Err= ". $e->getMessage();
+      // Avoid echoing sensitive connection details; log instead if needed
+      echo "Database connection failed.";
     }
   
   }
@@ -45,7 +48,8 @@ Trait _DAO{
       if(str_contains($sql_stm, "insert")){
         $result = $connect->lastInsertId();
         $stm=null;
-        $connect->close();
+        // Close PDO connection
+        $connect = null;
         return $result;
       } else {
           $result = $stm->fetchAll(PDO::FETCH_OBJ);
@@ -90,7 +94,8 @@ Trait _DAO{
         //amm_log(date("H:i:m")." -> IF INSERT: OK ".$sql_stm);
         $result = $connect->lastInsertId();
         $stm=null;
-        $connect->close();
+        // Close PDO connection
+        $connect = null;
         return $result;
       } else {
         //amm_log(date("H:i:m")." -> ELSE INSERT: OK ".$sql_stm);
