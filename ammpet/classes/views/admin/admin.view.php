@@ -10,6 +10,7 @@
               <?php include ROOTPATH_CLASSES . "../views/sidebar.view.php";?>
             </div>
             <!-- Page content wrapper-->
+             <!-- Teste-->
             <div id="page-content-wrapper">
                 <!-- Top navigation-->
                 <?php include ROOTPATH_CLASSES . "../views/topnav.view.php";?>
