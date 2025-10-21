@@ -223,7 +223,7 @@ class Client
         $sqlstm = "SELECT C.ID AS ID, C.UPDATED AS UPDATED, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, C.MOBILE_2 as MOBILE_2, C.ORIGIN as ORIGIN, C.OLD_ID as OLD_ID, C.STATUS as STATUS, GROUP_CONCAT(A.NAME) AS ANIMALS FROM `CLIENT` C LEFT JOIN `ANIMAL` A ON C.ID = A.ID_CLIENT GROUP BY C.ID";
 
         $data = $model->exec_sqlstm($sqlstm);
-        if($model->countAll()>0){
+        if($data){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>

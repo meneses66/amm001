@@ -114,7 +114,7 @@ class Breed {
         $model = new('\Model\\'.$this->UCF_object);
         
         $data = $model->listAll();
-        if($model->countAll()>0){
+        if($data){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>

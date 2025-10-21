@@ -654,10 +654,10 @@ class Service {
         $inputs_order_id=$inputs['order_id'];
         $output = "";
         $model = new('\Model\\'.$this->UCF_object);
-        $inputs_stm['TYPE']="SERV";
+        $inputs_stm['TYPE']="Serv";
         
         $data = $model->listWhere($inputs_stm);
-        if($model->countWhere($inputs_stm)>0){
+        if($data){
             $output .='<thead>
                             <tr class="text-center text-secondary">
                                 <th>Id</th>
