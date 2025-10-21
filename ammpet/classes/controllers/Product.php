@@ -287,18 +287,18 @@ class Product {
                 $array = trim($array,",");
 
                 $output .='<tr class="text-center text-secondary">
-                            <td>'.$row->ID.'</td>
-                            <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->NAME.'</td>
-                            <td>'.$row->CATEGORY.'</td>
-                            <td>'.$row->PRICE.'</td>
-                            <td>'.$row->PRICE_CASH.'</td>
-                            <td>'.$row->PRICE_PIX.'</td>
-                            <td>'.$row->STATUS.'</td>
+                            <td>'.esc($row->ID).'</td>
+                            <td>'.esc($row->UPDATED).'</td>
+                            <td>'.esc($row->NAME).'</td>
+                            <td>'.esc($row->CATEGORY).'</td>
+                            <td>'.esc($row->PRICE).'</td>
+                            <td>'.esc($row->PRICE_CASH).'</td>
+                            <td>'.esc($row->PRICE_PIX).'</td>
+                            <td>'.esc($row->STATUS).'</td>
                             <td>
-                                '.(($inputs_buttons == $this->OrderItem && $orderitemprod_add_check) ? '<a href="' . ROOT . '/OrderItem/_insert_product?cli_id=' . $inputs_cli_id . '&order_id=' . $inputs_order_id . '&product={' . $array . '}" title="New_Product" class="text-primary newOrderBtn" cli_id="' . $inputs_cli_id . '" order_id="' . $inputs_order_id . '"><i class="fas fa-plus"></i></a>' : '').'
-                                '.(($inputs_buttons == $this->UCF_object && $product_edit_check) ? '<a href="' . ROOT . '/' . $this->UCF_object . '/_new?id=' . $row->ID . '" title="Edit" class="text-primary updateBtn" id="' . $row->ID . '"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
-                                '.(($inputs_buttons == $this->UCF_object && $product_delete_check) ? '<a href="' . ROOT . '/' . $this->UCF_object . '/_delete?id=' . $row->ID . '" title="Delete" class="text-danger deleteBtn" id="' . $row->ID . '"><i class="fas fa-eraser"></i></a>' : '').'
+                                '.(($inputs_buttons == $this->OrderItem && $orderitemprod_add_check) ? '<a href="' . ROOT . '/OrderItem/_insert_product?cli_id=' . esc($inputs_cli_id) . '&order_id=' . esc($inputs_order_id) . '&product={' . $array . '}" title="New_Product" class="text-primary newOrderBtn" cli_id="' . esc($inputs_cli_id) . '" order_id="' . esc($inputs_order_id) . '"><i class="fas fa-plus"></i></a>' : '').'
+                                '.(($inputs_buttons == $this->UCF_object && $product_edit_check) ? '<a href="' . ROOT . '/' . $this->UCF_object . '/_new?id=' . esc($row->ID) . '" title="Edit" class="text-primary updateBtn" id="' . esc($row->ID) . '"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                '.(($inputs_buttons == $this->UCF_object && $product_delete_check) ? '<a href="' . ROOT . '/' . $this->UCF_object . '/_delete?id=' . esc($row->ID) . '" title="Delete" class="text-danger deleteBtn" id="' . esc($row->ID) . '"><i class="fas fa-eraser"></i></a>' : '').'
                             </td></tr>';
             }
             $output .= '</tbody>

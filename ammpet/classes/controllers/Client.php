@@ -241,15 +241,15 @@ class Client
                         <tbody>';
             foreach ($data as $row) {
                 $output .='<tr class="text-center text-secondary">
-                            <td>'.$row->ID.'</td>
-                            <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->NAME.'</td>
-                            <td>'.$row->MOBILE_1.'</td>
-                            <td>'.$row->MOBILE_2.'</td>
-                            <td>'.$row->ORIGIN.'</td>
-                            <td>'.$row->OLD_ID.'</td>
-                            <td>'.$row->STATUS.'</td>
-                            <td>'.$row->ANIMALS.'</td>
+                            <td>'.esc($row->ID).'</td>
+                            <td>'.esc($row->UPDATED).'</td>
+                            <td>'.esc($row->NAME).'</td>
+                            <td>'.esc($row->MOBILE_1).'</td>
+                            <td>'.esc($row->MOBILE_2).'</td>
+                            <td>'.esc($row->ORIGIN).'</td>
+                            <td>'.esc($row->OLD_ID).'</td>
+                            <td>'.esc($row->STATUS).'</td>
+                            <td>'.esc($row->ANIMALS).'</td>
                             <td>
                                 '.(($inputs_buttons == 'Orderx' && $orderx_add_check) ? "<a href=\"" . ROOT . "/Orderx/_new_order?cli_id=$row->ID\" title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id= .$row->ID . ><i class=\"fas fa-plus\"></i></a>" : "").'
                                 '.(($inputs_buttons == "Client" && $client_edit_check) ? "<a href=\"" . ROOT . "/Client/_new?id=$row->ID\" title=\"Edit\" class=\"text-primary updateBtn\" cli_id=" . $row->ID . "><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
@@ -313,15 +313,15 @@ class Client
                         <tbody>';
             foreach ($data as $row) {
                 $output .='<tr class="text-center text-secondary">
-                            <td>'.$row->ID.'</td>
-                            <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->NAME.'</td>
-                            <td>'.$row->MOBILE_1.'</td>
-                            <td>'.$row->MOBILE_2.'</td>
-                            <td>'.$row->ORIGIN.'</td>
-                            <td>'.$row->OLD_ID.'</td>
-                            <td>'.$row->STATUS.'</td>
-                            <td>'.$row->ANIMALS.'</td>
+                            <td>'.esc($row->ID).'</td>
+                            <td>'.esc($row->UPDATED).'</td>
+                            <td>'.esc($row->NAME).'</td>
+                            <td>'.esc($row->MOBILE_1).'</td>
+                            <td>'.esc($row->MOBILE_2).'</td>
+                            <td>'.esc($row->ORIGIN).'</td>
+                            <td>'.esc($row->OLD_ID).'</td>
+                            <td>'.esc($row->STATUS).'</td>
+                            <td>'.esc($row->ANIMALS).'</td>
                             <td>
                                 <a href="'.ROOT."/Orderx/insert_call?cli_id=$row->ID".'" title="New_Order" class="text-primary newOrderBtn" cli_id="'.$row->ID.'"><i class="fas fa-donate"></i></a>&nbsp;&nbsp;
                             </td></tr>';

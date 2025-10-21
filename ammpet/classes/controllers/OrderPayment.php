@@ -179,11 +179,11 @@ class OrderPayment {
                         <tbody>';
             foreach ($data as $row) {
                 $output .='<tr class="text-center text-secondary">
-                            <td>'.$row->ID.'</td>
-                            <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->ID_ORDER.'</td>
-                            <td>'.$row->PAID_AMOUNT.'</td>
-                            <td>'.$row->PAYMENT_TYPE.'</td>
+                            <td>'.esc($row->ID).'</td>
+                            <td>'.esc($row->UPDATED).'</td>
+                            <td>'.esc($row->ID_ORDER).'</td>
+                            <td>'.esc($row->PAID_AMOUNT).'</td>
+                            <td>'.esc($row->PAYMENT_TYPE).'</td>
                             <td>'.($row->FLAG1==1?"■":"").'</td>
                             </tr>';
             }

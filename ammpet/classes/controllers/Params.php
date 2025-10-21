@@ -194,13 +194,13 @@ class Params {
                         <tbody>';
             foreach ($data as $row) {
                 $output .='<tr class="text-center text-secondary">
-                            <td>'.$row->ID.'</td>
-                            <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->NAME.'</td>
-                            <td>'.$row->VALUE.'</td>
-                            <td>'.$row->TYPE.'</td>
-                            <td>'.$row->STATUS.'</td>
-                            <td>'.$row->COMMENT.'</td>
+                            <td>'.esc($row->ID).'</td>
+                            <td>'.esc($row->UPDATED).'</td>
+                            <td>'.esc($row->NAME).'</td>
+                            <td>'.esc($row->VALUE).'</td>
+                            <td>'.esc($row->TYPE).'</td>
+                            <td>'.esc($row->STATUS).'</td>
+                            <td>'.esc($row->COMMENT).'</td>
                             <td>
                                 '.(($params_edit_check) ? '<a href="'.ROOT."/$this->UCF_object/_new?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
                                 '.(($params_delete_check) ? '<a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>' : '').'

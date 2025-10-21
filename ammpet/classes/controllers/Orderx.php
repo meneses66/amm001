@@ -67,19 +67,19 @@ class Orderx
 
             foreach ($data as $row) {
                 $output .='<tr class="text-center text-secondary">
-                            <td>'.$row->ID.'</td>
-                            <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->ORDER_DATE.'</td>
-                            <td>'.$row->NAME.'</td>
-                            <td>'.$row->MOBILE_1.'</td>
-                            <td>'.$row->ANIMALS.'</td>
-                            <td>'.$row->ORDER_VALUE_NO_DISCOUNT.'</td>
-                            <td>'.$row->ORDER_VALUE_WITH_DISCOUNT.'</td>
-                            <td>'.$row->ORDER_VALUE_CASH.'</td>
-                            <td>'.$row->ORDER_VALUE_PIX.'</td>
-                            <td>'.$row->ORDER_PAID_AMOUNT.'</td>
-                            <td>'.$row->ORDER_DEBT.'</td>
-                            <td>'.$row->STATUS.'</td>
+                            <td>'.esc($row->ID).'</td>
+                            <td>'.esc($row->UPDATED).'</td>
+                            <td>'.esc($row->ORDER_DATE).'</td>
+                            <td>'.esc($row->NAME).'</td>
+                            <td>'.esc($row->MOBILE_1).'</td>
+                            <td>'.esc($row->ANIMALS).'</td>
+                            <td>'.esc($row->ORDER_VALUE_NO_DISCOUNT).'</td>
+                            <td>'.esc($row->ORDER_VALUE_WITH_DISCOUNT).'</td>
+                            <td>'.esc($row->ORDER_VALUE_CASH).'</td>
+                            <td>'.esc($row->ORDER_VALUE_PIX).'</td>
+                            <td>'.esc($row->ORDER_PAID_AMOUNT).'</td>
+                            <td>'.esc($row->ORDER_DEBT).'</td>
+                            <td>'.esc($row->STATUS).'</td>
                             <td>
                                 <a href="'.ROOT."/$this->UCF_object/_order_details?cli_id=$row->ID_CLIENT&order_id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
                                 <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
@@ -263,7 +263,7 @@ class Orderx
                     }
 
                     $output .='<tr class="text-center text-secondary">
-                                <td>'.$row->NAME.'</td>
+                                <td>'.esc($row->NAME).'</td>
                                 <td>'.$breed_name.'</td>
                                 <td>'.$row->GENDER.'</td>
                                 <td>'.($row->IS_DANGER==1?"■":"").'</td>
@@ -339,7 +339,7 @@ class Orderx
                     $output .='<tr class="text-center text-secondary">
                                 <td>'.$row->PCT.'</td>
                                 <td>'.$row->ANIMAL.'</td>
-                                <td>'.$row->ID_ORDER.'</td>
+                                <td>'.esc($row->ID_ORDER).'</td>
                                 <td>'.$row->ID_ORDER_IT.'</td>
                                 <td>'.$row->PACK_QUANTITY.'</td>
                                 <td>'.$row->PACK_CONSUMED.'</td>
@@ -573,11 +573,11 @@ class Orderx
                         <tbody>';
             foreach ($data as $row) {
                 $output .='<tr class="text-center text-secondary">
-                            <td>'.$row->ID.'</td>
-                            <td>'.$row->UPDATED.'</td>
-                            <td>'.$row->ID_ORDER.'</td>
-                            <td>'.$row->PAID_AMOUNT.'</td>
-                            <td>'.$row->PAYMENT_TYPE.'</td>
+                            <td>'.esc($row->ID).'</td>
+                            <td>'.esc($row->UPDATED).'</td>
+                            <td>'.esc($row->ID_ORDER).'</td>
+                            <td>'.esc($row->PAID_AMOUNT).'</td>
+                            <td>'.esc($row->PAYMENT_TYPE).'</td>
                             <td>'.($row->FLAG1==1?"■":"").'</td>
                             <td>
                                 '.(($orderpayment_edit_check) ? '<a href="'.ROOT."/OrderPayment/_update_payment?cli_id=$cli_id&order_id=$row->ID_ORDER&paym_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$cli_id.'" order_id="'.$row->ID_ORDER.'" paym_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
