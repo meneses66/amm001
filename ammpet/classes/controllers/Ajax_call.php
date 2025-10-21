@@ -28,6 +28,27 @@ class Ajax_call {
                 require_once $ctrlPath;
             }
 
+            // Allowlist: restrict which classes/methods can be called
+            $allowedClasses = [
+                'Animal','Breed','Client','OrderItem','OrderPayment','Orderx',
+                'Package','Params','PreClosing','Product','Salary','Service','Supplier'
+            ];
+            $allowedFixedMethods = [
+                'insert_call','update_call','delete_call','update_totals','update_payments',
+                'update_package','batch_confirm','update_comission','close_period','postpone_value_ajax',
+                'get_header'
+            ];
+            $isAllowed = in_array($className, $allowedClasses, true)
+                        && (
+                            preg_match('/^(load_|validate_)/', $method) === 1
+                            || in_array($method, $allowedFixedMethods, true)
+                        );
+            if (!$isAllowed) {
+                http_response_code(403);
+                echo 'Not allowed';
+                return;
+            }
+
             $fqcn = '\\Controller\\' . $className;
             if (!class_exists($fqcn)) {
                 http_response_code(404);
@@ -41,10 +62,12 @@ class Ajax_call {
                 return;
             }
 
-            // Log request metadata
-            $sesUser = $_SESSION['username'] ?? 'none';
-            $keys = implode(',', array_keys($_POST));
-            amm_log(date('H:i:s') . " AJAX_IN class={$className} method={$method} session={$sesUser} keys=[{$keys}] csrf_present=" . (isset($_POST['csrf_token']) ? 'yes' : 'no'));
+            // Conditional debug log for incoming request
+            if (defined('DEBUG') and DEBUG) {
+                $sesUser = $_SESSION['username'] ?? 'none';
+                $keys = implode(',', array_keys($_POST));
+                amm_log(date('H:i:s') . " AJAX_IN class={$className} method={$method} session={$sesUser} keys=[{$keys}] csrf_present=" . (isset($_POST['csrf_token']) ? 'yes' : 'no'));
+            }
 
             $class = new ($fqcn);
 
@@ -73,20 +96,25 @@ class Ajax_call {
 
                 $result = $class->$method($inputs);
             } catch (\Throwable $th) {
-                amm_log(date('H:i:s') . " AJAX_ERR class={$className} method={$method} error=" . $th->getMessage());
                 throw $th;
             }
 
             if (is_array($result)) {
                 print_r($result);
-                amm_log(date('H:i:s') . " AJAX_OUT class={$className} method={$method} type=array size=" . count($result));
+                if (defined('DEBUG') && DEBUG) {
+                    amm_log(date('H:i:s') . " AJAX_OUT class={$className} method={$method} type=array size=" . count($result));
+                }
             } elseif (is_string($result) && is_array(json_decode($result, true))) {
                 print_r(json_decode($result, true));
-                amm_log(date('H:i:s') . " AJAX_OUT class={$className} method={$method} type=json size=" . strlen($result));
+                if (defined('DEBUG') && DEBUG) {
+                    amm_log(date('H:i:s') . " AJAX_OUT class={$className} method={$method} type=json size=" . strlen($result));
+                }
             } else {
                 echo $result;
-                $len = is_string($result) ? strlen($result) : 0;
-                amm_log(date('H:i:s') . " AJAX_OUT class={$className} method={$method} type=string size={$len}");
+                if (defined('DEBUG') && DEBUG) {
+                    $len = is_string($result) ? strlen($result) : 0;
+                    amm_log(date('H:i:s') . " AJAX_OUT class={$className} method={$method} type=string size={$len}");
+                }
             }
         }
     }
