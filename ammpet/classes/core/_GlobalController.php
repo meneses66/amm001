@@ -171,9 +171,11 @@ Trait _GlobalController{
             $_SERVER['REQUEST_METHOD'] = 'POST';
             $_POST['class']="Orderx";
             $_POST['method']="insert_call";
+            $_POST['csrf_token'] = csrf_token();
             $_POST['Id_client']=$cli_id;
 
             $ajax_call = new('\Controller\\'."Ajax_call");
+            $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
             
         } else{
@@ -562,9 +564,11 @@ Trait _GlobalController{
                         $_SERVER['REQUEST_METHOD'] = 'POST';
                         $_POST['class']="Orderx";
                         $_POST['method']="update_totals";
+                        $_POST['csrf_token'] = csrf_token();
                         $_POST['Id']=$order_id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
+                        $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
 
                         //AFTER ORDER PAYMENTS HAS BEEN UPDATED, REDIRECTS TO ORDER DETAILS:
@@ -1031,9 +1035,11 @@ Trait _GlobalController{
                         $_SERVER['REQUEST_METHOD'] = 'POST';
                         $_POST['class']="Orderx";
                         $_POST['method']="update_totals";
+                        $_POST['csrf_token'] = csrf_token();
                         $_POST['Id']=$order_id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
+                        $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
             
                         /* FUNCTION update_payments merged into update_totals
@@ -1045,6 +1051,7 @@ Trait _GlobalController{
                         $_POST['Id']=$order_id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
+                        $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
                         */
 
@@ -1057,10 +1064,12 @@ Trait _GlobalController{
                             $_SERVER['REQUEST_METHOD'] = 'POST';
                             $_POST['class']="Package";
                             $_POST['method']="update_package";
+                            $_POST['csrf_token'] = csrf_token();
                             $_POST['Id_Package']=$package_id;
                             $_POST['Id']=$id;
 
                             $ajax_call = new('\Controller\\'."Ajax_call");
+                            $_POST['csrf_token'] = csrf_token();
                             $ajax_call->index();
                         }
                         
@@ -1085,8 +1094,10 @@ Trait _GlobalController{
                                 
                                 $_POST['class']="Package";
                                 $_POST['method']="insert_call";
+                                $_POST['csrf_token'] = csrf_token();
                     
                                 $ajax_call = new('\Controller\\'."Ajax_call");
+                                $_POST['csrf_token'] = csrf_token();
                                 $ajax_call->index();
                             }
 
@@ -1136,6 +1147,7 @@ Trait _GlobalController{
                                
                                 $_POST['class']="Salary";
                                 $_POST['method']="insert_call";
+                                $_POST['csrf_token'] = csrf_token();
                                 
                                 $_POST['Created_By']=$created_by2;
                                 $_POST['Updated_By']=$updated_by2;
@@ -1149,6 +1161,7 @@ Trait _GlobalController{
                                 $_POST['Postponed_Value']=0.00;
                     
                                 $ajax_call = new('\Controller\\'."Ajax_call");
+                                $_POST['csrf_token'] = csrf_token();
                                 $ajax_call->index();
                     
                                 break;
@@ -1166,9 +1179,11 @@ Trait _GlobalController{
                         $_SERVER['REQUEST_METHOD'] = 'POST';
                         $_POST['class']="Orderx";
                         $_POST['method']="update_totals";
+                        $_POST['csrf_token'] = csrf_token();
                         $_POST['Id']=$order_id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
+                        $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
 
                         //$path2 = "Orderx/_details?cli_id=".$_GET['cli_id']."&order_id=".$_GET['order_id'];
@@ -1256,6 +1271,7 @@ Trait _GlobalController{
                     $_POST['Id']=$order_id;
         
                     $ajax_call = new('\Controller\\'."Ajax_call");
+                    $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
         
                     /* FUNCTION update_payments merged into update_totals
@@ -1267,6 +1283,7 @@ Trait _GlobalController{
                     $_POST['Id']=$order_id;
         
                     $ajax_call = new('\Controller\\'."Ajax_call");
+                    $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                     */
         
@@ -1280,6 +1297,7 @@ Trait _GlobalController{
                         $_POST['Id']=$id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
+                        $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
                     }
                 break;
@@ -1294,6 +1312,7 @@ Trait _GlobalController{
                     $_POST['Id']=$order_id;
         
                     $ajax_call = new('\Controller\\'."Ajax_call");
+                    $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                     
                     break;
@@ -1377,6 +1396,7 @@ Trait _GlobalController{
             $_POST['Flag_Contrario']=0;
 
             $ajax_call = new('\Controller\\'."Ajax_call");
+            $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
             
         } else{
@@ -1425,6 +1445,7 @@ Trait _GlobalController{
             $_POST['Prod_Serv_Group']=$product_array->GROUP_X;
 
             $ajax_call = new('\Controller\\'."Ajax_call");
+            $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
             
         } else{

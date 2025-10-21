@@ -99,10 +99,11 @@ $(document).ready(function(){
         //var data_form2 = splitSerializedEncoded(data_form);
         data_form3 = splitUrlEncoded(data_form);
         //console.log("INSERT ACCESSED:"+data_form2);
+        const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
-            data: {class:"Salary", method:"insert_call", Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
+            data: {class:"Salary", method:"insert_call", csrf_token: csrf, Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
             success: function(response){
                 window.location.replace("/ammpet/public/Salary/_list");
               }
@@ -111,10 +112,11 @@ $(document).ready(function(){
     
     function update_salary(data_form, id){
         data_form3 = splitUrlEncoded(data_form);
+        const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
-            data: {class:"Salary", method:"update_call", Id:id, Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
+            data: {class:"Salary", method:"update_call", csrf_token: csrf, Id:id, Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
             success: function(response){
                 window.location.replace("/ammpet/public/Salary/_list");
             }
@@ -123,10 +125,11 @@ $(document).ready(function(){
 
     function postpone_value(data_form, id){
         data_form3 = splitUrlEncoded(data_form);
+        const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
-            data: {class:"Salary", method:"postpone_value_ajax", Id:id, Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
+            data: {class:"Salary", method:"postpone_value_ajax", csrf_token: csrf, Id:id, Created_By:data_form3.Created_By, Updated_by:data_form3.Updated_by, Id_Employee:data_form3.Id_Employee, Ref_Date:data_form3.Ref_Date, Salary_Item_Type:data_form3.Salary_Item_Type, Salary_Item_Value:data_form3.Salary_Item_Value, Salary_Item_Status:data_form3.Salary_Item_Status, Original_Value:data_form3.Original_Value, Postponed_Value:data_form3.Postponed_Value, Salary_Item_Description:data_form3.Salary_Item_Description},
             success: function(response){
                 window.location.replace("/ammpet/public/Salary/_list");
             }
@@ -143,4 +146,3 @@ $(document).ready(function(){
       }
 
 });
-

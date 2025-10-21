@@ -314,6 +314,7 @@ class Salary {
             $_POST['type']="static";
 
             $ajax_call = new('\Controller\\'."Ajax_call");
+            $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
             
             //INSERT NEW RECORD WITH POSTPONED VALEU:
@@ -356,6 +357,7 @@ class Salary {
             $_POST['type']="static";
 
             $ajax_call = new('\Controller\\'."Ajax_call");
+            $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
 
         }

@@ -42,10 +42,11 @@ function round(num, decimalPlaces = 0) {
 }
 
 function update_sequence(id_package){
+    const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     $.ajax({
         url: "/ammpet/public/Ajax_call",
         type: "POST",
-        data: {class:"Package", method:"get_next_pkg_sequence", Id_Package:id_package},
+        data: {class:"Package", method:"get_next_pkg_sequence", csrf_token: csrf, Id_Package:id_package},
         success: function(response){
             var result = response;
             var sequence_updated = Number(result)+1;

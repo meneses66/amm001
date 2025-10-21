@@ -2,25 +2,40 @@
 
 defined('ROOTPATH') OR exit('Access denied!');
 
-spl_autoload_register(function($className){
+spl_autoload_register(function($fqcn){
 
-    $className = explode("\\", $className);
-    $className = end($className);
-    $folderClasses = '../classes/';
+    // Base path for classes directory using ROOTPATH_CLASSES (classes/core/) -> up to classes/
+    $base = removeFromEnd(ROOTPATH_CLASSES, 'core/');
 
-    $possibleFolderPaths = [
-        $folderClasses,
-        $folderClasses . 'models/',
-        $folderClasses . 'views/',
-        $folderClasses . 'controllers/'
-        #$folderClasses . 'core/'
-    ];
+    // Normalize namespace and class
+    $parts = explode('\\\\', $fqcn);
+    $top = $parts[0] ?? '';
+    $class = end($parts);
 
-    foreach($possibleFolderPaths as $currentFolder){
-        $fileName = $currentFolder . $className . '.php';
-        if (file_exists($fileName)){
-            require_once $fileName;
+    $paths = [];
+    switch ($top) {
+        case 'Controller':
+            $paths[] = $base . 'controllers/' . $class . '.php';
             break;
+        case 'Model':
+            $paths[] = $base . 'models/' . $class . '.php';
+            break;
+        case 'Core':
+            $paths[] = $base . 'core/' . $class . '.php';
+            break;
+        default:
+            // Fallback search order: controllers, models, views, base
+            $paths[] = $base . 'controllers/' . $class . '.php';
+            $paths[] = $base . 'models/' . $class . '.php';
+            $paths[] = $base . 'views/' . $class . '.php';
+            $paths[] = $base . $class . '.php';
+            break;
+    }
+
+    foreach ($paths as $file) {
+        if (file_exists($file)) {
+            require_once $file;
+            return;
         }
     }
 });

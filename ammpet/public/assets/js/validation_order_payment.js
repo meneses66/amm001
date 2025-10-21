@@ -8,6 +8,7 @@ $(document).ready(function(){
         data_form_array = splitUrlEncoded(data_form);
         const cli_id = data_form_array.Id_Client;
         const order_id = data_form_array.Id_Order;
+        const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         $.ajax({
             url: "/ammpet/public/Ajax_call",
             type: "POST",
@@ -15,6 +16,7 @@ $(document).ready(function(){
                     operation: "submit", 
                     class:"OrderPayment", 
                     method:"validate_order_payment", 
+                    csrf_token: csrf,
                     Id:data_form_array.Id, 
                     Created_By:data_form_array.Created_By, 
                     Updated_By:data_form_array.Updated_By,

@@ -576,10 +576,12 @@ class OrderItem {
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
                     $ajax_call = new('\Controller\\'."Ajax_call");
+                    $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 } else{
                     $_POST['method']="update_call";
                     $ajax_call = new('\Controller\\'."Ajax_call");
+                    $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 }
             }

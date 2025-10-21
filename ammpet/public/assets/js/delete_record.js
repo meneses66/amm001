@@ -9,6 +9,7 @@ $("body").on("click", ".deleteXBtn", function(e){
     var order_id = $(this).attr('order_id');
     var package_id = $(this).attr('package_id');
     var classforjs = $(this).attr('classforjs');
+    const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
     Swal.fire({
         title: "Are you sure? Delete: " + del_id,
         text: "You won't be able to revert this!",
@@ -22,7 +23,7 @@ $("body").on("click", ".deleteXBtn", function(e){
                 $.ajax({
                     url:"/ammpet/public/Ajax_call",
                     type: "POST",
-                    data:{del_id:del_id, class:classforjs, method:"delete_call", order_id:order_id, package_id:package_id},
+                    data:{del_id:del_id, class:classforjs, method:"delete_call", csrf_token: csrf, order_id:order_id, package_id:package_id},
                     success:function(response){
                         tr.css('background-color', '#ff6666');
                         window.location.reload()

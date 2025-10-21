@@ -625,6 +625,7 @@ class Orderx
                     //$_POST['type']="static";
 
                     $ajax_call = new('\Controller\\'."Ajax_call");
+                    $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();    
                 } else{
                     $_SERVER['REQUEST_METHOD']="POST";
@@ -641,6 +642,7 @@ class Orderx
                     //$_POST['type']="static";
 
                     $ajax_call = new('\Controller\\'."Ajax_call");
+                    $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
 
                 }

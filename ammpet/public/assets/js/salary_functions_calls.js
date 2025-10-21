@@ -17,6 +17,7 @@ $(document).ready(function(){
 		}).then((result) => {
 				if (result.isConfirmed) {
 					//AJAX
+                    const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                     $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
@@ -24,6 +25,7 @@ $(document).ready(function(){
                                 operation: "submit", 
                                 class:"Salary", 
                                 method:"update_comission", 
+                                csrf_token: csrf,
                                 Year:year, 
                                 Month:month
                         },
@@ -53,6 +55,7 @@ $(document).ready(function(){
 		}).then((result) => {
 				if (result.isConfirmed) {
 					//AJAX
+                    const csrf2 = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                     $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
@@ -60,6 +63,7 @@ $(document).ready(function(){
                                 operation: "submit", 
                                 class:"Salary", 
                                 method:"batch_confirm", 
+                                csrf_token: csrf2,
                                 Year:year, 
                                 Month:month
                         },
@@ -90,6 +94,7 @@ $(document).ready(function(){
 		}).then((result) => {
 				if (result.isConfirmed) {
 					//AJAX
+                    const csrf3 = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                     $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
@@ -97,6 +102,7 @@ $(document).ready(function(){
                                 operation: "submit", 
                                 class:"Salary", 
                                 method:"close_period", 
+                                csrf_token: csrf3,
                                 Year:year, 
                                 Month:month
                         },

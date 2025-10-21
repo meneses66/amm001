@@ -20,6 +20,12 @@ class Ajax_call {
                 $inputs[$key] = $value;
             }
 
+            // Ensure controller file is loaded from controllers directory to avoid model namespace collisions
+            $ctrlPath = removeFromEnd(ROOTPATH_CLASSES, 'core/') . 'controllers/' . $className . '.php';
+            if (file_exists($ctrlPath)) {
+                require_once $ctrlPath;
+            }
+
             $fqcn = '\\Controller\\' . $className;
             if (!class_exists($fqcn)) {
                 http_response_code(404);
@@ -36,9 +42,21 @@ class Ajax_call {
             $class = new ($fqcn);
 
             try {
-                // If a CSRF token is provided, validate it (gradual adoption)
+                // Require CSRF token for mutating methods; validate if provided otherwise
+                $mutatingMethods = [
+                    'insert_call','update_call','delete_call',
+                    'update_totals','update_payments','update_package',
+                    'batch_confirm','update_comission','close_period',
+                    'postpone_value_ajax'
+                ];
                 $token = $_POST['csrf_token'] ?? null;
-                if ($token !== null && !\csrf_validate($token)) {
+                if (in_array($method, $mutatingMethods, true)) {
+                    if ($token === null || !csrf_validate($token)) {
+                        http_response_code(419);
+                        echo 'Invalid CSRF token';
+                        return;
+                    }
+                } elseif ($token !== null && !csrf_validate($token)) {
                     http_response_code(419);
                     echo 'Invalid CSRF token';
                     return;
@@ -66,3 +84,4 @@ class Ajax_call {
     }
 
 }
+
