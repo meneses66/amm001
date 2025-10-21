@@ -22,7 +22,7 @@ $output = '<script type="text/javascript">
                         confirmButtonText: "Yes, delete it!"
                     }).then((result) => {
                             if (result.isConfirmed) {
-                                const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                                const csrf = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
                                 $.ajax({
                                     url:"/ammpet/public/Ajax_call",
                                     type: "POST",
@@ -40,7 +40,7 @@ $output = '<script type="text/javascript">
                     e.preventDefault();
                     var tr = $(this).closest(\'tr\');
                     cli_id = $(this).attr(\'cli_id\');
-                        const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                        const csrf = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
                         $.ajax({
                             url:"/ammpet/public/Ajax_call",
                             type: "POST",
@@ -56,38 +56,38 @@ $output = '<script type="text/javascript">
 
             //Function to load the rows in table:
             function load_rows(){
-                const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                const csrf = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
                 $.ajax({
                     url: "/ammpet/public/Ajax_call",
                     type: "POST",
                     data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", csrf_token: csrf, cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                     success: function(response){
-                        try { console.log('load_rows response length:', (response||'').length); console.debug('load_rows snippet:', (response||'').substring(0,200)); } catch(e) {}
+                        try { console.log(\'load_rows response length:\', (response||\'\').length); console.debug(\'load_rows snippet:\', (response||\'\').substring(0,200)); } catch(e) {}
                         $(\'#_table\').html(response);
                         format_table();
                     },
                     error: function(xhr, status, err){
-                        console.error('load_rows AJAX error:', status, err, (xhr && xhr.responseText ? xhr.responseText.substring(0,200) : ''));
+                        console.error(\'load_rows AJAX error:\', status, err, (xhr && xhr.responseText ? xhr.responseText.substring(0,200) : \'\'));
                     }
                 });
             }
 
             //Function to reload the rows in table when record is deleted:
             function reload_rows(){
-                const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                const csrf = document.querySelector("meta[name=\"csrf-token\"]").getAttribute("content");
                 $.ajax({
                         url: "/ammpet/public/Ajax_call",
                         type: "POST",
                         data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", csrf_token: csrf, cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                         success: function(response){
-                            try { console.log('reload_rows response length:', (response||'').length); console.debug('reload_rows snippet:', (response||'').substring(0,200)); } catch(e) {}
+                            try { console.log(\'reload_rows response length:\', (response||\'\').length); console.debug(\'reload_rows snippet:\', (response||\'\').substring(0,200)); } catch(e) {}
                             table = $(\'#_table\').DataTable();
                             table.destroy();
                             $(\'#_table\').html(response);
                             format_table();
                         },
                         error: function(xhr, status, err){
-                            console.error('reload_rows AJAX error:', status, err, (xhr && xhr.responseText ? xhr.responseText.substring(0,200) : ''));
+                            console.error(\'reload_rows AJAX error:\', status, err, (xhr && xhr.responseText ? xhr.responseText.substring(0,200) : \'\'));
                         }
                 });                    
             }
