@@ -10,6 +10,8 @@ class Ajax_call {
     
     public function index()
     {
+        // Ensure session is available for permission checks inside controllers
+        restart_session();
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['class']) && isset($_POST['method'])) {
             // Sanitize class and method names
             $className = preg_replace('/[^A-Za-z0-9_]/', '', $_POST['class']);
