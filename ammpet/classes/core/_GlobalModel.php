@@ -94,7 +94,10 @@ Trait _GlobalModel{
 
         $all_inputs =array_merge($inputs, $inputs_not);
 
-        return $this->query($sql_stm, $all_inputs);
+        $res = $this->query($sql_stm, $all_inputs);
+        $count = is_array($res) ? count($res) : 0;
+        amm_log(date('H:i:s') . " LIST_WHERE table={$this->table} keys=" . implode(',', array_keys($all_inputs)) . " count={$count}");
+        return $res;
 
 	}
 

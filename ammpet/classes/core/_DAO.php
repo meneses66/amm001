@@ -27,7 +27,8 @@ Trait _DAO{
       return $conn;
 
     } catch(PDOException $e) {
-      // Avoid echoing sensitive connection details; log instead if needed
+      // Avoid echoing sensitive connection details; log to file
+      amm_log(date('H:i:s') . ' DB_CONNECT_ERR ' . $e->getMessage());
       echo "Database connection failed.";
     }
   
