@@ -251,9 +251,9 @@ class Client
                             <td>'.esc($row->STATUS).'</td>
                             <td>'.esc($row->ANIMALS).'</td>
                             <td>
-                                '.(($inputs_buttons == 'Orderx' && $orderx_add_check) ? "<a href=\"" . ROOT . "/Orderx/_new_order?cli_id=$row->ID\" title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id= .$row->ID . ><i class=\"fas fa-plus\"></i></a>" : "").'
-                                '.(($inputs_buttons == "Client" && $client_edit_check) ? "<a href=\"" . ROOT . "/Client/_new?id=$row->ID\" title=\"Edit\" class=\"text-primary updateBtn\" cli_id=" . $row->ID . "><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
-                                '.(($inputs_buttons == 'Client' && $client_delete_check) ? "<a href=\"" . ROOT . "/Client/_delete?id=$row->ID\" title=\"Delete\" class=\"text-danger deleteBtn\" id=" . $row->ID . "><i class=\"fas fa-eraser\"></i></a>" : "").'
+                                '.(($inputs_buttons == 'Orderx' && $orderx_add_check) ? "<a href=\"" . ROOT . "/Orderx/_new_order?cli_id=" . esc($row->ID) . "\" title=\"New_Order\" class=\"text-primary newOrderBtn\" cli_id=\"" . esc($row->ID) . "\"><i class=\"fas fa-plus\"></i></a>" : "").'
+                                '.(($inputs_buttons == "Client" && $client_edit_check) ? "<a href=\"" . ROOT . "/Client/_new?id=" . esc($row->ID) . "\" title=\"Edit\" class=\"text-primary updateBtn\" cli_id=\"" . esc($row->ID) . "\"><i class=\"fas fa-edit\"></i></a>&nbsp;&nbsp" : "").'
+                                '.(($inputs_buttons == 'Client' && $client_delete_check) ? "<a href=\"" . ROOT . "/Client/_delete?id=" . esc($row->ID) . "\" title=\"Delete\" class=\"text-danger deleteBtn\" id=\"" . esc($row->ID) . "\"><i class=\"fas fa-eraser\"></i></a>" : "").'
                             </td></tr>';
             }
             $output .= '</tbody>

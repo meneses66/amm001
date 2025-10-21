@@ -81,8 +81,8 @@ class Orderx
                             <td>'.esc($row->ORDER_DEBT).'</td>
                             <td>'.esc($row->STATUS).'</td>
                             <td>
-                                <a href="'.ROOT."/$this->UCF_object/_order_details?cli_id=$row->ID_CLIENT&order_id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
-                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>
+                                <a href="'.ROOT.'/'.$this->UCF_object.'/_order_details?cli_id='.esc($row->ID_CLIENT).'&order_id='.esc($row->ID).'" title="Edit" class="text-primary updateBtn" id="'.esc($row->ID).'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;
+                                <a href="'.ROOT."/$this->UCF_object/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.esc($row->ID).'"><i class="fas fa-eraser"></i></a>
                             </td></tr>';
             }
             $output .= '</tbody>

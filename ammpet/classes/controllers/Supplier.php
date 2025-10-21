@@ -250,8 +250,8 @@ class Supplier {
                             <td>'.esc($row->HIRE_DATE).'</td>
                             <td>'.esc($row->COMMENT).'</td>
                             <td>
-                                '.(($supplier_edit_check) ? '<a href="'.ROOT."/Supplier/_new?id=$row->ID".'" title="Edit" class="text-primary updateBtn" id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
-                                '.(($supplier_delete_check) ? '<a href="'.ROOT."/Supplier/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteBtn" id="'.$row->ID.'"><i class="fas fa-eraser"></i></a>' : '').'
+                                '.(($supplier_edit_check) ? '<a href="'.ROOT.'/Supplier/_new?id='.esc($row->ID).'" title="Edit" class="text-primary updateBtn" id="'.esc($row->ID).'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                '.(($supplier_delete_check) ? '<a href="'.ROOT.'/Supplier/_delete?id='.esc($row->ID).'" title="Delete" class="text-danger deleteBtn" id="'.esc($row->ID).'"><i class="fas fa-eraser"></i></a>' : '').'
                             </td></tr>';
             }
             $output .= '</tbody>
