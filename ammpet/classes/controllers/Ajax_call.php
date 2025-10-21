@@ -39,6 +39,11 @@ class Ajax_call {
                 return;
             }
 
+            // Log request metadata
+            $sesUser = $_SESSION['username'] ?? 'none';
+            $keys = implode(',', array_keys($_POST));
+            amm_log(date('H:i:s') . " AJAX_IN class={$className} method={$method} session={$sesUser} keys=[{$keys}] csrf_present=" . (isset($_POST['csrf_token']) ? 'yes' : 'no'));
+
             $class = new ($fqcn);
 
             try {
@@ -66,15 +71,20 @@ class Ajax_call {
 
                 $result = $class->$method($inputs);
             } catch (\Throwable $th) {
+                amm_log(date('H:i:s') . " AJAX_ERR class={$className} method={$method} error=" . $th->getMessage());
                 throw $th;
             }
-            
+
             if (is_array($result)) {
                 print_r($result);
+                amm_log(date('H:i:s') . " AJAX_OUT class={$className} method={$method} type=array size=" . count($result));
             } elseif (is_string($result) && is_array(json_decode($result, true))) {
                 print_r(json_decode($result, true));
+                amm_log(date('H:i:s') . " AJAX_OUT class={$className} method={$method} type=json size=" . strlen($result));
             } else {
                 echo $result;
+                $len = is_string($result) ? strlen($result) : 0;
+                amm_log(date('H:i:s') . " AJAX_OUT class={$className} method={$method} type=string size={$len}");
             }
         }
     }

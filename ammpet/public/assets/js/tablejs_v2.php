@@ -62,8 +62,12 @@ $output = '<script type="text/javascript">
                     type: "POST",
                     data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", csrf_token: csrf, cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                     success: function(response){
+                        try { console.log('load_rows response length:', (response||'').length); console.debug('load_rows snippet:', (response||'').substring(0,200)); } catch(e) {}
                         $(\'#_table\').html(response);
                         format_table();
+                    },
+                    error: function(xhr, status, err){
+                        console.error('load_rows AJAX error:', status, err, (xhr && xhr.responseText ? xhr.responseText.substring(0,200) : ''));
                     }
                 });
             }
@@ -76,10 +80,14 @@ $output = '<script type="text/javascript">
                         type: "POST",
                         data: {operation:"view", class:"'.$GLOBALS['classnamejs'].'", method:"load_rows", csrf_token: csrf, cli_id: "'.$GLOBALS['cli_id_js'].'", order_id: "'.$GLOBALS['order_id_js'].'", buttons: "'.$GLOBALS['buttonenablerjs'].'"},
                         success: function(response){
+                            try { console.log('reload_rows response length:', (response||'').length); console.debug('reload_rows snippet:', (response||'').substring(0,200)); } catch(e) {}
                             table = $(\'#_table\').DataTable();
                             table.destroy();
                             $(\'#_table\').html(response);
                             format_table();
+                        },
+                        error: function(xhr, status, err){
+                            console.error('reload_rows AJAX error:', status, err, (xhr && xhr.responseText ? xhr.responseText.substring(0,200) : ''));
                         }
                 });                    
             }
