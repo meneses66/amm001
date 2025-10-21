@@ -56,10 +56,6 @@ class Ajax_call {
                         echo 'Invalid CSRF token';
                         return;
                     }
-                } elseif ($token !== null && !csrf_validate($token)) {
-                    http_response_code(419);
-                    echo 'Invalid CSRF token';
-                    return;
                 }
 
                 if (!method_exists($class, $method)) {
@@ -84,4 +80,3 @@ class Ajax_call {
     }
 
 }
-
