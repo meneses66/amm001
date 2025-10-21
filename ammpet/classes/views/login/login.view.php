@@ -13,7 +13,7 @@
 
 			<input type="hidden" name="op" value="signin">			
 			
-            <div style="font-size: 20px;font-family: sans-serif;margin: 5px;color: white;">Login:</div>
+            <div style="font-size: 20px;font-family: sans-serif;margin: 5px;color: white;">Login2:</div>
             <input id="login" type="text" name="login" size="20" value=""><br><br>
 
             <div style="font-size: 20px;font-family: sans-serif;margin: 5px;color: white;">Password:</div>
