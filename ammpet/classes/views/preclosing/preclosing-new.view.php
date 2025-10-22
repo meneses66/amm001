@@ -30,6 +30,8 @@ $_SESSION['LAST_ACTIVE']=time();?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
+        <!-- Selectors JS (load employees) -->
+        <script src="<?php echo ROOT;?>/assets/js/selectors_employee.js"></script>
         <!-- Form Validation JS-->
         <script src="<?php echo ROOT;?>/assets/js/validation_preclosing.js"></script>
     </body>

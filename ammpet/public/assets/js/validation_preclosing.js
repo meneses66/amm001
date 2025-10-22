@@ -1,5 +1,16 @@
 $(document).ready(function(){
     
+    // Load employee options into the dropdown if present
+    try{
+        let temp_id_employee_el = document.getElementById("temp_id_employee");
+        if (temp_id_employee_el && typeof load_employee === 'function') {
+            let temp_id_employee = temp_id_employee_el.value;
+            load_employee(temp_id_employee);
+        }
+    }catch(e){
+        // no-op if selector script not loaded
+    }
+    
     document.getElementById("button").onclick= function(event) {
         event.preventDefault();
 
