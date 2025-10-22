@@ -52,8 +52,13 @@ function show($anything){
     echo "</pre>";
 }
 
-function esc($str){
-    return htmlspecialchars($str);
+function esc($str): string {
+    // Handle nulls to avoid PHP 8.1+ deprecation
+    if ($str === null) {
+        return '';
+    }
+    // Cast scalars/objects implementing __toString to string and escape
+    return htmlspecialchars((string)$str, ENT_QUOTES, 'UTF-8');
 }
 
 function redirect($path){
