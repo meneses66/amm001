@@ -17,7 +17,7 @@ class PreClosing {
 
         //SESSION TO LOAD HTML FORMS:
     //LOAD HTML FORM FOR UPDATING RECORD
-    public function load_preclosing_form($inputs){
+    public function load_preclosing_form($inputs = []){
 
         if (isset($_GET['id'])){
 
@@ -65,6 +65,13 @@ class PreClosing {
             $d30 = "";
             $d31 = "";
             $serv_count = "";
+
+            // Initialize generic fields used in form when creating new record
+            $name = "";
+            $type = "";
+            $value = "";
+            $status = "";
+            $comment = "";
 
  
             if (!($id=='new')) {
