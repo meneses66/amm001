@@ -323,7 +323,7 @@ class Client
                             <td>'.esc($row->STATUS).'</td>
                             <td>'.esc($row->ANIMALS).'</td>
                             <td>
-                                <a href="'.ROOT."/Orderx/insert_call?cli_id=$row->ID".'" title="New_Order" class="text-primary newOrderBtn" cli_id="'.$row->ID.'"><i class="fas fa-donate"></i></a>&nbsp;&nbsp;
+                                <a href="'.ROOT.'/Orderx/insert_call?cli_id='.esc($row->ID).'" title="New_Order" class="text-primary newOrderBtn" cli_id="'.esc($row->ID).'"><i class="fas fa-donate"></i></a>&nbsp;&nbsp;
                             </td></tr>';
             }
             $output .= '</tbody>';

@@ -444,8 +444,8 @@ class Orderx
                                 <td>'.$animal_name.'</td>
                                 <td>'.$row->PACKAGE_SEQUENCE.'</td>
                                 <td>
-                                    '.(($orderitem_edit_check) ? '<a href="'.ROOT.'/OrderItem/_updateService?cli_id='.$row->ID_CLIENT.'&order_id='.$row->ID_ORDER.'&item_id='.$row->ID.'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
-                                    '.(($orderitem_delete_check) ? '<a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_PACKAGE.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>' : '').'   
+                                    '.(($orderitem_edit_check) ? '<a href="'.ROOT.'/OrderItem/_updateService?cli_id='.esc($row->ID_CLIENT).'&order_id='.esc($row->ID_ORDER).'&item_id='.esc($row->ID).'" title="Edit" class="text-primary updateBtn" cli_id="'.esc($row->ID_CLIENT).'" order_id="'.esc($row->ID_ORDER).'" item_id="'.esc($row->ID).'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                    '.(($orderitem_delete_check) ? '<a href="'.ROOT.'/OrderItem/_delete?id='.esc($row->ID).'" title="Delete" class="text-danger deleteXBtn" id="'.esc($row->ID).'" order_id="'.esc($row->ID_ORDER).'" package_id="'.esc($row->ID_PACKAGE).'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>' : '').'   
                                 </td>
                                </tr>';
                 }
@@ -515,8 +515,8 @@ class Orderx
                                 <td>'.$row->VALUE_WITH_DISCOUNT.'</td>
                                 <td>'.$row->SALESPERSON.'</td>
                                 <td>
-                                    '.(($orderitemprod_edit_check) ? '<a href="'.ROOT."/OrderItem/_updateProduct?cli_id=$row->ID_CLIENT&order_id=$row->ID_ORDER&item_id=$row->ID".'" title="Edit" class="text-primary updateBtn" cli_id="'.$row->ID_CLIENT.'" order_id="'.$row->ID_ORDER.'" item_id="'.$row->ID.'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
-                                    '.(($orderitemprod_delete_check) ? '<a href="'.ROOT."/OrderItem/_delete?id=$row->ID".'" title="Delete" class="text-danger deleteXBtn" id="'.$row->ID.'" order_id="'.$row->ID_ORDER.'" package_id="'.$row->ID_PACKAGE.'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>' : '').'
+                                    '.(($orderitemprod_edit_check) ? '<a href="'.ROOT.'/OrderItem/_updateProduct?cli_id='.esc($row->ID_CLIENT).'&order_id='.esc($row->ID_ORDER).'&item_id='.esc($row->ID).'" title="Edit" class="text-primary updateBtn" cli_id="'.esc($row->ID_CLIENT).'" order_id="'.esc($row->ID_ORDER).'" item_id="'.esc($row->ID).'"><i class="fas fa-edit"></i></a>&nbsp;&nbsp;' : '').'
+                                    '.(($orderitemprod_delete_check) ? '<a href="'.ROOT.'/OrderItem/_delete?id='.esc($row->ID).'" title="Delete" class="text-danger deleteXBtn" id="'.esc($row->ID).'" order_id="'.esc($row->ID_ORDER).'" package_id="'.esc($row->ID_PACKAGE).'" classforjs="OrderItem"><i class="fas fa-eraser"></i></a>' : '').'
                                 </td>
                                </tr>';
                 }
