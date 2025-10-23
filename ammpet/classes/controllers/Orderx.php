@@ -408,7 +408,8 @@ class Orderx
                     } else{
                         $animal_input['ID']= $row->ID_PACKAGE_ANIMAL;
                         $animal = new('\Model\\'."Animal");
-                        $animal_name = $animal->getRow($animal_input)->NAME;
+                        $animal_row = $animal->getRow($animal_input);
+                        $animal_name = $animal_row ? $animal_row->NAME : '';
                         $animal = null;
                     }
                     */
@@ -417,22 +418,28 @@ class Orderx
                     if ($row->ID_PACKAGE==1) {
                         $animal_input['ID']= $row->ID_PACKAGE_ANIMAL;
                         $animal = new('\Model\\'."Animal");
-                        $animal_name = $animal->getRow($animal_input)->NAME;
+                        $animal_row = $animal->getRow($animal_input);
+                        $animal_name = $animal_row ? $animal_row->NAME : '';
                         $animal = null;
                         unset($animal_input);
 
                     } else {
                         $package_input['ID']=$row->ID_PACKAGE;
                         $package = new('\Model\\'."Package");
-                        $animal_input['ID'] = $package->getRow($package_input)->ID_ANIMAL;
-                        $animal = new('\Model\\'."Animal");
-                        $animal_name = $animal->getRow($animal_input)->NAME;
-
+                        $package_row = $package->getRow($package_input);
+                        if ($package_row && !empty($package_row->ID_ANIMAL)) {
+                            $animal_input['ID'] = $package_row->ID_ANIMAL;
+                            $animal = new('\Model\'."Animal");
+                            $animal_row = $animal->getRow($animal_input);
+                            $animal_name = $animal_row ? $animal_row->NAME : '';
+                            $animal = null;
+                            unset($animal_input);
+                        } else {
+                            $animal_name = '';
+                        }
                         $package = null;
                         $package_ani_id = null;
                         unset($package_input);
-                        $animal = null;
-                        unset($animal_input);
                     }
 
                     $output .='<tr class="text-center text-secondary">
