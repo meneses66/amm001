@@ -429,7 +429,7 @@ class Orderx
                         $package_row = $package->getRow($package_input);
                         if ($package_row && !empty($package_row->ID_ANIMAL)) {
                             $animal_input['ID'] = $package_row->ID_ANIMAL;
-                            $animal = new('\Model\'."Animal");
+                            $animal = new('\Model\\'."Animal");
                             $animal_row = $animal->getRow($animal_input);
                             $animal_name = $animal_row ? $animal_row->NAME : '';
                             $animal = null;
