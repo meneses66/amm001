@@ -12,7 +12,6 @@ Create Table SUPPLIER
     ROLE Varchar(15),
     CNPJ Varchar(30),
     CPF Varchar(20),
-    TYPE Varchar(15),
     HIRE_DATE date,
     STATUS Varchar(15),
     COMMENT Varchar(200),
