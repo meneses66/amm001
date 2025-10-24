@@ -97,6 +97,9 @@ class PreClosing {
                     $comission_prod = $data_form['COMISSION_PROD'];
                     $comission_serv = $data_form['COMISSION_SERV'];
                     $status = $data_form['STATUS'];
+                    // Map legacy values to new read-only domain (Aberto/Fechado)
+                    if ($status === 'Ativo') { $status = 'Aberto'; }
+                    if ($status === 'Desativado') { $status = 'Fechado'; }
                     $d01 = $data_form['D01'];
                     $d02 = $data_form['D02'];
                     $d03 = $data_form['D03'];
@@ -137,6 +140,12 @@ class PreClosing {
                 }
                 unset($data_form);
                 unset($inputs);
+            } else {
+                // Defaults for new record
+                $status = 'Aberto';
+                $d01 = $d02 = $d03 = $d04 = $d05 = $d06 = $d07 = $d08 = $d09 = $d10 =
+                $d11 = $d12 = $d13 = $d14 = $d15 = $d16 = $d17 = $d18 = $d19 = $d20 =
+                $d21 = $d22 = $d23 = $d24 = $d25 = $d26 = $d27 = $d28 = $d29 = $d30 = $d31 = '100';
             }
 
                 //START TO LOAD THE UPDATE FORM:
@@ -157,20 +166,44 @@ class PreClosing {
                                 <div class="col-sm-1">
                                     <label for="year" class="medium-label">Ano:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <input id="year" type="number" min="2000" max="2100" name="Year" value="'.$year.'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="month" class="medium-label">Mês:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <input id="month" type="number" min="1" max="12" name="Month" value="'.$month.'">
                                 </div>
+                                <div class="col-sm-2 text-right">
+                                    <label for="number_banhistas" class="medium-label">Nº Banhistas:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="number_banhistas" type="number" min="0" step="1" name="Number_Banhistas" value="" style="width:100%;" title="Se vazio ou alterado, fica vermelho. Clique em Update para salvar.">
+                                    <input id="banhistas_param_id" type="hidden" value="new">
+                                    <input id="banhistas_param_type" type="hidden" value="BANHISTAS_PRE_CLOSING">
+                                    <small id="banhistas_help" class="form-text text-muted">Se vazio ou alterado, fica vermelho. Clique em "Update" para salvar; após salvo, fica verde.</small>
+                                </div>
+                                <div class="col-sm-1">
+                                    <button id="banhistas_update_btn" type="button" class="btn btn-sm btn-primary" style="width:100%;">Update</button>
+                                </div>
+                            </div><br>
+                            <div class="row">
                                 <div class="col-sm-1">
                                     <label for="id_employee" class="medium-label">Funcionário:</label>
                                 </div>
                                 <div class="col-sm-3">
                                     <select class="medium-label" id="id_employee" name="Id_Employee"></select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label for="status" class="medium-label">Status:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select class="medium-label" id="status_display" disabled>
+                                        <option class="medium-label" value="Aberto" '.(($status == 'Aberto')?"selected":"").'>Aberto</option>
+                                        <option class="medium-label" value="Fechado" '.(($status == 'Fechado')?"selected":"").'>Fechado</option>
+                                    </select>
+                                    <input type="hidden" id="status" name="Status" value="'.$status.'">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -185,15 +218,6 @@ class PreClosing {
                                 </div>
                                 <div class="col-sm-3">
                                     <input id="comission_serv" type="text" size="15" name="Comission_Serv" value="'.$comission_serv.'">
-                                </div>
-                                <div class="col-sm-1">
-                                    <label for="status" class="medium-label">Status:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <select class="medium-label" id="status" name="Status">
-                                        <option class="medium-label" value="Ativo" '.(($status == 'Ativo')?"selected":"").'>Ativo</option>
-                                        <option class="medium-label" value="Desativado" '.(($status == 'Desativado')?"selected":"").'>Desativado</option>
-                                    </select>
                                 </div>
                             </div><br>
                             <div class="row">
@@ -275,8 +299,8 @@ class PreClosing {
                             $sql_stm = null;
                             $data = null;
                             $model = null;
-                            echo $output;
-         
+            echo $output;
+        
         } else{
             $sql_stm = null;
             $data = null;
@@ -284,6 +308,30 @@ class PreClosing {
             show("No record to display!");
         }
 
+    }
+
+    // Auxiliary AJAX: fetch BANHISTAS_PRE_CLOSING param by Year+Month
+    // Returns string: "<ID>|<VALUE>" or "new|" if not found
+    public function load_banhistas_info($inputs){
+        $year = isset($inputs['Year']) ? trim($inputs['Year']) : '';
+        $month = isset($inputs['Month']) ? trim($inputs['Month']) : '';
+        if ($year === '' || $month === '') {
+            return 'new|';
+        }
+        // Ensure month is 2 digits
+        $month = str_pad((string)intval($month), 2, '0', STR_PAD_LEFT);
+        $name = $year.$month; // e.g., 202510
+
+        // Reuse Params controller to fetch
+        $paramsCtrl = new('\\Controller\\'.'Params');
+        $res = $paramsCtrl->getParamValue('BANHISTAS_PRE_CLOSING', $name, 'Ativo');
+        if ($res === false) {
+            return 'new|';
+        }
+        // $res is likely an object with ID and VALUE
+        $id = $res->ID ?? 'new';
+        $val = $res->VALUE ?? '';
+        return $id.'|'.$val;
     }
 
     //LOAD HTML FOR LISTING RECORDS IN TABLE
