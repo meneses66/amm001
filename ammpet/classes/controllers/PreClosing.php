@@ -181,7 +181,7 @@ class PreClosing {
                                 <div class="col-sm-2">
                                     <input id="number_banhistas" type="number" min="0" step="1" name="Number_Banhistas" value="" style="width:100%;" title="Se vazio ou alterado, fica vermelho. Clique em Update para salvar.">
                                     <input id="banhistas_param_id" type="hidden" value="new">
-                                    <input id="banhistas_param_type" type="hidden" value="BANHISTAS_PRE_CLOSING">
+                                    <input id="banhistas_param_type" type="hidden" value="BAN_PRE_CLOSING">
                                     <small id="banhistas_help" class="form-text text-muted">Se vazio ou alterado, fica vermelho. Clique em "Update" para salvar; após salvo, fica verde.</small>
                                 </div>
                                 <div class="col-sm-1">
@@ -310,7 +310,7 @@ class PreClosing {
 
     }
 
-    // Auxiliary AJAX: fetch BANHISTAS_PRE_CLOSING param by Year+Month
+    // Auxiliary AJAX: fetch BAN_PRE_CLOSING param by Year+Month
     // Returns string: "<ID>|<VALUE>" or "new|" if not found
     public function load_banhistas_info($inputs){
         $year = isset($inputs['Year']) ? trim($inputs['Year']) : '';
@@ -324,7 +324,7 @@ class PreClosing {
 
         // Reuse Params controller to fetch
         $paramsCtrl = new('\\Controller\\'.'Params');
-        $res = $paramsCtrl->getParamValue('BANHISTAS_PRE_CLOSING', $name, 'Ativo');
+        $res = $paramsCtrl->getParamValue('BAN_PRE_CLOSING', $name, 'Ativo');
         if ($res === false) {
             return 'new|';
         }

@@ -156,7 +156,7 @@ $(document).ready(function(){
                 Updated_By: (updatedByEl? updatedByEl.value : ''),
                 Name: ym.name,
                 Value: val,
-                Type: (typeEl? typeEl.value : 'BANHISTAS_PRE_CLOSING'),
+                Type: (typeEl? typeEl.value : 'BAN_PRE_CLOSING'),
                 Status: 'Ativo'
             },
             success: function(){
