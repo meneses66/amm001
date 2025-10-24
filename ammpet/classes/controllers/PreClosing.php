@@ -192,6 +192,14 @@ class PreClosing {
                             </div><br>
                             <div class="row">
                                 <div class="col-sm-1">
+                                    <label for="serv_count" class="medium-label">Banhos:</label>
+                                </div>
+                                <div class="col-sm-3">
+                                    <input id="serv_count" type="text" name="Serv_Count" value="'.$serv_count.'">
+                                </div>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-sm-1">
                                     <label for="id_employee" class="medium-label">Funcionário:</label>
                                 </div>
                                 <div class="col-sm-3">
@@ -295,8 +303,6 @@ class PreClosing {
                             <div class="row">
                                 <div class="col-sm-1"><label for="d31" class="medium-label" style="font-size:12px;">D31:</label></div>
                                 <div class="col-sm-1"><input id="d31" type="text" name="D31" value="'.$d31.'" style="width:100%; font-size:12px; padding:0 2px;"></div>
-                                <div class="col-sm-1"><label for="serv_count" class="medium-label" style="font-size:12px;">Banhos:</label></div>
-                                <div class="col-sm-1"><input id="serv_count" type="text" name="Serv_Count" value="'.$serv_count.'" style="width:100%; font-size:12px; padding:0 2px;"></div>
                             </div><br>';
                             $sql_stm = null;
                             $data = null;
