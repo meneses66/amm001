@@ -155,19 +155,9 @@ class PreClosing {
                                 <div class="col-sm-1">
                                     <label for="id" class="medium-label">Id:</label>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <input id="id" type="text" size="8" name="Id" readonly value="'.$id.'">
                                 </div>
-                                <div class="col-sm-8 text-right">
-                                    <button id="calc_btn" type="button" class="btn btn-info btn-sm m-1">Calcular</button>
-                                    <input id="save_top" class="btn btn-primary btn-sm m-1" type="submit" value="Salvar" formaction="../PreClosing/update_call">
-                                    <button id="batch_btn" type="button" class="btn btn-warning btn-sm m-1">Criar/Atualizar Comissões</button>
-                                    <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
-                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
-                                    <input id="temp_id_employee" type="hidden" name="Temp_Id_Employee" value="'.$temp_id_employee.'" readonly>
-                                </div>
-                            </div><br>
-                            <div class="row">
                                 <div class="col-sm-1">
                                     <label for="year" class="medium-label">Ano:</label>
                                 </div>
@@ -177,17 +167,26 @@ class PreClosing {
                                 <div class="col-sm-1">
                                     <label for="month" class="medium-label">Mês:</label>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-1">
                                     <input id="month" type="number" min="1" max="12" name="Month" value="'.$month.'">
                                 </div>
+                                <div class="col-sm-4 text-right">
+                                    <button id="calc_btn" type="button" class="btn btn-info btn-sm m-1">Calcular</button>
+                                    <input id="save_top" class="btn btn-primary btn-sm m-1" type="submit" value="Salvar" formaction="../PreClosing/update_call">
+                                    <button id="batch_btn" type="button" class="btn btn-warning btn-sm m-1">Criar/Atualizar Comissões</button>
+                                    <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
+                                    <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
+                                    <input id="temp_id_employee" type="hidden" name="Temp_Id_Employee" value="'.$temp_id_employee.'" readonly>
+                                </div>
+                            </div><br>
+                            <div class="row">
                                 <div class="col-sm-2 text-right">
                                     <label for="number_banhistas" class="medium-label">Nº Banhistas:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="number_banhistas" type="number" min="0" step="1" name="Number_Banhistas" value="" style="width:100%;" title="Se vazio ou alterado, fica vermelho. Clique em Update para salvar.">
+                                    <input id="number_banhistas" type="number" min="0" step="1" name="Number_Banhistas" value="" style="width:100%;">
                                     <input id="banhistas_param_id" type="hidden" value="new">
                                     <input id="banhistas_param_type" type="hidden" value="BAN_PRE_CLOSING">
-                                    <small id="banhistas_help" class="form-text text-muted">Se vazio ou alterado, fica vermelho. Clique em "Update" para salvar; após salvo, fica verde.</small>
                                 </div>
                                 <div class="col-sm-1">
                                     <button id="banhistas_update_btn" type="button" class="btn btn-sm btn-primary" style="width:100%;">Update</button>
