@@ -180,6 +180,15 @@ class PreClosing {
                                 </div>
                             </div><br>
                             <div class="row">
+                                <div class="col-sm-1">
+                                    <label for="serv_count" class="medium-label">Banhos:</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input id="serv_count" type="text" name="Serv_Count" value="'.$serv_count.'" readonly>
+                                </div>
+                                <div class="col-sm-4">
+                                    
+                                </div>
                                 <div class="col-sm-2 text-right">
                                     <label for="number_banhistas" class="medium-label">Nº Banhistas:</label>
                                 </div>
@@ -190,14 +199,6 @@ class PreClosing {
                                 </div>
                                 <div class="col-sm-1">
                                     <button id="banhistas_update_btn" type="button" class="btn btn-sm btn-primary" style="width:100%;">Update</button>
-                                </div>
-                            </div><br>
-                            <div class="row">
-                                <div class="col-sm-1">
-                                    <label for="serv_count" class="medium-label">Banhos:</label>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input id="serv_count" type="text" name="Serv_Count" value="'.$serv_count.'" readonly>
                                 </div>
                             </div><br>
                             <div class="row">
@@ -443,9 +444,12 @@ class PreClosing {
             $supModel = new('\\Model\\'.'Supplier');
             $preModel = new('\\Model\\'.'PreClosing');
             $suppliers = $supModel->listWhere(['STATUS' => 'Ativo']);
+            if (!$suppliers) {
+                return 'Processados: 0 funcionário(s).';
+            }
 
             $count = 0;
-            foreach ($suppliers as $emp) {
+            foreach ((array)$suppliers as $emp) {
                 $empType = $emp->TYPE ?? '';
                 $empName = $emp->NAME ?? '';
                 $empId   = $emp->ID ?? 0;
@@ -527,7 +531,7 @@ class PreClosing {
         $rows = $orderModel->exec_sqlstm_query_with_bind($sqlBath, ['YEAR'=>$year,'MONTH'=>$month,'CAT'=>'Banho']);
         $bathCounts = [];
         $totalBaths = 0;
-        foreach ($rows as $r) {
+        foreach ((array)$rows as $r) {
             $d = intval($r->D);
             $c = intval($r->CNT);
             $bathCounts[$d] = $c;
@@ -572,7 +576,7 @@ class PreClosing {
         } elseif (strcasecmp($employeeType, 'Veterinaria') === 0 || strcasecmp($employeeType, 'Veterinária') === 0) {
             $sqlVet = "SELECT VALUE_WITH_DISCOUNT AS VWD, QUANTITY AS QTY, EXTERNAL_COST AS EXT_COST, COMISSION_PERCENTAGE AS PERC FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND COST_CENTER=:CC";
             $rowsVet = $orderModel->exec_sqlstm_query_with_bind($sqlVet, ['YEAR'=>$year,'MONTH'=>$month,'CC'=>'Veterinaria']);
-            foreach ($rowsVet as $v) {
+            foreach ((array)$rowsVet as $v) {
                 $vwd = floatval($v->VWD);
                 $qty = floatval($v->QTY);
                 $ext = floatval($v->EXT_COST);
@@ -592,7 +596,7 @@ class PreClosing {
         if (!empty($employeeName)) {
             $sqlProd = "SELECT SUM(VALUE_WITH_DISCOUNT * COMISSION_PERCENTAGE) AS TOTAL FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON=:SP";
             $sumRow = $orderModel->exec_sqlstm_query_with_bind($sqlProd, ['YEAR'=>$year,'MONTH'=>$month,'SP'=>$employeeName]);
-            foreach ($sumRow as $sr) {
+            foreach ((array)$sumRow as $sr) {
                 $prod = floatval($sr->TOTAL ?? 0);
             }
         }
