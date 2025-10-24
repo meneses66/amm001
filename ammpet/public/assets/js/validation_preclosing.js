@@ -41,7 +41,7 @@ $(document).ready(function(){
               }
         });
 
-      };
+  };
 
     // ===== BANHISTAS (Pre-Closing) =====
     function ymKey() {
@@ -169,6 +169,94 @@ $(document).ready(function(){
                 if (document.getElementById('error_message')) {
                     document.getElementById('error_message').innerText = 'Falha ao atualizar parâmetro de banhistas.';
                 }
+            }
+        });
+    });
+
+    // ===== Calculate commissions (single) =====
+    $('#calc_btn').on('click', function(){
+        const year = (document.getElementById('year')||{}).value;
+        const month = (document.getElementById('month')||{}).value;
+        const emp = (document.getElementById('id_employee')||{}).value;
+        const numB = (document.getElementById('number_banhistas')||{}).value;
+        if (!year || !month || !emp) {
+            if (document.getElementById('error_message')) {
+                document.getElementById('error_message').innerText = 'Informe Ano, Mês e Funcionário.';
+            }
+            return;
+        }
+        const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        const data = {
+            class: 'PreClosing',
+            method: 'update_comission',
+            csrf_token: csrf,
+            Mode: 'calc',
+            Year: year,
+            Month: month,
+            Id_Employee: emp,
+            Number_Banhistas: numB || ''
+        };
+        // Include day factors D01..D31
+        for (let d=1; d<=31; d++){
+            const key = 'D'+('0'+d).slice(-2);
+            const el = document.getElementById(key.toLowerCase());
+            if (el) data[key] = el.value;
+        }
+        $.ajax({
+            url: '/ammpet/public/Ajax_call',
+            type: 'POST',
+            data: data,
+            success: function(resp){
+                try{
+                    const text = (typeof resp === 'string') ? resp : (''+resp);
+                    // Expect: OK|serv|prod|count
+                    const parts = text.split('|');
+                    if (parts[0] === 'OK'){
+                        if (document.getElementById('comission_serv')) document.getElementById('comission_serv').value = parts[1] || '0.00';
+                        if (document.getElementById('comission_prod')) document.getElementById('comission_prod').value = parts[2] || '0.00';
+                        if (document.getElementById('serv_count')) document.getElementById('serv_count').value = parts[3] || '0';
+                        if (document.getElementById('error_message')) document.getElementById('error_message').innerText = '';
+                    } else {
+                        if (document.getElementById('error_message')) document.getElementById('error_message').innerText = text;
+                    }
+                } catch(e){
+                    if (document.getElementById('error_message')) document.getElementById('error_message').innerText = 'Erro ao calcular comissões.';
+                }
+            },
+            error: function(){
+                if (document.getElementById('error_message')) document.getElementById('error_message').innerText = 'Falha na chamada de cálculo de comissões.';
+            }
+        });
+    });
+
+    // ===== Batch create/update commissions for all employees =====
+    $('#batch_btn').on('click', function(){
+        const year = (document.getElementById('year')||{}).value;
+        const month = (document.getElementById('month')||{}).value;
+        if (!year || !month) {
+            if (document.getElementById('error_message')) {
+                document.getElementById('error_message').innerText = 'Informe Ano e Mês.';
+            }
+            return;
+        }
+        const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        $.ajax({
+            url: '/ammpet/public/Ajax_call',
+            type: 'POST',
+            data: {
+                class: 'PreClosing',
+                method: 'update_comission',
+                csrf_token: csrf,
+                Mode: 'batch',
+                Year: year,
+                Month: month
+            },
+            success: function(resp){
+                const text = (typeof resp === 'string') ? resp : (''+resp);
+                if (document.getElementById('error_message')) document.getElementById('error_message').innerText = text;
+            },
+            error: function(){
+                if (document.getElementById('error_message')) document.getElementById('error_message').innerText = 'Falha na criação/atualização em lote.';
             }
         });
     });

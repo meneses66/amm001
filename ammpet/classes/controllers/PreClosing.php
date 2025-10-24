@@ -151,14 +151,17 @@ class PreClosing {
             }
 
                 //START TO LOAD THE UPDATE FORM:
-                $output .= '<div class="row">
+                $output .= '<div class="row align-items-center">
                                 <div class="col-sm-1">
                                     <label for="id" class="medium-label">Id:</label>
                                 </div>
-                                <div class="col-sm-5">
+                                <div class="col-sm-3">
                                     <input id="id" type="text" size="8" name="Id" readonly value="'.$id.'">
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-8 text-right">
+                                    <button id="calc_btn" type="button" class="btn btn-info btn-sm m-1">Calcular</button>
+                                    <input id="save_top" class="btn btn-primary btn-sm m-1" type="submit" value="Salvar" formaction="../PreClosing/update_call">
+                                    <button id="batch_btn" type="button" class="btn btn-warning btn-sm m-1">Criar/Atualizar Comissões</button>
                                     <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
                                     <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
                                     <input id="temp_id_employee" type="hidden" name="Temp_Id_Employee" value="'.$temp_id_employee.'" readonly>
@@ -195,7 +198,7 @@ class PreClosing {
                                     <label for="serv_count" class="medium-label">Banhos:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="serv_count" type="text" name="Serv_Count" value="'.$serv_count.'">
+                                    <input id="serv_count" type="text" name="Serv_Count" value="'.$serv_count.'" readonly>
                                 </div>
                             </div><br>
                             <div class="row">
@@ -423,6 +426,179 @@ class PreClosing {
             $model = null;
             echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
         }
+    }
+
+    // Compute commissions (single calc or batch save)
+    // Allowed via Ajax_call allowed methods list as update_comission
+    public function update_comission($inputs){
+        $year = isset($inputs['Year']) ? intval($inputs['Year']) : 0;
+        $month = isset($inputs['Month']) ? intval($inputs['Month']) : 0;
+        if ($year <= 0 || $month <= 0) {
+            return 'Informe Ano e Mês.';
+        }
+
+        $mode = isset($inputs['Mode']) ? strtolower(trim($inputs['Mode'])) : 'calc';
+
+        if ($mode === 'batch') {
+            // Create/Update for all active employees
+            $supModel = new('\\Model\\'.'Supplier');
+            $preModel = new('\\Model\\'.'PreClosing');
+            $suppliers = $supModel->listWhere(['STATUS' => 'Ativo']);
+
+            $count = 0;
+            foreach ($suppliers as $emp) {
+                $empType = $emp->TYPE ?? '';
+                $empName = $emp->NAME ?? '';
+                $empId   = $emp->ID ?? 0;
+                list($serv, $prod, $banhos) = $this->compute_commissions($year, $month, $empType, $empName, []);
+
+                // Upsert into PRE_CLOSING by YEAR, MONTH, ID_EMPLOYEE
+                $existing = $preModel->getRow(['YEAR'=>$year,'MONTH'=>$month,'ID_EMPLOYEE'=>$empId]);
+                if ($existing) {
+                    $preModel->update($existing->ID, [
+                        'COMISSION_PROD' => number_format($prod, 2, '.', ''),
+                        'COMISSION_SERV' => number_format($serv, 2, '.', ''),
+                        'SERV_COUNT'     => intval($banhos),
+                        'UPDATED_BY'     => $_SESSION['username'] ?? 'system',
+                    ]);
+                } else {
+                    $insert = [
+                        'CREATED_BY'     => $_SESSION['username'] ?? 'system',
+                        'UPDATED_BY'     => $_SESSION['username'] ?? 'system',
+                        'YEAR'           => $year,
+                        'MONTH'          => $month,
+                        'ID_EMPLOYEE'    => $empId,
+                        'COMISSION_PROD' => number_format($prod, 2, '.', ''),
+                        'COMISSION_SERV' => number_format($serv, 2, '.', ''),
+                        'STATUS'         => 'Aberto',
+                        'SERV_COUNT'     => intval($banhos),
+                    ];
+                    // default day factors 100
+                    for ($d=1; $d<=31; $d++) {
+                        $insert['D'.str_pad((string)$d,2,'0',STR_PAD_LEFT)] = '100';
+                    }
+                    $preModel->insert($insert);
+                }
+                $count++;
+            }
+            return 'Processados: ' . $count . ' funcionário(s).';
+        }
+
+        // Single calculation (no persistence)
+        $empId = isset($inputs['Id_Employee']) ? intval($inputs['Id_Employee']) : 0;
+        if ($empId <= 0) {
+            return 'Informe o Funcionário.';
+        }
+
+        $supModel = new('\\Model\\'.'Supplier');
+        $empRow = $supModel->getRow(['ID'=>$empId]);
+        if (!$empRow) {
+            return 'Funcionário inválido.';
+        }
+        $empType = $empRow->TYPE ?? '';
+        $empName = $empRow->NAME ?? '';
+
+        // Collect day factors and optional banhistas from inputs
+        $opts = [];
+        $dayFactors = [];
+        for ($d=1; $d<=31; $d++) {
+            $k = 'D'.str_pad((string)$d,2,'0',STR_PAD_LEFT);
+            if (isset($inputs[$k]) && $inputs[$k] !== '') {
+                $dayFactors[$k] = floatval($inputs[$k]);
+            }
+        }
+        if (!empty($dayFactors)) { $opts['dayFactors'] = $dayFactors; }
+        if (isset($inputs['Number_Banhistas']) && $inputs['Number_Banhistas'] !== '') {
+            $opts['numBanhistas'] = floatval($inputs['Number_Banhistas']);
+        }
+
+        list($serv, $prod, $banhos) = $this->compute_commissions($year, $month, $empType, $empName, $opts);
+        return 'OK|' . number_format($serv, 2, '.', '') . '|' . number_format($prod, 2, '.', '') . '|' . intval($banhos);
+    }
+
+    private function compute_commissions($year, $month, $employeeType, $employeeName, $opts){
+        $orderModel = new('\\Model\\'.'OrderItem');
+        $paramsCtrl = new('\\Controller\\'.'Params');
+
+        // Month boundaries
+        $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+
+        // Fetch total baths per day
+        $sqlBath = "SELECT DAY(DATE) AS D, COUNT(1) AS CNT FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND PROD_SERV_CATEGORY=:CAT GROUP BY DAY(DATE)";
+        $rows = $orderModel->exec_sqlstm_query_with_bind($sqlBath, ['YEAR'=>$year,'MONTH'=>$month,'CAT'=>'Banho']);
+        $bathCounts = [];
+        $totalBaths = 0;
+        foreach ($rows as $r) {
+            $d = intval($r->D);
+            $c = intval($r->CNT);
+            $bathCounts[$d] = $c;
+            $totalBaths += $c;
+        }
+
+        // Number of banhistas (from options or params)
+        $numBanhistas = isset($opts['numBanhistas']) ? floatval($opts['numBanhistas']) : 0.0;
+        if ($numBanhistas <= 0) {
+            $name = $year . str_pad((string)$month, 2, '0', STR_PAD_LEFT);
+            $p = $paramsCtrl->getParamValue('BAN_PRE_CLOSING', $name, 'Ativo');
+            if ($p && isset($p->VALUE) && $p->VALUE !== '') {
+                $numBanhistas = floatval($p->VALUE);
+            }
+        }
+        if ($numBanhistas <= 0) { $numBanhistas = 1.0; } // avoid division by zero
+
+        // Commission per bath
+        $cpbParam = $paramsCtrl->getParamValue('COMISSION_PER_BATH', '3', 'Ativo');
+        $comissionPerBath = ($cpbParam && isset($cpbParam->VALUE) && $cpbParam->VALUE !== '') ? floatval($cpbParam->VALUE) : 3.0;
+
+        // Day factors
+        $dayFactors = [];
+        for ($d=1; $d<=31; $d++) {
+            $key = 'D'.str_pad((string)$d,2,'0',STR_PAD_LEFT);
+            $dayFactors[$key] = 100.0;
+        }
+        if (isset($opts['dayFactors']) && is_array($opts['dayFactors'])) {
+            foreach ($opts['dayFactors'] as $k=>$v) {
+                $dayFactors[$k] = floatval($v);
+            }
+        }
+
+        // Calculate service commission
+        $serv = 0.0;
+        if (strcasecmp($employeeType, 'Banhista') === 0) {
+            for ($d=1; $d <= $daysInMonth; $d++) {
+                $cnt = $bathCounts[$d] ?? 0;
+                $factor = $dayFactors['D'.str_pad((string)$d,2,'0',STR_PAD_LEFT)] ?? 100.0;
+                $serv += ($cnt / max(1.0, $numBanhistas)) * $comissionPerBath * ($factor / 100.0);
+            }
+        } elseif (strcasecmp($employeeType, 'Veterinaria') === 0 || strcasecmp($employeeType, 'Veterinária') === 0) {
+            $sqlVet = "SELECT VALUE_WITH_DISCOUNT AS VWD, QUANTITY AS QTY, EXTERNAL_COST AS EXT_COST, COMISSION_PERCENTAGE AS PERC FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND COST_CENTER=:CC";
+            $rowsVet = $orderModel->exec_sqlstm_query_with_bind($sqlVet, ['YEAR'=>$year,'MONTH'=>$month,'CC'=>'Veterinaria']);
+            foreach ($rowsVet as $v) {
+                $vwd = floatval($v->VWD);
+                $qty = floatval($v->QTY);
+                $ext = floatval($v->EXT_COST);
+                $perc= floatval($v->PERC);
+                if ($qty > 0) {
+                    $serv += ((($vwd / $qty) - $ext) * $qty) * $perc;
+                } else {
+                    $serv += ($vwd) * $perc;
+                }
+            }
+        } else {
+            $serv = 0.0;
+        }
+
+        // Calculate product commission for salesperson
+        $prod = 0.0;
+        if (!empty($employeeName)) {
+            $sqlProd = "SELECT SUM(VALUE_WITH_DISCOUNT * COMISSION_PERCENTAGE) AS TOTAL FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON=:SP";
+            $sumRow = $orderModel->exec_sqlstm_query_with_bind($sqlProd, ['YEAR'=>$year,'MONTH'=>$month,'SP'=>$employeeName]);
+            foreach ($sumRow as $sr) {
+                $prod = floatval($sr->TOTAL ?? 0);
+            }
+        }
+
+        return [ $serv, $prod, $totalBaths ];
     }
 
 }
