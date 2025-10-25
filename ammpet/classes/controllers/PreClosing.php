@@ -176,7 +176,7 @@ class PreClosing {
                                     <button id="batch_btn" type="button" class="btn btn-warning btn-sm m-1">Criar/Atualizar Comissões</button>
                                     <input id="created_by" type="hidden" name="Created_By" value="'.$created_by.'" readonly>
                                     <input id="updated_by" type="hidden" name="Updated_By" value="'.$updated_by.'" readonly>
-                                    <input id="temp_id_employee" type="hidden" name="Temp_Id_Employee" value="'.$temp_id_employee.'" readonly>
+                                    <input id="temp_id_employee" type="hidden" value="'.$temp_id_employee.'" readonly>
                                 </div>
                             </div><br>
                             <div class="row">

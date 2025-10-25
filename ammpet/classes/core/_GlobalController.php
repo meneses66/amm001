@@ -1018,6 +1018,23 @@ Trait _GlobalController{
 
             //END UNSET CHECKBOXES IN SUPPLIET VIEW:
 
+            // PreClosing: remove non-DB fields and handle new insert
+            if ($this->UCF_object == 'PreClosing') {
+                // Not columns in PRE_CLOSING
+                unset($inputs['Temp_Id_Employee']);
+                unset($inputs['Number_Banhistas']);
+                // If creating new, perform insert instead of update
+                if ($id === 'new') {
+                    $model->insert($inputs);
+                    // Redirect to list and stop
+                    unset($_POST);
+                    unset($inputs);
+                    $view = "$this->UCF_object/_list";
+                    redirect($view);
+                    return;
+                }
+            }
+
             try {
 
                 $model->update($id, $inputs);
