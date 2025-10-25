@@ -345,6 +345,7 @@ Trait _GlobalController{
             unset($inputs["class"]);
             unset($inputs["method"]);
             unset($inputs["csrf_token"]);
+            unset($inputs["type"]);
             unset($inputs["Id"]);
             //Remove items from array inputs that are populated automatically in DB
             unset($inputs["Created"]);
@@ -765,6 +766,7 @@ Trait _GlobalController{
                 unset($inputs["class"]);
                 unset($inputs["method"]);
                 unset($inputs["csrf_token"]);
+                unset($inputs["type"]);
                 unset($inputs["Id"]);
                 //Remove items from array inputs that are populated automatically in DB
                 unset($inputs["Created"]);
@@ -844,11 +846,12 @@ Trait _GlobalController{
                     $inputs["Login"]=null;
                 }
 
-                //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
-                unset($inputs["operation"]);
-                unset($inputs["class"]);
-                unset($inputs["method"]);
-                unset($inputs["Id"]);
+            //Remove items from array inputs that are not columns in DB (op) or are auto-increment (Id)
+            unset($inputs["operation"]);
+            unset($inputs["class"]);
+            unset($inputs["method"]);
+            unset($inputs["type"]);
+            unset($inputs["Id"]);
                 //Remove items from array inputs that are populated automatically in DB
                 unset($inputs["Created"]);
                 unset($inputs["Updated"]);

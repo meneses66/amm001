@@ -570,6 +570,9 @@ class OrderItem {
                 unset($_POST['method']);
                 $_SERVER['REQUEST_METHOD']="POST";
                 $_POST['class']="OrderItem";
+                // Mark nested call as internal and provide CSRF token
+                $_POST['csrf_token'] = csrf_token();
+                $_POST['type'] = 'static';
 
                 if ($inputs['Id']=="new") {
                     //amm_log(date("H:i:s").":: ID = NEW");
