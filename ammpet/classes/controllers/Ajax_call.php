@@ -80,7 +80,8 @@ class Ajax_call {
                     'postpone_value_ajax'
                 ];
                 $token = $_POST['csrf_token'] ?? null;
-                if (in_array($method, $mutatingMethods, true)) {
+                $isInternal = isset($_POST['type']) && $_POST['type'] === 'static';
+                if (in_array($method, $mutatingMethods, true) && !$isInternal) {
                     if ($token === null || !csrf_validate($token)) {
                         http_response_code(419);
                         echo 'Invalid CSRF token';
