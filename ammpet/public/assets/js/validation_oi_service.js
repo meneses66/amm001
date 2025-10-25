@@ -2,9 +2,12 @@ $(document).ready(function(){
     
     document.getElementById("button").onclick= function(event) {
         event.preventDefault();
-
-        document.getElementById('package_service').removeAttribute("disabled");
-        document.getElementById('id_package').removeAttribute("disabled");
+        try {
+            var pkgSvc = document.getElementById('package_service');
+            if (pkgSvc) { pkgSvc.removeAttribute('disabled'); }
+            var idPkg = document.getElementById('id_package');
+            if (idPkg) { idPkg.removeAttribute('disabled'); }
+        } catch(e) { /* ignore, keep going */ }
 
         var data_form = decodeURIComponent($(update_form).serialize());
         //console.log("data_form: "+data_form);
@@ -70,7 +73,15 @@ $(document).ready(function(){
                 } else {
                     window.location.replace("/ammpet/public/Orderx/_details?cli_id="+cli_id+"&order_id="+order_id);
                 }
-              }
+              },
+            error: function(xhr){
+                var msg = 'Erro ao confirmar serviço.';
+                try {
+                    if (xhr && xhr.responseText) { msg += ' ' + xhr.responseText; }
+                } catch(e) {}
+                var em = document.getElementById('error_message');
+                if (em) em.innerText = msg;
+            }
         });
 
       };
