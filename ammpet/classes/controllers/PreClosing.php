@@ -531,11 +531,16 @@ class PreClosing {
         $rows = $orderModel->exec_sqlstm_query_with_bind($sqlBath, ['YEAR'=>$year,'MONTH'=>$month,'CAT'=>'Banho']);
         $bathCounts = [];
         $totalBaths = 0;
-        foreach ((array)$rows as $r) {
-            $d = intval($r->D);
-            $c = intval($r->CNT);
-            $bathCounts[$d] = $c;
-            $totalBaths += $c;
+        if (is_array($rows)) {
+            foreach ($rows as $r) {
+                if (!is_object($r)) { continue; }
+                $d = intval($r->D ?? 0);
+                $c = intval($r->CNT ?? 0);
+                if ($d > 0) {
+                    $bathCounts[$d] = $c;
+                    $totalBaths += $c;
+                }
+            }
         }
 
         // Number of banhistas (from options or params)
@@ -576,15 +581,18 @@ class PreClosing {
         } elseif (strcasecmp($employeeType, 'Veterinaria') === 0 || strcasecmp($employeeType, 'Veterinária') === 0) {
             $sqlVet = "SELECT VALUE_WITH_DISCOUNT AS VWD, QUANTITY AS QTY, EXTERNAL_COST AS EXT_COST, COMISSION_PERCENTAGE AS PERC FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND COST_CENTER=:CC";
             $rowsVet = $orderModel->exec_sqlstm_query_with_bind($sqlVet, ['YEAR'=>$year,'MONTH'=>$month,'CC'=>'Veterinaria']);
-            foreach ((array)$rowsVet as $v) {
-                $vwd = floatval($v->VWD);
-                $qty = floatval($v->QTY);
-                $ext = floatval($v->EXT_COST);
-                $perc= floatval($v->PERC);
-                if ($qty > 0) {
-                    $serv += ((($vwd / $qty) - $ext) * $qty) * $perc;
-                } else {
-                    $serv += ($vwd) * $perc;
+            if (is_array($rowsVet)) {
+                foreach ($rowsVet as $v) {
+                    if (!is_object($v)) { continue; }
+                    $vwd = floatval($v->VWD ?? 0);
+                    $qty = floatval($v->QTY ?? 0);
+                    $ext = floatval($v->EXT_COST ?? 0);
+                    $perc= floatval($v->PERC ?? 0);
+                    if ($qty > 0) {
+                        $serv += ((($vwd / $qty) - $ext) * $qty) * $perc;
+                    } else {
+                        $serv += ($vwd) * $perc;
+                    }
                 }
             }
         } else {
@@ -596,8 +604,11 @@ class PreClosing {
         if (!empty($employeeName)) {
             $sqlProd = "SELECT SUM(VALUE_WITH_DISCOUNT * COMISSION_PERCENTAGE) AS TOTAL FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON=:SP";
             $sumRow = $orderModel->exec_sqlstm_query_with_bind($sqlProd, ['YEAR'=>$year,'MONTH'=>$month,'SP'=>$employeeName]);
-            foreach ((array)$sumRow as $sr) {
-                $prod = floatval($sr->TOTAL ?? 0);
+            if (is_array($sumRow)) {
+                foreach ($sumRow as $sr) {
+                    if (!is_object($sr)) { continue; }
+                    $prod = floatval($sr->TOTAL ?? 0);
+                }
             }
         }
 
