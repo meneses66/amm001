@@ -589,6 +589,12 @@ class OrderItem {
                     $_POST['type'] = 'static';
                     $ajax_call->index();
                 }
+                // Clear any previous output from nested calls (e.g., CSRF warnings)
+                if (function_exists('ob_get_level')) {
+                    while (ob_get_level() > 0) { @ob_end_clean(); }
+                }
+                http_response_code(200);
+                return "";
             }
         } else{
             return $error_msg="Operation failed";
