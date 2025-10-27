@@ -1295,6 +1295,7 @@ Trait _GlobalController{
         
                     $ajax_call = new('\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
+                    $_POST['type'] = 'static';
                     $ajax_call->index();
         
                     /* FUNCTION update_payments merged into update_totals
@@ -1307,11 +1308,12 @@ Trait _GlobalController{
         
                     $ajax_call = new('\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
+                    $_POST['type'] = 'static';
                     $ajax_call->index();
                     */
         
                     //CALL UPDATE PACKAGES:
-                    if (!($inputs['Id_Package']==1)) {
+                    if (isset($package_id) && $package_id != 1) {
                         unset($_POST);
                         $_SERVER['REQUEST_METHOD'] = 'POST';
                         $_POST['class']="Package";
@@ -1323,6 +1325,12 @@ Trait _GlobalController{
                         $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
                     }
+                    // ensure clean OK response for AJAX
+                    if (function_exists('ob_get_level')) {
+                        while (ob_get_level() > 0) { @ob_end_clean(); }
+                    }
+                    http_response_code(200);
+                    echo 'OK';
                 break;
             
                 case 'OrderPayment':
@@ -1336,8 +1344,14 @@ Trait _GlobalController{
         
                     $ajax_call = new('\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
+                    $_POST['type'] = 'static';
                     $ajax_call->index();
-                    
+                    // ensure clean OK response for AJAX
+                    if (function_exists('ob_get_level')) {
+                        while (ob_get_level() > 0) { @ob_end_clean(); }
+                    }
+                    http_response_code(200);
+                    echo 'OK';
                     break;
                 
                 default:
@@ -1349,7 +1363,13 @@ Trait _GlobalController{
         } else {
             die("Record Id not informed.");
         }
-        
+        // default OK if reached (non-order objects)
+        if (function_exists('ob_get_level')) {
+            while (ob_get_level() > 0) { @ob_end_clean(); }
+        }
+        http_response_code(200);
+        echo 'OK';
+        return;
     }
 
     //GET POST DATA AND CALL INSERT CALL TO ADD SERVICE INTO DATABASE
