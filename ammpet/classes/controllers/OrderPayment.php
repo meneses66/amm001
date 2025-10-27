@@ -234,19 +234,31 @@ class OrderPayment {
                 unset($_POST['method']);
                 $_SERVER['REQUEST_METHOD']="POST";
                 $_POST['class']="OrderPayment";
+                // Mark nested Ajax as internal to avoid CSRF issues leaking to client
+                $_POST['csrf_token'] = csrf_token();
+                $_POST['type'] = 'static';
 
                 if ($inputs['Id']=="new") {
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
                     $ajax_call = new('\Controller\\'."Ajax_call");
+                    // ensure internal call and CSRF present
                     $_POST['csrf_token'] = csrf_token();
+                    $_POST['type'] = 'static';
                     $ajax_call->index();
                 } else{
                     $_POST['method']="update_call";
                     $ajax_call = new('\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
+                    $_POST['type'] = 'static';
                     $ajax_call->index();
                 }
+                // Normalize response for outer AJAX success and redirect
+                if (function_exists('ob_get_level')) {
+                    while (ob_get_level() > 0) { @ob_end_clean(); }
+                }
+                http_response_code(200);
+                return "";
             }
         } else{
             return $error_msg="Operation failed";
