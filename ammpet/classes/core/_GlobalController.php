@@ -345,6 +345,10 @@ Trait _GlobalController{
             unset($inputs["class"]);
             unset($inputs["method"]);
             unset($inputs["csrf_token"]);
+            // Remove helper flag from non-Salary updates to avoid leaking into SQL
+            if ($this->UCF_object !== 'Salary' && isset($inputs['type'])) {
+                unset($inputs['type']);
+            }
             // 'type' is used by Salary update flow; keep it there, remove for others
             if ($this->UCF_object !== 'Salary' && isset($inputs['type'])) { unset($inputs['type']); }
             if (isset($inputs['type'])) { unset($inputs['type']); }
