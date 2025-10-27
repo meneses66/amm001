@@ -345,6 +345,8 @@ Trait _GlobalController{
             unset($inputs["class"]);
             unset($inputs["method"]);
             unset($inputs["csrf_token"]);
+            // 'type' is used by Salary update flow; keep it there, remove for others
+            if ($this->UCF_object !== 'Salary' && isset($inputs['type'])) { unset($inputs['type']); }
             if (isset($inputs['type'])) { unset($inputs['type']); }
             unset($inputs["type"]);
             unset($inputs["Id"]);
