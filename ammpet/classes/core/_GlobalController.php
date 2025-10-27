@@ -345,6 +345,7 @@ Trait _GlobalController{
             unset($inputs["class"]);
             unset($inputs["method"]);
             unset($inputs["csrf_token"]);
+            if (isset($inputs['type'])) { unset($inputs['type']); }
             unset($inputs["type"]);
             unset($inputs["Id"]);
             //Remove items from array inputs that are populated automatically in DB
@@ -567,6 +568,7 @@ Trait _GlobalController{
                         $_POST['class']="Orderx";
                         $_POST['method']="update_totals";
                         $_POST['csrf_token'] = csrf_token();
+                        $_POST['type'] = 'static';
                         $_POST['Id']=$order_id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
@@ -1085,11 +1087,12 @@ Trait _GlobalController{
                         if ( $prod_serv_type=="Serv" && !($package_id==1)) {
                             unset($_POST);
                             $_SERVER['REQUEST_METHOD'] = 'POST';
-                            $_POST['class']="Package";
-                            $_POST['method']="update_package";
-                            $_POST['csrf_token'] = csrf_token();
-                            $_POST['Id_Package']=$package_id;
-                            $_POST['Id']=$id;
+                        $_POST['class']="Package";
+                        $_POST['method']="update_package";
+                        $_POST['csrf_token'] = csrf_token();
+                        $_POST['type'] = 'static';
+                        $_POST['Id_Package']=$package_id;
+                        $_POST['Id']=$id;
 
                             $ajax_call = new('\Controller\\'."Ajax_call");
                             $_POST['csrf_token'] = csrf_token();
@@ -1115,9 +1118,10 @@ Trait _GlobalController{
                                 $_POST['Pack_Quantity']=$pack_quantity;
                                 $_POST['Pack_Name']=$pack_name;
                                 
-                                $_POST['class']="Package";
-                                $_POST['method']="insert_call";
-                                $_POST['csrf_token'] = csrf_token();
+                        $_POST['class']="Package";
+                        $_POST['method']="insert_call";
+                        $_POST['csrf_token'] = csrf_token();
+                        $_POST['type'] = 'static';
                     
                                 $ajax_call = new('\Controller\\'."Ajax_call");
                                 $_POST['csrf_token'] = csrf_token();
@@ -1203,6 +1207,7 @@ Trait _GlobalController{
                         $_POST['class']="Orderx";
                         $_POST['method']="update_totals";
                         $_POST['csrf_token'] = csrf_token();
+                        $_POST['type'] = 'static';
                         $_POST['Id']=$order_id;
             
                         $ajax_call = new('\Controller\\'."Ajax_call");
