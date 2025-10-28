@@ -1,9 +1,10 @@
 function calculate_item_product(input){
-    let quantity = document.getElementById("quantity").value;
-    let unit_value = document.getElementById("unit_value").value;
-    let discount_value = document.getElementById("discount_value").value;
-    let oi_price_cash = document.getElementById("oi_price_cash").value;
-    let oi_price_pix = document.getElementById("oi_price_pix").value;
+    // Read values and normalize masked monetary inputs reliably
+    let quantity = Number(document.getElementById("quantity").value || 0);
+    let unit_value = parseMaskedMoney(document.getElementById("unit_value").value);
+    let discount_value = parseMaskedMoney(document.getElementById("discount_value").value);
+    let oi_price_cash = parseMaskedMoney(document.getElementById("oi_price_cash").value);
+    let oi_price_pix = parseMaskedMoney(document.getElementById("oi_price_pix").value);
 
     var total_cash = round(quantity*oi_price_cash, 2).toFixed(2);
     var total_pix = round(quantity*oi_price_pix, 2).toFixed(2);
@@ -18,4 +19,13 @@ function calculate_item_product(input){
 
 function round(num, decimalPlaces = 0) {
     return new Decimal(num).toDecimalPlaces(decimalPlaces).toNumber();
+}
+
+// Parses values from jQuery Mask (pattern "##0.00" with reverse:true) consistently.
+// Handles intermediate typing states by stripping non-digits and dividing by 100.
+function parseMaskedMoney(val){
+    if (val == null) return 0;
+    const digits = String(val).replace(/\D+/g, "");
+    if (!digits) return 0;
+    return Number(digits) / 100;
 }

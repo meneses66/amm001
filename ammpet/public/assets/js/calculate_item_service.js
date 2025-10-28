@@ -1,10 +1,11 @@
 function calculate_item_service(input){
     let id_package = document.getElementById("id_package").value;
-    let quantity = document.getElementById("quantity").value;
-    let unit_value = document.getElementById("unit_value").value;
-    let discount_value = document.getElementById("discount_value").value;
-    let oi_price_cash = document.getElementById("oi_price_cash").value;
-    let oi_price_pix = document.getElementById("oi_price_pix").value;
+    // Read values and normalize masked monetary inputs reliably
+    let quantity = Number(document.getElementById("quantity").value || 0);
+    let unit_value = parseMaskedMoney(document.getElementById("unit_value").value);
+    let discount_value = parseMaskedMoney(document.getElementById("discount_value").value);
+    let oi_price_cash = parseMaskedMoney(document.getElementById("oi_price_cash").value);
+    let oi_price_pix = parseMaskedMoney(document.getElementById("oi_price_pix").value);
 
     if (id_package=="1" || id_package==1) {
         document.getElementById('quantity').removeAttribute('readonly')
@@ -39,6 +40,15 @@ function calculate_item_service(input){
 
 function round(num, decimalPlaces = 0) {
     return new Decimal(num).toDecimalPlaces(decimalPlaces).toNumber();
+}
+
+// Parses values from jQuery Mask (pattern "##0.00" with reverse:true) consistently.
+// Handles intermediate typing states by stripping non-digits and dividing by 100.
+function parseMaskedMoney(val){
+    if (val == null) return 0;
+    const digits = String(val).replace(/\D+/g, "");
+    if (!digits) return 0;
+    return Number(digits) / 100;
 }
 
 function update_sequence(id_package){
