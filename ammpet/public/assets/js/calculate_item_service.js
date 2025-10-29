@@ -23,7 +23,9 @@ function calculate_item_service_sync(input, format){
         var total_cash = round(quantity*oi_price_cash, 2).toFixed(2);
         var total_pix = round(quantity*oi_price_pix, 2).toFixed(2);
         var total_no_discount = round(quantity*unit_value, 2).toFixed(2);
-        var total_with_discount = round((round(quantity*unit_value, 2) - discount_value),2).toFixed(2);
+        var total_with_discount_num = round(quantity*unit_value, 2) - discount_value;
+        if (total_with_discount_num < 0) total_with_discount_num = 0;
+        var total_with_discount = round(total_with_discount_num, 2).toFixed(2);
         document.getElementById("total_pix").value = total_pix;
         document.getElementById("total_cash").value = total_cash;
         document.getElementById("value_no_discount").value = total_no_discount;
