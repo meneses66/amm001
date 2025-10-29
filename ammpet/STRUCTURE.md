@@ -32,6 +32,38 @@ Resumo rápido do layout e convenções para desenvolvimento
 - Config e constantes
   - `classes/core/properties.php` define `ROOTPATH_CLASSES`, `ROOT`, `DEBUG`, `DS` e credenciais do DB (atualmente com valores padrão que podem ser sobrescritos por variáveis de ambiente).
 
+- Configurar `.env` e diferenças `localhost` / `127.0.0.1`
+  - Local do arquivo: coloque um arquivo chamado `.env` na raiz do projeto (`/path/to/ammpet/.env`). Não comite esse arquivo no VCS.
+  - Variáveis suportadas (exemplo mínimo):
+    ```text
+    DB_HOST=your-db-host.example.com   # preferir host sem porta
+    DB_PORT=3306                       # opcional, padrão 3306
+    DB_NAME=dbpetshop
+    DB_USER=ammphp
+    DB_PASS=supersecret
+    ```
+  - Formatos aceitos pelo código atual:
+    - `DB_HOST=hostname` (recomendado) e opcional `DB_PORT=3306` — o mais claro e portátil.
+    - `DB_HOST=hostname:3307` — o parser também aceita host com ":port" e extrai a porta.
+    - `DB_HOST=hostname/` — a barra final será removida automaticamente.
+  - Onde o `.env` é carregado: um loader simples foi adicionado em `classes/core/functions.php` e tentará ler `../../.env` relativo a `classes/core` (ou seja, `ammpet/.env`). O loader popula `getenv()`, `$_ENV` e `$_SERVER` sem sobrescrever variáveis já definidas no ambiente.
+  - Compatibilidade: `classes/core/properties.php` agora aceita `DB_HOST` com porta embutida ou `DB_PORT` separado e define `SERVERNAME` (host-only) e `DB_PORT` para uso no DSN.
+  - Diferença prática entre `localhost` e `127.0.0.1`:
+    - `localhost` normalmente faz PHP/MySQL usar socket UNIX. O MySQL, nesse caso, verifica contas do tipo `'user'@'localhost'`.
+    - `127.0.0.1` força uma conexão TCP e o MySQL resolve contas do tipo `'user'@'127.0.0.1'` ou `'user'@'%'` (coringa).
+    - Se seu usuário no MySQL foi criado como `'ammphp'@'%'`, usar `127.0.0.1` ou o host real (ex.: `node213878-...`) costuma funcionar melhor. Se o usuário está apenas como `'ammphp'@'localhost'`, então usar `DB_HOST=localhost` (socket) ou criar o usuário/GRANT para o host correto é necessário.
+  - Teste rápido de conexão (execução no diretório do projeto):
+    ```bash
+    php -r 'define("ROOTPATH", true); require "classes/core/functions.php"; require "classes/core/properties.php"; try { $dsn = "mysql:host=".SERVERNAME.(defined("DB_PORT")?";port=".DB_PORT:"").";dbname=".DBNAME.";charset=utf8mb4"; $pdo=new PDO($dsn, DBUSER, DBPWD); echo "CONNECTED\n"; } catch (PDOException $e) { echo "PDO ERROR: ".$e->getMessage()."\n"; }'
+    ```
+  - Permissões no MySQL: se receber `Access denied`, confirme senha e GRANTS. Exemplo (para ser executado por um DBA/root no MySQL):
+    ```sql
+    -- conceder acesso TCP de qualquer host (use com cautela)
+    GRANT SELECT, INSERT, UPDATE, DELETE ON dbpetshop.* TO 'ammphp'@'%' IDENTIFIED BY 'SUA_SENHA';
+    FLUSH PRIVILEGES;
+    ```
+  - Segurança: não comite `.env`; mantenha um `.env.example` (já incluído no repositório) e documente valores sensíveis fora do código.
+
 - Utilitários
   - `classes/core/functions.php` contém helpers de URL (`URL()`), escape (`esc()`), sessões, CSRF, funções utilitárias e helpers para trabalhar com models/controllers.
 
