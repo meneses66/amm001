@@ -34,7 +34,7 @@ class Orderx
         
         //restart_session();
         $output = "";
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $sql_stm = "SELECT O.ID AS ID, O.UPDATED AS UPDATED, O.ORDER_DATE AS ORDER_DATE, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, 
         GROUP_CONCAT(A.NAME) AS ANIMALS, O.ORDER_VALUE_NO_DISCOUNT AS ORDER_VALUE_NO_DISCOUNT, O.ORDER_VALUE_WITH_DISCOUNT AS
@@ -127,7 +127,7 @@ class Orderx
             $inputs["ID"]=$_GET['order_id'];
             $cli_id=$_GET['cli_id'];
             $sql_stm = "SELECT O.ID AS ID, O.UPDATED AS UPDATED, O.ORDER_DATE AS ORDER_DATE, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, O.ORDER_VALUE_NO_DISCOUNT AS ORDER_VALUE_NO_DISCOUNT, O.ORDER_VALUE_WITH_DISCOUNT AS ORDER_VALUE_WITH_DISCOUNT, O.ORDER_VALUE_CASH AS ORDER_VALUE_CASH, O.ORDER_VALUE_PIX AS ORDER_VALUE_PIX, O.ORDER_PAID_AMOUNT AS ORDER_PAID_AMOUNT, O.ORDER_DEBT AS ORDER_DEBT, O.STATUS AS STATUS, O.ID_CLIENT AS ID_CLIENT FROM `ORDER_X` O LEFT JOIN `CLIENT` C ON O.ID_CLIENT = C.ID WHERE O.ID=:ID";
-            $model = new('\Model\\'.$this->UCF_object);
+            $model = instantiate('\\Model\\'.$this->UCF_object);
             $data = $model->exec_sqlstm($sql_stm, $inputs);
 
             if($data){
@@ -235,7 +235,7 @@ class Orderx
             $output = "";
             $inputs["ID_CLIENT"]=$_GET['cli_id'];
             //$cli_id=$_GET['cli_id'];
-            $model = new('\Model\\'."Animal");
+            $model = instantiate('\\Model\\'."Animal");
             $data = $model->listWhere($inputs);
             
             if($data){
@@ -257,7 +257,7 @@ class Orderx
                     $breed_name ="";
                     if(!($row->ID_BREED=="" || $row->ID_BREED==null)){
                         $breed_input['ID']= $row->ID_BREED;
-                        $breed = new('\Model\\'."Breed");
+                        $breed = instantiate('\\Model\\'."Breed");
                         $breed_name = $breed->getRow($breed_input)->NAME;
                         $breed = null;
                     }
@@ -318,7 +318,7 @@ class Orderx
                             CP.PACK_STATUS =:PACK_STATUS 
                         GROUP BY CP.ID
                         ORDER BY CP.ID DESC";
-            $model = new('\Model\\'."Package");
+            $model = instantiate('\\Model\\'."Package");
             $data = $model->exec_sqlstm($sql_stm, $inputs);
             if($data){
                 $output .='<thead>
@@ -376,7 +376,7 @@ class Orderx
             $inputs["ID_ORDER"]=$_GET['order_id'];
             $inputs["PROD_SERV_TYPE"]="SERV";
             
-            $model = new('\Model\\'."OrderItem");
+            $model = instantiate('\\Model\\'."OrderItem");
             $data = $model->listWhere($inputs);
             if($data){
                 $output .='<thead>
@@ -396,7 +396,7 @@ class Orderx
 
                     //GET SERVICE DETAILS
                     $service_input['ID']= $row->ID_PROD_SERV;
-                    $service = new('\Model\\'."Service");
+                    $service = instantiate('\\Model\\'."Service");
                     $service_name = $service->getRow($service_input)->NAME;
                     $service_code = $service->getRow($service_input)->CODE;
                     $service = null;
@@ -407,7 +407,7 @@ class Orderx
                         $animal_name="";    
                     } else{
                         $animal_input['ID']= $row->ID_PACKAGE_ANIMAL;
-                        $animal = new('\Model\\'."Animal");
+                        $animal = instantiate('\\Model\\'."Animal");
                         $animal_row = $animal->getRow($animal_input);
                         $animal_name = $animal_row ? $animal_row->NAME : '';
                         $animal = null;
@@ -417,7 +417,7 @@ class Orderx
                     //SE PCK_ID == 1 => USE ANI FROM SCREEN, OTHERWISE USE ANI FROM PACKGE
                     if ($row->ID_PACKAGE==1) {
                         $animal_input['ID']= $row->ID_PACKAGE_ANIMAL;
-                        $animal = new('\Model\\'."Animal");
+                        $animal = instantiate('\\Model\\'."Animal");
                         $animal_row = $animal->getRow($animal_input);
                         $animal_name = $animal_row ? $animal_row->NAME : '';
                         $animal = null;
@@ -425,11 +425,11 @@ class Orderx
 
                     } else {
                         $package_input['ID']=$row->ID_PACKAGE;
-                        $package = new('\Model\\'."Package");
+                        $package = instantiate('\\Model\\'."Package");
                         $package_row = $package->getRow($package_input);
                         if ($package_row && !empty($package_row->ID_ANIMAL)) {
                             $animal_input['ID'] = $package_row->ID_ANIMAL;
-                            $animal = new('\Model\\'."Animal");
+                            $animal = instantiate('\\Model\\'."Animal");
                             $animal_row = $animal->getRow($animal_input);
                             $animal_name = $animal_row ? $animal_row->NAME : '';
                             $animal = null;
@@ -493,7 +493,7 @@ class Orderx
             $inputs["ID_ORDER"]=$_GET['order_id'];
             $inputs["PROD_SERV_TYPE"]="PROD";
             
-            $model = new('\Model\\'."OrderItem");
+            $model = instantiate('\\Model\\'."OrderItem");
             $data = $model->listWhere($inputs);
             if($data){
                 $output .='<thead>
@@ -511,7 +511,7 @@ class Orderx
 
                     //GET product DETAILS
                     $product_input['ID']= $row->ID_PROD_SERV;
-                    $product = new('\Model\\'."Product");
+                    $product = instantiate('\\Model\\'."Product");
                     $product_code = $product->getRow($product_input)->CODE;
                     $product = null;
 
@@ -559,7 +559,7 @@ class Orderx
         $orderpayment_edit_check = check_permission($_SESSION['username'], "orderpayment_edit");
         $orderpayment_delete_check = check_permission($_SESSION['username'], "orderpayment_delete");
         $output = "";
-        $model = new('\Model\\'."OrderPayment");
+    $model = instantiate('\\Model\\'."OrderPayment");
         
         $inputs_payments['ID_ORDER']=$_GET['order_id'];
         $order_id=$_GET['order_id'];
@@ -610,7 +610,7 @@ class Orderx
         //UPDATE TOTAL BASED ON ITEMS:
         $inputs_order_item['ID_ORDER']=$inputs['Id'];    
         $sql_stm_get_items = "SELECT SUM(VALUE_NO_DISCOUNT) AS T_VALUE_NO_DISCOUNT, SUM(VALUE_WITH_DISCOUNT) AS T_VALUE_WITH_DISCOUNT, SUM(TOTAL_CASH) AS T_TOTAL_CASH, SUM(TOTAL_PIX) AS T_TOTAL_PIX FROM ORDER_ITEM WHERE ID_ORDER=:ID_ORDER";
-        $order_model = new('\Model\\'."OrderItem");
+    $order_model = instantiate('\\Model\\'."OrderItem");
         $result_totals = $order_model->exec_sqlstm($sql_stm_get_items, $inputs_order_item);
     
         if ($result_totals){
@@ -631,7 +631,7 @@ class Orderx
                     $_POST['method']="update_call";
                     //$_POST['type']="static";
 
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();    
                 } else{
@@ -648,7 +648,7 @@ class Orderx
                     $_POST['method']="update_call";
                     //$_POST['type']="static";
 
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
 
@@ -665,16 +665,16 @@ class Orderx
 
         //---------------UPDATE TOTAL PAID AND TOTAL DEBT-------------------------:
         $inputs_order['ID']=$inputs['Id'];
-        $order_model = new('\Model\\'."Orderx");
+    $order_model = instantiate('\\Model\\'."Orderx");
         $result_order = $order_model->getRow($inputs_order);
         $order_debt = $result_order->ORDER_VALUE_WITH_DISCOUNT;
 
         $inputs_order_payment['ID_ORDER']=$inputs['Id'];
-        $orderpayment_model = new('\Model\\'."OrderPayment");
+    $orderpayment_model = instantiate('\\Model\\'."OrderPayment");
         $sqlsql_payments = "SELECT SUM(PAID_AMOUNT) AS PAID_AMOUNT FROM ORDER_PAYMENT WHERE ID_ORDER=:ID_ORDER";
         
         $inputs_items['ID_ORDER']=$inputs['Id'];
-        $orderitem_model = new('\Model\\'."OrderItem");
+    $orderitem_model = instantiate('\\Model\\'."OrderItem");
         $result_items = $orderitem_model->countWhere($inputs_items);
         foreach ($result_items as $row_item) {
             $total_items = $row_item->COUNTW;
@@ -718,7 +718,7 @@ class Orderx
                 $_POST['class']="Orderx";
                 $_POST['method']="update_call";
                 
-                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                 $_POST['csrf_token'] = csrf_token();
                 $_POST['csrf_token'] = csrf_token();
                 $ajax_call->index();
@@ -739,7 +739,7 @@ class Orderx
                     $_POST['Status']="Aberto";
                 }
                 
-                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                 $_POST['csrf_token'] = csrf_token();
                 $_POST['csrf_token'] = csrf_token();
                 $ajax_call->index();
@@ -765,15 +765,15 @@ class Orderx
     public function update_payments($inputs){
 
         $inputs_order['ID']=$inputs['Id'];
-        $order_model = new('\Model\\'."Orderx");
+    $order_model = instantiate('\\Model\\'."Orderx");
         $result_order = $order_model->getRow($inputs_order);
 
         $inputs_order_payment['ID_ORDER']=$inputs['Id'];
-        $orderpayment_model = new('\Model\\'."OrderPayment");
+    $orderpayment_model = instantiate('\\Model\\'."OrderPayment");
         $sqlsql_payments = "SELECT SUM(PAID_AMOUNT) AS PAID_AMOUNT FROM ORDER_PAYMENT WHERE ID_ORDER=:ID_ORDER";
         
         $inputs_items['ID_ORDER']=$inputs['Id'];
-        $orderitem_model = new('\Model\\'."OrderItem");
+    $orderitem_model = instantiate('\\Model\\'."OrderItem");
         $result_items = $orderitem_model->countWhere($inputs_items);
         $has_items = false;
 
@@ -813,7 +813,7 @@ class Orderx
                 $_POST['class']="Orderx";
                 $_POST['method']="update_call";
                 
-                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                 $_POST['csrf_token'] = csrf_token();
                 $_POST['csrf_token'] = csrf_token();
                 $ajax_call->index();
@@ -834,7 +834,7 @@ class Orderx
                     $_POST['Status']="Aberto";
                 }
                 
-                $ajax_call = new('\Controller\\'."Ajax_call");
+                $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                 $_POST['csrf_token'] = csrf_token();
                 $_POST['csrf_token'] = csrf_token();
                 $ajax_call->index();

@@ -174,7 +174,7 @@ Trait _GlobalController{
             $_POST['csrf_token'] = csrf_token();
             $_POST['Id_client']=$cli_id;
 
-            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
             $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
             
@@ -300,7 +300,7 @@ Trait _GlobalController{
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Login instance:
-            $model = new('\Model\\'.$this->UCF_object);
+            $model = instantiate('\\Model\\' . $this->UCF_object);
 
             //Define inputs for DB operations:
             $log = "::INSERT CALL::";
@@ -581,7 +581,7 @@ Trait _GlobalController{
                         $_POST['type'] = 'static';
                         $_POST['Id']=$order_id;
             
-                        $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                         $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
 
@@ -646,7 +646,7 @@ Trait _GlobalController{
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             //Create new Model instance:
-            $model = new('\Model\\'.$this->UCF_object);
+            $model = instantiate('\\Model\\' . $this->UCF_object);
 
             //Get Id from $_POST:
             if(isset($_POST["Id"])){
@@ -1077,7 +1077,7 @@ Trait _GlobalController{
                         $_POST['csrf_token'] = csrf_token();
                         $_POST['Id']=$order_id;
             
-                        $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                         $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
             
@@ -1089,7 +1089,7 @@ Trait _GlobalController{
                         $_POST['method']="update_payments";
                         $_POST['Id']=$order_id;
             
-                        $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                         $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
                         */
@@ -1108,7 +1108,7 @@ Trait _GlobalController{
                         $_POST['Id_Package']=$package_id;
                         $_POST['Id']=$id;
 
-                            $ajax_call = new('\Controller\\'."Ajax_call");
+                            $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                             $_POST['csrf_token'] = csrf_token();
                             $ajax_call->index();
                         }
@@ -1137,7 +1137,7 @@ Trait _GlobalController{
                         $_POST['csrf_token'] = csrf_token();
                         $_POST['type'] = 'static';
                     
-                                $ajax_call = new('\Controller\\'."Ajax_call");
+                                $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                                 $_POST['csrf_token'] = csrf_token();
                                 $ajax_call->index();
                             }
@@ -1201,7 +1201,7 @@ Trait _GlobalController{
                                 $_POST['Original_Value']=0.00;
                                 $_POST['Postponed_Value']=0.00;
                     
-                                $ajax_call = new('\Controller\\'."Ajax_call");
+                                $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                                 $_POST['csrf_token'] = csrf_token();
                                 $ajax_call->index();
                     
@@ -1224,7 +1224,7 @@ Trait _GlobalController{
                         $_POST['type'] = 'static';
                         $_POST['Id']=$order_id;
             
-                        $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                         $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
 
@@ -1284,7 +1284,7 @@ Trait _GlobalController{
     public function delete_call($inputs){
 
         //Create new Model instance:
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\' . $this->UCF_object);
 
         //Get Id from $_POST:
         if(isset($inputs["del_id"])){
@@ -1312,7 +1312,7 @@ Trait _GlobalController{
                     $_POST['method']="update_totals";
                     $_POST['Id']=$order_id;
         
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                     $_POST['csrf_token'] = csrf_token();
                     $_POST['type'] = 'static';
                     $ajax_call->index();
@@ -1325,7 +1325,7 @@ Trait _GlobalController{
                     $_POST['method']="update_payments";
                     $_POST['Id']=$order_id;
         
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                     $_POST['csrf_token'] = csrf_token();
                     $_POST['type'] = 'static';
                     $ajax_call->index();
@@ -1340,7 +1340,7 @@ Trait _GlobalController{
                         $_POST['Id_Package']=$package_id;
                         $_POST['Id']=$id;
             
-                        $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                         $_POST['csrf_token'] = csrf_token();
                         $ajax_call->index();
                     }
@@ -1361,7 +1361,7 @@ Trait _GlobalController{
                     $_POST['method']="update_totals";
                     $_POST['Id']=$order_id;
         
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                     $_POST['csrf_token'] = csrf_token();
                     $_POST['type'] = 'static';
                     $ajax_call->index();
@@ -1457,7 +1457,7 @@ Trait _GlobalController{
             $_POST['Flag_Outro']=0;
             $_POST['Flag_Contrario']=0;
 
-            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call = instantiate('\\Controller\\'."Ajax_call");
             $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
             
@@ -1506,7 +1506,7 @@ Trait _GlobalController{
             $_POST['OI_Comission_Overwrite_Flg']=$product_array->COMISSION_OVERWRITE_FLG;
             $_POST['Prod_Serv_Group']=$product_array->GROUP_X;
 
-            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call = instantiate('\\Controller\\'."Ajax_call");
             $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
             

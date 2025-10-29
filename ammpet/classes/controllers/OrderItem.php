@@ -27,7 +27,7 @@ class OrderItem {
         
         //restart_session();
         $output = "";
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $data = $model->listAll();
         if($data){
@@ -85,7 +85,7 @@ class OrderItem {
             $id=$_GET['item_id'];
             $order_id = $_GET['order_id'];
             $client_id = $_GET['cli_id'];
-            $model = new('\Model\\'.$this->UCF_object);
+            $model = instantiate('\\Model\\'.$this->UCF_object);
             
             $data = $model->getRow($inputs);
 
@@ -375,7 +375,7 @@ class OrderItem {
             $id=$_GET['item_id'];
             $order_id = $_GET['order_id'];
             $client_id = $_GET['cli_id'];
-            $model = new('\Model\\'.$this->UCF_object);
+            $model = instantiate('\\Model\\'.$this->UCF_object);
             
             $data = $model->getRow($inputs);
 
@@ -578,13 +578,13 @@ class OrderItem {
                     //amm_log(date("H:i:s").":: ID = NEW");
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $_POST['type'] = 'static';
                     $ajax_call->index();
                 } else{
                     $_POST['method']="update_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $_POST['type'] = 'static';
                     $ajax_call->index();
@@ -644,11 +644,11 @@ class OrderItem {
                     //amm_log(date("H:i:s").":: ID = NEW");
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $ajax_call->index();
                 } else{
                     $_POST['method']="update_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $ajax_call->index();
                 }
             }

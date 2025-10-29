@@ -194,7 +194,7 @@ class Service {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $model = new('\Model\\'.$this->UCF_object);
+            $model = instantiate('\\Model\\'.$this->UCF_object);
             
             $data = $model->getRow($inputs);
 
@@ -410,7 +410,7 @@ class Service {
 
             if (!($id=='new')) {
                 $inputs["ID"]=$_GET['id'];
-                $model = new('\Model\\'.$this->UCF_object);
+                $model = instantiate('\\Model\\'.$this->UCF_object);
                 
                 $data = $model->getRow($inputs);
                 if($data){
@@ -653,7 +653,7 @@ class Service {
         $inputs_cli_id=$inputs['cli_id'];
         $inputs_order_id=$inputs['order_id'];
         $output = "";
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         $inputs_stm['TYPE']="Serv";
         
         $data = $model->listWhere($inputs_stm);
@@ -800,12 +800,12 @@ class Service {
                 if ($inputs['Id']=="new") {
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 } else{
                     $_POST['method']="update_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 }

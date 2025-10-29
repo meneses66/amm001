@@ -25,7 +25,7 @@ class Params {
 
     //SESSION WITH FUNCTIONS TO ALLOWS OTHER CLASSES TO GET PARAM VALUES
     public function getParamValue($type, $name, $status){
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\' . $this->UCF_object);
         $inputs['TYPE']=$type;
         $inputs['NAME']=$name;
         $inputs['STATUS']=$status;
@@ -40,7 +40,7 @@ class Params {
     }
 
     public function getParamListByType($type, $status){
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\' . $this->UCF_object);
         $inputs['TYPE']=$type;
         $inputs['STATUS']=$status;
         $result = $model->listWhere($inputs);
@@ -73,7 +73,7 @@ class Params {
  
             if (!($id=='new')) {
                 $inputs["ID"]=$_GET['id'];
-                $model = new('\Model\\'.$this->UCF_object);
+                $model = instantiate('\\Model\\'.$this->UCF_object);
                 
                 $data = $model->getRow($inputs);
                 if($data){
@@ -175,7 +175,7 @@ class Params {
         $params_delete_check = check_permission($_SESSION['username'], "params_delete");
         $output = "";
         //$model = new \Model\Params;
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $data = $model->listAll();
         if($data){
@@ -273,13 +273,13 @@ class Params {
                 if ($inputs['Id']=="new") {
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                     $_POST['csrf_token'] = csrf_token();
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 } else{
                     $_POST['method']="update_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                     $_POST['csrf_token'] = csrf_token();
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();

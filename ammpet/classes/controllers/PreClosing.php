@@ -78,7 +78,7 @@ class PreClosing {
  
             if (!($id=='new')) {
                 $inputs["ID"]=$_GET['id'];
-                $model = new('\Model\\'.$this->UCF_object);
+                $model = instantiate('\\Model\\'.$this->UCF_object);
                 
                 $data = $model->getRow($inputs);
                 if($data){
@@ -333,8 +333,8 @@ class PreClosing {
         $month = str_pad((string)intval($month), 2, '0', STR_PAD_LEFT);
         $name = $year.$month; // e.g., 202510
 
-        // Reuse Params controller to fetch
-        $paramsCtrl = new('\\Controller\\'.'Params');
+    // Reuse Params controller to fetch
+    $paramsCtrl = instantiate('\\Controller\\' . 'Params');
         $res = $paramsCtrl->getParamValue('BAN_PRE_CLOSING', $name, 'Ativo');
         if ($res === false) {
             return 'new|';
@@ -352,7 +352,7 @@ class PreClosing {
         $preclosing_edit_check = check_permission($_SESSION['username'], "pre_closing_edit");
         $preclosing_delete_check = check_permission($_SESSION['username'], "pre_closing_delete");
         $output = "";
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\' . $this->UCF_object);
         
         $data = $model->listAll();
         if(f_countAll("PreClosing")>0){
@@ -376,7 +376,7 @@ class PreClosing {
                 $inputs_employee['ID']=$id_employee=$row->ID_EMPLOYEE;
                 $data_form_employee['NAME']="";
                 if (!($id_employee=="")) {
-                    $employee_model = new('\Model\\'.$this->parent_object);
+                    $employee_model = instantiate('\\Model\\'.$this->parent_object);
                     $employee_data = $employee_model->getRow($inputs_employee);
         
                     if($employee_data){
@@ -441,8 +441,8 @@ class PreClosing {
 
         if ($mode === 'batch') {
             // Create/Update for all active employees
-            $supModel = new('\\Model\\'.'Supplier');
-            $preModel = new('\\Model\\'.'PreClosing');
+            $supModel = instantiate('\\Model\\' . 'Supplier');
+            $preModel = instantiate('\\Model\\' . 'PreClosing');
             $suppliers = $supModel->listWhere(['STATUS' => 'Ativo']);
             if (!$suppliers) {
                 return 'Processados: 0 funcionário(s).';
@@ -493,7 +493,7 @@ class PreClosing {
             return 'Informe o Funcionário.';
         }
 
-        $supModel = new('\\Model\\'.'Supplier');
+    $supModel = instantiate('\\Model\\' . 'Supplier');
         $empRow = $supModel->getRow(['ID'=>$empId]);
         if (!$empRow) {
             return 'Funcionário inválido.';
@@ -520,8 +520,8 @@ class PreClosing {
     }
 
     private function compute_commissions($year, $month, $employeeType, $employeeName, $opts){
-        $orderModel = new('\\Model\\'.'OrderItem');
-        $paramsCtrl = new('\\Controller\\'.'Params');
+    $orderModel = instantiate('\\Model\\' . 'OrderItem');
+    $paramsCtrl = instantiate('\\Controller\\' . 'Params');
 
         // Month boundaries
         $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);

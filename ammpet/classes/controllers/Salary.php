@@ -50,7 +50,7 @@ class Salary {
             
                 $inputs['ID']=$_GET['id'];
                 $id=$_GET['id'];
-                $model = new('\Model\\'.$this->UCF_object);
+                $model = instantiate('\\Model\\'.$this->UCF_object);
                 
                 $data = $model->getRow($inputs);
 
@@ -202,7 +202,7 @@ class Salary {
         $salary_delete_check = check_permission($_SESSION['username'], "salary_delete");
         $output = "";
         //$model = new \Model\Params;
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $data = $model->listAll();
         if($data){
@@ -227,7 +227,7 @@ class Salary {
                 $inputs_employee['ID']=$id_employee=$row->ID_EMPLOYEE;
                 $data_form_employee['NAME']="";
                 if (!($id_employee=="")) {
-                    $employee_model = new('\Model\\'.$this->parent_object);
+                    $employee_model = instantiate('\\Model\\'.$this->parent_object);
                     $employee_data = $employee_model->getRow($inputs_employee);
         
                     if($employee_data){
@@ -313,7 +313,7 @@ class Salary {
             $_POST['method']="update_call";
             $_POST['type']="static";
 
-            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call = instantiate('\\Controller\\'."Ajax_call");
             $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
             
@@ -356,7 +356,7 @@ class Salary {
             $_POST['method']="update_call";
             $_POST['type']="static";
 
-            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call = instantiate('\\Controller\\'."Ajax_call");
             $_POST['csrf_token'] = csrf_token();
             $ajax_call->index();
 
@@ -377,7 +377,7 @@ class Salary {
         $inputs_salary['SALARY_ITEM_STATUS']='Confirmado';
         $inputs_salary['YEAR']=$year;
         $inputs_salary['MONTH']=$month;
-        $salary_model = new('\Model\\'."Salary");
+    $salary_model = instantiate('\\Model\\'."Salary");
 
         $salary_tobe_count = $salary_model->count_exec_sqlstm_with_bind($sql_stlm_sqlary_count, $inputs_salary);
         foreach ($salary_tobe_count as $row_item) {
@@ -434,7 +434,7 @@ class Salary {
         $inputs_salary['SALARY_ITEM_STATUS']='Aberto';
         $inputs_salary['YEAR']=$year;
         $inputs_salary['MONTH']=$month;
-        $salary_model = new('\Model\\'."Salary");
+    $salary_model = instantiate('\\Model\\'."Salary");
 
         $salary_tobe_count = $salary_model->count_exec_sqlstm_with_bind($sql_stlm_sqlary_count, $inputs_salary);
         foreach ($salary_tobe_count as $row_item) {

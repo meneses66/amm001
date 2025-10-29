@@ -25,7 +25,7 @@ class Package {
     public function load_rows(){
             
         $output = "";
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $data = $model->listAll();
         if($data){
@@ -75,7 +75,7 @@ class Package {
     public function load_package_options ($array){
         
         //GET LIST OF PACKAGES FROM PACKAGES TABLE
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $data_form_package=$array['dfpackage'];
 
@@ -93,7 +93,7 @@ class Package {
             foreach ($options as $option) {
                 //WITH ID_ANIMAL GET ITS NAME:
                 $animal_inputs['ID']=$option->ID_ANIMAL;
-                $animal_model = new('\Model\\'."Animal");
+                $animal_model = instantiate('\\Model\\'."Animal");
                 $animal_name = $animal_model->getRow($animal_inputs)->NAME;
                
                 $option_to_show = $option->ID."-".$animal_name;
@@ -115,7 +115,7 @@ class Package {
     //GET NEXT SEQUENCE:
     public function get_next_pkg_sequence($inputs){
         $inputs_package['ID']=$inputs['Id_Package'];
-        $package_model = new('\Model\\'."Package");
+            $package_model = instantiate('\\Model\\'."Package");
         $result_package = $package_model->getRow($inputs_package);
         if ($result_package){
             return $result_package->PACK_CONSUMED;
@@ -134,8 +134,8 @@ class Package {
         //$sql_stm_get_package = "SELECT * FROM CLIENT_PACKAGE WHERE ID=:ID";
         //$sql_stm_get_oi = "SELECT * FROM ORDER_ITEM WHERE ID=:ID";
         
-        $package_model = new('\Model\\'."Package");
-        $oi_model = new('\Model\\'."OrderItem");
+    $package_model = instantiate('\\Model\\'."Package");
+    $oi_model = instantiate('\\Model\\'."OrderItem");
         
         $result_package = $package_model->getRow($inputs_package);
         $result_oi = $oi_model->getRow($inputs_oi);
@@ -173,7 +173,7 @@ class Package {
             $package_model=null;
             $oi_model=null;
 
-            $ajax_call = new('\Controller\\'."Ajax_call");
+            $ajax_call = instantiate('\\Controller\\'."Ajax_call");
             $ajax_call->index();
             
         }

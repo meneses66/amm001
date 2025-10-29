@@ -48,7 +48,7 @@ class Client
 
             if (!($id=='new')) {
                 $inputs["ID"]=$_GET['id'];
-                $model = new('\Model\\'.$this->UCF_object);
+                $model = instantiate('\\Model\\'.$this->UCF_object);
                 
                 $data = $model->getRow($inputs);
                 if($data){
@@ -218,7 +218,7 @@ class Client
         $client_delete_check = check_permission($_SESSION['username'], "client_delete");
         $orderx_add_check = check_permission($_SESSION['username'], "orderx_add");
         $output = "";
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $sqlstm = "SELECT C.ID AS ID, C.UPDATED AS UPDATED, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, C.MOBILE_2 as MOBILE_2, C.ORIGIN as ORIGIN, C.OLD_ID as OLD_ID, C.STATUS as STATUS, GROUP_CONCAT(A.NAME) AS ANIMALS FROM `CLIENT` C LEFT JOIN `ANIMAL` A ON C.ID = A.ID_CLIENT GROUP BY C.ID";
 
@@ -290,7 +290,7 @@ class Client
         
         restart_session();
         $output = "";
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $sqlstm = "SELECT C.ID AS ID, C.UPDATED AS UPDATED, C.NAME AS NAME, C.MOBILE_1 AS MOBILE_1, C.MOBILE_2 as MOBILE_2, C.ORIGIN as ORIGIN, C.OLD_ID as OLD_ID, C.STATUS as STATUS, GROUP_CONCAT(A.NAME) AS ANIMALS FROM `CLIENT` C LEFT JOIN `ANIMAL` A ON C.ID = A.ID_CLIENT GROUP BY C.ID";
 
@@ -350,7 +350,7 @@ class Client
             $output = "";
             $inputs["ID"]=$_GET['cli_id'];
             $id=$_GET['cli_id'];
-            $model = new('\Model\\'.$this->UCF_object);
+            $model = instantiate('\\Model\\'.$this->UCF_object);
             $data = $model->getRow($inputs);
 
             if($data){
@@ -433,12 +433,12 @@ class Client
                 if ($inputs['Id']=="new") {
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 } else{
                     $_POST['method']="update_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 }

@@ -160,7 +160,7 @@ class Animal {
             $output = "";
             $inputs["ID"]=$_GET['id'];
             $id=$_GET['id'];
-            $model = new('\Model\\'.$this->UCF_object);
+            $model = instantiate('\\Model\\'.$this->UCF_object);
             
             $data = $model->getRow($inputs);
 
@@ -333,7 +333,7 @@ class Animal {
 
             if (!($id=='new')) {
                 $inputs["ID"]=$_GET['id'];
-                $model = new('\Model\\'.$this->UCF_object);
+                $model = instantiate('\\Model\\'.$this->UCF_object);
                 
                 $data = $model->getRow($inputs);
                 if($data){
@@ -509,7 +509,7 @@ class Animal {
 
             $output = "";
             
-            $client = new('\Model\\'.$this->parent_object);
+            $client = instantiate('\\Model\\'.$this->parent_object);
             $client_data = $client->getRow($inputs_cli);
 
             if($client_data){
@@ -517,7 +517,7 @@ class Animal {
                     $data_form[$key]=$value;
                 }
 
-                $model = new('\Model\\'.$this->UCF_object);
+                $model = instantiate('\\Model\\'.$this->UCF_object);
                 
                 $data = $model->listWhere($inputs_ani);
                 if($data){
@@ -546,7 +546,7 @@ class Animal {
                         $breed_name="";
                         if (!($row->ID_BREED==null || $row->ID_BREED=="" || $row->ID_BREED==0)) {
                             $breed_input['ID']= $row->ID_BREED;
-                            $breed = new('\Model\\'."Breed");
+                            $breed = instantiate('\\Model\\'."Breed");
                             $breed_name = $breed->getRow($breed_input)->NAME;
                             $breed = null;
                         }
@@ -618,7 +618,7 @@ class Animal {
             $output = "";
             $inputs["ID"]=$_GET['cli_id'];
             $id=$_GET['cli_id'];
-            $model = new('\Model\\'.$this->parent_object);
+            $model = instantiate('\\Model\\'.$this->parent_object);
             $data = $model->getRow($inputs);
 
             if($data){
@@ -686,7 +686,7 @@ class Animal {
     public function load_animal_options ($array){
         
         //GET LIST OF ANIMALS FROM ANIMALS TABLE
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $data_form=$array['data_form_info'];
         $inputs['ID_CLIENT']=$array['id_client'];
@@ -766,12 +766,12 @@ class Animal {
                     //amm_log(date("H:i:s").":: ID = NEW");
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 } else{
                     $_POST['method']="update_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\'."Ajax_call");
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 }

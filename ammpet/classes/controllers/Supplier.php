@@ -49,7 +49,7 @@ class Supplier {
 
             if (!($id=='new')) {
                 $inputs["ID"]=$_GET['id'];
-                $model = new('\Model\\'.$this->UCF_object);
+                $model = instantiate('\\Model\\' . $this->UCF_object);
                 
                 $data = $model->getRow($inputs);
                 if($data){
@@ -216,7 +216,7 @@ class Supplier {
         $supplier_edit_check = check_permission($_SESSION['username'], "supplier_edit");
         $supplier_delete_check = check_permission($_SESSION['username'], "supplier_delete"); 
         $output = "";
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\' . $this->UCF_object);
         $data = $model->listAll();
         if($data){
             $output .='<thead>
@@ -290,7 +290,7 @@ class Supplier {
     public function load_executor_options ($array){
         
         //GET LIST OF executo FROM Supplier TABLE
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\' . $this->UCF_object);
         
         $data_form_executor=$array['dfexecutor'];
         $inputs['TYPE']="Funcionario";
@@ -327,7 +327,7 @@ class Supplier {
     public function load_salesperson_options ($array){
         
         //GET LIST OF salesperson FROM Supplier TABLE
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $data_form_salesperson=$array['dfsalesperson'];
         $inputs['TYPE']="Funcionario";
@@ -356,7 +356,7 @@ class Supplier {
     public function load_employee_options ($array){
         
         //GET LIST OF executo FROM Supplier TABLE
-        $model = new('\Model\\'.$this->UCF_object);
+    $model = instantiate('\\Model\\'.$this->UCF_object);
         
         $data_form_employee=$array['dfemployee'];
         $inputs['TYPE']="Funcionario";
@@ -430,12 +430,12 @@ class Supplier {
                 if ($inputs['Id']=="new") {
                     unset($_POST['Id']);                
                     $_POST['method']="insert_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                        $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 } else{
                     $_POST['method']="update_call";
-                    $ajax_call = new('\Controller\\'."Ajax_call");
+                    $ajax_call = instantiate('\\Controller\\' . 'Ajax_call');
                     $_POST['csrf_token'] = csrf_token();
                     $ajax_call->index();
                 }
