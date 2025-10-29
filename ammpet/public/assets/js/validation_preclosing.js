@@ -144,7 +144,7 @@ $(document).ready(function(){
     });
 
     // ===== Calculate commissions (single) =====
-    $('#calc_btn').on('click', function(){
+    $('#calc_btn').off('click').on('click', function(){
         const year = (document.getElementById('year')||{}).value;
         const month = (document.getElementById('month')||{}).value;
         const emp = (document.getElementById('id_employee')||{}).value;
@@ -178,19 +178,29 @@ $(document).ready(function(){
             data: data,
             success: function(resp){
                 try{
-                    const text = (typeof resp === 'string') ? resp : (''+resp);
-                    // Expect: OK|serv|prod|count
-                    const parts = text.split('|');
-                    if (parts[0] === 'OK'){
-                        if (document.getElementById('comission_serv')) document.getElementById('comission_serv').value = parts[1] || '0.00';
-                        if (document.getElementById('comission_prod')) document.getElementById('comission_prod').value = parts[2] || '0.00';
-                        if (document.getElementById('serv_count')) document.getElementById('serv_count').value = parts[3] || '0';
-                        if (document.getElementById('error_message')) document.getElementById('error_message').innerText = '';
+                    let text = (typeof resp === 'string') ? resp : (''+resp);
+                    // Normalize and try to extract OK|serv|prod|count even if there is extra output
+                    text = (text || '').toString();
+                    const m = text.match(/OK\|([^|]+)\|([^|]+)\|([^|]+)/);
+                    if (m) {
+                        const serv = (m[1]||'').trim();
+                        const prod = (m[2]||'').trim();
+                        const cnt  = (m[3]||'').trim();
+                        const cs = document.getElementById('comission_serv');
+                        const cp = document.getElementById('comission_prod');
+                        const sc = document.getElementById('serv_count');
+                        if (cs) cs.value = serv || '0.00';
+                        if (cp) cp.value = prod || '0.00';
+                        if (sc) sc.value = cnt || '0';
+                        const em = document.getElementById('error_message');
+                        if (em) em.innerText = '';
                     } else {
-                        if (document.getElementById('error_message')) document.getElementById('error_message').innerText = text;
+                        const em = document.getElementById('error_message');
+                        if (em) em.innerText = text || 'Resposta inválida do servidor.';
                     }
                 } catch(e){
-                    if (document.getElementById('error_message')) document.getElementById('error_message').innerText = 'Erro ao calcular comissões.';
+                    const em = document.getElementById('error_message');
+                    if (em) em.innerText = 'Erro ao calcular comissões.';
                 }
             },
             error: function(){
