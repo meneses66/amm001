@@ -1,23 +1,28 @@
 function calculate_item_product(input){
     // Defer calculation to ensure mask has updated field values
     setTimeout(() => {
-        // Read values and normalize masked monetary inputs reliably
-        let quantity = Number(document.getElementById("quantity").value || 0);
-        const activeId = document.activeElement ? document.activeElement.id : null;
-        let unit_value = (activeId === 'unit_value') ? parseMaskedMoney(input) : getReliableMoneyById("unit_value");
-        let discount_value = (activeId === 'discount_value') ? parseMaskedMoney(input) : getReliableMoneyById("discount_value");
-        let oi_price_cash = getReliableMoneyById("oi_price_cash");
-        let oi_price_pix = getReliableMoneyById("oi_price_pix");
-
-        var total_cash = round(quantity*oi_price_cash, 2).toFixed(2);
-        var total_pix = round(quantity*oi_price_pix, 2).toFixed(2);
-        var total_no_discount = round(quantity*unit_value, 2).toFixed(2);
-        var total_with_discount = round((round(quantity*unit_value, 2) - discount_value),2).toFixed(2);
-        document.getElementById("total_pix").value = total_pix;
-        document.getElementById("total_cash").value = total_cash;
-        document.getElementById("value_no_discount").value = total_no_discount;
-        document.getElementById("value_with_discount").value = total_with_discount;
+        calculate_item_product_sync(input);
     }, 0);
+}
+
+// Synchronous version used on blur/submit to avoid stale values
+function calculate_item_product_sync(input){
+    // Read values and normalize masked monetary inputs reliably
+    let quantity = Number(document.getElementById("quantity").value || 0);
+    const activeId = document.activeElement ? document.activeElement.id : null;
+    let unit_value = (activeId === 'unit_value' && typeof input !== 'undefined') ? parseMaskedMoney(input) : getReliableMoneyById("unit_value");
+    let discount_value = (activeId === 'discount_value' && typeof input !== 'undefined') ? parseMaskedMoney(input) : getReliableMoneyById("discount_value");
+    let oi_price_cash = getReliableMoneyById("oi_price_cash");
+    let oi_price_pix = getReliableMoneyById("oi_price_pix");
+
+    var total_cash = round(quantity*oi_price_cash, 2).toFixed(2);
+    var total_pix = round(quantity*oi_price_pix, 2).toFixed(2);
+    var total_no_discount = round(quantity*unit_value, 2).toFixed(2);
+    var total_with_discount = round((round(quantity*unit_value, 2) - discount_value),2).toFixed(2);
+    document.getElementById("total_pix").value = total_pix;
+    document.getElementById("total_cash").value = total_cash;
+    document.getElementById("value_no_discount").value = total_no_discount;
+    document.getElementById("value_with_discount").value = total_with_discount;
 }
 
 function round(num, decimalPlaces = 0) {

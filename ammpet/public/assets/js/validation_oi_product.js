@@ -3,6 +3,7 @@ $(document).ready(function(){
     document.getElementById("button").onclick= function(event) {
         event.preventDefault();
 
+        try { if (typeof calculate_item_product_sync === 'function') { calculate_item_product_sync(); } } catch(e) {}
         var data_form = decodeURIComponent($(update_form).serialize());
         //console.log("data_form: "+data_form);
         data_form_array = splitUrlEncoded(data_form);
