@@ -11,17 +11,22 @@ Trait _DAO{
 
   private function connect()
   {
-    $servername = SERVERNAME;
+    $servername = SERVERNAME; // host-only (legacy)
+    $port = defined('DB_PORT') ? DB_PORT : null;
     $dbname = DBNAME;
     $username = DBUSER;
     $password = DBPWD;
 
-    // Normalize host (remove any trailing slash) and add charset
+    // Build DSN using host and port if available
     $host = rtrim($servername, '/');
-    $string = "mysql:host={$host};dbname={$dbname};charset=utf8mb4";
+    $dsn = "mysql:host={$host};";
+    if (!empty($port)) {
+      $dsn .= "port={$port};";
+    }
+    $dsn .= "dbname={$dbname};charset=utf8mb4";
 
     try {
-      $conn = new PDO($string, $username, $password);
+  $conn = new PDO($dsn, $username, $password);
       // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       return $conn;
