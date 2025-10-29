@@ -25,7 +25,8 @@ $(document).ready(function(){
     $('#external_cost').mask("##0.00", {reverse: true});
     $('#package_price').mask("##0.00", {reverse: true});
     $('#unit_value').mask("##0.00", {reverse: true});
-    $('#discount_value').mask("##0.00", {reverse: true});
+    // Disable reverse mask for discount to let typing "2" mean 2.00
+    // Formatting is handled by calculators on blur/submit.
     $('#total_pix').mask("##0.00", {reverse: true});
     $('#total_cash').mask("##0.00", {reverse: true});
     $('#order_value_with_discount').mask("##0.00", {reverse: true});

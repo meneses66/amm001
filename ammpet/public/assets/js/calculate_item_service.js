@@ -1,18 +1,18 @@
 function calculate_item_service(input){
     // Defer calculation to ensure mask has updated field values
     setTimeout(() => {
-        calculate_item_service_sync(input);
+        calculate_item_service_sync(input, false);
     }, 0);
 }
 
 // Synchronous version used on blur/submit to avoid stale values
-function calculate_item_service_sync(input){
+function calculate_item_service_sync(input, format){
     let id_package = document.getElementById("id_package").value;
     // Read values and normalize masked monetary inputs reliably
     let quantity = Number(document.getElementById("quantity").value || 0);
     const activeId = document.activeElement ? document.activeElement.id : null;
-    let unit_value = (activeId === 'unit_value' && typeof input !== 'undefined') ? parseMaskedMoney(input) : getReliableMoneyById("unit_value");
-    let discount_value = (activeId === 'discount_value' && typeof input !== 'undefined') ? parseMaskedMoney(input) : getReliableMoneyById("discount_value");
+        let unit_value = (activeId === 'unit_value' && typeof input !== 'undefined') ? parseMoneyFlexible(input) : getReliableMoneyById("unit_value");
+        let discount_value = (activeId === 'discount_value' && typeof input !== 'undefined') ? parseMoneyFlexible(input) : getReliableMoneyById("discount_value");
     let oi_price_cash = getReliableMoneyById("oi_price_cash");
     let oi_price_pix = getReliableMoneyById("oi_price_pix");
 
@@ -44,17 +44,25 @@ function calculate_item_service_sync(input){
         document.getElementById('package_service').removeAttribute("disabled");
         update_sequence(id_package);
     }
+    // Ensure discount field displays fixed 2 decimals when requested (on blur/submit)
+    if (format) {
+        try { document.getElementById("discount_value").value = Number(discount_value).toFixed(2); } catch(e){}
+    }
 }
 
 function round(num, decimalPlaces = 0) {
     return new Decimal(num).toDecimalPlaces(decimalPlaces).toNumber();
 }
 
-// Parses values from jQuery Mask (pattern "##0.00" with reverse:true) consistently.
-// Handles intermediate typing states by stripping non-digits and dividing by 100.
-function parseMaskedMoney(val){
+// Flexible money parser:
+// - If numeric with optional dot/comma, parse as float
+// - Else fallback to masked-style digits divided by 100
+function parseMoneyFlexible(val){
     if (val == null) return 0;
-    const digits = String(val).replace(/\D+/g, "");
+    const s = String(val).trim().replace(',', '.');
+    if (s === '') return 0;
+    if (/^\d+(\.\d+)?$/.test(s)) return Number(s);
+    const digits = s.replace(/\D+/g, "");
     if (!digits) return 0;
     return Number(digits) / 100;
 }
@@ -72,7 +80,7 @@ function getMaskedMoneyById(id){
             }
         }
     } catch(e){}
-    return parseMaskedMoney(el.value);
+    return parseMoneyFlexible(el.value);
 }
 
 // Cross-checks jQuery Mask cleanVal with raw value parsing to avoid race conditions
@@ -92,7 +100,7 @@ function getReliableMoneyById(id){
         }catch(e){}
         return null;
     })();
-    const fromRaw = parseMaskedMoney(el.value);
+    const fromRaw = parseMoneyFlexible(el.value);
     if (fromClean == null) return fromRaw;
     // If values differ by ~100x, prefer the smaller plausible one (fromRaw)
     if (fromRaw > 0 && fromClean >= 100 && Math.abs((fromClean / fromRaw) - 100) < 1){
