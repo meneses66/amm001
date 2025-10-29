@@ -224,13 +224,13 @@ class PreClosing {
                                     <label for="comission_prod" class="medium-label">Comis Prod:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="comission_prod" type="text" size="15" name="Comission_Prod" value="'.$comission_prod.'">
+                                    <input id="comission_prod" type="text" size="15" name="Comission_Prod" value="'.$comission_prod.'" readonly>
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="comission_serv" class="medium-label">Comis Serv:</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input id="comission_serv" type="text" size="15" name="Comission_Serv" value="'.$comission_serv.'">
+                                    <input id="comission_serv" type="text" size="15" name="Comission_Serv" value="'.$comission_serv.'" readonly>
                                 </div>
                             </div><br>
                             <div class="row">
@@ -526,8 +526,8 @@ class PreClosing {
         // Month boundaries
         $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
-        // Fetch total baths per day
-        $sqlBath = "SELECT DAY(DATE) AS D, COUNT(1) AS CNT FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND PROD_SERV_CATEGORY=:CAT GROUP BY DAY(DATE)";
+        // Fetch total baths per day (sum QUANTITY, not count rows)
+        $sqlBath = "SELECT DAY(DATE) AS D, SUM(QUANTITY) AS CNT FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND PROD_SERV_CATEGORY=:CAT GROUP BY DAY(DATE)";
         $rows = $orderModel->exec_sqlstm_query_with_bind($sqlBath, ['YEAR'=>$year,'MONTH'=>$month,'CAT'=>'Banho']);
         $bathCounts = [];
         $totalBaths = 0;
@@ -554,9 +554,8 @@ class PreClosing {
         }
         if ($numBanhistas <= 0) { $numBanhistas = 1.0; } // avoid division by zero
 
-        // Commission per bath
-        $cpbParam = $paramsCtrl->getParamValue('COMISSION_PER_BATH', '3', 'Ativo');
-        $comissionPerBath = ($cpbParam && isset($cpbParam->VALUE) && $cpbParam->VALUE !== '') ? floatval($cpbParam->VALUE) : 3.0;
+        // Commission per bath parameter was previously used, but per new rule
+        // the service commission is based solely on quantity, banhistas and day factors.
 
         // Day factors
         $dayFactors = [];
@@ -574,9 +573,10 @@ class PreClosing {
         $serv = 0.0;
         if (strcasecmp($employeeType, 'Banhista') === 0) {
             for ($d=1; $d <= $daysInMonth; $d++) {
-                $cnt = $bathCounts[$d] ?? 0;
-                $factor = $dayFactors['D'.str_pad((string)$d,2,'0',STR_PAD_LEFT)] ?? 100.0;
-                $serv += ($cnt / max(1.0, $numBanhistas)) * $comissionPerBath * ($factor / 100.0);
+                $cnt = isset($bathCounts[$d]) ? floatval($bathCounts[$d]) : 0.0; // sum of QUANTITY for the day
+                $factor = isset($dayFactors['D'.str_pad((string)$d,2,'0',STR_PAD_LEFT)]) ? floatval($dayFactors['D'.str_pad((string)$d,2,'0',STR_PAD_LEFT)]) : 100.0;
+                // Per rule: (sumQty / No. Banhistas) * (DayFactor / 100)
+                $serv += ($cnt / max(1.0, $numBanhistas)) * ($factor / 100.0);
             }
         } elseif (strcasecmp($employeeType, 'Veterinaria') === 0 || strcasecmp($employeeType, 'Veterinária') === 0) {
             $sqlVet = "SELECT VALUE_WITH_DISCOUNT AS VWD, QUANTITY AS QTY, EXTERNAL_COST AS EXT_COST, COMISSION_PERCENTAGE AS PERC FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND COST_CENTER=:CC";
