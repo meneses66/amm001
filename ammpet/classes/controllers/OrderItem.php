@@ -188,7 +188,7 @@ class OrderItem {
                                     <label for="unit_value" class="medium-label">Valor Unit.:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="unit_value" type="text" size="15" onInput="calculate_item_service(this.value)" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
+                                    <input id="unit_value" type="text" size="15" onkeyup="calculate_item_service(this.value)" name="Unit_Value" value="'.$data_form['UNIT_VALUE'].'">
                                 </div>
                             </div>
                             <div class="row">
@@ -216,7 +216,7 @@ class OrderItem {
                                     <label for="discount_value" class="medium-label">Desc. Valor:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="discount_value" type="text" size="15" name="Discount_Value" onInput="calculate_item_service(this.value)" value="'.$data_form['DISCOUNT_VALUE'].'">
+                                    <input id="discount_value" type="text" size="15" name="Discount_Value" onkeyup="calculate_item_service(this.value)" value="'.$data_form['DISCOUNT_VALUE'].'">
                                 </div>
                             </div><br>
                             <div class="row">
@@ -472,7 +472,7 @@ class OrderItem {
                                     <label for="discount_value" class="medium-label">Desc. Valor:</label>
                                 </div>
                                 <div class="col-sm-2">
-                                    <input id="discount_value" type="text" size="15" name="Discount_Value" onInput="calculate_item_product(this.value)" value="'.$data_form['DISCOUNT_VALUE'].'">
+                                    <input id="discount_value" type="text" size="15" name="Discount_Value" onkeyup="calculate_item_product(this.value)" value="'.$data_form['DISCOUNT_VALUE'].'">
                                 </div>
                                 <div class="col-sm-1">
                                     <label for="value_no_discount" class="medium-label">Valor s/ Desc:</label>

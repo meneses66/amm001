@@ -3,10 +3,11 @@ function calculate_item_product(input){
     setTimeout(() => {
         // Read values and normalize masked monetary inputs reliably
         let quantity = Number(document.getElementById("quantity").value || 0);
-        let unit_value = getMaskedMoneyById("unit_value");
-        let discount_value = getMaskedMoneyById("discount_value");
-        let oi_price_cash = getMaskedMoneyById("oi_price_cash");
-        let oi_price_pix = getMaskedMoneyById("oi_price_pix");
+        const activeId = document.activeElement ? document.activeElement.id : null;
+        let unit_value = (activeId === 'unit_value') ? parseMaskedMoney(input) : getReliableMoneyById("unit_value");
+        let discount_value = (activeId === 'discount_value') ? parseMaskedMoney(input) : getReliableMoneyById("discount_value");
+        let oi_price_cash = getReliableMoneyById("oi_price_cash");
+        let oi_price_pix = getReliableMoneyById("oi_price_pix");
 
         var total_cash = round(quantity*oi_price_cash, 2).toFixed(2);
         var total_pix = round(quantity*oi_price_pix, 2).toFixed(2);
@@ -46,4 +47,30 @@ function getMaskedMoneyById(id){
         }
     } catch(e){}
     return parseMaskedMoney(el.value);
+}
+
+// Cross-checks jQuery Mask cleanVal with raw value parsing to avoid race conditions
+// that produce factor-of-100 mismatches while typing (e.g., "200" -> 200 instead of 2.00).
+function getReliableMoneyById(id){
+    const el = document.getElementById(id);
+    if (!el) return 0;
+    const fromClean = (function(){
+        try{
+            if (typeof $ === 'function'){
+                const $el = $('#'+id);
+                if ($el.length && typeof $el.cleanVal === 'function'){
+                    const clean = $el.cleanVal();
+                    if (clean !== '' && clean != null) return Number(clean)/100;
+                }
+            }
+        }catch(e){}
+        return null;
+    })();
+    const fromRaw = parseMaskedMoney(el.value);
+    if (fromClean == null) return fromRaw;
+    // If values differ by ~100x, prefer the smaller plausible one (fromRaw)
+    if (fromRaw > 0 && fromClean >= 100 && Math.abs((fromClean / fromRaw) - 100) < 1){
+        return fromRaw;
+    }
+    return fromClean;
 }
