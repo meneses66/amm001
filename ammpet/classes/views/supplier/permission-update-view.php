@@ -3,7 +3,7 @@
 
     if (!($check_id=="new")) {
 
-        $model = new('\Model\\'."Supplier");            
+    $model = instantiate('\\Model\\' . "Supplier");            
         $data = $model->getRowProperty($inputs, "PERMISSIONS", "SUPPLIER");
         if($data){
             foreach ($data as $key => $value) {
