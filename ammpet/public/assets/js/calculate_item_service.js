@@ -22,8 +22,11 @@ function calculate_item_service_sync(input, format){
         document.getElementById("package_service").setAttribute("disabled", "disabled");
         var total_cash = round(quantity*oi_price_cash, 2).toFixed(2);
         var total_pix = round(quantity*oi_price_pix, 2).toFixed(2);
-        var total_no_discount = round(quantity*unit_value, 2).toFixed(2);
-        var total_with_discount_num = round(quantity*unit_value, 2) - discount_value;
+        var base_total_num = round(quantity*unit_value, 2);
+        var total_no_discount = base_total_num.toFixed(2);
+        // Cap discount to base total
+        var discount_capped = discount_value > base_total_num ? base_total_num : discount_value;
+        var total_with_discount_num = base_total_num - discount_capped;
         if (total_with_discount_num < 0) total_with_discount_num = 0;
         var total_with_discount = round(total_with_discount_num, 2).toFixed(2);
         document.getElementById("total_pix").value = total_pix;
@@ -48,7 +51,15 @@ function calculate_item_service_sync(input, format){
     }
     // Ensure discount field displays fixed 2 decimals when requested (on blur/submit)
     if (format) {
-        try { document.getElementById("discount_value").value = Number(discount_value).toFixed(2); } catch(e){}
+        // When formatting, also persist the capped discount back to the field
+        try {
+            let quantity = Number(document.getElementById("quantity").value || 0);
+            let unit_value_now = getReliableMoneyById("unit_value");
+            let base_total_num_now = round(quantity*unit_value_now, 2);
+            let discount_now = getReliableMoneyById("discount_value");
+            if (discount_now > base_total_num_now) discount_now = base_total_num_now;
+            document.getElementById("discount_value").value = Number(discount_now).toFixed(2);
+        } catch(e){}
     }
 }
 
