@@ -18,7 +18,6 @@
     <div class="row">
         <!-- DETALHES DO CLIENTE (PARENT FORM) -->
         <?php 
-            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
             $controller1 = instantiate('\\Controller\\' . 'Animal');
             $controller1->load_parent_form();
         ?>
@@ -36,7 +35,6 @@
     <div class="row">
         
         <?php
-            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
             $controller2 = instantiate('\\Controller\\' . 'Animal');
             $controller2->load_buttons_for_list_view();
         ?>

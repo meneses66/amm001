@@ -187,8 +187,7 @@ function debug_to_console( $data ) {
 
 function load_options_new ($type, $status){
         
-    require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
-
+    // Autoload will resolve the controller when instantiated
     //GET LIST OF TYPES FROM PARAMS TABLE
     $params = instantiate('\\Controller\\' . 'Params');
     $option_list = "";
@@ -203,8 +202,7 @@ function load_options_new ($type, $status){
 
 function load_options_update ($type, $status, $data_form_type){
         
-    require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
-
+    // Autoload will resolve the controller when instantiated
     //GET LIST OF TYPES FROM PARAMS TABLE
     $params = instantiate('\\Controller\\' . 'Params');
     $option_list = "";
@@ -221,8 +219,7 @@ function load_options_update ($type, $status, $data_form_type){
 
 function return_param_value ($type, $name, $status){
         
-    require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
-
+    // Autoload will resolve the controller when instantiated
     //GET LIST OF TYPES FROM PARAMS TABLE
     $params = instantiate('\\Controller\\' . 'Params');
     $param_value = "";

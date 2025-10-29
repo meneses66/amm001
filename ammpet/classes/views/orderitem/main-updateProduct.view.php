@@ -22,7 +22,6 @@
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <?php 
             //$controller1 = new ('\\Controller\\'."OrderItem");
-            require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
             $controller1 = instantiate('\\Controller\\' . 'Orderx');
             $controller1->get_header();
         ?>
@@ -33,7 +32,6 @@
             <div class="table-responsive" id="_animals" style="font-size:12px;">
                 <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
                     <?php
-                        require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
                         $controller2 = instantiate('\\Controller\\' . 'Orderx');
                         $controller2->get_animals();
                     ?>        
@@ -45,7 +43,6 @@
             <div class="table-responsive" id="_packages" style="font-size:12px;">
                 <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
                     <?php
-                        require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';    
                         $controller3 = instantiate('\\Controller\\' . 'Orderx');
                         $controller3->get_packages();
                     ?>        

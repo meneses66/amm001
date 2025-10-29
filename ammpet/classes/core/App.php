@@ -23,22 +23,22 @@ class App{
         /** select controller according to URL */
         $ctrlRaw = $URL[0] ?? 'login';
         $ctrlSafe = preg_replace('/[^A-Za-z0-9_]/', '', $ctrlRaw);
-        $fileName = "../classes/controllers/".ucfirst($ctrlSafe).".php";
-        if(file_exists($fileName))
-        {
-            require $fileName;
-            $this->controller = ucfirst($ctrlSafe);
-            define('URL_0',$ctrlSafe);
-            unset($URL[0]);
 
-        } else{
-            $fileName = "../classes/controllers/_404.php";
-            require $fileName;
-            $this->controller ='_404';
+        // Build fully-qualified class name and rely on the autoloader to load it.
+        $candidateFQCN = '\\Controller\\' . ucfirst($ctrlSafe);
+        if (class_exists($candidateFQCN)) {
+            $this->controller = ucfirst($ctrlSafe);
+            define('URL_0', $ctrlSafe);
+            unset($URL[0]);
+            $controllerFQCN = $candidateFQCN;
+        } else {
+            // fallback to 404 controller
+            $this->controller = '_404';
+            $controllerFQCN = '\\Controller\\_404';
         }
 
-    // Instantiate controller using helper to support autoload and proper dynamic class names
-    $controller = instantiate('\\Controller\\' . $this->controller);
+        // Instantiate controller via helper (helper calls new $fqcn())
+        $controller = instantiate($controllerFQCN);
 
 		/**select method according to URL */
         if(!empty($URL[1]))

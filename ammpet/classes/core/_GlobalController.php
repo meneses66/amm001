@@ -1116,8 +1116,8 @@ Trait _GlobalController{
                         if ($prod_serv_type=="Serv" && $prod_serv_category=="Pacote") {
 
                             $package_input['Id_Order_Item'] = $id;
-                            require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Package.php';
-                            $package_model = new('\Model\\'."Package");
+                            // Autoload will resolve the model/controller when instantiated
+                            $package_model = new \Model\Package();
                             $package_row = $package_model->getRow($package_input);
 
                             if (!($package_row)) {
