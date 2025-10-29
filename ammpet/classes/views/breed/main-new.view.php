@@ -15,7 +15,7 @@
             <input type="hidden" name="operation" value="update">
 
             <?php 
-                $controller = new ('\Controller\\'."Breed");
+                $controller = instantiate('\\Controller\\' . 'Breed');
                 $controller->load_breed_form();
             ?>
             

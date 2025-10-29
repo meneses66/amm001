@@ -21,7 +21,7 @@
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <?php 
             require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
-            $controller1 = new ('\Controller\\'."Orderx");
+            $controller1 = instantiate('\\Controller\\' . 'Orderx');
             $controller1->get_header();
         ?>
     </div>

@@ -138,6 +138,19 @@ function csrf_validate(?string $token): bool {
     return hash_equals($_SESSION['csrf_token'], $token);
 }
 
+/**
+ * Instantiate a fully-qualified class name safely.
+ * Accepts strings like '\\Controller\\Name' or '\\Model\\Name' and returns a new instance.
+ */
+function instantiate(string $fqcn) {
+    // Ensure leading backslash for fully-qualified class name
+    if ($fqcn === '' ) return null;
+    if ($fqcn[0] !== '\\') {
+        $fqcn = '\\' . $fqcn;
+    }
+    return new $fqcn();
+}
+
 // My session regenerate id function
 function my_session_regenerate_id() {
     // Call session_create_id() while session is active to 
@@ -177,7 +190,7 @@ function load_options_new ($type, $status){
     require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
 
     //GET LIST OF TYPES FROM PARAMS TABLE
-    $params = new ('\Controller\\'."Params");
+    $params = instantiate('\\Controller\\' . 'Params');
     $option_list = "";
     $options = $params->getParamListByType($type, $status);
     if($options){
@@ -193,7 +206,7 @@ function load_options_update ($type, $status, $data_form_type){
     require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
 
     //GET LIST OF TYPES FROM PARAMS TABLE
-    $params = new ('\Controller\\'."Params");
+    $params = instantiate('\\Controller\\' . 'Params');
     $option_list = "";
     $data_form_type_local=$data_form_type;
     $options = $params->getParamListByType($type, $status);
@@ -211,7 +224,7 @@ function return_param_value ($type, $name, $status){
     require_once removeFromEnd(ROOTPATH_CLASSES,"core/").'controllers/Params.php';
 
     //GET LIST OF TYPES FROM PARAMS TABLE
-    $params = new ('\Controller\\'."Params");
+    $params = instantiate('\\Controller\\' . 'Params');
     $param_value = "";
     $result = $params->getParamValue($type, $name, $status);
     if($result){
@@ -369,7 +382,7 @@ function f_countWhere($inputs, $model){
         $inputs_items[$upper_key]=$value;    
     }
 
-    $model = new('\Model\\'.$model);
+    $model = instantiate('\\Model\\' . $model);
     $result = $model->countWhere($inputs_items);
     $total_items = 0;
     foreach ($result as $row) {
@@ -380,7 +393,7 @@ function f_countWhere($inputs, $model){
 
 function f_countAll($model){
     
-    $model = new('\Model\\'.$model);
+    $model = instantiate('\\Model\\' . $model);
     $result = $model->countAll();
     $total_items = 0;
     foreach ($result as $row) {

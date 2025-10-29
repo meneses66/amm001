@@ -11,9 +11,9 @@
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <div class="row">
         <!-- DETALHES DO CLIENTE (PARENT FORM) -->
-        <?php
+            <?php
             //require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Client.php'; 
-            $controller1 = new ('\Controller\\'."Animal");
+            $controller1 = instantiate('\\Controller\\' . 'Animal');
             $controller1->load_parent_form();
         ?>
     </div>
@@ -24,7 +24,7 @@
             <input type="hidden" name="operation" value="update">
             <?php
                 //removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Animal.php'; 
-                $controller2 = new ('\Controller\\'."Animal");
+                $controller2 = instantiate('\\Controller\\' . 'Animal');
                 $controller2->load_animal_form();
             ?>
         </form>

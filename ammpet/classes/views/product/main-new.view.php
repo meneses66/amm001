@@ -14,7 +14,7 @@
         <form method="post" id="form_prod" name="form_new">
             <input type="hidden" name="operation" value="update">
             <?php 
-                $controller = new ('\Controller\\'."Product");
+                $controller = instantiate('\\Controller\\' . 'Product');
                 $controller->load_product_form();
             ?>
         </form>

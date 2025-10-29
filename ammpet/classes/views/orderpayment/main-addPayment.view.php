@@ -22,7 +22,7 @@
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <?php 
             require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
-            $controller1 = new ('\Controller\\'."Orderx");
+            $controller1 = instantiate('\\Controller\\' . 'Orderx');
             $controller1->get_header();
         ?>
     </div>
@@ -30,7 +30,7 @@
         <form method="post" id="form_order_payment" name="form_new">
             <input type="hidden" name="operation" value="update">
             <?php
-                $controller2 = new ('\Controller\\'."OrderPayment");
+                $controller2 = instantiate('\\Controller\\' . 'OrderPayment');
                 $controller2->load_payment_form();
             ?>
         </form>

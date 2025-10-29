@@ -14,7 +14,7 @@
         <form method="post" id="form_preclosing" name="form_new">
             <input type="hidden" name="operation" value="update">
             <?php 
-                $controller = new ('\Controller\\'."PreClosing");
+                $controller = instantiate('\\Controller\\' . 'PreClosing');
                 $controller->load_preclosing_form();
             ?>
         </form>

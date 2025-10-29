@@ -14,7 +14,7 @@
         <form method="post" id="form_params" name="form_new">
             <input type="hidden" name="operation" value="update">
             <?php 
-                $controller = new ('\Controller\\'."Params");
+                $controller = instantiate('\\Controller\\' . 'Params');
                 $controller->load_params_form();
             ?>
         </form>

@@ -15,7 +15,7 @@
         <form method="post" id="form_client" name="form_new">
             <input type="hidden" name="operation" value="update">
             <?php 
-                $controller = new ('\Controller\\'."Client");
+                $controller = instantiate('\\Controller\\' . 'Client');
                 $controller->load_client_form();
             ?>
         </form>

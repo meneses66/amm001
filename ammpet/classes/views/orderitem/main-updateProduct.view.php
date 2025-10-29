@@ -21,9 +21,9 @@
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:12px;">
         <?php 
-            //$controller1 = new ('\Controller\\'."OrderItem");
+            //$controller1 = new ('\\Controller\\'."OrderItem");
             require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
-            $controller1 = new ('\Controller\\'."Orderx");
+            $controller1 = instantiate('\\Controller\\' . 'Orderx');
             $controller1->get_header();
         ?>
     </div>
@@ -34,7 +34,7 @@
                 <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
                     <?php
                         require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';   
-                        $controller2 = new ('\Controller\\'."Orderx");
+                        $controller2 = instantiate('\\Controller\\' . 'Orderx');
                         $controller2->get_animals();
                     ?>        
                 </table>
@@ -46,7 +46,7 @@
                 <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
                     <?php
                         require_once removeFromEnd(ROOTPATH_CLASSES,"/core").'/controllers/Orderx.php';    
-                        $controller3 = new ('\Controller\\'."Orderx");
+                        $controller3 = instantiate('\\Controller\\' . 'Orderx');
                         $controller3->get_packages();
                     ?>        
                 </table>
@@ -57,7 +57,7 @@
         <form method="post" id="update_form" name="form_new">
             <input type="hidden" name="operation" value="update">
             <?php
-                $controller4 = new ('\Controller\\'."OrderItem");
+                $controller4 = instantiate('\\Controller\\' . 'OrderItem');
                 $controller4->load_update_prod_form();
             ?>
         </form>

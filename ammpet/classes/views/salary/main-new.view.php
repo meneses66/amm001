@@ -13,7 +13,7 @@
     <form method="post" id="form_salary">
         <input type="hidden" name="operation" value="update">
         <?php 
-            $controller = new ('\Controller\\'."Salary");
+            $controller = instantiate('\\Controller\\' . 'Salary');
             $controller->load_salary_form();
         ?>
     </form>

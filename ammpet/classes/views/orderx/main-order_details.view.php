@@ -20,7 +20,7 @@
     </div>
     <div class="row" style="border: thin solid lightgray; font-size:11px;">
             <?php 
-                $controller = new ('\Controller\\'."Orderx");
+                $controller = instantiate('\\Controller\\' . 'Orderx');
                 $controller->get_header();
             ?>
     </div>
@@ -30,7 +30,7 @@
             <div class="table-responsive" id="_animals" style="font-size:11px;">
                 <table id="_table_ani" class="table Table-stripped table-sm table-bordered small">
                     <?php 
-                        $controller = new ('\Controller\\'."Orderx");
+                        $controller = instantiate('\\Controller\\' . 'Orderx');
                         $controller->get_animals();
                     ?>        
                 </table>
@@ -41,7 +41,7 @@
             <div class="table-responsive" id="_packages" style="font-size:11px;">
                 <table id="_table_pkg" class="table Table-stripped table-sm table-bordered small">
                     <?php 
-                        $controller = new ('\Controller\\'."Orderx");
+                        $controller = instantiate('\\Controller\\' . 'Orderx');
                         $controller->get_packages();
                     ?>        
                 </table>
@@ -65,7 +65,7 @@
                 <div class="table-responsive" id="_services" style="font-size:11px;">
                     <table id="_table_services" class="table Table-stripped table-sm table-bordered small">
                         <?php 
-                            $controller = new ('\Controller\\'."Orderx");
+                            $controller = instantiate('\\Controller\\' . 'Orderx');
                             $controller->get_services();
                         ?>        
                     </table>
@@ -88,7 +88,7 @@
                 <div class="table-responsive" id="_products" style="font-size:11px;">
                     <table id="_table_products" class="table Table-stripped table-sm table-bordered small">
                         <?php 
-                            $controller = new ('\Controller\\'."Orderx");
+                            $controller = instantiate('\\Controller\\' . 'Orderx');
                             $controller->get_products();
                         ?>        
                     </table>
@@ -110,7 +110,7 @@
         <div class="table-responsive" id="_payments" style="font-size:11px;">
             <table id="_table_payments" class="table Table-stripped table-sm table-bordered small">
                 <?php 
-                    $controller = new ('\Controller\\'."Orderx");
+                    $controller = instantiate('\\Controller\\' . 'Orderx');
                     $controller->get_payments();
                 ?>        
             </table>

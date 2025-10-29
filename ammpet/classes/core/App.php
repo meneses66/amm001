@@ -37,7 +37,8 @@ class App{
             $this->controller ='_404';
         }
 
-        $controller = new ('\Controller\\'.$this->controller);
+    // Instantiate controller using helper to support autoload and proper dynamic class names
+    $controller = instantiate('\\Controller\\' . $this->controller);
 
 		/**select method according to URL */
         if(!empty($URL[1]))

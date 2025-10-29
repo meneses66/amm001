@@ -14,7 +14,7 @@
         <form method="post" id="form_serv" name="form_new">
             <input type="hidden" name="operation" value="update">
             <?php 
-                $controller = new ('\Controller\\'."Service");
+                $controller = instantiate('\\Controller\\' . 'Service');
                 $controller->load_service_form();
             ?>
         </form>
