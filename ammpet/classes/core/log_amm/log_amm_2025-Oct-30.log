@@ -155,3 +155,52 @@ TESTE_AJAX: ROOTPATH_CLASSES = /workspaces/amm001/ammpet/classes/core/
 20:50:26 - =================================================
 20:50:26 - IMPLEMENTAÇÃO CONCLUÍDA COM SUCESSO
 20:50:26 - =================================================
+21:45:26 - =================================================
+21:45:26 - IMPLEMENTAÇÃO DO MÓDULO PAYMENTS (CUSTOS)
+21:45:26 - Data: 2025-10-30 21:45:26
+21:45:26 - =================================================
+21:45:26 - ARQUIVOS CRIADOS:
+21:45:26 - 1. /classes/controllers/Payments.php - Controller principal
+21:45:26 - 2. /classes/views/payments/main-list.view.php - View da listagem
+21:45:26 - 3. /classes/views/payments/main-new.view.php - View novo/edição
+21:45:26 - 4. /classes/views/payments/payments-list.view.php - View com DataTable
+21:45:26 - 5. /classes/views/payments/payments-new.view.php - View com validação JS
+21:45:26 - ARQUIVOS JÁ EXISTENTES:
+21:45:26 - 1. /classes/models/Payments.php - Model já existe e está correto
+21:45:26 - 2. Tabela PAYMENTS já existe no banco de dados
+21:45:26 - 3. Botão 'Custos' já existe na view Admin
+21:45:26 - CAMPOS DO FORMULÁRIO:
+21:45:26 -    - payment_type: Tipo (Despesa/Receita/Investimento)
+21:45:26 -    - payment_date: Data (obrigatório)
+21:45:26 -    - payment_description: Descrição (obrigatório)
+21:45:26 -    - payment_value: Valor (obrigatório)
+21:45:26 -    - payment_output: Saída
+21:45:26 -    - payment_supplier: Fornecedor
+21:45:26 -    - payment_category: Categoria (6 opções)
+21:45:26 -    - payment_method: Método de pagamento (6 opções)
+21:45:26 -    - payment_flag_provision: Checkbox Provisão
+21:45:26 - FUNCIONALIDADES IMPLEMENTADAS:
+21:45:26 -    - Listagem com DataTables em português
+21:45:26 -    - Formulário de inserção/edição
+21:45:26 -    - Validação JavaScript no frontend
+21:45:26 -    - Validação PHP no backend
+21:45:26 -    - Permissões de acesso (payments_add/edit/delete)
+21:45:26 -    - Layout responsivo Bootstrap 4.6.2
+21:45:26 - ESTRUTURA DA TABELA:
+21:45:26 -    - PAYMENT_TYPE: Varchar(30)
+21:45:26 -    - PAYMENT_DATE: Date
+21:45:26 -    - PAYMENT_DESCRIPTION: Varchar(50)
+21:45:26 -    - PAYMENT_VALUE: Decimal(10,2)
+21:45:26 -    - PAYMENT_OUTPUT: Decimal(10,2)
+21:45:26 -    - PAYMENT_SUPPLIER: Varchar(50)
+21:45:26 -    - PAYMENT_CATEGORY: Varchar(30)
+21:45:26 -    - PAYMENT_FLAG_PROVISION: Boolean
+21:45:26 -    - PAYMENT_METHOD: Varchar(30)
+21:45:26 - ROTAS DISPONÍVEIS:
+21:45:26 -    - /Payments/_list - Listagem de custos
+21:45:26 -    - /Payments/_new?id=new - Novo custo
+21:45:26 -    - /Payments/_new?id={id} - Editar custo
+21:45:26 -    - /Payments/_delete?id={id} - Excluir custo
+21:45:26 - =================================================
+21:45:26 - MÓDULO PAYMENTS IMPLEMENTADO COM SUCESSO
+21:45:26 - =================================================

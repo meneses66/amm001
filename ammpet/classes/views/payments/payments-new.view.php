@@ -1,13 +1,56 @@
 <?php 
-    $GLOBALS['classnamejs']='Payments';
-    $GLOBALS['buttonenablerjs']='Payments';
-?>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+if((time()-$_SESSION['LAST_ACTIVE'])>TIMEOUT){
+    end_session();
+    redirect("Login/_logout");
+    die;
+}
+$_SESSION['LAST_ACTIVE']=time();?>
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <?php include ROOTPATH_CLASSES . "../views/head.view.php";?>
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+              <?php include ROOTPATH_CLASSES . "../views/sidebar.view.php";?>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <?php include ROOTPATH_CLASSES . "../views/topnav.view.php";?>
+                <!-- Page content-->
+                <?php include "main-new.view.php";?>
+            </div>
+        </div>
+        
+        <!-- Core theme JS-->
+        <script src="<?php echo ROOT;?>/assets/js/scripts.js"></script>
 
-<?php 
-require_once(ROOTPATH."/classes/views/".$this->object."/main-new.view.php");
-?>
+        <!-- jQuery library -->
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Icons -->
+        <script src="https://kit.fontawesome.com/09bcd15628.js" crossorigin="anonymous"></script>
+        
+        <!-- Popper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+        <!-- Sweet Alert -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- FORMAT FORM JS-->
+        <script src="<?php echo ROOT;?>/assets/js/form_validation.js"></script>
+
+        <!-- FORM PROCESS - VALIDATION, EDITION, AJAX CALL AND INSERT/UPDATE-->
+        <?php include removeFromEnd(ROOTPATH_CLASSES,"classes/core/") . "public/assets/js/formjs_v2.php";?>
+
+    </body>
+</html>
 
 <script>
 $(document).ready(function(){
