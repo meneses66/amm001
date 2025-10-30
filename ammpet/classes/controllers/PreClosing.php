@@ -725,16 +725,43 @@ class PreClosing {
         $prod = 0.0;
         amm_log("PRE_CLOSING: Iniciando cálculo de comissão de produto para funcionário: '$employeeName'");
         if (!empty($employeeName)) {
-            $sqlProd = "SELECT SUM(VALUE_WITH_DISCOUNT * COMISSION_PERCENTAGE) AS TOTAL FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON=:SP";
-            amm_log("PRE_CLOSING: Query produto - SQL: $sqlProd");
+            // First, let's check if there are any items for this employee in the period
+            $sqlCheck = "SELECT COUNT(*) as COUNT, SALESPERSON FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON=:SP GROUP BY SALESPERSON";
+            amm_log("PRE_CLOSING: Verificando existência de itens - SQL: $sqlCheck");
+            $checkRow = $orderModel->exec_sqlstm_query_with_bind($sqlCheck, ['YEAR'=>$year,'MONTH'=>$month,'SP'=>$employeeName]);
+            amm_log("PRE_CLOSING: Resultado verificação: " . json_encode($checkRow));
+            
+            // Also check what SALESPERSON values exist in the period
+            $sqlSalespeople = "SELECT DISTINCT SALESPERSON FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON IS NOT NULL AND SALESPERSON != ''";
+            amm_log("PRE_CLOSING: Verificando vendedores no período - SQL: $sqlSalespeople");
+            $salespeopleRows = $orderModel->exec_sqlstm_query_with_bind($sqlSalespeople, ['YEAR'=>$year,'MONTH'=>$month]);
+            amm_log("PRE_CLOSING: Vendedores encontrados no período: " . json_encode($salespeopleRows));
+            
+            // Now check detailed items for this employee
+            $sqlDetails = "SELECT VALUE_WITH_DISCOUNT, COMISSION_PERCENTAGE, ITEM_DESCRIPTION, SALESPERSON, FLAG_COMISSION, PROD_SERV_TYPE FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON=:SP LIMIT 10";
+            amm_log("PRE_CLOSING: Verificando detalhes dos itens - SQL: $sqlDetails");
+            $detailRows = $orderModel->exec_sqlstm_query_with_bind($sqlDetails, ['YEAR'=>$year,'MONTH'=>$month,'SP'=>$employeeName]);
+            amm_log("PRE_CLOSING: Detalhes dos itens (primeiros 10): " . json_encode($detailRows));
+            
+            // Check product items (without FLAG_COMISSION filter)
+            $sqlProductItems = "SELECT COUNT(*) as COUNT_PRODUCTS FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON=:SP AND PROD_SERV_TYPE='PROD'";
+            amm_log("PRE_CLOSING: Verificando itens de produto - SQL: $sqlProductItems");
+            $productRows = $orderModel->exec_sqlstm_query_with_bind($sqlProductItems, ['YEAR'=>$year,'MONTH'=>$month,'SP'=>$employeeName]);
+            amm_log("PRE_CLOSING: Quantidade de itens de produto: " . json_encode($productRows));
+            
+            // Original calculation - improved with proper filters
+            $sqlProd = "SELECT SUM(VALUE_WITH_DISCOUNT * COMISSION_PERCENTAGE) AS TOTAL FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON=:SP AND PROD_SERV_TYPE='PROD'";
+            amm_log("PRE_CLOSING: Query produto (melhorada) - SQL: $sqlProd");
             amm_log("PRE_CLOSING: Parâmetros query produto - YEAR: $year, MONTH: $month, SP: '$employeeName'");
             $sumRow = $orderModel->exec_sqlstm_query_with_bind($sqlProd, ['YEAR'=>$year,'MONTH'=>$month,'SP'=>$employeeName]);
-            amm_log("PRE_CLOSING: Resultado query produto: " . json_encode($sumRow));
+            amm_log("PRE_CLOSING: Resultado query produto (melhorada): " . json_encode($sumRow));
             if (is_array($sumRow)) {
                 foreach ($sumRow as $sr) {
                     if (!is_object($sr)) { continue; }
-                    $prod = floatval($sr->TOTAL ?? 0);
-                    amm_log("PRE_CLOSING: Comissão produto encontrada: $prod");
+                    $prodRaw = floatval($sr->TOTAL ?? 0);
+                    $prod = $prodRaw / 100.0; // Dividir por 100 para converter percentual
+                    amm_log("PRE_CLOSING: Comissão produto bruta: $prodRaw");
+                    amm_log("PRE_CLOSING: Comissão produto final (dividida por 100): $prod");
                 }
             }
         } else {
