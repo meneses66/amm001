@@ -14,6 +14,7 @@ class PreClosing {
     private $parent_object = 'Supplier';
 
     public function __construct(){
+        amm_log("PRE_CLOSING: === CONSTRUTOR CHAMADO ===");
         amm_log("PRE_CLOSING: Controller PreClosing instanciado por usuário: " . ($_SESSION['username'] ?? 'desconhecido'));
     }
 
@@ -435,7 +436,8 @@ class PreClosing {
     // Compute commissions (single calc or batch save)
     // Allowed via Ajax_call allowed methods list as update_comission
         public function update_comission($inputs){
-        // Log entrada do método
+        // Log entrada do método - PRIMEIRO LOG
+        amm_log("PRE_CLOSING: === INICIO update_comission ===");
         amm_log("PRE_CLOSING: update_comission chamado com inputs: " . json_encode($inputs));
         
         // Sanitize inputs
