@@ -430,22 +430,29 @@ class PreClosing {
 
     // Compute commissions (single calc or batch save)
     // Allowed via Ajax_call allowed methods list as update_comission
-    public function update_comission($inputs){
+        public function update_comission($inputs){
+        // Sanitize inputs
         $year = isset($inputs['Year']) ? intval($inputs['Year']) : 0;
         $month = isset($inputs['Month']) ? intval($inputs['Month']) : 0;
         if ($year <= 0 || $month <= 0) {
-            return 'Informe Ano e Mês.';
+            if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
+            header('Content-Type: text/plain; charset=utf-8');
+            echo 'Informe Ano e Mês.';
+            exit;
         }
 
         $mode = isset($inputs['Mode']) ? strtolower(trim($inputs['Mode'])) : 'calc';
 
+        // Batch mode: create/update for all active employees
         if ($mode === 'batch') {
-            // Create/Update for all active employees
             $supModel = instantiate('\\Model\\' . 'Supplier');
             $preModel = instantiate('\\Model\\' . 'PreClosing');
             $suppliers = $supModel->listWhere(['STATUS' => 'Ativo']);
             if (!$suppliers) {
-                return 'Processados: 0 funcionário(s).';
+                if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
+                header('Content-Type: text/plain; charset=utf-8');
+                echo 'Processados: 0 funcionário(s).';
+                exit;
             }
 
             $count = 0;
@@ -484,19 +491,29 @@ class PreClosing {
                 }
                 $count++;
             }
-            return 'Processados: ' . $count . ' funcionário(s).';
+
+            if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
+            header('Content-Type: text/plain; charset=utf-8');
+            echo 'Processados: ' . $count . ' funcionário(s).';
+            exit;
         }
 
         // Single calculation (no persistence)
         $empId = isset($inputs['Id_Employee']) ? intval($inputs['Id_Employee']) : 0;
         if ($empId <= 0) {
-            return 'Informe o Funcionário.';
+            if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
+            header('Content-Type: text/plain; charset=utf-8');
+            echo 'Informe o Funcionário.';
+            exit;
         }
 
-    $supModel = instantiate('\\Model\\' . 'Supplier');
+        $supModel = instantiate('\\Model\\' . 'Supplier');
         $empRow = $supModel->getRow(['ID'=>$empId]);
         if (!$empRow) {
-            return 'Funcionário inválido.';
+            if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
+            header('Content-Type: text/plain; charset=utf-8');
+            echo 'Funcionário inválido.';
+            exit;
         }
         $empType = $empRow->TYPE ?? '';
         $empName = $empRow->NAME ?? '';
@@ -516,7 +533,13 @@ class PreClosing {
         }
 
         list($serv, $prod, $banhos) = $this->compute_commissions($year, $month, $empType, $empName, $opts);
-        return 'OK|' . number_format($serv, 2, '.', '') . '|' . number_format($prod, 2, '.', '') . '|' . intval($banhos);
+
+        // Saída limpa no formato esperado pelo JS: OK|serv|prod|count
+        $out = 'OK|' . number_format($serv, 2, '.', '') . '|' . number_format($prod, 2, '.', '') . '|' . intval($banhos);
+        if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
+        header('Content-Type: text/plain; charset=utf-8');
+        echo $out;
+        exit;
     }
 
     private function compute_commissions($year, $month, $employeeType, $employeeName, $opts){
