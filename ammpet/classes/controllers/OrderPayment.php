@@ -127,19 +127,40 @@ class OrderPayment {
             
             if ($id=="new") {
                 $output .= '<div class="row">
-                                <div class="col-sm-6">
-                                    
+                                <div class="col-sm-7">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <p style="font-size:12px; font-weight:bold; margin-bottom: 5px;">Pagamento Rápido:</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-2 pr-1">
+                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Dinheiro\')">Dinheiro</button>
+                                        </div>
+                                        <div class="col-sm-2 pr-1">
+                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Debito\')">Débito</button>
+                                        </div>
+                                        <div class="col-sm-2 pr-1">
+                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Credito\')">Crédito</button>
+                                        </div>
+                                        <div class="col-sm-2 pr-1">
+                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Pix\')">Pix</button>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Pacote\')">Pacote</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-5">
                                     <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../OrderPayment/insert_call?cli_id='.$cli_id.'&order_id='.$order_id.'">
                                 </div>
                             </div>';
             } else {
                 $output .= '<div class="row">
-                                <div class="col-sm-6">
-                                    
+                                <div class="col-sm-7">
+                                    <!-- Botões de pagamento rápido não disponíveis para edição -->
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-5">
                                     <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../OrderPayment/update_call?cli_id='.$cli_id.'&order_id='.$order_id.'&paym_id='.$id.'">
                                 </div>
                             </div>';
@@ -151,6 +172,42 @@ class OrderPayment {
             $data = null;
             $model = null;
             echo $output;
+            
+            // Adicionar JavaScript para os botões de pagamento rápido (apenas para novos pagamentos)
+            if ($id=="new") {
+                echo '<script>
+                function quickPayment(paymentType) {
+                    // Obter o valor do débito pendente
+                    const orderDebtInput = document.getElementById("order_debt");
+                    if (!orderDebtInput) {
+                        alert("Erro: Não foi possível obter o valor do débito pendente.");
+                        return;
+                    }
+                    
+                    const debtAmount = orderDebtInput.value;
+                    
+                    // Validar se há débito pendente
+                    if (!debtAmount || parseFloat(debtAmount) <= 0) {
+                        alert("Não há débito pendente para este pedido.");
+                        return;
+                    }
+                    
+                    // Preencher os campos do formulário
+                    document.getElementById("paid_amount").value = debtAmount;
+                    document.getElementById("payment_type").value = paymentType;
+                    
+                    // Definir data atual
+                    const today = new Date();
+                    const dateString = today.getFullYear() + "-" + 
+                                     String(today.getMonth() + 1).padStart(2, "0") + "-" + 
+                                     String(today.getDate()).padStart(2, "0");
+                    document.getElementById("date").value = dateString;
+                    
+                    // Submeter o formulário automaticamente
+                    document.getElementById("button").click();
+                }
+                </script>';
+            }
 
         }
 
