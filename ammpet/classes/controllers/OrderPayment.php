@@ -127,40 +127,50 @@ class OrderPayment {
             
             if ($id=="new") {
                 $output .= '<div class="row">
-                                <div class="col-sm-7">
+                                <div class="col-sm-6">
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <p style="font-size:12px; font-weight:bold; margin-bottom: 5px;">Pagamento Rápido:</p>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-2 pr-1">
+                                        <div class="col-sm pr-1">
                                             <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Dinheiro\')">Dinheiro</button>
                                         </div>
-                                        <div class="col-sm-2 pr-1">
+                                        <div class="col-sm pr-1">
                                             <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Debito\')">Débito</button>
                                         </div>
-                                        <div class="col-sm-2 pr-1">
+                                        <div class="col-sm pr-1">
                                             <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Credito\')">Crédito</button>
                                         </div>
-                                        <div class="col-sm-2 pr-1">
+                                        <div class="col-sm pr-1">
                                             <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Pix\')">Pix</button>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm">
                                             <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Pacote\')">Pacote</button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-5">
+                                <div class="col-sm-6">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-sm-9">
+                                </div>
+                                <div class="col-sm-3">
                                     <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../OrderPayment/insert_call?cli_id='.$cli_id.'&order_id='.$order_id.'">
                                 </div>
                             </div>';
             } else {
                 $output .= '<div class="row">
-                                <div class="col-sm-7">
+                                <div class="col-sm-12">
                                     <!-- Botões de pagamento rápido não disponíveis para edição -->
                                 </div>
-                                <div class="col-sm-5">
+                            </div>
+                            <div class="row" style="margin-top: 10px;">
+                                <div class="col-sm-9">
+                                </div>
+                                <div class="col-sm-3">
                                     <input id="button" class="btn btn-primary btn-lg m-1 btn-block" type="submit" value="Confirmar" formaction="../OrderPayment/update_call?cli_id='.$cli_id.'&order_id='.$order_id.'&paym_id='.$id.'">
                                 </div>
                             </div>';

@@ -61,21 +61,27 @@ amm_log("   - Validação de campos obrigatórios");
 amm_log("   - Formatação automática da data");
 
 amm_log("=================================================");
-amm_log("AJUSTE DE DESIGN - PADRONIZAÇÃO DOS BOTÕES");
+amm_log("AJUSTE DE LAYOUT - REORGANIZAÇÃO DOS BOTÕES");
 amm_log("Data: ".date("Y-m-d H:i:s"));
 amm_log("=================================================");
 
-amm_log("ALTERAÇÕES DE DESIGN:");
-amm_log("   - Classe alterada: btn-sm → btn-lg");
-amm_log("   - Fonte alterada: 10px → 12px");
-amm_log("   - Altura fixa definida: 48px");
-amm_log("   - Padding removido (usando altura fixa)");
+amm_log("NOVA ESTRUTURA DE LAYOUT:");
+amm_log("   - Botões de pagamento rápido: ocupam 50% da linha");
+amm_log("   - Cada botão: col-sm (tamanho igual automático)");
+amm_log("   - Botão Confirmar: linha separada, 25% à direita");
+amm_log("   - Espaçamento: margin-top 10px entre as linhas");
+
+amm_log("ALTERAÇÕES IMPLEMENTADAS:");
+amm_log("   - Container dos botões: col-sm-7 → col-sm-6");
+amm_log("   - Botões individuais: col-sm-2/4 → col-sm");
+amm_log("   - Botão Confirmar: nova linha com col-sm-3");
+amm_log("   - Alinhamento: 9 colunas vazias + 3 colunas botão");
 
 amm_log("RESULTADO ESPERADO:");
-amm_log("   - Botões com mesma altura do botão Confirmar");
-amm_log("   - Texto mais legível (fonte 12px)");
-amm_log("   - Aparência mais profissional");
-amm_log("   - Melhor experiência do usuário");
+amm_log("   - Layout mais limpo e organizado");
+amm_log("   - Botões todos do mesmo tamanho");
+amm_log("   - Botão Confirmar destacado em linha própria");
+amm_log("   - Melhor hierarquia visual");
 
 amm_log("=================================================");
 amm_log("IMPLEMENTAÇÃO CONCLUÍDA COM SUCESSO");
