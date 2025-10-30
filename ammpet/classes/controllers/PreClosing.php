@@ -462,12 +462,13 @@ class PreClosing {
         $mode = isset($inputs['Mode']) ? strtolower(trim($inputs['Mode'])) : 'calc';
         amm_log("PRE_CLOSING: Modo de operação: $mode");
 
-        // Batch mode: create/update for all active employees
+        // Batch mode: create/update for all active employees (only TYPE = 'Funcionario')
         if ($mode === 'batch') {
-            amm_log("PRE_CLOSING: Executando modo batch para todos os funcionários ativos");
+            amm_log("PRE_CLOSING: Executando modo batch para funcionários ativos");
             $supModel = instantiate('\\Model\\' . 'Supplier');
             $preModel = instantiate('\\Model\\' . 'PreClosing');
-            $suppliers = $supModel->listWhere(['STATUS' => 'Ativo']);
+            $suppliers = $supModel->listWhere(['STATUS' => 'Ativo', 'TYPE' => 'Funcionario']);
+            amm_log("PRE_CLOSING: Funcionários encontrados: " . json_encode($suppliers));
             if (!$suppliers) {
                 if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
                 header('Content-Type: text/plain; charset=utf-8');
@@ -476,12 +477,25 @@ class PreClosing {
             }
 
             $count = 0;
+            $skipped = 0;
             foreach ((array)$suppliers as $emp) {
                 $empType = $emp->TYPE ?? '';
                 $empName = $emp->NAME ?? '';
                 $empId   = $emp->ID ?? 0;
-                amm_log("PRE_CLOSING: Processando funcionário (batch) - ID: $empId, Nome: '$empName', Tipo: '$empType'");
-                list($serv, $prod, $banhos) = $this->compute_commissions($year, $month, $empType, $empName, []);
+                $empRole = $emp->ROLE ?? '';
+                
+                amm_log("PRE_CLOSING: Processando funcionário (batch) - ID: $empId, Nome: '$empName', Tipo: '$empType', Role: '$empRole'");
+                
+                // Double check that this is indeed a Funcionario
+                if (strcasecmp($empType, 'Funcionario') !== 0) {
+                    amm_log("PRE_CLOSING: Pulando - não é funcionário: '$empType'");
+                    $skipped++;
+                    continue;
+                }
+                
+                // Pass employee data to avoid duplicate queries
+                $opts = ['empData' => $emp];
+                list($serv, $prod, $banhos) = $this->compute_commissions($year, $month, $empType, $empName, $opts);
                 amm_log("PRE_CLOSING: Resultado cálculo (batch) - Serv: $serv, Prod: $prod, Banhos: $banhos");
 
                 // Upsert into PRE_CLOSING by YEAR, MONTH, ID_EMPLOYEE
@@ -514,9 +528,10 @@ class PreClosing {
                 $count++;
             }
 
+            amm_log("PRE_CLOSING: Modo batch finalizado - Processados: $count, Pulados: $skipped");
             if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
             header('Content-Type: text/plain; charset=utf-8');
-            echo 'Processados: ' . $count . ' funcionário(s).';
+            echo 'Processados: ' . $count . ' funcionário(s). Pulados: ' . $skipped . ' (não funcionários).';
             exit;
         }
 
