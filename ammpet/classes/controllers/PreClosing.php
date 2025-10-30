@@ -13,6 +13,10 @@ class PreClosing {
     private $UCF_object = 'PreClosing';
     private $parent_object = 'Supplier';
 
+    public function __construct(){
+        amm_log("PRE_CLOSING: Controller PreClosing instanciado por usuário: " . ($_SESSION['username'] ?? 'desconhecido'));
+    }
+
     public function index()
     {}
 
@@ -431,10 +435,15 @@ class PreClosing {
     // Compute commissions (single calc or batch save)
     // Allowed via Ajax_call allowed methods list as update_comission
         public function update_comission($inputs){
+        // Log entrada do método
+        amm_log("PRE_CLOSING: update_comission chamado com inputs: " . json_encode($inputs));
+        
         // Sanitize inputs
         $year = isset($inputs['Year']) ? intval($inputs['Year']) : 0;
         $month = isset($inputs['Month']) ? intval($inputs['Month']) : 0;
+        amm_log("PRE_CLOSING: Ano processado: $year, Mês processado: $month");
         if ($year <= 0 || $month <= 0) {
+            amm_log("PRE_CLOSING: Erro - Ano ou mês inválidos");
             if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
             header('Content-Type: text/plain; charset=utf-8');
             echo 'Informe Ano e Mês.';
@@ -442,9 +451,11 @@ class PreClosing {
         }
 
         $mode = isset($inputs['Mode']) ? strtolower(trim($inputs['Mode'])) : 'calc';
+        amm_log("PRE_CLOSING: Modo de operação: $mode");
 
         // Batch mode: create/update for all active employees
         if ($mode === 'batch') {
+            amm_log("PRE_CLOSING: Executando modo batch para todos os funcionários ativos");
             $supModel = instantiate('\\Model\\' . 'Supplier');
             $preModel = instantiate('\\Model\\' . 'PreClosing');
             $suppliers = $supModel->listWhere(['STATUS' => 'Ativo']);
@@ -460,7 +471,9 @@ class PreClosing {
                 $empType = $emp->TYPE ?? '';
                 $empName = $emp->NAME ?? '';
                 $empId   = $emp->ID ?? 0;
+                amm_log("PRE_CLOSING: Processando funcionário (batch) - ID: $empId, Nome: '$empName', Tipo: '$empType'");
                 list($serv, $prod, $banhos) = $this->compute_commissions($year, $month, $empType, $empName, []);
+                amm_log("PRE_CLOSING: Resultado cálculo (batch) - Serv: $serv, Prod: $prod, Banhos: $banhos");
 
                 // Upsert into PRE_CLOSING by YEAR, MONTH, ID_EMPLOYEE
                 $existing = $preModel->getRow(['YEAR'=>$year,'MONTH'=>$month,'ID_EMPLOYEE'=>$empId]);
@@ -499,8 +512,11 @@ class PreClosing {
         }
 
         // Single calculation (no persistence)
+        amm_log("PRE_CLOSING: Executando cálculo individual");
         $empId = isset($inputs['Id_Employee']) ? intval($inputs['Id_Employee']) : 0;
+        amm_log("PRE_CLOSING: ID do funcionário: $empId");
         if ($empId <= 0) {
+            amm_log("PRE_CLOSING: Erro - ID do funcionário inválido");
             if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
             header('Content-Type: text/plain; charset=utf-8');
             echo 'Informe o Funcionário.';
@@ -509,7 +525,9 @@ class PreClosing {
 
         $supModel = instantiate('\\Model\\' . 'Supplier');
         $empRow = $supModel->getRow(['ID'=>$empId]);
+        amm_log("PRE_CLOSING: Dados do funcionário encontrados: " . json_encode($empRow));
         if (!$empRow) {
+            amm_log("PRE_CLOSING: Erro - Funcionário não encontrado no banco");
             if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
             header('Content-Type: text/plain; charset=utf-8');
             echo 'Funcionário inválido.';
@@ -517,6 +535,7 @@ class PreClosing {
         }
         $empType = $empRow->TYPE ?? '';
         $empName = $empRow->NAME ?? '';
+        amm_log("PRE_CLOSING: Tipo do funcionário: '$empType', Nome: '$empName'");
 
         // Collect day factors and optional banhistas from inputs
         $opts = [];
@@ -546,12 +565,19 @@ class PreClosing {
     $orderModel = instantiate('\\Model\\' . 'OrderItem');
     $paramsCtrl = instantiate('\\Controller\\' . 'Params');
 
+        // Log entrada da função
+        amm_log("PRE_CLOSING: compute_commissions iniciado - Ano: $year, Mês: $month, Tipo: $employeeType, Nome: $employeeName");
+        amm_log("PRE_CLOSING: Opções recebidas: " . json_encode($opts));
+
         // Month boundaries
         $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+        amm_log("PRE_CLOSING: Dias no mês: $daysInMonth");
 
         // Fetch total baths per day (sum QUANTITY, not count rows)
         $sqlBath = "SELECT DAY(DATE) AS D, SUM(QUANTITY) AS CNT FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND PROD_SERV_CATEGORY=:CAT GROUP BY DAY(DATE)";
+        amm_log("PRE_CLOSING: Query banhos - SQL: $sqlBath");
         $rows = $orderModel->exec_sqlstm_query_with_bind($sqlBath, ['YEAR'=>$year,'MONTH'=>$month,'CAT'=>'Banho']);
+        amm_log("PRE_CLOSING: Resultado query banhos: " . json_encode($rows));
         $bathCounts = [];
         $totalBaths = 0;
         if (is_array($rows)) {
@@ -565,17 +591,24 @@ class PreClosing {
                 }
             }
         }
+        amm_log("PRE_CLOSING: Total de banhos encontrados: $totalBaths");
+        amm_log("PRE_CLOSING: Contagem por dia: " . json_encode($bathCounts));
 
         // Number of banhistas (from options or params)
         $numBanhistas = isset($opts['numBanhistas']) ? floatval($opts['numBanhistas']) : 0.0;
+        amm_log("PRE_CLOSING: Número de banhistas das opções: $numBanhistas");
         if ($numBanhistas <= 0) {
             $name = $year . str_pad((string)$month, 2, '0', STR_PAD_LEFT);
+            amm_log("PRE_CLOSING: Buscando parâmetro BAN_PRE_CLOSING com nome: $name");
             $p = $paramsCtrl->getParamValue('BAN_PRE_CLOSING', $name, 'Ativo');
+            amm_log("PRE_CLOSING: Resultado do parâmetro: " . json_encode($p));
             if ($p && isset($p->VALUE) && $p->VALUE !== '') {
                 $numBanhistas = floatval($p->VALUE);
+                amm_log("PRE_CLOSING: Número de banhistas do parâmetro: $numBanhistas");
             }
         }
         if ($numBanhistas <= 0) { $numBanhistas = 1.0; } // avoid division by zero
+        amm_log("PRE_CLOSING: Número final de banhistas usado: $numBanhistas");
 
         // Commission per bath parameter was previously used, but per new rule
         // the service commission is based solely on quantity, banhistas and day factors.
@@ -594,16 +627,24 @@ class PreClosing {
 
         // Calculate service commission
         $serv = 0.0;
+        amm_log("PRE_CLOSING: Iniciando cálculo de comissão de serviço para tipo: $employeeType");
         if (strcasecmp($employeeType, 'Banhista') === 0) {
+            amm_log("PRE_CLOSING: Calculando comissão para Banhista");
             for ($d=1; $d <= $daysInMonth; $d++) {
                 $cnt = isset($bathCounts[$d]) ? floatval($bathCounts[$d]) : 0.0; // sum of QUANTITY for the day
                 $factor = isset($dayFactors['D'.str_pad((string)$d,2,'0',STR_PAD_LEFT)]) ? floatval($dayFactors['D'.str_pad((string)$d,2,'0',STR_PAD_LEFT)]) : 100.0;
+                $dailyComission = ($cnt / max(1.0, $numBanhistas)) * ($factor / 100.0);
+                amm_log("PRE_CLOSING: Dia $d - Banhos: $cnt, Fator: $factor, Comissão dia: $dailyComission");
                 // Per rule: (sumQty / No. Banhistas) * (DayFactor / 100)
-                $serv += ($cnt / max(1.0, $numBanhistas)) * ($factor / 100.0);
+                $serv += $dailyComission;
             }
+            amm_log("PRE_CLOSING: Comissão total serviço (Banhista): $serv");
         } elseif (strcasecmp($employeeType, 'Veterinaria') === 0 || strcasecmp($employeeType, 'Veterinária') === 0) {
+            amm_log("PRE_CLOSING: Calculando comissão para Veterinário");
             $sqlVet = "SELECT VALUE_WITH_DISCOUNT AS VWD, QUANTITY AS QTY, EXTERNAL_COST AS EXT_COST, COMISSION_PERCENTAGE AS PERC FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND COST_CENTER=:CC";
+            amm_log("PRE_CLOSING: Query veterinário - SQL: $sqlVet");
             $rowsVet = $orderModel->exec_sqlstm_query_with_bind($sqlVet, ['YEAR'=>$year,'MONTH'=>$month,'CC'=>'Veterinaria']);
+            amm_log("PRE_CLOSING: Resultado query veterinário: " . json_encode($rowsVet));
             if (is_array($rowsVet)) {
                 foreach ($rowsVet as $v) {
                     if (!is_object($v)) { continue; }
@@ -611,30 +652,45 @@ class PreClosing {
                     $qty = floatval($v->QTY ?? 0);
                     $ext = floatval($v->EXT_COST ?? 0);
                     $perc= floatval($v->PERC ?? 0);
+                    amm_log("PRE_CLOSING: Item veterinário - VWD: $vwd, QTY: $qty, EXT: $ext, PERC: $perc");
                     if ($qty > 0) {
-                        $serv += ((($vwd / $qty) - $ext) * $qty) * $perc;
+                        $itemComission = ((($vwd / $qty) - $ext) * $qty) * $perc;
+                        amm_log("PRE_CLOSING: Comissão item (qty > 0): $itemComission");
+                        $serv += $itemComission;
                     } else {
-                        $serv += ($vwd) * $perc;
+                        $itemComission = ($vwd) * $perc;
+                        amm_log("PRE_CLOSING: Comissão item (qty = 0): $itemComission");
+                        $serv += $itemComission;
                     }
                 }
             }
+            amm_log("PRE_CLOSING: Comissão total serviço (Veterinário): $serv");
         } else {
+            amm_log("PRE_CLOSING: Tipo de funcionário não reconhecido para comissão de serviço: $employeeType");
             $serv = 0.0;
         }
 
         // Calculate product commission for salesperson
         $prod = 0.0;
+        amm_log("PRE_CLOSING: Iniciando cálculo de comissão de produto para funcionário: '$employeeName'");
         if (!empty($employeeName)) {
             $sqlProd = "SELECT SUM(VALUE_WITH_DISCOUNT * COMISSION_PERCENTAGE) AS TOTAL FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND SALESPERSON=:SP";
+            amm_log("PRE_CLOSING: Query produto - SQL: $sqlProd");
+            amm_log("PRE_CLOSING: Parâmetros query produto - YEAR: $year, MONTH: $month, SP: '$employeeName'");
             $sumRow = $orderModel->exec_sqlstm_query_with_bind($sqlProd, ['YEAR'=>$year,'MONTH'=>$month,'SP'=>$employeeName]);
+            amm_log("PRE_CLOSING: Resultado query produto: " . json_encode($sumRow));
             if (is_array($sumRow)) {
                 foreach ($sumRow as $sr) {
                     if (!is_object($sr)) { continue; }
                     $prod = floatval($sr->TOTAL ?? 0);
+                    amm_log("PRE_CLOSING: Comissão produto encontrada: $prod");
                 }
             }
+        } else {
+            amm_log("PRE_CLOSING: Nome do funcionário está vazio, comissão de produto será 0");
         }
 
+        amm_log("PRE_CLOSING: Resultado final - Serviço: $serv, Produto: $prod, Total Banhos: $totalBaths");
         return [ $serv, $prod, $totalBaths ];
     }
 
