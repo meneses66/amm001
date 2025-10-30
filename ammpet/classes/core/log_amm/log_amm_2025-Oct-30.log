@@ -1,2 +1,4 @@
 TESTE: Verificando se a função amm_log está funcionando corretamente
 TESTE: Data/hora atual: 2025-10-30 18:32:10
+TESTE_AJAX: Testando amm_log no contexto Ajax
+TESTE_AJAX: ROOTPATH_CLASSES = /workspaces/amm001/ammpet/classes/core/

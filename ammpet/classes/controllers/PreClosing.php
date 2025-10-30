@@ -438,18 +438,25 @@ class PreClosing {
         public function update_comission($inputs){
         // Log entrada do método - PRIMEIRO LOG
         amm_log("PRE_CLOSING: === INICIO update_comission ===");
-        amm_log("PRE_CLOSING: update_comission chamado com inputs: " . json_encode($inputs));
         
-        // Sanitize inputs
-        $year = isset($inputs['Year']) ? intval($inputs['Year']) : 0;
-        $month = isset($inputs['Month']) ? intval($inputs['Month']) : 0;
-        amm_log("PRE_CLOSING: Ano processado: $year, Mês processado: $month");
-        if ($year <= 0 || $month <= 0) {
-            amm_log("PRE_CLOSING: Erro - Ano ou mês inválidos");
-            if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
-            header('Content-Type: text/plain; charset=utf-8');
-            echo 'Informe Ano e Mês.';
-            exit;
+        try {
+            amm_log("PRE_CLOSING: update_comission chamado com inputs: " . json_encode($inputs));
+            
+            // Sanitize inputs
+            $year = isset($inputs['Year']) ? intval($inputs['Year']) : 0;
+            $month = isset($inputs['Month']) ? intval($inputs['Month']) : 0;
+            amm_log("PRE_CLOSING: Ano processado: $year, Mês processado: $month");
+            
+            if ($year <= 0 || $month <= 0) {
+                amm_log("PRE_CLOSING: Erro - Ano ou mês inválidos");
+                if (function_exists('ob_get_level')) { while (ob_get_level() > 0) { @ob_end_clean(); } }
+                header('Content-Type: text/plain; charset=utf-8');
+                echo 'Informe Ano e Mês.';
+                exit;
+            }
+        } catch (\Exception $e) {
+            amm_log("PRE_CLOSING: Erro no início do método: " . $e->getMessage());
+            throw $e;
         }
 
         $mode = isset($inputs['Mode']) ? strtolower(trim($inputs['Mode'])) : 'calc';
@@ -537,7 +544,8 @@ class PreClosing {
         }
         $empType = $empRow->TYPE ?? '';
         $empName = $empRow->NAME ?? '';
-        amm_log("PRE_CLOSING: Tipo do funcionário: '$empType', Nome: '$empName'");
+        $empRole = $empRow->ROLE ?? '';
+        amm_log("PRE_CLOSING: Tipo do funcionário: '$empType', Nome: '$empName', Role: '$empRole'");
 
         // Collect day factors and optional banhistas from inputs
         $opts = [];
@@ -552,6 +560,8 @@ class PreClosing {
         if (isset($inputs['Number_Banhistas']) && $inputs['Number_Banhistas'] !== '') {
             $opts['numBanhistas'] = floatval($inputs['Number_Banhistas']);
         }
+        // Pass employee data to avoid duplicate queries
+        $opts['empData'] = $empRow;
 
         list($serv, $prod, $banhos) = $this->compute_commissions($year, $month, $empType, $empName, $opts);
 
@@ -630,7 +640,26 @@ class PreClosing {
         // Calculate service commission
         $serv = 0.0;
         amm_log("PRE_CLOSING: Iniciando cálculo de comissão de serviço para tipo: $employeeType");
-        if (strcasecmp($employeeType, 'Banhista') === 0) {
+        
+        // Check if employee is a banhista (bath worker)
+        $isBanhista = (strcasecmp($employeeType, 'Banhista') === 0);
+        
+        // If TYPE is "Funcionario", check ROLE field from employee data
+        if (!$isBanhista && strcasecmp($employeeType, 'Funcionario') === 0) {
+            // Use employee data if provided, otherwise query database
+            $empData = isset($opts['empData']) ? $opts['empData'] : null;
+            if (!$empData) {
+                $supModel = instantiate('\\Model\\' . 'Supplier');
+                $empData = $supModel->getRow(['NAME' => $employeeName]);
+            }
+            if ($empData && isset($empData->ROLE)) {
+                $role = $empData->ROLE;
+                amm_log("PRE_CLOSING: Funcionário tem ROLE: '$role'");
+                $isBanhista = (strcasecmp($role, 'Banhista') === 0);
+            }
+        }
+        
+        if ($isBanhista) {
             amm_log("PRE_CLOSING: Calculando comissão para Banhista");
             for ($d=1; $d <= $daysInMonth; $d++) {
                 $cnt = isset($bathCounts[$d]) ? floatval($bathCounts[$d]) : 0.0; // sum of QUANTITY for the day
@@ -641,8 +670,27 @@ class PreClosing {
                 $serv += $dailyComission;
             }
             amm_log("PRE_CLOSING: Comissão total serviço (Banhista): $serv");
-        } elseif (strcasecmp($employeeType, 'Veterinaria') === 0 || strcasecmp($employeeType, 'Veterinária') === 0) {
-            amm_log("PRE_CLOSING: Calculando comissão para Veterinário");
+        } else {
+            // Check if employee is veterinarian
+            $isVeterinarian = (strcasecmp($employeeType, 'Veterinaria') === 0 || strcasecmp($employeeType, 'Veterinária') === 0);
+            
+            // If TYPE is "Funcionario", check ROLE field for veterinarian
+            if (!$isVeterinarian && strcasecmp($employeeType, 'Funcionario') === 0) {
+                // Use employee data if provided, otherwise query database
+                $empData = isset($opts['empData']) ? $opts['empData'] : null;
+                if (!$empData) {
+                    $supModel = instantiate('\\Model\\' . 'Supplier');
+                    $empData = $supModel->getRow(['NAME' => $employeeName]);
+                }
+                if ($empData && isset($empData->ROLE)) {
+                    $role = $empData->ROLE;
+                    amm_log("PRE_CLOSING: Funcionário tem ROLE: '$role' (verificando se é veterinário)");
+                    $isVeterinarian = (strcasecmp($role, 'Veterinaria') === 0 || strcasecmp($role, 'Veterinária') === 0);
+                }
+            }
+            
+            if ($isVeterinarian) {
+                amm_log("PRE_CLOSING: Calculando comissão para Veterinário");
             $sqlVet = "SELECT VALUE_WITH_DISCOUNT AS VWD, QUANTITY AS QTY, EXTERNAL_COST AS EXT_COST, COMISSION_PERCENTAGE AS PERC FROM ORDER_ITEM WHERE YEAR(DATE)=:YEAR AND MONTH(DATE)=:MONTH AND COST_CENTER=:CC";
             amm_log("PRE_CLOSING: Query veterinário - SQL: $sqlVet");
             $rowsVet = $orderModel->exec_sqlstm_query_with_bind($sqlVet, ['YEAR'=>$year,'MONTH'=>$month,'CC'=>'Veterinaria']);
@@ -666,10 +714,11 @@ class PreClosing {
                     }
                 }
             }
-            amm_log("PRE_CLOSING: Comissão total serviço (Veterinário): $serv");
-        } else {
-            amm_log("PRE_CLOSING: Tipo de funcionário não reconhecido para comissão de serviço: $employeeType");
-            $serv = 0.0;
+                amm_log("PRE_CLOSING: Comissão total serviço (Veterinário): $serv");
+            } else {
+                amm_log("PRE_CLOSING: Tipo de funcionário não reconhecido para comissão de serviço: $employeeType");
+                $serv = 0.0;
+            }
         }
 
         // Calculate product commission for salesperson
