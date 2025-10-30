@@ -61,6 +61,23 @@ amm_log("   - Validação de campos obrigatórios");
 amm_log("   - Formatação automática da data");
 
 amm_log("=================================================");
+amm_log("AJUSTE DE DESIGN - PADRONIZAÇÃO DOS BOTÕES");
+amm_log("Data: ".date("Y-m-d H:i:s"));
+amm_log("=================================================");
+
+amm_log("ALTERAÇÕES DE DESIGN:");
+amm_log("   - Classe alterada: btn-sm → btn-lg");
+amm_log("   - Fonte alterada: 10px → 12px");
+amm_log("   - Altura fixa definida: 48px");
+amm_log("   - Padding removido (usando altura fixa)");
+
+amm_log("RESULTADO ESPERADO:");
+amm_log("   - Botões com mesma altura do botão Confirmar");
+amm_log("   - Texto mais legível (fonte 12px)");
+amm_log("   - Aparência mais profissional");
+amm_log("   - Melhor experiência do usuário");
+
+amm_log("=================================================");
 amm_log("IMPLEMENTAÇÃO CONCLUÍDA COM SUCESSO");
 amm_log("=================================================");
 

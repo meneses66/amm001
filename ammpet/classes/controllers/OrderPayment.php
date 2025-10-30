@@ -135,19 +135,19 @@ class OrderPayment {
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-2 pr-1">
-                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Dinheiro\')">Dinheiro</button>
+                                            <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Dinheiro\')">Dinheiro</button>
                                         </div>
                                         <div class="col-sm-2 pr-1">
-                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Debito\')">Débito</button>
+                                            <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Debito\')">Débito</button>
                                         </div>
                                         <div class="col-sm-2 pr-1">
-                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Credito\')">Crédito</button>
+                                            <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Credito\')">Crédito</button>
                                         </div>
                                         <div class="col-sm-2 pr-1">
-                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Pix\')">Pix</button>
+                                            <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Pix\')">Pix</button>
                                         </div>
                                         <div class="col-sm-4">
-                                            <button type="button" class="btn btn-sm btn-block" style="background-color: #ff8c42; color: white; font-size: 10px; padding: 4px;" onclick="quickPayment(\'Pacote\')">Pacote</button>
+                                            <button type="button" class="btn btn-lg btn-block" style="background-color: #ff8c42; color: white; font-size: 12px; height: 48px;" onclick="quickPayment(\'Pacote\')">Pacote</button>
                                         </div>
                                     </div>
                                 </div>
