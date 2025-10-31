@@ -258,9 +258,46 @@ class Payments {
             echo $output;
         }
         else{
+            $output .='<thead>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Tipo</th>
+                                <th>Data</th>
+                                <th>Descrição</th>
+                                <th>Valor</th>
+                                <th>Saída</th>
+                                <th>Fornecedor</th>
+                                <th>Categoria</th>
+                                <th>Método</th>
+                                <th>Provisão</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="12" class="text-center text-secondary">Sem dados para mostrar</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-center text-secondary">
+                                <th>Id</th>
+                                <th>Atualiz.</th>
+                                <th>Tipo</th>
+                                <th>Data</th>
+                                <th>Descrição</th>
+                                <th>Valor</th>
+                                <th>Saída</th>
+                                <th>Fornecedor</th>
+                                <th>Categoria</th>
+                                <th>Método</th>
+                                <th>Provisão</th>
+                                <th>Ações</th>
+                            </tr>
+                        </tfoot>';
             $data = null;
             $model = null;
-            echo '<h3 class="text-center text-secondary mt-5">Sem dados para mostrar</h3>';
+            echo $output;
         }
     }
 
